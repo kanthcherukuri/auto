@@ -1,0 +1,23 @@
+
+
+
+
+//----Home------//
+
+home.city=search-city
+
+home.area=search-area
+
+home.specialization=name
+
+
+// Doctors enrollment
+
+enrollment.area=
+enrollment.firstname=
+enrollment.lastname=
+enrollment.gender=
+
+
+
+

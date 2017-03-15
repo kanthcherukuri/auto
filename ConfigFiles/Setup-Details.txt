@@ -1,0 +1,22 @@
+//Driver -path
+
+driver.path=C:/Users/Z9149/Downloads/
+
+
+
+//----Browser------//
+
+browser.name=chrome
+
+
+//----Login URL Details---//
+
+base.url=https://zoyloqa.zoylo.com/
+
+
+
+//------Login User Details---//
+
+login.username=Ganesh
+
+login.password=ganesh123
