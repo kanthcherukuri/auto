@@ -20,7 +20,12 @@ public class HomePage extends PageObjects {
 		this.driver=driver;
 		PageProperties();
 	}
-   //login-form
+   
+	
+	 /*  @Autur : Ganesh Mandala
+	  *   Entering the search query as per the city , locality and Specialization in home page 
+	  */
+	
 	public void searchZoylo(String City, String Locality,String Specialization) throws InterruptedException{
 		
 		
@@ -46,7 +51,11 @@ public class HomePage extends PageObjects {
 		
 	}
 	
-	 //login-form
+	
+	 /*   @Autur : Ganesh Mandala
+	  *   Entering the test details in Doctor enrollment Page and submitting the page
+	  */
+	
 		public void doctorsEnrollment(String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes) throws InterruptedException{
 			
 			int Phno = (int )(Math.random() *1000000000);

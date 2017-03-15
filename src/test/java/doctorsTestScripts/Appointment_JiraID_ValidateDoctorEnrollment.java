@@ -63,6 +63,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 
 			 //Test Starts - Here
 			 baseActions.openUrl("https://zoyloqa.zoylo.com/doctorenrollmentform");
+			 //Entering the test details in Doctor enrollment Page
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 			 Thread.sleep(5000);
 			 String SuccessfulText=driver.findElement(By.xpath("//h5")).getText();
