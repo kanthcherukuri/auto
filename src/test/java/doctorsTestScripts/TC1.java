@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 		
 /**
- * This is a PoC
+ * This is a POC
  * @author Z9149
  *
  */
