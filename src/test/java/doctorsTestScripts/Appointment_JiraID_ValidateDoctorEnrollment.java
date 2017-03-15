@@ -30,7 +30,7 @@ import testBase.*;
 MethodListener.class })
 
 */
-public class Doc_JiraID_ValidateDoctorEnrollment extends LoadProp {
+public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 public HomePage HomePageOfZoylo;
 	 public TestUtils baseActions;	
 
@@ -54,7 +54,7 @@ public class Doc_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1")
-	 public void test1(String runmode,String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes,String expected) throws Exception {
+	 public void ValidateDoctorEnrollment(String runmode,String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes,String expected) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 
