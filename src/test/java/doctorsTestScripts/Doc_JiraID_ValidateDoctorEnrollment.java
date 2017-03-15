@@ -1,4 +1,4 @@
-package testScripts;
+package doctorsTestScripts;
 
 import java.io.File;
 
