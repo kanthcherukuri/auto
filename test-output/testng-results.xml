@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="164360" started-at="2017-03-16T09:22:01Z" finished-at="2017-03-16T09:24:45Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="164360" started-at="2017-03-16T09:22:01Z" finished-at="2017-03-16T09:24:45Z">
+      <class name="doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment">
+        <test-method status="PASS" signature="LaunchBrowser()[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="LaunchBrowser" is-config="true" duration-ms="22148" started-at="2017-03-16T14:52:01Z" finished-at="2017-03-16T14:52:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchBrowser -->
+        <test-method status="PASS" signature="ValidateDoctorEnrollment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="ValidateDoctorEnrollment" duration-ms="37604" started-at="2017-03-16T14:52:24Z" data-provider="DP1" finished-at="2017-03-16T14:53:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cardiology]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Ganesh]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kumar]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Male]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[MBBS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[GaneshTest]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Clinical Address Test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Notes Test]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Thank you for enrolling with Zoylo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateDoctorEnrollment -->
+        <test-method status="PASS" signature="ValidateDoctorEnrollment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="ValidateDoctorEnrollment" duration-ms="28264" started-at="2017-03-16T14:53:01Z" data-provider="DP1" finished-at="2017-03-16T14:53:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cardiology]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Laxmi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kanth]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Male]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[MBBS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[laxmi]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Clinical Address Test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Notes Test]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Thank you for enrolling with Zoylo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateDoctorEnrollment -->
+        <test-method status="PASS" signature="ValidateDoctorEnrollment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="ValidateDoctorEnrollment" duration-ms="24802" started-at="2017-03-16T14:53:30Z" data-provider="DP1" finished-at="2017-03-16T14:53:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cardiology]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Man]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Raj]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[MBBS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[man]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Clinical Address Test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Notes Test]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Thank you for enrolling with Zoylo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateDoctorEnrollment -->
+        <test-method status="PASS" signature="ValidateDoctorEnrollment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="ValidateDoctorEnrollment" duration-ms="25690" started-at="2017-03-16T14:53:54Z" data-provider="DP1" finished-at="2017-03-16T14:54:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cardiology]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Sagar]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kumar]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Male]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[MBBS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[sagar]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Clinical Address Test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Notes Test]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Thank you for enrolling with Zoylo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateDoctorEnrollment -->
+        <test-method status="PASS" signature="ValidateDoctorEnrollment(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="ValidateDoctorEnrollment" duration-ms="24830" started-at="2017-03-16T14:54:20Z" data-provider="DP1" finished-at="2017-03-16T14:54:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[yes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cardiology]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Swathi]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kumari]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[MBBS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[swathi]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Clinical Address Test]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Notes Test]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Thank you for enrolling with Zoylo]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateDoctorEnrollment -->
+        <test-method status="PASS" signature="Exit()[pri:0, instance:doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment@46d56d67]" name="Exit" is-config="true" duration-ms="286" started-at="2017-03-16T14:54:45Z" finished-at="2017-03-16T14:54:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Exit -->
+      </class> <!-- doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
