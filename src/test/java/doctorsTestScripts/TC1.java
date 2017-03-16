@@ -26,6 +26,7 @@ public class TC1 {
 		}	
 		@BeforeClass
 		public void beforeTest() {	
+			//test
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "C:/Users/Z9149/Downloads/chromedriver.exe");
 			driver = new ChromeDriver(); 
