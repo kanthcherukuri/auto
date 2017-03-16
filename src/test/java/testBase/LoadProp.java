@@ -32,7 +32,7 @@ public class LoadProp extends PageObjects  {
         
         if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
-			System.setProperty("webdriver.chrome.driver", driverpath+"chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "BrowserDrivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
