@@ -13,7 +13,7 @@ public class PageObjects {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 	
-	 public static String driverpath;
+	 //public static String driverpath;
 	 public static String  home_city,home_area,home_specialization,map_AreaName ;
 	
 		public static WebDriver driver;

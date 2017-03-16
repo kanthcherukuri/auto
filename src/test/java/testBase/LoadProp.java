@@ -20,7 +20,7 @@ public class LoadProp extends PageObjects  {
         inStream = new FileInputStream(new File("ConfigFiles\\Setup-Details.txt"));
         Properties prop = new Properties();
         prop.load(inStream);
-        driverpath=prop.getProperty("driver.path");
+        //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
         browser_name=prop.getProperty("browser.name");
         login_username=prop.getProperty("login.username");
@@ -36,7 +36,7 @@ public class LoadProp extends PageObjects  {
 			driver = new ChromeDriver();
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
-			driver = new FirefoxDriver();	
+			//driver = new FirefoxDriver();	
 		}
 		return driver;
 }
