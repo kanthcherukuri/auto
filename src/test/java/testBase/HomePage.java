@@ -1,12 +1,9 @@
 package testBase;
 
 
-import java.io.File;
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import objectRepository.PageObjects;
+import objectRepository.*;
+
 
 import org.openqa.selenium.By;
 
@@ -16,9 +13,13 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends PageObjects {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public final WebDriver driver;
+	
 	public HomePage(WebDriver driver) throws Exception {
 		this.driver=driver;
+		
 		PageProperties();
+		Elements_Doctors.Doc_PageProperties();
+		
 	}
    
 	
@@ -28,9 +29,9 @@ public class HomePage extends PageObjects {
 	
 	public void searchZoylo(String City, String Locality,String Specialization) throws InterruptedException{
 		
+		//PageObjects Poj= new PageObjects();
 		
-		
-		System.out.println("home city"+home_city);
+		//System.out.println("home city"+);
 		
 		
 		driver.findElement(By.id(home_city)).sendKeys(City);
@@ -59,6 +60,8 @@ public class HomePage extends PageObjects {
 		public void doctorsEnrollment(String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes) throws InterruptedException{
 			
 			int Phno = (int )(Math.random() *1000000000);
+			
+		
 			
 			driver.findElement(By.xpath("//span/ul")).click();
 			Thread.sleep(2000);

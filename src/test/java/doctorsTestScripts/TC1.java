@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import testBase.*;
+import objectRepository.*;
 		
 /**
  * This is a POC
@@ -15,10 +17,12 @@ import org.testng.annotations.Test;
 public class TC1 {		
 	    private WebDriver driver;		
 		@Test				
-		public void testEasy() {	
+		public void testEasy() throws Exception {	
 			driver.get("http://zoylo.com");  
 			String title = driver.getTitle();				 
-			Assert.assertTrue(title.contains("Find a Doctor")); 		
+			Assert.assertTrue(title.contains("Find a Doctor")); 
+			Elements_Doctors.Doc_PageProperties();
+			System.out.println("Objects are"+Elements_Doctors.enrollment_h5);
 		}	
 		@BeforeClass
 		public void beforeTest() {	
