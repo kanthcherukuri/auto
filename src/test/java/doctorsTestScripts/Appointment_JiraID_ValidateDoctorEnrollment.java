@@ -77,14 +77,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 String SuccessfulText=driver.findElement(By.xpath(Elements_Doctors.enrollment_h5)).getText();
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
-			 Assert.assertTrue(SuccessfulText.contains(expected)); 
-			 
-			
-			
-			
-		
-			
-			
+			 Assert.assertTrue(SuccessfulText.contains(expected));	
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
