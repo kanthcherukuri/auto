@@ -24,6 +24,7 @@ import atu.testng.reports.listeners.ConfigurationListener;
 import atu.testng.reports.listeners.MethodListener;
 */
 import testBase.*;
+import objectRepository.*;
 
 /*
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
@@ -41,11 +42,18 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties();
+		  Elements_Doctors.Doc_PageProperties();
 		  HomePageOfZoylo= new HomePage(driver);
 		  baseActions= new TestUtils(driver);
+		  
+		  
+		  
+		  
 		 
 		 
- }
+ } /*   @Autur : Ganesh Mandala
+	  *   Entering the test details in Doctor enrollment Page and submitting the page
+	  */
 
 	 
 	 @DataProvider(name = "DP1")
@@ -59,17 +67,19 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 		 if(runmode.equals("yes")){
 			 
 		
+		
 			 
 			 
 			 //Test Starts - Here
 			 baseActions.openUrl("https://zoyloqa.zoylo.com/doctorenrollmentform");
-			 //Entering the test details in Doctor enrollment Page
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 			 Thread.sleep(5000);
-			 String SuccessfulText=driver.findElement(By.xpath("//h5")).getText();
+			 String SuccessfulText=driver.findElement(By.xpath(Elements_Doctors.enrollment_h5)).getText();
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
 			 Assert.assertTrue(SuccessfulText.contains(expected)); 
+			 
+			
 			
 			
 		
