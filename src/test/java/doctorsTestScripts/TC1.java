@@ -10,7 +10,7 @@ import testBase.*;
 import objectRepository.*;
 		
 /**
- * This is a POC
+ * This is a POC1S
  * @author Z9149
  *
  */
@@ -26,7 +26,7 @@ public class TC1 {
 		}	
 		@BeforeClass
 		public void beforeTest() {	
-			//test 456
+			//test 111
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "C:/Users/Z9149/Downloads/chromedriver.exe");
 			driver = new ChromeDriver(); 
