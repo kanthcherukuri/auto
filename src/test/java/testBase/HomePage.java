@@ -10,14 +10,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class HomePage extends PageObjects {
+public class HomePage extends Elements_Doctors {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public final WebDriver driver;
 	
 	public HomePage(WebDriver driver) throws Exception {
 		this.driver=driver;
 		
-		PageProperties();
+		//Elements_Doctors.PageProperties();
 		Elements_Doctors.Doc_PageProperties();
 		
 	}

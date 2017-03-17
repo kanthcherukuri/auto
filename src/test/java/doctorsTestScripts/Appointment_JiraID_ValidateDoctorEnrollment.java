@@ -6,6 +6,7 @@ import org.openqa.selenium.*;
 
 
 
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -63,6 +64,8 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 			 Thread.sleep(5000);
 			 String SuccessfulText=driver.findElement(By.xpath(Elements_Doctors.enrollment_h5)).getText();
+			 
+			 
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
 			 Assert.assertTrue(SuccessfulText.contains(expected));	
