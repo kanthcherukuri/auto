@@ -33,8 +33,8 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 @BeforeClass
     public void LaunchBrowser() throws Exception {
   
-		  LoadBrowserProperties();
-		  Elements_Doctors.Doc_PageProperties();
+		  LoadBrowserProperties(); // Create driver instance and launch the browser
+		  Elements_Doctors.Doc_PageProperties(); // load your page locators
 		  HomePageOfZoylo= new HomePage(driver);
 		  Browser= new TestUtils(driver);
 		  
@@ -57,8 +57,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 public void ValidateDoctorEnrollment(String runmode,String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes,String expected) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 
-			 
+			 			 
 			 //Test Starts-Here
 			 Browser.openUrl(enrollment_url);			
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
