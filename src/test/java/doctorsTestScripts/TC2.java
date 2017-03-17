@@ -1,7 +1,7 @@
 package doctorsTestScripts;
 
 
-//* Test *//
+//* Test *//123
 public class TC2 {
 	
 	//new test case
