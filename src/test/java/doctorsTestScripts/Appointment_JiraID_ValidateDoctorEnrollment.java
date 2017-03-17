@@ -1,18 +1,10 @@
 package doctorsTestScripts;
 
-import java.io.File;
 
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
+import org.openqa.selenium.*;
 
-import objectRepository.PageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -33,7 +25,7 @@ MethodListener.class })
 */
 public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 public HomePage HomePageOfZoylo;
-	 public TestUtils baseActions;	
+	 public TestUtils Browser;	
 
 	
 	
@@ -44,7 +36,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 		  LoadBrowserProperties();
 		  Elements_Doctors.Doc_PageProperties();
 		  HomePageOfZoylo= new HomePage(driver);
-		  baseActions= new TestUtils(driver);
+		  Browser= new TestUtils(driver);
 		  
 		  
 		  
@@ -68,7 +60,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 
 			 
 			 //Test Starts-Here
-			 baseActions.openUrl("https://zoyloqa.zoylo.com/doctorenrollmentform");
+			 Browser.openUrl(enrollment_url);			
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 			 Thread.sleep(5000);
 			 String SuccessfulText=driver.findElement(By.xpath(Elements_Doctors.enrollment_h5)).getText();

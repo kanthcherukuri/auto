@@ -61,26 +61,26 @@ public class HomePage extends PageObjects {
 			
 			int Phno = (int )(Math.random() *1000000000);
 			
-		
+			 System.out.println("element firstName"+Elements_Doctors.enrollment_firstname);
 			
 			driver.findElement(By.xpath("//span/ul")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[contains(@id,'"+Area+"')]")).click();
-			driver.findElement(By.id("fname")).sendKeys(FirstName);
-			driver.findElement(By.id("lname")).sendKeys(LastName);
+			driver.findElement(By.id(Elements_Doctors.enrollment_firstname)).sendKeys(FirstName);
+			driver.findElement(By.id(Elements_Doctors.enrollment_lastname)).sendKeys(LastName);
 			driver.findElement(By.xpath("//input[@value='"+Gender+"']")).click();
 			driver.findElement(By.xpath("//div[2]/span/span/span/ul")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[contains(@id,'"+Qualification+"')]")).click();
-			driver.findElement(By.id("zws_reg_no")).sendKeys(String.valueOf("9"+Phno));
-			driver.findElement(By.id("zws_mobile")).sendKeys(String.valueOf("9"+Phno));
-			driver.findElement(By.id("zws_email")).sendKeys(""+Email+""+Phno+"@india.com");
-			driver.findElement(By.id("clinicAddress")).sendKeys(Address);
-			driver.findElement(By.id("consultationFee")).sendKeys(Fee);
-			driver.findElement(By.id("zws_notes")).sendKeys(Notes);
-			driver.findElement(By.id("zws_doc_fac")).click();
-			driver.findElement(By.id("zws_doc_termsCond")).click();
-			driver.findElement(By.xpath("//button[text()='Submit']")).click();
+			driver.findElement(By.id(Elements_Doctors.enrollment_regname)).sendKeys(String.valueOf("9"+Phno));
+			driver.findElement(By.id(Elements_Doctors.enrollment_mobile)).sendKeys(String.valueOf("9"+Phno));
+			driver.findElement(By.id(Elements_Doctors.enrollment_email)).sendKeys(""+Email+""+Phno+"@india.com");
+			driver.findElement(By.id(Elements_Doctors.enrollment_clinicaddress)).sendKeys(Address);
+			driver.findElement(By.id(Elements_Doctors.enrollment_consultationfee)).sendKeys(Fee);
+			driver.findElement(By.id(Elements_Doctors.enrollment_notes)).sendKeys(Notes);
+			driver.findElement(By.id(Elements_Doctors.enrollment_doc_fac)).click();
+			driver.findElement(By.id(Elements_Doctors.enrollment_terms_cond)).click();
+			driver.findElement(By.xpath(Elements_Doctors.enrollment_submit)).click();
 			
 			
 		}
