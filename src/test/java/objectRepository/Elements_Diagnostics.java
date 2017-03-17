@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class PageObjects {
+public class Elements_Diagnostics {
 	
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
