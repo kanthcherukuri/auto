@@ -38,17 +38,13 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 		  Elements_Doctors.Doc_PageProperties(); // load your page locators
 		  HomePageOfZoylo= new HomePage(driver);
 		  Browser= new TestUtils(driver);
-		  
-		  
-		  
-		  
-		 
-		 
- } /*   @Autur : Ganesh Mandala
+		  	 
+ } 
+	 
+	 /*   @Autur : Ganesh Mandala
 	  *   Entering the test details in Doctor enrollment Page and submitting the page
 	  */
-
-	 
+ 
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
 	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Data.xls","Doctor", "TC2");
@@ -63,9 +59,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 Browser.openUrl(enrollment_url);			
 			 HomePageOfZoylo.doctorsEnrollment( Area,  FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 			 Thread.sleep(5000);
-			 String SuccessfulText=driver.findElement(By.xpath(Elements_Doctors.enrollment_h5)).getText();
-			 
-			 
+			 String SuccessfulText=driver.findElement(Elements_Doctors.enrollment1_h5).getText();
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
 			 Assert.assertTrue(SuccessfulText.contains(expected));	

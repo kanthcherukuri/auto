@@ -10,14 +10,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class HomePage extends Elements_Doctors {
+public class HomePage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public  WebDriver driver;
 	
 	public HomePage(WebDriver driver) throws Exception {
 		this.driver=driver;
 		
-		//Elements_Doctors.PageProperties();
 		Elements_Doctors.Doc_PageProperties();
 		
 	}
@@ -34,15 +33,15 @@ public class HomePage extends Elements_Doctors {
 		//System.out.println("home city"+);
 		
 		
-		driver.findElement(By.id(home_city)).sendKeys(City);
+		driver.findElement(By.id(Elements_Doctors.home_city)).sendKeys(City);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id(home_area)).sendKeys(Locality);
+		driver.findElement(By.id(Elements_Doctors.home_area)).sendKeys(Locality);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id(home_specialization)).sendKeys(Specialization);
+		driver.findElement(By.id(Elements_Doctors.home_specialization)).sendKeys(Specialization);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
 		Thread.sleep(2000);

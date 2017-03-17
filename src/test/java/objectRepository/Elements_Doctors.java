@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import testBase.LoadProp;
 
 
-public class Elements_Doctors extends LoadProp {
+public class Elements_Doctors  {
 	
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
@@ -33,10 +33,7 @@ public class Elements_Doctors extends LoadProp {
          prop.load(inStream);
         */
 		
-		
-		
-        // Enrollment page elements 
-		
+         // Enrollment page elements 
          enrollment_h5="//h5";         
          enrollment_firstname="fname";
          enrollment_lastname="lname";
