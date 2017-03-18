@@ -48,7 +48,7 @@ public class Home_JiraID_ValidateSearchZoyloInHomePage extends LoadProp {
  
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Data.xls","Doctor", "TC1");
+	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Sanity_TestData.xls","Home", "TC1");
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups="Sanity")

@@ -41,7 +41,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 		  	 
  } 
 	 
-	 /*   @Autur : Ganesh Mandala// @test
+	 /*   @Autur : Ganesh Mandala//
 	  *   Entering the test details in Doctor enrollment Page and submitting the page
 	  */
  
