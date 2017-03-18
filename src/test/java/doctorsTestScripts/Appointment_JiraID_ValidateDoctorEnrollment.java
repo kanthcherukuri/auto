@@ -31,7 +31,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	
 	
 		
-	 @BeforeClass
+	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
@@ -50,7 +50,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Data.xls","Doctor", "TC2");
 	        return(retObjArr);
 	    }
-	 @Test(dataProvider="DP1",groups="High,Regression")
+	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void ValidateDoctorEnrollment(String runmode,String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes,String expected) throws Exception {
 	  
 		 if(runmode.equals("yes")){
@@ -78,7 +78,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 
 	 
 	 
-	 @AfterClass
+	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
 

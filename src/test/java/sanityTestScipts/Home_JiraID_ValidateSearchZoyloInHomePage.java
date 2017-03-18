@@ -31,7 +31,7 @@ public class Home_JiraID_ValidateSearchZoyloInHomePage extends LoadProp {
 	
 	
 		
-	 @BeforeClass
+	 @BeforeClass(groups = { "Sanity" })	
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
@@ -48,7 +48,7 @@ public class Home_JiraID_ValidateSearchZoyloInHomePage extends LoadProp {
  
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Data.xls","Doctor", "TC2");
+	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Data.xls","Doctor", "TC1");
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups="Sanity")
@@ -78,7 +78,7 @@ public class Home_JiraID_ValidateSearchZoyloInHomePage extends LoadProp {
 	 
 	 
 	 
-	 @AfterClass
+	 @AfterClass(groups = { "Sanity" })	
 	 
 	 public void Exit() {
 

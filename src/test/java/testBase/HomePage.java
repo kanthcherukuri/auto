@@ -17,6 +17,7 @@ public class HomePage  {
 	public HomePage(WebDriver driver) throws Exception {
 		this.driver=driver;
 		
+		Elements_Home.Home_PageProperties();
 		Elements_Doctors.Doc_PageProperties();
 		
 	}
@@ -33,15 +34,15 @@ public class HomePage  {
 		//System.out.println("home city"+);
 		
 		
-		driver.findElement(By.id(Elements_Doctors.home_city)).sendKeys(City);
+		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.home_area)).sendKeys(Locality);
+		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.home_specialization)).sendKeys(Specialization);
+		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
 		Thread.sleep(2000);

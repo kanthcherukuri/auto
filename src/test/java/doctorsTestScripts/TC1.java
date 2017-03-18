@@ -16,22 +16,22 @@ import objectRepository.*;
  */
 public class TC1 {		
 	    public WebDriver driver;		
-		@Test	(groups = { "functest" })			
-		public void testEasy() throws Exception {	
+		@Test	(groups = { "Medium" })			
+		public void testEasy() throws Exception {
 			driver.get("http://zoylo.com");  
 			String title = driver.getTitle();				 
 			Assert.assertTrue(title.contains("Find a Doctor")); 
 			Elements_Doctors.Doc_PageProperties();
 			System.out.println("Objects are"+Elements_Doctors.enrollment_h5);
 		}	
-		@BeforeClass
+		@BeforeClass (groups = { "Medium" })	
 		public void beforeTest() {	
 			//test123
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "C:/Users/Z9149/Downloads/chromedriver.exe");
 			driver = new ChromeDriver(); 
 		}		
-		@AfterClass
+		@AfterClass(groups = { "Medium" })	
 		public void afterTest() {
 			driver.quit();			
 		}		

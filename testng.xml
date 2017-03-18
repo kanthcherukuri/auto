@@ -2,11 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test name="Test">
+<groups>
+    <run>
+      <include name="High"/>
+      <include name="Medium"/>
+   
+    </run>
+  </groups>
 
 
-    <classes>
-      <class name="doctorsTestScripts.TC1"/>
-     
-    </classes>
+     <packages>
+      <package name="doctorsTestScripts"/>
+    </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
