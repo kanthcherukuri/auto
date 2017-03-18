@@ -48,7 +48,6 @@ public class Elements_Doctors  {
          enrollment_submit="//button[text()='Submit']";
        
         
-        
 		return driver;	
         
        
