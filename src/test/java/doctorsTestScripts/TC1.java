@@ -15,8 +15,8 @@ import objectRepository.*;
  *
  */
 public class TC1 {		
-	    private WebDriver driver;		
-		@Test				
+	    public WebDriver driver;		
+		@Test	(groups = { "functest" })			
 		public void testEasy() throws Exception {	
 			driver.get("http://zoylo.com");  
 			String title = driver.getTitle();				 

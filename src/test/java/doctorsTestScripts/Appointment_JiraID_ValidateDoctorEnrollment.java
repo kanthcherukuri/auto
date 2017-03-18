@@ -63,6 +63,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
 			 Assert.assertTrue(SuccessfulText.contains(expected));	
+			 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
