@@ -21,3 +21,5 @@ enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 login.username=Ganesh
 
 login.password=ganesh123
+
+sample data
