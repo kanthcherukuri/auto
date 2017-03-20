@@ -10,50 +10,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class HomePage  {
+public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
 	
-	public HomePage(WebDriver driver) throws Exception {
+	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
-		
-		Elements_Home.Home_PageProperties();
+	
 		Elements_Doctors.Doc_PageProperties();
 		
 	}
    
 	
-	 /*  @Autur : Ganesh Mandala
-	  *   Entering the search query as per the city , locality and Specialization in home page 
-	  */
 	
-	public  void searchZoylo(String City, String Locality,String Specialization) throws InterruptedException{
-		
-		//PageObjects Poj= new PageObjects();
-		
-		//System.out.println("home city"+);
-		
-		
-		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
-		Thread.sleep(2000);
-		
-		driver.findElement(By.id("search-icon")).click();
-		
-		
-	}
-	
-	
-	 /*   @Autur : Ganesh Mandala
+	 /*   Below is the Sample Method
+	  *  @Autur : Ganesh Mandala
 	  *   Entering the test details in Doctor enrollment Page and submitting the page
 	  */
 	

@@ -35,15 +35,12 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
-		  Elements_Doctors.Doc_PageProperties(); // load your page locators
-		  HomePageOfZoylo= new HomePage(driver);
-		  Browser= new TestUtils(driver);
+		  Elements_Doctors.Doc_PageProperties(); // loading UI Page Elements / Locators
+		  HomePageOfZoylo= new HomePage(driver); // Loading Pages
+		  Browser= new TestUtils(driver);        
 		  	 
  } 
-	 
-	 /*   @Autur : Ganesh Mandala//
-	  *   Entering the test details in Doctor enrollment Page and submitting the page
-	  */
+
  
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
