@@ -56,6 +56,12 @@ public class TestUtils {
 				   wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
 	}
 	
+	//Wait for the ID
+
+	public void waitTill(int time) {
+		
+		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
+	}
 	
 	 public static String[][] getTableArray(String xlFilePath, String sheetName, String tableName) throws Exception{
 		    String[][] tabArray=null;
@@ -86,6 +92,11 @@ public class TestUtils {
 
 		    return(tabArray);
 		}
+
+
+
+
+
 	
     
 }
