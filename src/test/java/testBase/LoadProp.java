@@ -17,11 +17,12 @@ public class LoadProp   {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 	 public static String driverpath;
-	 public static String base_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
+
+	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 	public static String DoctorsLogin_username, DoctorsLogin_password;
 	 
 	 
-	 
+
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
@@ -30,6 +31,7 @@ public class LoadProp   {
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
+        recipient_url=prop.getProperty("recipient.url");
         enrollment_url=prop.getProperty("enrollment.url");
         doctors_Url=prop.getProperty("Doctors.Url");
         login_password=prop.getProperty("login.password");
