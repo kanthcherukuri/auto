@@ -2,17 +2,18 @@ package testBase;
 
 
 
+import java.io.IOException;
+
 import objectRepository.*;
 
-
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
 
 
 public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
-	public   WebDriver driver;
+	public    WebDriver driver;
+	
 	
 	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
@@ -55,5 +56,18 @@ public class DoctorsPage  {
 			
 			
 		}
+		
+		
+		// Doctors login Details 
+		public  void SignIn(String username, String password) throws IOException{			
+				driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
+				driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
+				driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();				
+			
+			}
+		
+		
+		
+		
     
 }

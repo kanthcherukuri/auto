@@ -23,3 +23,10 @@ login.username=Ganesh
 login.password=ganesh123
 
 sample data
+
+//--------Doctor Login Details----//
+
+Doctors.Url=https://zoyloqa.zoylo.com/login
+DoctorsLogin.username=kanthch@hotmail.com
+DoctorsLogin.password=Zoylo@666
+browser=chrome
