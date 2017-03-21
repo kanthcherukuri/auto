@@ -61,12 +61,25 @@ public class RecipientPage  {
 		
 public void recipientLogin(String email, String password) throws InterruptedException{
 			
-	 driver.findElement(By.id("emailAddress")).clear();
-	 driver.findElement(By.id("emailAddress")).sendKeys(email);
-	 driver.findElement(By.id("emailAddress")).clear();
-	 driver.findElement(By.id("password")).sendKeys(password);
-	 driver.findElement(By.xpath("//button[text()='Login']")).click();
+	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).clear();
+	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(email);
+	 Thread.sleep(2000);
+	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
+	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
+	 driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
 			
+			
+		}
+
+
+public void recipientLogout() throws InterruptedException{
+	
+	 driver.get("https://zoyloqa.zoylo.com/myaccount");
+	 Thread.sleep(5000);
+	 driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
+	 Thread.sleep(2000);
+	 driver.findElement(By.id("logout")).click();
+	 Thread.sleep(2000);	
 			
 		}
     

@@ -48,7 +48,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String invalidEmail, String emailvalidation,String validEmail,String BlankPassword,String PassswordValidation,String Username, String Invalidpassword,String screenValidation,String ValidPassword,String RecipientScreen) throws Exception {
+	 public void ValidateDoctorEnrollment(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
@@ -57,14 +57,35 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 		
 			 //verifing email validation
 			 
-			 RecipientPage.recipientLogin("testemail.com", "");
+			 RecipientPage.recipientLogin(InvalidEmail, BlankPassword);
 			 String ActualemailValidation= driver.findElement(By.xpath("(//div[@class='login-error-msg'])[1]")).getText();
-			 Assert.assertEquals(ActualemailValidation, "Invalid email id");
+			 Assert.assertEquals(ActualemailValidation, Emailvalidation);
 			 
 			 
+            //verifing password validation
 			 
+			 RecipientPage.recipientLogin(ValidEmail, BlankPassword);
+			 String ActualPasswordValidation= driver.findElement(By.xpath("(//div[@class='login-error-msg'])[2]")).getText();
+			 Assert.assertEquals(ActualPasswordValidation, PassswordValidation);
 			 
+			 //verifing  Screen validations
 			 
+			 RecipientPage.recipientLogin(Username, InvalidPassword);
+			 Thread.sleep(2000);
+			 String ActualScreenValidation= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
+			 Assert.assertEquals(ActualScreenValidation, ScreenValidation);
+			  
+			 
+			 //Verify Recipient Login with valid details
+			 
+			 RecipientPage.recipientLogin(ValidUsername, ValidPassword);
+			 Thread.sleep(2000);
+		     String ActualRecipientTitle = driver.getTitle();
+			 Assert.assertEquals(ActualRecipientTitle, RecipientScreenTitle);
+		     
+		     //Logout from Recipient
+		     
+		     RecipientPage.recipientLogout();
 	
 			 
 		 }else{

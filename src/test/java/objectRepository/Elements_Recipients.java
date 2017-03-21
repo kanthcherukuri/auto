@@ -15,7 +15,7 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String home_city,home_area,home_specialization,map_AreaName;
+	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -29,12 +29,11 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
-		
-         // Home page elements 
-         home_city="search-city";         
-         home_area="search-area";
-         home_specialization="name";
-         map_AreaName="zy-location-right";
+	    //Recipient Login Page
+         
+         Recipient_UserName="emailAddress";
+         Recipient_Password="password";
+         Recipient_Button_Login="//button[text()='Login']";
        
         
 		return driver;	
