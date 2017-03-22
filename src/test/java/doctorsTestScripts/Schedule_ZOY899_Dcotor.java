@@ -38,7 +38,7 @@ public class Schedule_ZOY899_Dcotor {
   @Test(enabled=true)
   public void f() throws InterruptedException, ParseException {
 	  WebDriverWait wait=new WebDriverWait(driver, 20);
-	  String date="23-03-2017"; 
+	  String date="24-03-2017"; 
 	 // int location=11;
 	  String value=null;
 	  String clinic_type="Gayatri Dental Clinic";
@@ -207,9 +207,9 @@ public class Schedule_ZOY899_Dcotor {
 	 
 	  driver=LoadProp.LoadBrowserProperties();
 	  wait=new WebDriverWait(driver,2000);
-	  driver.get(LoadProp.base_url);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.login_username);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.login_password);
+	  driver.get(LoadProp.base_url+"login");
+	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
+	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
 	  Thread.sleep(2000);
 	   }

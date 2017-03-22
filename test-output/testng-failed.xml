@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="doctorsTestScripts.DocAppointment">
+      <class name="doctorsTestScripts.Schedule_ZOY899_Dcotor">
         <methods>
-          <include name="f"/>
           <include name="beforeTest"/>
+          <include name="f"/>
           <include name="afterTest"/>
         </methods>
-      </class> <!-- doctorsTestScripts.DocAppointment -->
+      </class> <!-- doctorsTestScripts.Schedule_ZOY899_Dcotor -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
