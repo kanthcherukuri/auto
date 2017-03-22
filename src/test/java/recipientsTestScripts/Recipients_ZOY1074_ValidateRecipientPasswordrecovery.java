@@ -53,8 +53,23 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);			
 		
-			 driver.findElement(By.linkText("Forgot Password?")).click();
+			 //verifing email validation
+			 driver.findElement(By.id("forgotPassword")).click();
 			 Browser.waitTill(10);
+			 driver.findElement(By.id("resetPassword")).click();
+			 String emialMandatory=driver.findElement(By.id("email-err")).getText();
+			 Assert.assertEquals(emialMandatory, "Email or Mobile field is mandatory");
+			 
+			 //verifying Email with valid data
+			 driver.findElement(By.id("mobileOrEmail")).sendKeys("ganeshmandala@gmail.com");
+			 driver.findElement(By.id("resetPassword")).click();
+			 Browser.waitTill(10);
+			//verifying OTP with in valid data
+			 driver.findElement(By.id("entered-otp")).sendKeys("1234");
+			 driver.findElement(By.id("verify")).click();
+			 Thread.sleep(2000);
+			 String OtpInvalid=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+			 Assert.assertEquals(OtpInvalid, "OTP is Invalid, enter a correct one or try resend option");
 			 
 		
 			 }
