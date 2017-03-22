@@ -15,7 +15,7 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login;
+	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -34,6 +34,7 @@ public class Elements_Recipients  {
          Recipient_UserName="emailAddress";
          Recipient_Password="password";
          Recipient_Button_Login="//button[text()='Login']";
+         Recipient_Wrapper="div.zy-status-wrapper";
        
         
 		return driver;	

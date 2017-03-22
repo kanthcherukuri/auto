@@ -72,7 +72,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 			 
 			 RecipientPage.recipientLogin(Username, InvalidPassword);
 			 Thread.sleep(2000);
-			 String ActualScreenValidation= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
+			 String ActualScreenValidation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			 Assert.assertEquals(ActualScreenValidation, ScreenValidation);
 			  
 			 

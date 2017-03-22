@@ -85,7 +85,7 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 			 Assert.assertEquals(ActualConfirmPasswordValidattion, ConfirmPasswordValidation);
 			//Verifying screen validation			 
 			 if (ScreenValidationTab.equals("yes")){
-				String ActualscreenValidattion =driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();		 
+				String ActualscreenValidattion =driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();		 
 			    Assert.assertEquals(ActualscreenValidattion, ScreenValidation);
 			 }
 			 
