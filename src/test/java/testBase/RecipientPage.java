@@ -13,12 +13,13 @@ import org.openqa.selenium.WebDriver;
 public class RecipientPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
+	 public TestUtils Browser;	
 	
 	public RecipientPage(WebDriver driver) throws Exception {
 		this.driver=driver;
 	
 		Elements_Recipients.Recipients_PageProperties();
-		
+		 Browser= new TestUtils(driver);   
 	}
    
 	
@@ -67,7 +68,7 @@ public void recipientLogin(String email, String password) throws InterruptedExce
 	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
 	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 	 driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
-			
+	 Browser.waitTill(10);
 			
 		}
 
@@ -82,5 +83,22 @@ public void recipientLogout() throws InterruptedException{
 	 Thread.sleep(2000);	
 			
 		}
+
+/*   
+ *  @Autur : Ganesh Mandala
+ *   Entering the search details in Zoylo Map
+ */
+
+public void searchInZoyloMAP(String keyword) throws InterruptedException{
+	
+	driver.findElement(By.id("search2")).click();
+	driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
+	Thread.sleep(5000);
+	driver.findElement(By.cssSelector("div.a-s-w > span")).click();
+	Thread.sleep(5000);	
+			
+		}
+
+
     
 }
