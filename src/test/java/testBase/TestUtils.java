@@ -56,6 +56,12 @@ public class TestUtils {
 				   wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
 	}
 	
+	//Wait for the Xpath Element
+		public void waitFortheElementXpath(String xpath){
+			WebDriverWait wait = (new WebDriverWait(driver, 10));
+					   wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		}
+		
 	//Wait Till int
 	public void waitTill(int time) {
 		

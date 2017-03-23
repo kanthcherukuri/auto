@@ -53,6 +53,7 @@ public class LoadProp   {
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers\\chromedriver.exe");
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			//driver = new FirefoxDriver();	

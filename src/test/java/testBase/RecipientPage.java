@@ -68,7 +68,7 @@ public void recipientLogin(String email, String password) throws InterruptedExce
 	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
 	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 	 driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
-	 Browser.waitTill(10);
+	 Browser.waitTill(30);
 			
 		}
 
