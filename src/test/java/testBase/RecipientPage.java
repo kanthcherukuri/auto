@@ -99,6 +99,30 @@ public void searchInZoyloMAP(String keyword) throws InterruptedException{
 			
 		}
 
+public void searchInZoyloMAPArea(String Area) throws InterruptedException{
+	
+	
+	driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
+	driver.findElement(By.id("location")).sendKeys(Area);
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//li[@id='locationName']")).click();
+	Thread.sleep(10000);
+			
+		}
+
+public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
+	
+	
+
+driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
+System.out.println("Clicked on the"+FilterCatagory);
+Thread.sleep(5000);
+driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
+System.out.println("Clicked on the"+Value);
+driver.findElement(By.id("applyFilter")).click();
+Thread.sleep(5000);		
+		}
+
 
     
 }

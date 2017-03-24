@@ -60,6 +60,7 @@ public class TestUtils {
 		public void waitFortheElementXpath(String xpath){
 			WebDriverWait wait = (new WebDriverWait(driver, 10));
 					   wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+					 
 		}
 		
 	//Wait Till int
