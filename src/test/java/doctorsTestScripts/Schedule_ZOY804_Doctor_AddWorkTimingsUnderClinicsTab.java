@@ -3,6 +3,7 @@ package doctorsTestScripts;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
 
@@ -18,14 +19,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 
-public class Schedule_ZOY804_Doctor {
+public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
 	WebDriver driver;
 	public  WebDriverWait wait; 
 	String actual_text;
 
 	
 	@Test(enabled=true,dataProvider="DP1")
-  public void f(String runmode,String new_start_time,String new_end_time) throws InterruptedException {
+      public void f(String runmode,String new_start_time,String new_end_time) throws InterruptedException {
+		
 	  wait=new WebDriverWait(driver, 8000);
 	  SoftAssert sa=new SoftAssert();
 	  boolean x=true;
@@ -44,22 +46,25 @@ public class Schedule_ZOY804_Doctor {
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
 	  actual_text=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
 	  System.out.println(actual_text);
-	  if(! actual_text.equalsIgnoreCase("Schedule Updated Successfully"))
-	  {
-		  x=false;
-	  }
-	  sa.assertTrue(x,actual_text);
 	  driver.findElement(By.xpath(".//*[@id='appointments']/span[2]")).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("//i[@class='fa fa-ellipsis-v footer-relipse']")).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(".//*[@id='dashboard_dashboardIcon']")).click();
-		 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]"))); 
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath("//i[@class='fa fa-ellipsis-v footer-relipse']")).click();
+	  Thread.sleep(2000);
+	  driver.findElement(By.xpath(".//*[@id='dashboard_dashboardIcon']")).click();
+	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]"))); 
+	  if(!actual_text.contains("Successfully"))
+	  {
+		  System.out.println("Test case failed;adding time slot is unsuccessful");
+		  Assert.fail(actual_text); 
+	  }
+	  
 	  
   }
+	
   @DataProvider()
   public Object[][] DP1() throws Exception{
-Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY804");
+	  
+      Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY804");
       return(retObjArr);
   }
   
@@ -72,10 +77,13 @@ Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "
 	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
 	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
+	  
 	  }
 
   @AfterClass
   public void afterClass() {
+	  
+	  driver.close();
   }
 
 }
