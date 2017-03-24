@@ -70,7 +70,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			driver.findElement(By.linkText("Availability (0)")).click();
 			driver.findElement(By.linkText("Fee (0)")).click();
 			
-			//Search Locality/Area
+			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
 			
 			//Verify Specialization Filter Option
