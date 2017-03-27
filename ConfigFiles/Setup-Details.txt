@@ -30,3 +30,8 @@ Doctors.Url=https://zoyloqa.zoylo.com/login
 DoctorsLogin.username=kanthch@hotmail.com
 DoctorsLogin.password=Zoylo@666
 browser=chrome
+
+//--------Recipient Login Details----//
+
+Recipient.Username=ganeshmandala@gmail.com
+Recipient.Password=Zoylo@123
