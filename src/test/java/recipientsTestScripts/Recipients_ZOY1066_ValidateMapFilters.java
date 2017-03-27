@@ -57,12 +57,11 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			 Browser.openUrl(recipient_url);			
 		
 			 
-			 //Verify Recipient Login with valid details
+			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Username, Password);
 			Thread.sleep(10000);
 			
-			driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
-			Thread.sleep(5000);
+			 RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Specialization')]")).click();
 			driver.findElement(By.linkText("Gender (0)")).click();
 			driver.findElement(By.linkText("Home Visits (0)")).click();
@@ -79,16 +78,14 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertEquals(Doctor_designation, "Ayurveda");
+						
 			
 			//verifying Line of Practice
-			
-			driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
-			Thread.sleep(5000);
-			//Reset 
-			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurveda");
+		    RecipientPage.clickOnFilterImg();
+			//Reset
+		    RecipientPage.ClearFilters();
 			//SET Filter
-			driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
-			Thread.sleep(10000);
+			RecipientPage.clickOnFilterImg();
             RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
@@ -96,8 +93,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			
             //verifying Fee
 			
-			driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
-			Thread.sleep(5000);
+			RecipientPage.clickOnFilterImg();
 
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
 			Thread.sleep(5000);

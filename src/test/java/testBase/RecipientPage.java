@@ -110,6 +110,29 @@ public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 			
 		}
 
+public void bookAppointment() throws InterruptedException{
+
+	driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();  // book
+	Browser.waitTill(60);
+	Thread.sleep(2000);
+System.out.println("Cliked on Book Button");
+		}
+
+public void goToMyAccount() throws InterruptedException{
+
+	driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();  // book
+	Browser.waitTill(60);
+	Thread.sleep(2000);
+System.out.println("Cliked on My Account Icon");
+		}
+
+public void goToDoctors() throws InterruptedException{
+
+	driver.findElement(By.xpath("//*[@id='index']/span[1]/img")).click();  // book
+	Browser.waitTill(60);
+	Thread.sleep(2000);
+System.out.println("Cliked on Doctors Icon");
+		}
 public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
 	
 	
@@ -120,9 +143,21 @@ Thread.sleep(5000);
 driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
 System.out.println("Clicked on the"+Value);
 driver.findElement(By.id("applyFilter")).click();
-Thread.sleep(5000);		
+Thread.sleep(5000);	
+System.out.println("Applied filter on"+FilterCatagory+" "+Value);
 		}
 
+public void ClearFilters() throws InterruptedException{
 
-    
+driver.findElement(By.id("clearFilter")).click();
+Thread.sleep(5000);	
+System.out.println("Cliked on Clear filter Button");
+		}
+
+public void clickOnFilterImg() throws InterruptedException{
+
+	driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
+	Thread.sleep(5000);	
+	System.out.println("Cliked on filter img");
+		}
 }

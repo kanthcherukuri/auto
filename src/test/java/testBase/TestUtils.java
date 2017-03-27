@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import junit.framework.Assert;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
+
+import objectRepository.Elements_Recipients;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -62,6 +65,13 @@ public class TestUtils {
 					   wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
 		}
+		//Wait for the Screen Validation
+				public void waitForScreenValidation( ){
+					WebDriverWait wait = (new WebDriverWait(driver, 30));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
+					String validation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getTagName();
+				  
+				}
 		
 	//Wait Till int
 	public void waitTill(int time) {

@@ -20,7 +20,7 @@ public class LoadProp   {
 
 	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 	public static String DoctorsLogin_username, DoctorsLogin_password;
-	 
+	public static String Recipient_Username, Recipient_Password;
 	 
 
 		public static WebDriver driver;
@@ -44,6 +44,9 @@ public class LoadProp   {
         DoctorsLogin_username=prop.getProperty("DoctorsLogin.username");
         DoctorsLogin_password=prop.getProperty("DoctorsLogin.password");
       
+       //Recipients -Login Credentails
+        Recipient_Username=prop.getProperty("Recipient.Username");
+        Recipient_Password=prop.getProperty("Recipient.Password");
         
         
         
