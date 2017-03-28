@@ -145,13 +145,11 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings {
 			  {
 				  Assert.fail(actual_text);
 			  }
-			  
 		  } 
 	  }
 	 
 	  return result_cd;
  }
- 
  
  public int countTheTimeSlot() throws ParseException
  {

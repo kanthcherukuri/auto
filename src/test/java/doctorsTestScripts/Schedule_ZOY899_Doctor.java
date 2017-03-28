@@ -27,7 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 
-public class Schedule_ZOY899_Dcotor {
+public class Schedule_ZOY899_Doctor {
 	
 	WebDriver driver;
 	public  WebDriverWait wait ;
@@ -50,7 +50,7 @@ public class Schedule_ZOY899_Dcotor {
 	  SimpleDateFormat sdf1=new SimpleDateFormat("EEEE");
 	  String day_of_week=sdf1.format(d1);
 	
-	
+	  //================================================================================================================================================//	
 	  
 	  System.out.println("Check to see if new_start_time and new_end_time are not equal and new_end_time is greater than new_start_time");
 	  if(sdf_2.parse(new_start_time).equals(sdf_2.parse(new_end_time))  ||(sdf_2.parse(new_end_time).before(sdf_2.parse(new_start_time))))
@@ -59,6 +59,7 @@ public class Schedule_ZOY899_Dcotor {
 		 incorrect++;
 	  }
 	 
+	  //================================================================================================================================================//
 	  driver.findElement(By.xpath(".//*[@id='mycalendar']//a["+date1+"]/div[1]")).click();
 	  List<WebElement> timings=driver.findElements(By.xpath(".//*[@id='scrolls']//div[@class='timing']/span[1]"));
 	  System.out.println(timings.size());
@@ -88,16 +89,12 @@ public class Schedule_ZOY899_Dcotor {
 	  driver.findElement(By.xpath(".//*[@id='schedule_scheduleIcon']")).click();
 	  Thread.sleep(4000);
 	  driver.findElement(By.xpath(".//*[@data-tab='tab-clinic']/div")).click();
-	  
-		
-	
-	 
+	  //================================================================================================================================================//
 	  int count=0;
 	  for(int m=0;m<=6;m++)
 	  {
 		  if(driver.findElement(By.xpath(".//*[@id='cd-"+m+"']/div")).getText().equalsIgnoreCase(day_of_week))
 		  { 
-			  day_num=m;
 			  driver.findElement(By.xpath(".//*[@id='cd-"+m+"']/div")).click();  // select the day_of_week
 			  count++;
 			  List<WebElement> ct_startslot=driver.findElements(By.xpath(".//*[@id='tab-clinic-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-start']"));
@@ -157,6 +154,8 @@ public class Schedule_ZOY899_Dcotor {
 		   		 break;
 		   	 }
 	  }
+	  //================================================================================================================================================//
+	  int count1=0;
 	  ArrayList<String> al = new ArrayList<String>();
 	  driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).click();
    	  List<WebElement> other_clinics=driver.findElements(By.xpath(".//*[@id='profile-panel']//h5"));
@@ -166,35 +165,22 @@ public class Schedule_ZOY899_Dcotor {
    	  for(int k=0;k<=other_clinics.size()-1;k++)
    	  {
    	 al.add(other_clinics.get(k).getText());
-   	 System.out.println(al.get(k));
-     }
+      }
    	 }
+   	  
+   	 driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).click();
+   	 
+   	 //================================================================================================================================================//
 	  //for other clinics
 	  
 	  for(int j=0;j<=al.size()-1;j++)
 	  {
-		 
-		  
-	   	  List<WebElement> other_clinics1=driver.findElements(By.xpath(".//*[@id='profile-panel']//h5"));
-	   	System.out.println(other_clinics1.get(j).getText());
-   		System.out.println(al.get(j));
-	   	 if(other_clinics1.get(j).getText().equals(al.get(j))) 
-	   	 {
-	   		System.out.println(other_clinics1.get(j).getText());
-	   		System.out.println(al.get(j));
-	   		
-	   		other_clinics1.get(j).click(); 
-	   		
-	   	 
-		  for(int m=0;m<=6;m++)
-		  {  
-			  if(driver.findElement(By.xpath(".//*[@id='cd-"+m+"']/div")).getText().equalsIgnoreCase(day_of_week))
-			  { 
-				  day_num=m;				  driver.findElement(By.xpath(".//*[@id='cd-"+m+"']/div")).click();  // select the day_of_week
+		          selectTheOtherClinic(al.get(j)) ;
+		          driver.findElement(By.xpath(".//*[@data-clinic-slot='"+day_of_week+"']/div")).click();			  
+				  driver.findElement(By.xpath(".//*[@id='cd-"+day_num+"']/div")).click();  // select the day_of_week
 				  List<WebElement> ct_startslot=driver.findElements(By.xpath(".//*[@id='tab-clinic-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-start']"));
 				  List<WebElement> ct_endslot=driver.findElements(By.xpath(".//*[@id='tab-clinic-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-end']"));
 				  
-				  //matching the timings if they are 
 				  if(ct_startslot.size()>0)
 				  {
 					  for(int i=0;i<=ct_startslot.size()-1;i++)
@@ -237,24 +223,27 @@ public class Schedule_ZOY899_Dcotor {
 						  }
 		               }
 				  }
+				  
+				  
 				  else 
 				  {
 					  value_c1="false";
 					  break;
-				  }
-		      }
-			  }
+				  }	 
+	 
+			  
 	   	 //check starts
-	   	 if(value_c1=="false"  ||  value_c1=="true")
+	   	 if( value_c1=="true")
 	   	 {
 	   		 break;
 	   	 }
 	  }
-	  }
-
+	  
+	  //================================================================================================================================================//
    	  // for loop ends here
 	  
-	  driver.findElement(By.xpath(".//*[@id='cd-12']/div")).click();
+	          driver.findElement(By.xpath(".//*[@id='cd-12']/div")).click();
+	          driver.findElement(By.xpath(".//*[@data-hospi-tab='"+day_of_week+"']/div")).click();
 	          int n=20+day_num;
 			  driver.findElement(By.xpath(".//*[@id='cd-"+n+"']/div")).click();
 			  List<WebElement> hos_startslot=driver.findElements(By.xpath(".//*[@id='tab-hosp-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-start-hos']"));
@@ -282,12 +271,12 @@ public class Schedule_ZOY899_Dcotor {
 					  value_h="true";
 					  break;
 				  }
-			  }  
+			  } 
 			  
+		//================================================================================================================================================//	  
 	    // selecting clinic type
 			  
-			  if(clinic_type != "Default Clinic")
-			  {       driver.findElement(By.xpath(".//*[@id='cd-11']/div")).click();
+			        driver.findElement(By.xpath(".//*[@id='cd-11']/div")).click();
 					  driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).click();
 				   	  List<WebElement> other_clinics2=driver.findElements(By.xpath(".//*[@id='profile-panel']//h5"));
 				   	 
@@ -295,21 +284,21 @@ public class Schedule_ZOY899_Dcotor {
 				   	  {
 				   	  for(int k=0;k<=other_clinics2.size()-1;k++)
 				   	  {
-				   	 System.out.println(other_clinics2.get(k).getText() );
-				   	 
-				   	 if(other_clinics2.get(k).getText().equals(clinic_type)) 
+				   		  if(other_clinics2.get(k).getText().equals(clinic_type)) 
 				   	 {
-				   		other_clinics2.get(k).click(); 
+				   	 other_clinics2.get(k).click(); 
 				   	 driver.findElement(By.xpath(".//*[@id='cd-11']/div")).click();
+					 count1++;
 				   	 }
 				     }
-				   	 }
+				   	 
 			  } // if ends here
-			  
+		
+	   //================================================================================================================================================//
 	   // starting the addition of new time slot for clinics
 	  
 			  String actual_text="";
-					 if ( driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).isDisplayed())
+					 if (count1==0)
 						 {
 							 driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).click();
 						 }
@@ -356,6 +345,21 @@ public class Schedule_ZOY899_Dcotor {
   public Object[][] DP1() throws Exception{
 Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY899");
       return(retObjArr);
+  }
+  
+  public void selectTheOtherClinic(String clinicName)
+  {
+ 	 driver.findElement(By.xpath(".//*[@id='profile-flip']/span[2]")).click();
+ 	 List<WebElement> other_clinics=driver.findElements(By.xpath(".//*[@id='profile-panel']//h5"));
+ 	 
+ 	 for(int k=0;other_clinics.size()>0 && k<=other_clinics.size()-1;k++)
+   	  {
+ 		 if(other_clinics.get(k).getText().equals(clinicName) )
+ 				 {
+ 			 other_clinics.get(k).click();
+ 				 }
+     }
+   	 
   }
   
   @BeforeClass
