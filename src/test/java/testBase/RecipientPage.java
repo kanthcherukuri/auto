@@ -118,6 +118,32 @@ public void bookAppointment() throws InterruptedException{
 System.out.println("Cliked on Book Button");
 		}
 
+public void selectDefaultSlot() throws InterruptedException{
+
+	driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).click();  // book
+	Thread.sleep(2000);
+System.out.println("Cliked on Default Slot Button");
+		}
+public void confirmAppointment(String details) throws InterruptedException{
+
+    Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
+	driver.findElement(By.id("problem")).sendKeys(details);
+	driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
+	Thread.sleep(10000);
+    System.out.println("Payment Confirmed");
+		}
+public void makePayment() throws InterruptedException{
+
+	Browser.waitFortheID("applyPromocode");
+	driver.findElement(By.id("applyPromocode")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
+	driver.findElement(By.id("termsAndConditions")).click();
+	driver.findElement(By.id("proceed")).click();     //Make payment
+	Browser.waitTill(60);
+    System.out.println("Payment done");
+		}
+
 public void goToMyAccount() throws InterruptedException{
 
 	driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();  // book

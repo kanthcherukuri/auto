@@ -2,13 +2,8 @@ package recipientsTestScripts;
 
 
 
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
-
-
-
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -39,7 +34,8 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
-		  Browser= new TestUtils(driver);        
+		  Browser= new TestUtils(driver);  
+		
 		  	 
  } 
 
@@ -53,8 +49,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);
 			 
-			
-			 Assert.assertTrue(false);
+		
 		
 			 //verifing email validation
 			 driver.findElement(By.id("forgotPassword")).click();
