@@ -51,7 +51,10 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		
 			 			 
 			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
+			 Browser.openUrl(recipient_url);
+			 
+			
+			 Assert.assertTrue(false);
 		
 			 //verifing email validation
 			 driver.findElement(By.id("forgotPassword")).click();
