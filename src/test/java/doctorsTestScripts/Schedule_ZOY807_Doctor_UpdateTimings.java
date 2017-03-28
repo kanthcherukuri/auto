@@ -1,5 +1,9 @@
 package doctorsTestScripts;
 
+/*author - manraj bharaj
+
+ */
+
 import org.testng.annotations.Test;
 import testBase.LoadProp;
 import testBase.TestUtils;
