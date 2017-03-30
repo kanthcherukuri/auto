@@ -4,7 +4,7 @@ package testBase;
 
 import objectRepository.*;
 
-
+import testBase.*;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
@@ -13,13 +13,15 @@ import org.openqa.selenium.WebDriver;
 public class RecipientPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
-	 public TestUtils Browser;	
+	 public TestUtils Browser;
+
 	
 	public RecipientPage(WebDriver driver) throws Exception {
 		this.driver=driver;
 	
 		Elements_Recipients.Recipients_PageProperties();
-		 Browser= new TestUtils(driver);   
+		 Browser= new TestUtils(driver);  
+		// LoadProp Prop= new LoadProp(driver);
 	}
    
 	
@@ -84,6 +86,8 @@ public void recipientLogout() throws InterruptedException{
 	 Thread.sleep(2000);	
 			
 		}
+
+
 
 /*   
  *  @Autur : Ganesh Mandala
@@ -187,5 +191,18 @@ public void clickOnFilterImg() throws InterruptedException{
 	driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
 	Thread.sleep(5000);	
 	System.out.println("Cliked on filter img");
+		}
+
+public void clickOnMapICon() throws InterruptedException{
+
+	 driver.findElement(By.xpath("//div[@id='mapIconMenu']/span/img")).click();
+	 Thread.sleep(5000);
+	System.out.println("Cliked on Map Listing / Icon");
+		}
+
+public void openRecipientsMyAccounts() throws InterruptedException{
+	 driver.get(""+LoadProp.base_url+"myaccount");
+	 Thread.sleep(5000);
+	System.out.println("Cliked on Map Listing / Icon");
 		}
 }

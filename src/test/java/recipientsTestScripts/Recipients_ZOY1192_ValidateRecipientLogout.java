@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadProp {
+public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadProp {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 

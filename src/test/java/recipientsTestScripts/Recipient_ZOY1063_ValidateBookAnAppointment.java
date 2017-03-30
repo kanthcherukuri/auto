@@ -53,34 +53,20 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 	  
 		 if(runmode.equals("yes")){
 			 			 
-			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
-		
-			 
-			 //Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
-			Thread.sleep(2000);
-			RecipientPage.searchInZoyloMAP(Doctor);
-			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
-			driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();  // book
-			Browser.waitTill(60);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span")).click();
-			Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
-			driver.findElement(By.id("problem")).sendKeys("Test Prob");
-			driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
-			Thread.sleep(10000);
-			Browser.waitFortheID("applyPromocode");
-			driver.findElement(By.id("applyPromocode")).click();		
-			driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
-			driver.findElement(By.id("termsAndConditions")).click();
-			driver.findElement(By.id("proceed")).click();     //Make payment
-			Browser.waitTill(60);
-			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			
+			    //Test Starts-Here
+				Browser.openUrl(recipient_url);			
+				//Verify Recipient Login with valid details
+				RecipientPage.recipientLogin(Username, Password);
+				Thread.sleep(2000);
+				RecipientPage.searchInZoyloMAP(Doctor);
+				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
+				RecipientPage.bookAppointment();
+				RecipientPage.selectDefaultSlot();
+				RecipientPage.confirmAppointment("Test details");
+			    RecipientPage.makePayment();
+				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
+				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+
 		
 			 
 			 
@@ -96,7 +82,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 			 Thread.sleep(5000);
 			 driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
 			 Thread.sleep(2000);
-		     driver.findElement(By.xpath("//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span")).click();
+		     driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span)[1]")).click();
 		     Thread.sleep(2000);
 		     String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			 System.out.println("RescheduleMesg"+RescheduleMesg);
