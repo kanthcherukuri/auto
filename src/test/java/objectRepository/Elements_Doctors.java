@@ -24,6 +24,30 @@ public class Elements_Doctors  {
 		public static String password;
 		public static String loginbutton;
 		
+		
+		//Doctor Appointment & Reschedule Locators
+		
+				public static String doctortab;
+				public static String tommorrowmenu;
+				public static String morning;
+				public static String noon;
+				public static String evening;
+				public static String eveningfirstcell;
+				public static String locatorfirstname;
+				public static String locatorlsatname;
+				public static String locatormobile;
+				public static String locatoremail;
+				public static String locatorproblem;
+				public static String backgoundcolor;
+				public static String changeicon;
+				public static String nextmenu;
+				public static String morningfirstcell;
+				public static String changeslot;
+				public static String topnotification;
+				public static String patienticon;
+				public static String patientsearchbox;
+				public static String patientallmenu;
+		
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
@@ -51,6 +75,30 @@ public class Elements_Doctors  {
     	 username="emailAddress";
 		 password="password";
 		 loginbutton="//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div[1]/button";
+		 
+		 
+			//Doctor Appointment & Reschedule Locators
+			 
+			 doctortab="appointment_appointmentCalendar";
+			 tommorrowmenu="//*[@id='cd-1']";
+			 morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
+			 noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
+			 evening="//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]";
+			 eveningfirstcell="//div[@id='tab-3']/ul/li[1]/div[2]";
+			 locatorfirstname="//*[@id='firstName']";
+			 locatorlsatname="lastName";
+			 locatormobile="mobileNumber";
+			 locatoremail="email";
+			 locatorproblem="problem";
+			 backgoundcolor="//*[@id='tab-3']/ul/li[1][@class='bg-red']";
+			 changeicon="//*[@id='change']";
+			 nextmenu="//*[@id='cd-2']";
+			 morningfirstcell="//*[@id='tab-1']/ul/li[1]";
+			 changeslot="//*[@id='confrimSlotChange']";
+			 topnotification="html/body/div[6]/div";
+			 patienticon="patients_patientsIcon";
+			 patientsearchbox="searchPatientsList";
+			 patientallmenu=" html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
 		 
 		 
        
