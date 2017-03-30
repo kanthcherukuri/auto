@@ -69,6 +69,7 @@ public void recipientLogin(String email, String password) throws InterruptedExce
 	 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 	 driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
 	 Browser.waitTill(30);
+	 System.out.println("Logged in as"+email );
 			
 		}
 
@@ -107,6 +108,7 @@ public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 	Thread.sleep(5000);
 	driver.findElement(By.xpath("//li[@id='locationName']")).click();
 	Thread.sleep(10000);
+	System.out.println("Searched with location"+Area);
 			
 		}
 
@@ -129,8 +131,8 @@ public void confirmAppointment(String details) throws InterruptedException{
     Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
 	driver.findElement(By.id("problem")).sendKeys(details);
 	driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
-	Thread.sleep(10000);
-    System.out.println("Payment Confirmed");
+	Thread.sleep(5000); //changed
+    System.out.println("Appointment Confirmed");
 		}
 public void makePayment() throws InterruptedException{
 

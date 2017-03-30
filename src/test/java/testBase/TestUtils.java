@@ -45,6 +45,7 @@ public class TestUtils {
 	public void openUrl(String name) throws InterruptedException{
 		driver.get(name);
 		Thread.sleep(5000);
+		System.out.println("Opened URL="+name);
 	}
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{

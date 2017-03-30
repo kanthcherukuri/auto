@@ -56,6 +56,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 			 Browser.openUrl(base_url);
 			 HomePage.searchZoylo(City, Locality, Specialization);
 			 Browser.waitFortheID(Elements_Home.map_AreaName);
+			 
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
 			 Assert.assertEquals(ActualResult, Expected);
@@ -65,7 +66,8 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 			
 			
 		 }else{
-			 System.out.println("RUNMODE IS OFF");
+		
+			 throw new SkipException("RUNMODE IS OFF");
 		 }
 			
 			

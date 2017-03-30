@@ -55,13 +55,10 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			 			 
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);			
-		
-			 
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Username, Password);
 			Thread.sleep(10000);
-			
-			 RecipientPage.clickOnFilterImg();
+			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Specialization')]")).click();
 			driver.findElement(By.linkText("Gender (0)")).click();
 			driver.findElement(By.linkText("Home Visits (0)")).click();
