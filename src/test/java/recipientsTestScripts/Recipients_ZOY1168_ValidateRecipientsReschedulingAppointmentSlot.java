@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
+public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot extends LoadProp {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -49,10 +49,10 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void ValidateRecipientsReschedulingAppointmentSlot(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 		 
+			 			 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
@@ -68,8 +68,8 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 
 		
-			
-			 /*
+			 
+			 
 			//Re Scheduling the Apppointment
 			 Browser.openUrl(recipient_url);
 			 driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
@@ -89,7 +89,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 		     Assert.assertEquals(RescheduleMesg, SlotChangeMesg);
 			 Browser.openUrl(recipient_url);
 		     RecipientPage.recipientLogout();
-	*/
+	
 			 
 		 }else{
 			 

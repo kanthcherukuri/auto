@@ -8,6 +8,7 @@ import testBase.*;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.SkipException;
 
 
 public class RecipientPage  {
@@ -125,15 +126,34 @@ System.out.println("Cliked on Book Button");
 		}
 
 public void selectDefaultSlot() throws InterruptedException{
-
-	driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).click();  // book
-	Thread.sleep(2000);
-System.out.println("Cliked on Default Slot Button");
+    if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
+ 
+    	throw new SkipException("Slots are not available");
+    	
+    }else{
+    	driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).click();  // book
+    	Thread.sleep(2000);
+        System.out.println("Cliked on Default Slot Button");
+        
+    }
 		}
 public void confirmAppointment(String details) throws InterruptedException{
 
     Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
 	driver.findElement(By.id("problem")).sendKeys(details);
+	driver.findElement(By.xpath("//input[@value='self']")).click(); // self (Added newly)
+	driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
+	Thread.sleep(5000); //changed
+    System.out.println("Appointment Confirmed");
+		}
+public void confirmAppointmentAsOthers(String details,String Pname,String Pgender,String PAge) throws InterruptedException{
+
+    Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
+	driver.findElement(By.id("problem")).sendKeys(details);
+	driver.findElement(By.xpath("//input[@value='others']")).click(); // self (Added newly)
+	driver.findElement(By.id("patientName")).sendKeys("");
+	driver.findElement(By.id("patientGender")).sendKeys(Pgender);
+	driver.findElement(By.id("patientAge")).sendKeys(PAge);
 	driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
 	Thread.sleep(5000); //changed
     System.out.println("Appointment Confirmed");
@@ -205,4 +225,22 @@ public void openRecipientsMyAccounts() throws InterruptedException{
 	 Thread.sleep(5000);
 	System.out.println("Cliked on Map Listing / Icon");
 		}
+public String getNotificationMesssage() throws InterruptedException{
+	Thread.sleep(2000);
+	String Notification= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+	  
+	System.out.println("Notification is"+Notification);
+	
+	return Notification;
+		}
+
+
+public void goToMyAccounts(String TabName) throws InterruptedException{
+	driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
+	 Browser.waitTill(60);
+	driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
+	Thread.sleep(2000);
+	System.out.println("Cliked on Tab Name"+TabName);
+		}
+
 }

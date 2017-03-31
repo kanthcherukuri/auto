@@ -74,6 +74,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			 Thread.sleep(5000);// Added for view
 			 driver.findElement(By.id("hist")).click();  // my History
 			 Thread.sleep(5000);
+			 
 			 driver.findElement(By.id("reviewIcon")).click();
 			 Browser.waitTill(60);
 			 driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
