@@ -47,6 +47,20 @@ public class Elements_Doctors  {
 				public static String patienticon;
 				public static String patientsearchbox;
 				public static String patientallmenu;
+				
+				
+				//Patients screen 
+				
+				public static String patienticonid;
+				public static String alltab;
+				public static String alltabdivsize;
+				public static String sendnotficationbutton;
+				public static String sendnotification;
+				
+				
+				
+				
+				
 		
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -99,10 +113,18 @@ public class Elements_Doctors  {
 			 patienticon="patients_patientsIcon";
 			 patientsearchbox="searchPatientsList";
 			 patientallmenu=" html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
+			 
+			 //Patient screen send notification
 		 
-		 
+			 patienticonid="patients";
+			 
+			 alltab="html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
+			 
+			 alltabdivsize="//*[@id='all']/div";
+			 
+			 sendnotficationbutton="//button[text()='Send Notification']";
        
-        
+			sendnotification="//*[@id='resendNotification']/button";
 		return driver;	
         
        

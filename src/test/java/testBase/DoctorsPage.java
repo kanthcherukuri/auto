@@ -9,11 +9,14 @@ import java.util.Set;
 import objectRepository.*;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
+import org.testng.asserts.SoftAssert;
 
 
 public class DoctorsPage  {
@@ -283,16 +286,70 @@ public class DoctorsPage  {
 								System.out.println("The Appointment Is Not Cancelled");
 								isfound2="false";
 							}	
-									
-							
-								}
+															
+								}					
 					
-					
-				}
-								
-								
-						
+				              }												
+		    
+                            }
+				
+				
+public void patientsendnotification() throws Exception{
+driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+					  
+  Thread.sleep(1000);
+  
+  // Clicking on all Tab in Patient Screen  
+  driver.findElement(By.xpath(Elements_Doctors.alltab)).click();
+  
+  System.out.println("Clicked on all tab");
+  
+ Thread.sleep(10000);
+ 
+ //Getting size of all the div's in all tab of patient screen
+ int patientsize= driver.findElements(By.xpath(Elements_Doctors.alltabdivsize)).size();
+ 
+ for(int l=1;l<=patientsize ;l++)
+ {		 
+	 
+String Schedule=driver.findElement(By.xpath("//*[@id='all']/div["+l+"]/div[2]/p[1]")).getText();
+if(Schedule.equalsIgnoreCase("Scheduled")||Schedule.equalsIgnoreCase("Rescheduled"))
+{
+	
+System.out.println("Scheduled/Rescheduled Found");
+Reporter.log("Scheduled/Rescheduled Found");			
+
+//scrolling to the webelement Scheduled/Rescheduled
+WebElement sc = driver.findElement(By.xpath("//*[@id='all']/div["+l+"]/div[2]/p[1]"));
+((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+
+//Clicking on the send notification button
+driver.findElement(By.xpath("//*[@id='all']/div["+l+"]/div[2]/p[1]//following-sibling::div[@id='resendNotification']/button")).click();							
+
+System.out.println("Sucessfully clicked on Send Notification button");
+
+//String notification = driver.findElement(By.xpath(Elements_Doctors.topnotification)).getText();
+
+//System.out.println(notification);
+
+//SoftAssert assertion=new SoftAssert();
+				
+//assertion.assertEquals(notification,"Email/SMS Notification sent to the Patient");
+//assertion.assertAll();
+			
+	break; 		  
+  
+  }
+	
+else{
 		
-    
-}
-}
+System.out.println("Scheduled/Rescheduled Text NotFound");
+}				
+ }	
+					
+}			
+				
+				
+				
+				
+}//main class

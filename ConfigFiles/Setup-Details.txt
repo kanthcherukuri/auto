@@ -31,6 +31,9 @@ DoctorsLogin.username=sagarsen@gmai.com
 DoctorsLogin.password=Zoylo@1234
 browser=chrome
 
+DoctorsLogin.usernameone=kanthch@hotmail.com
+DoctorsLogin.passwordone=Zoylo@666
+
 //--------Recipient Login Details----//
 
 Recipient.Username=ganeshmandala@gmail.com
