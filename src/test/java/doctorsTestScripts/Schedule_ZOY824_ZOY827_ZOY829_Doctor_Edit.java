@@ -31,6 +31,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	public  WebDriverWait wait; 
 	String actual_text1;
 	String actual_text2;
+	String actual_text3;
 	String data="LOCALITY";
 	SoftAssert sa=new SoftAssert();
 	
@@ -56,19 +57,21 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	  driver.findElement(By.id("clinic_addr1")).sendKeys(data);
 	  driver.findElement(By.id("clinic_addr_save")).click();
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
-	  actual_text2=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
+	  actual_text1=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
 	  System.out.println(actual_text2);
-	  if(actual_text2.contains("Successfully"))
+	  if(actual_text1.contains("Successfully"))
 	  {
 		  System.out.println("ADDRESS EDITED SUCCESSFULLY AND TEST CASE PASSED");
 	  }
 	  
-	  if(!actual_text2.contains("Successfully"))
+	  if(!actual_text1.contains("Successfully"))
 	  {
 		  System.out.println("ADDRESS EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail();
+		  Assert.fail(actual_text1);
 		  
-	  }	  
+	  }	 
+	  
+	   
 	  
 	  
 	  System.out.println("EDITING THE AMENITIES OF DOCTOR PROVIDER");
@@ -78,32 +81,67 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	  
 	  if(!driver.findElement(By.xpath(".//*[@id='ambulance']")).isSelected())
 	  {
-		  driver.findElement(By.xpath(".//*[@id='ambulance']")).click();
+		  driver.findElement(By.id("ambulance")).click();
 	  }
-	  driver.findElement(By.id("clinic_addr_save")).click();
+	  if(!driver.findElement(By.xpath(".//*[@id='emergency']")).isSelected())
+	  {
+		  driver.findElement(By.xpath(".//*[@id='emergency']")).click();
+	  }
+	  if(!driver.findElement(By.xpath(".//*[@id='carparking']")).isSelected())
+	  {
+		  driver.findElement(By.xpath(".//*[@id='carparking']")).click();
+	  }
+	  if(!driver.findElement(By.xpath(".//*[@id='bikeparking']")).isSelected())
+	  {
+		  driver.findElement(By.xpath(".//*[@id='bikeparking']")).click();
+	  }
+	 
+	  
+	  driver.findElement(By.xpath(".//*[@id='clinic_aminities_save']")).click();
+	  
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
 	  actual_text2=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
 	  System.out.println(actual_text2);
 	  if(actual_text2.contains("Successfully"))
 	  {
-		  System.out.println("ADDRESS EDITED SUCCESSFULLY AND TEST CASE PASSED");
+		  System.out.println("AMENITIES EDITED SUCCESSFULLY AND TEST CASE PASSED");
 	  }
 	  
 	  if(!actual_text2.contains("Successfully"))
 	  {
-		  System.out.println("ADDRESS EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail();
+		  System.out.println("AMENITIES EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
+		  Assert.fail(actual_text2);
 		  
 	  }	  
 	  
-	
 	  
+	  System.out.println("EDITING THE SERVICES OF DOCTOR PROVIDER");
 	  
-	
+	  driver.findElement(By.xpath("//li[@data-tab='tab-clinic-services']")).click();
+	  driver.findElement(By.xpath(".//*[@id='tab-clinic-services']//textarea")).click();
+	  driver.findElement(By.xpath(".//*[@id='tab-clinic-services']//textarea")).sendKeys(data);
+	  driver.findElement(By.xpath(".//*[@id='clinic_service_save']")).click();
 	  
-	
+	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
+	  actual_text3=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
+	  System.out.println(actual_text3);
+	  if(actual_text3.contains("Successfully"))
+	  {
+		  System.out.println("SERVICES EDITED SUCCESSFULLY AND TEST CASE PASSED");
+	  }
 	  
-	 
+	  if(!actual_text3.contains("Successfully"))
+	  {
+		  System.out.println("SERVICES EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
+		  Assert.fail(actual_text3);
+		  
+	  }	
+	  
+	  driver.findElement(By.xpath(".//*[@id='appointments']/span[2]")).click();
+	  driver.findElement(By.xpath("//i[@class='fa fa-ellipsis-v footer-relipse']")).click();
+	  driver.findElement(By.xpath(".//*[@id='dashboard_dashboardIcon']")).click();
+	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]")));
+	  
 	  }
   
   //===============================================================================================================================================================//
@@ -126,7 +164,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
   @AfterTest
   public void afterTest() {
 	  
-	  //driver.close();
+	  driver.close();
   }
 
 }
