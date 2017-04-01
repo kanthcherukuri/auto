@@ -102,6 +102,12 @@ public class Schedule_ZOY798_Doctor_SetVacation{
 		  Assert.fail(actual_text1);
 		  
 	  }	 
+	  if(!actual_text1.contains("cannot update vacation dates as you have existing appointments. Please cancel them to update doctor vacation."))
+	  {
+		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
+		  Assert.fail(actual_text1);
+		  
+	  }	
 	  
 	  
   }
