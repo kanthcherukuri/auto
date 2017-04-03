@@ -35,8 +35,8 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime{
 
 	  //===============================================================================================================================================================//	
 	
-  @Test
-  public void f() throws InterruptedException, ParseException {
+  @Test(groups = { "Regression","High" })
+  public void testEditTimeSlotForClinicsDecreaseTime() throws InterruptedException, ParseException {
 	  
 	
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
@@ -93,7 +93,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime{
   
   //===============================================================================================================================================================//
   
-  @BeforeTest
+  @BeforeTest(groups = { "Regression","High" })
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -108,7 +108,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime{
   
   //===============================================================================================================================================================//
   
-  @AfterTest
+  @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
 	  driver.close();

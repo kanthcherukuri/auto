@@ -37,8 +37,8 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	
 	  //===============================================================================================================================================================//	
 	
-  @Test
-  public void f() throws InterruptedException, ParseException {
+  @Test(groups = { "Regression","High" })
+  public void testEditAddressAmenitiesServices() throws InterruptedException, ParseException {
 	  
 	
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
@@ -146,7 +146,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
   
   //===============================================================================================================================================================//
   
-  @BeforeTest
+  @BeforeTest(groups = { "Regression","High" })
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -161,7 +161,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
   
   //===============================================================================================================================================================//
   
-  @AfterTest
+  @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
 	  driver.close();

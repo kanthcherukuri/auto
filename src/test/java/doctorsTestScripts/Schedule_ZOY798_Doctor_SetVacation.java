@@ -34,8 +34,8 @@ public class Schedule_ZOY798_Doctor_SetVacation{
 	
 	  //===============================================================================================================================================================//	
 	
-  @Test
-  public void f() throws InterruptedException, ParseException, AWTException {
+  @Test(groups = { "Regression","High" })
+  public void testSetVacation() throws InterruptedException, ParseException, AWTException {
 	  
 	
 	  Date d=new Date();
@@ -114,7 +114,7 @@ public class Schedule_ZOY798_Doctor_SetVacation{
   
   //===============================================================================================================================================================//
   
-  @BeforeTest
+  @BeforeTest(groups = { "Regression","High" })
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -129,7 +129,7 @@ public class Schedule_ZOY798_Doctor_SetVacation{
   
   //===============================================================================================================================================================//
   
-  @AfterTest
+  @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
 	  driver.close();

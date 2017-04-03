@@ -41,7 +41,7 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings {
 	
 	
 	
-  @Test(dataProvider = "dp")
+  @Test(dataProvider = "dp",groups = { "Regression","High" })
   public void testDeleteTimings(String runmode,String timeToBeDeleted) throws ParseException, InterruptedException {
 	 
 	  Date d1=sdf2.parse(date.trim());
@@ -228,7 +228,7 @@ public boolean findTheCorrectTimeSlotHospital(String day_of_week,String timeToBe
      return(retObjArr);
  }
  
-  @BeforeTest
+  @BeforeTest(groups = { "Regression","High" })
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -243,7 +243,7 @@ public boolean findTheCorrectTimeSlotHospital(String day_of_week,String timeToBe
 	  
   }
 
-  @AfterTest
+  @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	//  driver.close();
   }

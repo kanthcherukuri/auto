@@ -39,8 +39,8 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration{
 	
 	  //===============================================================================================================================================================//	
 	
-  @Test
-  public void f() throws InterruptedException, ParseException, AWTException {
+  @Test(groups = { "Regression","High" })
+  public void testEditConsultationDuration() throws InterruptedException, ParseException, AWTException {
 	  
 	
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
@@ -84,7 +84,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration{
   
   //===============================================================================================================================================================//
   
-  @BeforeTest
+  @BeforeTest(groups = { "Regression","High" })
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -99,7 +99,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration{
   
   //===============================================================================================================================================================//
   
-  @AfterTest
+  @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
 	  driver.close();

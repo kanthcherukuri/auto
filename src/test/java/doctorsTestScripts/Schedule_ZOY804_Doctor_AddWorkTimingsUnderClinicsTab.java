@@ -29,8 +29,8 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
 	String actual_text;
 
 	
-	@Test(enabled=true,dataProvider="DP1")
-      public void f(String runmode,String new_start_time,String new_end_time) throws InterruptedException {
+	@Test(enabled=true,dataProvider="DP1",groups = { "Regression","High" })
+      public void testAddWorkTimingsUnderClinicsTab(String runmode,String new_start_time,String new_end_time) throws InterruptedException {
 		
 	  wait=new WebDriverWait(driver, 8000);
 	  SoftAssert sa=new SoftAssert();
@@ -72,7 +72,7 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
       return(retObjArr);
   }
   
-  @BeforeClass
+  @BeforeClass(groups = { "Regression","High" })
   public void beforeClass() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
@@ -84,7 +84,7 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
 	  
 	  }
 
-  @AfterClass
+  @AfterClass(groups = { "Regression","High" })
   public void afterClass() {
 	  
 	  driver.close();
