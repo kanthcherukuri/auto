@@ -54,7 +54,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void ValidateAddDoctorFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void validateAddDoctorFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

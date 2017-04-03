@@ -49,7 +49,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateBookAnAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void validateBookingAnAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -67,30 +67,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 
-		
-			
-			 /*
-			//Re Scheduling the Apppointment
-			 Browser.openUrl(recipient_url);
-			 driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
-			 Browser.waitTill(60);
-			 driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
-			 Browser.waitTill(60);
-			 Thread.sleep(5000);// Added for view
-			 driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[2]")).click();
-			 Browser.waitTill(60);
-			 Thread.sleep(5000);
-			 driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-			 Thread.sleep(2000);
-		     driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span)[1]")).click();
-		     Thread.sleep(2000);
-		     String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			 System.out.println("RescheduleMesg"+RescheduleMesg);
-		     Assert.assertEquals(RescheduleMesg, SlotChangeMesg);
-			 Browser.openUrl(recipient_url);
-		     RecipientPage.recipientLogout();
-	*/
-			 
+	 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");

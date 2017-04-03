@@ -49,54 +49,86 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1092");
 	        return(retObjArr);
 	    }
-	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void SearchByDoctorSpecializationNClinic(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
+	 @Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
+	 public void mapSearchByDoctors(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
 			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea("Hyderabad");
-			//Verify Doctors
+			//Verify search with Doctors name
 			RecipientPage.searchInZoyloMAP(Doctor);
 			String Search_Doctor = driver.findElement(By.xpath("//h1")).getText();
 	        Assert.assertTrue(Search_Doctor.contains(Doctor));
 	        RecipientPage.goToDoctors();
-	   	    //Verify Specialization
-			RecipientPage.searchInZoyloMAP(Specialization);
-			String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-	        Assert.assertTrue(Search_Specialization.contains(Specialization));
-	        System.out.println("Passed"+Search_Specialization);
-	        RecipientPage.goToDoctors();
-	        //Verify Clinic
-	        driver.navigate().refresh();
-			RecipientPage.searchInZoyloMAP(Clinic);
-			RecipientPage.bookAppointment();
-			String Search_Clinic = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
-			System.out.println("clicnic name"+Search_Clinic);
-	        Assert.assertEquals(Search_Clinic, Clinic);
-	       
-	        
-	        //Verify with Invalid data
-	        RecipientPage.goToDoctors();
-	        driver.findElement(By.id("search2")).click();
-	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
-	    	Thread.sleep(5000);
-	    	String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-	    	Assert.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
-	        
-			
-			 
+	   	   
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
 			
 		 }
 			
-			
+	 }
+		 @Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
+		 public void searchMapBySpecialization(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
+		  
+			 if(runmode.equals("yes")){
+
+		   	    //Verify search with Specialization name
+				RecipientPage.searchInZoyloMAP(Specialization);
+				String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
+		        Assert.assertTrue(Search_Specialization.contains(Specialization));
+		        System.out.println("Passed"+Search_Specialization);
+		        RecipientPage.goToDoctors();
+		       
+				 
+			 }else{
+				 
+				throw new SkipException("RUNMODE IS OFF");
+				
+			 }	
 	    }
     
-	 
-	 
+		 @Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
+		 public void searchMapByClinic(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
+		  
+			 if(runmode.equals("yes")){
+
+				 //Verify search with clinic name
+			        driver.navigate().refresh();
+					RecipientPage.searchInZoyloMAP(Clinic);
+					RecipientPage.bookAppointment();
+					String Search_Clinic = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
+					System.out.println("clicnic name"+Search_Clinic);
+			        Assert.assertEquals(Search_Clinic, Clinic);
+				 
+			 }else{
+				 
+				throw new SkipException("RUNMODE IS OFF");
+				
+			 }	
+	    }
+    
+		 @Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
+		 public void searchMapByInvalidData(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
+		  
+			 if(runmode.equals("yes")){
+
+				  //Verify with Invalid data
+			        RecipientPage.goToDoctors();
+			        driver.findElement(By.id("search2")).click();
+			    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
+			    	Thread.sleep(5000);
+			    	String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
+			    	Assert.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
+			        
+				 
+			 }else{
+				 
+				throw new SkipException("RUNMODE IS OFF");
+				
+			 }	
+	    }
 	 
 	 
 	 

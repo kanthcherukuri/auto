@@ -50,7 +50,7 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateRecipientAccountCreationValidations(String runmode,String FullName, String FullNameValidation,String Email,String EmailValidation,String Password,String PasswordValidation, String ConfirmPassword,String ConfirmPasswordValidation,String Mobile,String MobileValidation,String RefCode,String ScreenValidationTab,String ScreenValidation) throws Exception {
+	 public void validateRecipientAccountCreationValidations(String runmode,String FullName, String FullNameValidation,String Email,String EmailValidation,String Password,String PasswordValidation, String ConfirmPassword,String ConfirmPasswordValidation,String Mobile,String MobileValidation,String RefCode,String ScreenValidationTab,String ScreenValidation) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

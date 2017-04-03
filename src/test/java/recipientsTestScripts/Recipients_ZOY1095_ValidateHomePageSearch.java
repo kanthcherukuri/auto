@@ -47,11 +47,9 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateHomePageSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
+	 public void validateHomePageSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
 		  
 		 if(runmode.equals("yes")){
-			 
-			 
 			 //Test Starts - Here
 			 Browser.openUrl(base_url);
 			 HomePage.searchZoylo(City, Locality, Specialization);
@@ -59,11 +57,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 			 
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
-			 Assert.assertEquals(ActualResult, Expected);
-		
-			
-		
-			
+			 Assert.assertEquals(ActualResult, Expected);	
 			
 		 }else{
 		
