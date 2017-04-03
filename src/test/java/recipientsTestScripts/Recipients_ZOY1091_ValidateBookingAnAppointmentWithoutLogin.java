@@ -51,7 +51,7 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateBookingAnAppointmentWithoutLogin(String runmode,String Username, String Password,String city,String area,String specialization ) throws Exception {
+	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String Username, String Password,String city,String area,String specialization ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 

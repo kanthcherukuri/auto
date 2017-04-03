@@ -46,7 +46,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidatePasswordChange(String runmode,String username,String password,String currentPassword,String newPassword,String confirmPassword,String notifiMesg,String newPasswordMesg,String confirmPasswordMesg) throws Exception {
+	 public void validatePasswordChange(String runmode,String username,String password,String currentPassword,String newPassword,String confirmPassword,String notifiMesg,String newPasswordMesg,String confirmPasswordMesg) throws Exception {
 	  
 		if(runmode.equals("yes")) {
 			 			 

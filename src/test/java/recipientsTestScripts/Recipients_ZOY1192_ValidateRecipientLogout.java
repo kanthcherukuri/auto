@@ -42,7 +42,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadProp {
  
 
 	 @Test(groups = { "Regression","High" })
-	 public void ValidateRecipientlogout() throws Exception {
+	 public void validateRecipientlogout() throws Exception {
 	  
 		
 			 			 

@@ -50,7 +50,7 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void ValidateBookingAnInActiveDoctor(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void validateBookingAnInActiveDoctor(String runmode,String Username, String Password,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

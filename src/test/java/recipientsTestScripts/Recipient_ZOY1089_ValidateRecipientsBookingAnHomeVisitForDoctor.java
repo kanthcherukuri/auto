@@ -51,7 +51,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateRecipientsBookingAnHomeVisitForDoctor(String runmode,String Username, String Password,String City ) throws Exception {
+	 public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String Username, String Password,String City ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 

@@ -51,7 +51,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateRecipientsAppointmentCancel(String runmode,String Username, String Password,String City ) throws Exception {
+	 public void validateRecipientsAppointmentCancel(String runmode,String Username, String Password,String City ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
  

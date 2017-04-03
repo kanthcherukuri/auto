@@ -42,7 +42,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
  
 
 	 @Test(groups = { "Regression","High" })
-	 public void ValidateRecipientPasswordrecovery() throws Exception {
+	 public void validateRecipientPasswordrecovery() throws Exception {
 	  
 		
 			 			 

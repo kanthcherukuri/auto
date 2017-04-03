@@ -50,7 +50,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void ValidateRecipientAppointmentBookingFromMyFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void validateRecipientAppointmentBookingFromMyFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

@@ -47,8 +47,8 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Login", "ZOY1062");
 	        return(retObjArr);
 	    }
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateLoginScreenValidations(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
+	 @Test(dataProvider="DP1",groups = { "Regression","High" },priority=1)
+	 public void validateLoginScreenValidationsWithInvalidSetOfData(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
@@ -74,19 +74,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 			 Thread.sleep(2000);
 			 String ActualScreenValidation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			 Assert.assertEquals(ActualScreenValidation, ScreenValidation);
-			  
-			 
-			 //Verify Recipient Login with valid details
-			 
-			 RecipientPage.recipientLogin(ValidUsername, ValidPassword);
-			 Thread.sleep(2000);
-		     String ActualRecipientTitle = driver.getTitle();
-			 Assert.assertEquals(ActualRecipientTitle, RecipientScreenTitle);
-		     
-		     //Logout from Recipient
-		     
-		     RecipientPage.recipientLogout();
-	
+
 			 
 		 }else{
 			 
@@ -96,8 +84,23 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 			
 			
 	    }
-    
-	 
+
+	 @Test(groups = { "Regression","High" },priority=2)
+	 public void validateRecipientLoginWithValidData() throws Exception {
+ 	
+			 //Test Starts-Here
+		     driver.get(recipient_url);			
+			 //Verify Recipient Login with valid details
+		     Browser.waitFortheID("emailAddress");
+			 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(Recipient_Username);
+			 driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(Recipient_Password);
+			 driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
+			 Browser.waitTill(60);
+			 Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
+		     String ActualRecipientTitle = driver.getTitle();
+			 Assert.assertEquals(ActualRecipientTitle, "Find a Doctor, Book Doctors Appointment Online in India - Zoylo");
+
+	    }
 	 
 	 
 	 

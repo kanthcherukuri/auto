@@ -38,26 +38,20 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
-		  Browser= new TestUtils(driver);        
+		  Browser= new TestUtils(driver);   
+		  //Test Starts-Here
+		  Browser.openUrl(recipient_url);			
+	      //Verify Recipient Login with valid details
+		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		  Thread.sleep(2000);
 		  	 
  } 
 
  
-	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1063");
-	        return(retObjArr);
-	    }
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateApplyFilters(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 			 
-			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
-			//Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
-			Thread.sleep(10000);
+
+	 @Test(groups = { "Regression","High" },priority=1)
+	 public void validateApplyFiltersOptions() throws Exception {
+
 			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Specialization')]")).click();
 			driver.findElement(By.linkText("Gender (0)")).click();
@@ -66,17 +60,27 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			driver.findElement(By.linkText("Availability (0)")).click();
 			driver.findElement(By.linkText("Fee (0)")).click();
 			
+	    }
+    
+	 //
+	 
+	 @Test(groups = { "Regression","High" },priority=2)
+	 public void validateApplyFiltersBySpecilization() throws Exception {
+	
 			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
-			
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurveda");
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertEquals(Doctor_designation, "Ayurveda");
-						
-			
+	
+	    }
+	 
+	 @Test(groups = { "Regression","High" },priority=3)
+	 public void validateApplyFiltersByLineOfPractice() throws Exception {
+
 			//verifying Line of Practice
 		    RecipientPage.clickOnFilterImg();
 			//Reset
@@ -87,11 +91,13 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertEquals(LOP_designation, "Homeopathy");
-			
-            //verifying Fee
-			
-			RecipientPage.clickOnFilterImg();
+	
+	    }
+	 //
+	 @Test(groups = { "Regression","High" },priority=4)
+	 public void validateApplyFiltersByFee( ) throws Exception {
 
+			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//input[@data-start='300' and @data-end='500']")).click();
@@ -108,22 +114,8 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
 			else  {
 			   Assert.fail("Value is not between Fee");
 			}
-			
 	
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
-			
 	    }
-    
-	 
-	 
-	 
-	 
 	 
 	 @AfterClass(groups = { "Regression","High" })
 	 

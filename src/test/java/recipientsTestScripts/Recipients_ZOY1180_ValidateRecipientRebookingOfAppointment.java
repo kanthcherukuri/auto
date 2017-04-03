@@ -49,7 +49,7 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateRecipientRebookingOfAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void validateRecipientRebookingOfAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
