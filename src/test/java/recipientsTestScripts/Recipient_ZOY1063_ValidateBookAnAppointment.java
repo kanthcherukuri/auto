@@ -49,7 +49,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void ValidateBookAnAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 

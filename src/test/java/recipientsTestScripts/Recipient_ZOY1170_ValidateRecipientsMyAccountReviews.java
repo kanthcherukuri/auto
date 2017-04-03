@@ -49,7 +49,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void ValidateRecipientsMyAccountReviews(String runmode,String Username, String Password,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

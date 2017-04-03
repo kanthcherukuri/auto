@@ -49,7 +49,7 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void ValidateRecipientsAlerts(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -70,11 +70,12 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadProp {
 				System.out.println("After split id is "+APID[1]);
 				RecipientPage.openRecipientsMyAccounts();
 				driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Alerts')]")).click();
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 				String AppointmentIdInAlerts = driver.findElement(By.xpath("(//*[@id='recipientMessage'])[1]")).getText();
 				//Verifing appointment id in Alerts
 				Assert.assertTrue(AppointmentIdInAlerts.contains(APID[1]));
-				Assert.assertTrue(AppointmentIdInAlerts.contains(DoctorFullName));
+				//Assert.assertTrue(AppointmentIdInAlerts.contains(Doctor));
+				Assert.assertTrue(AppointmentIdInAlerts.contains("has been booked"));
 			 
 		 }else{
 			 

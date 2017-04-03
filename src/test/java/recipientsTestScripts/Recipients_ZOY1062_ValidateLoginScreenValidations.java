@@ -48,7 +48,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateDoctorEnrollment(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
+	 public void ValidateLoginScreenValidations(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
