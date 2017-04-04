@@ -57,22 +57,34 @@ public class TestUtils {
 	//Wait for the ID
 	public void waitFortheID(String ID){
 		WebDriverWait wait = (new WebDriverWait(driver, 10));
-				   wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
+		 wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
 	}
 	
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
 			WebDriverWait wait = (new WebDriverWait(driver, 10));
-					   wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
 		}
 		//Wait for the Screen Validation
-				public void waitForScreenValidation( ){
+		public void waitForScreenValidation( ){
+			
 					WebDriverWait wait = (new WebDriverWait(driver, 30));
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
-					String validation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getTagName();
+					String validation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				  
 				}
+		//Wait for the Screen Validation
+		public void verifyNotificationMessage(String ExpectedErrorMesg ){
+					
+			WebDriverWait wait = (new WebDriverWait(driver, 30));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
+			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+			System.out.println("ActualError="+ActualError);			    
+			Assert.assertEquals(ExpectedErrorMesg, ActualError);
+	
+						}		
+				
 		
 	//Wait Till int
 	public void waitTill(int time) {

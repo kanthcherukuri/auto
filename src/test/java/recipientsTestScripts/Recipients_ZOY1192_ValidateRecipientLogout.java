@@ -52,7 +52,8 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadProp {
 		  Thread.sleep(2000);
 		  RecipientPage.recipientLogout();
 		  Reporter.log("Logged out Successfully");
-			 
+		  //JavascriptExecutor jse = (JavascriptExecutor)driver;
+		  //jse.executeScript("scroll(0, 250)"); // if the element is on bottom. 
 		
 			 }
 			 

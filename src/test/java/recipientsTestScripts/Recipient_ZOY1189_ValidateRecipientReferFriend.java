@@ -42,7 +42,7 @@ public class Recipient_ZOY1189_ValidateRecipientReferFriend extends LoadProp {
  
 
 	 @Test(groups = { "Regression","Medium" })
-	 public void ValidateRecipientReferFriend() throws Exception {
+	 public void validateRecipientReferFriend() throws Exception {
 	  
 		
 			 			 

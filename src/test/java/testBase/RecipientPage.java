@@ -6,6 +6,7 @@ import objectRepository.*;
 
 import testBase.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
@@ -64,7 +65,7 @@ public class RecipientPage  {
 		
 		
 public void recipientLogin(String email, String password) throws InterruptedException{
-			
+	 Browser.waitFortheID("emailAddress");		
 	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).clear();
 	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(email);
 	 Thread.sleep(2000);

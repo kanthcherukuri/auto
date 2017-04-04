@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -59,7 +60,9 @@ public class LoadProp   {
         if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers\\chromedriver.exe");
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
+			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
+			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
