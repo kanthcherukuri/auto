@@ -4,6 +4,8 @@ package recipientsTestScripts;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 
@@ -54,7 +56,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	 public void validateBookingFallowUpAppointmentForDoctor(String runmode,String Username, String Password,String Doctor,String DoctorUserName,String DoctorPassword ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 	
+			 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
@@ -63,7 +65,6 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				RecipientPage.searchInZoyloMAP(Doctor);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
-				Thread.sleep(5000);
 				RecipientPage.selectDefaultSlot();
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
@@ -71,34 +72,15 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 				RecipientPage.recipientLogout();				
 				//
+				 
+				
 				Browser.openUrl(recipient_url);			
 				//Verify Doctor Login with valid details
+				Thread.sleep(5000);
 				DoctorsPage.SignIn(DoctorUserName, DoctorPassword);
-				Browser.waitTill(60);
-				Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
-				driver.findElement(By.xpath("(//div[@class='doctor-patientname patientfullName']/span)[last()]")).click();  // Recent Appointment
-				Browser.waitTill(60);
-				driver.findElement(By.xpath("//div[@id='checkIn']/span[2]")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.id("startConsultation")).click();				
-				Thread.sleep(2000);
-				driver.findElement(By.id("diagnosis")).sendKeys("Diagonis Details");
-				Thread.sleep(2000);
-				driver.findElement(By.id("saveProblems")).click();
-				Thread.sleep(5000);
-				driver.findElement(By.id("saveVitals")).click();
-				Thread.sleep(5000);
-				driver.findElement(By.id("savePrescription")).click();
-				Thread.sleep(5000);
-				driver.findElement(By.id("saveNotes")).click();				
-				Thread.sleep(5000);
-				driver.findElement(By.id("generateReceipt")).click();
-				Thread.sleep(5000);
-			    Browser.verifyNotificationMessage("Bill generated successfully");
-			    Thread.sleep(5000);
-				driver.findElement(By.id("checkOut")).click();
-				Thread.sleep(2000);
-				Browser.verifyNotificationMessage("Appointment checked out successfully");
+				//Browser.waitTill(60);
+				DoctorsPage.clickOnTheRecentPatientFromDashBoard();
+				DoctorsPage.doctorCheckinCheckOut();
 				DoctorsPage.doctorlogout();
 				//Login as Recipient
 				Browser.openUrl(recipient_url);			
@@ -107,7 +89,25 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				Thread.sleep(2000);
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				driver.findElement(By.id("submitReview")).click();
-				Browser.verifyNotificationMessage("Review submitted successfully");
+				Browser.verifyNotificationMessage("Review submitted successfully.");
+				Thread.sleep(5000);
+				 //FallowUp the Appointment
+				 RecipientPage.goToMyAccounts("Appointment");
+				 Thread.sleep(2000);// Added for view
+				 driver.findElement(By.id("hist")).click();  // my History
+				 Thread.sleep(5000);
+				 driver.findElement(By.xpath("(//img[@class='followup'])[1]")).click();
+				 Browser.waitTill(60);
+				 //Book FallowUp Slot
+				 RecipientPage.selectDefaultSlot();
+				 Browser.waitFortheID("followUpBookAppointment");
+				 driver.findElement(By.id("problem")).sendKeys("Health details");
+				 driver.findElement(By.id("followUpBookAppointment")).click();  // FollowUp Book
+				 WebDriverWait wait = (new WebDriverWait(driver, 60));
+				 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
+				 String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+				 ActualError.contains("You will Recieve a confirmation SMS");
+				 System.out.println("followUpBookAppointment Confirmed");
 	 
 		 }else{
 			 

@@ -22,10 +22,11 @@ import org.testng.asserts.SoftAssert;
 public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public    WebDriver driver;
-	
+	 public TestUtils Browser;
 	
 	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
+		Browser= new TestUtils(driver); 
 	
 		Elements_Doctors.Doc_PageProperties();
 		
@@ -68,7 +69,8 @@ public class DoctorsPage  {
 		
 		
 		// Doctors login Details 
-		public  void SignIn(String username, String password) throws IOException{			
+		public  void SignIn(String username, String password) throws IOException{	
+			    Browser.waitFortheID("emailAddress");	
 				driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
 				driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
 				driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();				
@@ -85,7 +87,54 @@ public class DoctorsPage  {
 					Thread.sleep(2000);
 					}
 		
-		
+				// Click on recent Patient from dashboard
+				public  void clickOnTheRecentPatientFromDashBoard() throws IOException, InterruptedException{
+					Thread.sleep(5000);
+					if(driver.findElements(By.id("show-all-btn")).isEmpty()){
+						System.out.println("is empty");
+						Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+						driver.findElement(By.xpath("(//div[@class='doctor-patientname patientfullName']/span)[last()]")).click();  // Recent Appointment
+						Browser.waitTill(60);
+					}else{
+						System.out.println("show all btn exisit");
+						driver.findElement(By.id("show-all-btn")).click();
+						Thread.sleep(2000);
+						JavascriptExecutor jse = (JavascriptExecutor)driver;
+						jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
+						Thread.sleep(5000);
+						//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+						driver.findElement(By.xpath("(//div[@class='doctor-patientname patientfullName']/span)[last()]")).click();  // Recent Appointment
+						Browser.waitTill(60);
+						
+					}
+				
+					}
+				
+				// Doctors Checkin and check the recipient
+				public  void doctorCheckinCheckOut() throws IOException, InterruptedException{			
+					driver.findElement(By.xpath("//div[@id='checkIn']/span[2]")).click();
+					Thread.sleep(2000);
+					driver.findElement(By.id("startConsultation")).click();				
+					Thread.sleep(2000);
+					driver.findElement(By.id("diagnosis")).sendKeys("Diagonis Details");
+					Thread.sleep(2000);
+					driver.findElement(By.id("saveProblems")).click();
+					Thread.sleep(5000);
+					driver.findElement(By.id("saveVitals")).click();
+					Thread.sleep(5000);
+					driver.findElement(By.id("savePrescription")).click();
+					Thread.sleep(5000);
+					driver.findElement(By.id("saveNotes")).click();				
+					Thread.sleep(5000);
+					driver.findElement(By.id("generateReceipt")).click();
+					Thread.sleep(5000);
+				    Browser.verifyNotificationMessage("Bill generated successfully");
+				    Thread.sleep(5000);
+					driver.findElement(By.id("checkOut")).click();
+					Thread.sleep(2000);
+					Browser.verifyNotificationMessage("Appointment checked out successfully");
+					}
+				
 		//DoctorAppointment  Reschedule
 				public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 					

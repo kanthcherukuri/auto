@@ -127,6 +127,7 @@ System.out.println("Cliked on Book Button");
 		}
 
 public void selectDefaultSlot() throws InterruptedException{
+	Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
     if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
  
     	throw new SkipException("Slots are not available");
