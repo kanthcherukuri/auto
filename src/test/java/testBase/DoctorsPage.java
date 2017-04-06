@@ -15,8 +15,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
+
+
 
 
 public class DoctorsPage  {
@@ -461,218 +464,278 @@ public class DoctorsPage  {
 	}
 
 
-	public void ClickingOnDashboard(){
+public void ClickingOnDashboard(){
 
-		driver.findElement(By.id("dashBoard")).click();	
+driver.findElement(By.id("dashBoard")).click();	
+WebDriverWait wait=new WebDriverWait(driver,100);
+wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='label-font']")));
+}
+
+
+
+public void dashboardAppointmentListing(){
+
+
+String listingavailable=driver.findElement(By.xpath("//div[@class='label-font']")).getText();
+
+System.out.println("Listing Name:" +listingavailable );
+
+if(listingavailable.equalsIgnoreCase("Appointments Listing")){
+
+int appointmentlisting= driver.findElements(By.xpath("//div[@class='force-overflow']//div[@class='patient-details-dashboard']")).size();
+
+System.out.println(appointmentlisting);
+
+for(int i=1;i<=appointmentlisting; i++)
+{
+
+	String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
+
+System.out.println(name);
+
+if(name.equalsIgnoreCase("Amarnath R"))
+
+{
+	System.out.println("User Name Matched");
+System.out.println("The appointment created from Doctors login is Listed");
+driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
+
+//Thread.sleep(5000);
+
+expliciteWait("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span",100);
+
+//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span")));
+
+String validation=driver.findElement(By.xpath("//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span")).getText();
+
+System.out.println(validation);
+
+SoftAssert assertion=new SoftAssert();
+assertion.assertEquals(validation,"Amarnath R");
+	assertion.assertAll();
+
+	break;
+
+}
+
+else{
+
+	System.out.println("User Name Not Matched");
 
 	}
 
 
+}//for loop i
 
-	public void dashboardAppointmentListing(){
+}// if loop for checking listingavailable 
 
+else{
 
-		String listingavailable=driver.findElement(By.xpath("//div[@class='label-font']")).getText();
+	System.out.println("Appointments Listing is not Displayed");
 
-		System.out.println("Listing Name:" +listingavailable );
+	}
 
-		if(listingavailable.equalsIgnoreCase("Appointments Listing")){
-
-			int appointmentlisting= driver.findElements(By.xpath("//div[@class='force-overflow']//div[@class='patient-details-dashboard']")).size();
-
-			System.out.println(appointmentlisting);
-
-			for(int i=1;i<=appointmentlisting; i++)
-			{
-
-				String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
-
-				System.out.println(name);
-
-				if(name.equalsIgnoreCase("Amarnath R"))
-
-				{
-					System.out.println("User Name Matched");
-					System.out.println("The appointment created from Doctors login is Listed");
-					driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
-
-					//Thread.sleep(5000);
+}//if loop for sizeslot	
 
 
 
-					expliciteWait("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span",100);
+public void DoctorAppointmentListing() throws Exception{
 
-					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span")));
+driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
 
-					String validation=driver.findElement(By.xpath("//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span")).getText();
+driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
 
-					System.out.println(validation);
+driver.findElement(By.xpath(Elements_Doctors.morning)).click();
 
-					SoftAssert assertion=new SoftAssert();
-					assertion.assertEquals(validation,"Amarnath R");
-					assertion.assertAll();
+driver.findElement(By.xpath(Elements_Doctors.noon)).click();
 
-					break;
+driver.findElement(By.xpath(Elements_Doctors.evening)).click();
 
-				}
+int slotsize = driver.findElements(By.xpath("//*[@id='tab-3']/ul/li")).size();
 
-				else{
+if(slotsize>0)
+{
 
-					System.out.println("User Name Not Matched");
+driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
 
-				}
+Thread.sleep(1000);
+
+driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys("Amarnath");
+Thread.sleep(1000);
+driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys("R");
+Thread.sleep(1000);
+driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("9908500133");
+Thread.sleep(1000);
+driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys("amar@gmail.com");
+Thread.sleep(1000);
+driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
+Thread.sleep(1000);
+driver.findElement(By.id(Elements_Doctors.locatorsave)).click();
 
 
-			}//for loop i
+WebDriverWait wait=new WebDriverWait(driver,100);
+wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='tab-3']/ul/li[1][@class='bg-red']")));
 
-		}// if loop for checking listingavailable 
+driver.findElement(By.xpath("html/body/div[9]/div/div[2]/div[3]/span/i")).click();
 
-		else{
+driver.findElement(By.id("dashBoard")).click();		
 
-			System.out.println("Appointments Listing is not Displayed");
+//Thread.sleep(65000);
 
+wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='sp-dashboard-content']/div[1]/div[2]")));
+
+String listingavailable=driver.findElement(By.xpath("//div[@class='label-font']")).getText();
+
+System.out.println("Listing Name:" +listingavailable );
+
+if(listingavailable.equalsIgnoreCase("Appointments Listing")){
+
+int appointmentlisting= driver.findElements(By.xpath("//div[@class='force-overflow']//div[@class='patient-details-dashboard']")).size();
+
+System.out.println(appointmentlisting);
+
+for(int i=1;i<=appointmentlisting; i++)
+{
+
+String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
+
+System.out.println(name);
+
+if(name.equalsIgnoreCase("Amarnath R"))
+
+{
+System.out.println("User Name Matched");
+System.out.println("The appointment created from Doctors login is Listed");
+driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
+
+//Thread.sleep(5000);
+
+wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span")));
+
+String validation=driver.findElement(By.xpath("//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span")).getText();
+
+System.out.println(validation);
+
+SoftAssert assertion=new SoftAssert();
+assertion.assertEquals(validation,"Amarnath R");
+assertion.assertAll();
+
+break;
+
+}
+
+else{
+
+System.out.println("User Name Not Matched");
+
+}
+
+
+}//for loop i
+
+}// if loop for checking listingavailable 
+
+else{
+
+System.out.println("Appointments Listing is not Displayed");
+
+}
+
+}//if loop for sizeslot	
+
+}//method
+
+
+
+public void DoctorAppointmentForShowMore() throws Exception{
+	
+driver.findElement(By.id("appointment_appointmentCalendar")).click();	
+ 
+driver.findElement(By.xpath(".//*[@id='cd-0']")).click();
+ 
+driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]")).click();
+ 
+driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]")).click();
+ 
+driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]")).click();
+ 
+int slotsize = driver.findElements(By.xpath("//*[@id='tab-3']/ul/li")).size();
+
+ if(slotsize>0)
+ {
+for(int i=1;i<=5; i++) {			
+			
+ WebElement  elementtoclick= driver.findElement(By.xpath("//*[@id='tab-3']/ul/li["+i+"]/div[2]"));
+ ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+ elementtoclick.getLocation().x+")");
+ elementtoclick.click();
+ 
+Thread.sleep(1000);
+		 
+driver.findElement(By.xpath("//*[@id='firstName']")).sendKeys("Amarnath");
+Thread.sleep(1000);
+driver.findElement(By.id("lastName")).sendKeys("R");
+Thread.sleep(2000);
+driver.findElement(By.id("mobileNumber")).sendKeys("+919912345678");
+Thread.sleep(1000);
+driver.findElement(By.id("email")).sendKeys("amar@gmail.com");
+Thread.sleep(1000);
+driver.findElement(By.id("problem")).sendKeys("diabetic");
+Thread.sleep(1000);	
+driver.findElement(By.id("saveAppiontment")).click();	
+DoctorsPage.isElementPresnt(driver, "//*[@id='tab-3']/ul/li["+i+"][@class='bg-red']", 20);
+}//For Loop
+	 
+ }//if loop slotsize
+ 
+}
+
+
+public static WebElement isElementPresnt(WebDriver driver,String xpath,int time)
+{ 
+ 
+WebElement ele = null;
+ 
+for(int i=0;i<time;i++)
+{
+try{
+ele=driver.findElement(By.xpath(xpath));
+break;
+}
+catch(Exception e)
+{
+try 
+{
+Thread.sleep(1000);
+} catch (InterruptedException e1) 
+{
+System.out.println("Waiting for element to appear on DOM");
+}
+}
+ 
+}
+return ele;
+ 
+}
+
+
+
+public void CheckShowMore() throws InterruptedException{
+	
+ Thread.sleep(3000);
+if(driver.findElements(By.id("show-all-btn")).isEmpty()){
+	
+Assert.fail("Show More Button is not avaiable");	
+	
+}
+
+else{
+	driver.findElement(By.id("show-all-btn")).click();
+System.out.println("show More Button is present");		
+driver.findElement(By.id("show-less-btn")).click();
+System.out.println("Show Less Button is Present");;
+			
 		}
-
-	}//if loop for sizeslot	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public void DoctorAppointmentListing() throws Exception{
-
-		driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
-
-		driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
-
-		driver.findElement(By.xpath(Elements_Doctors.morning)).click();
-
-		driver.findElement(By.xpath(Elements_Doctors.noon)).click();
-
-		driver.findElement(By.xpath(Elements_Doctors.evening)).click();
-
-		int slotsize = driver.findElements(By.xpath("//*[@id='tab-3']/ul/li")).size();
-
-		if(slotsize>0)
-		{
-
-			driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
-
-			Thread.sleep(1000);
-
-			driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys("Amarnath");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys("R");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("9908500133");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys("amar@gmail.com");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatorsave)).click();
-
-
-			WebDriverWait wait=new WebDriverWait(driver,100);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='tab-3']/ul/li[1][@class='bg-red']")));
-
-			driver.findElement(By.xpath("html/body/div[9]/div/div[2]/div[3]/span/i")).click();
-
-			driver.findElement(By.id("dashBoard")).click();		
-
-			//Thread.sleep(65000);
-
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='sp-dashboard-content']/div[1]/div[2]")));
-
-			String listingavailable=driver.findElement(By.xpath("//div[@class='label-font']")).getText();
-
-			System.out.println("Listing Name:" +listingavailable );
-
-			if(listingavailable.equalsIgnoreCase("Appointments Listing")){
-
-				int appointmentlisting= driver.findElements(By.xpath("//div[@class='force-overflow']//div[@class='patient-details-dashboard']")).size();
-
-				System.out.println(appointmentlisting);
-
-				for(int i=1;i<=appointmentlisting; i++)
-				{
-
-					String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
-
-					System.out.println(name);
-
-					if(name.equalsIgnoreCase("Amarnath R"))
-
-					{
-						System.out.println("User Name Matched");
-						System.out.println("The appointment created from Doctors login is Listed");
-						driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
-
-						//Thread.sleep(5000);
-
-						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span")));
-
-						String validation=driver.findElement(By.xpath("//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span")).getText();
-
-						System.out.println(validation);
-
-						SoftAssert assertion=new SoftAssert();
-						assertion.assertEquals(validation,"Amarnath R");
-						assertion.assertAll();
-
-						break;
-
-					}
-
-					else{
-
-						System.out.println("User Name Not Matched");
-
-					}
-
-
-				}//for loop i
-
-			}// if loop for checking listingavailable 
-
-			else{
-
-				System.out.println("Appointments Listing is not Displayed");
-
-			}
-
-		}//if loop for sizeslot	
-
-	}//method
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
