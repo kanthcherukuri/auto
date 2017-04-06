@@ -57,7 +57,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	  
 		 if(runmode.equals("yes")){
 			 
-			 /*
+			
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
@@ -84,7 +84,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				DoctorsPage.doctorCheckinCheckOut();
 				DoctorsPage.doctorlogout();
 				
-				*/
+				
 				//Login as Recipient
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
