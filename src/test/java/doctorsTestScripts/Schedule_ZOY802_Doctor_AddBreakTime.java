@@ -2,12 +2,14 @@ package doctorsTestScripts;
 
 /*
  * @author-Manraj Bharaj
+
  * 
- * Description- Test case for "Schedule_Consultation" edit vacation days. 
- * Follow ZOY798 JIRA for understanding the manual test case
+ * Description- Test case for adding break time. 
+ * Follow ZOY802 JIRA for understanding the manual test case
  */
 
 import org.testng.annotations.Test;
+
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -43,7 +45,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime{
  //===============================================================================================================================================================//	
 	
 	@Test(enabled=true,dataProvider="DP1",groups = { "Regression","High" })
-  public void f(String runmode,String day,String start_time,String end_time) throws InterruptedException, ParseException, AWTException {
+  public void testAddBreakTime(String runmode,String day,String start_time,String end_time) throws InterruptedException, ParseException, AWTException {
 	  
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
 	  wait=new WebDriverWait(driver, 8000);
