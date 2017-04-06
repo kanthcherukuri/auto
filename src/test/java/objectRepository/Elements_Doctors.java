@@ -28,6 +28,7 @@ public class Elements_Doctors  {
 		//Doctor Appointment & Reschedule Locators
 		
 				public static String doctortab;
+				public static String todaymenu;
 				public static String tommorrowmenu;
 				public static String morning;
 				public static String noon;
@@ -38,6 +39,7 @@ public class Elements_Doctors  {
 				public static String locatormobile;
 				public static String locatoremail;
 				public static String locatorproblem;
+				public static String locatorsave;
 				public static String backgoundcolor;
 				public static String changeicon;
 				public static String nextmenu;
@@ -94,6 +96,7 @@ public class Elements_Doctors  {
 			//Doctor Appointment & Reschedule Locators
 			 
 			 doctortab="appointment_appointmentCalendar";
+			 todaymenu="//*[@id='cd-0']";
 			 tommorrowmenu="//*[@id='cd-1']";
 			 morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
 			 noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
@@ -104,6 +107,7 @@ public class Elements_Doctors  {
 			 locatormobile="mobileNumber";
 			 locatoremail="email";
 			 locatorproblem="problem";
+			 locatorsave="saveAppiontment";
 			 backgoundcolor="//*[@id='tab-3']/ul/li[1][@class='bg-red']";
 			 changeicon="//*[@id='change']";
 			 nextmenu="//*[@id='cd-2']";
@@ -125,6 +129,11 @@ public class Elements_Doctors  {
 			 sendnotficationbutton="//button[text()='Send Notification']";
        
 			sendnotification="//*[@id='resendNotification']/button";
+			
+			
+			
+			
+			
 		return driver;	
         
        

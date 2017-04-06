@@ -6,6 +6,7 @@ import objectRepository.*;
 
 import testBase.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
@@ -64,7 +65,7 @@ public class RecipientPage  {
 		
 		
 public void recipientLogin(String email, String password) throws InterruptedException{
-			
+	 Browser.waitFortheID("emailAddress");		
 	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).clear();
 	 driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(email);
 	 Thread.sleep(2000);
@@ -126,6 +127,7 @@ System.out.println("Cliked on Book Button");
 		}
 
 public void selectDefaultSlot() throws InterruptedException{
+	Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
     if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
  
     	throw new SkipException("Slots are not available");

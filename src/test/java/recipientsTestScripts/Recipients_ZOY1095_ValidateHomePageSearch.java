@@ -40,6 +40,14 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 		  	 
  } 
 
+	 
+	 
+	 @BeforeMethod(groups = { "Regression","High" })
+	 public void HomePage() throws Exception {
+			 Browser.openUrl(base_url);
+	
+	    }
+	 
  
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
@@ -47,11 +55,11 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateHomePageSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
+	 public void HomePageSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
 		  
 		 if(runmode.equals("yes")){
 			 //Test Starts - Here
-			 Browser.openUrl(base_url);
+			// Browser.openUrl(base_url);
 			 HomePage.searchZoylo(City, Locality, Specialization);
 			 Browser.waitFortheID(Elements_Home.map_AreaName);
 			 

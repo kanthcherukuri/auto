@@ -10,38 +10,37 @@ import testBase.TestUtils;
 
 public class Appointments_ZOY808_SendNotification extends LoadProp{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+public DoctorsPage DoctorsPageOfZoylo;
 	 
-	 public TestUtils exceldata;
+ public TestUtils exceldata;
+ 
 	 
-	 @BeforeClass
-	  public void beforeClass() throws Exception {
-		  
-		  
-		  LoadBrowserProperties();
-			 driver.manage().window().maximize();
-			 driver.get(doctors_Url);		 
-			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-			  }
+ @BeforeClass
+ 
+public void beforeClass() throws Exception {  	 
+LoadBrowserProperties();
+driver.manage().window().maximize();
+driver.get(doctors_Url);		 
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+  }
 		  
 		     
-	  @Test
-	  public  void SignIntoDoctorLogin() throws Exception {
-			
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-			DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-					
-			  }
-	  
-	  
-	  @Test
-	  public void nofication() throws Exception{
-		  
-		 
-		  DoctorsPageOfZoylo.patientsendnotification();
-	  
-			 }
+  @Test(priority=1)
+  
+public  void SignIntoDoctorLogin() throws Exception {
+DoctorsPageOfZoylo= new DoctorsPage(driver);			
+DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+}
+  
+  
+  @Test(priority=2)
+  
+public void nofication() throws Exception{	  
+	 
+DoctorsPageOfZoylo.patientsendnotification();
+  
+}
 	  
 	  
 	  
@@ -49,7 +48,7 @@ public class Appointments_ZOY808_SendNotification extends LoadProp{
 	  
 	  
 
-}
+}//Main Class
 	  
 
 
