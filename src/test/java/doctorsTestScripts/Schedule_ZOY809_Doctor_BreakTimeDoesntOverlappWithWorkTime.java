@@ -2,9 +2,11 @@ package doctorsTestScripts;
 
 /*
  * @author-Manraj Bharaj
+
+
  * 
- * Description- Test case for "Schedule_Consultation" edit vacation days. 
- * Follow ZOY798 JIRA for understanding the manual test case
+ * Description- Test case for adding time slots that do not overlapp with the work timings
+ * Follow ZOY809 JIRA for understanding the manual test case
  */
 
 import org.testng.annotations.Test;
