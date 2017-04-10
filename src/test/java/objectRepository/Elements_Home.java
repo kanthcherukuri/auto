@@ -15,7 +15,7 @@ public class Elements_Home  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String home_city,home_area,home_specialization,map_AreaName;
+	 public static String home_city,home_area,home_specialization,map_AreaName,searchIcon;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -35,6 +35,7 @@ public class Elements_Home  {
          home_area="search-area";
          home_specialization="name";
          map_AreaName="zy-location-right";
+         searchIcon="search-icon";
        
         
 		return driver;	
