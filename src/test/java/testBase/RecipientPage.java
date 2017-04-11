@@ -126,8 +126,22 @@ public class RecipientPage  {
 		System.out.println("Cliked on Book Button");
 	}
 
-	public void selectDefaultSlot() throws InterruptedException{
+	public void bookAppointmentOnDiagnostics() throws InterruptedException{
+
+		driver.findElement(By.xpath("//*[@id='diagnosticDetails']")).click();  // book
+		Browser.waitTill(60);
+		Thread.sleep(2000);
+		System.out.println("Cliked on Book Button");
+	}
+
+	public String[]  selectDefaultSlot() throws InterruptedException{
 		Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
+		String[] Appointmentdetails= new String[2];
+
+		Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
+		Appointmentdetails[1] = driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).getText();
+
+
 		if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
 
 			throw new SkipException("Slots are not available");
@@ -138,6 +152,56 @@ public class RecipientPage  {
 			System.out.println("Cliked on Default Slot Button");
 
 		}
+		return Appointmentdetails;
+	}
+
+	public void selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
+		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
+
+		if(pkg.isEmpty()){
+			//tests
+			driver.findElement(By.xpath("//*[@id='test-li']/a")).click();
+			driver.findElement(By.id("tests_search")).sendKeys(tests);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
+
+		}else if (tests.isEmpty()){
+			//pkg
+			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
+			driver.findElement(By.id("packages_search")).sendKeys(pkg);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
+
+		}else{
+			System.out.println("Enter in test pkg");
+			//tests
+			driver.findElement(By.xpath("//*[@id='test-li']/a")).click();
+			driver.findElement(By.id("tests_search")).sendKeys(tests);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
+
+			//pkg
+			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
+			driver.findElement(By.id("packages_search")).sendKeys(pkg);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
+			Thread.sleep(5000);
+
+		}
+       
+		driver.findElement(By.xpath("//*[@id='schedule-li']/a")).click();
+		Thread.sleep(10000);
+		if(driver.findElements(By.xpath("(//*[@class='timeSlot sp-available-slots'])[1]")).isEmpty()){
+
+			throw new SkipException("Slots are not available");
+
+		}else{
+			driver.findElement(By.xpath("(//*[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+			System.out.println("Cliked on Available Slot Button from diagonostics");
+
+		}
+
 	}
 	public void confirmAppointment(String details) throws InterruptedException{
 
@@ -148,14 +212,27 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
+	
+	public void confirmAppointmentOnDiagnostics() throws InterruptedException{
+
+		Browser.waitFortheElementXpath("//*[@id='bookAndPay']");
+
+		driver.findElement(By.xpath("//*[@id='bookAndPay']")).click();  //Confirm Appointment
+		Thread.sleep(5000); //changed
+		System.out.println("Appointment Confirmed");
+	}
 	public void confirmAppointmentAsOthers(String details,String Pname,String Pgender,String PAge) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
 		driver.findElement(By.xpath("//input[@value='others']")).click(); // self (Added newly)
-		driver.findElement(By.id("patientName")).sendKeys("");
+		Thread.sleep(2000);
+		driver.findElement(By.id("patientName")).sendKeys(Pname);
 		driver.findElement(By.id("patientGender")).sendKeys(Pgender);
 		driver.findElement(By.id("patientAge")).sendKeys(PAge);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(0, 250)");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
@@ -164,7 +241,7 @@ public class RecipientPage  {
 
 		Browser.waitFortheID("applyPromocode");
 		driver.findElement(By.id("applyPromocode")).click();
-		Thread.sleep(5000);
+		Thread.sleep(20000);
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();     //Make payment
@@ -187,6 +264,15 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		System.out.println("Cliked on Doctors Icon");
 	}
+
+	public void goToDiagnostics() throws InterruptedException{
+
+		driver.findElement(By.xpath("//*[@id='diagnostics']/span[1]/img")).click();  // book
+		Browser.waitTill(60);
+		Thread.sleep(2000);
+		System.out.println("Cliked on Doctors Icon");
+	}
+
 	public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
 
 
@@ -194,6 +280,22 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
 		Thread.sleep(5000);
+		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
+		System.out.println("Clicked on the"+Value);
+		driver.findElement(By.id("applyFilter")).click();
+		Thread.sleep(5000);	
+		System.out.println("Applied filter on"+FilterCatagory+" "+Value);
+	}
+	
+	public void ApplyFilterInDiagnostics(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
+
+
+
+		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
+		System.out.println("Clicked on the"+FilterCatagory);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
