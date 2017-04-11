@@ -28,7 +28,7 @@ public void beforeClass() throws Exception {
 		  }
 	  
 	     
-@Test
+@Test(priority=1)
 public  void SignIntoDoctorLogin() throws Exception {
 		
  DoctorsPageOfZoylo= new DoctorsPage(driver);			
@@ -36,7 +36,7 @@ DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 				
 		  }
 
-@Test
+@Test(priority=2)
 public void CheckingDashBoradShowMore() throws Exception{
 	DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
 	DoctorsPageOfZoylo.ClickingOnEllipse();
