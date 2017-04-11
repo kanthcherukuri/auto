@@ -13,6 +13,7 @@ import objectRepository.Elements_Recipients;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +48,22 @@ public class TestUtils {
 		Thread.sleep(5000);
 		System.out.println("Opened URL="+name);
 	}
+	
+	//Scroll by ID
+	public void scrollbyID(String ID)
+	{
+		WebElement scroll = driver.findElement(By.id(ID));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+	}
+	
+	//Scroll by xpath
+		public void scrollbyxpath(String xpath)
+		{
+			WebElement scroll = driver.findElement(By.xpath(xpath));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+		}
+	
+	
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
