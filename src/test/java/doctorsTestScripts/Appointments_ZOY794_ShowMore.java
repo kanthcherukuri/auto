@@ -24,7 +24,7 @@ public void beforeClass() throws Exception {
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	
+	//thread
 		  }
 	  
 	     
