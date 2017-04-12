@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadProp {
+public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -39,12 +39,20 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 		  	 
  } 
 
- 
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1176");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","","","","Password is required","Confirm Password is required" },
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","1234","Zoylo@124","Zoylo@124","Incorrect password","","" },
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@123","Current Password and New Password should not be match","","" },
+
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","ssdss","","","Min 8 chars, uppercase, lowercase, number, and special char mandatory","Confirm Password is required" },
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@12345","","","Confirm Password not matched" },
+
+					
+					
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void validatePasswordChange(String runmode,String username,String password,String currentPassword,String newPassword,String confirmPassword,String notifiMesg,String newPasswordMesg,String confirmPasswordMesg) throws Exception {
 	  
