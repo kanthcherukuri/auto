@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends LoadProp {
+public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 	 public HomePage HomePage;
@@ -46,12 +46,14 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1091");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Hyderabad","Ameerpet","Cardiology" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String Username, String Password,String city,String area,String specialization ) throws Exception {
+	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String city,String area,String specialization ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 
@@ -68,7 +70,7 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			 System.out.println("Doctor is"+DoctorFullName);
 			 RecipientPage.bookAppointment();
 			 RecipientPage.selectDefaultSlot();
-			 RecipientPage.recipientLogin(Username, Password);
+			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			 Thread.sleep(2000);
 			 RecipientPage.confirmAppointment("Test Details");
 			 RecipientPage.makePayment();

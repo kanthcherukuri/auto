@@ -24,7 +24,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp {
+public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -43,10 +43,13 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadProp 
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Login", "ZOY1062");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","testemail.com","Invalid email id","ganeshmandala@gmail.com","","Please enter your password.","ganeshmandala@gmail.com","12345","Incorrect password","ganeshmandala@gmail.com","Zoylo@123","Find a Doctor, Book Doctors Appointment Online in India - Zoylo" },
+					{ "yes","","Please enter your email.","ganeshmandala@gmail.com","","Please enter your password.","testdata@gmail.com","12345","User not found","ganeshmandala@gmail.com","Zoylo@123","Find a Doctor, Book Doctors Appointment Online in India - Zoylo" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" },priority=1)
 	 public void validateLoginScreenValidationsWithInvalidSetOfData(String runmode,String InvalidEmail, String Emailvalidation,String ValidEmail,String BlankPassword,String PassswordValidation,String Username, String InvalidPassword,String ScreenValidation,String ValidUsername,String ValidPassword,String RecipientScreenTitle) throws Exception {
 	  

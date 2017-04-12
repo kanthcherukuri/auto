@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadProp {
+public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -49,12 +49,14 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadProp {
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1072");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Deepak" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void validateAddDoctorFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void validateAddDoctorFavourites(String runmode,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 

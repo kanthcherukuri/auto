@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadProp {
+public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -35,17 +35,12 @@ public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadProp {
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);  
-		
-		  	 
+				  	 
  } 
-
- 
 
 	 @Test(groups = { "Regression","High" })
 	 public void ValidateRecipientlogout() throws Exception {
-	  
-		
-			 			 
+ 			 
 		  Browser.openUrl(recipient_url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -56,14 +51,7 @@ public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadProp {
 		
 			 }
 			 
-			
-	
-    
-	
-	 
-	 
-	 
-	 
+		
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {

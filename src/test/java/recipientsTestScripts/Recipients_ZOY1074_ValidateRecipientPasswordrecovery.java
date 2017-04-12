@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadProp {
+public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 

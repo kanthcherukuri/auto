@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends LoadProp {
+public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -47,10 +47,12 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1092");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Deepak","Cardiology","Sai Chinmayi Childrens Clinic","sdasd" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	 public void mapSearchByDoctors(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
 	  

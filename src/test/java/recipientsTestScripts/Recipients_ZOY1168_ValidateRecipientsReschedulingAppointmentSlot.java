@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot extends LoadProp {
+public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -44,19 +44,22 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1063");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Successfully changed the appointment slot","Deepak" }
+				
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsReschedulingAppointmentSlot(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void validateRecipientsReschedulingAppointmentSlot(String runmode,String SlotChangeMesg,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Username, Password);
+				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
 				RecipientPage.searchInZoyloMAP(Doctor);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();

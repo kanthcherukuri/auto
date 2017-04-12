@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadProp {
+public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -44,19 +44,21 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1170");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+				{ "yes","Deepak" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsMyAccountReviews(String runmode,String Username, String Password,String Doctor ) throws Exception {
+	 public void validateRecipientsMyAccountReviews(String runmode,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 			 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
 			//Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
+			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
 			RecipientPage.searchInZoyloMAP(Doctor);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();

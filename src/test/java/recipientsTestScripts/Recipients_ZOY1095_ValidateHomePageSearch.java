@@ -21,7 +21,7 @@ import testBase.*;
 import objectRepository.*;
 
 
-public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
+public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	 public HomePage HomePage;
 	 public TestUtils Browser;	
 
@@ -50,10 +50,16 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadProp {
 	 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1095");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Hyderabad","Ameerpet","CARDIOLOGY","Ameerpet" },
+					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Ameerpet" },
+					{ "yes","Bengalore","Koramangala","","Koramangala" },
+					{ "yes","Hyderabad","","","Kachiguda" },
+					{ "yes","Hyderabad","","CARDIOLOGY","Kachiguda" },
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void HomePageSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
 		  

@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1066_ValidateMapFilters extends LoadProp {
+public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 

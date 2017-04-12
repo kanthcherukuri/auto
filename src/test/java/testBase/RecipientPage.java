@@ -340,6 +340,7 @@ public class RecipientPage  {
 
 
 	public void goToMyAccounts(String TabName) throws InterruptedException{
+		Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 		Browser.waitTill(60);
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();

@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1189_ValidateRecipientReferFriend extends LoadProp {
+public class Recipient_ZOY1189_ValidateRecipientReferFriend extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
