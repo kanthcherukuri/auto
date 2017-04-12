@@ -49,7 +49,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-				{ "yes","Deepak","dr1130@gmail.com","Zoylo@123" }
+				{ "yes","Naresh Begavath","bnaresh.php@gmail.com","Zoylo@123" }
 
 			};
 		}

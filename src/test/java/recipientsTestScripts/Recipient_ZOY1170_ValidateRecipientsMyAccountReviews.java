@@ -42,25 +42,16 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 		  	 
  } 
 
- 
-	 @DataProvider(name = "DP1")
-		public String[][] createData1() {
-			return new String[][] {
-				{ "yes","Deepak" }
 
-			};
-		}
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsMyAccountReviews(String runmode,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 			 
+	 @Test(groups = { "Regression","High" })
+	 public void validateRecipientsMyAccountReviews( ) throws Exception {
+	 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
-			RecipientPage.searchInZoyloMAP(Doctor);
+			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();
 			RecipientPage.selectDefaultSlot();
@@ -89,13 +80,6 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			 Browser.openUrl(recipient_url);
 		     RecipientPage.recipientLogout();
 	
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
 			
 	    }
     

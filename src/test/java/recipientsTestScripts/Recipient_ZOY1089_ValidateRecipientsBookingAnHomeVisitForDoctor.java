@@ -48,7 +48,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Bengalore" }
+			{ "yes","Hyderabad" }
 
 		};
 	}
@@ -56,8 +56,6 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String City ) throws Exception {
 
 		if(runmode.equals("yes")){
-
-
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
@@ -70,6 +68,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls");
 			Thread.sleep(5000);
+			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DoctorFullName);

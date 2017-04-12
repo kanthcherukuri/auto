@@ -44,7 +44,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 
  
 
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
+	 @Test(groups = { "Regression","High" })
 	 public void validateRecipientsAppointmentCancel() throws Exception {
 	  
 			//Test Starts-Here
@@ -54,6 +54,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 			Thread.sleep(10000);
 			RecipientPage.searchInZoyloMAPArea("Hyderabad");
 			RecipientPage.clickOnMapICon();
+			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			 String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			 System.out.println("Doctor is"+DoctorFullName);

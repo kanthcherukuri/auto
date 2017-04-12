@@ -53,7 +53,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		public String[][] createData1() {
 			return new String[][] {
 					{ "yes","Hyderabad","Ameerpet","CARDIOLOGY","Ameerpet" },
-					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Ameerpet" },
+					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Marathahalli" },
 					{ "yes","Bengalore","Koramangala","","Koramangala" },
 					{ "yes","Hyderabad","","","Kachiguda" },
 					{ "yes","Hyderabad","","CARDIOLOGY","Kachiguda" },
@@ -68,7 +68,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			// Browser.openUrl(base_url);
 			 HomePage.searchZoylo(City, Locality, Specialization);
 			 Browser.waitFortheID(Elements_Home.map_AreaName);
-			 
+			 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
 			 Assert.assertEquals(ActualResult, Expected);	

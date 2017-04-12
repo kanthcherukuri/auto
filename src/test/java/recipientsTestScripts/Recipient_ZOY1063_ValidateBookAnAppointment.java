@@ -42,27 +42,18 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 		  	 
  } 
 
- 
 
-	 @DataProvider(name = "DP1")
-		public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Ganesh" }
 
-			};
-		}
-
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
+	 @Test(groups = { "Regression","High" })
+	 public void validateBookingAnAppointment( ) throws Exception {
 	  
-		 if(runmode.equals("yes")){
-			 		 
+		 		 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor);
+				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				RecipientPage.selectDefaultSlot();
@@ -72,13 +63,6 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 
 	 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
-			
 	    }
     
 	 

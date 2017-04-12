@@ -42,26 +42,15 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 		  	 
  } 
 
- 
-	 @DataProvider(name = "DP1")
-		public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Successfully changed the appointment slot","Deepak" }
-				
-
-			};
-		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsReschedulingAppointmentSlot(String runmode,String SlotChangeMesg,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 			 
+	 public void validateRecipientsReschedulingAppointmentSlot( ) throws Exception {
+	  		 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor);
+				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				RecipientPage.selectDefaultSlot();
@@ -69,10 +58,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
-		
-			 
-			 
+ 
 			//Re Scheduling the Apppointment
 			 Browser.openUrl(recipient_url);
 			 driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
@@ -89,25 +75,13 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 		     Thread.sleep(2000);
 		     String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			 System.out.println("RescheduleMesg"+RescheduleMesg);
-		     Assert.assertEquals(RescheduleMesg, SlotChangeMesg);
+		     Assert.assertEquals(RescheduleMesg, "Successfully changed the appointment slot");
 			 Browser.openUrl(recipient_url);
 		     RecipientPage.recipientLogout();
 	
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
-			
+		
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
