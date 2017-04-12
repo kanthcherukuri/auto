@@ -5,15 +5,18 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY819_FollowUP extends LoadProp {
+public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -38,7 +41,7 @@ public class Appointment_ZOY819_FollowUP extends LoadProp {
 	  public  void SignIntoDoctorLogin() throws Exception {
 			
 			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-			DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+			DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 					
 			  }
 	  
@@ -46,6 +49,7 @@ public class Appointment_ZOY819_FollowUP extends LoadProp {
 	  
 	  public void followup() throws Exception{
 		  
+		  WebDriverWait wait=new WebDriverWait(driver,8000); 
 		  String isFound = "true";
 		  String isFound1 = "true";
 		  String isFound2 = "true";
@@ -124,7 +128,10 @@ public class Appointment_ZOY819_FollowUP extends LoadProp {
 										Thread.sleep(1000);
 
 										driver.findElement(By.id("saveFollowUpAppiontment")).click();
-										Thread.sleep(20000);
+										
+										wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='tab-3']/ul/li[1][@class='bg-red']")));
+										
+										wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
 										String notification = driver.findElement(By.xpath("html/body/div[6]/div")).getText();
 
 										System.out.println(notification);

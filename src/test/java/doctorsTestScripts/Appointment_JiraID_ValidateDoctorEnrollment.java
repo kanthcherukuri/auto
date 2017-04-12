@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
+public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 	 public HomePage HomePageOfZoylo;
 	 public TestUtils Browser;	
 
@@ -35,10 +35,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
-		  LoadBrowserProperties(); // Create driver instance and launch the browser
-		  Elements_Doctors.Doc_PageProperties(); // loading UI Page Elements / Locators
-		  HomePageOfZoylo= new HomePage(driver); // Loading Pages
-		  Browser= new TestUtils(driver);        
+		        
 		  	 
  } 
 

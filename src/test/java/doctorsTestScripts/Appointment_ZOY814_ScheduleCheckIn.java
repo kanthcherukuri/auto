@@ -12,9 +12,10 @@ import org.testng.annotations.AfterClass;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY814_ScheduleCheckIn extends LoadProp  {
+public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -38,7 +39,7 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadProp  {
   public  void SignIntoDoctorLogin() throws Exception {
 		
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				
 		  }
   
