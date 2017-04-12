@@ -14,6 +14,7 @@ browser.name=chrome
 base.url=https://zoyloqa.zoylo.com/
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 recipient.url=https://zoyloqa.zoylo.com/login
+index.url=https://zoyloqa.zoylo.com/index
 
 
 //------Login User Details---//

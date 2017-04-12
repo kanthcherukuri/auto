@@ -15,7 +15,7 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot;
+	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_privacyIndex,link_cancellationIndex,link_signinIndex;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -36,7 +36,13 @@ public class Elements_Recipients  {
          Recipient_Button_Login="//button[text()='Login']";
          Recipient_Wrapper="div.zy-status-wrapper";
          Default_Slot="(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]";
-       
+         link_myAccountheaderIcon="//img[@class='indexProfileImg']";
+         link_aboutHeaderIndex="aboutOption_Index";
+         link_contactUsIndex="contactOption_Index";
+         link_termsIndex="termsOption_Index";
+         link_privacyIndex="privacy_Index";
+         link_cancellationIndex="cancellationOption_Index";
+         link_signinIndex="myAccountLink";
         
 		return driver;	
         
