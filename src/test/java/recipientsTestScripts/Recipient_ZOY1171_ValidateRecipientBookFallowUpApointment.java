@@ -27,7 +27,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends LoadProp {
+public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;	
@@ -46,14 +46,15 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 		  	 
  } 
 
- 
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1171");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+				{ "yes","Naresh Begavath","bnaresh.php@gmail.com","Zoylo@123" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingFallowUpAppointmentForDoctor(String runmode,String Username, String Password,String Doctor,String DoctorUserName,String DoctorPassword ) throws Exception {
+	 public void validateBookingFallowUpAppointmentForDoctor(String runmode,String Doctor,String DoctorUserName,String DoctorPassword ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 
@@ -61,7 +62,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Username, Password);
+				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
 				RecipientPage.searchInZoyloMAP(Doctor);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
@@ -88,7 +89,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				//Login as Recipient
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Username, Password);
+				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				driver.findElement(By.id("submitReview")).click();

@@ -26,7 +26,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations extends LoadProp {
+public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -45,10 +45,17 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Login", "ZOY1067");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","","Full name is mandatory","","Email address is mandatory","","Password is mandatory","","Confirm password is mandatory","","Mobile number is mandatory","123","no",""},
+					{ "yes","test","Enter only alphabets of minimum 5 characters","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","no",""},
+					{ "yes","testName","","zyz@gmail","Invalid email id","Zoylo@123","","Zoylo@123","","9912345070","","123","no",""},
+					{ "yes","testName","","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","99123","Invalid mobile number","123","no",""},
+					{ "yes","testName","","zyz@gmail.com","","12345","Min 8 chars, uppercase, lowercase, number, and special char mandatory","9912345070","Confirm Password is not matching the password","9912345070","","123","no",""},
+					{ "yes","testName","","ganeshmandala@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","yes","Email Address must be unique"},
+					{ "yes","testName","","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","yes","Mobile Number +919912345070 is already in use with Zoylo App"},
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void validateRecipientAccountCreationValidations(String runmode,String FullName, String FullNameValidation,String Email,String EmailValidation,String Password,String PasswordValidation, String ConfirmPassword,String ConfirmPasswordValidation,String Mobile,String MobileValidation,String RefCode,String ScreenValidationTab,String ScreenValidation) throws Exception {
 	  

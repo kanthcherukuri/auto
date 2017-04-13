@@ -48,6 +48,8 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadProp {
 		Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY10");
 		return(retObjArr);
 	}
+	
+	
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
 	public void validateBookingAnAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
 

@@ -43,20 +43,13 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
  } 
 
  
-	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1063");
-	        return(retObjArr);
-	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientRebookingOfAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 			 
+	 public void validateRecipientRebookingOfAppointment() throws Exception {
+	   			 
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);			
 			 //Verify Recipient Login with valid details
-			 RecipientPage.recipientLogin(Username, Password);
+			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			 Thread.sleep(2000);
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Thread.sleep(5000);// Added for view
@@ -71,22 +64,10 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
 			 Browser.openUrl(recipient_url);
 		     RecipientPage.recipientLogout();
-	
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
+
 			
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {

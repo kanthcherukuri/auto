@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends LoadProp {
+public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 	 public HomePage HomePage;
@@ -46,17 +46,17 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1091");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Hyderabad","","" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String Username, String Password,String city,String area,String specialization ) throws Exception {
+	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String city,String area,String specialization ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 
-			 
-			 
+	
 			 //Test Starts - Here
 			 Browser.openUrl(base_url);
 			 HomePage.searchZoylo(city, area, specialization);
@@ -64,24 +64,20 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			 Thread.sleep(10000);
 			 driver.findElement(By.xpath("//div[@id='mapIconMenu']/span/img")).click();
 			 Thread.sleep(5000);
+			 RecipientPage.searchInZoylodetailMAP(Doctor_Name);
+			 Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			 String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			 System.out.println("Doctor is"+DoctorFullName);
 			 RecipientPage.bookAppointment();
 			 RecipientPage.selectDefaultSlot();
-			 RecipientPage.recipientLogin(Username, Password);
+			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			 Thread.sleep(2000);
 			 RecipientPage.confirmAppointment("Test Details");
 			 RecipientPage.makePayment();
 			 String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			 Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			 RecipientPage.recipientLogout();
-		
-			 
-			 
-			 
-			 
-	
-			 
+			 //RecipientPage.recipientLogout();
+	 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");

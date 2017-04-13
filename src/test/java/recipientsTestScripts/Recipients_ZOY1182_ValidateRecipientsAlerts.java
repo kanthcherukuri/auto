@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadProp {
+public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -42,14 +42,15 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadProp {
 		  	 
  } 
 
- 
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1063");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","ganeshkumar.m@zoylo.com","Zoylo@123","Ganesh" }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsAlerts(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
+	 public void validateRecipientsAlerts(String runmode,String Username,String Password,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -58,7 +59,7 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadProp {
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Username, Password);
 				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor);
+				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				RecipientPage.selectDefaultSlot();

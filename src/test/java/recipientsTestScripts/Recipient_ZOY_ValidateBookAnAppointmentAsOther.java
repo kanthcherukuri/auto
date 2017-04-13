@@ -25,10 +25,9 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor extends LoadPropMac {
+public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadProp {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
-	public HomePage HomePage;
 
 
 
@@ -39,7 +38,6 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 		LoadBrowserProperties(); // Create driver instance and launch the browser
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		RecipientPage = new RecipientPage(driver); // Loading Pages
-		HomePage = new HomePage(driver);
 		Browser= new TestUtils(driver);        
 
 	} 
@@ -48,12 +46,13 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad" }
+				{ "yes","Ganesh" }
 
 		};
 	}
+	
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String City ) throws Exception {
+	public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
 
 		if(runmode.equals("yes")){
 
@@ -61,25 +60,20 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			Browser.openUrl(recipient_url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			Thread.sleep(10000);
-			//Searching Locality/Area
-			RecipientPage.searchInZoyloMAPArea(City);
-			RecipientPage.clickOnFilterImg();
-			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls");
-			Thread.sleep(5000);
-			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
-			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
+			Thread.sleep(2000);
+			RecipientPage.searchInZoyloMAP(Doctor);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
-			System.out.println("Doctor is"+DoctorFullName);
 			RecipientPage.bookAppointment();
-			RecipientPage.selectDefaultSlot();
-			RecipientPage.confirmAppointment("Test Details");
+			String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
+			System.out.println("App details"+Appointmentdetails[0]);
+			System.out.println("App details"+Appointmentdetails[1]);
+			RecipientPage.confirmAppointmentAsOthers("Health details","Ganesh","Male","30");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
+			String ClinicName = driver.findElement(By.xpath("//div[@class='book-dtbox']/h3[2]")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			RecipientPage.recipientLogout();
-
+			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
+            
 
 		}else{
 

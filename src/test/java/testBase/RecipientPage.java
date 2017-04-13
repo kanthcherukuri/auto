@@ -105,6 +105,17 @@ public class RecipientPage  {
 		Thread.sleep(5000);	
 
 	}
+	
+	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
+		driver.findElement(By.id("searchFilter")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
+		System.out.println("Cliked on span");
+		Thread.sleep(5000);	
+
+	}
 
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 
@@ -340,6 +351,7 @@ public class RecipientPage  {
 
 
 	public void goToMyAccounts(String TabName) throws InterruptedException{
+		Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 		Browser.waitTill(60);
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();

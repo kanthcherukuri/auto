@@ -25,12 +25,10 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends LoadProp {
+public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 	 public HomePage HomePage;
-
-	
 	
 		
 	 @BeforeClass(groups = { "Regression","High" })	
@@ -45,23 +43,18 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
  } 
 
  
-	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1169");
-	        return(retObjArr);
-	    }
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsAppointmentCancel(String runmode,String Username, String Password,String City ) throws Exception {
+
+	 @Test(groups = { "Regression","High" })
+	 public void validateRecipientsAppointmentCancel() throws Exception {
 	  
-		 if(runmode.equals("yes")){
- 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
 			//Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
+			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(10000);
-			RecipientPage.searchInZoyloMAPArea(City);
+			RecipientPage.searchInZoyloMAPArea("Hyderabad");
 			RecipientPage.clickOnMapICon();
+			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			 String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			 System.out.println("Doctor is"+DoctorFullName);
@@ -89,18 +82,6 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 			 Assert.assertEquals(cancel_mesg, "Appointment has been Cancelled");
 			 RecipientPage.recipientLogout();
 		
-			 
-			 
-			 
-			 
-	
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
 			
 	    }
     

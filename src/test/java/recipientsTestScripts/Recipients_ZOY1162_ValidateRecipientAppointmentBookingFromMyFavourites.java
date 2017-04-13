@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavourites extends LoadProp {
+public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavourites extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -43,24 +43,17 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 		  	 
  } 
 
- 
-	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY1072");
-	        return(retObjArr);
-	    }
-	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
-	 public void validateRecipientAppointmentBookingFromMyFavourites(String runmode,String Username, String Password,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 			 
+
+	 @Test(groups = { "Regression","Medium" })
+	 public void validateRecipientAppointmentBookingFromMyFavourites() throws Exception {
+	   			 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);
 			Thread.sleep(2000);
 		    //Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
+			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
-			RecipientPage.searchInZoyloMAP(Doctor);
+			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("fav"+Fav_DoctorFullName);
 			RecipientPage.bookAppointment();
@@ -89,15 +82,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			System.out.println("fav doc after un check"+fav_doc);
 			Assert.assertTrue(fav_doc);
 			RecipientPage.goToDoctors();
-			 
-			 
-			
-			 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
+	
 			
 			
 	    }
