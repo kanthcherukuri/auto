@@ -1,24 +1,21 @@
 package doctorsTestScripts;
 
-
-
-import org.openqa.selenium.*;
-
-
-
-
-
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.SkipException;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;
 import atu.testng.reports.listeners.MethodListener;
 */
-import testBase.*;
-import objectRepository.*;
+import testBase.HomePage;
+import testBase.LoadProp;
+import testBase.TestUtils;
 
 /*
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,

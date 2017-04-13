@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadProp {
+public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
 
