@@ -1,0 +1,41 @@
+//Driver -path
+
+driver.path=C:/Users/Z9149/Downloads/
+
+
+
+//----Browser------//
+
+browser.name=chrome
+
+
+//----Login URL Details---//
+
+base.url=https://zoyloqa.zoylo.com/
+enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
+recipient.url=https://zoyloqa.zoylo.com/login
+index.url=https://zoyloqa.zoylo.com/index
+
+
+//------Login User Details---//
+
+login.username=Ganesh
+
+login.password=ganesh123
+
+sample data
+
+//--------Doctor Login Details----//
+
+Doctors.Url=https://zoyloqa.zoylo.com/login
+DoctorsLogin.username=sagarsen@gmai.com
+DoctorsLogin.password=Zoylo@1234
+browser=chrome
+
+DoctorsLogin.usernameone=kanthch@hotmail.com
+DoctorsLogin.passwordone=Zoylo@666
+
+//--------Recipient Login Details----//
+
+Recipient.Username=ganeshmandala@gmail.com
+Recipient.Password=Zoylo@123
