@@ -15,6 +15,7 @@ import atu.testng.reports.listeners.MethodListener;
 */
 import testBase.HomePage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
 /*

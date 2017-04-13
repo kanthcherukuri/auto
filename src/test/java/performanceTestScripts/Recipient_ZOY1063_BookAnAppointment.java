@@ -92,10 +92,7 @@ public class Recipient_ZOY1063_BookAnAppointment extends LoadPropMac {
 	@AfterClass
 
 	public void Exit() {
-
-
 		driver.close();
-
 
 	}
 
