@@ -22,13 +22,16 @@ public class LoadPropMac   {
 	 public static String base_url,recipient_url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 	public static String DoctorsLogin_username, DoctorsLogin_password, Doctor_Name;
 	public static String Recipient_Username, Recipient_Password;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,diagnostic_url;
+	
+	//Diagnostic Variables
+	public static String Diagnostic_usernameone,Diagnostic_passwordone;
 	 
 
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
-        inStream = new FileInputStream(new File("ConfigFiles/Setup-Details1.txt"));
+        inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
         Properties prop = new Properties();
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
@@ -54,6 +57,14 @@ public class LoadPropMac   {
        //Recipients -Login Credentails
         Recipient_Username=prop.getProperty("Recipient.Username");
         Recipient_Password=prop.getProperty("Recipient.Password");
+        
+        //Diagnostic- Login Credentials
+        
+        Diagnostic_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
+        Diagnostic_passwordone=prop.getProperty("DiagnosticLogin.passwordone");
+        diagnostic_url =prop.getProperty("diagnostic_url");
+        
+      
         
         
         
