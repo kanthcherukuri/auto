@@ -48,7 +48,7 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Hyderabad","","" }
+					{ "yes","Hyderabad","Ameerpet","Cardiology" }
 
 			};
 		}
@@ -56,7 +56,9 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	 public void validateBookingAnAppointmentWithoutLogin(String runmode,String city,String area,String specialization ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-	
+			 
+			 
+			 
 			 //Test Starts - Here
 			 Browser.openUrl(base_url);
 			 HomePage.searchZoylo(city, area, specialization);
@@ -64,8 +66,6 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			 Thread.sleep(10000);
 			 driver.findElement(By.xpath("//div[@id='mapIconMenu']/span/img")).click();
 			 Thread.sleep(5000);
-			 RecipientPage.searchInZoylodetailMAP(Doctor_Name);
-			 Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			 String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			 System.out.println("Doctor is"+DoctorFullName);
 			 RecipientPage.bookAppointment();
@@ -76,8 +76,14 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			 RecipientPage.makePayment();
 			 String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			 Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			 //RecipientPage.recipientLogout();
-	 
+			 RecipientPage.recipientLogout();
+		
+			 
+			 
+			 
+			 
+	
+			 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");

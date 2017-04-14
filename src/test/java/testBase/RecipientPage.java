@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 
 
-public class RecipientPage extends LoadPropMac {
+public class RecipientPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
 	public TestUtils Browser;
@@ -80,7 +80,7 @@ public class RecipientPage extends LoadPropMac {
 
 	public void recipientLogout() throws InterruptedException{
 
-		driver.get(""+base_url+"myaccount");
+		driver.get("https://zoyloqa.zoylo.com/myaccount");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
 		Thread.sleep(2000);
@@ -105,17 +105,6 @@ public class RecipientPage extends LoadPropMac {
 		Thread.sleep(5000);	
 
 	}
-	
-	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
-		driver.findElement(By.id("searchFilter")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
-		System.out.println("Cliked on span");
-		Thread.sleep(5000);	
-
-	}
 
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 
@@ -128,7 +117,16 @@ public class RecipientPage extends LoadPropMac {
 		System.out.println("Searched with location"+Area);
 
 	}
+	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
+		driver.findElement(By.id("searchFilter")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
+		System.out.println("Cliked on span");
+		Thread.sleep(5000);	
 
+	}
 	public void bookAppointment() throws InterruptedException{
 
 		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();  // book
@@ -141,7 +139,6 @@ public class RecipientPage extends LoadPropMac {
 
 		driver.findElement(By.xpath("//*[@id='diagnosticDetails']")).click();  // book
 		Browser.waitTill(60);
-		Thread.sleep(2000);
 		System.out.println("Cliked on Book Button");
 	}
 
@@ -251,9 +248,9 @@ public class RecipientPage extends LoadPropMac {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.id("applyPromocode")).click();
-		Thread.sleep(20000);
-		driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
+		Thread.sleep(10000);
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		Browser.waitTill(60);
@@ -277,13 +274,23 @@ public class RecipientPage extends LoadPropMac {
 	}
 
 	public void goToDiagnostics() throws InterruptedException{
-
+		Browser.waitFortheElementXpath("//*[@id='diagnostics']/span[1]/img");
 		driver.findElement(By.xpath("//*[@id='diagnostics']/span[1]/img")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
-		System.out.println("Cliked on Doctors Icon");
+		System.out.println("Cliked on Diagnostics Icon");
 	}
+	
 
+
+	public void goToAppointments() throws InterruptedException{
+		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
+		Browser.waitTill(60);
+		driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
+		Browser.waitTill(60);
+		Thread.sleep(5000);// Added for view
+		System.out.println("Clicked On Appointments");
+	}
 	public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
 
 
@@ -298,6 +305,8 @@ public class RecipientPage extends LoadPropMac {
 		System.out.println("Applied filter on"+FilterCatagory+" "+Value);
 	}
 	
+	
+	
 	public void ApplyFilterInDiagnostics(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
 
 
@@ -305,8 +314,14 @@ public class RecipientPage extends LoadPropMac {
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
 		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
-		Thread.sleep(2000);
+		
+		if(Search.equals("")){
+			System.out.println("No Serach in filters");
+		}else{
+			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
+			Thread.sleep(2000);	
+		}
+	
 		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();

@@ -2,15 +2,13 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointments_ZOY808_SendNotification extends LoadPropMac{
+public class Appointments_ZOY808_SendNotification extends LoadProp{
 	
 public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -45,10 +43,7 @@ DoctorsPageOfZoylo.patientsendnotification();
 }
 	  
 	  
-  @AfterClass
-  public void closebrowser(){
-	  driver.close();
-  }
+	  
 	  
 	  
 	  

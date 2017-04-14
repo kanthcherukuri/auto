@@ -20,12 +20,18 @@ public class LoadPropMac   {
 	 public static String driverpath;
 
 	 public static String base_url,recipient_url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
-	public static String DoctorsLogin_username, DoctorsLogin_password, Doctor_Name;
-	public static String Recipient_Username, Recipient_Password;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,diagnostic_url;
+
+
+	public static String diagnostic_url;
 	
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
+
+	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name;
+	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,Recipient_DSpassword;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
+	public static String admin_user,admin_password;
+
 	 
 
 		public static WebDriver driver;
@@ -42,8 +48,9 @@ public class LoadPropMac   {
         login_password=prop.getProperty("login.password");
         browser_name=prop.getProperty("browser.name");
         login_username=prop.getProperty("login.username");
-        index_url=prop.getProperty("index.url");
         Doctor_Name=prop.getProperty("Doctor.Name");
+        Diagnostic_Name=prop.getProperty("Diagnostic.Name");
+        index_url=prop.getProperty("index.url");
         
         
         
@@ -58,6 +65,7 @@ public class LoadPropMac   {
         Recipient_Username=prop.getProperty("Recipient.Username");
         Recipient_Password=prop.getProperty("Recipient.Password");
         
+
         //Diagnostic- Login Credentials
         
         Diagnostic_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
@@ -66,8 +74,14 @@ public class LoadPropMac   {
         
       
         
+
+        Recipient_DSusername=prop.getProperty("Recipient.DSusername");
+        Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
+
         
-        
+        //Admin - Login credentials
+        admin_user=prop.getProperty("admin.user");
+        admin_password=prop.getProperty("admin.password");
        
         
         if(browser_name.equals("chrome")){

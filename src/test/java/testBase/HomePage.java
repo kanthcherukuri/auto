@@ -15,10 +15,10 @@ import com.sun.org.omg.CORBA.ExceptionDescription;
 public class HomePage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
-	
+	 public TestUtils Browser;
 	public HomePage(WebDriver driver) throws Exception {
 		this.driver=driver;
-		
+		Browser= new TestUtils(driver); 
 		Elements_Home.Home_PageProperties();
 		Elements_Doctors.Doc_PageProperties();
 		
@@ -32,26 +32,26 @@ public class HomePage  {
 	public  void searchZoylo(String City, String Locality,String Specialization) throws InterruptedException{
 		
 		
-		
+		Browser.waitFortheID(Elements_Home.home_city);
 		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
+		Thread.sleep(2000);
 		// In case of Null Area
 		try{
 		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
+		Thread.sleep(2000);
 		} catch(Exception e) {
 			
 		}
 		// In case of Null Specialization
 		try{
 		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         } catch(Exception e) {
 			
 		}
@@ -87,8 +87,8 @@ public  void searchQuery(String City, String Locality,String Specialization) thr
 			
 		}
 		
+		
 	}
-	
 	 /*   @Autur : Ganesh Mandala
 	  *   Entering the test details in Doctor enrollment Page and submitting the page
 	  */

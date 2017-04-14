@@ -2,13 +2,16 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import org.testng.annotations.*;
 import testBase.DoctorsPage;
-import testBase.LoadPropMac;
+import testBase.LoadProp;
 import testBase.TestUtils;
 
-public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
+public class Appointment_ZOY773_AppointmentListing extends LoadProp {
 	
 	
 	public DoctorsPage DoctorsPageOfZoylo;
@@ -31,7 +34,6 @@ public  void SignIntoDoctorLogin() throws Exception {
 	 
 DoctorsPageOfZoylo= new DoctorsPage(driver);			
 DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-Thread.sleep(10000);
 		
   }
   
@@ -43,21 +45,15 @@ public void appListing() throws Exception{
 	//DoctorsPageOfZoylo.DoctorAppointmentListing();	
 	
 	DoctorsPageOfZoylo.DoctorappointmentCreation();
-    //DoctorsPageOfZoylo.expliciteWait("//*[@id='tab-3']/ul/li[1][@class='bg-red']",5000);
-	Thread.sleep(2000);
+    DoctorsPageOfZoylo.expliciteWait("//*[@id='tab-3']/ul/li[1][@class='bg-red']",100);
     DoctorsPageOfZoylo.ClickingOnEllipse();
     DoctorsPageOfZoylo.ClickingOnDashboard();
-    DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",5000);
+    DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
     DoctorsPageOfZoylo.dashboardAppointmentListing();
 	
 }
 	
-@AfterClass	
-public void afterclass(){
 	
-	driver.close();
-	
-}
 	
 
 }//main Class

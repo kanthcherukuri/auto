@@ -43,17 +43,26 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 		  	 
  } 
 
+ 
+	 @DataProvider(name = "DP1")
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Deepak" }
 
-	 @Test(groups = { "Regression","Medium" })
-	 public void validateRecipientAppointmentBookingFromMyFavourites() throws Exception {
-	   			 
+			};
+		}
+	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
+	 public void validateRecipientAppointmentBookingFromMyFavourites(String runmode,String Doctor ) throws Exception {
+	  
+		 if(runmode.equals("yes")){
+			 			 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);
 			Thread.sleep(2000);
 		    //Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
-			RecipientPage.searchInZoyloMAP(Doctor_Name);
+			RecipientPage.searchInZoyloMAP(Doctor);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("fav"+Fav_DoctorFullName);
 			RecipientPage.bookAppointment();
@@ -82,7 +91,15 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			System.out.println("fav doc after un check"+fav_doc);
 			Assert.assertTrue(fav_doc);
 			RecipientPage.goToDoctors();
-	
+			 
+			 
+			
+			 
+		 }else{
+			 
+			throw new SkipException("RUNMODE IS OFF");
+			
+		 }
 			
 			
 	    }

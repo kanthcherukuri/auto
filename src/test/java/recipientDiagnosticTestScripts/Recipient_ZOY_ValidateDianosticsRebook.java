@@ -1,4 +1,4 @@
-package recipientsTestScripts;
+package recipientDiagnosticTestScripts;
 
 
 
@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadProp {
+public class Recipient_ZOY_ValidateDianosticsRebook extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -43,22 +43,22 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
  } 
 
  
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
+	 @Test(groups = { "Regression","High" })
 	 public void validateRecipientRebookingOfAppointment() throws Exception {
 	   			 
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);			
 			 //Verify Recipient Login with valid details
-			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+			 RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			 Thread.sleep(2000);
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Thread.sleep(5000);// Added for view
 			 driver.findElement(By.id("hist")).click();  // my History
 			 Thread.sleep(5000);
-			 driver.findElement(By.cssSelector("a.callLink > div.call-btn")).click();
+			 driver.findElement(By.xpath("(//button[text()='Re-Book'])[1]")).click();
 			 Thread.sleep(5000);
-			 RecipientPage.selectDefaultSlot();
-			 RecipientPage.confirmAppointment("Fever");
+			 RecipientPage.selectAvailableSlotInDiagnostics("Sugar Test", "Zoylo Health Pkg");
+			 RecipientPage.confirmAppointmentOnDiagnostics();
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));

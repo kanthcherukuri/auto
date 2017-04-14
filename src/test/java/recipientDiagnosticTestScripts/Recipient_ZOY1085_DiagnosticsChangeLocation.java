@@ -1,9 +1,13 @@
-package performanceTestScripts;
+package recipientDiagnosticTestScripts;
 
 
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+
+
+
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -21,43 +25,50 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipients_ZOY1092_SearchByClinic extends LoadPropMac {
+public class Recipient_ZOY1085_DiagnosticsChangeLocation extends LoadPropMac {
 	public RecipientPage RecipientPage;
+	public HomePage HomePage;
 	public TestUtils Browser;	
 
 
 
 
 	@BeforeClass(groups = { "Regression","High" })	
-	public void launchBrowser() throws Exception {
+	public void LaunchBrowser() throws Exception {
 
 		LoadBrowserProperties(); // Create driver instance and launch the browser
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
+		HomePage = new HomePage(driver); // Loading Pages
 		RecipientPage = new RecipientPage(driver); // Loading Pages
-		Browser= new TestUtils(driver);   
-		//Test Starts-Here
-		Browser.openUrl(recipient_url);			
-		//Verify Recipient Login with valid details
-		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
-		//Searching Locality/Area
-		RecipientPage.searchInZoyloMAPArea("Hyderabad");
-		//Verify search with Doctors name
-		driver.findElement(By.id("search2")).click();
-		driver.findElement(By.id("indexSearchTextbox")).sendKeys("sai clinic");
-		Thread.sleep(2000);
+		Browser= new TestUtils(driver);        
+
 	} 
 
 
-	@Test()
-	public void searchByClinic() throws Exception {
 
-		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
-		Browser.waitFortheElementXpath("//div[@class='dctr-desig']");	
-	
+
+	@Test(priority=1)
+	public void validateDiagnosticsChangeLocation() throws Exception {
+		//Test Starts-Here
+		Browser.openUrl(recipient_url);			
+		//Verify Recipient Login with valid details
+		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
+		RecipientPage.goToDiagnostics();
+		RecipientPage.searchInZoyloMAPArea("Hyderabad");
+		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Hyderabad");
+
 	}
 
+	@Test(priority=2)
+	public void validateDoctorChangeLocation() throws Exception {
 	
+		RecipientPage.goToDoctors();
+		RecipientPage.searchInZoyloMAPArea("Bengalore");
+		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Hyderabad");
+
+	}
+
+
 
 
 	@AfterClass(groups = { "Regression","High" })
@@ -75,4 +86,3 @@ public class Recipients_ZOY1092_SearchByClinic extends LoadPropMac {
 
 
 }
-

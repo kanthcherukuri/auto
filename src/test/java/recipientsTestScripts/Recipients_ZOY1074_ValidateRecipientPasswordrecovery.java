@@ -43,10 +43,14 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 
 	 @Test(groups = { "Regression","High" })
 	 public void validateRecipientPasswordrecovery() throws Exception {
- 			 
+	  
+		
+			 			 
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);
-
+			 
+		
+		
 			 //verifing email validation
 			 driver.findElement(By.id("forgotPassword")).click();
 			 Browser.waitTill(10);
@@ -67,13 +71,23 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 
 		
 			 }
-
+			 
+			
+	
+    
+	
+	 
+	 
+	 
+	 
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
 
+	       
 	       driver.close();
-   
+	       
+	      
 	    }
     
 	

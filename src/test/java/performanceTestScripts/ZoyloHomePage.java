@@ -5,9 +5,6 @@ package performanceTestScripts;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
-
-
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -19,11 +16,9 @@ import atu.testng.reports.listeners.MethodListener;
 */
 import testBase.*;
 import objectRepository.*;
-
 /*
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
 MethodListener.class })
-
 */
 public class ZoyloHomePage extends LoadPropMac {
 	 public RecipientPage RecipientPage;

@@ -53,6 +53,7 @@ public class Schedule_ZOY798_Doctor_SetVacation{
 	  
 	  driver.findElement(By.xpath(".//*[@id='cd-10']/div")).click();
 	  driver.findElement(By.xpath(".//*[@id='setVacation']")).click();
+	  Thread.sleep(4000);
 	  if(! driver.findElement(By.xpath(".//*[@id='vac_status0']")).isSelected())
 	  {
 	  driver.findElement(By.xpath(".//*[@id='vac_status0']")).click();
@@ -96,13 +97,13 @@ public class Schedule_ZOY798_Doctor_SetVacation{
 		  System.out.println("THE CONSULTATION DURATION EDITED SUCCESSFULLY AND TEST CASE PASSED");
 	  }
 	  
-	  if(!actual_text1.contains("successfully"))
+	  else if(!actual_text1.contains("successfully"))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
 		  Assert.fail(actual_text1);
 		  
 	  }	 
-	  if(!actual_text1.contains("cannot update vacation dates as you have existing appointments. Please cancel them to update doctor vacation."))
+	  else if (!actual_text1.contains("cannot update vacation dates as you have existing appointments. Please cancel them to update doctor vacation."))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
 		  Assert.fail(actual_text1);
@@ -118,11 +119,11 @@ public class Schedule_ZOY798_Doctor_SetVacation{
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.base_url+"login");
+	  driver.get(LoadProp.doctors_Url);
 	  driver.manage().window().maximize();
 	  Thread.sleep(8000);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
+	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernameone);
+	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordone);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
 	  Thread.sleep(4000);
   }
@@ -132,7 +133,7 @@ public class Schedule_ZOY798_Doctor_SetVacation{
   @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
-	  driver.close();
+	  //driver.close();
   }
 
 }

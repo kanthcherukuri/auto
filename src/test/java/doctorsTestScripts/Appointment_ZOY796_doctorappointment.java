@@ -9,10 +9,9 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
+public class Appointment_ZOY796_doctorappointment extends LoadProp {
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -28,7 +27,7 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	
 		  }
 
-@Test(priority=1,groups = { "Regression","High" })	
+@Test(groups = { "Regression","High" })	
 public  void SignIntoDoctorLogin() throws Exception {
 
 	 DoctorsPageOfZoylo= new DoctorsPage(driver);			
@@ -37,20 +36,10 @@ public  void SignIntoDoctorLogin() throws Exception {
 	  }
 
 @DataProvider(name = "DP1")
-  //public Object[][] createData_DP1() throws Exception{
-  //Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY796");
-    //return(retObjArr);
-//}
-
-
-public String[][] createData1() {
-	return new String[][] {
-			{ "yes","04:15","Suraj","S","9491219121","suraj@gmail.com","Diadetic" }
-
-	};
+public Object[][] createData_DP1() throws Exception{
+Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY796");
+    return(retObjArr);
 }
-
-@Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
 
 public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 

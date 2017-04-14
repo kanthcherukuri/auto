@@ -48,7 +48,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad" }
+			{ "yes","Bengalore" }
 
 		};
 	}
@@ -56,6 +56,8 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 	public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String City ) throws Exception {
 
 		if(runmode.equals("yes")){
+
+
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			

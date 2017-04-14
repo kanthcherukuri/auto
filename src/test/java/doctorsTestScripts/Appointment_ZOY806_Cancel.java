@@ -2,17 +2,15 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
-import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY806_Cancel extends LoadPropMac {
+public class Appointment_ZOY806_Cancel extends LoadProp  {
 
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -34,8 +32,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac {
 	 public  void SignIntoDoctorLogin() throws Exception {
 	
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-		
+		DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 				
 		  }
 	 
@@ -43,33 +40,17 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac {
 	 
 	 
 	 @DataProvider(name = "DP1")
-	    //public Object[][] createData_DP1() throws Exception{
-	  //Object[][] retObjArr=TestUtils.getTableArray("TestData\\DoctorAppointment1.xls", "doc", "TC1");
-	        //return(retObjArr);
-	    //}
+	    public Object[][] createData_DP1() throws Exception{
+	  Object[][] retObjArr=TestUtils.getTableArray("TestData\\DoctorAppointment1.xls", "doc", "TC1");
+	        return(retObjArr);
+	    }
 
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Sirisha" ,"S","9491219121","srisha@gmail.com","Diabetic"}
-
-			};
-	 }
-	 
 
 
 @Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
 
-public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-	
-	if(RunMode.equals("yes")){
-	
-		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
-	
-	}else{
-
-		throw new SkipException("RUNMODE IS OFF");
-
-	}
+public void doctorappointment(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
 	
 	
 }
