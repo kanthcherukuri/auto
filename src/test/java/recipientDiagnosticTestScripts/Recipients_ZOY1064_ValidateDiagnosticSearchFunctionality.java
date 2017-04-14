@@ -38,7 +38,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		//Test Starts-Here
 		Browser.openUrl(recipient_url);			
 		//Verify Recipient Login with valid details
-		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		Thread.sleep(2000);
 		//Searching Locality/Area
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");

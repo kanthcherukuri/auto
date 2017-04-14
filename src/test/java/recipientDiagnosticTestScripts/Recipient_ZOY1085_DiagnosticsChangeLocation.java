@@ -52,7 +52,7 @@ public class Recipient_ZOY1085_DiagnosticsChangeLocation extends LoadPropMac {
 		//Test Starts-Here
 		Browser.openUrl(recipient_url);			
 		//Verify Recipient Login with valid details
-		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");
 		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Hyderabad");

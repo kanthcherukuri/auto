@@ -73,7 +73,7 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 			System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 			RecipientPage.bookAppointmentOnDiagnostics();
 			RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
-			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+			RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			RecipientPage.confirmAppointmentOnDiagnostics();
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();

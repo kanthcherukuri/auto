@@ -58,7 +58,7 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
 				RecipientPage.searchInZoyloMAP(DiagnosticName);
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();

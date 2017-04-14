@@ -49,7 +49,7 @@ public class Recipient_ZOY_ValidateDianosticsRebook extends LoadPropMac {
 			 //Test Starts-Here
 			 Browser.openUrl(recipient_url);			
 			 //Verify Recipient Login with valid details
-			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+			 RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			 Thread.sleep(2000);
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Thread.sleep(5000);// Added for view
