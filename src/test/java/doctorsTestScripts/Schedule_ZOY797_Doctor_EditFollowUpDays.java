@@ -93,11 +93,11 @@ public class Schedule_ZOY797_Doctor_EditFollowUpDays{
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.base_url+"login");
+	  driver.get(LoadProp.doctors_Url);
 	  driver.manage().window().maximize();
 	  Thread.sleep(8000);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
+	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernameone);
+	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordone);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
 	  Thread.sleep(4000);
   }
