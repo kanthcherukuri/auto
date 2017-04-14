@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends LoadPropMac {
+public class Recipient_ZOY_ValidateDiagnosticsRechange extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -55,10 +55,11 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 	  
 		 if(runmode.equals("yes")){
 			 		 
+			// /*
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+         		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				RecipientPage.goToDiagnostics();
 				RecipientPage.searchInZoyloMAP(DiagnosticName);
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
@@ -71,7 +72,33 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 				System.out.println("h5"+SuccessfullMesg);
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 
-	 
+				//Re Scheduling the Apppointment
+				Browser.openUrl(recipient_url);
+				//RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+				RecipientPage.goToAppointments();
+				Browser.scrollbyxpath("(//div[@class='zy-diagno-zy-day-change'])[last()]");
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("(//div[@class='zy-diagno-zy-day-change']/div/span)[last()]")).click();
+				Browser.waitTill(60);
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[contains(@class,'sp-available-slots')]/span)[1]")).click();
+				Thread.sleep(2000);
+				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+				System.out.println("RescheduleMesg"+RerechangeMesg);
+				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
+				Browser.openUrl(recipient_url);
+				RecipientPage.recipientLogout();
+				
+				
+				
+				
+				
+				
+				
+				
+				
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");

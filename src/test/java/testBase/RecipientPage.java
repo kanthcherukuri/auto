@@ -248,9 +248,9 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
-		Thread.sleep(20000);
-		driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
+		Thread.sleep(10000);
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		Browser.waitTill(60);
@@ -280,7 +280,17 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		System.out.println("Cliked on Diagnostics Icon");
 	}
+	
 
+
+	public void goToAppointments() throws InterruptedException{
+		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
+		Browser.waitTill(60);
+		driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
+		Browser.waitTill(60);
+		Thread.sleep(5000);// Added for view
+		System.out.println("Clicked On Appointments");
+	}
 	public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
 
 

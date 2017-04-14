@@ -80,7 +80,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 		    RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			System.out.println("h5"+SuccessfullMesg);
-			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
+			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
             RecipientPage.recipientLogout();
 
 
