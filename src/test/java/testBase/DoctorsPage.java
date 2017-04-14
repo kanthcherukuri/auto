@@ -77,7 +77,7 @@ public class DoctorsPage  {
 
 	// Doctors login Details 
 	public  void SignIn(String username, String password) throws IOException{	
-		Browser.waitFortheID("emailAddress");	
+		//Browser.waitFortheID("emailAddress");	
 		driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
 		driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
 		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();				
@@ -440,14 +440,13 @@ public class DoctorsPage  {
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys("R");
 			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("+919491212191");
+			driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("1234567898");
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys("amar@gmail.com");
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
-			DoctorsPage.isElementPresnt(driver,"//*[@id='tab-3']/ul/li[1][@class='bg-red']", 20);
 
 		}
 	}
@@ -471,8 +470,8 @@ public class DoctorsPage  {
 public void ClickingOnDashboard(){
 
 driver.findElement(By.id("dashBoard")).click();	
-WebDriverWait wait=new WebDriverWait(driver,10000);
-wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[@class='monthly-day monthly-day-event monthly-today']")));
+WebDriverWait wait=new WebDriverWait(driver,100);
+wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='label-font']")));
 }
 
 

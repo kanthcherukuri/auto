@@ -2,16 +2,14 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointments_ZOY794_ShowMore extends LoadPropMac {
+public class Appointments_ZOY794_ShowMore extends LoadProp {
 	
 public DoctorsPage DoctorsPageOfZoylo;
 public TestUtils exceldata;
@@ -34,24 +32,17 @@ public void beforeClass() throws Exception {
 public  void SignIntoDoctorLogin() throws Exception {
 		
  DoctorsPageOfZoylo= new DoctorsPage(driver);			
-DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 				
 		  }
 
 @Test(priority=2)
 public void CheckingDashBoradShowMore() throws Exception{
 	DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
-	Thread.sleep(5000);
 	DoctorsPageOfZoylo.ClickingOnEllipse();
 	DoctorsPageOfZoylo.ClickingOnDashboard();
 	DoctorsPageOfZoylo.CheckShowMore();
 	
-}
-
-@AfterTest
-public void afterTest() {
-	  
-	  driver.close();
 }
 
 }

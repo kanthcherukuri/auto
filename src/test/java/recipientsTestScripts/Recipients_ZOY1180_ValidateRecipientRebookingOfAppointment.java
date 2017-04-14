@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadPropMac {
+public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadProp {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -43,7 +43,7 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
  } 
 
  
-	 @Test(groups = { "Regression","High" })
+	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void validateRecipientRebookingOfAppointment() throws Exception {
 	   			 
 			 //Test Starts-Here

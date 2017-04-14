@@ -59,7 +59,7 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Username, Password);
 				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor_Name);
+				RecipientPage.searchInZoyloMAP(Doctor);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				RecipientPage.selectDefaultSlot();

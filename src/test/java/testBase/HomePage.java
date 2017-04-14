@@ -34,24 +34,24 @@ public class HomePage  {
 		
 		
 		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		// In case of Null Area
 		try{
 		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		} catch(Exception e) {
 			
 		}
 		// In case of Null Specialization
 		try{
 		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         } catch(Exception e) {
 			
 		}
@@ -60,34 +60,6 @@ public class HomePage  {
 		
 	}
 	
-public  void searchQuery(String City, String Locality,String Specialization) throws InterruptedException{
-		
-		
-		
-		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//html/body/div[15]/div[1]")).click();
-		Thread.sleep(2000);
-		// In case of Null Area
-		try{
-		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//html/body/div[16]/div[1]")).click();
-		Thread.sleep(2000);
-		} catch(Exception e) {
-			
-		}
-		// In case of Null Specialization
-		try{
-		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
-		Thread.sleep(2000);
-        } catch(Exception e) {
-			
-		}
-		
-	}
 	
 	 /*   @Autur : Ganesh Mandala
 	  *   Entering the test details in Doctor enrollment Page and submitting the page

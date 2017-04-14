@@ -48,12 +48,20 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
  } 
 
  
+	 @DataProvider(name = "DP1")
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Deepak" }
 
-	 @Test(groups = { "Regression","Medium" })
-	 public void validateAddDoctorFavourites() throws Exception {
+			};
+		}
+	 @Test(dataProvider="DP1",groups = { "Regression","Medium" })
+	 public void validateAddDoctorFavourites(String runmode,String Doctor ) throws Exception {
 	  
-	
-			RecipientPage.searchInZoyloMAP(Doctor_Name);
+		 if(runmode.equals("yes")){
+			 			 
+
+			RecipientPage.searchInZoyloMAP(Doctor);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();
 			driver.findElement(By.xpath("//*[@id='favourites']/a/span[1]")).click();
@@ -74,17 +82,33 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			System.out.println("fav doc after un check"+fav_doc);
 			Assert.assertTrue(fav_doc);
 			RecipientPage.goToDoctors();
-	
+		
+			 
+			 
+			
+			 
+		 }else{
+			 
+			throw new SkipException("RUNMODE IS OFF");
+			
+		 }
+			
 			
 	    }
-
+    
+	 
+	 
+	 
+	 
 	 
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
 
+	       
 	       driver.close();
-
+	       
+	      
 	    }
     
 	

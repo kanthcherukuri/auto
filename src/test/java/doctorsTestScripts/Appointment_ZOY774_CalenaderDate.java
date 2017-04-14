@@ -11,10 +11,9 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
+public class Appointment_ZOY774_CalenaderDate extends LoadProp {
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	public TestUtils exceldata;
@@ -37,17 +36,17 @@ public  void SignIntoDoctorLogin() throws Exception {
 		
 DoctorsPageOfZoylo= new DoctorsPage(driver);			
 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone,DoctorsLogin_passwordone);
-Thread.sleep(10000);
+Thread.sleep(15000);
 				
 		  }
 
 @Test(priority=2)
 public void CheckingDashBoradCalendarDatefunctionality() throws Exception{
-	WebDriverWait wait=new WebDriverWait(driver,8000);
 	
-	LoadProp.isElementPresnt(driver,"//*[@id='appointment_appointmentCalendar']",20).click();
-	//driver.findElement(By.id("appointment_appointmentCalendar")).click();	
-	Thread.sleep(5000);
+	
+	//LoadProp.isElementPresnt(driver,"//*[@id='appointment_appointmentCalendar']",20).click();
+	driver.findElement(By.id("appointment_appointmentCalendar")).click();	
+	Thread.sleep(2000);
 	 
 	driver.findElement(By.xpath("//*[@id='cd-1']")).click();
 	 
@@ -75,40 +74,33 @@ public void CheckingDashBoradCalendarDatefunctionality() throws Exception{
 	Thread.sleep(2000);
 	driver.findElement(By.id("saveAppiontment")).click();
 	
+	Thread.sleep(5000);
+	driver.findElement(By.xpath("//*[@id='plusmodaladd']/div/div/div/button")).click();
 	
-	
-	//driver.findElement(By.xpath("//*[@id='plusmodaladd']/div/div/div/button")).click();
-	
-	
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='tab-3']/ul/li[1][@class='bg-red']")));
+	//WebDriverWait wait=new WebDriverWait(driver,90);
+	//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='tab-3']/ul/li[1][@class='bg-red']")));
    
 
 	
-	//LoadProp.isElementPresnt(driver,"//*[@id='tab-3']/ul/li[1][@class='bg-red']", 20);
+	LoadProp.isElementPresnt(driver,"//*[@id='tab-3']/ul/li[1][@class='bg-red']", 20);
 	
-	Thread.sleep(5000);
 	
 	driver.findElement(By.xpath("//span//i[@class='fa fa-ellipsis-v footer-relipse']")).click();
 
-	Thread.sleep(2000);
+	Thread.sleep(1000);
 
 	driver.findElement(By.id("dashBoard")).click();
 	
 	//Thread.sleep(20000);
 	
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='monthly-day monthly-day-event monthly-today']")));
-	
-	//LoadProp.isElementPresnt(driver, "//a[@class='monthly-day monthly-day-event monthly-today']", 20).click();
-	
-	
-	
+	LoadProp.isElementPresnt(driver, "//a[@class='monthly-day monthly-day-event monthly-today']", 20).click();
 	
 	String date=driver.findElement(By.xpath("//a[@class='monthly-day monthly-day-event monthly-today']")).getText();
 
 	System.out.println(date);
 
 	driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
-	Thread.sleep(8000);
+	Thread.sleep(3000);
 
 	String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div[1]/div[2]/span")).getText();
 

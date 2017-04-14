@@ -22,7 +22,7 @@ public class LoadProp   {
 	 public static String driverpath;
 
 	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
-	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name;
+	public static String DoctorsLogin_username, DoctorsLogin_password;
 	public static String Recipient_Username, Recipient_Password;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
 	 
@@ -41,7 +41,6 @@ public class LoadProp   {
         login_password=prop.getProperty("login.password");
         browser_name=prop.getProperty("browser.name");
         login_username=prop.getProperty("login.username");
-        Doctor_Name=prop.getProperty("Doctor.Name");
         
         
         

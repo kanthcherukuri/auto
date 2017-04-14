@@ -1,29 +1,31 @@
 package doctorsTestScripts;
 
-import org.testng.Assert;
-import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
-import objectRepository.Elements_Doctors;
+
+import org.openqa.selenium.*;
+
+
+
+
+
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.SkipException;
+import org.testng.annotations.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;
 import atu.testng.reports.listeners.MethodListener;
 */
-import testBase.HomePage;
-import testBase.LoadProp;
-import testBase.LoadPropMac;
-import testBase.TestUtils;
+import testBase.*;
+import objectRepository.*;
 
 /*
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
 MethodListener.class })
 
 */
-public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
+public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
 	 public HomePage HomePageOfZoylo;
 	 public TestUtils Browser;	
 
@@ -33,7 +35,10 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
-		        
+		  LoadBrowserProperties(); // Create driver instance and launch the browser
+		  Elements_Doctors.Doc_PageProperties(); // loading UI Page Elements / Locators
+		  HomePageOfZoylo= new HomePage(driver); // Loading Pages
+		  Browser= new TestUtils(driver);        
 		  	 
  } 
 

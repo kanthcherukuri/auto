@@ -9,10 +9,9 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
-import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
+public class Appointment_ZOY796_doctorappointment extends LoadProp {
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	 

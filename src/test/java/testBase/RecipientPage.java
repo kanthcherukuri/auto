@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 
 
-public class RecipientPage extends LoadPropMac {
+public class RecipientPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
 	public TestUtils Browser;
@@ -80,7 +80,7 @@ public class RecipientPage extends LoadPropMac {
 
 	public void recipientLogout() throws InterruptedException{
 
-		driver.get(""+base_url+"myaccount");
+		driver.get("https://zoyloqa.zoylo.com/myaccount");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
 		Thread.sleep(2000);
@@ -102,17 +102,6 @@ public class RecipientPage extends LoadPropMac {
 		driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
 		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
-		Thread.sleep(5000);	
-
-	}
-	
-	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
-		driver.findElement(By.id("searchFilter")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
-		System.out.println("Cliked on span");
 		Thread.sleep(5000);	
 
 	}
