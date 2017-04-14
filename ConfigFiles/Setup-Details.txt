@@ -11,7 +11,7 @@ browser.name=chrome
 
 //----Login URL Details---//
 
-base.url=https://www.zoylo.com/
+base.url=https://zoyloqa.zoylo.com/
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 recipient.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
@@ -46,4 +46,15 @@ Recipient.Username=ganeshmandala@gmail.com
 Recipient.Password=Zoylo@123
 
 
+//-------Diagnostic Login Details----//
+Diagnostic.Url=https://zoyloqa.zoylo.com
+DiagnosticLogin.usernameone=swapna@gmail.com
+DiagnosticLogin.passwordone=Zoylo@123
+
+Recipient.DSusername=ganeshkumar.m@zoylo.com
+Recipient.DSpassword=Zoylo@123
+
 Doctor.Name=Naresh
+Diagnostic.Name=Srdcscript
+>>>>>>> 00594140d44775850546a54dcd54406b07def1b9
+

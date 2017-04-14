@@ -76,10 +76,10 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
   public void beforeClass() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.base_url+"login");
+	  driver.get(LoadProp.doctors_Url);
 	  driver.manage().window().maximize();
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
+	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernameone);
+	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordone);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
 	  
 	  }

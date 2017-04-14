@@ -70,6 +70,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls");
 			Thread.sleep(5000);
+			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DoctorFullName);

@@ -38,5 +38,7 @@ public void beforeClass() throws Exception {
 	public void doctorprofileverification() throws Exception{
 	DoctorsPageOfZoylo.doctorprofileEditing();
 	DoctorsPageOfZoylo.doctorlogout();
+	//DoctorsPageOfZoylo.BulkCancel();
+	
 	}
 }

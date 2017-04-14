@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadProp {
+public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -42,7 +42,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadProp {
 		  //Test Starts-Here
 		  Browser.openUrl(recipient_url);			
 	      //Verify Recipient Login with valid details
-		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		  RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		  Thread.sleep(2000);
 		  RecipientPage.goToDiagnostics();
 		  	 
@@ -97,9 +97,10 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadProp {
             Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
             RecipientPage.bookAppointmentOnDiagnostics();
 			Browser.waitFortheElementXpath("//*[@id='package-li']/a");
+			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
 			driver.findElement(By.id("packages_search")).sendKeys("Zoylo Health Pkg");
 			Thread.sleep(2000);
-			String PkgName=driver.findElement(By.xpath("(//div[contains(@class,'zy-rec-diag-s-apt-g-table-col')])[1]")).getText();
+			String PkgName=driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'Zoylo Health Pkg')]")).getText();
 			Assert.assertEquals(PkgName, "Zoylo Health Pkg");
 	
 	    }

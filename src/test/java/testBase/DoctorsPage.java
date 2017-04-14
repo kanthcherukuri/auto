@@ -3,6 +3,10 @@ package testBase;
 
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -419,20 +423,20 @@ public class DoctorsPage  {
 
 		driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
 
-		driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
+		driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();
 
 		driver.findElement(By.xpath(Elements_Doctors.morning)).click();
 
 		driver.findElement(By.xpath(Elements_Doctors.noon)).click();
 
-		driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+		//driver.findElement(By.xpath(Elements_Doctors.evening)).click();
 
-		int slotsize = driver.findElements(By.xpath("//*[@id='tab-3']/ul/li")).size();
+		int slotsize = driver.findElements(By.xpath("/*[@id='tab-2']/ul/li")).size();
 
 		if(slotsize>0)
 		{
 
-			driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
+			driver.findElement(By.xpath("//*[@id='tab-2']/ul/li[1]/div[2]")).click();
 
 			Thread.sleep(1000);
 
@@ -446,7 +450,13 @@ public class DoctorsPage  {
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
 			Thread.sleep(1000);
+
+			driver.findElement(By.id(Elements_Doctors.locatorsave)).click();
+			Browser.waitFortheElementXpath("//*[@id='tab-2']/ul/li[1][@class='bg-red']");
+			//DoctorsPage.isElementPresnt(driver,"//*[@id='tab-3']/ul/li[1][@class='bg-red']", 20);
+
 			driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
+
 
 		}
 	}
@@ -505,7 +515,7 @@ driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).cl
 
 //Thread.sleep(5000);
 
-expliciteWait("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span",500);
+expliciteWait("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span",5000);
 
 //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span")));
 
@@ -886,10 +896,34 @@ Thread.sleep(5000);
 
 
 
+public void BulkCancel(){
+	Date today = new Date(); 
+    Calendar calendar = Calendar.getInstance();  
+    calendar.setTime(today);  
+    calendar.add(Calendar.MONTH, 1);  
+    calendar.set(Calendar.DAY_OF_MONTH, 1);  
+    calendar.add(Calendar.DATE, -1);  
+    DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+    Date lastDayOfMonth = calendar.getTime(); 
+    String date=sdf.format(today);
+    String enddate= sdf.format(lastDayOfMonth);
+    System.out.println(date);
+    System.out.println(enddate);
+    
+    driver.findElement(By.id("appointment_appointmentCalendar")).click();
+	   driver.findElement(By.xpath("//div//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']")).click();
+	   driver.findElement(By.xpath("//*[@id='datepicker-cancelfrom']")).sendKeys(date);
+	   driver.findElement(By.xpath("//*[@id='datepicker-cancelto']")).sendKeys(enddate);
+	   driver.findElement(By.xpath("//*[@id='fromTime']")).sendKeys("09:00");
+	   driver.findElement(By.xpath(".//*[@id='toTime']")).sendKeys("22:00");
+	   driver.findElement(By.id("cancelAppointmentsSubmit")).click();
+    
+   
+}
 
 
 
-
+ 
 
 
 
