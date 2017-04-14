@@ -73,13 +73,13 @@ public class TestUtils {
 	
 	//Wait for the ID
 	public void waitFortheID(String ID){
-		WebDriverWait wait = (new WebDriverWait(driver, 10));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		 wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
 	}
 	
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
-			WebDriverWait wait = (new WebDriverWait(driver, 10));
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
 		}

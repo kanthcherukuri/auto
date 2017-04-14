@@ -16,7 +16,7 @@ import org.testng.annotations.*;
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;
 import atu.testng.reports.listeners.MethodListener;
-*/
+ */
 import testBase.*;
 import objectRepository.*;
 
@@ -24,76 +24,76 @@ import objectRepository.*;
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
 MethodListener.class })
 
-*/
+ */
 public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot extends LoadPropMac {
-	 public RecipientPage RecipientPage;
-	 public TestUtils Browser;	
+	public RecipientPage RecipientPage;
+	public TestUtils Browser;	
 
-	
-	
-		
-	 @BeforeClass(groups = { "Regression","High" })	
-    public void LaunchBrowser() throws Exception {
-  
-		  LoadBrowserProperties(); // Create driver instance and launch the browser
-		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
-		  RecipientPage = new RecipientPage(driver); // Loading Pages
-		  Browser= new TestUtils(driver);        
-		  	 
- } 
 
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateRecipientsReschedulingAppointmentSlot( ) throws Exception {
-	  		 
-			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
-				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor_Name);
-				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
-				RecipientPage.bookAppointment();
-				RecipientPage.selectDefaultSlot();
-				RecipientPage.confirmAppointment("Test details");
-			    RecipientPage.makePayment();
-				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
- 
-			//Re Scheduling the Apppointment
-			 Browser.openUrl(recipient_url);
-			 driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
-			 Browser.waitTill(60);
-			 driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
-			 Browser.waitTill(60);
-			 Thread.sleep(5000);// Added for view
-			 driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[2]")).click();
-			 Browser.waitTill(60);
-			 Thread.sleep(5000);
-			 driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-			 Thread.sleep(2000);
-		     driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span)[1]")).click();
-		     Thread.sleep(2000);
-		     String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			 System.out.println("RescheduleMesg"+RescheduleMesg);
-		     Assert.assertEquals(RescheduleMesg, "Successfully changed the appointment slot");
-			 Browser.openUrl(recipient_url);
-		     RecipientPage.recipientLogout();
-	
-		
-	    }
 
-	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
 
-	       
-	       driver.close();
-	       
-	      
-	    }
-    
-	
+	@BeforeClass(groups = { "Regression","High" })	
+	public void LaunchBrowser() throws Exception {
 
-    
-    
+		LoadBrowserProperties(); // Create driver instance and launch the browser
+		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
+		RecipientPage = new RecipientPage(driver); // Loading Pages
+		Browser= new TestUtils(driver);        
+
+	} 
+
+	@Test(groups = { "Regression","High" })
+	public void validateRecipientsReschedulingAppointmentSlot( ) throws Exception {
+
+		//Test Starts-Here
+		Browser.openUrl(recipient_url);			
+		//Verify Recipient Login with valid details
+		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		Thread.sleep(2000);
+		RecipientPage.searchInZoyloMAP(Doctor_Name);
+		String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
+		RecipientPage.bookAppointment();
+		RecipientPage.selectDefaultSlot();
+		RecipientPage.confirmAppointment("Test details");
+		RecipientPage.makePayment();
+		String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
+		Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+
+		//Re Scheduling the Apppointment
+		Browser.openUrl(recipient_url);
+		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
+		Browser.waitTill(60);
+		driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
+		Browser.waitTill(60);
+		Thread.sleep(5000);// Added for view
+		driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[2]")).click();
+		Browser.waitTill(60);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span)[1]")).click();
+		Thread.sleep(2000);
+		String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+		System.out.println("RescheduleMesg"+RescheduleMesg);
+		Assert.assertEquals(RescheduleMesg, "Successfully changed the appointment slot");
+		Browser.openUrl(recipient_url);
+		RecipientPage.recipientLogout();
+
+
+	}
+
+	@AfterClass(groups = { "Regression","High" })
+
+	public void Exit() {
+
+
+		driver.close();
+
+
+	}
+
+
+
+
+
 }

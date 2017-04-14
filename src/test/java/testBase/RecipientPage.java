@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 
 
-public class RecipientPage  {
+public class RecipientPage extends LoadPropMac {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
 	public TestUtils Browser;
@@ -80,7 +80,7 @@ public class RecipientPage  {
 
 	public void recipientLogout() throws InterruptedException{
 
-		driver.get("https://zoyloqa.zoylo.com/myaccount");
+		driver.get(""+base_url+"myaccount");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
 		Thread.sleep(2000);
