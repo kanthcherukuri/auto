@@ -23,7 +23,6 @@ import objectRepository.*;
 /*
 @Listeners({ ATUReportsListener.class, ConfigurationListener.class,
 MethodListener.class })
-
 */
 public class ZoyloHomePage extends LoadPropMac {
 	 public RecipientPage RecipientPage;
