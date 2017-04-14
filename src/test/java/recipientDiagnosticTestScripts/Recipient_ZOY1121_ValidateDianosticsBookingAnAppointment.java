@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends LoadProp {
+public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -44,22 +44,23 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 
  
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Diagnostics", "ZOY1121");
-	        return(retObjArr);
-	    }
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Sugar Test","Zoylo Health Pkg",Diagnostic_Name }
+
+			};
+		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Username, String Password,String Tests,String Pkg,String Diagonostics ) throws Exception {
+	 public void validateBookingAnAppointment(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Username, Password);
-				Thread.sleep(2000);
+				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				RecipientPage.goToDiagnostics();
-				RecipientPage.searchInZoyloMAP(Diagonostics);
+				RecipientPage.searchInZoyloMAP(DiagnosticName);
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 				System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 				RecipientPage.bookAppointmentOnDiagnostics();
@@ -79,12 +80,7 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 			
 			
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {

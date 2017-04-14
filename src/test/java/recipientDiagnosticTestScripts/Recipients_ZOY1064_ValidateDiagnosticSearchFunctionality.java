@@ -21,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends LoadProp {
+public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
 
@@ -45,12 +45,13 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 
 	} 
 
+	 @DataProvider(name = "DP1")
+		public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Noha Diagnostics","Blood Test","Noha Health Package","abcdefg" }
 
-	@DataProvider(name = "DP1")
-	public Object[][] createData_DP1() throws Exception{
-		Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Diagnostics", "ZOY1064");
-		return(retObjArr);
-	}
+			};
+		}
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	public void mapSearchByDiagnostics(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 

@@ -11,7 +11,7 @@ browser.name=chrome
 
 //----Login URL Details---//
 
-base.url=https://www.zoylo.com/
+base.url=https://zoyloqa.zoylo.com/
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 recipient.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
@@ -46,3 +46,5 @@ Recipient.Password=Zoylo@123
 
 
 Doctor.Name=Naresh
+Diagnostic.Name=Srdcscript
+

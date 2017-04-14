@@ -25,10 +25,10 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogin extends LoadPropMac {
+public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostics extends LoadPropMac {
 	public RecipientPage RecipientPage;
-	public HomePage HomePage;
 	public TestUtils Browser;	
+	public HomePage HomePage;
 
 
 
@@ -38,8 +38,8 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 
 		LoadBrowserProperties(); // Create driver instance and launch the browser
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
-		HomePage = new HomePage(driver); // Loading Pages
 		RecipientPage = new RecipientPage(driver); // Loading Pages
+		HomePage = new HomePage(driver);
 		Browser= new TestUtils(driver);        
 
 	} 
@@ -48,37 +48,40 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-
-				{ "yes","ganeshmandala@gmail.com","Zoylo@123","Sugar Test","Zoylo Health Pkg",Diagnostic_Name }
-
+			{ "yes","Hyderabad","Sugar Test","Zoylo Health Pkg", }
 
 		};
 	}
-
-
-
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateBookingAnAppointment(String runmode,String Username, String Password,String Tests,String Pkg,String Diagonostics ) throws Exception {
+	public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String City,String Tests, String Pkg ) throws Exception {
 
 		if(runmode.equals("yes")){
 
+
+
 			//Test Starts-Here
-			Browser.openUrl(base_url);
-			HomePage.searchZoylo("Hyderabad","","");
-			Browser.waitFortheID(Elements_Home.map_AreaName);
+			Browser.openUrl(recipient_url);			
+			//Verify Recipient Login with valid details
+			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+			Thread.sleep(10000);
 			RecipientPage.goToDiagnostics();
-			RecipientPage.searchInZoyloMAP(Diagonostics);
+			RecipientPage.searchInZoyloMAPArea(City);
+			RecipientPage.clickOnFilterImg();
+			//Verify Specialization Filter Option
+			RecipientPage.ApplyFilterInDiagnostics("Home PickUp","homeVisit","doesHomeVisit","");
+	        Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
+			RecipientPage.searchInZoylodetailMAP(Diagnostic_Name);
 			Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
-			String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
-			System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
+			String DiagnosticsName = driver.findElement(By.xpath("//h1")).getText();
+			System.out.println("Doctor is"+DiagnosticsName);
 			RecipientPage.bookAppointmentOnDiagnostics();
 			RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
-			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.confirmAppointmentOnDiagnostics();
-			RecipientPage.makePayment();
+		    RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			System.out.println("h5"+SuccessfullMesg);
-			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
+			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
+            RecipientPage.recipientLogout();
 
 
 		}else{
