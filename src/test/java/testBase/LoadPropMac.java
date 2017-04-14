@@ -23,7 +23,7 @@ public class LoadPropMac   {
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name;
 	public static String Recipient_Username, Recipient_Password;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
-	public static String admin_user,admin_password;
+	public static String admin_user,admin_password, doc_image;
 	 
 
 		public static WebDriver driver;
@@ -42,6 +42,7 @@ public class LoadPropMac   {
         login_username=prop.getProperty("login.username");
         Doctor_Name=prop.getProperty("Doctor.Name");
         index_url=prop.getProperty("index.url");
+        doc_image=prop.getProperty("doctor.image");
         
         
         
