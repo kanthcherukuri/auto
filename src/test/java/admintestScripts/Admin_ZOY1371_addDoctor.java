@@ -12,10 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.sikuli.script.FindFailed;
-import org.sikuli.script.Match;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -69,7 +66,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		        };
 	}
 	@Test(dataProvider="docInfo", priority=2)
-	public void doctorInformation(String docFirstName, String docMedNum, String gender, String areaOfSpec, String defaultClinicName, String docQualification, String consultationFee, String practiceDate) throws InterruptedException, URISyntaxException, AWTException, FindFailed
+	public void doctorInformation(String docFirstName, String docMedNum, String gender, String areaOfSpec, String defaultClinicName, String docQualification, String consultationFee, String practiceDate) throws InterruptedException, URISyntaxException, AWTException
 	{
 		
 		driver.findElement(By.xpath(Elements_Admin.button_doctorInformation)).click();
