@@ -11,10 +11,10 @@ browser.name=chrome
 
 //----Login URL Details---//
 
-base.url=https://zoyloqa.zoylo.com
-enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
-recipient.url=https://zoyloqa.zoylo.com/login
-index.url=https://zoyloqa.zoylo.com/index
+base.url=https://pit.zoylo.com/
+enrollment.url=https://pit.zoylo.com/doctorenrollmentform
+recipient.url=https://pit.zoylo.com/login
+index.url=https://pit.zoylo.com/index
 
 
 //------Login User Details---//
@@ -27,13 +27,13 @@ sample data
 
 //--------Doctor Login Details----//
 
-Doctors.Url=https://zoyloqa.zoylo.com/login
+Doctors.Url=https://pit.zoylo.com/login
 DoctorsLogin.username=sagarsen@gmai.com
 DoctorsLogin.password=Zoylo@1234
 browser=chrome
 
-DoctorsLogin.usernameone=kanthch@hotmail.com
-DoctorsLogin.passwordone=Zoylo@666
+DoctorsLogin.usernameone=bnaresh.php@gmail.com
+DoctorsLogin.passwordone=Zoylo@123
 
 //--------Recipient Login Details----//
 

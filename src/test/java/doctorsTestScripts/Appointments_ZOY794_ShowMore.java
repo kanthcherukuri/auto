@@ -41,8 +41,6 @@ DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 @Test(priority=2)
 public void CheckingDashBoradShowMore() throws Exception{
 	DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
-	Thread.sleep(5000);
-	DoctorsPageOfZoylo.ClickingOnEllipse();
 	DoctorsPageOfZoylo.ClickingOnDashboard();
 	DoctorsPageOfZoylo.CheckShowMore();
 	
@@ -51,7 +49,7 @@ public void CheckingDashBoradShowMore() throws Exception{
 @AfterTest
 public void afterTest() {
 	  
-	  driver.close();
+	  //driver.close();
 }
 
 }
