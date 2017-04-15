@@ -27,7 +27,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class Schedule_ZOY811_Doctor_DeleteCorrectTimings {
-	public String date="28/03/17";
+	
 	WebDriver driver;
 	public  WebDriverWait wait; 
 	String actual_text_cd;
@@ -42,7 +42,7 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings {
 	
 	
   @Test(dataProvider = "dp",groups = { "Regression","High" })
-  public void testDeleteTimings(String runmode,String timeToBeDeleted) throws ParseException, InterruptedException {
+  public void testDeleteTimings(String runmode,String date,String timeToBeDeleted) throws ParseException, InterruptedException {
 	 
 	  Date d1=sdf2.parse(date.trim());
       String day_of_week=sdf1.format(d1);
@@ -232,12 +232,12 @@ public boolean findTheCorrectTimeSlotHospital(String day_of_week,String timeToBe
   public void beforeTest() throws Exception {
 	  
 	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.base_url+"login");
+	  driver.get(LoadProp.doctors_Url);
 	 
 	  driver.manage().window().maximize();
 	  Thread.sleep(4000);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_username);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_password);
+	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernameone);
+	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordone);
 	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
 	 
 	  
