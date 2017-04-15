@@ -100,7 +100,21 @@ public class TestUtils {
 			System.out.println("ActualError="+ActualError);			    
 			Assert.assertEquals(ExpectedErrorMesg, ActualError);
 	
-						}		
+						}	
+		//Wait for text to be present by xpath
+		public void waitforTextbyxpath(String xpath, String value)
+		{
+			WebDriverWait wait = (new WebDriverWait(driver, 20));
+			wait.until(ExpectedConditions.textToBePresentInElement(By.xpath(xpath), value));
+		}
+		
+		//Wait for text to be present by ID
+				public void waitforTextbyID(String ID, String value)
+				{
+					WebDriverWait wait = (new WebDriverWait(driver, 20));
+					wait.until(ExpectedConditions.textToBePresentInElement(By.id(ID), value));
+				}
+		
 				
 		
 	//Wait Till int

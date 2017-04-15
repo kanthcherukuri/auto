@@ -314,7 +314,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	@Test(dataProvider="saved", priority=6)
 	public void save(String savedEmail)
 	{
-		driver.findElement(By.id("adminProviderSubmit")).click();
+		driver.findElement(By.id(Elements_Admin.button_DoctorSave)).click();
 		
 		try {
 			Browser.waitFortheID("add");
