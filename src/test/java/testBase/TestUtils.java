@@ -63,6 +63,15 @@ public class TestUtils {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
 		}
 	
+	//Scroll by name
+		public void scrollbyName(String name)
+		{
+			WebElement scrollname = driver
+					.findElement(By.name(name));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollname);
+		}
+		
+	
 	
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{
