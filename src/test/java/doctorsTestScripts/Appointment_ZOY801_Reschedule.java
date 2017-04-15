@@ -10,9 +10,10 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY801_Reschedule extends LoadProp{
+public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -40,7 +41,7 @@ public class Appointment_ZOY801_Reschedule extends LoadProp{
 	 public  void SignIntoDoctorLogin() throws Exception {
 	
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				
 		  }
 	 
@@ -69,7 +70,10 @@ public class Appointment_ZOY801_Reschedule extends LoadProp{
 		 
 	 }
 			
-	
+	@Test(priority=2)
+	public void CancelAllAppointments(){
+		DoctorsPageOfZoylo.BulkCancel();
+	}
 			
 			@AfterClass
 			public void closebrowser(){

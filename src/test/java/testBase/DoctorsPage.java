@@ -879,18 +879,17 @@ else
 
 public void doctorprofileEditing() throws Exception{
 	
-driver.findElement(By.id("account_accountIcon")).click();
-Thread.sleep(3000);
-((JavascriptExecutor)driver).executeScript("scroll(0,400)");
-driver.findElement(By.id("editAboutInfo")).click();
-Thread.sleep(1000);
-WebElement element=driver.findElement(By.id("doctorQualification"))	; 
-Select se= new Select(element);
-se.selectByValue("BACHELOR OF DENTAL SURGERY");
-driver.findElement(By.id("saveAboutInfo")).click();
-Thread.sleep(5000);
-
-}
+		driver.findElement(By.id("account_accountIcon")).click();
+		Thread.sleep(3000);
+		((JavascriptExecutor)driver).executeScript("scroll(0,400)");
+		driver.findElement(By.id("editAboutInfo")).click();
+		Thread.sleep(1000);
+		WebElement element=driver.findElement(By.id("doctorQualification"))	; 
+		Select se= new Select(element);
+		se.selectByValue("BACHELOR OF DENTAL SURGERY");
+		driver.findElement(By.id("saveAboutInfo")).click();
+		Thread.sleep(5000);
+		}
 
 
 
@@ -910,16 +909,15 @@ public void BulkCancel(){
     System.out.println(date);
     System.out.println(enddate);
     
-    driver.findElement(By.id("appointment_appointmentCalendar")).click();
+	   driver.findElement(By.id("appointment_appointmentCalendar")).click();
 	   driver.findElement(By.xpath("//div//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']")).click();
 	   driver.findElement(By.xpath("//*[@id='datepicker-cancelfrom']")).sendKeys(date);
 	   driver.findElement(By.xpath("//*[@id='datepicker-cancelto']")).sendKeys(enddate);
 	   driver.findElement(By.xpath("//*[@id='fromTime']")).sendKeys("09:00");
 	   driver.findElement(By.xpath(".//*[@id='toTime']")).sendKeys("22:00");
 	   driver.findElement(By.id("cancelAppointmentsSubmit")).click();
-    
    
-}
+		}
 
 
 
