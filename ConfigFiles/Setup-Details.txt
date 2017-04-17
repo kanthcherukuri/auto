@@ -40,6 +40,9 @@ browser=chrome
 DoctorsLogin.usernameone=kanthch@hotmail.com
 DoctorsLogin.passwordone=Zoylo@666
 
+DoctorsLogin.usernametwo=sss1@gmail.com
+DoctorsLogin.passwordtwo=Zoylo@123
+
 //--------Recipient Login Details----//
 
 Recipient.Username=ganeshmandala@gmail.com
