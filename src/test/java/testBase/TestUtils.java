@@ -14,11 +14,13 @@ import objectRepository.Elements_Recipients;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -124,7 +126,17 @@ public class TestUtils {
 					wait.until(ExpectedConditions.textToBePresentInElement(By.id(ID), value));
 				}
 		
-				
+		//Actions by xpath
+				public void actionbyXpath(String path, String value)
+				{
+					Actions qua = new Actions(driver);
+					qua.moveToElement(driver.findElement(By.xpath(
+							path)));
+					qua.click();
+					qua.sendKeys(value);
+					qua.sendKeys(Keys.ENTER);
+					qua.build().perform();
+				}
 		
 	//Wait Till int
 	public void waitTill(int time) {

@@ -15,7 +15,7 @@ public class Elements_Admin
 		link_catalogs_Doctors="//a[text()='Doctors']";
 		button_addDoctor="//button[contains(., 'Add Doctor')]";
 		radio_docotrAssociatedwithHospital="//input[@value='hospital']";
-		button_doctorInformation=".//*[@id='doctorInformationDiv']/button";
+		button_doctorInformation="doctorInformationDiv";
 		button_AdditionalInformation="additionalInformationDiv"; //IDs
 		button_facilities="facilitiesDiv"; //ID
 		button_address="addressDiv"; //ID

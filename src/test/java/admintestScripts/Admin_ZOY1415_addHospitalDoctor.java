@@ -29,7 +29,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
     return new Object[][] 
     	{
-            {"pomhop1@zoy.com","Zoylo@123","Zoylo@123"}
+            {"pomhop2@zoy.com","Zoylo@123","Zoylo@123"}
         };
 	}
 	
@@ -55,7 +55,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		    	{
-		            {"PomHopName", "POMhop1", "Male", "qaz", "MBBS", "11/08/1991", "Apollo", "10", "1"}
+		            {"PomHopTwo", "POMhop2", "Male", "qaz", "MBBS", "11/08/1991", "Apollo", "10", "1"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
@@ -103,6 +103,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[18]/ul/li[1]/div/div[2]/div/div[2]/div[1]/span[1]/span[1]/span")).click();
 		Actions hname = new Actions(driver);
 		hname.moveToElement(driver.findElement(By.xpath("html/body/span/span/span[1]/input")));
+		Thread.sleep(2000);
 		hname.click();
 		hname.sendKeys(hospitalName);
 		Thread.sleep(5000);
@@ -149,7 +150,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"8888810003", "Dental", "Sexologist", "pomhop1@zoy.com"}
+					{"8888810004", "Dental", "Sexologist", "pomhop1@zoy.com"}
 				};
 	}
 	
