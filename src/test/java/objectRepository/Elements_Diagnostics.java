@@ -70,6 +70,23 @@ public class Elements_Diagnostics  {
 		public static String selectbox;
 		public static String submitbutton;
 		
+		//Bulk Cancel Locator Variables
+		public static String fromtime;
+		public static String totime;
+		public static String bulksubmitbutton;
+		public static String fromcanceldate;
+		public static String tocanceldate;
+		
+		//Diagnostic Appointment Creation Variables
+		public static String morningmenu;
+		public static String noonmenu;
+		public static String eveningmenu;
+		
+		//View Diagnostic Appointment Variables
+		public static String calltext;
+		public static String changetext;
+		public static String canceltext;
+		
 	 
 		
 		
@@ -148,7 +165,23 @@ public class Elements_Diagnostics  {
 		 selectbox="cancel_reason_select";
 		 submitbutton=".//*[@id='submitCancelApt']/button";
 		 
-         
+		 //bulk Cancel Locators
+		 fromtime="//*[@id='bulk_cancel_fromTime']";
+		 totime="//*[@id='bulk_cancel_toTime']";
+		 bulksubmitbutton="//*[@id='bulkCancel_submit']";
+		 fromcanceldate="//*[@id='bulk_cancel_fromDate']";
+		 tocanceldate="//*[@id='bulk_cancel_toDate']";
+		 
+		 //Diagnostic Appointment Creation Locators
+		 
+		 morningmenu="//*[@id='diag-home-samples']/div[3]/ul/li[1]/div/div";
+		 noonmenu="//*[@id='diag-home-samples']/div[3]/ul/li[2]/div/div";
+		 eveningmenu="//*[@id='diag-home-samples']/div[3]/ul/li[3]/div/div";
+		 
+		 //View Diagnostic Locators
+		 calltext="//span[@class='zy-sp-diag-m-p-text']";
+		 changetext="//span[@class='zy-sp-diag-m-p-chng-btn change_apt']";
+		 canceltext="//span[@class='zy-sp-diag-m-p-cancel-btn cancel_appointment']";
         
 		return driver;	
         

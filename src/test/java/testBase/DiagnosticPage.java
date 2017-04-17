@@ -1,6 +1,7 @@
 package testBase;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,6 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import objectRepository.Elements_Diagnostics;
-import objectRepository.Elements_Doctors;
 
 public class DiagnosticPage {
 	
@@ -135,16 +135,24 @@ public class DiagnosticPage {
 		
 		}
 	
+	
+	
+	
 	public void clickingonappointmentmodification(){
 		
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
 		
 	}
   
-	public void CancelAppointmentOfHomeVisit(){
+	
+	
+	
+	public void CancelAppointmentOfHomeVisit() throws Exception{
 		
 		driver.findElement(By.xpath(Elements_Diagnostics.clickoncancel)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.selectbox)).sendKeys("Personal reason");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.submitbutton)).click();
 		WebDriverWait wait=new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
@@ -159,7 +167,158 @@ public class DiagnosticPage {
 		}
 	}
 		
+	
+	
+	public void DiagnosticBulkCancellation() throws Exception{
+		
+
+		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		Thread.sleep(3000);
+		Actions action=new Actions(driver);
+		WebElement toggle=driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle));
+		action.moveToElement(toggle);
+		action.click().build().perform();
+		
+		driver.findElement(By.xpath("//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.fromcanceldate)).click();
+		Thread.sleep(2000);
+		
+		List<WebElement> allDates=driver.findElements(By.xpath("//td[@class='day']"));
+	
+		for(WebElement ele:allDates)
+		{
+			boolean date2=ele.isEnabled();
+			ele.click();
+			break;
+		}
+		
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(Elements_Diagnostics.tocanceldate)).click();
+		Thread.sleep(2000);
+		List<WebElement> CancelToDate=driver.findElements(By.xpath("//td[@class='day']"));
+		for(WebElement ele:CancelToDate)
+		{	
+		String date=ele.getText();
+			
+			if(date.equalsIgnoreCase("30"))
+			{
+				ele.click();
+				break;
+			}
+			
+		}//cancletodate
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.fromtime)).sendKeys("07:00");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.totime)).sendKeys("23:00");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.bulksubmitbutton)).click();
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		//System.out.println(notification);
+		Thread.sleep(5000);
+		if(notification.equalsIgnoreCase("All Appointments Cancelled between the applied dates")){
+			System.out.println("All Appointments Cancelled between the applied dates");
+			Reporter.log("All Appointments Cancelled between the applied dates");
+		}else{
+			System.out.println("All Appointments Not Cancelled ");
+		}
 		
 		
+	}
+	
+	
+	public void DiagnosticAppointmentbooking() throws Exception{
 		
+		
+		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.morningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.noonmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
+		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys("Jose");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys("Jacob");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys("9491219191");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys("josejacob@gmail.com");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys("Diabetic");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
+		Thread.sleep(1000);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		System.out.println(notification);
+		if(notification.equalsIgnoreCase("Appointment is confirmed. Patient Name:Jose")){
+			
+			System.out.println("Appointment is Sucessfully Created");
+		}else{
+			System.out.println("Appointment Creation is Unsucess");
+			Assert.fail("Appointment Creation is Unsucess");
+		}
+	}
+		
+	
+	public void DiagnosticViewAppointment() throws Exception{
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		Thread.sleep(5000);
+		String call=driver.findElement(By.xpath(Elements_Diagnostics.calltext)).getText();
+		String change=driver.findElement(By.xpath(Elements_Diagnostics.changetext)).getText();
+		String cancel=driver.findElement(By.xpath(Elements_Diagnostics.canceltext)).getText();
+		if(call.equalsIgnoreCase("Call")&& change.equalsIgnoreCase("Change")&& cancel.equalsIgnoreCase("Cancel")){
+			System.out.println("Appointment Created is Sucessfully view");
+		}else{
+			
+			System.out.println("Appointment Created Is not Sucessfully Viewed");
+		}
+	}
+	
+	
+	public void DiagnosticAppointmentReschedule() throws Exception{
+		
+	
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonchange)).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.nextdaymenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.morningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.noonmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
+		WebDriverWait wait = (new WebDriverWait(driver, 40));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		//System.out.println(notification);
+		if(notification.equalsIgnoreCase("Appointment is rescheduled successfully")){
+			
+			System.out.println("Appointment is rescheduled successfully");
+		}else{
+			System.out.println("Appointment is not rescheduled ");
+			Assert.fail("Appointment is not rescheduled");
+		}
+	}
+	
+	
+	
+	
 }//main Class
