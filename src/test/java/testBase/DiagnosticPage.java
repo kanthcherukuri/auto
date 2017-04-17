@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 import objectRepository.Elements_Diagnostics;
 import objectRepository.Elements_Doctors;
@@ -45,7 +47,7 @@ public class DiagnosticPage {
 		action.moveToElement(ele);
 		action.click().build().perform();
 		Thread.sleep(1000);
-		System.out.println("Home Visit Toggle is Selected");
+		//System.out.println("Home Visit Toggle is Selected");
 		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.morninghomevisit)).click();
@@ -79,6 +81,8 @@ public class DiagnosticPage {
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
 		WebDriverWait wait = (new WebDriverWait(driver, 2000));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
+		String top=driver.findElement(By.xpath(Elements_Diagnostics.notification)).getText();
+		System.out.println(top);
 		
 	}
 	
@@ -101,7 +105,59 @@ public class DiagnosticPage {
 	}
 		
 		
+	public void diagnosticrescheduleappointment() throws Exception{
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonchange)).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.nextdaymenu)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.morninghomevisit)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.noonhomevisit)).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveninghomevisit)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
+		//Thread.sleep(10000);
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		System.out.println(notification);
+		Thread.sleep(5000);
+		if(notification.equalsIgnoreCase("Appointment is rescheduled successfully")){
+			System.out.println("Appointment is rescheduled successfully");
+			Reporter.log("Appointment is rescheduled successfully");
+		}else{
+			System.out.println("Appointment is  not rescheduled");
+		}
 		
+		}
+	
+	public void clickingonappointmentmodification(){
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		
+	}
+  
+	public void CancelAppointmentOfHomeVisit(){
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.clickoncancel)).click();
+		driver.findElement(By.id(Elements_Diagnostics.selectbox)).sendKeys("Personal reason");
+		driver.findElement(By.xpath(Elements_Diagnostics.submitbutton)).click();
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		System.out.println(notification);
+		if(notification.equalsIgnoreCase("Appointment has been Cancelled")){
+			
+			System.out.println("Appointment has been Cancelled Sucessfully");
+			Reporter.log("Appointment has been Cancelled Sucessfully");
+		}else{
+			Assert.fail("Appointment has notCancelled");
+		}
+	}
 		
 		
 		

@@ -59,7 +59,16 @@ public class Elements_Diagnostics  {
 		public static String clickonsignout;
 		public static String confirmsignout;
 		
+		//Appointments Reschedule Variables
+		public static String clickonmore;
+		public static String clickonchange;
+		public static String nextdaymenu;
+		public static String topnotification;
 		
+		//Cancel Appointment Variables
+		public static String clickoncancel;
+		public static String selectbox;
+		public static String submitbutton;
 		
 	 
 		
@@ -127,9 +136,17 @@ public class Elements_Diagnostics  {
 		 
 		 ellipse="//span//i[@class='fa fa-ellipsis-v footer-relipse']";
 		 
+		 //Reschedule Locators
+		 clickonmore="//*[@id='myTab-3']/ul/li[1]/div[2]/a";
+		 clickonchange=".//*[@id='zy-spdg-view0']/div/div[4]/div[2]/span[1]/button";
+		 nextdaymenu="//*[@id='cd-2']/div[1]";
+		 topnotification= "div[class='zy-status-wrapper']";
 		 
+		 //Cancel Locators
 		 
-		 
+		 clickoncancel="//*[@id='zy-spdg-view0']/div/div[4]/div[2]/span[2]/button";
+		 selectbox="cancel_reason_select";
+		 submitbutton=".//*[@id='submitCancelApt']/button";
 		 
          
         

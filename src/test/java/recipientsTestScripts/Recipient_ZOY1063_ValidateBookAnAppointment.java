@@ -80,12 +80,8 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 			
 			
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+	  
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {

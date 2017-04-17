@@ -1,14 +1,10 @@
 package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
 import org.testng.SkipException;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import testBase.DoctorsPage;
-import testBase.LoadProp;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
@@ -30,7 +26,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	
 		  }
 	 
-	 @Test(groups = { "Regression","High" })	
+	 @Test(groups = { "Regression","High" },priority=1)	
 	 public  void SignIntoDoctorLogin() throws Exception {
 	
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
@@ -49,7 +45,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Jose","J","9491219191","jose@gmail.com","Diabetic" }
+					{ "yes","Jose","J","9491219191","josej@gmail.com","Diabetic" }
 
 			};
 		}
@@ -61,21 +57,30 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 	if(RunMode.equals("yes")){
+		
 	DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
 	}
 	 else{
 		 
 			throw new SkipException("RUNMODE IS OFF");
-			
 		 }
+	
+		}
+
+
+@Test(priority=3)
+
+public void CancelAllAppointments() throws Exception{
+	DoctorsPageOfZoylo.BulkCancel();
+	DoctorsPageOfZoylo.doctorlogout();
 	
 }
 
 
-
-
-
-
+@AfterClass
+public void closebrowser(){
+	driver.close();
+}
 
 
 
