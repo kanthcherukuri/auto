@@ -50,7 +50,7 @@ Recipient.Password=Zoylo@123
 
 
 //-------Diagnostic Login Details----//
-Diagnostic.Url=https://zoyloqa.zoylo.com
+Diagnostic.Url=https://zoyloqa.zoylo.com/login
 DiagnosticLogin.usernameone=swapna@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
 
