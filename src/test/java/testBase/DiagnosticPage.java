@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -189,11 +191,12 @@ public class DiagnosticPage {
 		for(WebElement ele:allDates)
 		{
 			boolean date2=ele.isEnabled();
+			
 			ele.click();
 			break;
 		}
 		
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.tocanceldate)).click();
 		Thread.sleep(2000);
 		List<WebElement> CancelToDate=driver.findElements(By.xpath("//td[@class='day']"));
@@ -317,6 +320,121 @@ public class DiagnosticPage {
 			Assert.fail("Appointment is not rescheduled");
 		}
 	}
+	
+	public void DiagnosticAppointment(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.morningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.noonmenu)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
+		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys(firstname);
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys(lastname);
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys(mobile);
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys(email);
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys(problem);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
+		Thread.sleep(5000);
+		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
+		
+	}
+	
+	public void patientserachforintoday(String firstname,String lastname,String email) throws Exception{
+		
+		driver.findElement(By.id("patients")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.id("search-bar")).click();
+		//driver.findElement(By.xpath("//*[@id='search-bar']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("apt-search")).sendKeys(email);
+		 driver.findElement(By.id("apt-search")).sendKeys(Keys.ENTER);
+		 Thread.sleep(2000);
+		int size= driver.findElements(By.xpath(".//*[@id='sp-diagno-tab-1']/div")).size();
+		for(int i=1;i<=size;i++){
+			String user= driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[1]/span")).getText();
+			String schedule=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
+			String fullname=firstname+" "+lastname;
+			System.out.println(fullname);
+			if(user.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
+				
+				WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+				driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[1]/span")).click();
+				System.out.println("User is sucessfully Verified for booking appointment for Today");
+				break;
+			}else{
+				System.out.println("User  Verification was not sucess for booking appointment for Today");
+			}
+		}
+		}
+		
+	
+	public void DiagnosticAppointmentsBulkCancellation() throws InterruptedException{
+		
+		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		driver.findElement(By.xpath("//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.fromcanceldate)).click();
+		Thread.sleep(2000);
+		
+		List<WebElement> allDates=driver.findElements(By.xpath("//td[@class='day']"));
+	
+		for(WebElement ele:allDates)
+		{
+			boolean date2=ele.isEnabled();
+			ele.click();
+			break;
+		}
+		
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(Elements_Diagnostics.tocanceldate)).click();
+		Thread.sleep(2000);
+		List<WebElement> CancelToDate=driver.findElements(By.xpath("//td[@class='day']"));
+		for(WebElement ele:CancelToDate)
+		{	
+		String date=ele.getText();
+			
+			if(date.equalsIgnoreCase("30"))
+			{
+				ele.click();
+				break;
+			}
+			
+		}//cancletodate
+		
+		driver.findElement(By.xpath(Elements_Diagnostics.fromtime)).sendKeys("07:00");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(Elements_Diagnostics.totime)).sendKeys("23:00");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.bulksubmitbutton)).click();
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
+		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+		//System.out.println(notification);
+		Thread.sleep(5000);
+		if(notification.equalsIgnoreCase("All Appointments Cancelled between the applied dates")){
+			System.out.println("All Appointments Cancelled between the applied dates");
+			Reporter.log("All Appointments Cancelled between the applied dates");
+		}else{
+			System.out.println("All Appointments Not Cancelled ");
+		}
+		
+		}
+	
 	
 	
 	

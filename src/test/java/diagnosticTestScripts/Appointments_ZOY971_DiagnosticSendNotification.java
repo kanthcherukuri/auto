@@ -1,7 +1,6 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -11,8 +10,6 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-
 import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
