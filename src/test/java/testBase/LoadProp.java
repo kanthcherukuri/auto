@@ -24,11 +24,11 @@ public class LoadProp   {
 	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 	public static String DoctorsLogin_username, DoctorsLogin_password;
 	public static String Recipient_Username, Recipient_Password;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,DoctorsLogin_usernametwo,DoctorsLogin_passwordtwo;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,DoctorsLogin_usernametwo,DoctorsLogin_passwordtwo,DiagnosticLogin_usernameone,DiagnosticLogin_passwordone;
 	 
 
 		public static WebDriver driver;
-	public static WebDriver LoadBrowserProperties()throws Exception{
+	    public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
         inStream = new FileInputStream(new File("ConfigFiles\\Setup-Details.txt"));
         Properties prop = new Properties();
@@ -58,8 +58,11 @@ public class LoadProp   {
         Recipient_Username=prop.getProperty("Recipient.Username");
         Recipient_Password=prop.getProperty("Recipient.Password");
         
+        //Diagnostic Centre login credentials
         
         
+        DiagnosticLogin_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
+        DiagnosticLogin_passwordone=prop.getProperty("DiagnosticLogin.passwordone");
        
         
         if(browser_name.equals("chrome")){
