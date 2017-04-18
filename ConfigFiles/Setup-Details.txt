@@ -54,6 +54,13 @@ Diagnostic.Url=https://zoyloqa.zoylo.com/login
 DiagnosticLogin.usernameone=swapna@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
 
+
+//-------Diagnostic Login Details----//
+Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
+DiagnosticLogin.usernametwo=swapna@gmail.com
+DiagnosticLogin.passwordtwo=Zoylo@123
+
+
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
