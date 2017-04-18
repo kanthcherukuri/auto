@@ -67,7 +67,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public void doctorInformation(String docFirstName, String docMedNum, String gender, String areaOfSpec, String defaultClinicName, String docQualification, String consultationFee, String practiceDate) throws InterruptedException, URISyntaxException, AWTException
 	{
 		
-		driver.findElement(By.xpath(Elements_Admin.button_doctorInformation)).click();
+		driver.findElement(By.id(Elements_Admin.button_doctorInformation)).click();
 		driver.findElement(By.name("doctorInformation.firstName")).sendKeys(docFirstName);
 		driver.findElement(By.name("doctorInformation.medicalRegistrationNumber")).sendKeys(docMedNum);
 		driver.findElement(By.name("doctorInformation.gender")).click();
@@ -77,24 +77,12 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		dropdown.selectByVisibleText(gender);
 		
 		// Specialization
-		Actions spec1 = new Actions(driver);
-		spec1.moveToElement(driver.findElement(By.xpath(
-				".//*[@id='doctorInformation']/div/div[2]/div/div[7]/span[1]/span[1]/span/ul")));
-		spec1.click();
-		spec1.sendKeys(areaOfSpec);
-		spec1.sendKeys(Keys.ENTER);
-		spec1.build().perform();
+		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[7]/span[1]/span[1]/span/ul", areaOfSpec);
 		
 		driver.findElement(By.name("doctorInformation.clinicName")).sendKeys(defaultClinicName);
 		
 		// Qualification
-		Actions qua = new Actions(driver);
-		qua.moveToElement(driver.findElement(By.xpath(
-				".//*[@id='doctorInformation']/div/div[2]/div/div[13]/span[1]/span[1]/span/ul")));
-		qua.click();
-		qua.sendKeys(docQualification);
-		qua.sendKeys(Keys.ENTER);
-		qua.build().perform();
+		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[13]/span[1]/span[1]/span/ul", docQualification);
 		
 		driver.findElement(By.name("doctorInformation.consultationFee")).sendKeys(consultationFee);
 		driver.findElement(By.name("doctorInformation.practiceStartDate")).sendKeys(practiceDate);
@@ -242,22 +230,10 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		driver.findElement(By.name("additionalInformation.mobileNumber")).sendKeys(docmobileNumber);
 		
 		//LineOfPractice
-		Actions lop1 = new Actions(driver);
-		lop1.moveToElement(driver.findElement(By.xpath(".//*[@id='additionalInformation']/div/div[2]/div[4]/span[1]/span[1]/span/ul")));
-		lop1.click();
-		lop1.sendKeys(docLOP);
-		Thread.sleep(1000);
-		lop1.sendKeys(Keys.ENTER);
-		lop1.build().perform();
+		Browser.actionbyXpath(".//*[@id='additionalInformation']/div/div[2]/div[4]/span[1]/span[1]/span/ul", docLOP);
 		
 		// Professional Tag
-		Actions tag = new Actions(driver);
-		tag.moveToElement(driver.findElement(By.xpath(".//*[@id='additionalInformation']/div/div[2]/div[5]/span[1]/span[1]/span/ul")));
-		tag.click();
-		tag.sendKeys(docProfessionalTag);
-		Thread.sleep(1000);
-		tag.sendKeys(Keys.ENTER);
-		tag.build().perform();
+		Browser.actionbyXpath(".//*[@id='additionalInformation']/div/div[2]/div[5]/span[1]/span[1]/span/ul", docProfessionalTag);
 		
 		Browser.scrollbyxpath(".//*[@id='additionalInformation']/div/div[2]/div[29]/ul/li[1]/div/div[2]/div/div/div/label"); //Scroll to Services
 		
