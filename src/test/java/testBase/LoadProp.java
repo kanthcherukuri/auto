@@ -21,14 +21,15 @@ public class LoadProp   {
 	public static FileInputStream inStream;
 	 public static String driverpath;
 
-	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
+	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl,Diagnostic_Url,Diagnostic_Urltwo ;
 	public static String DoctorsLogin_username, DoctorsLogin_password;
 	public static String Recipient_Username, Recipient_Password;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,DoctorsLogin_usernametwo,DoctorsLogin_passwordtwo;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,DoctorsLogin_usernametwo,DoctorsLogin_passwordtwo,DiagnosticLogin_usernameone,DiagnosticLogin_passwordone
+	,DiagnosticLogin_usernametwo,DiagnosticLogin_passwordtwo;
 	 
 
 		public static WebDriver driver;
-	public static WebDriver LoadBrowserProperties()throws Exception{
+	    public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
         inStream = new FileInputStream(new File("ConfigFiles\\Setup-Details.txt"));
         Properties prop = new Properties();
@@ -41,6 +42,10 @@ public class LoadProp   {
         login_password=prop.getProperty("login.password");
         browser_name=prop.getProperty("browser.name");
         login_username=prop.getProperty("login.username");
+        Diagnostic_Url=prop.getProperty("Diagnostic.Url");
+        Diagnostic_Urltwo=prop.getProperty("Diagnostic.Urltwo");
+      
+        
         
         
         
@@ -58,9 +63,15 @@ public class LoadProp   {
         Recipient_Username=prop.getProperty("Recipient.Username");
         Recipient_Password=prop.getProperty("Recipient.Password");
         
+        //Diagnostic Centre login credentials
         
         
+        DiagnosticLogin_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
+        DiagnosticLogin_passwordone=prop.getProperty("DiagnosticLogin.passwordone");
        
+        
+        DiagnosticLogin_usernametwo=prop.getProperty("DiagnosticLogin.usernametwo");
+        DiagnosticLogin_passwordtwo=prop.getProperty("DiagnosticLogin.passwordtwo");
         
         if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
