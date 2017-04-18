@@ -65,7 +65,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public void doctorInformation(String docFirstName, String docMedNum, String gender, String areaOfSpec, String docQualification, String practiceDate, String hospitalName, String hopFee, String ZFC) throws InterruptedException, URISyntaxException, AWTException
 	{
 		
-		driver.findElement(By.xpath(Elements_Admin.button_doctorInformation)).click();
+		driver.findElement(By.id(Elements_Admin.button_doctorInformation)).click();
 		driver.findElement(By.name("doctorInformation.firstName")).sendKeys(docFirstName);
 		driver.findElement(By.name("doctorInformation.medicalRegistrationNumber")).sendKeys(docMedNum);
 		driver.findElement(By.name("doctorInformation.gender")).click();
