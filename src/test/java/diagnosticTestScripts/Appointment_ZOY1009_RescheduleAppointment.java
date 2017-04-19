@@ -1,15 +1,8 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -40,7 +33,11 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	public void RescheduleAppointment() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentbooking();
 		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Jaffer","j" ,"jaffer@gmail.com");
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 		

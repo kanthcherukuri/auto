@@ -30,7 +30,6 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 
 	  }
 	
-	  
 	
 	@Test(priority=1)
 	public void DiagnosticLogin() throws Exception {

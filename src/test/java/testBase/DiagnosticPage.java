@@ -247,32 +247,34 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
-		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys("Jose");
+		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys("Jaffer");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys("Jacob");
+		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys("J");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys("9491219191");
+		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys("9900887745");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys("josejacob@gmail.com");
+		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys("jaffer@gmail.com");
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys("Diabetic");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
-		Thread.sleep(1000);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
+		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
+
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
 		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
 		System.out.println(notification);
-		if(notification.equalsIgnoreCase("Appointment is confirmed. Patient Name:Jose")){
+		if(notification.equalsIgnoreCase("Appointment is confirmed. Patient Name:Jaffer")){
 			
 			System.out.println("Appointment is Sucessfully Created");
 		}else{
 			System.out.println("Appointment Creation is Unsucess");
-			Assert.fail("Appointment Creation is Unsucess");
+			//Assert.fail("Appointment Creation is Unsucess");
 		}
 	}
 		
@@ -320,6 +322,7 @@ public class DiagnosticPage {
 			Assert.fail("Appointment is not rescheduled");
 		}
 	}
+	
 	
 	public void DiagnosticAppointment(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
@@ -435,8 +438,177 @@ public class DiagnosticPage {
 		
 		}
 	
+	public void AppointCreationForShowMore() throws Exception{
+		
+		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.morningmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.noonmenu)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
+		Thread.sleep(1000);
+		int cellsize=driver.findElements(By.xpath("//*[@id='myTab-3']/ul/li")).size();
+		for(cellsize=1;cellsize<=6;cellsize++){
+			driver.findElement(By.xpath("//*[@id='myTab-3']/ul/li["+cellsize+"]")).click();
+			
+			driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys("Jose");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys("Jacob");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys("9491219191");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys("josejacob@gmail.com");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys("Diabetic");
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
+			Thread.sleep(2000);
+			WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+			driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
+			Thread.sleep(5000);
+		}
+		
+		}
 	
 	
+	public void ClickOnDashboardMenu(){
+		
+		driver.findElement(By.id("dashBoard")).click();
+		WebDriverWait wait=new WebDriverWait(driver,1000);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[@class='monthly-day monthly-day-event monthly-today']")));
+		String date=driver.findElement(By.xpath("//a[@class='monthly-day monthly-day-event monthly-today']")).getText();
+		driver.findElement(By.xpath("//*[@id='diagnosticDashboardCalendar']/div[3]/a["+date+"+1]/div[1]")).click();
+		}
+	
+	
+	
+	public void CheckingShowMoreOnDashboard() throws Exception{
+		
+		if(driver.findElements(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[1]")).isEmpty()){
+			 
+			Assert.fail("Show More Button is not avaiable");
+					
+			}	
+			else{	
+			driver.findElement(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[1]")).click();
+			System.out.println("show More Button is present");
+			System.out.println("show More Button is Clicked");
+			Thread.sleep(2000);	  		
+			((JavascriptExecutor)driver).executeScript("scroll(400,0)");
+			Thread.sleep(3000);
+			System.out.println("Scroll Button is Available");
+			driver.findElement(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[2]")).click();
+			System.out.println("Show Less Button is Present");	  	
+			System.out.println("Show Less Button is Clicked");	  		
+					
+			}
+		
+		}
+	
+	public void patientsearchinalltab(String firstname,String lastname,String email) throws Exception{
+		
+		
+		driver.findElement(By.id("patients")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.id("search-bar")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("all")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("apt-search")).sendKeys(email);
+		int alltabsize=driver.findElements(By.xpath(".//*[@id='sp-diagno-tab-2']/div")).size();
+		for(int i=1;i<=alltabsize;i++){
+			
+			String name=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).getText();
+			String schedule=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
+			String fullname=firstname+" "+lastname;
+			if(name.equalsIgnoreCase(fullname)&& schedule.equalsIgnoreCase("Scheduled")){
+				
+				WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+				driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).click();
+				System.out.println("Appointment Booking is Sucessfully verified in All Tab Patient Screen");
+				break;
+				
+			}else{
+				System.out.println("Appointment Booking Verification Failed in All Tab Patient Screen");
+			}
+			
+			}
+	}
+	
+	
+	public void PatientSerachInAllTabForReschedule(String firstname,String lastname,String email) throws Exception{
+		driver.findElement(By.id("patients")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.id("search-bar")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("all")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("apt-search")).sendKeys(email);
+		int alltabsize=driver.findElements(By.xpath(".//*[@id='sp-diagno-tab-2']/div")).size();
+		for(int i=1;i<=alltabsize;i++){
+			
+		String name=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).getText();
+		String schedule=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
+		String fullname=firstname+" "+lastname;
+		if(name.equalsIgnoreCase(fullname)&& schedule.equalsIgnoreCase("Rescheduled")){
+			
+			WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+			driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).click();
+			System.out.println("Appointment Booking is Sucessfully verified in All Tab Patient Screen");
+			break;
+			
+		}else{
+			System.out.println("Appointment Booking Verification Failed in All Tab Patient Screen");
+		}
+		
+		}
+		
+	}
+	
+	
+	
+	public void CheckSendNofiticationFunctionality() throws Exception{
+		
+		driver.findElement(By.id("patients")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[@id='search-bar']")).click();
+		Thread.sleep(2000);
+		int todaytab= driver.findElements(By.xpath("//*[@id='sp-diagno-tab-1']/div")).size();
+		System.out.println(todaytab);
+		for(int i=1;i<=todaytab;i++){
+		String schedule=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
+		if(schedule.equalsIgnoreCase("Scheduled")||schedule.equalsIgnoreCase("Rescheduled")){
+			System.out.println("Scheduled/Rescheduled Found");
+			Reporter.log("Scheduled/Rescheduled Found");
+			
+			WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+			driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[3]/div/div/div[3]/div[2]/button")).click();
+			WebDriverWait wait = (new WebDriverWait(driver, 100));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
+			String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
+			System.out.println(notification);
+			if(notification.equalsIgnoreCase("Email/SMS Notification sent to the Patient")){
+				
+				System.out.println("Notification has Sent Sucessfully");
+				break;
+			}else{
+				System.out.println("Appointment Creation is Unsucess");
+				Assert.fail("Appointment Creation is Unsucess");
+			}
+		}
+			
+			
+		}		
+		
+	}
 	
 	
 }//main Class
