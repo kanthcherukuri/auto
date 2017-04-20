@@ -32,7 +32,7 @@ public class Appointment_ZOY1043_BulkCancellationHomeVisit extends LoadPropMac{
 	
 	@Test(priority=2)
 	public void bulkcancellation() throws Exception{
-		DiagnosticPageZoylo.DiagnosticBulkCancellation();
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ClickingOnEllipse();
 		DiagnosticPageZoylo.diagnosticlogout();	
