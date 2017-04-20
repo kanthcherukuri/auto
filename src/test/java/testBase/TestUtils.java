@@ -20,13 +20,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestUtils {
 	//FirefoxDriver browser = new FirefoxDriver();
+	
 	public final WebDriver driver;
 	public TestUtils(WebDriver driver) {
 		this.driver=driver;
@@ -106,7 +106,7 @@ public class TestUtils {
 		//Wait for the Screen Validation
 		public void verifyNotificationMessage(String ExpectedErrorMesg ){
 					
-			WebDriverWait wait = (new WebDriverWait(driver, 30));
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("ActualError="+ActualError);			    
@@ -165,6 +165,17 @@ public class TestUtils {
 		
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
+	
+	public void CheckNotificationMessage(String ExpectedNotificationMesg ){
+		
+		WebDriverWait wait = (new WebDriverWait(driver, 1000));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
+		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
+		System.out.println("ActualNotificationMessage="+ActualNotification);			    
+		Assert.assertEquals(ExpectedNotificationMesg, ActualNotification);
+	}
+	
+	
 	
 	 public static String[][] getTableArray(String xlFilePath, String sheetName, String tableName) throws Exception{
 		    String[][] tabArray=null;

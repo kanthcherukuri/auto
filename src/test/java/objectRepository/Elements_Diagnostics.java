@@ -1,16 +1,9 @@
 package objectRepository;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.By;
-
-import testBase.LoadProp;
-
-import org.openqa.selenium.chrome.ChromeDriver;
 
 
 
@@ -86,6 +79,14 @@ public class Elements_Diagnostics  {
 		public static String calltext;
 		public static String changetext;
 		public static String canceltext;
+		
+		//patient tab Variables
+		public static String clickonpatientmenu;
+		public static String clickonsearchicon;
+		public static String todaytabsize;
+		public static String clickonalltab;
+		public static String serachtextbox;
+		public static String alltabsize;
 		
 	 
 		
@@ -182,7 +183,15 @@ public class Elements_Diagnostics  {
 		 calltext="//span[@class='zy-sp-diag-m-p-text']";
 		 changetext="//span[@class='zy-sp-diag-m-p-chng-btn change_apt']";
 		 canceltext="//span[@class='zy-sp-diag-m-p-cancel-btn cancel_appointment']";
-        
+		 
+		 //Patient Screen Locators
+		 
+		 clickonpatientmenu="patients";
+		 clickonsearchicon="//*[@id='search-bar']";
+		 todaytabsize="//*[@id='sp-diagno-tab-1']/div";
+		 clickonalltab="all";
+		 serachtextbox="apt-search";
+		 alltabsize="//*[@id='sp-diagno-tab-2']/div";
 		return driver;	
         
        
