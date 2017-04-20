@@ -2,6 +2,7 @@ package testBase;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import junit.framework.Assert;
@@ -136,6 +137,27 @@ public class TestUtils {
 					qua.sendKeys(value);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
+				}
+				
+		//Actions by name
+				public void actionbyname(String name, String value)
+				{
+					Actions qua = new Actions(driver);
+					qua.moveToElement(driver.findElement(By.name(
+							name)));
+					qua.click();
+					qua.sendKeys(value);
+					qua.sendKeys(Keys.ENTER);
+					qua.build().perform();
+				}
+				
+		//close second tab
+				public void closeSecondTab()
+				{
+					ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+				    driver.switchTo().window(tabs2.get(1));
+				    driver.close();
+				    driver.switchTo().window(tabs2.get(0));
 				}
 		
 	//Wait Till int
