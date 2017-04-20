@@ -33,9 +33,9 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 	
 	@Test(priority=2)
 	public void AppointmentCheckingUnderAllTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbooking();
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("David", "D","9977004433", "david@gmail.com","Diabetic");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.patientsearchinalltab("Arjun","R", "arjun@gmail.com");
+		DiagnosticPageZoylo.patientsearchinalltab("David", "D","david@gmail.com");
 	}
 	
 
