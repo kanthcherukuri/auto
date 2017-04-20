@@ -58,7 +58,7 @@ DiagnosticLogin.passwordone=Zoylo@123
 
 //-------Diagnostic Login Details----//
 Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
-DiagnosticLogin.usernametwo=swapna@gmail.com
+DiagnosticLogin.usernametwo=sadeq88.ss@gmail.com
 DiagnosticLogin.passwordtwo=Zoylo@123
 
 
