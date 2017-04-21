@@ -31,18 +31,25 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test(priority=2)
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit();
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("LalithaRani", "N", "9988664411", "lalithrani@gmail.com", "kakatiya residency", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		DiagnosticPageZoylo.diagnosticlogout();
+		Thread.sleep(3000);
+		
 	}
-
-  @AfterClass
-  public void afterClass() {
-  
-	  driver.close();
-  }
-  
+	@Test(priority=3)
+	public void bulkcancelandlogout() throws Exception{
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.diagnosticlogout();	
+		}
+	
+	  @AfterClass
+	  public void afterClass() {
+	  
+		  driver.close();
+	  }
+	  
 }

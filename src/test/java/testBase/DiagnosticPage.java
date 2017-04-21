@@ -41,7 +41,7 @@ public class DiagnosticPage {
 		
 	
 	
-	public void DiagnosticAppointmentForHomeVisit() throws Exception{
+	public void DiagnosticAppointmentForHomeVisit(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
 		
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
@@ -61,31 +61,40 @@ public class DiagnosticPage {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
 		//details
-		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys("Jose");
+		driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys(firstname);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys("Jacob");
+		driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys(lastname);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys("9491219191");
+		driver.findElement(By.id(Elements_Diagnostics.detailsmobile)).sendKeys(mobile);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys("jose@gmail.com");
+		driver.findElement(By.id(Elements_Diagnostics.detailsemail)).sendKeys(email);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsaddress)).sendKeys("Bhaskar Residency FlotNo;401 Nizampet");
+		driver.findElement(By.id(Elements_Diagnostics.detailsaddress)).sendKeys(address);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys("Diabetic");
+		driver.findElement(By.id(Elements_Diagnostics.detailsproblem)).sendKeys(problem);
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
-		Thread.sleep(1000);
+	
 		//driver.findElement(By.xpath("//li[3]//a[@data-toggle='tab']")).click();
 		//Thread.sleep(1000);
 		//driver.findElement(By.xpath("//input[@class='test_select_checkbox']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+		
+		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
-		WebDriverWait wait = (new WebDriverWait(driver, 2000));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
-		String top=driver.findElement(By.xpath(Elements_Diagnostics.notification)).getText();
-		System.out.println(top);
+		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
+		
+		
+		
+		
+//		WebDriverWait wait = (new WebDriverWait(driver, 2000));
+//		
+//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
+//		String top=driver.findElement(By.xpath(Elements_Diagnostics.notification)).getText();
+//		System.out.println(top);
 		
 	}
 	
@@ -124,18 +133,7 @@ public class DiagnosticPage {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.eveningfirstcell)).click();
 		//Thread.sleep(10000);
-		WebDriverWait wait=new WebDriverWait(driver,20);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
-		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
-		System.out.println(notification);
-		Thread.sleep(5000);
-		if(notification.equalsIgnoreCase("Appointment is rescheduled successfully")){
-			System.out.println("Appointment is rescheduled successfully");
-			Reporter.log("Appointment is rescheduled successfully");
-		}else{
-			System.out.println("Appointment is  not rescheduled");
-		}
-		
+		Browser.CheckNotificationMessage("Appointment is rescheduled successfully");
 		}
 	
 	
@@ -147,7 +145,7 @@ public class DiagnosticPage {
 		
 	}
   
-	
+
 	
 	
 	public void CancelAppointmentOfHomeVisit() throws Exception{
@@ -157,17 +155,8 @@ public class DiagnosticPage {
 		driver.findElement(By.id(Elements_Diagnostics.selectbox)).sendKeys("Personal reason");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.submitbutton)).click();
-		WebDriverWait wait=new WebDriverWait(driver,20);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
-		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
-		System.out.println(notification);
-		if(notification.equalsIgnoreCase("Appointment has been Cancelled")){
-			
-			System.out.println("Appointment has been Cancelled Sucessfully");
-			Reporter.log("Appointment has been Cancelled Sucessfully");
-		}else{
-			Assert.fail("Appointment has notCancelled");
-		}
+		Browser.CheckNotificationMessage("Appointment has been Cancelled");
+
 	}
 		
 	
@@ -250,17 +239,7 @@ public class DiagnosticPage {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
         Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
-//		WebDriverWait wait = (new WebDriverWait(driver, 100));
-//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
-//		String notification=driver.findElement(By.cssSelector(Elements_Diagnostics.topnotification)).getText();
-//		System.out.println(notification);
-//		if(notification.equalsIgnoreCase("Appointment is confirmed. Patient Name:"+firstname)){
-//			
-//			System.out.println("Appointment is Sucessfully Created");
-//		}else{
-//			System.out.println("Appointment Creation is Unsucess");
-//			//Assert.fail("Appointment Creation is Unsucess");
-//		}
+
 	}
 		
 	
@@ -634,12 +613,70 @@ public class DiagnosticPage {
 			driver.findElement(By.id("appt-reports-btn")).click();
 			Browser.CheckNotificationMessage("Reports Uploaded successfully");
 			}
-		
-		
-		
 		}
 	
+	
+	public void CheckPatientSearchfunctionalityInTodaytab(String firstname,String lastname,String mobile,String email) throws Exception{
 		
+		driver.findElement(By.id("patients")).click();
+		 Thread.sleep(5000);
+		 driver.findElement(By.xpath("//*[@id='search-bar']")).click();
+		 Thread.sleep(5000);
+		 String fullname=firstname+" "+lastname;
+		 String topping[]=new String[3];
+		 topping[0]=fullname;
+		 topping[1]=mobile;
+		 topping[2]=email;
+		 for(int i=0;i<=topping.length-1;i++){
+			driver.findElement(By.xpath(".//*[@id='apt-search']")).clear();
+			 driver.findElement(By.xpath(".//*[@id='apt-search']")).sendKeys(topping[i]);
+			 driver.findElement(By.id("apt-search")).sendKeys(Keys.ENTER);
+			 Thread.sleep(10000);
+		String elementpresent=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div[1]/div/div[2]/div/h1/span[1]/span")).getText();
+		System.out.println(elementpresent);
+		String status=driver.findElement(By.xpath("//p[@class='check_in']")).getText();
+		System.out.println(status);
+		if(elementpresent.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Scheduled")){
+			
+			System.out.println("User had Present");
+			
+		}else{
+			System.out.println("User Not Present");
+		}	
+		 }
+		}
+	
+	public void CheckPatientSearchfunctionalityInAllTab(String firstname,String lastname,String mobile,String email) throws Exception{
+		driver.findElement(By.id(Elements_Diagnostics.clickonpatientmenu)).click();
+		 Thread.sleep(8000);
+		 driver.findElement(By.id(Elements_Diagnostics.clickonalltab)).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.xpath(Elements_Diagnostics.clickonsearchicon)).click();
+		 Thread.sleep(2000);
+
+		 String fullname=firstname+" "+lastname;
+		 String topping[]=new String[3];
+		 topping[0]=fullname;
+		 topping[1]=mobile;
+		 topping[2]=email;
+		 for(int i=0;i<=topping.length-1;i++){
+			 driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).clear();
+			 driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(topping[i]);
+			 driver.findElement(By.id("apt-search")).sendKeys(Keys.ENTER);
+			 Thread.sleep(10000);
+		String name=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div/div/div[2]/div/h1/span[1]")).getText();
+		System.out.println(name);
+		String status=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div/div/div[2]/div/h1/span[2]/p")).getText();
+		System.out.println(status);
+		if(name.equalsIgnoreCase(fullname)&& status.equalsIgnoreCase("Scheduled")){
+			System.out.println("User had Present");	
+		}else{
+			System.out.println("User Not Present");
+		}	
+		
+		 }
+			 
+		 }
 	
 	
 	

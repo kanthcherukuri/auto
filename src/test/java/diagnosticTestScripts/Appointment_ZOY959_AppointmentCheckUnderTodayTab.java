@@ -2,6 +2,7 @@ package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Kiran","T","9966775500","kiran@gmail.com","Diabetic" }
+					{ "yes","Naina","k","9966775500","Nina@gmail.com","Diabetic" }
 
 			};
 		}
@@ -48,5 +49,18 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.patientserachforintoday(firstname, lastname, email);
 		}
+	
+	@Test(priority=3)
+	public void bulkcancelandlogout() throws Exception{
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.diagnosticlogout();
+	}
 
+	@AfterClass
+	public void browserclose(){
+		driver.close();
+	}
 }

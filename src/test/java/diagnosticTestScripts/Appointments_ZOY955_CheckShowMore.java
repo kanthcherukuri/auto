@@ -1,6 +1,8 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
@@ -33,11 +35,26 @@ public class Appointments_ZOY955_CheckShowMore extends LoadPropMac {
 	@Test(priority=2)
 	public void showmorebutton() throws Exception{
 		
-		DiagnosticPageZoylo.AppointCreationForShowMore("Gangully","G","9911223355","gangully@gmail.com","Diabetic");
+		DiagnosticPageZoylo.AppointCreationForShowMore("sindhu","G","9911223355","sindhu@gmail.com","Diabetic");
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnDashboardMenu();
 		Thread.sleep(3000);	
 		DiagnosticPageZoylo.CheckingShowMoreOnDashboard();
 			
 	  }
-	
+	@Test(priority=3)
+	public void bulkcancelandlogout() throws Exception{
+		
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.diagnosticlogout();
+		
+	}
+
+	@AfterClass
+	public void closebrowser(){
+		driver.close();
+	}
 }
