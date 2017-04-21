@@ -32,31 +32,34 @@ public class Appointments_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 				}
 	@Test(priority=2,enabled=false)
 	public void CheckSendNotificationInTodayTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentForToday("Sai", "kanth", "9900882212","sai@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForToday("sony", "p","9900882212","sony@gmail.com", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.CheckSendNofiticationFunctionality();
 		Thread.sleep(2000);
 		
 	    }
 	
-	@Test(priority=3)
+	@Test(priority=3,enabled=false)
 	public void CheckSendNotificationInAllTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("StautMark", "W","9900118822", "Stautmark@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Priya", "s","9900118822", "priya@gmail.com", "Diabetic");
 		Thread.sleep(8000);
-		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("Stautmark@gmail.com");
+		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("priya@gmail.com");
+		Thread.sleep(3000);
 	}
 	
-	@Test(priority=4,enabled=false)	
+	@Test(priority=4)	
 	public void DiagnosticBulkCancellation() throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickingOnEllipse();
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}
 		
 	@AfterClass
 	public void browserclose(){
-		//driver.close();
+		driver.close();
 	}
 		
 	}

@@ -146,7 +146,7 @@ public class TestUtils {
 	
 	public void CheckNotificationMessage(String ExpectedNotificationMesg ){
 		
-		WebDriverWait wait = (new WebDriverWait(driver, 100));
+		WebDriverWait wait = (new WebDriverWait(driver, 1000));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);			    
