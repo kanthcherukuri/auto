@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -43,7 +46,7 @@ public class Appointments_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Savithri","J","9966775555","savithri@gmail.com","Diabetic" }
+					{ "yes","srilekha","J","9966001555","srilekha@gmail.com","Diabetic" }
 
 			};
 		}

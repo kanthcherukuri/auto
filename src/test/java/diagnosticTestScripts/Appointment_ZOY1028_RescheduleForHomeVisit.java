@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -31,7 +34,7 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test(priority=2)
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("LalithaRani", "N", "9988664411", "lalithrani@gmail.com", "kakatiya residency", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rajrajeswari", "N", "9988660011", "rajeswari@gmail.com", "kakatiya residency", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
 		Thread.sleep(3000);

@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -32,7 +35,7 @@ public class Appointments_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 				}
 	@Test(priority=2)
 	public void CheckSendNotificationInTodayTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentForToday("samsung", "p","9900881112","samsung@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForToday("nokia", "p","9900221112","nokia@gmail.com", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.CheckSendNofiticationFunctionality();
 		Thread.sleep(2000);
@@ -41,9 +44,9 @@ public class Appointments_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	
 	@Test(priority=3)
 	public void CheckSendNotificationInAllTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("HTC", "s","9900112222", "htc@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Haeui", "s","9900462222", "haeui@gmail.com", "Diabetic");
 		Thread.sleep(8000);
-		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("htc@gmail.com");
+		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("haeui@gmail.com");
 		Thread.sleep(3000);
 	}
 	

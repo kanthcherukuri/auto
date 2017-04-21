@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -34,7 +37,7 @@ public class Appointment_ZOYO1010_CancelAppointment extends LoadPropMac {
 	
 	@Test(priority=2)
 	public void CancelAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Mohan","M","9966008822","mohan@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Manohar","M","9966009022","manohar@gmail.com","Diabetic");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
 		Thread.sleep(3000);

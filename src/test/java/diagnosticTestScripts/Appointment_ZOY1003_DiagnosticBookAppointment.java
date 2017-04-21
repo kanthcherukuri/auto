@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -33,7 +36,7 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	@Test(priority=2)
 	public void BookAppointment() throws Exception{
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Surya","K","9900882211","surya@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Supriya","K","9900882200","supriya@gmail.com","Diabetic");
 		Thread.sleep(4000);
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(5000);

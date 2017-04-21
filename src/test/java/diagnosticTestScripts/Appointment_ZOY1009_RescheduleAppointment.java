@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -33,11 +36,11 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	
 	@Test(priority=2)
 	public void RescheduleAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Chandu","P","9966778800","chandu@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Chandrasekha","P","9966770000","chandra@gmail.com","Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Chandu","P","chandu@gmail.com");
+		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Chandrasekha","P","chandra@gmail.com");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(1000);

@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.*;
@@ -7,7 +10,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Diagnostic_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
+public class Appointment_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
@@ -33,7 +36,7 @@ public class Diagnostic_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
 	@Test(priority=2)
 	public void  diagnostichomevisit() throws Exception{
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Suraj","R","9922668844","suraj@gmail.com","Kakatiya Residency","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Sundeep","s","9922663456","sundeep@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
 		Thread.sleep(3000);

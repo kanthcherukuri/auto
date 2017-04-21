@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -36,7 +39,7 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Gomuk","k","9966775511","gomuk@gmail.com","Diabetic" }
+					{ "yes","Govina","k","9966695511","govind@gmail.com","Diabetic" }
 
 			};
 		}

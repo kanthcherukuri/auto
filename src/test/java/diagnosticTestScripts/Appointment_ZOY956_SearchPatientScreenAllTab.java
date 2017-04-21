@@ -1,12 +1,10 @@
 package diagnosticTestScripts;
 
-import java.util.concurrent.TimeUnit;
-
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.DataProvider;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -37,7 +35,7 @@ public class Appointment_ZOY956_SearchPatientScreenAllTab extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Sarojini","J","9966770011","sarojini@gmail.com","Diabetic" }
+					{ "yes","Sruthi","J","9966772411","sruthi@gmail.com","Diabetic" }
 
 			};
 		}

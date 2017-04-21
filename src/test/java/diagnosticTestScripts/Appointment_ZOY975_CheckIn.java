@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -34,7 +37,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Donepudi","k","9966775511","donepudi@gmail.com","Diabetic" }
+					{ "yes","roshan","V","9966992212","roshan@gmail.com","Diabetic" }
 
 			};
 		}
