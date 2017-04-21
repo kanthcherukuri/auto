@@ -48,10 +48,10 @@ public class  Schedule_ZOY977_ConsultationAtDCenterSlotDuration {
 	  driver.findElement(By.xpath(".//*[@id='zyScheduleFooter']")).click();
 	 
 	  
-	  testScenario1();
-	  Thread.sleep(8000);
-	  testScenario2();
-	  Thread.sleep(8000);
+	  //testScenario1();
+	 // Thread.sleep(8000);
+	 // testScenario2();
+	 // Thread.sleep(8000);
 	  testScenario3(d1,d2);
 	  System.out.println("ALL THREE SCENARIOS SUCESSFULLY COMPLETED AND PASSED");
   }

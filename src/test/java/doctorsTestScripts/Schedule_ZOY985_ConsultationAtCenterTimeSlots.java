@@ -145,11 +145,13 @@ public class Schedule_ZOY985_ConsultationAtCenterTimeSlots {
 	  else 
 	  {
 		  Assert.fail(actual_text);
-	  }	 
+	  }	
+	  Thread.sleep(8000);
   }
   @Test(dataProvider = "dp",groups = { "Regression","High" },priority=3,enabled=true)
-  public void testConsultationAtCenterTimeSlotsNoBookedApp(String runmode, String t,String day,String date_from,String date_to) {
+  public void testConsultationAtCenterTimeSlotsNoBookedApp(String runmode, String t,String day,String date_from,String date_to) throws InterruptedException {
 	  
+	  Thread.sleep(8000);
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
 	  wait=new WebDriverWait(driver, 8000);
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='zyDashboardFooter']")));
@@ -186,6 +188,7 @@ public class Schedule_ZOY985_ConsultationAtCenterTimeSlots {
   	{
   		Assert.fail("TEST CASE FAILED AS THE NEW TIME IN GIVEN TIME SLOT IS NOT SET");
   	}
+  	Thread.sleep(8000);
   }
   
   public int getId(String day){

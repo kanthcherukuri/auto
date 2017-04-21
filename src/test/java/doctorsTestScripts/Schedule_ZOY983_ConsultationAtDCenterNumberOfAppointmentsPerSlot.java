@@ -2,6 +2,7 @@ package doctorsTestScripts;
 
 /*author - manraj bharaj
 
+
 Description: Schedule DAIGNOSTIC CENTRE , alter  the Number Of Appointments Per Slot
  with booked and no booked appointments and check the results 
 For test scenario -booked an appointment and for test scenario no booked appointment 
@@ -12,9 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +23,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
@@ -60,7 +58,6 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  {
 		  Assert.fail();
 	  } 
-	 
 	 if(cancelAllAppointments(d1,d2))
 	 {
 		 WebElement mainMenu = driver.findElement(By.xpath(".//*[@class='sp-diag-conc-duration-timer sp-diag-conc-daytimer']//canvas"));
@@ -70,7 +67,8 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 		  Thread.sleep(4000);
 		  driver.findElement(By.xpath(".//*[@id='diagnosticClinicTimeSlots']")).click();
 		  Thread.sleep(8000);
-		  action.moveToElement(mainMenu,50,0).click().perform();
+		  WebElement mainMenu1 = driver.findElement(By.xpath(".//*[@class='sp-diag-conc-duration-timer sp-diag-conc-daytimer']//canvas"));
+		  action.moveToElement(mainMenu1,50,0).click().perform();
 		  Thread.sleep(8000);
 		  driver.findElement(By.xpath(".//*[@id='diagnosticClinicTimeSlots']")).click();
 		 System.out.println("END OF TEST CASE AND TEST CASE PASSED");
@@ -78,7 +76,6 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	 }
 	  
   }
-  
   public boolean cancelAllAppointments(String d1, String d2) throws InterruptedException
   {
 	  boolean value=false;
@@ -89,7 +86,7 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_fromDate']")).click();
 	  int c=0;
 	  int d=0;
-	  A:for(int i=1;i<=6;i++)
+	  for(int i=1;i<=6;i++)
 	  {
 		  for(int j=1;j<=7;j++)
 		  {
@@ -101,14 +98,13 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 			  }
 		  }  
 	  }
-	  
 	  driver.findElement(By.xpath("html/body/div[8]/div[1]/table/tbody/tr["+c+"]/td["+d+"]")).click();
 	  Thread.sleep(4000);
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_toDate']")).click();
 
 	   int a=0;
 	   int b=0;
-	  B:for(int i=1;i<=6;i++)
+	  for(int i=1;i<=6;i++)
 	  {
 		  for(int j=1;j<=7;j++)
 		  {
@@ -121,18 +117,12 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 			  }
 		  }
 	  }
-	
-	
-	driver.findElement(By.xpath("html/body/div[8]/div[1]/table/tbody/tr["+a+"]/td["+b+"]")).click();
-	
-	
-	  
+	  driver.findElement(By.xpath("html/body/div[8]/div[1]/table/tbody/tr["+a+"]/td["+b+"]")).click();
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_fromTime']")).clear();
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_fromTime']")).sendKeys("00:00");
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_toTime']")).clear();
 	  driver.findElement(By.xpath(".//*[@id='bulk_cancel_toTime']")).sendKeys("23:59");
 	  driver.findElement(By.xpath(".//*[@id='bulkCancel_submit']")).click();
-	  
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 	  String actual_text=driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 	  System.out.println(actual_text);
@@ -145,13 +135,10 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  
 	  else 
 	  {
-		  
 		  Assert.fail(actual_text);
-		  
 	  }	 
 	  return value;
   }
-  
   public String changeNoOfAppointmentsPerSlot() throws InterruptedException
   {
 	  WebElement mainMenu = driver.findElement(By.xpath(".//*[@class='sp-diag-conc-duration-timer sp-diag-conc-daytimer']//canvas"));
@@ -164,7 +151,6 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  String actual_text=driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 	  System.out.println(actual_text);
 	  return actual_text;
-	  
   }
   
   @BeforeTest(groups = { "Regression","High" })
@@ -178,18 +164,12 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
   	  driver.findElement(By.id("password")).sendKeys(LoadProp.DiagnosticLogin_passwordtwo);
   	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
   	  Thread.sleep(4000);
-  	  
-  	  
-  	
   }
-  
   @DataProvider
   public Object[][] dp() throws Exception {
  	  Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY983");
       return(retObjArr);
   }
-  
-  
   @AfterTest(groups = { "Regression","High" })
   public void afterTest() {
 	  
