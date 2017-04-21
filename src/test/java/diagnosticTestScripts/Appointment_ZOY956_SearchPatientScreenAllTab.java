@@ -4,14 +4,18 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
+public class Appointment_ZOY956_SearchPatientScreenAllTab extends LoadPropMac {
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
+	
+	
 	
 	@BeforeClass
 	  public void beforeClass() throws Exception {
@@ -30,25 +34,34 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 			
 				}
-	
-	@Test(priority=2)
-	public void RescheduleAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Chandu","P","9966778800","chandu@gmail.com","Diabetic");
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Chandu","P","chandu@gmail.com");
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticlogout();	
+	 @DataProvider(name = "DP1")
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Sarojini","J","9966770011","sarojini@gmail.com","Diabetic" }
+
+			};
 		}
+
+	 
+	 @Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
+	 public void searchpatientscreenalltab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		 DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow(firstname, lastname, mobile, email, problem); 
+		 Thread.sleep(3000);
+		 DiagnosticPageZoylo.CheckPatientSearchfunctionalityInAllTab(firstname, lastname, mobile, email);
+		 Thread.sleep(2000);
+		 
+	 }
+	@Test(priority=3)
+	public void bulkcancelandlogout() throws Exception{
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		Thread.sleep(4000);
+		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.diagnosticlogout();
+	}
 	
 	@AfterClass
 	public void closebrowser(){
 		driver.close();
 	}
-
 }

@@ -31,12 +31,12 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 		}
 	@Test(priority=2)
 	public void HomeVisitAppointmentCancel() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit();
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Prem","M","9922446688","prem@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.CancelAppointmentOfHomeVisit();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		DiagnosticPageZoylo.ClickingOnEllipse();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();

@@ -34,7 +34,7 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	public void BookAppointment() throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Surya","K","9900882211","surya@gmail.com","Diabetic");
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.ClickingOnEllipse();

@@ -2,7 +2,9 @@ package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import testBase.DiagnosticPage;
@@ -31,12 +33,34 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
 	
-	@Test(priority=2)
-	public void AppointmentCheckingUnderAllTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("David", "D","9977004433", "david@gmail.com","Diabetic");
+	@DataProvider(name = "DP1")
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Gomuk","k","9966775511","gomuk@gmail.com","Diabetic" }
+
+			};
+		}
+	
+	
+	@Test(dataProvider="DP1",priority=2)
+	public void AppointmentCheckingUnderAllTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.patientsearchinalltab("David", "D","david@gmail.com");
+		DiagnosticPageZoylo.patientsearchinalltab(firstname, lastname, email);
 	}
 	
-
+   @Test(priority=3)
+   public void bulkcancelandlogout() throws Exception{
+	   DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+	   Thread.sleep(3000);
+	   DiagnosticPageZoylo.ClickingOnEllipse();
+	   Thread.sleep(2000);
+	   DiagnosticPageZoylo.diagnosticlogout();
+	   
+   }
+	
+   @AfterClass
+   public void closebrowser(){
+	   driver.close();
+   }
 }

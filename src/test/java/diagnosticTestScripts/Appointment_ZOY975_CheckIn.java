@@ -5,6 +5,8 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterClass;
 
@@ -29,12 +31,21 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
 	
-	@Test(priority=2)
-	public void VerifyCheckInCheckOut() throws Exception{
+	@DataProvider(name = "DP1")
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Donepudi","k","9966775511","donepudi@gmail.com","Diabetic" }
+
+			};
+		}
 	
-		DiagnosticPageZoylo.DiagnosticAppointmentForToday("soujanya","k","9988660022","soujanya@gmail.com","Diabetic");
+	
+	@Test(dataProvider="DP1",priority=2)
+	public void VerifyCheckInCheckOut(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	
+		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(6000);
-		DiagnosticPageZoylo.VerifyCheckInCheckoutforAllTab("soujanya","k","soujanya@gmail.com");
+		DiagnosticPageZoylo.VerifyCheckInCheckoutforAllTab(firstname, lastname, email);
 		Thread.sleep(3000);
 	}
 	@Test(priority=3)
