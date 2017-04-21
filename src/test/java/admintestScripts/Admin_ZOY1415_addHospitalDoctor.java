@@ -70,27 +70,13 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		driver.findElement(By.name("doctorInformation.medicalRegistrationNumber")).sendKeys(docMedNum);
 		driver.findElement(By.name("doctorInformation.gender")).click();
 		
-		WebElement mySelectElement = driver.findElement(By.name("doctorInformation.gender"));
-		Select dropdown= new Select(mySelectElement);
-		dropdown.selectByVisibleText(gender);
+		Browser.selectbyName("doctorInformation.gender", gender);
 		
 		// Specialization
-				Actions spec1 = new Actions(driver);
-				spec1.moveToElement(driver.findElement(By.xpath(
-						".//*[@id='doctorInformation']/div/div[2]/div/div[7]/span[1]/span[1]/span/ul")));
-				spec1.click();
-				spec1.sendKeys(areaOfSpec);
-				spec1.sendKeys(Keys.ENTER);
-				spec1.build().perform();
+		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[7]/span[1]/span[1]/span/ul", areaOfSpec);
 				
 		// Qualification
-				Actions qua = new Actions(driver);
-				qua.moveToElement(driver.findElement(By.xpath(
-						".//*[@id='doctorInformation']/div/div[2]/div/div[9]/span[1]/span[1]/span/ul")));
-				qua.click();
-				qua.sendKeys(docQualification);
-				qua.sendKeys(Keys.ENTER);
-				qua.build().perform();
+		Browser.actionbyXpath("//*[@id='doctorInformation']/div/div[2]/div/div[9]/span[1]/span[1]/span/ul", docQualification);
 				
 		driver.findElement(By.name("doctorInformation.practiceStartDate")).sendKeys(practiceDate);
 		// Image upload
@@ -98,17 +84,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		        Thread.sleep(5000);
 		
 		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[17]/label");
-		//Hospital
 		
+		//Hospital
 		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[18]/ul/li[1]/div/div[2]/div/div[2]/div[1]/span[1]/span[1]/span")).click();
-		Actions hname = new Actions(driver);
-		hname.moveToElement(driver.findElement(By.xpath("html/body/span/span/span[1]/input")));
-		Thread.sleep(2000);
-		hname.click();
-		hname.sendKeys(hospitalName);
-		Thread.sleep(5000);
-		hname.sendKeys(Keys.ENTER);
-		hname.build().perform();
+		Browser.actionbyXpath("html/body/span/span/span[1]/input", hospitalName);
 		
 		driver.findElement(By.name("doctorInformation.hospital.0.consultationFee")).sendKeys(hopFee);
 		driver.findElement(By.name("doctorInformation.hospital.0.fecilationCharge")).sendKeys(ZFC);
@@ -162,24 +141,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		Browser.scrollbyxpath(".//*[@id='additionalInformation']/div/div[1]/h3");
 		
 		// Line of Practice
-		Actions lop1 = new Actions(driver);
-		lop1.moveToElement(driver.findElement(By.xpath(
-				".//*[@id='additionalInformation']/div/div[2]/div[4]/span[1]/span[1]/span/ul")));
-		lop1.click();
-		lop1.sendKeys(doclop);
-		Thread.sleep(1000);
-		lop1.sendKeys(Keys.ENTER);
-		lop1.build().perform();
+		Browser.actionbyXpath(".//*[@id='additionalInformation']/div/div[2]/div[4]/span[1]/span[1]/span/ul", doclop);
 		
 		// Professional Tag
-		Actions tag = new Actions(driver);
-		tag.moveToElement(driver.findElement(By.xpath(
-				".//*[@id='additionalInformation']/div/div[2]/div[5]/span[1]/span[1]/span/ul")));
-		tag.click();
-		tag.sendKeys(docpt);
-		Thread.sleep(1000);
-		tag.sendKeys(Keys.ENTER);
-		tag.build().perform();
+		Browser.actionbyXpath(".//*[@id='additionalInformation']/div/div[2]/div[5]/span[1]/span[1]/span/ul", docpt);
 		
 		Browser.scrollbyxpath(".//*[@id='additionalInformation']/div/div[2]/div[29]/ul/li[1]/div/div[2]/div/div/div/label");
 		
@@ -191,9 +156,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		} catch (Exception e) {
 			System.out.println("Doctor ID "+savedEmail+" save failed");
 		}
-		
-		
-		
+	
 	} //End of docaddInfo method p3
 	
 	@BeforeClass

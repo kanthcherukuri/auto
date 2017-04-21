@@ -22,6 +22,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestUtils {
@@ -158,6 +159,14 @@ public class TestUtils {
 				    driver.switchTo().window(tabs2.get(1));
 				    driver.close();
 				    driver.switchTo().window(tabs2.get(0));
+				}
+		
+		//WebElement Select by name
+				public void selectbyName(String elementName, String selectvalue)
+				{
+					WebElement mySelectElement = driver.findElement(By.name(elementName));
+					Select dropdown= new Select(mySelectElement);
+					dropdown.selectByVisibleText(selectvalue);
 				}
 		
 	//Wait Till int
