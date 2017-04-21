@@ -24,7 +24,7 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	
 	@Test(priority=1)
   public void DiagnosticLogin() throws Exception {
-		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS) ;
+		
 		DiagnosticPageZoylo=new DiagnosticPage(driver);	
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		Thread.sleep(2000);
@@ -34,21 +34,21 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	public void BookAppointment() throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Surya","K","9900882211","surya@gmail.com","Diabetic");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		Thread.sleep(5000);
 		DiagnosticPageZoylo.ClickingOnEllipse();
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	
-	@Test(priority=3)
-	public void BulkCancellogout(){
+	
 
-	}
-
-  @AfterClass
-  public void afterClass() {
-	  
-	  driver.close();
-  }
+	  @AfterClass
+	  public void afterClass() {
+		  
+		  driver.close();
+	  }
 
   
 }
