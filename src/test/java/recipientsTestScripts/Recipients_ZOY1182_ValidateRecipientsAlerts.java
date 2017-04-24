@@ -57,9 +57,9 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Username, Password);
+				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
-				RecipientPage.searchInZoyloMAP(Doctor);
+				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				RecipientPage.selectDefaultSlot();
@@ -69,7 +69,7 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 				System.out.println("before split id is "+AppointmentId);
 				String APID[]=AppointmentId.split(":");
 				System.out.println("After split id is "+APID[1]);
-				RecipientPage.openRecipientsMyAccounts();
+				RecipientPage.openMyAccounts();
 				driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Alerts')]")).click();
 				Thread.sleep(5000);
 				String AppointmentIdInAlerts = driver.findElement(By.xpath("(//*[@id='recipientMessage'])[1]")).getText();

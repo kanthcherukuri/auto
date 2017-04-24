@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY_ValidateDiagnosticsRechange extends LoadPropMac {
+public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 

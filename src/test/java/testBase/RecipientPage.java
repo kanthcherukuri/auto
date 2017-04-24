@@ -229,17 +229,18 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
-	public void confirmAppointmentAsOthers(String details,String Pname,String Pgender,String PAge) throws InterruptedException{
+	public void confirmAppointmentAsOthers(String details,String Pname,String Lname,String Pgender,String PAge,String BloodGRP) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
 		driver.findElement(By.xpath("//input[@value='others']")).click(); // self (Added newly)
 		Thread.sleep(2000);
-		driver.findElement(By.id("patientName")).sendKeys(Pname);
+		driver.findElement(By.id("firstName")).sendKeys(Pname);
+		driver.findElement(By.id("lastName")).sendKeys(Lname);
 		driver.findElement(By.id("patientGender")).sendKeys(Pgender);
 		driver.findElement(By.id("patientAge")).sendKeys(PAge);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scroll(0, 250)");
+		driver.findElement(By.id("bloodGroup")).sendKeys(BloodGRP);
+		Browser.scrollbyxpath("//div[text()='Confirm Appointment']");		
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
@@ -350,8 +351,8 @@ public class RecipientPage  {
 		System.out.println("Cliked on Map Listing / Icon");
 	}
 
-	public void openRecipientsMyAccounts() throws InterruptedException{
-		driver.get(""+LoadProp.base_url+"myaccount");
+	public void openMyAccounts() throws InterruptedException{
+		driver.get(LoadPropMac.base_url+"myaccount");
 		Thread.sleep(5000);
 		System.out.println("Cliked on Map Listing / Icon");
 	}
