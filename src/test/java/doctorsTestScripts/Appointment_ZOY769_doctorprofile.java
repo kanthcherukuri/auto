@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY769_doctorprofile extends LoadProp{
+public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	public TestUtils exceldata;

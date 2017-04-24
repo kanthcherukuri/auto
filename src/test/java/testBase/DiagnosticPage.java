@@ -628,8 +628,8 @@ public class DiagnosticPage {
 		 topping[1]=mobile;
 		 topping[2]=email;
 		 for(int i=0;i<=topping.length-1;i++){
-			driver.findElement(By.xpath(".//*[@id='apt-search']")).clear();
-			 driver.findElement(By.xpath(".//*[@id='apt-search']")).sendKeys(topping[i]);
+			driver.findElement(By.xpath("//*[@id='apt-search']")).clear();
+			 driver.findElement(By.xpath("//*[@id='apt-search']")).sendKeys(topping[i]);
 			 driver.findElement(By.id("apt-search")).sendKeys(Keys.ENTER);
 			 Thread.sleep(10000);
 		String elementpresent=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div[1]/div/div[2]/div/h1/span[1]/span")).getText();

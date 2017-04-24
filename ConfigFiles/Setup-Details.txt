@@ -34,7 +34,7 @@ sample data
 
 Doctors.Url=https://zoyloqa.zoylo.com/login
 DoctorsLogin.username=sagarsen@gmai.com
-DoctorsLogin.password=Zoylo@1234
+DoctorsLogin.password=Zoylo@123
 browser=chrome
 
 DoctorsLogin.usernameone=kanthch@hotmail.com

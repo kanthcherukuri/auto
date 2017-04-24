@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.Assert;
+
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -24,8 +24,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
-public class TestUtils {
+public class TestUtils{
 	//FirefoxDriver browser = new FirefoxDriver();
 	
 	public final WebDriver driver;
@@ -107,7 +109,7 @@ public class TestUtils {
 		//Wait for the Screen Validation
 		public void verifyNotificationMessage(String ExpectedErrorMesg ){
 					
-			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			WebDriverWait wait = (new WebDriverWait(driver, 1000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("ActualError="+ActualError);			    
@@ -180,8 +182,12 @@ public class TestUtils {
 		WebDriverWait wait = (new WebDriverWait(driver, 1000));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-		System.out.println("ActualNotificationMessage="+ActualNotification);			    
-		Assert.assertEquals(ExpectedNotificationMesg, ActualNotification);
+		System.out.println("ActualNotificationMessage="+ActualNotification);
+		//SoftAssert assertion=new SoftAssert();
+		//assertion.assertEquals(ExpectedNotificationMesg,ActualNotification);
+		//assertion.assertAll();
+	    Assert.assertEquals(ExpectedNotificationMesg,ActualNotification);
+		
 	}
 	
 	
