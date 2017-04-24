@@ -26,6 +26,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		return new Object[][]
 				{
 					{"Java Diagnostics One", "JdcOne", "Java One", "javadcone@zoy.com", "Zoylo@123", "Zoylo@123", "9000000001", "Approved"}
+			
 				};
 	}
 	
@@ -34,6 +35,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		//Change environment
 		driver.get("https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters");
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		driver.findElement(By.id("add")).click();
@@ -57,7 +59,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Telangana", "Hyderabad", "500082", "KPHB", "Forum mall", "76.45", "16.77"}
+					{"Telangana", "Hyderabad", "500082", "Hitech City", "Cyber towers", "76.45", "16.77"}
 				};
 	}
 	
@@ -95,7 +97,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Java Contact", "9000000002", "jcontact1@zoy.com", "15", "10"}
+					{"Veever Milan", "9000000003", "milan1@zoylo.com", "15", "10"}
 				};
 	}
 	
@@ -106,7 +108,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		driver.findElement(By.name("contactPersons.0.contactPersonPhone")).sendKeys(conNum);
 		driver.findElement(By.name("contactPersons.0.contactPersonEmail")).sendKeys(conEmail);
 		Browser.scrollbyxpath("//h3[contains(., 'Images List')]");
-		driver.findElement(By.xpath("//input[@file-input='imagesList.0.fileRecordId']")).sendKeys(doc_image);
+		driver.findElement(By.xpath("//input[@file-input='imagesList.0.fileRecordId']")).sendKeys(dc_image);
 		Thread.sleep(5000);
 		//driver.findElement(By.xpath("//input[@name='imagesList.0.isDefault' AND @value='true']")).click();
 		driver.findElement(By.name("clinicSlotDuration")).sendKeys(sldu);
@@ -118,7 +120,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Monday", "09:00", "20:00"}
+					{"Tuesday", "09:00", "20:00"}
 				};
 	}
 	
@@ -140,7 +142,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-			{"Approved", "Lab Visit", "Java PackageOne", "10", "1", "Java TestOne", "Approved", "Lab Visit", "10", "3"}
+			{"Approved", "Lab Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
 				};
 	}
 	

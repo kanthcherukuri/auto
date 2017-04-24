@@ -30,12 +30,12 @@ public class LoadPropMac   {
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name;
 	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,Recipient_DSpassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
-	public static String admin_user,admin_password, doc_image;
+	public static String admin_user,admin_password,doc_image, dc_image;
 
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
-        inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
+        inStream = new FileInputStream(new File("ConfigFiles/PSetup-Details.txt"));
         Properties prop = new Properties();
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
@@ -50,6 +50,7 @@ public class LoadPropMac   {
         Diagnostic_Name=prop.getProperty("Diagnostic.Name");
         index_url=prop.getProperty("index.url");
         doc_image=prop.getProperty("doctor.image");
+        dc_image=prop.getProperty("dc.image");
         
         
         
