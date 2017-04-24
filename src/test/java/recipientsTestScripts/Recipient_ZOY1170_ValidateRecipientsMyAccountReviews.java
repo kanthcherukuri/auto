@@ -72,7 +72,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 
 			//Review the Appointment
-			RecipientPage.openRecipientsMyAccounts();
+			RecipientPage.openMyAccounts();
 			driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
 			Browser.waitTill(60);
 			Thread.sleep(5000);// Added for view

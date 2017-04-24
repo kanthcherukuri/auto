@@ -28,7 +28,7 @@ public class LoadPropMac   {
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
 
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name;
-	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,Recipient_DSpassword;
+	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
 	public static String admin_user,admin_password, doc_image;
 
@@ -77,6 +77,8 @@ public class LoadPropMac   {
         Recipient_DSusername=prop.getProperty("Recipient.DSusername");
         Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
 
+        Recipient_DocUsername=prop.getProperty("Recipient.DocUsername");
+        Recipient_DocPassword=prop.getProperty("Recipient.DocPassword");
         
         //Admin - Login credentials
         admin_user=prop.getProperty("admin.user");

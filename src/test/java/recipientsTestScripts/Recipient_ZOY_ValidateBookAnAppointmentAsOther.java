@@ -43,18 +43,8 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 	} 
 
 
-	@DataProvider(name = "DP1")
-	public String[][] createData1() {
-		return new String[][] {
-				{ "yes","Ganesh" }
-
-		};
-	}
-	
-	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
-
-		if(runmode.equals("yes")){
+	@Test(groups = { "Regression","High" })
+	public void validateBookingAnAppointment( ) throws Exception {
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
@@ -67,20 +57,13 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 			String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
 			System.out.println("App details"+Appointmentdetails[0]);
 			System.out.println("App details"+Appointmentdetails[1]);
-			RecipientPage.confirmAppointmentAsOthers("Health details","Ganesh","Male","30");
+			RecipientPage.confirmAppointmentAsOthers("Health details","Ganesh","Kumar","Male","30","O+");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			String ClinicName = driver.findElement(By.xpath("//div[@class='book-dtbox']/h3[2]")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
             
-
-		}else{
-
-			throw new SkipException("RUNMODE IS OFF");
-
-		}
-
 
 	}
 
