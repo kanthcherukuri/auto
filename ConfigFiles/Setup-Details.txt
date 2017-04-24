@@ -19,6 +19,7 @@ index.url=https://zoyloqa.zoylo.com/index
 //--------Admin Login Details----//
 admin.user=sagar@zoylo.com
 admin.password=Zoylo@123
+doctor.image=/Users/sen/Desktop/sitemap.png
 
 
 
@@ -32,14 +33,32 @@ browser=chrome
 DoctorsLogin.usernameone=kanthch@hotmail.com
 DoctorsLogin.passwordone=Zoylo@666
 
+DoctorsLogin.usernametwo=sss1@gmail.com
+DoctorsLogin.passwordtwo=Zoylo@123
+
 //--------Recipient Login Details----//
 
 Recipient.Username=ganeshmandala@gmail.com
 Recipient.Password=Zoylo@123
+
+
+//-------Diagnostic Login Details----//
+
+Diagnostic.Url=https://zoyloqa.zoylo.com
+DiagnosticLogin.usernameone=zoylodc@gmail.com
+DiagnosticLogin.passwordone=Zoylo@123
+
+
+//-------Diagnostic Login Details----//
+Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
+DiagnosticLogin.usernametwo=sadeq88.ss@gmail.com
+DiagnosticLogin.passwordtwo=Zoylo@123
+
 
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
 Doctor.Name=Doctor
 Diagnostic.Name=Srdcscript
+>>>>>>> 00594140d44775850546a54dcd54406b07def1b9
 

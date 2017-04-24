@@ -10,9 +10,10 @@ import org.testng.annotations.Test;
 
 import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY801_Reschedule extends LoadProp{
+public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -40,16 +41,23 @@ public class Appointment_ZOY801_Reschedule extends LoadProp{
 	 public  void SignIntoDoctorLogin() throws Exception {
 	
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				
 		  }
 	 
 	 
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	  Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY801");
-	        return(retObjArr);
-	    }
+	   // public Object[][] createData_DP1() throws Exception{
+	  //Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY801");
+	    //    return(retObjArr);
+	    //}
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Kamal","H","9491219191","kamalk@gmail.com","Diabetic" }
+
+			};
+		}
+
 	 
 	 
 	
@@ -69,11 +77,14 @@ public class Appointment_ZOY801_Reschedule extends LoadProp{
 		 
 	 }
 			
-	
+	@Test(priority=2)
+	public void CancelAllAppointments() throws Exception{
+		DoctorsPageOfZoylo.BulkCancel();
+	}
 			
 			@AfterClass
 			public void closebrowser(){
-				
+				driver.close();
 			}
 			
 			
