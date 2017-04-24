@@ -23,19 +23,12 @@ doctor.image=/Users/sen/Desktop/d.png
 dc.image=/Users/sen/Desktop/d.png
 
 
-//------Login User Details---//
-
-login.username=Ganesh
-
-login.password=ganesh123
-
-sample data
 
 //--------Doctor Login Details----//
 
 Doctors.Url=https://zoyloqa.zoylo.com/login
 DoctorsLogin.username=sagarsen@gmai.com
-DoctorsLogin.password=Zoylo@1234
+DoctorsLogin.password=Zoylo@123
 browser=chrome
 
 DoctorsLogin.usernameone=kanthch@hotmail.com
@@ -43,12 +36,6 @@ DoctorsLogin.passwordone=Zoylo@666
 
 DoctorsLogin.usernametwo=sss1@gmail.com
 DoctorsLogin.passwordtwo=Zoylo@123
-
-//--------Recipient Login Details----//
-
-Recipient.Username=ganeshmandala@gmail.com
-Recipient.Password=Zoylo@123
-
 
 //-------Diagnostic Login Details----//
 
@@ -63,10 +50,18 @@ DiagnosticLogin.usernametwo=sadeq88.ss@gmail.com
 DiagnosticLogin.passwordtwo=Zoylo@123
 
 
+//--------Recipient Login Details----//
+
+Recipient.Username=ganeshmandala@gmail.com
+Recipient.Password=Zoylo@123
+
+Recipient.DocUsername=doctorzoylo@gmail.com
+Recipient.DocPassword=Zoylo@123
+
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
-Doctor.Name=Naresh
+Doctor.Name=DoctorZoylo
 Diagnostic.Name=Srdcscript
->>>>>>> 00594140d44775850546a54dcd54406b07def1b9
+
 

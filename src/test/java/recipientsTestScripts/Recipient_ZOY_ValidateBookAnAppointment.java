@@ -25,7 +25,7 @@ import objectRepository.*;
 MethodListener.class })
 
  */
-public class Recipient_ZOY_ValidateBookAnAppointment extends LoadProp {
+public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
 
@@ -43,42 +43,28 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadProp {
 	} 
 
 
-	@DataProvider(name = "DP1")
-	public Object[][] createData_DP1() throws Exception{
-		Object[][] retObjArr=TestUtils.getTableArray("TestData\\Recipients_TestData.xls","Doctor", "ZOY10");
-		return(retObjArr);
-	}
-	
 	
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateBookingAnAppointment(String runmode,String Username, String Password,String SlotChangeMesg,String Doctor ) throws Exception {
-
-		if(runmode.equals("yes")){
+	public void validateBookingAnAppointment( ) throws Exception {
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
 			//Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Username, Password);
+			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
-			RecipientPage.searchInZoyloMAP(Doctor);
+			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();
 			String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
 			System.out.println("App details"+Appointmentdetails[0]);
 			System.out.println("App details"+Appointmentdetails[1]);
-			RecipientPage.confirmAppointmentAsOthers("Health details","Ganesh","Male","30");
+			RecipientPage.confirmAppointmentAsOthers("Health details","Ganesh","Kumar","Male","30","O+");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			String ClinicName = driver.findElement(By.xpath("//div[@class='book-dtbox']/h3[2]")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
             
-
-		}else{
-
-			throw new SkipException("RUNMODE IS OFF");
-
-		}
 
 
 	}

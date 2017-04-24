@@ -10,10 +10,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testBase.DoctorsPage;
-import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Doctor_ZOY806_AppointmentCancel extends LoadProp  {
+public class Doctor_ZOY806_AppointmentCancel extends LoadPropMac  {
 
 	 public DoctorsPage DoctorsPageOfZoylo;
 	 
@@ -31,7 +31,7 @@ public class Doctor_ZOY806_AppointmentCancel extends LoadProp  {
 	
 		  }
 	 
-	 @Test(groups = { "Regression","High" })	
+	 @Test(groups = { "Regression","High" },priority=1)	
 	 public  void SignIntoDoctorLogin() throws Exception {
 	
 		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
@@ -50,7 +50,7 @@ public class Doctor_ZOY806_AppointmentCancel extends LoadProp  {
 
 
 
-@Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
+@Test(dataProvider="DP1", priority=2,groups = { "Regression","High" },enabled=false)
 
 public void doctorappointment(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem){
 	 
@@ -182,16 +182,26 @@ public void doctorappointment(String RunMode,String timeslot,String firstname,St
 		  throw new SkipException("RUNMODE IS OFF");
 	  }
 		 
-	 System.out.println(emailaddress);
-	 
+	 System.out.println(emailaddress); 
 	
-	 
 	 
 }
 
 	 
 	 
-	 
+@Test(priority=2)
+public void bulkCancellation() throws Exception{
+	DoctorsPageOfZoylo.DoctorAppointmentBookingForToday("Rakesh", "Roshan", "9966118800", "rakesh@gmail.com","Diabetic");
+	Thread.sleep(2000);
+	DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality("Rakesh", "Roshan","rakesh@gmail.com");
+	Thread.sleep(3000);
+	DoctorsPageOfZoylo.VerifyCheckINFunctionality();
+	Thread.sleep(2000);
+	DoctorsPageOfZoylo.CheckingFollowUpFunctionality("Rakesh", "P");
+
+	
+}
+ 
 
 	
 	
