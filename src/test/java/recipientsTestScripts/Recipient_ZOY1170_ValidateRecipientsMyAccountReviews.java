@@ -62,6 +62,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			Thread.sleep(2000);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
+			
 			System.out.println("Doctor name is "+DoctorFullName);
 			RecipientPage.bookAppointment();
 			RecipientPage.selectDefaultSlot();

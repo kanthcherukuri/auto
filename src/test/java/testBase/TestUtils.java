@@ -119,6 +119,7 @@ public class TestUtils {
 		{
 			WebDriverWait wait = (new WebDriverWait(driver, 20));
 			wait.until(ExpectedConditions.textToBePresentInElement(By.xpath(xpath), value));
+			//wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
 		}
 		
 		//Wait for text to be present by ID

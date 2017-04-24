@@ -60,5 +60,5 @@ Recipient.DSpassword=Zoylo@123
 
 Doctor.Name=Doctor
 Diagnostic.Name=Srdcscript
->>>>>>> 00594140d44775850546a54dcd54406b07def1b9
+
 
