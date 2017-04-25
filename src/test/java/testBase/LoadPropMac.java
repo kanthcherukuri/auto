@@ -35,7 +35,7 @@ public class LoadPropMac   {
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
-        inStream = new FileInputStream(new File("ConfigFiles/PSetup-Details.txt"));
+        inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
         Properties prop = new Properties();
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
