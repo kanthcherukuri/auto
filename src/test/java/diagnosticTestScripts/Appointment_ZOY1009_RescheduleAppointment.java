@@ -36,11 +36,11 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	
 	@Test(priority=2)
 	public void RescheduleAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Chandrasekha","P","9966770000","chandra@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Sekhar","P","9966220000","csekhar@gmail.com","Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Chandrasekha","P","chandra@gmail.com");
+		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Sekhar","P","csekhar@gmail.com");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(1000);

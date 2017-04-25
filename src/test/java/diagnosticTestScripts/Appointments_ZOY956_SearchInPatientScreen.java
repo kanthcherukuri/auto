@@ -4,19 +4,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -26,13 +15,14 @@ public class Appointments_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
 	
+	
 	@BeforeClass
 	  public void beforeClass() throws Exception {
 		LoadBrowserProperties();
-		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  }
+		driver.manage().window().maximize();
+		driver.get(doctors_Url);		 
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  	}
 		
 	  
 	
@@ -46,7 +36,7 @@ public class Appointments_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","srilekha","J","9966001555","srilekha@gmail.com","Diabetic" }
+					{ "yes","Sreya","J","9966001222","sreya@gmail.com","Diabetic" }
 
 			};
 		}
@@ -74,9 +64,9 @@ public class Appointments_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	    	DiagnosticPageZoylo.diagnosticlogout();
 	    }
 
-      @AfterClass
-      public void closebrowser(){
-    	  driver.close();
-      }
+	      @AfterClass
+	      public void closebrowser(){
+	    	  driver.close();
+	      }
 }
 

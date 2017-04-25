@@ -76,12 +76,7 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.packagetab)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Diagnostics.packagecheckbox)).click();
-	
-		//driver.findElement(By.xpath("//li[3]//a[@data-toggle='tab']")).click();
-		//Thread.sleep(1000);
-		//driver.findElement(By.xpath("//input[@class='test_select_checkbox']")).click();
 		Thread.sleep(2000);
-		
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
@@ -102,7 +97,6 @@ public class DiagnosticPage {
 	
 	
 	public void ClickingOnEllipse() throws Exception{
-		
 		driver.findElement(By.xpath(Elements_Diagnostics.ellipse)).click();
 		Thread.sleep(5000);
 	   }
@@ -140,16 +134,13 @@ public class DiagnosticPage {
 	
 	
 	public void clickingonappointmentmodification(){
-		
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
-		
 	}
   
 
 	
 	
 	public void CancelAppointmentOfHomeVisit() throws Exception{
-		
 		driver.findElement(By.xpath(Elements_Diagnostics.clickoncancel)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.selectbox)).sendKeys("Personal reason");
@@ -157,12 +148,11 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.submitbutton)).click();
 		Browser.CheckNotificationMessage("Appointment has been Cancelled");
 
-	}
+		}
 		
 	
 	
 	public void BulkCancellationForHomeVisit() throws Exception{	
-
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
 		Actions action=new Actions(driver);
@@ -209,7 +199,6 @@ public class DiagnosticPage {
 	//DiagnosticAppointmentbooking
 	
 	public void DiagnosticAppointmentbookingForTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-		
 		
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(1000);
@@ -678,6 +667,53 @@ public class DiagnosticPage {
 			 
 		 }
 	
-	
+	 
+	public void EditProfilepage() throws InterruptedException{
+		driver.findElement(By.id("account")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//button[@class='menu_links']")).click();
+		driver.findElement(By.id("shortName")).clear();
+		driver.findElement(By.id("shortName")).sendKeys("CHLK");
+		Thread.sleep(1000);
+		driver.findElement(By.id("mobileNum")).clear();
+		driver.findElement(By.id("mobileNum")).sendKeys("9966224499");
+		Thread.sleep(1000);
+		WebElement element=driver.findElement(By.id("languagesSpoken"))	; 
+		Select se= new Select(element);
+		se.selectByValue("GUJARATHI");
+		driver.findElement(By.id("zysaveAboutInfo")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='myTabs']/li[2]/a")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("man_clinic_addr_edit")).click();		
+		Thread.sleep(1000);
+		WebElement element1=driver.findElement(By.id("addressCountry"))	; 
+		Select se1= new Select(element1);
+		se1.selectByValue("IN");
+		Thread.sleep(1000);
+		WebElement element2=driver.findElement(By.id("addressState"))	; 
+		Select se2= new Select(element2);
+		se2.selectByValue("IN-AP");
+		Thread.sleep(1000);
+		WebElement element3=driver.findElement(By.id("addressCity"))	; 
+		Select se3= new Select(element3);
+		se3.selectByValue("8vAzEjB3DaHdamRsQ");
+		driver.findElement(By.id("zyDiagnostic_addr_save")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='myTabs']/li[3]/a")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyEditProfileAwards")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("awardSource0")).clear();
+		driver.findElement(By.id("awardSource0")).sendKeys("Pdamabhushan");
+		Thread.sleep(1000);
+		driver.findElement(By.id("awardYear0")).clear();
+		driver.findElement(By.id("awardYear0")).sendKeys("220");
+		driver.findElement(By.id("zySaveAwards")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(".//*[@id='myTabs']/li[6]/a/span[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("logout")).click();
+	}
 	
 }//main Class

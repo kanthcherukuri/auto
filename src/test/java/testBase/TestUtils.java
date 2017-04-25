@@ -27,7 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-public class TestUtils{
+public class TestUtils {
 	//FirefoxDriver browser = new FirefoxDriver();
 	
 	public final WebDriver driver;

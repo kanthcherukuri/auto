@@ -38,7 +38,7 @@ public class Appointments_ZOY955_CheckShowMore extends LoadPropMac {
 	@Test(priority=2)
 	public void showmorebutton() throws Exception{
 		
-		DiagnosticPageZoylo.AppointCreationForShowMore("sindhu","G","9911223355","sindhu@gmail.com","Diabetic");
+		DiagnosticPageZoylo.AppointCreationForShowMore("Nagesh","G","9911223355","nagesh@gmail.com","Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnDashboardMenu();
 		Thread.sleep(3000);	
