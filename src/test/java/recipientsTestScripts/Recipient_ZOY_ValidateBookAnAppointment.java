@@ -44,7 +44,7 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 
 
 	
-	@Test(dataProvider="DP1",groups = { "Regression","High" })
+	@Test(groups = { "Regression","High" })
 	public void validateBookingAnAppointment( ) throws Exception {
 
 			//Test Starts-Here
@@ -65,22 +65,13 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
             
-
-
 	}
-
-
-
-
-
 
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() {
-
-
+		
 		driver.close();
-
 
 	}
 
