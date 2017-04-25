@@ -36,6 +36,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
     return new Object[][] 
     	{
             {"pomscript1@zoy.com","Zoylo@123","Zoylo@123"}
+    			
         };
 	}
 	
@@ -59,6 +60,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		return new Object[][] 
 		    	{
 		            {"PomName", "POM1", "Male", "qaz", "PomOne Default", "MBBS", "20", "11/08/1991"}
+		            
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
@@ -219,7 +221,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		{
-			{"7777710003","Dental", "Sexologist"}
+			{"7777710004","Naturopathy", "Neonatologist"}
 		};
 	}
 	
@@ -244,7 +246,8 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		{
-			{"India", "Telangana", "Hyderabad", "This is default complete address", "Default locality", "543216", "77.123", "17.234"}
+			//{"India", "Telangana", "Hyderabad", "This is default complete address", "Default locality", "543216", "77.123", "17.234"}
+			{"India", "Telangana", "Hyderabad", "101/4B block C, Jubliee Enclave", "Hitech city", "500045", "77.123", "17.234"}
 		};
 	}
 	
@@ -282,7 +285,8 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		return new Object[][]
 				{
 						
-							{"pomscript1@zoy.com"}
+							//{"pomscript1@zoy.com"}
+			{"demodoc@zoylo.com"}
 						
 				};
 	}

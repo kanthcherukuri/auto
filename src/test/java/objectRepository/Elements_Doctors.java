@@ -49,6 +49,7 @@ public class Elements_Doctors  {
 				public static String patienticon;
 				public static String patientsearchbox;
 				public static String patientallmenu;
+				public static String patientallmenuname;
 				
 				
 				//Patients screen 
@@ -58,6 +59,10 @@ public class Elements_Doctors  {
 				public static String alltabdivsize;
 				public static String sendnotficationbutton;
 				public static String sendnotification;
+				public static String alltabname;
+				public static String alltabschedule;
+				public static String todaytabname;
+				public static String todaytabschedule;
 				
 				
 				
@@ -117,19 +122,19 @@ public class Elements_Doctors  {
 			 patienticon="patients_patientsIcon";
 			 patientsearchbox="searchPatientsList";
 			 patientallmenu=" html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
+			 patientallmenuname="all";
 			 
 			 //Patient screen send notification
 		 
 			 patienticonid="patients";
-			 
 			 alltab="html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
-			 
 			 alltabdivsize="//*[@id='all']/div";
-			 
 			 sendnotficationbutton="//button[text()='Send Notification']";
-       
 			sendnotification="//*[@id='resendNotification']/button";
-			
+			alltabname="//*[@id='all']/div[1]/div[1]/div[2]/div/h1/span";
+			alltabschedule="//*[@id='all']/div[1]/div[2]/p[1]";
+			todaytabname="//*[@id='today']/div/div[1]/div[2]/div/h1/span";
+			todaytabschedule="//*[@id='today']/div/div[2]/p[1]";
 			
 			
 			

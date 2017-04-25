@@ -45,7 +45,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Jose","J","9491219191","josej@gmail.com","Diabetic" }
+					{ "yes","Hari","K","9499119191","harik@gmail.com","Diabetic" }
 
 			};
 		}
@@ -58,7 +58,11 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 
 	if(RunMode.equals("yes")){
 		
+	DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+	Thread.sleep(3000);
 	DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
+	Thread.sleep(3000);
+	DoctorsPageOfZoylo.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
 	}
 	 else{
 		 
@@ -72,6 +76,7 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 
 public void CancelAllAppointments() throws Exception{
 	DoctorsPageOfZoylo.BulkCancel();
+	Thread.sleep(2000);
 	DoctorsPageOfZoylo.doctorlogout();
 	
 }

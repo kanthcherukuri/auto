@@ -17,8 +17,11 @@ recipient.url=https://pit.zoylo.com/login
 index.url=https://pit.zoylo.com/index
 
 //--------Admin Login Details----//
-admin.user=sagar@zoylo.com
-admin.password=Zoylo@123
+admin.user=lakshmi.p@zoylo.com
+admin.password=La@kshmi#12
+
+doctor.image=/Users/sen/Desktop/dc.png
+dc.image=/Users/sen/Desktop/d.png
 
 
 
