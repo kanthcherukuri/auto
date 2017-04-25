@@ -24,13 +24,6 @@ doctor.image=/Users/sen/Desktop/dc.png
 dc.image=/Users/sen/Desktop/d.png
 
 
-//------Login User Details---//
-
-login.username=Ganesh
-
-login.password=ganesh123
-
-sample data
 
 //--------Doctor Login Details----//
 
@@ -47,5 +40,11 @@ DoctorsLogin.passwordone=Zoylo@123
 Recipient.Username=ganeshmandala@gmail.com
 Recipient.Password=Zoylo@123
 
+Recipient.DocUsername=doctorzoylo@gmail.com
+Recipient.DocPassword=Zoylo@123
+
+Recipient.DSusername=ganeshkumar.m@zoylo.com
+Recipient.DSpassword=Zoylo@123
 
 Doctor.Name=Naresh Begavath
+Diagnostic.Name=Srdcscript
