@@ -424,10 +424,8 @@ public class DiagnosticPage {
 	
 	public void CheckingShowMoreOnDashboard() throws Exception{
 		
-		if(driver.findElements(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[1]")).isEmpty()){
-			 
-			Assert.fail("Show More Button is not avaiable");
-					
+		if(driver.findElements(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[1]")).isEmpty()){ 
+			Assert.fail("Show More Button is not avaiable");		
 			}	
 			else{	
 			driver.findElement(By.xpath("html/body/div[6]/div[3]/div[1]/div[5]/button[1]")).click();
