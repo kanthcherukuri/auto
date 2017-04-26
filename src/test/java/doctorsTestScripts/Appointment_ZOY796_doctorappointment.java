@@ -47,7 +47,7 @@ public void doctorappointmentcreation(String RunMode,String timeslot,String firs
 
 	if(RunMode.equals("yes")){
 
-		DoctorsPageOfZoylo.doctorappointmentbooking(timeslot, firstname, lastname, mobile, email, problem);
+		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 	}
 
 else{
@@ -58,9 +58,11 @@ else{
 	
 	}
 	
+	
 	@Test(groups = { "Regression","High" },priority=3)
 	public void CancelAllAppointments() throws Exception{
 		DoctorsPageOfZoylo.BulkCancel();
+		Thread.sleep(2000);
 		DoctorsPageOfZoylo.doctorlogout();
 	}
 	

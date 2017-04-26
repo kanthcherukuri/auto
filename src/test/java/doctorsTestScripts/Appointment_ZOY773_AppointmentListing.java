@@ -1,17 +1,15 @@
 package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import testBase.DoctorsPage;
-import testBase.LoadProp;
+import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY773_AppointmentListing extends LoadProp {
+public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	
 	
 	public DoctorsPage DoctorsPageOfZoylo;
@@ -37,23 +35,41 @@ DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		
   }
   
+ @DataProvider(name = "DP1")
+ public String[][] createData1() {
+		return new String[][] {
+				{ "yes","Gopinath","K","9966995522","gopinath@gmail.com","Diabetic" }
+
+		};
+	}
+ 
   
-  
-@Test
-public void appListing() throws Exception{
+@Test(dataProvider="DP1",priority=2)
+public void appListing(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	
 	//DoctorsPageOfZoylo.DoctorAppointmentListing();	
 	
-	DoctorsPageOfZoylo.DoctorappointmentCreation();
-    DoctorsPageOfZoylo.expliciteWait("//*[@id='tab-3']/ul/li[1][@class='bg-red']",100);
+	DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
+	Thread.sleep(3000);
     DoctorsPageOfZoylo.ClickingOnEllipse();
+    Thread.sleep(2000);
     DoctorsPageOfZoylo.ClickingOnDashboard();
-    DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
-    DoctorsPageOfZoylo.dashboardAppointmentListing();
+    Thread.sleep(3000);
+    //DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
+    DoctorsPageOfZoylo.dashboardAppointmentListing(firstname, lastname);;
 	
 }
 	
+	@Test(priority=3)
+	public void bulkCancelandlogout() throws Exception{
+		DoctorsPageOfZoylo.BulkCancel();
+		Thread.sleep(3000);
+		DoctorsPageOfZoylo.doctorlogout();
+	}
 	
-	
+	@AfterClass
+	public void closebrowser(){
+		driver.close();
+	}
 
 }//main Class

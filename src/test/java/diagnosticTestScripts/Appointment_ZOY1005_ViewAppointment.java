@@ -35,7 +35,7 @@ public class Appointment_ZOY1005_ViewAppointment extends LoadPropMac{
   
 	@Test(priority=2)
 	public void ViewAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Ajaykumar","P","9977001166","ajaykumar@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Karunya","P","9922001166","karunya@gmail.com","Diabetic");
 		DiagnosticPageZoylo.DiagnosticViewAppointment();
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ClickingOnEllipse();

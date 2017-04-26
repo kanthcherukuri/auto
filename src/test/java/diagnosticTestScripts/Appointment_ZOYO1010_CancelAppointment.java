@@ -37,7 +37,7 @@ public class Appointment_ZOYO1010_CancelAppointment extends LoadPropMac {
 	
 	@Test(priority=2)
 	public void CancelAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Manohar","M","9966009022","manohar@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Mani","M","9966009222","mani@gmail.com","Diabetic");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
 		Thread.sleep(3000);

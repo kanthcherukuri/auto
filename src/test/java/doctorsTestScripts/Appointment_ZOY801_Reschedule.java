@@ -53,7 +53,7 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	    //}
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Kamal","H","9491219191","kamalk@gmail.com","Diabetic" }
+					{ "yes","Ranjith","Roshan","9291219191","ranjithroshan@gmail.com","Diabetic" }
 
 			};
 		}
@@ -65,7 +65,11 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	public void AppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
 		 if(RunMode.equals("yes")){
+			 DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+			 Thread.sleep(2000);
 			 DoctorsPageOfZoylo.reschedule(firstname, lastname, mobile, email, problem); 
+			 Thread.sleep(3000);
+			 DoctorsPageOfZoylo.CheckPatientScreenForReschedule(firstname, lastname, email);
 			 
 		 }
 		 else{
@@ -77,10 +81,13 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 		 
 	 }
 			
-	@Test(priority=2)
-	public void CancelAllAppointments() throws Exception{
-		DoctorsPageOfZoylo.BulkCancel();
-	}
+		@Test(priority=3)
+		public void CancelAllAppointments() throws Exception{
+			DoctorsPageOfZoylo.BulkCancel();
+			Thread.sleep(2000);
+			DoctorsPageOfZoylo.doctorlogout();
+			
+		}
 			
 			@AfterClass
 			public void closebrowser(){

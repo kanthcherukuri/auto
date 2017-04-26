@@ -37,7 +37,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","roshan","V","9966992212","roshan@gmail.com","Diabetic" }
+					{ "yes","Archana","V","9966992222","archana@gmail.com","Diabetic" }
 
 			};
 		}

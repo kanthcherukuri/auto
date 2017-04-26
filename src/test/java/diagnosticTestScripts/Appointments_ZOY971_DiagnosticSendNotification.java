@@ -35,7 +35,7 @@ public class Appointments_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 				}
 	@Test(priority=2)
 	public void CheckSendNotificationInTodayTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentForToday("nokia", "p","9900221112","nokia@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForToday("maruthi", "P","9922221112","maruthi@gmail.com", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.CheckSendNofiticationFunctionality();
 		Thread.sleep(2000);
@@ -44,9 +44,9 @@ public class Appointments_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	
 	@Test(priority=3)
 	public void CheckSendNotificationInAllTab() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Haeui", "s","9900462222", "haeui@gmail.com", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Honda", "S","9900622222", "honda@gmail.com", "Diabetic");
 		Thread.sleep(8000);
-		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("haeui@gmail.com");
+		DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("honda@gmail.com");
 		Thread.sleep(3000);
 	}
 	

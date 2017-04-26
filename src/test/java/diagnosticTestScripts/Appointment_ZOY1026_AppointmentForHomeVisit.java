@@ -36,7 +36,7 @@ public class Appointment_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
 	@Test(priority=2)
 	public void  diagnostichomevisit() throws Exception{
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Sundeep","s","9922663456","sundeep@gmail.com","Kakatiya Residency","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Salim","S","9922623456","salim@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
 		Thread.sleep(3000);

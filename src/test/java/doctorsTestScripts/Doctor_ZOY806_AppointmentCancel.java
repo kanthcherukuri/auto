@@ -191,14 +191,7 @@ public void doctorappointment(String RunMode,String timeslot,String firstname,St
 	 
 @Test(priority=2)
 public void bulkCancellation() throws Exception{
-	DoctorsPageOfZoylo.DoctorAppointmentBookingForToday("Rakesh", "Roshan", "9966118800", "rakesh@gmail.com","Diabetic");
-	Thread.sleep(2000);
-	DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality("Rakesh", "Roshan","rakesh@gmail.com");
-	Thread.sleep(3000);
-	DoctorsPageOfZoylo.VerifyCheckINFunctionality();
-	Thread.sleep(2000);
-	DoctorsPageOfZoylo.CheckingFollowUpFunctionality("Rakesh", "P");
-
+	DoctorsPageOfZoylo.BulkCancel();
 	
 }
  

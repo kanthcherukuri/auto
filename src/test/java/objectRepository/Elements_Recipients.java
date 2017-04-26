@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 
 import testBase.LoadProp;
+import testBase.LoadPropMac;
 
 
 public class Elements_Recipients  {
