@@ -9,6 +9,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -84,21 +86,21 @@ public class Schedule_ZOY842_DoctorHospital_UpdateWorkTimings{
 		  {
 	           System.out.println("TEST CASE FAILED, ADDING TIME SLOT UNSUCCESSFUL");
 			  
-			  Assert.fail(actual_text);
+			  AssertJUnit.fail(actual_text);
 			  
 		  }  
 		  if(actual_text.contains("Error in form:*"+day+"*: Invalid Start or End format hh:mm"))
 		  {
 	           System.out.println("TEST CASE FAILED, ADDING TIME SLOT UNSUCCESSFUL");
 			  
-			  Assert.fail(actual_text);
+			  AssertJUnit.fail(actual_text);
 			  
 		  }  
 		  if(actual_text.contains("Specified slot beyond 24 hr cycle"))
 		  {
 	           System.out.println("TEST CASE FAILED, ADDING TIME SLOT UNSUCCESSFUL");
 			  
-			  Assert.fail(actual_text);
+			  AssertJUnit.fail(actual_text);
 			  
 		  }  
 		  if(actual_text.contains("Schedule Updated Successfully"))
@@ -112,7 +114,7 @@ public class Schedule_ZOY842_DoctorHospital_UpdateWorkTimings{
 		  {
 	           System.out.println("TEST CASE FAILED, ADDING TIME SLOT UNSUCCESSFUL");
 			  
-			  Assert.fail(actual_text);
+			  AssertJUnit.fail(actual_text);
 			  
 		  }  
 		  

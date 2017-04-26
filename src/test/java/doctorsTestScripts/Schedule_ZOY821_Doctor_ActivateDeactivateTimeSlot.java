@@ -9,6 +9,9 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -71,13 +74,13 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot{
 	  {
 		  System.out.println("actual text is ------->"+actual_text1);
 		  System.out.println("Test case failed;deactivating time slot is unsuccessful as there are BOOKINGS/APPOINTMENTS");
-		  sa.fail(actual_text1); 
+		  Assert.fail(actual_text1); 
 	  }
 	  if(!(driver.findElement(By.xpath("html/body/div[6]/div")).isDisplayed()) && (bookings.size() > 0))
 	  {
 		  System.out.println("actual text is NULL /EMPTY------->"+actual_text1);
 		  System.out.println("Test case failed;deactivating time slot is successful  REASON ----> NO booking under this slot, please enter a slot with booking");
-		  sa.fail(actual_text1); 
+		  Assert.fail(actual_text1); 
 	  }
 	  
        System.out.println("ADDING A NEW TIME SLOT AND TRYING TO ACTIVATE IT");
@@ -110,7 +113,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot{
 	  if(!actual_text2.contains("Successfully"))
 	  {
 		  System.out.println("Test case failed;adding time slot is unsuccessful/ENTER CORRECT TIME SLOT PLEASE");
-		  Assert.fail(actual_text2); 
+		  AssertJUnit.fail(actual_text2); 
 	  }
 	  
 	  }

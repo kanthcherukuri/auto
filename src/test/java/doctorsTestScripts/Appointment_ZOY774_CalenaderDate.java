@@ -1,10 +1,10 @@
 package doctorsTestScripts;
 
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -41,7 +41,7 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Gopal","G","9999395522","gopal@gmail.com","Diabetic" }
+						{ "yes","Joo","G","9999335522","joo@gmail.com","Diabetic" }
 
 				};
 			}

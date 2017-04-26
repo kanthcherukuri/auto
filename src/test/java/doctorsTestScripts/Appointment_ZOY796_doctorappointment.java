@@ -1,5 +1,8 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -37,7 +40,7 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	//}
 	public String[][] createData1() {
 		return new String[][] {
-		{ "yes","09:00","Rajni","Kanth","9491219191","rajni@gmail.com","Diabetic"}
+		{ "yes","09:00","Skoda","Kanth","9491219191","skoda@gmail.com","Diabetic"}
 
 		};
 	}

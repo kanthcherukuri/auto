@@ -8,6 +8,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -91,7 +93,7 @@ public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp{
 	  else
 	  {
 		  System.out.println("TEST CASE FAILED");
-		  Assert.fail(actual_text1);
+		  AssertJUnit.fail(actual_text1);
 		  
 	  }	 
 	 

@@ -1,5 +1,8 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -47,7 +50,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Jose","J","9966393322","jose@gmail.com","Diabetic" }
+						{ "yes","Sruthi","R","9966393322","sruthi@gmail.com","Diabetic" }
 
 				};
 			}

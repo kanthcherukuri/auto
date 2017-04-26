@@ -1,21 +1,17 @@
 package diagnosticTestScripts;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointments_ZOY955_CheckShowMore extends LoadPropMac {
+public class Appointment_ZOY1045_DiagnosticAppointmentBulkCancel extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
-	
 	
 	@BeforeClass
 	  public void beforeClass() throws Exception {
@@ -25,7 +21,7 @@ public class Appointments_ZOY955_CheckShowMore extends LoadPropMac {
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 	  }
-	  
+	
 	
 	@Test(priority=1)
 	public void DiagnosticLogin() throws Exception {
@@ -35,29 +31,15 @@ public class Appointments_ZOY955_CheckShowMore extends LoadPropMac {
 	}
 
 	
+	
 	@Test(priority=2)
-	public void showmorebutton() throws Exception{
-		
-		DiagnosticPageZoylo.AppointCreationForShowMore("Nagesh","G","9911223355","nagesh@gmail.com","Diabetic");
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.ClickOnDashboardMenu();
-		Thread.sleep(3000);	
-		DiagnosticPageZoylo.CheckingShowMoreOnDashboard();
-			
-	  }
-	@Test(priority=3)
-	public void bulkcancelandlogout() throws Exception{
-		
+	public void appointmentbulkcancel() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickingOnEllipse();
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}
-
-	@AfterClass
-	public void closebrowser(){
-		driver.close();
-	}
+		
 }

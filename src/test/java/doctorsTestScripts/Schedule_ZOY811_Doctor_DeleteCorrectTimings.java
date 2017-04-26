@@ -5,6 +5,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import testBase.LoadProp;
 import testBase.TestUtils;
@@ -147,7 +149,7 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings {
 			  }
 			  else if (actual_text.contains("Conflicts"))
 			  {
-				  Assert.fail(actual_text);
+				  AssertJUnit.fail(actual_text);
 			  }
 		  } 
 	  }
@@ -199,7 +201,7 @@ public boolean findTheCorrectTimeSlotHospital(String day_of_week,String timeToBe
 			  }
 			  else if (actual_text.contains("Conflicts"))
 			  {
-				  Assert.fail(actual_text);
+				  AssertJUnit.fail(actual_text);
 			  }
 		  } 
 	  }

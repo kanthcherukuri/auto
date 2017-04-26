@@ -714,4 +714,18 @@ public class DiagnosticPage {
 		driver.findElement(By.id("logout")).click();
 	}
 	
+	public void CheckTodayAppointmentCountInDashBoardScreen() throws InterruptedException{
+		driver.findElement(By.id("dashBoard")).click();
+		 Thread.sleep(3000);
+		int appointmentsavailable= driver.findElements(By.xpath("//div[@id='sp-diagno-dash-scrolls']/div[1]/div")).size();
+		//System.out.println(appointmentsavailable);
+		String count=driver.findElement(By.xpath("html/body/div[6]/div[3]/div[2]/div[5]/div[1]/div[1]/div")).getText();
+		if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
+			System.out.println("Appointment Count For Today is"+appointmentsavailable+ "Sucessfully Verified");
+			
+		}else{
+			Assert.fail("Appointment Count For Today is Not Equal");
+		}
+	}
+	
 }//main Class

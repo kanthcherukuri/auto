@@ -1,43 +1,34 @@
 package doctorsTestScripts;
 
-import java.util.concurrent.TimeUnit;
-
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
 import testBase.DoctorsPage;
-import testBase.LoadProp;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
 public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 	
-public DoctorsPage DoctorsPageOfZoylo;
-public TestUtils exceldata;
+		public DoctorsPage DoctorsPageOfZoylo;
+		public TestUtils exceldata;
 
 
 
 		@BeforeClass
 		public void beforeClass() throws Exception {
 		  		LoadBrowserProperties();
-				 driver.manage().window().maximize();
-				 driver.get(doctors_Url);		 
-				 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-				  }
-			  
-	     
-		@Test(priority=1)
-		public  void SignIntoDoctorLogin() throws Exception {
-				
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-						
-				  }
+				 
+				  }	  
 
-		@Test(priority=2)
+		@Test
 		public void CheckingDashBoradShowMore() throws Exception{
+			driver.manage().window().maximize();
+			 driver.get(doctors_Url);		 
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
 			Thread.sleep(3000);
 			DoctorsPageOfZoylo.ClickingOnEllipse();
@@ -49,7 +40,7 @@ public TestUtils exceldata;
 			
 		}
 		
-		@Test(priority=3)
+		@AfterMethod
 		public void AppointmentBulkCancelandLogout() throws Exception{
 			DoctorsPageOfZoylo.BulkCancel();
 			Thread.sleep(3000);

@@ -9,6 +9,8 @@ For test scenario -booked an appointment and for test scenario no booked appoint
 Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot
  */
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +25,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
 
@@ -56,7 +57,7 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  }
 	  else
 	  {
-		  Assert.fail();
+		  AssertJUnit.fail();
 	  } 
 	 if(cancelAllAppointments(d1,d2))
 	 {
@@ -135,7 +136,7 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  
 	  else 
 	  {
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 	  }	 
 	  return value;
   }

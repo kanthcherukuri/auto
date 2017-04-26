@@ -1,5 +1,8 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -45,7 +48,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Hari","K","9499119191","harik@gmail.com","Diabetic" }
+					{ "yes","korea","K","9499229191","korea@gmail.com","Diabetic" }
 
 			};
 		}

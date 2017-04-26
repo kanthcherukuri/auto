@@ -10,7 +10,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointments_ZOY956_SearchInPatientScreen extends LoadPropMac {
+public class Appointment_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;

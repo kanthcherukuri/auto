@@ -10,6 +10,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -147,7 +149,7 @@ public class Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime{
 	  {
 		  System.out.println("TEST CASE FAILED, ADDING BREAK TIME UNSUCCESSFUL");
 		  
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 	  }  
 	  
 	  else if(actual_text.contains("Schedule Updated Successfully"))
@@ -159,7 +161,7 @@ public class Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime{
 	  {
            System.out.println("TEST CASE FAILED, ADDING BREAK TIME UNSUCCESSFUL");
 		  
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 		  
 	  }  
 
