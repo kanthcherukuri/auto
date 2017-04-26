@@ -41,7 +41,7 @@ public class HomePage  {
 		try{
 		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
 		Thread.sleep(5000);
-		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
+		driver.findElement(By.xpath("//html/body/div[11]/div[1]")).click();
 		Thread.sleep(2000);
 		} catch(Exception e) {
 			
@@ -50,7 +50,7 @@ public class HomePage  {
 		try{
 		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
 		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id='srch-op']/div[3]/div/ul/li")).click();
+		driver.findElement(By.xpath("//*[@id='one']/div/div[3]/div/ul/li")).click();
 		Thread.sleep(2000);
         } catch(Exception e) {
 			

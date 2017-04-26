@@ -53,7 +53,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		public String[][] createData1() {
 			return new String[][] {
 					{ "yes","Hyderabad","Ameerpet","CARDIOLOGY","Ameerpet" },
-					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Ameerpet" },
+					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Marathahalli" },
 					{ "yes","Bengalore","Koramangala","","Koramangala" },
 					{ "yes","Hyderabad","","","Kachiguda" },
 					{ "yes","Hyderabad","","CARDIOLOGY","Kachiguda" },

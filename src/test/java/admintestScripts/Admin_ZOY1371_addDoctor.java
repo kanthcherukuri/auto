@@ -30,15 +30,21 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public TestUtils Browser;
 	public AdminPage admin;
 	
+	public String DoctorName="sfsdf";
+	
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
 	{
     return new Object[][] 
     	{
-            {"pomscript1@zoy.com","Zoylo@123","Zoylo@123"}
+            {"demodoc239@zoy.com","Zoylo@123","Zoylo@123"}
     			
         };
 	}
+	
+	
+	//Pre-Request Change: DoctorName , Registerid , Phno , Email
+	
 	
 	@Test(dataProvider="genericdetails", priority=1)
 	public void genericdetails(String docEmailID, String password, String confirmpassword)
@@ -59,7 +65,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][] 
 		    	{
-		            {"PomName", "POM1", "Male", "qaz", "PomOne Default", "MBBS", "20", "11/08/1991"}
+		            {"DoctorZoylo", "POM132", "Male", "qaz", "PomOne Default", "MBBS", "20", "11/08/1991"}
 		            
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
@@ -221,7 +227,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		{
-			{"7777710004","Naturopathy", "Neonatologist"}
+			{"7777710029","Naturopathy", "Neonatologist"}
 		};
 	}
 	
@@ -286,7 +292,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				{
 						
 							//{"pomscript1@zoy.com"}
-			{"demodoc@zoylo.com"}
+			{"demodoc239@zoylo.com"}
 						
 				};
 	}
