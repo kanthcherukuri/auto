@@ -27,6 +27,8 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	public String dcNum="9000000002";
 	public String ucontactNumber="9000000004";
 	public String ucontactEmail="milan2@zoylo.com";
+	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
+	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
 	
 	@DataProvider(name="userGenericDetails")
 	public Object[][] userGeneric()
@@ -44,7 +46,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		//Change environment
-		driver.get("https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters");
+		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		driver.findElement(By.id("add")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center - Add')]", "Diagnostic Center - Add");
