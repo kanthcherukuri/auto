@@ -98,6 +98,16 @@ public class TestUtils{
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
 		}
+		
+	//Wait for the name Element
+		public void waitforElementName(String name)
+		{
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(name)));
+		}
+		
+		
+		
 		//Wait for the Screen Validation
 		public void waitForScreenValidation( ){
 			

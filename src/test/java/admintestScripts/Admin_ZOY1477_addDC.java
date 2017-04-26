@@ -120,13 +120,14 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Tuesday", "09:00", "20:00"}
+					{"Wednesday", "09:00", "20:00", "Wednesday", "09:00", "20:00"}
 				};
 	}
 	
 	@Test(dataProvider="dcTimeslots", priority=4)
-	public void diagnosticSlots(String day, String dayStart, String dayEnd)
+	public void diagnosticSlots(String day, String dayStart, String dayEnd, String hday, String hdayStart, String hDayEnd)
 	{
+		//LAB VISIT
 		Browser.actionbyname("clinicVisitOperatingHours.0.dayCode", day);
 		Browser.closeSecondTab();
 		
@@ -134,6 +135,18 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		driver.findElement(By.name("clinicVisitOperatingHours.0.workStartTime")).sendKeys(dayStart);
 		driver.findElement(By.name("clinicVisitOperatingHours.0.workEndTime")).sendKeys(dayEnd);
 		driver.findElement(By.name("clinicVisitOperatingHours.0.isLunchTimeActive")).click();
+		
+		//HOME VISIT
+		Browser.scrollbyxpath(".//*[@id='insertZyDiagnosticCenter']/div/div[2]/fieldset/div[28]/div");
+		Browser.actionbyname("homeVisitOperatingHours.0.dayCode", hday);
+		Browser.closeSecondTab();
+		Browser.scrollbyName("clinicVisitOperatingHours.0.isLunchTimeActive");
+		//Browser.waitforElementName("homeVisitOperatingHours.0.isActiv");
+		driver.findElement(By.name("homeVisitOperatingHours.0.isActive")).click();
+		driver.findElement(By.name("homeVisitOperatingHours.0.workStartTime")).sendKeys(hdayStart);
+		driver.findElement(By.name("homeVisitOperatingHours.0.workEndTime")).sendKeys(hDayEnd);
+		driver.findElement(By.name("homeVisitOperatingHours.0.isLunchTimeActive")).click();
+		
 		Browser.scrollbyName("isReportOnline");
 	} //End of diagnosticSlots method, p4
 	
@@ -142,7 +155,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-			{"Approved", "Lab Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
+			{"Approved", "Home Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
 				};
 	}
 	
@@ -190,7 +203,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	   
 	   System.out.println("Diagnostic centre saved");
 	    
-	}
+	}//End of p5
 	
 	@BeforeClass
 	public void launchbrowser() throws Exception
