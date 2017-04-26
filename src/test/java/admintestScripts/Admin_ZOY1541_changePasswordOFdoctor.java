@@ -16,13 +16,14 @@ public class Admin_ZOY1541_changePasswordOFdoctor extends LoadPropMac
 {
 	public AdminPage admin;
 	public TestUtils Browser;
+	public String email="sss1@gmail.com";
 	
 	@DataProvider(name="editDocDetails")
 	public Object[][] details()
 	{
 		return new Object[][]
 				{
-					{"source@gmail.com"}
+					{email}
 				};
 	}
 	

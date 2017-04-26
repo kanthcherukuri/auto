@@ -18,12 +18,15 @@ public class Admin_ZOY1414_editDoctor extends LoadPropMac
 	public AdminPage admin;
 	public TestUtils Browser;
 	
+	//Global variables for pre condition values
+	public String email="sss1@gmail.com";
+	
 	@DataProvider(name="editDocDetails")
 	public Object[][] details()
 	{
 		return new Object[][]
 				{
-					{"sss1@gmail.com"}
+					{email}
 				};
 	}
 	
