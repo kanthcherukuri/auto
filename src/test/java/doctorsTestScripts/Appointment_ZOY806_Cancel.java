@@ -14,31 +14,13 @@ import testBase.TestUtils;
 public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 
 	public DoctorsPage DoctorsPageOfZoylo;
-	 
 	 public TestUtils exceldata;
 	
 
 	 @BeforeClass(groups = { "Regression","High" })	
-	 
 	 public void beforeClass() throws Exception {
-	
 		 LoadBrowserProperties();
-		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	
 		  }
-	 
-	 @Test(groups = { "Regression","High" },priority=1)	
-	 public  void SignIntoDoctorLogin() throws Exception {
-	
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-				
-		  }
-	 
-	 
-	 
 	 
 	 @DataProvider(name = "DP1")
 	   // public Object[][] createData_DP1() throws Exception{
@@ -55,17 +37,20 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 
 
 
-@Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
+@Test(dataProvider="DP1",groups = { "Regression","High" })
 
 public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 	if(RunMode.equals("yes")){
-		
-	DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-	Thread.sleep(3000);
-	DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
-	Thread.sleep(3000);
-	DoctorsPageOfZoylo.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
+		driver.get(doctors_Url);		 
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+		Thread.sleep(3000);
+		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
+		Thread.sleep(3000);
+		DoctorsPageOfZoylo.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
 	}
 	 else{
 		 
@@ -75,20 +60,19 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 		}
 
 
-@Test(priority=3)
+		@AfterMethod
+		public void CancelAllAppointments() throws Exception{
+			DoctorsPageOfZoylo.BulkCancel();
+			Thread.sleep(2000);
+			DoctorsPageOfZoylo.doctorlogout();
+			
+		}
 
-public void CancelAllAppointments() throws Exception{
-	DoctorsPageOfZoylo.BulkCancel();
-	Thread.sleep(2000);
-	DoctorsPageOfZoylo.doctorlogout();
-	
-}
 
-
-@AfterClass
-public void closebrowser(){
-	driver.close();
-}
+		@AfterClass
+		public void closebrowser(){
+			driver.close();
+		}
 
 
 

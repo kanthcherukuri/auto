@@ -2,6 +2,7 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,22 +17,14 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 	
 		@BeforeClass
 		public void beforeClass() throws Exception {
-		  LoadBrowserProperties();
-			 driver.manage().window().maximize();
+			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			 //thread.
 		
-			  }
-		  
-			     
-		@Test(priority=1)
-		public  void SignIntoDoctorLogin() throws Exception {
-				
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-	}
-	
+			  } 
 		
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
@@ -41,7 +34,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 				};
 			}
 		
-		@Test(dataProvider="DP1",priority=2)
+		@Test(dataProvider="DP1")
 		public void AppointmentCountInDashBoard(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 			DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 			Thread.sleep(3000);
@@ -51,7 +44,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 			Thread.sleep(1000);	
 			}
 		
-		@Test(priority=3)
+		@AfterMethod
 		public void BulkCancelandLogout() throws Exception{
 			DoctorsPageOfZoylo.BulkCancel();
 			Thread.sleep(3000);

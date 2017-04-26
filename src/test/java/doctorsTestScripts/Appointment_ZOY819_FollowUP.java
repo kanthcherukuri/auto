@@ -1,6 +1,7 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
@@ -22,30 +23,14 @@ import testBase.TestUtils;
 public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 
 	public DoctorsPage DoctorsPageOfZoylo;
-	 
 	 public TestUtils exceldata;
 	
 	
-	
-	
 	 @BeforeClass
-	  public void beforeClass() throws Exception {
-		  
+	  public void beforeClass() throws Exception { 
 		  LoadBrowserProperties();
-			 driver.manage().window().maximize();
-			 driver.get(doctors_Url);		 
-			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
 			  }
-		  
-		     
-	  @Test(priority=1)
-	  public  void SignIntoDoctorLogin() throws Exception {
-			
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-			DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-					
-			  }
+		       
 	  
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
@@ -55,12 +40,15 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 				};
 			}
 	  
+	 
 	  
-	  
-	  
-	  @Test(dataProvider="DP1",priority=2)
+	  @Test(dataProvider="DP1")
 	  public void CheckingFollowupFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		  
+		  driver.get(doctors_Url);		 
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		  DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
 		  DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
@@ -71,20 +59,18 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  Thread.sleep(2000);
 	  		}
 	  
-	  @Test(priority=3)
-
-	  public void bulkcancelandlogout() throws Exception{
+		  @AfterMethod
+		  public void bulkcancelandlogout() throws Exception{
+			  DoctorsPageOfZoylo.BulkCancel();
+			  Thread.sleep(2000);
+			  DoctorsPageOfZoylo.doctorlogout();
+		  }
 		  
-		  DoctorsPageOfZoylo.BulkCancel();
-		  Thread.sleep(2000);
-		  DoctorsPageOfZoylo.doctorlogout();
-	  }
-		  
-	@AfterClass
-	public void closebrowser(){
-		driver.close();
-	}
-		  
+		@AfterClass
+		public void closebrowser(){
+			driver.close();
+		}
+			  
 		  
 		  
 						
