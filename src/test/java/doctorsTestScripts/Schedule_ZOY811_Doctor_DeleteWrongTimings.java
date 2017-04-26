@@ -9,6 +9,8 @@ Schedule_ZOY811_Doctor_DeleteWrongTimings
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import testBase.LoadProp;
 import testBase.TestUtils;
@@ -104,7 +106,7 @@ public class Schedule_ZOY811_Doctor_DeleteWrongTimings {
 	  
 	  else 
 	  {
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 		  
 	  }	 
 	  
@@ -123,7 +125,7 @@ public class Schedule_ZOY811_Doctor_DeleteWrongTimings {
 	  }
 	  else
 	  {
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 	  }
 	  
   }

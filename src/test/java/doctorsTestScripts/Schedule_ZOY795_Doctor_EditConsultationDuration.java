@@ -8,6 +8,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import testBase.LoadProp;
@@ -76,7 +78,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration{
 	  if(!actual_text1.contains("Successfully"))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail(actual_text1);
+		  AssertJUnit.fail(actual_text1);
 		  
 	  }	 
 	 

@@ -24,12 +24,18 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public TestUtils Browser;
 	public AdminPage admin;
 	
+	//Global variables for pre condition values
+	public String hopDocEmailID="pomhop3@zoy.com";
+	public String hopDocName="ScrHop Doc One";
+	public String hopMedNuber="Srchop3";
+	public String hopDocmobNum="8888810005";
+	
 	@DataProvider(name="generaldetails")
     public Object[][] getDataFromDataprovider()
 	{
     return new Object[][] 
     	{
-            {"pomhop2@zoy.com","Zoylo@123","Zoylo@123"}
+            {hopDocEmailID,"Zoylo@123","Zoylo@123"}
         };
 	}
 	
@@ -55,7 +61,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		    	{
-		            {"PomHopTwo", "POMhop2", "Male", "qaz", "MBBS", "11/08/1991", "Apollo", "10", "1"}
+		            {hopDocName, hopMedNuber, "Male", "qaz", "MBBS", "11/08/1991", "Apollo", "10", "1"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
@@ -129,7 +135,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"8888810004", "Dental", "Sexologist", "pomhop1@zoy.com"}
+					{hopDocmobNum, "Dental", "Sexologist", hopDocEmailID}
 				};
 	}
 	

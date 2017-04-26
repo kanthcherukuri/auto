@@ -35,7 +35,7 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Govina","k","9966695511","govind@gmail.com","Diabetic" }
+					{ "yes","Moksha","k","9966695500","moksha@gmail.com","Diabetic" }
 
 			};
 		}

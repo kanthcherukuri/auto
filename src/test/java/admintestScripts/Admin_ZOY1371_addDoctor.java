@@ -29,16 +29,22 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 {
 	public TestUtils Browser;
 	public AdminPage admin;
-	
-	public String DoctorName="sfsdf";
+
+	//Global variables for pre condition values
+	public String emailID="pomscript3@zoy.com";
+	public String docName="ScriptDocOne";
+	public String regNum="Scr1";
+	public String clinicDefName="Src Default";
+	public String mobNumDoc="7777710006";
+
 	
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
 	{
     return new Object[][] 
     	{
-            {"demodoc239@zoy.com","Zoylo@123","Zoylo@123"}
-    			
+            {emailID,"Zoylo@123","Zoylo@123"}
+		
         };
 	}
 	
@@ -65,8 +71,8 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][] 
 		    	{
-		            {"DoctorZoylo", "POM132", "Male", "qaz", "PomOne Default", "MBBS", "20", "11/08/1991"}
-		            
+
+		            {docName, regNum, "Male", "qaz", clinicDefName, "MBBS", "20", "11/08/1991"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
@@ -227,7 +233,9 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		{
-			{"7777710029","Naturopathy", "Neonatologist"}
+
+			{mobNumDoc,"Naturopathy", "Obstetrician"}
+
 		};
 	}
 	
@@ -290,13 +298,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 				{
-						
-							//{"pomscript1@zoy.com"}
-			{"demodoc239@zoylo.com"}
-						
+
+					{emailID}
+
 				};
 	}
-	
 	@Test(dataProvider="saved", priority=6)
 	public void save(String savedEmail)
 	{

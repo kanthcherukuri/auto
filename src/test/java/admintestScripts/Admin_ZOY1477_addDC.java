@@ -20,12 +20,22 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	public TestUtils Browser;
 	public AdminPage admin;
 	
+	//Global variables for pre condition values
+	public String dcNameV="Java Diagnostics Two";
+	public String dcshrV="JdcTwo";
+	public String dcEmail="javadctwo@zoy.com";
+	public String dcNum="9000000002";
+	public String ucontactNumber="9000000004";
+	public String ucontactEmail="milan2@zoylo.com";
+	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
+	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
+	
 	@DataProvider(name="userGenericDetails")
 	public Object[][] userGeneric()
 	{
 		return new Object[][]
 				{
-					{"Java Diagnostics One", "JdcOne", "Java One", "javadcone@zoy.com", "Zoylo@123", "Zoylo@123", "9000000001", "Approved"}
+					{dcNameV, dcshrV, "Java One", dcEmail, "Zoylo@123", "Zoylo@123", dcNum, "Approved"}
 			
 				};
 	}
@@ -36,7 +46,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		//Change environment
-		driver.get("https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters");
+		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		driver.findElement(By.id("add")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center - Add')]", "Diagnostic Center - Add");
@@ -97,7 +107,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Veever Milan", "9000000003", "milan1@zoylo.com", "15", "10"}
+					{"Veever Milan", ucontactNumber, ucontactEmail, "15", "10"}
 				};
 	}
 	
@@ -120,13 +130,14 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Tuesday", "09:00", "20:00"}
+					{"Wednesday", "09:00", "20:00", "Wednesday", "09:00", "20:00"}
 				};
 	}
 	
 	@Test(dataProvider="dcTimeslots", priority=4)
-	public void diagnosticSlots(String day, String dayStart, String dayEnd)
+	public void diagnosticSlots(String day, String dayStart, String dayEnd, String hday, String hdayStart, String hDayEnd)
 	{
+		//LAB VISIT
 		Browser.actionbyname("clinicVisitOperatingHours.0.dayCode", day);
 		Browser.closeSecondTab();
 		
@@ -134,6 +145,18 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 		driver.findElement(By.name("clinicVisitOperatingHours.0.workStartTime")).sendKeys(dayStart);
 		driver.findElement(By.name("clinicVisitOperatingHours.0.workEndTime")).sendKeys(dayEnd);
 		driver.findElement(By.name("clinicVisitOperatingHours.0.isLunchTimeActive")).click();
+		
+		//HOME VISIT
+		Browser.scrollbyxpath(".//*[@id='insertZyDiagnosticCenter']/div/div[2]/fieldset/div[28]/div");
+		Browser.actionbyname("homeVisitOperatingHours.0.dayCode", hday);
+		Browser.closeSecondTab();
+		Browser.scrollbyName("clinicVisitOperatingHours.0.isLunchTimeActive");
+		//Browser.waitforElementName("homeVisitOperatingHours.0.isActiv");
+		driver.findElement(By.name("homeVisitOperatingHours.0.isActive")).click();
+		driver.findElement(By.name("homeVisitOperatingHours.0.workStartTime")).sendKeys(hdayStart);
+		driver.findElement(By.name("homeVisitOperatingHours.0.workEndTime")).sendKeys(hDayEnd);
+		driver.findElement(By.name("homeVisitOperatingHours.0.isLunchTimeActive")).click();
+		
 		Browser.scrollbyName("isReportOnline");
 	} //End of diagnosticSlots method, p4
 	
@@ -142,7 +165,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-			{"Approved", "Lab Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
+			{"Approved", "Home Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
 				};
 	}
 	
@@ -188,9 +211,9 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	   Browser.scrollbyID("zyInsertDiagnosticCenter");
 	   driver.findElement(By.id("zyInsertDiagnosticCenter")).click();
 	   
-	   System.out.println("Diagnostic centre saved");
+	   System.out.println("Diagnostic centre" +dcEmail+ "saved");
 	    
-	}
+	}//End of p5
 	
 	@BeforeClass
 	public void launchbrowser() throws Exception

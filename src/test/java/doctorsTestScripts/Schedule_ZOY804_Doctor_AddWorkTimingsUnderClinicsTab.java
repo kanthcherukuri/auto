@@ -4,10 +4,13 @@ package doctorsTestScripts;
 
  */
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
 
@@ -59,7 +62,7 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab {
 	  if(!actual_text.contains("Successfully"))
 	  {
 		  System.out.println("Test case failed;adding time slot is unsuccessful");
-		  Assert.fail(actual_text); 
+		  AssertJUnit.fail(actual_text); 
 	  }
 	  
 	  

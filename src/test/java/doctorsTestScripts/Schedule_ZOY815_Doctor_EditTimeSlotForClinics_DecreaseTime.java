@@ -9,6 +9,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import testBase.LoadProp;
 import org.testng.annotations.BeforeTest;
 import java.text.ParseException;
@@ -57,7 +59,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime{
 	  List<WebElement> ct_endslot=driver.findElements(By.xpath(".//*[@id='tab-clinic-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-end']"));
 	  if(ct_endslot.get(ct_endslot.size()-1).getAttribute("value").equals("23:59"))
 	  {
-		  Assert.fail("Time cannot be increased as the maximum time is 23:59 already present in end slot");
+		  AssertJUnit.fail("Time cannot be increased as the maximum time is 23:59 already present in end slot");
 	  }
 	  
 	  System.out.println("Increasing the time slot");
@@ -76,13 +78,13 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime{
 	  if((actual_text.contains("Conflict with existing appointments, please cancel the appointments to change working start time.")) && (bookings.size() > 0))
 	  {
 		  System.out.println("Test case failed;increasing time slot is unsuccessful as there are BOOKINGS/APPOINTMENTS");
-		  Assert.fail(actual_text); 
+		  AssertJUnit.fail(actual_text); 
 	  }
 	  
 	  if((!actual_text.contains("Successfully")) && (bookings.size() == 0))
 	  {
 		  System.out.println("Test case failed;increasing time slot is unsuccessful ;UNKNOWN REASON PLEASE CHECK");
-		  Assert.fail(actual_text); 
+		  AssertJUnit.fail(actual_text); 
 	  }
 	  
 	  if(actual_text.contains("Successfully"))

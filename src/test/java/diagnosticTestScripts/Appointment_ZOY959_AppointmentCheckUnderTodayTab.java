@@ -40,7 +40,7 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","silpa","k","9966645500","silpa@gmail.com","Diabetic" }
+					{ "yes","Sneha","K","9966625500","silpa@gmail.com","Diabetic" }
 
 			};
 		}

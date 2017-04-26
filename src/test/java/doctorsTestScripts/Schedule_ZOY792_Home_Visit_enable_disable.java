@@ -10,9 +10,10 @@ Refer manual test case ZOY792 for any information.
 Schedule_ZOY792_Home_Visit_enable_disable
  */
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -56,7 +57,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		  }
 		  else
 		  {
-			  Assert.fail();
+			  AssertJUnit.fail();
 		  }
 		
 		Thread.sleep(8000);
@@ -71,7 +72,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		  }
 		  else
 		  {
-			  Assert.fail("TEST CASE FAILED");
+			  AssertJUnit.fail("TEST CASE FAILED");
 		  }
 		Thread.sleep(8000); 
 		System.out.println("HOUSE CALL BUTTON ACTIVE"); 
@@ -86,7 +87,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		  }
 		  else
 		  {
-			  Assert.fail();
+			  AssertJUnit.fail();
 		  }
 		
 	  }
@@ -103,7 +104,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 			  }
 			  else
 			  {
-				  Assert.fail("TEST CASE FAILED");
+				  AssertJUnit.fail("TEST CASE FAILED");
 			  }
 	
 	 

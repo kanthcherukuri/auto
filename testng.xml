@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Diagnostic Appointments">
+<listeners>
+<listener class-name="listners.RetryListener"></listener>
+ <listener class-name="listners.TestListener"></listener> 
+</listeners>
+  <test name="Test">
     <classes>
-      <class name="diagnosticTestScripts.Appointments_ZOY955_CheckShowMore"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY959_AppointmentCheckUnderTodayTab"/>
-      <class name="diagnosticTestScripts.Appointments_ZOY956_SearchInPatientScreen"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY975_CheckIn"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1036_CancelAppointHomeVisit"/>
-      <class name="diagnosticTestScripts.Appointments_ZOY971_DiagnosticSendNotification"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1043_BulkCancellationHomeVisit"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1005_ViewAppointment"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1026_AppointmentForHomeVisit"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1028_RescheduleForHomeVisit"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1009_RescheduleAppointment"/>
-      <class name="diagnosticTestScripts.Appointment_ZOYO1010_CancelAppointment"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY1003_DiagnosticBookAppointment"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY956_SearchPatientScreenAllTab"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY961_CheckUnderAllTab"/>
-      <class name="diagnosticTestScripts.Appointments_ZOY1045_DiagnosticAppointmentBulkCancel"/>
+   <!--  <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/> 
+      <class name="doctorsTestScripts.Appointment_ZOY796_doctorappointment"/> -->
+      <class name="doctorsTestScripts.Testfailedclass"/>
+      <!-- <class name="doctorsTestScripts.Appointment_ZOY806_Cancel"/>
+      <class name="doctorsTestScripts.Appointment_ZOY801_Reschedule"/>
+      <class name="doctorsTestScripts.Appointment_ZOY808_SendNoficationOfTodayTab"/>
+      <class name="doctorsTestScripts.Appointment_ZOY769_doctorprofile"/>
+      <class name="doctorsTestScripts.Appointment_ZOY773_AppointmentListing"/>
+      <class name="doctorsTestScripts.Appointment_ZOY814_ScheduleCheckIn"/>
+      <class name="doctorsTestScripts.Appointments_ZOY808_SendNotification"/>
+      <class name="doctorsTestScripts.Appointment_ZOY799_SearchFunctionalityInPatientScreen"/>
+      <class name="doctorsTestScripts.Appointment_ZOY774_CalenaderDate"/>
+      <class name="doctorsTestScripts.Appointment_ZOY819_FollowUP"/> -->
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

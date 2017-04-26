@@ -34,7 +34,7 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test(priority=2)
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rajrajeswari", "N", "9988660011", "rajeswari@gmail.com", "kakatiya residency", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rammi", "N", "9988660022", "rammi@gmail.com", "kakatiya residency", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
 		Thread.sleep(3000);
