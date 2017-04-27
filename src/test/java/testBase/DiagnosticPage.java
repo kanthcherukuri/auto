@@ -81,17 +81,7 @@ public class DiagnosticPage {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
 		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
-		
-		
-		
-		
-//		WebDriverWait wait = (new WebDriverWait(driver, 2000));
-//		
-//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
-//		String top=driver.findElement(By.xpath(Elements_Diagnostics.notification)).getText();
-//		System.out.println(top);
-		
-	}
+	    }
 	
 	
 	
