@@ -526,6 +526,7 @@ public class DiagnosticPage {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[3]/div/div/div[3]/div[2]/button")).click();
 			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
+			break;
 		}else{
 			System.out.println("Schedule/Reschedule Not Available In Today Tab ");
 		}		
