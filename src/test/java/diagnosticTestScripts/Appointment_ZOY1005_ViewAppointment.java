@@ -3,6 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -21,19 +24,15 @@ public class Appointment_ZOY1005_ViewAppointment extends LoadPropMac{
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DiagnosticPageZoylo=new DiagnosticPage(driver);	
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 		
 	  
 	
-	@Test(priority=1)
-	  public void DiagnosticLogin() throws Exception {
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS) ;
-			DiagnosticPageZoylo=new DiagnosticPage(driver);	
-			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
-			
-				}
+	
   
-	@Test(priority=2)
+	@Test
 	public void ViewAppointment() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Karunya","P","9922001166","karunya@gmail.com","Diabetic");
 		DiagnosticPageZoylo.DiagnosticViewAppointment();

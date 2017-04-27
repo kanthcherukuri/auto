@@ -9,6 +9,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -62,7 +64,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings{
 	  status_d=checkSlotData( day, start_new, end_new);
 	  if(!status_d==true)
 		 {
-			 AssertJUnit.fail();
+			 Assert.fail();
 		 }
 	  List<String> l = getNumberOfClinics();
 	  for(int i=0;i<=l.size()-1;i++)
@@ -71,7 +73,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings{
 		  status=checkSlotData( day,  start_new,  end_new);
 		 if(!status==true)
 		 {
-			 AssertJUnit.fail();
+			 Assert.fail();
 			 break;
 		 }
 		  
@@ -101,7 +103,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings{
 		  {
 	           System.out.println("TEST CASE FAILED, ADDING TIME SLOT UNSUCCESSFUL");
 			  
-			  AssertJUnit.fail(actual_text);
+			  Assert.fail(actual_text);
 			  
 		  }  
 		  
@@ -143,13 +145,13 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings{
 			  if(start_new1>=start && start_new1<=end && end_new1>=start && end_new1<=end )
 			  {
 				  System.out.println("Time slot invalid as it lies between the existing slots");
-				  AssertJUnit.fail();
+				  Assert.fail();
 			  }
 			  
 			  if(start_new1==start || start_new1==end || end_new1==start || end_new1==end )
 			  {
 				  System.out.println("Time slot invalid as it equals the existing slots");
-				  AssertJUnit.fail();
+				  Assert.fail();
 			  }
 			  else
 			  {

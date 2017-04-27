@@ -1,5 +1,9 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,14 +21,14 @@ public class Testfailedclass {
 		@Test
 		public void Test1()
 		{
-			Assert.assertEquals(false, true);
+			AssertJUnit.assertEquals(false, true);
 			System.out.println("failed");
 		}
 	 
 		@Test
 		public void Test2()
 		{
-			Assert.assertEquals(true, true);
+			AssertJUnit.assertEquals(true, true);
 			System.out.println("passed");
 		}
 		@AfterClass 

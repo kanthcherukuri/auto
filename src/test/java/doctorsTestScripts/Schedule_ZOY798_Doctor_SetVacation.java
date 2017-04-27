@@ -8,6 +8,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -102,13 +104,13 @@ public class Schedule_ZOY798_Doctor_SetVacation{
 	  else if(!actual_text1.contains("successfully"))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  AssertJUnit.fail(actual_text1);
+		  Assert.fail(actual_text1);
 		  
 	  }	 
 	  else if (!actual_text1.contains("cannot update vacation dates as you have existing appointments. Please cancel them to update doctor vacation."))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  AssertJUnit.fail(actual_text1);
+		  Assert.fail(actual_text1);
 		  
 	  }	
 	  

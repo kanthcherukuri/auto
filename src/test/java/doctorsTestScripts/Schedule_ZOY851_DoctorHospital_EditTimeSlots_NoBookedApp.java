@@ -10,6 +10,8 @@ Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp
 
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,7 +105,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp {
 	  
 	  else 
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 		  
 	  }	 
 	  
@@ -117,7 +119,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp {
 	  List<WebElement> l=driver.findElements(By.xpath(".//*[@class='sp-doc-clinic-workday-switch-switch']"));
 	  if(l.size()==1)
 	  {
-		  AssertJUnit.fail("NO SLOTS TO INCREASE/DECREASE TIMINGS");
+		  Assert.fail("NO SLOTS TO INCREASE/DECREASE TIMINGS");
 	  }
 	  if(l.size()>1)
 	  {
@@ -143,7 +145,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp {
 		  }
 		  else
 		  {
-			  AssertJUnit.fail(actual_text);
+			  Assert.fail(actual_text);
 		  }
   }
   }

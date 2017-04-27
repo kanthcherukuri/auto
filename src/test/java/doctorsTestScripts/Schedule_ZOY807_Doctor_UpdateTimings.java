@@ -7,6 +7,10 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import testBase.LoadProp;
@@ -42,11 +46,11 @@ public class Schedule_ZOY807_Doctor_UpdateTimings {
 	  System.out.println(sdf.parse(new_end_time));
 	  if(sdf.parse(new_start_time).equals(sdf.parse(new_end_time)))
 	  {
-		  AssertJUnit.fail("Added times are same");
+		  Assert.fail("Added times are same");
 	  }
 	  if(sdf.parse(new_start_time).after(sdf.parse(new_end_time)))
 	  {
-		  AssertJUnit.fail("new_end_time is less than new_start_time");
+		  Assert.fail("new_end_time is less than new_start_time");
 	  }
 	  
 	  ArrayList<String> al=new ArrayList<String>();
@@ -68,11 +72,11 @@ public class Schedule_ZOY807_Doctor_UpdateTimings {
 		  al.add(ct_endslot);
 		 if(sdf.parse(new_start_time).equals(sdf.parse(ct_startslot)) || sdf.parse(new_end_time).equals(sdf.parse(ct_startslot)) ) 
 		 {
-			 AssertJUnit.fail("New start time is not unique");
+			 Assert.fail("New start time is not unique");
 		 }
 		 else if(sdf.parse(new_start_time).equals(sdf.parse(ct_endslot)) || sdf.parse(new_end_time).equals(sdf.parse(ct_endslot)) ) 
 		 {
-			 AssertJUnit.fail("New end time is not unique");
+			 Assert.fail("New end time is not unique");
 		 }
 		 else
 		 {
@@ -82,11 +86,11 @@ public class Schedule_ZOY807_Doctor_UpdateTimings {
 	  
 	  if(sdf.parse(new_start_time).after(sdf.parse(ct_startslot)) && sdf.parse(new_start_time).before(sdf.parse(ct_endslot)))
 	  {
-		 AssertJUnit.fail("Specified START-Slot overlaps  " +(i+1)+"  line   "+sdf.parse(new_start_time));
+		 Assert.fail("Specified START-Slot overlaps  " +(i+1)+"  line   "+sdf.parse(new_start_time));
 	  }
 	  if(sdf.parse(new_end_time).after(sdf.parse(ct_startslot)) && sdf.parse(new_end_time).before(sdf.parse(ct_endslot)))
 	  {
-		 AssertJUnit.fail("Specified END-Slot overlaps  "+(i+1)+"  line   " +sdf.parse(new_end_time));
+		 Assert.fail("Specified END-Slot overlaps  "+(i+1)+"  line   " +sdf.parse(new_end_time));
 	  }
 	  }
   
@@ -120,7 +124,7 @@ public class Schedule_ZOY807_Doctor_UpdateTimings {
 			  {
 				  System.out.println("Overlapping due to times added in OTHER CLINICS or HOSPITALS" +new_start_time+"start time" +new_end_time+"end time");
 			  }
-			  AssertJUnit.fail(actual_text);
+			  Assert.fail(actual_text);
 		  }  
   }
   

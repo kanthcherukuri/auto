@@ -2,6 +2,8 @@ package doctorsTestScripts;
 
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +62,7 @@ public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings {
 	  {
            System.out.println("TEST CASE FAILED, DELETING TIME SLOT UNSUCCESSFUL");
 		  
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 		  
 	  }  
 	  

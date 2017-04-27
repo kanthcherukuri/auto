@@ -1,6 +1,9 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -48,7 +51,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  driver.get(doctors_Url);		 
 		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
 		  DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);

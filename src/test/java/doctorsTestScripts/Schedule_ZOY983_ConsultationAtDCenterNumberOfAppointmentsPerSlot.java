@@ -10,6 +10,8 @@ Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,7 +59,7 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  }
 	  else
 	  {
-		  AssertJUnit.fail();
+		  Assert.fail();
 	  } 
 	 if(cancelAllAppointments(d1,d2))
 	 {
@@ -136,7 +138,7 @@ public class Schedule_ZOY983_ConsultationAtDCenterNumberOfAppointmentsPerSlot {
 	  
 	  else 
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 	  }	 
 	  return value;
   }

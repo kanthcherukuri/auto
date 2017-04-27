@@ -10,6 +10,8 @@ Schedule_ZOY985_ConsultationAtCenterTimeSlots
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.fail;
 import java.text.ParseException;
@@ -73,7 +75,7 @@ public class Schedule_ZOY985_ConsultationAtCenterTimeSlots {
 	  
 	  else 
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 	  }	 
   }
   @Test(dataProvider = "dp",groups = { "Regression","High" },priority=2,enabled=true)
@@ -145,7 +147,7 @@ public class Schedule_ZOY985_ConsultationAtCenterTimeSlots {
 	  
 	  else 
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 	  }	
 	  Thread.sleep(8000);
   }
@@ -187,7 +189,7 @@ public class Schedule_ZOY985_ConsultationAtCenterTimeSlots {
   	}
   	else
   	{
-  		AssertJUnit.fail("TEST CASE FAILED AS THE NEW TIME IN GIVEN TIME SLOT IS NOT SET");
+  		Assert.fail("TEST CASE FAILED AS THE NEW TIME IN GIVEN TIME SLOT IS NOT SET");
   	}
   	Thread.sleep(8000);
   }
