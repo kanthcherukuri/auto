@@ -9,6 +9,10 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import testBase.LoadProp;
 import org.testng.annotations.BeforeTest;
 import java.text.ParseException;

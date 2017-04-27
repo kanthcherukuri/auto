@@ -504,23 +504,29 @@ public class DiagnosticPage {
 	
 	
 	
-	public void CheckSendNofiticationFunctionality() throws Exception{
+	public void CheckSendNofiticationFunctionality(String firstname,String lastname,String email) throws Exception{
 		
 		driver.findElement(By.id(Elements_Diagnostics.clickonpatientmenu)).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonsearchicon)).click();
+		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(email);
+		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 		int todaytab= driver.findElements(By.xpath(Elements_Diagnostics.todaytabsize)).size();
 		//System.out.println(todaytab);
 		for(int i=1;i<=todaytab;i++){
 		String schedule=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
-		if(schedule.equalsIgnoreCase("Scheduled")||schedule.equalsIgnoreCase("Rescheduled")){
+		String name=driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[1]/span")).getText();
+		System.out.println(name);
+		String fullname=firstname+" "+lastname;
+		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
 			System.out.println("Scheduled/Rescheduled Found");
 			Reporter.log("Scheduled/Rescheduled Found");	
 			WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
-			driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[3]/div/div/div[3]/div[2]/button")).click();
+			driver.findElement(By.xpath("//*[@id='sp-diagno-tab-1']/div["+i+"]/div/div[3]/div/div/div[3]/div[2]/button")).click();
 			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
+			break;
 		}else{
 			System.out.println("Schedule/Reschedule Not Available In Today Tab ");
 		}		
@@ -598,7 +604,7 @@ public class DiagnosticPage {
 			driver.findElement(By.id("all_reports_upload")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.id("appt-reports-btn")).click();
-			Browser.CheckNotificationMessage("Reports Uploaded successfully");
+			Browser.CheckNotificationMessage("Reports status changed successful");
 			}
 		}
 	
@@ -712,6 +718,20 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(".//*[@id='myTabs']/li[6]/a/span[2]")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("logout")).click();
+	}
+	
+	public void CheckTodayAppointmentCountInDashBoardScreen() throws InterruptedException{
+		driver.findElement(By.id("dashBoard")).click();
+		 Thread.sleep(3000);
+		int appointmentsavailable= driver.findElements(By.xpath("//div[@id='sp-diagno-dash-scrolls']/div[1]/div")).size();
+		//System.out.println(appointmentsavailable);
+		String count=driver.findElement(By.xpath("html/body/div[6]/div[3]/div[2]/div[5]/div[1]/div[1]/div")).getText();
+		if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
+			System.out.println("Appointment Count For Today is"+appointmentsavailable+ "Sucessfully Verified");
+			
+		}else{
+			Assert.fail("Appointment Count For Today is Not Equal");
+		}
 	}
 	
 }//main Class

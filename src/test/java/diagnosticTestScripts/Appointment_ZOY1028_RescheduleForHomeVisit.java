@@ -3,6 +3,10 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -22,16 +26,13 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			DiagnosticPageZoylo=new DiagnosticPage(driver);	
+			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+			
 		  }
-	@Test(priority=1)
-	public void DiagnosticLogin() throws Exception{
-		
-		DiagnosticPageZoylo=new DiagnosticPage(driver);	
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
-		
-		}
 	
-	@Test(priority=2)
+	
+	@Test
   public void HomeVistReschedule() throws Exception {
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rammi", "N", "9988660022", "rammi@gmail.com", "kakatiya residency", "Diabetic");
@@ -40,7 +41,7 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 		Thread.sleep(3000);
 		
 	}
-	@Test(priority=3)
+	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
 		Thread.sleep(3000);

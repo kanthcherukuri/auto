@@ -9,6 +9,10 @@ Schedule_ZOY811_Doctor_DeleteWrongTimings
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 
 import testBase.LoadProp;
 import testBase.TestUtils;

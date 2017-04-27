@@ -1,12 +1,13 @@
 package doctorsTestScripts;
 
-import java.util.concurrent.TimeUnit;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
 import testBase.DoctorsPage;
-import testBase.LoadProp;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
@@ -42,4 +43,8 @@ public void beforeClass() throws Exception {
 	//DoctorsPageOfZoylo.BulkCancel();
 	
 	}
+@AfterClass
+public void closebrowser(){
+	driver.close();
+}
 }

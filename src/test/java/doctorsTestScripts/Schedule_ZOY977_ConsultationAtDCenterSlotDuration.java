@@ -7,6 +7,10 @@ For test scenario 1 and 2 book an appointment and for test scenario 3 no appoint
 Schedule_ZOY977_ConsultationAtDCenterSlotDuration
  */
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +27,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
 
@@ -56,7 +59,8 @@ public class  Schedule_ZOY977_ConsultationAtDCenterSlotDuration {
 	  System.out.println("ALL THREE SCENARIOS SUCESSFULLY COMPLETED AND PASSED");
   }
   
-  public void testScenario1()
+  @Test
+public void testScenario1()
   {
       System.out.println("BEGINNING TO EDIT THE CONSULTATION DURATION - SCENARIO 1");
 	  
@@ -79,7 +83,8 @@ public class  Schedule_ZOY977_ConsultationAtDCenterSlotDuration {
 	   
   }
   
-  public void testScenario2()
+  @Test
+public void testScenario2()
   {
       System.out.println("BEGINNING TO EDIT THE CONSULTATION DURATION - SCENARIO 2");
 	  
@@ -102,7 +107,8 @@ public class  Schedule_ZOY977_ConsultationAtDCenterSlotDuration {
 	   
   }
   
-  public void testScenario3(String d1,String d2) throws InterruptedException
+  @Test
+public void testScenario3(String d1,String d2) throws InterruptedException
   {
 	 
 	  System.out.println("BEGINNING TO DELETE ALL THE APPOINTMENTS");

@@ -9,6 +9,10 @@ For test scenario -booked an appointment and for test scenario no booked appoint
 Schedule_ZOY985_ConsultationAtCenterTimeSlots
  */
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.fail;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,7 +28,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import junit.framework.Assert;
 import testBase.LoadProp;
 import testBase.TestUtils;
 

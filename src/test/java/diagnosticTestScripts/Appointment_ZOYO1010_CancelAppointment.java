@@ -3,6 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -23,19 +26,15 @@ public class Appointment_ZOYO1010_CancelAppointment extends LoadPropMac {
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DiagnosticPageZoylo=new DiagnosticPage(driver);	
+			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 		
 	  
 	
-	@Test(priority=1)
-	  public void DiagnosticLogin() throws Exception {
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS) ;
-			DiagnosticPageZoylo=new DiagnosticPage(driver);	
-			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
-			
-				}
 	
-	@Test(priority=2)
+	
+	@Test
 	public void CancelAppointment() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Mani","M","9966009222","mani@gmail.com","Diabetic");
 		Thread.sleep(1000);

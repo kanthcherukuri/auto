@@ -201,8 +201,8 @@ public class DoctorsPage  {
 		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 		Thread.sleep(5000);
-		String name=driver.findElement(By.xpath(Elements_Doctors.todaytabname)).getText();
-		String status=driver.findElement(By.xpath(Elements_Doctors.todaytabschedule)).getText();
+		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
+		String status=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Cancelled By Provider")){
 			System.out.println("Appointment is Sucessfully Cancelled");
@@ -334,19 +334,20 @@ public class DoctorsPage  {
 		 ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+ elementtoclick.getLocation().x+")");
 		 elementtoclick.click();
 		Thread.sleep(1000);	 
-		driver.findElement(By.xpath("//*[@id='firstName']")).sendKeys("Amarnath");
+		driver.findElement(By.xpath("//*[@id='firstName']")).sendKeys("Anji");
 		Thread.sleep(1000);
 		driver.findElement(By.id("lastName")).sendKeys("R");
 		Thread.sleep(2000);
 		driver.findElement(By.id("mobileNumber")).sendKeys("9988664422");
 		Thread.sleep(1000);
-		driver.findElement(By.id("email")).sendKeys("amar@gmail.com");
+		driver.findElement(By.id("email")).sendKeys("anji@gmail.com");
 		Thread.sleep(1000);
 		driver.findElement(By.id("problem")).sendKeys("diabetic");
 		Thread.sleep(1000);	
 		driver.findElement(By.id("saveAppiontment")).click();	
 		Browser.waitFortheElementXpath("//*[@id='tab-3']/ul/li["+slotsize+"][@class='bg-red']");
-		//DoctorsPage.isElementPresnt(driver, "//*[@id='tab-3']/ul/li["+i+"][@class='bg-red']", 20);
+		Thread.sleep(1000);
+		
 		}//For Loop
 			 
 		 }//if loop slotsize
@@ -677,6 +678,21 @@ public void VerifyCheckINFunctionality() throws Exception{
 			
 		Assert.fail("Appointment For the selected User Not Available");
 
+		}
+		}
+	
+	
+	public void CheckAppointmentsCountinDashboardForToday() throws Exception{
+		driver.findElement(By.id("dashBoard")).click();
+		Thread.sleep(3000);
+		int appointmentsavailable=driver.findElements(By.xpath("//*[@id='scrolls']/div/div")).size();
+		System.out.println(appointmentsavailable);
+		String count=driver.findElement(By.xpath("//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div")).getText();
+		if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
+			System.out.println("Appointment Count for Today is"+appointmentsavailable+"Sucessfully Verified");
+		}else{
+			
+			Assert.fail("Appointment Count Verification for Today is UnSucess");
 		}
 	}
 

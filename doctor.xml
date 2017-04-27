@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="DoctorsRegression">
-<listeners>
-<listener class-name="listners.RetryListener"></listener>
- <listener class-name="listners.TestListener"></listener> 
-</listeners>
-  <test name="DoctorsTestScripts">
+<suite name="DoctorRegression">
+  <test name="DoctorTestCases">
     <classes>
-   	 <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/> 
+      <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/>
       <class name="doctorsTestScripts.Appointment_ZOY796_doctorappointment"/>
-      <class name="doctorsTestScripts.CheckAppoinmentCountInDashBoard"/>
       <class name="doctorsTestScripts.Appointment_ZOY806_Cancel"/>
       <class name="doctorsTestScripts.Appointment_ZOY801_Reschedule"/>
       <class name="doctorsTestScripts.Appointment_ZOY808_SendNoficationOfTodayTab"/>
@@ -19,8 +14,9 @@
       <class name="doctorsTestScripts.Appointments_ZOY808_SendNotification"/>
       <class name="doctorsTestScripts.Appointment_ZOY799_SearchFunctionalityInPatientScreen"/>
       <class name="doctorsTestScripts.Appointment_ZOY774_CalenaderDate"/>
+      <class name="doctorsTestScripts.Appointment_ZOY776_CheckAppoinmentCountInDashBoard"/>
       <class name="doctorsTestScripts.Appointment_ZOY819_FollowUP"/>
       
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> <!-- DoctorTestCases -->
+</suite> <!-- DoctorRegression -->

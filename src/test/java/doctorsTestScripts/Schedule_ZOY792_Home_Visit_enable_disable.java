@@ -10,9 +10,12 @@ Refer manual test case ZOY792 for any information.
 Schedule_ZOY792_Home_Visit_enable_disable
  */
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -47,7 +50,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String b=driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		
-		if(b.contains("Activeated Successfully"))
+		if(b.contains("Activated Successfully"))
 		  {
 			
 		  driver.findElement(By.xpath(".//*[@id='houseCallServiceFee']")).clear();
@@ -80,7 +83,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String c=driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		
-		if(c.contains("Deactiveated Successfully"))
+		if(c.contains("Deactivated Successfully"))
 		  {
 			System.out.println("TEST CASE PASSED-- AND THE PROCESS OF ACTIVATION TO DEACTIVATION SUCCESSFUL");
 		  }
@@ -97,7 +100,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 		    driver.findElement(By.xpath(".//*[@id='houseCallActive']/i")).click();
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String d=driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-			if(d.contains("Deactiveated Successfully"))
+			if(d.contains("Deactivated Successfully"))
 			  {
 				System.out.println("TEST CASE PASSED");
 			  }

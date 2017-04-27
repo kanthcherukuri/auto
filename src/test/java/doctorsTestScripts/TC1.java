@@ -1,5 +1,13 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -20,7 +28,7 @@ public class TC1 {
 		public void testEasy() throws Exception {
 			driver.get("http://zoylo.com");  
 			String title = driver.getTitle();				 
-			Assert.assertTrue(title.contains("Find a Doctor")); 
+			AssertJUnit.assertTrue(title.contains("Find a Doctor")); 
 			Elements_Doctors.Doc_PageProperties();
 			System.out.println("Objects are"+Elements_Doctors.enrollment_h5);
 		}	

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DiagnosticRegression">
+<listeners>
+<listener class-name="listners.RetryListener"></listener>
+ <listener class-name="listners.TestListener"></listener> 
+</listeners>
+  <test name="DiagnosticTestScripts">
+    <classes>
+      <class name="diagnosticTestScripts.Appointment_ZOY955_CheckShowMore"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY956_SearchInPatientScreen"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY971_DiagnosticSendNotification"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY959_AppointmentCheckUnderTodayTab"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY975_CheckIn"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1036_CancelAppointHomeVisit"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1043_BulkCancellationHomeVisit"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1005_ViewAppointment"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1026_AppointmentForHomeVisit"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1028_RescheduleForHomeVisit"/>
+      <class name="diagnosticTestScripts.Appoinment_ZOY964_DiagnosticProfile"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1009_RescheduleAppointment"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1045_DiagnosticAppointmentBulkCancel"/>
+      <class name="diagnosticTestScripts.Appointment_ZOYO1010_CancelAppointment"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY958_CheckAppointmentCountInDashBoard"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY1003_DiagnosticBookAppointment"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY956_SearchPatientScreenAllTab"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY961_CheckUnderAllTab"/>
+    </classes>
+  </test> <!-- DiagnosticTestScripts -->
+</suite> <!-- DiagnosticRegression -->

@@ -46,5 +46,5 @@ Recipient.DocPassword=Zoylo@123
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
-Doctor.Name=Naresh Begavath
+Doctor.Name=DoctorZoylo
 Diagnostic.Name=Srdcscript
