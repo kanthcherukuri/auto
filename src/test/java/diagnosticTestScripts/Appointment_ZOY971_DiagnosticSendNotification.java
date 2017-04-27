@@ -43,7 +43,6 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	    }
 	
 	
-	
 	@AfterMethod	
 	public void DiagnosticBulkCancellation() throws Exception{
 		

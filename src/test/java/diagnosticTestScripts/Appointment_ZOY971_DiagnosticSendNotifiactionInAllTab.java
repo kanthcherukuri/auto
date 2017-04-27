@@ -33,7 +33,6 @@ public class Appointment_ZOY971_DiagnosticSendNotifiactionInAllTab extends LoadP
 			DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("civic@gmail.com");
 			Thread.sleep(3000);
 		}
-
 		
 		@AfterMethod	
 		public void DiagnosticBulkCancellation() throws Exception{
