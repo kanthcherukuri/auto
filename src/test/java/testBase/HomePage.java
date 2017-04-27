@@ -59,6 +59,36 @@ public class HomePage  {
 		
 		
 	}
+public  void searchDiagnosticsZoylo(String City, String Locality,String Specialization) throws InterruptedException{
+		
+		
+		Browser.waitFortheElementXpath("//*[@id='diag-search-city']");
+		driver.findElement(By.id("diag-search-city")).sendKeys(City);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
+		Thread.sleep(2000);
+		// In case of Null Area
+		try{
+		driver.findElement(By.id("diag-search-area")).sendKeys(Locality);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//html/body/div[13]/div[1]")).click();
+		Thread.sleep(2000);
+		} catch(Exception e) {
+			
+		}
+		// In case of Null Specialization
+		try{
+		driver.findElement(By.id("search-test-pkg")).sendKeys(Specialization);
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id='two']/div/div[3]/div/div[1]/div/div[1]")).click();
+		Thread.sleep(2000);
+        } catch(Exception e) {
+			
+		}
+		driver.findElement(By.id("diag-search-icon")).click();
+		System.out.println("Clicked on search button");
+		
+	}
 	
 public  void searchQuery(String City, String Locality,String Specialization) throws InterruptedException{
 		

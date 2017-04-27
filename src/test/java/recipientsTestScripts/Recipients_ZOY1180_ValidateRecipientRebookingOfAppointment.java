@@ -4,10 +4,6 @@ package recipientsTestScripts;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-
-
-
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -25,7 +21,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadProp {
+public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
