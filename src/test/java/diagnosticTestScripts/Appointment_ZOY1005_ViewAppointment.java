@@ -6,6 +6,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -34,7 +40,7 @@ public class Appointment_ZOY1005_ViewAppointment extends LoadPropMac{
   
 	@Test
 	public void ViewAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Karunya","P","9922001166","karunya@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Karachi","P","9922000066","karachi@gmail.com","Diabetic");
 		DiagnosticPageZoylo.DiagnosticViewAppointment();
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ClickingOnEllipse();

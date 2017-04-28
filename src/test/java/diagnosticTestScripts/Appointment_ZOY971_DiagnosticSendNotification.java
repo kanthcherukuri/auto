@@ -3,6 +3,12 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +33,7 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Supriya","Raavi","9999995522","supriyar@gmail.com","Diabetic" }
+						{ "yes","Siri","Raavi","9999955522","siri@gmail.com","Diabetic" }
 
 				};
 			}

@@ -6,6 +6,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -34,7 +40,7 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	
 	@Test
 	public void HomeVisitAppointmentCancel() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Sailaja","M","9922116622","sailaja@gmail.com","Kakatiya Residency","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Samsung","M","9922116622","samsung@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
 		Thread.sleep(5000);

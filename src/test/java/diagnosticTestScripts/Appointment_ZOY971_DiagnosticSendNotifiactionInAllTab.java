@@ -1,5 +1,11 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -28,9 +34,9 @@ public class Appointment_ZOY971_DiagnosticSendNotifiactionInAllTab extends LoadP
 		
 		@Test
 		public void CheckSendNotificationInAllTab() throws Exception{
-			DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Civic", "M","9900222233", "civic@gmail.com", "Diabetic");
+			DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Freez", "M","9902222233", "freez@gmail.com", "Diabetic");
 			Thread.sleep(8000);
-			DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("civic@gmail.com");
+			DiagnosticPageZoylo.CheckSendNofiticationFunctionalityInAllTab("freez@gmail.com");
 			Thread.sleep(3000);
 		}
 		
