@@ -3,6 +3,12 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -35,7 +41,7 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Nellore","J","9966772411","nellore@gmail.com","Diabetic" }
+					{ "yes","Nalni","J","9966772411","nalni@gmail.com","Diabetic" }
 
 			};
 		}

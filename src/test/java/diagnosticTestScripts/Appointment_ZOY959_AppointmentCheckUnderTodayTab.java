@@ -4,6 +4,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -40,7 +46,7 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Sneha","K","9966625500","silpa@gmail.com","Diabetic" }
+					{ "yes","Samurai","K","9966605500","samurai@gmail.com","Diabetic" }
 
 			};
 		}

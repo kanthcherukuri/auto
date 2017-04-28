@@ -6,6 +6,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -34,11 +40,11 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	
 	@Test
 	public void RescheduleAppointment() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Sekhar","P","9966220000","csekhar@gmail.com","Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Bombay","P","9966000000","bombay@gmail.com","Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Sekhar","P","csekhar@gmail.com");
+		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Bombay","P","bombay@gmail.com");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
 		Thread.sleep(1000);

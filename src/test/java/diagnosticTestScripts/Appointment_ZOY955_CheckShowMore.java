@@ -4,6 +4,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -36,7 +42,7 @@ public class Appointment_ZOY955_CheckShowMore extends LoadPropMac {
 	@Test
 	public void showmorebutton() throws Exception{
 		
-		DiagnosticPageZoylo.AppointCreationForShowMore("Nagesh","G","9911223355","nagesh@gmail.com","Diabetic");
+		DiagnosticPageZoylo.AppointCreationForShowMore("Nag","G","9922223355","nag@gmail.com","Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnDashboardMenu();
 		Thread.sleep(3000);	

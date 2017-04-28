@@ -4,6 +4,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -35,7 +41,7 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rammi", "N", "9988660022", "rammi@gmail.com", "kakatiya residency", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Racha", "N", "9988660022", "racha@gmail.com", "kakatiya residency", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
 		Thread.sleep(3000);
