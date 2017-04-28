@@ -68,7 +68,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			RecipientPage.searchInZoyloMAPArea(City);
 			RecipientPage.clickOnFilterImg();
 			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls");
+			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls","doesHouseCalls");
 			Thread.sleep(5000);
 			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");

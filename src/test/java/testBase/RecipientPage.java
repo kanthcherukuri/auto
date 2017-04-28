@@ -5,6 +5,9 @@ package testBase;
 import objectRepository.*;
 
 import testBase.*;
+
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -16,7 +19,7 @@ public class RecipientPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public   WebDriver driver;
 	public TestUtils Browser;
-
+	public boolean Slots;
 
 	public RecipientPage(WebDriver driver) throws Exception {
 		this.driver=driver;
@@ -142,10 +145,19 @@ public class RecipientPage  {
 		System.out.println("Cliked on Book Button");
 	}
 
+	public boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (NoSuchElementException e) {
+	      return false;
+	    }
+	  }
+	
 	public String[]  selectDefaultSlot() throws InterruptedException{
-		Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
 		String[] Appointmentdetails= new String[2];
-
+		//checkSlots();
+		Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
 		Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
 		Appointmentdetails[1] = driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).getText();
 
@@ -249,10 +261,11 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[4]")).click();
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
+		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		Browser.waitTill(60);
 		System.out.println("Payment done");
@@ -292,13 +305,19 @@ public class RecipientPage  {
 		Thread.sleep(5000);// Added for view
 		System.out.println("Clicked On Appointments");
 	}
-	public void ApplyFilter(String FilterCatagory,String name , String Value) throws InterruptedException{
+	public void ApplyFilter(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
 
 
 
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
 		Thread.sleep(5000);
+		if(Search.equals("")){
+			System.out.println("No Serach in filters");
+		}else{
+			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
+			Thread.sleep(2000);	
+		}
 		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
@@ -375,4 +394,31 @@ public class RecipientPage  {
 		System.out.println("Cliked on Tab Name"+TabName);
 	}
 
+	
+	public void checkSlots() throws InterruptedException{
+	
+			driver.findElement(By.xpath("//a[contains(@href, '#sp-morningslots')]")).click();
+			Thread.sleep(2000);
+			if(driver.findElements(By.xpath("//div[@id='sp-morningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+	       {
+				System.out.println("Clicked on After noon slots");
+				driver.findElement(By.xpath("//a[contains(@href, '#sp-afternoonslots')]")).click();
+				Thread.sleep(2000);
+			}
+			else if(driver.findElements(By.xpath("//div[@id='sp-afternoonslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+			{
+				System.out.println("Clicked on Evening  slots");
+				driver.findElement(By.xpath("//a[contains(@href, '#sp-eveningslots')]")).click();
+				Thread.sleep(2000);
+				
+			}else if(driver.findElements(By.xpath("//div[@id='sp-eveningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+			{
+				System.out.println("Clicked on night slots");
+				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
+				Thread.sleep(2000);
+				
+			}
+			
+	}
+	
 }

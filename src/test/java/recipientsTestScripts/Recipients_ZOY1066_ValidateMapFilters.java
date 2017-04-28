@@ -70,11 +70,11 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
 			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurveda");
+			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			Assert.assertEquals(Doctor_designation, "Ayurveda");
+			Assert.assertTrue(Doctor_designation.contains("Cardiology"));
 	
 	    }
 	 
@@ -87,7 +87,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		    RecipientPage.ClearFilters();
 			//SET Filter
 			RecipientPage.clickOnFilterImg();
-            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy");
+            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy","searchPractices");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertEquals(LOP_designation, "Homeopathy");
@@ -107,13 +107,31 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
         	
 			String Fee_Value=driver.findElement(By.xpath("//div[@class='consultFee']")).getText();
 			System.out.println("String Fee value is"+Fee_Value);
-			int FinalFeeValue = Integer.parseInt(Fee_Value);
-			if (FinalFeeValue >= 300 && FinalFeeValue < 500) {
+			int FinalFeeValue = Integer.parseInt(Fee_Value.replaceAll(" ",""));
+			System.out.println("FinalFeeValue="+FinalFeeValue);
+			if (FinalFeeValue >= 300 && FinalFeeValue <= 500) {
 			    System.out.println("Fee value is"+FinalFeeValue);
 			}
 			else  {
 			   Assert.fail("Value is not between Fee");
 			}
+	
+	    }
+	 
+	 @Test(groups = { "Regression","High" },priority=5)
+	 public void validateApplyFiltersWithinvalidData() throws Exception {
+
+		    RecipientPage.clickOnFilterImg();
+			//Reset
+		    RecipientPage.ClearFilters();
+			//SET Filter
+			RecipientPage.clickOnFilterImg();
+			RecipientPage.searchInZoyloMAPArea("Miyapur");
+			//Verify Specialization Filter Option
+			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurvedic","searchSpecialization");
+			Thread.sleep(5000);
+			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
+			Assert.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
 	
 	    }
 	 

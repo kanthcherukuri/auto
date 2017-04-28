@@ -34,13 +34,13 @@ public class HomePage  {
 		
 		Browser.waitFortheID(Elements_Home.home_city);
 		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
 		Thread.sleep(2000);
 		// In case of Null Area
 		try{
 		driver.findElement(By.id(Elements_Home.home_area)).sendKeys(Locality);
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//html/body/div[11]/div[1]")).click();
 		Thread.sleep(2000);
 		} catch(Exception e) {
@@ -49,7 +49,7 @@ public class HomePage  {
 		// In case of Null Specialization
 		try{
 		driver.findElement(By.id(Elements_Home.home_specialization)).sendKeys(Specialization);
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='one']/div/div[3]/div/ul/li")).click();
 		Thread.sleep(2000);
         } catch(Exception e) {

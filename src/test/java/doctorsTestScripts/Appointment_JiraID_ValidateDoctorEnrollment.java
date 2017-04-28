@@ -33,7 +33,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadProp {
+public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 	 public HomePage HomePageOfZoylo;
 	 public TestUtils Browser;	
 
