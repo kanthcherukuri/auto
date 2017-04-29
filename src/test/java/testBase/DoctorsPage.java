@@ -118,6 +118,8 @@ public class DoctorsPage  {
 
 	}
 
+	
+	
 	// Doctors Checkin and check the recipient
 	public  void doctorCheckinCheckOut() throws IOException, InterruptedException{			
 		driver.findElement(By.xpath("//div[@id='checkIn']/span[2]")).click();

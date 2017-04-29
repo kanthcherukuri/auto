@@ -724,4 +724,60 @@ public class DiagnosticPage {
 		}
 	}
 	
+	// Click on recent Patient from dashboard
+		public  void clickOnTheRecentPatientFromDashBoardInDiagnostics() throws IOException, InterruptedException{
+			Thread.sleep(5000);
+			if(driver.findElements(By.id("show-all-btn")).isEmpty()){
+				System.out.println("is empty");
+				Browser.waitFortheElementXpath("//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span");
+				driver.findElement(By.xpath("(//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span)[last()]")).click();  // Recent Appointment
+				Browser.waitTill(60);
+			}else{
+				System.out.println("show all btn exisit");
+				driver.findElement(By.id("show-all-btn")).click();
+				Thread.sleep(2000);
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
+				Thread.sleep(5000);
+				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+				driver.findElement(By.xpath("(//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span)[last()]")).click();  // Recent Appointment
+				Browser.waitTill(60);
+
+			}
+
+		}
+		// Doctors Checkin and check the recipient
+		public  void diagnosticsCheckinCheckOut() throws IOException, InterruptedException{			
+			driver.findElement(By.xpath("//div[@id='checkIn']/span[2]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("startConsultation")).click();				
+			Thread.sleep(2000);
+			driver.findElement(By.id("0")).sendKeys("Completed");
+			driver.findElement(By.id("1")).sendKeys("Completed");
+			driver.findElement(By.id("tab-pkgs-btn")).click();			
+			Thread.sleep(2000);	
+			driver.findElement(By.id("appointmentNotes")).sendKeys("Notes of diagnotics");
+			driver.findElement(By.id("diag-note-btn")).click();				
+			Thread.sleep(2000);
+			driver.findElement(By.id("generatReceiptBtn")).click();
+			Thread.sleep(2000);
+			Browser.verifyNotificationMessage("Bill generated successfully");
+			Thread.sleep(5000);
+			driver.findElement(By.id("checkoutBtn")).click();
+			Thread.sleep(2000);
+			Browser.verifyNotificationMessage("Appointment checked out successfully");
+		}
+		
+		// Diagnostic logout 
+		public  void diagnosticslogout() throws IOException, InterruptedException{			
+			driver.get("https://zoyloqa.zoylo.com/providerAccount");
+			Thread.sleep(5000);
+			driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("logout")).click();
+			Thread.sleep(5000);
+			System.out.println("Doctor Logged Out");
+		}
+
+	
 }//main Class
