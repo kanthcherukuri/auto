@@ -9,6 +9,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -35,7 +41,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Adavi","V","9963992222","adavi@gmail.com","Diabetic" }
+					{ "yes","Adaviseshu","V","9963992222","adaviseshu@gmail.com","Diabetic" }
 
 			};
 		}

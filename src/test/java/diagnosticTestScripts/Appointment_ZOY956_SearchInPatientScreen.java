@@ -10,6 +10,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -42,7 +48,7 @@ public class Appointment_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Sruthii","J","9900001222","sruthi@gmail.com","Diabetic" }
+					{ "yes","Sruthione","J","9900001222","sruthione@gmail.com","Diabetic" }
 
 			};
 		}
