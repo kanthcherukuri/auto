@@ -592,8 +592,9 @@ public class DiagnosticPage {
 			driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
 			Thread.sleep(3000);
 			driver.findElement(By.id("all_reports_upload")).click();
-			Thread.sleep(5000);
+			Thread.sleep(6000);
 			driver.findElement(By.id("appt-reports-btn")).click();
+			Thread.sleep(3000);
 			Browser.CheckNotificationMessage("Reports status changed successful");
 			}
 		}
