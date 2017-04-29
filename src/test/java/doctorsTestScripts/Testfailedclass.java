@@ -18,19 +18,7 @@ public class Testfailedclass {
 			
 			System.out.println("setup");
 		}
-		@Test
-		public void Test1()
-		{
-			AssertJUnit.assertEquals(false, true);
-			System.out.println("failed");
-		}
-	 
-		@Test
-		public void Test2()
-		{
-			AssertJUnit.assertEquals(true, true);
-			System.out.println("passed");
-		}
+	
 		@AfterClass 
 		public void exit()
 		{
