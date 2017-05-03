@@ -11,8 +11,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class LoadPropMac   {
 	public static Properties prop = new Properties();
@@ -98,7 +99,15 @@ public class LoadPropMac   {
 			driver.manage().window().maximize();
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
+			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
+			driver=new FirefoxDriver();
+			driver.manage().window().maximize();
 			//driver = new FirefoxDriver();	
+		}else if(browser_name.equals("safari")){
+			System.out.println("launching Safari browser");
+			driver=new SafariDriver();
+			driver.manage().window().maximize();
+			
 		}
 		return driver;
 }
