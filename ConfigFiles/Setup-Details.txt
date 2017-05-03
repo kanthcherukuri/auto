@@ -61,6 +61,9 @@ Recipient.DocPassword=Zoylo@123
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
+Recipient.DiaUsername=sagar5890@gmail.com
+Recipient.DiaPassword=Zoylo@123
+
 Doctor.Name=DoctorZoylo
 Diagnostic.Name=Srdcscript
 
