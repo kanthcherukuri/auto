@@ -8,6 +8,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
+
+import java.util.Date;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -31,8 +34,9 @@ public class TC1 {
 			AssertJUnit.assertTrue(title.contains("Find a Doctor")); 
 			Elements_Doctors.Doc_PageProperties();
 			System.out.println("Objects are"+Elements_Doctors.enrollment_h5);
-		}	
-		@BeforeClass (groups = { "Medium" })	
+		}
+		
+		@BeforeClass	
 		public void beforeTest() {	
 			//test123
 			System.out.println("launching chrome browser");
