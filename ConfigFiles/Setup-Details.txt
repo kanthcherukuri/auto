@@ -8,6 +8,9 @@ driver.path=C:/Users/Z9149/Downloads/
 
 browser.name=chrome
 
+//----Environment----//
+Environment.name=zoyloqa
+
 
 //----Login URL Details---//
 
@@ -62,10 +65,10 @@ Recipient.DocPassword=Zoylo@123
 Recipient.DSusername=ganeshkumar.m@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
-Recipient.DiaUsername=sagar5890@gmail.com
+Recipient.DiaUsername=Diagnosticszoylo@zoylo.com
 Recipient.DiaPassword=Zoylo@123
 
 Doctor.Name=DoctorZoylo
-Diagnostic.Name=Srdcscript
+Diagnostic.Name=DiagnosticsZoylo
 
 
