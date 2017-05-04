@@ -46,11 +46,12 @@ public class DiagnosticPage {
 		
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
-		Actions action=new Actions(driver);
-		WebElement ele=driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle));
-		action.moveToElement(ele);
-		action.click().build().perform();
-		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@class='material-switch pull-left']")).click();
+//		Actions action=new Actions(driver);
+//		WebElement ele=driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle));
+//		action.moveToElement(ele);
+//		action.click().build().perform();
+		Thread.sleep(2000);
 		//System.out.println("Home Visit Toggle is Selected");
 		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
 		Thread.sleep(1000);
@@ -146,10 +147,11 @@ public class DiagnosticPage {
 	public void BulkCancellationForHomeVisit() throws Exception{	
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
-		Actions action=new Actions(driver);
-		WebElement toggle=driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle));
-		action.moveToElement(toggle);
-		action.click().build().perform();
+		//driver.findElement(By.xpath("//div[@class='material-switch pull-left']")).click();
+//		Actions action=new Actions(driver);
+//		WebElement toggle=driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle));
+//		action.moveToElement(toggle);
+//		action.click().build().perform();
 		driver.findElement(By.xpath("//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.fromcanceldate)).click();
@@ -350,7 +352,7 @@ public class DiagnosticPage {
 		for(WebElement ele:CancelToDate)
 		{	
 		String date=ele.getText();	
-			if(date.equalsIgnoreCase("30"))
+			if(date.equalsIgnoreCase("31"))
 			{
 				ele.click();
 				break;

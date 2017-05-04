@@ -21,14 +21,19 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
+
 	public String dcNameV="DiagnosticsZoylo";
 	public String dcshrV="DiaZoylo";
 	public String dcEmail="javadctwo45@zoy.com";
 	public String dcNum="9000000045";
 	public String ucontactNumber="9000000045";
 	public String ucontactEmail="milan561@zoylo.com";
+
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
+	//Visit type is only Home Visit and Lab Visit
+	public String packageVisit="Lab Visit";
+	public String testVisit="Lab Visit";
 	
 	@DataProvider(name="userGenericDetails")
 	public Object[][] userGeneric()
@@ -165,7 +170,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-			{"Approved", "Home Visit", "Full body checkup", "10", "1", "CBT", "Approved", "Lab Visit", "10", "3"}
+			{"Approved", packageVisit, "Full body checkup", "10", "1", "CBT", "Approved", testVisit, "10", "3"}
 				};
 	}
 	
@@ -211,7 +216,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	   Browser.scrollbyID("zyInsertDiagnosticCenter");
 	   driver.findElement(By.id("zyInsertDiagnosticCenter")).click();
 	   
-	   System.out.println("Diagnostic centre" +dcEmail+ "saved");
+	   System.out.println("Diagnostic centre " +dcEmail+ " saved");
 	    
 	}//End of p5
 	
