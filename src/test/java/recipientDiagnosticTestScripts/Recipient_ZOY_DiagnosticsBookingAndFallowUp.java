@@ -85,15 +85,16 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				//Login as Recipient
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
-				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				Thread.sleep(2000);
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				Browser.scrollbyID("submitReview");
-				driver.findElement(By.id("submitReview")).click();
-				Browser.verifyNotificationMessage("Review submitted successfully.");
+				//driver.findElement(By.id("submitReview")).click();
+				driver.findElement(By.id("skipForLater")).click();
+				//Browser.verifyNotificationMessage("Review submitted successfully.");
 				Thread.sleep(5000);
 				 //FallowUp the Appointment
-				 RecipientPage.goToMyAccounts("Appointment");
+				/* RecipientPage.goToMyAccounts("Appointment");
 				 Thread.sleep(2000);// Added for view
 				 driver.findElement(By.id("hist")).click();  // my History
 				 Thread.sleep(5000);
@@ -109,7 +110,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				 String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				 ActualError.contains("You will Recieve a confirmation SMS");
 				 System.out.println("followUpBookAppointment Confirmed");
-				
+				*/
 	 
 		 }else{
 			 
