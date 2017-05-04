@@ -2,7 +2,9 @@ package testBase;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 
@@ -85,6 +87,28 @@ public class TestUtils {
 		FileUtils.copyFile(scrFile, new File("screenshots\\"+screenname+".png"));
 
 	}
+	
+	//TIME increment and send keys by Name
+	public void dateTimeIncrement(int value, String name)
+	{
+		Calendar currentDate = Calendar.getInstance();
+	    SimpleDateFormat formatter= new SimpleDateFormat("MM/dd/YYYY HH:mm");
+	    currentDate.add(Calendar.MINUTE, value);
+	    String date = formatter.format(currentDate.getTime());
+	    driver.findElement(By.name(name)).sendKeys(date);
+	    //System.out.println(date);
+	}
+	
+	//YEAR increment and send keys by Name
+		public void yearIncrement(int value, String name)
+		{
+			Calendar currentDate = Calendar.getInstance();
+		    SimpleDateFormat formatter= new SimpleDateFormat("MM/dd/YYYY HH:mm");
+		    currentDate.add(Calendar.YEAR, value);
+		    String date = formatter.format(currentDate.getTime());
+		    driver.findElement(By.name(name)).sendKeys(date);
+		    //System.out.println(date);
+		}
 	
 	//Wait for the ID
 	public void waitFortheID(String ID){
