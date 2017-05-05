@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import junit.framework.Assert;
 import objectRepository.Elements_Admin;
 import objectRepository.Elements_Recipients;
 import testBase.AdminPage;
