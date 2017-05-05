@@ -63,11 +63,9 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 	
    @AfterMethod
    public void bulkcancelandlogout() throws Exception{
-	   DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-	   Thread.sleep(3000);
-	   DiagnosticPageZoylo.ClickingOnEllipse();
-	   Thread.sleep(2000);
-	   DiagnosticPageZoylo.diagnosticlogout();
+	   DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.diagnosticlogout();
 	   
    }
 	

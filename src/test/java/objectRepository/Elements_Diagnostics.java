@@ -69,6 +69,8 @@ public class Elements_Diagnostics  {
 		public static String bulksubmitbutton;
 		public static String fromcanceldate;
 		public static String tocanceldate;
+		public static String clickonbulkcancelcalendar;
+		public static String enableddates;
 		
 		//Diagnostic Appointment Creation Variables
 		public static String morningmenu;
@@ -87,6 +89,52 @@ public class Elements_Diagnostics  {
 		public static String clickonalltab;
 		public static String serachtextbox;
 		public static String alltabsize;
+		public static String  clickonserachbarid;
+		public static String alltabgetfullname;
+		public static String alltabstatus;
+		public static String todaytabfullname;
+		public static String todaytabstatus;
+		
+		//profile Variables
+		public static String clickonaccountmenu;
+		public static String abouteditbutton;
+		public static String shortname;
+		public static String profilemobile;
+		public static String language;
+		public static String aboutsave;
+		public static String profileaddressmenu;
+		public static String addresseditbutton;
+		public static String addresscountry;
+		public static String addressstate;
+		public static String addresscity;
+		public static String addresssave;
+		public static String clickonawardsmenu;
+		public static String awardseditbutton;
+		public static String awardsource;
+		public static String awardyear;
+		public static String saveawards;
+		public static String clickonsignoutmenu;
+		public static String confirmlogout;
+		
+		//Show More Diagnostic Dashboard
+		public static String showmorebutton;
+		public static String showlessbutton;
+		
+		//Dashboard variables
+		public static String clickondashboardmenu;
+		public static String todayhighliteddate;
+		public static String todaysappointmentslist;
+		public static String graphtodayappointmentcount;
+		
+		//Checkin Variables
+		public static String checkinbutton;
+		public static String checkinstartconsultation;
+		public static String packagessavebutton;
+		public static String appointmentnotes;
+		public static String appointmentnotesavebutton;
+		public static String generatebillsbutton;
+		public static String checkoutbutton;
+		
 		
 	 
 		
@@ -127,7 +175,7 @@ public class Elements_Diagnostics  {
 		 //Diagnostic Home visit appointment locators	 
 		 
 		 clickonappointmentsmenu ="appointments";
-		 clickontoggle = ".//label[@for='someSwitchOptionDefault']";
+		 clickontoggle = "//div[@class='material-switch pull-left']";
 		 tommorowmenu = "//*[@id='cd-1']";
 		 morninghomevisit="//*[@id='diag-home-samples']/div[3]/ul/li[1]/div/div";
 		 noonhomevisit="//*[@id='diag-home-samples']/div[3]/ul/li[2]/div/div";
@@ -172,6 +220,8 @@ public class Elements_Diagnostics  {
 		 bulksubmitbutton="//*[@id='bulkCancel_submit']";
 		 fromcanceldate="//*[@id='bulk_cancel_fromDate']";
 		 tocanceldate="//*[@id='bulk_cancel_toDate']";
+		 clickonbulkcancelcalendar="//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']";
+		 enableddates="//td[@class='day']";
 		 
 		 //Diagnostic Appointment Creation Locators
 		 
@@ -188,10 +238,58 @@ public class Elements_Diagnostics  {
 		 
 		 clickonpatientmenu="patients";
 		 clickonsearchicon="//*[@id='search-bar']";
+		 clickonserachbarid="search-bar";
 		 todaytabsize="//*[@id='sp-diagno-tab-1']/div";
 		 clickonalltab="all";
 		 serachtextbox="apt-search";
 		 alltabsize="//*[@id='sp-diagno-tab-2']/div";
+		 alltabgetfullname="//*[@id='sp-diagno-tab-2']/div/div/div[2]/div/h1/span[1]";
+		 alltabstatus="//*[@id='sp-diagno-tab-2']/div/div/div[2]/div/h1/span[2]/p";
+		 todaytabfullname="//*[@id='sp-diagno-tab-1']/div[1]/div/div[2]/div/h1/span[1]/span";
+		 todaytabstatus="//p[@class='check_in']";
+		 
+		 //profile screen locators
+		 clickonaccountmenu="account";
+		 abouteditbutton="//button[@class='menu_links']";
+		 shortname="shortName";
+		 profilemobile="mobileNum";
+		 language="languagesSpoken";
+		 aboutsave="zysaveAboutInfo";
+		 profileaddressmenu="//*[@id='myTabs']/li[2]/a";
+		 addresseditbutton="man_clinic_addr_edit";
+		 addresscountry="addressCountry";
+		 addressstate="addressState";
+		 addresscity="addressCity";
+		 addresssave="zyDiagnostic_addr_save";
+		 clickonawardsmenu="//*[@id='myTabs']/li[3]/a";
+		 awardseditbutton="zyEditProfileAwards";
+		 awardsource="awardSource0";
+		 awardyear="awardYear0";
+		 saveawards="zySaveAwards";
+		 clickonsignoutmenu="//*[@id='myTabs']/li[6]/a/span[2]";
+		 confirmlogout="logout";
+		 
+		//Show More Diagnostic Dashboard locators
+		 showmorebutton="html/body/div[6]/div[3]/div[1]/div[5]/button[1]";
+		 showlessbutton="html/body/div[6]/div[3]/div[1]/div[5]/button[2]";
+		 
+		//Dashboard variables
+		 clickondashboardmenu="dashBoard";
+		 todayhighliteddate="//a[@class='monthly-day monthly-day-event monthly-today']";
+		 todaysappointmentslist="//div[@id='sp-diagno-dash-scrolls']/div[1]/div";
+		 graphtodayappointmentcount="html/body/div[6]/div[3]/div[2]/div[5]/div[1]/div[1]/div";
+		 
+		 
+		//Checkin locators
+		 checkinbutton="//div[@id='checkIn']/span[2]";
+		 checkinstartconsultation="startConsultation";
+		 packagessavebutton="tab-pkgs-btn";
+		 appointmentnotes="appointmentNotes";
+		 appointmentnotesavebutton="diag-note-btn";
+		 generatebillsbutton="generatReceiptBtn";
+		 checkoutbutton="checkoutBtn";
+		 
+		 
 		return driver;	
         
        

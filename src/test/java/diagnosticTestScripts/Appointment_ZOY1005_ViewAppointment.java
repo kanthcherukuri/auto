@@ -49,7 +49,6 @@ public class Appointment_ZOY1005_ViewAppointment extends LoadPropMac{
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Karachi","P","9922000066","karachi@gmail.com","Diabetic");
 		DiagnosticPageZoylo.DiagnosticViewAppointment();
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 		
