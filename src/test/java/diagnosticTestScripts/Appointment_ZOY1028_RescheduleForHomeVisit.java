@@ -47,7 +47,7 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Rachaa", "N", "9988660222", "rachaa@gmail.com", "kakatiya residency", "Diabetic");
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Ranjith", "N", "9988660022", "ranjith@gmail.com", "kakatiya residency", "Diabetic");
 		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
 		Thread.sleep(3000);
@@ -55,10 +55,12 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	}
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
-		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
+		DiagnosticPageZoylo.ClickonAppointmentMenu();
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
+		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
 		Thread.sleep(1000);
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
+		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();	
 		}
 	

@@ -48,9 +48,8 @@ public class Appointment_ZOY971_DiagnosticSendNotifiactionInAllTab extends LoadP
 		
 		@AfterMethod	
 		public void DiagnosticBulkCancellation() throws Exception{
-			DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+			DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
 			Thread.sleep(3000);
-			DiagnosticPageZoylo.ClickingOnEllipse();
 			DiagnosticPageZoylo.diagnosticlogout();
 		}
 		

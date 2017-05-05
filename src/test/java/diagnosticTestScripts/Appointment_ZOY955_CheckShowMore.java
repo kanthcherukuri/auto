@@ -52,16 +52,13 @@ public class Appointment_ZOY955_CheckShowMore extends LoadPropMac {
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnDashboardMenu();
 		Thread.sleep(3000);	
-		DiagnosticPageZoylo.CheckingShowMoreOnDashboard();
-			
+		DiagnosticPageZoylo.CheckingShowMoreOnDashboard();	
 	  }
+	
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
-		
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(1000);
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
+		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

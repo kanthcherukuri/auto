@@ -62,11 +62,9 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 	
 	 @AfterMethod
 	 public void BulkCancelandlogout() throws Exception{
-		 DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-		 Thread.sleep(3000);
-		 DiagnosticPageZoylo.ClickingOnEllipse();
-		 Thread.sleep(1000);
-		 DiagnosticPageZoylo.diagnosticlogout();
+		 DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
+			Thread.sleep(3000);
+			DiagnosticPageZoylo.diagnosticlogout();
 	 }
 	 @AfterClass
 	 public void CloseBrowser(){

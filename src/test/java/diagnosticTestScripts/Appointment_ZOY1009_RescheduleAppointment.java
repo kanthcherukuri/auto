@@ -1,6 +1,7 @@
 package diagnosticTestScripts;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
@@ -52,11 +53,13 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Bombay","P","bombay@gmail.com");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticlogout();	
+	}
+	
+	@AfterMethod()
+	public void bulkcancelandlogout() throws Exception{
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
+		Thread.sleep(5000);
+		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	
 	

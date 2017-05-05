@@ -36,16 +36,19 @@ public class Appointment_ZOY1043_BulkCancellationHomeVisit extends LoadPropMac{
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPageZoylo=new DiagnosticPage(driver);	
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	  }
 	
 	
 	
 	@Test
 	public void bulkcancellation() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		DiagnosticPageZoylo.ClickonAppointmentMenu();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
+		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticlogout();	
 		
 		}

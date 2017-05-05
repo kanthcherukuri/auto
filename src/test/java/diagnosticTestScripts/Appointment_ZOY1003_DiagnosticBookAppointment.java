@@ -47,10 +47,8 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Lenovo","L","9911662200","lenovo@gmail.com","Diabetic");
 		Thread.sleep(4000);
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
 		Thread.sleep(5000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	
