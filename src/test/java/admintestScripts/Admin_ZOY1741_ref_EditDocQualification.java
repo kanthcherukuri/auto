@@ -11,7 +11,7 @@ import testBase.AdminPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
+public class Admin_ZOY1741_ref_EditDocQualification extends LoadPropMac
 {
 	public TestUtils Browser;
 	public AdminPage admin;
@@ -22,15 +22,16 @@ public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
 	public String quaName="MBFIL";
 	
 	@Test()
-	public void addDocQua()
+	public void editDocQualification()
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor - Qualifications')]", "Doctor - Qualifications");
-		driver.findElement(By.id("add")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor Qualification - Add')]", "Doctor Qualification - Add");
-		driver.findElement(By.name("name")).sendKeys(quaName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(quaName);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", quaName);
+		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[4]/button")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor Qualification - Edit')]", "Doctor Qualification - Edit");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor - Qualifications')]", "Doctor - Qualifications");
 	}
