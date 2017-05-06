@@ -57,11 +57,8 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	
 	@AfterMethod	
 	public void DiagnosticBulkCancellation() throws Exception{
-		
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

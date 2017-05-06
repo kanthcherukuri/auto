@@ -67,10 +67,8 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation();
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 

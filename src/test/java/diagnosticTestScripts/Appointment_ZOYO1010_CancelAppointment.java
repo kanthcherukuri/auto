@@ -53,9 +53,7 @@ public class Appointment_ZOYO1010_CancelAppointment extends LoadPropMac {
 		DiagnosticPageZoylo.clickingonappointmentmodification();
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.CancelAppointmentOfHomeVisit();
-		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

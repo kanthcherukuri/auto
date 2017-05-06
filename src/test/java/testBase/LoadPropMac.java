@@ -20,7 +20,7 @@ public class LoadPropMac   {
 	public static FileInputStream inStream;
 	 public static String driverpath;
 
-	 public static String base_url,recipient_url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
+	 public static String base_url, dev_url, recipient_url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 
 
 	public static String diagnostic_url;
@@ -43,6 +43,7 @@ public class LoadPropMac   {
         //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
         recipient_url=prop.getProperty("recipient.url");
+        dev_url=prop.getProperty("dev.url");
         enrollment_url=prop.getProperty("enrollment.url");
         doctors_Url=prop.getProperty("Doctors.Url");
         login_password=prop.getProperty("login.password");

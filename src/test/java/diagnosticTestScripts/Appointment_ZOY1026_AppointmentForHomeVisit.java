@@ -49,10 +49,8 @@ public class Appointment_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Roja","S","9922222456","roja@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.BulkCancellationForHomeVisit();
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();	
 		}	
 		
