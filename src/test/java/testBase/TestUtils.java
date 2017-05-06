@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +29,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 
 public class TestUtils {
 	//FirefoxDriver browser = new FirefoxDriver();
@@ -226,6 +235,46 @@ public class TestUtils {
 		
 	}
 	
+	
+	
+	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue){
+		
+		
+		MongoClient mongoClient = null;
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
+
+		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
+
+
+		//Selecting the database
+		DB db = mongoClient.getDB("zoylo_zqa");
+
+		System.out.println("Connect to database successfully");
+
+		//System.out.println(db.getStats());
+        System.out.println(db.getCollectionNames());
+        
+        DBCollection coll = db.getCollection("users");
+        System.out.println("Collection mycol selected successfully");
+        
+        BasicDBObject searchQuery = new BasicDBObject();
+    	searchQuery.put(QueryKey, QueryValue);
+    	
+        DBCursor cursor = coll.find(searchQuery);
+   
+        String response=null;
+        while (cursor.hasNext()) { 
+           //System.out.println("Inserted Document: "+i); 
+       response = cursor.next().toString();
+           System.out.println(response); 
+          
+           
+	 } 
+        Assert.assertTrue(response.contains("ganesh@zoylo.com"));
+        System.out.println("Asserted successfully");
+		return response;
+		
+	}
 	
 	
 	 public static String[][] getTableArray(String xlFilePath, String sheetName, String tableName) throws Exception{
