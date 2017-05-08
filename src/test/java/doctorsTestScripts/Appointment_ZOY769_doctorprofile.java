@@ -16,35 +16,27 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	public DoctorsPage DoctorsPageOfZoylo;
 	public TestUtils exceldata;
 	
-@BeforeClass
-public void beforeClass() throws Exception {
-	  
-	  
-	  LoadBrowserProperties();
+		@BeforeClass
+		public void beforeClass() throws Exception {
+		LoadBrowserProperties();
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 //thread.
-	
-		  }
-	  
-		     
-@Test(priority=1)
-	public  void SignIntoDoctorLogin() throws Exception {
-			
-	 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-	DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-					
-			  }
-@Test(priority=2)
+		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		  }  
+
+	@Test
 	public void doctorprofileverification() throws Exception{
 	DoctorsPageOfZoylo.doctorprofileEditing();
 	DoctorsPageOfZoylo.doctorlogout();
-	//DoctorsPageOfZoylo.BulkCancel();
+
 	
 	}
-@AfterClass
-public void closebrowser(){
-	driver.close();
-}
-}
+	
+	
+	@AfterClass
+	public void closebrowser(){
+		//driver.close();
+	}
+	}

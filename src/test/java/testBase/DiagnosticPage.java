@@ -2,13 +2,11 @@ package testBase;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -122,12 +120,10 @@ public class DiagnosticPage {
 	
 	
 	
-	
 	public void clickingonappointmentmodification(){
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
 	}
   
-
 	
 	
 	public void CancelAppointmentOfHomeVisit() throws Exception{
@@ -159,10 +155,11 @@ public class DiagnosticPage {
 		List<WebElement> allDates=driver.findElements(By.xpath(Elements_Diagnostics.enableddates));
 		for(WebElement ele:allDates)
 		{
-			boolean date2=ele.isEnabled();
+			boolean date2= ele.isEnabled();
 			
 			ele.click();
 			break;
+			
 		}
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.tocanceldate)).click();
@@ -184,10 +181,7 @@ public class DiagnosticPage {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.bulksubmitbutton)).click();
 		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
-		
-		
-		
-	}
+		}
 	
 	//DiagnosticAppointmentbooking
 	
@@ -426,7 +420,7 @@ public class DiagnosticPage {
 			System.out.println("show More Button is present");
 			System.out.println("show More Button is Clicked");
 			Thread.sleep(2000);	  		
-			((JavascriptExecutor)driver).executeScript("scroll(400,0)");
+			((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 			Thread.sleep(3000);
 			System.out.println("Scroll Button is Available");
 			driver.findElement(By.xpath(Elements_Diagnostics.showlessbutton)).click();
@@ -439,7 +433,6 @@ public class DiagnosticPage {
 	
 	public void patientsearchinalltab(String firstname,String lastname,String email) throws Exception{
 		
-		
 		driver.findElement(By.id(Elements_Diagnostics.clickonpatientmenu)).click();
 		Thread.sleep(8000);
 		driver.findElement(By.id(Elements_Diagnostics.clickonserachbarid)).click();
@@ -449,7 +442,6 @@ public class DiagnosticPage {
 		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(email);
 		int alltabsize=driver.findElements(By.xpath(Elements_Diagnostics.alltabsize)).size();
 		for(int i=1;i<=alltabsize;i++){
-			
 			String name=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).getText();
 			String schedule=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
 			String fullname=firstname+" "+lastname;
@@ -466,7 +458,7 @@ public class DiagnosticPage {
 			}
 			
 			}
-	}
+			}
 	
 	
 	public void PatientSerachInAllTabForReschedule(String firstname,String lastname,String email) throws Exception{

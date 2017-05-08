@@ -23,6 +23,10 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void beforeClass() throws Exception {
 		 LoadBrowserProperties();
+		 driver.get(doctors_Url);		 
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 	 
 	 @DataProvider(name = "DP1")
@@ -33,7 +37,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","korea","K","9499229191","korea@gmail.com","Diabetic" }
+					{ "yes","kony","K","9499929191","kony@gmail.com","Diabetic" }
 
 			};
 		}
@@ -45,10 +49,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 	if(RunMode.equals("yes")){
-		driver.get(doctors_Url);		 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		
 		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(3000);
 		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
@@ -67,8 +68,7 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 		public void CancelAllAppointments() throws Exception{
 			DoctorsPageOfZoylo.BulkCancel();
 			Thread.sleep(2000);
-			DoctorsPageOfZoylo.doctorlogout();
-			
+			DoctorsPageOfZoylo.doctorlogout();	
 		}
 
 
