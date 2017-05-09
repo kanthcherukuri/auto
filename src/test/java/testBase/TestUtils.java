@@ -1,13 +1,27 @@
 package testBase;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.Flags;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.search.SubjectTerm;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Properties;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -270,11 +284,85 @@ public class TestUtils {
           
            
 	 } 
-        Assert.assertTrue(response.contains("ganesh@zoylo.com"));
+       // Assert.assertTrue(response.contains("ganesh@zoylo.com"));
         System.out.println("Asserted successfully");
 		return response;
 		
 	}
+	
+	
+	public  String  emailResponse(String user,String password,String Subject) throws Exception{
+		
+		 Properties props = System.getProperties();
+	       props.setProperty("mail.store.protocol", "imaps");
+
+	           Session session = Session.getDefaultInstance(props, null);
+	           Store store = session.getStore("imaps");
+	           store.connect("imap.gmail.com", user, password);
+
+	           Folder folder = store.getFolder("INBOX");
+	           folder.open(Folder.READ_WRITE);
+
+	           System.out.println("Total Message:" + folder.getMessageCount());
+	           System.out.println("Unread Message:"
+	                   + folder.getUnreadMessageCount());
+	           
+	           Message[] messages = null;
+	           boolean isMailFound = false;
+	           Message mailFromGod= null;
+
+	           //Search for mail from Zoylo
+	           for (int i = 0; i<=5; i++) {
+	               messages = folder.search(new SubjectTerm(Subject),folder.getMessages());
+	               //System.out.println("mail has found");
+	               //Wait for 10 seconds
+	               if (messages.length == 0) {
+	               	System.out.println("mail not found");
+	                   Thread.sleep(10000);
+	               }
+	               
+	           }
+
+	           //Search for unread mail from Zoylo
+	           //This is to avoid using the mail for which 
+	           //Registration is already done
+	           for (Message mail : messages) {
+	               if (!mail.isSet(Flags.Flag.SEEN)) {
+	                   mailFromGod = mail;
+	                   System.out.println("Message Count is: "
+	                           + mailFromGod.getMessageNumber());
+	                   isMailFound = true;
+	               }
+	           }
+	           StringBuffer buffer =null;
+	           //Test fails if no unread mail was found from Zoylo
+	           if (!isMailFound) {
+	               throw new Exception(
+	                       "Could not find new mail from Zoylo :-(");
+	           
+	           //Read the content of mail and launch registration URL                
+	           } else {
+	               String line;
+	                buffer = new StringBuffer();
+	               BufferedReader reader = new BufferedReader(
+	                       new InputStreamReader(mailFromGod
+	                               .getInputStream()));
+	               while ((line = reader.readLine()) != null) {
+	                   buffer.append(line);
+	               }
+	               System.out.println(buffer);
+	              
+	               /*
+	               //Your logic to split the message and get the Registration URL goes here
+	               String registrationURL = buffer.toString().split("&amp;gt;http://www.god.de/members/?")[0]
+	                       .split("href=")[1];
+	               System.out.println(registrationURL);  
+	               */                          
+	           }
+	        String Email_response=buffer.toString();
+			return Email_response;
+	   }
+	
 	
 	
 	 public static String[][] getTableArray(String xlFilePath, String sheetName, String tableName) throws Exception{

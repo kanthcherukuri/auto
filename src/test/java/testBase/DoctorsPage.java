@@ -124,7 +124,7 @@ public class DoctorsPage  {
 	
 	// Doctors Checkin and check the recipient
 	public  void doctorCheckinCheckOut() throws IOException, InterruptedException{			
-		driver.findElement(By.xpath(Elements_Doctors.clickoncheckinbutton)).click();
+		driver.findElement(By.id(Elements_Doctors.clickoncheckinbutton)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.clickonstartconsulationbutton)).click();				
 		Thread.sleep(2000);
