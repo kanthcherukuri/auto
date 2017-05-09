@@ -22,12 +22,12 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	
 	//Global variables for pre condition values
 
-	public String dcNameV="DiagnosticsZoylo";
-	public String dcshrV="DiaZoylo";
-	public String dcEmail="javadctwo45@zoy.com";
-	public String dcNum="9000000045";
-	public String ucontactNumber="9000000045";
-	public String ucontactEmail="milan561@zoylo.com";
+	public String dcNameV="DiagnosticsZoyloOne";
+	public String dcshrV="DiaZoyloOne";
+	public String dcEmail="javadctwo4@zoy.com";
+	public String dcNum="9000000012";
+	public String ucontactNumber="9000000012";
+	public String ucontactEmail="milan6@zoylo.com";
 
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
