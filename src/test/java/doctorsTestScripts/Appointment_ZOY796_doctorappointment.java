@@ -22,6 +22,10 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void beforeClass() throws Exception {
 		 LoadBrowserProperties();
+		 driver.get(doctors_Url);		 
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 
 
@@ -42,10 +46,7 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 	if(RunMode.equals("yes")){
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		 
 		 DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 	}
 

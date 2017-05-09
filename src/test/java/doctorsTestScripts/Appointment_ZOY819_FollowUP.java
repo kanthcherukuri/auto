@@ -38,7 +38,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Sruthi","R","9966393322","sruthi@gmail.com","Diabetic" }
+						{ "yes","Sanjayone","R","9963333322","sanjayone@gmail.com","Diabetic" }
 
 				};
 			}
