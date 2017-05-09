@@ -7,6 +7,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
 import objectRepository.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -182,6 +184,11 @@ public class DoctorsPage  {
 		}
 
 
+		public void View() throws Exception{
+			Thread.sleep(1000);
+			driver.findElement(By.id("")).click();
+			Thread.sleep(5000);
+		}
 
 
 	public void Cancel(String firstname,String lastname,String mobile,String email,String problem) throws Exception {
@@ -419,13 +426,22 @@ public class DoctorsPage  {
 		se.selectByValue("BACHELOR OF DENTAL SURGERY");
 		Thread.sleep(2000);
 		
+		 
+		
+		
+		
+		
 	
-
-//		WebElement ele= driver.findElement(By.id("areaOfSpecialisationsSelect"));
-//		Select se1= new Select(ele);
+//        driver.findElement(By.id("areaOfSpecialisations")).click();
+      
+      
+        
+	//	WebElement ele= driver.findElement(By.id("areaOfSpecialisationsSelect"));
+//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
+//		WebElement sc= driver.findElement(By.xpath("//select[@id='areaOfSpecialisationsSelect']"));
+//	    Select se1= new Select(sc);
 //		se1.selectByValue("Aesthetic Dentistry");
-//		//se1.selectByValue("Aesthetic Dentistry");
-//		Thread.sleep(5000);
+		//Thread.sleep(5000);
 //		
 //		WebElement ele2=driver.findElement(By.id("lineOfPracticeSelect"));
 //		Select se2= new Select(ele2);
@@ -691,7 +707,7 @@ public void VerifyCheckINFunctionality() throws Exception{
 		String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
 		if(name.equalsIgnoreCase(fullname))
 		{	
-			
+		
 		driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).click();	
 		System.out.println("Created Appointment is Available");
 		Thread.sleep(3000);

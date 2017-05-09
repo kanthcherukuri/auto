@@ -32,13 +32,17 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	 @BeforeClass
 	  public void beforeClass() throws Exception { 
 		  LoadBrowserProperties();
+		  driver.get(doctors_Url);		 
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  }
 		       
 	  
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Sanjayone","R","9963333322","sanjayone@gmail.com","Diabetic" }
+						{ "yes","Sunkara","R","9933333322","sunkara@gmail.com","Diabetic" }
 
 				};
 			}
@@ -48,10 +52,6 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @Test(dataProvider="DP1")
 	  public void CheckingFollowupFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		  
-		  driver.get(doctors_Url);		 
-		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
 		  DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
