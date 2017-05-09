@@ -57,9 +57,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	 public void validateBookingFallowUpAppointmentForDoctor(String runmode,String Doctor,String DoctorUserName,String DoctorPassword ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 
-			
-			    //Test Starts-Here
+			/*    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -67,24 +65,20 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
-				RecipientPage.selectDefaultSlot();
+				//RecipientPage.selectDefaultSlot();
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-				RecipientPage.recipientLogout();				
-				//
-				 
+				RecipientPage.recipientLogout();*/				
+				//Login as Doctor
 				
 				Browser.openUrl(recipient_url);			
-				//Verify Doctor Login with valid details
-				Thread.sleep(5000);
 				DoctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 				//Browser.waitTill(60);
 				DoctorsPage.clickOnTheRecentPatientFromDashBoard();
 				DoctorsPage.doctorCheckinCheckOut();
 				DoctorsPage.doctorlogout();
-				
 				
 				//Login as Recipient
 				Browser.openUrl(recipient_url);			
@@ -122,20 +116,13 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			
 			
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
-
-	       
+ 
 	       driver.close();
-	       
-	      
+
 	    }
     
 	
