@@ -1,16 +1,15 @@
 package diagnosticTestScripts;
 
-import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import objectRepository.Elements_Diagnostics;
+import org.testng.Assert;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -20,47 +19,51 @@ public class test extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
 	
-	@BeforeClass	 
-	 public void beforeClass() throws Exception {	
-		
-	 LoadBrowserProperties();
-	 driver.manage().window().maximize();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		DiagnosticPageZoylo=new DiagnosticPage(driver);	
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
-	  }
-@Test
-public void appointmenthome() throws Exception{
-	driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
-	Thread.sleep(5000);
-	driver.findElement(By.xpath("//div[@class='material-switch pull-left']")).click();
-//
-//	WebElement slider = driver.findElement(By.xpath("//div[@class='material-switch pull-left']")); 
-//	int widt= slider.getSize().width;
-//	System.out.println("width size ="+widt);
-//	
-//	Actions action = new Actions(driver);
-//
-//	
-//	action.moveToElement(slider);
-//	action.click().build().perform();
-	
-	//Action action = (Action) move.dragAndDropBy(slider, 60, 0).build(); 
-	//action.perform();
+	public static void main( String args[] ){
+		 
+	    	  
+	    	 MongoClient mongoClient = null;
+	  		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
+
+	  		mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
+
+
+	  		//Selecting the database
+	  		DB db = mongoClient.getDB("zoylo_zqa");
+
+	  		System.out.println("Connect to database successfully");
+
+	  		//System.out.println(db.getStats());
+	          System.out.println(db.getCollectionNames());
+	          
+	          DBCollection coll = db.getCollection("providers");
+	          System.out.println("Collection mycol selected successfully");
+	          
+	          BasicDBObject searchQuery = new BasicDBObject();
+	         
+	    
+	      	searchQuery.put("providerid:", "w3CZgY6YjHMRjPEmN");
+	      	
+	      	
+	          DBCursor cursor = coll.find(searchQuery);
+	     
+	          String response=null;
+	          while (cursor.hasNext()) { 
+	             //System.out.println("Inserted Document: "+i); 
+	         response = cursor.next().toString();
+	             System.out.println(response); 
+	            
+	             
+	  	 } 
+	          //Assert.assertTrue(response.contains("kanthch@hotmail.com"));
+	          System.out.println("Asserted successfully");
+	  		
+	  		
+	  	}
+	}
+
+
 
 	
-//	WebElement draggablePartOfScrollbar = driver.findElement(By.xpath("//div[@class='material-switch pull-left']"));
-//	int numberOfPixelsToDragTheScrollbarDown = 5000;
-//	action.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
-//    //div[@class='material-switch pull-left']
-	
-	
-    //JavascriptExecutor js = (JavascriptExecutor) driver;
 
-    //WebElement a = driver.findElement(By.xpath("//div[@id='slider-1']/a"));
 
-    //js.executeScript("arguments[0].setAttribute('style', 'left:100%;')",ele);
-	
-}
-}
