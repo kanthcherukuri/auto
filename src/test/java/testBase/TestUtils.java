@@ -290,7 +290,11 @@ public class TestUtils {
 		
 	}
 	
-	
+/* 
+ * This function is used to read the emails from gmail with the subject name
+   Ex:Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | Appointment registered");
+ *
+*/	
 	public  String  emailResponse(String user,String password,String Subject) throws Exception{
 		
 		 Properties props = System.getProperties();
@@ -337,9 +341,8 @@ public class TestUtils {
 	           StringBuffer buffer =null;
 	           //Test fails if no unread mail was found from Zoylo
 	           if (!isMailFound) {
-	               throw new Exception(
-	                       "Could not find new mail from Zoylo :-(");
-	           
+	              // throw new Exception("Could not find new mail from Zoylo :-(");
+	           System.out.println("Mail Not Found Subject name="+Subject);
 	           //Read the content of mail and launch registration URL                
 	           } else {
 	               String line;
@@ -359,7 +362,14 @@ public class TestUtils {
 	               System.out.println(registrationURL);  
 	               */                          
 	           }
-	        String Email_response=buffer.toString();
+	        
+	        	  String  Email_response=null;
+	         
+	        	  if(buffer != null){
+	        		  Email_response=buffer.toString(); 
+	        	    } else {
+	        	      System.out.println("no response");
+	        	    }
 			return Email_response;
 	   }
 	

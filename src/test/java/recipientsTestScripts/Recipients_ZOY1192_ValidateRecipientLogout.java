@@ -38,7 +38,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 	@Test(groups = { "Regression","High" })
 	public void validateRecipientlogout() throws Exception {
 
-		
+		/*
 		Browser.openUrl(recipient_url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -47,12 +47,12 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 		Reporter.log("Logged out Successfully");
 		//JavascriptExecutor jse = (JavascriptExecutor)driver;
 		//jse.executeScript("scroll(0, 250)"); // if the element is on bottom. 
-	
-		/*
-		String Email= Browser.emailResponse("ganeshzoylo@gmail.com", "Zoylo@123", "Welcome to zoylo1");
+	*/
+		
+		String Email= Browser.emailResponse("ganeshzoylo@gmail.com", "Zoylo@123", "Zoylo.com | Your appointment with Dr.Doctorzoylo has been confirmed.");
 		System.out.println("Email_response="+Email);
-		Assert.assertTrue(Email.contains("This is test mail"));
-*/
+		Assert.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
+        
 	}
 
 
