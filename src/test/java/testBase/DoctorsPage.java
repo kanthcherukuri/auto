@@ -189,7 +189,31 @@ public class DoctorsPage  {
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.clickonview)).click();
 			Thread.sleep(5000);
+		}
+		
+		public void ClickonAlertmenu(){
+			driver.findElement(By.id("alerts")).click();
+			WebDriverWait wait=new WebDriverWait(driver,100);
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
+		}
+		
+		public String  getappointmentid() throws Exception{
 			
+			String AppointmentId=driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span")).getText();
+			System.out.println(AppointmentId);
+			driver.findElement(By.id("backbtn")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='cd-1']")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[1]/div/center")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[2]/div/center")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='patient-apmt-tabs']/li[3]/div/center")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
+			
+			return AppointmentId;
 		}
 		
 		public void CheckAlerts() throws Exception {

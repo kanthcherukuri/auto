@@ -1,5 +1,6 @@
 package doctorsTestScripts;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +15,7 @@ import testBase.TestUtils;
 public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPageOfZoylo;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 		@BeforeClass
 		public void beforeClass() throws Exception {
@@ -30,7 +31,11 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	public void doctorprofileverification() throws Exception{
 	DoctorsPageOfZoylo.doctorprofileEditing();
 	DoctorsPageOfZoylo.doctorlogout();
+	
 
+	
+	String DoctorEmail= Browser.emailResponse(DoctorsLogin_usernameone, "zoylo@123", "Zoylo.com | Your profile is successfully updated.");	
+	Assert.assertTrue(DoctorEmail.contains("Your profile on Zoylo.com is successfully updated."));
 	
 	}
 	

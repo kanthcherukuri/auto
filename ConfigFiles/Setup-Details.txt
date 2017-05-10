@@ -35,7 +35,7 @@ DoctorsLogin.username=sagarsen@gmai.com
 DoctorsLogin.password=Zoylo@123
 browser=chrome
 
-DoctorsLogin.usernameone=kanthch@hotmail.com
+DoctorsLogin.usernameone=kanthzoylo@gmail.com
 DoctorsLogin.passwordone=Zoylo@666
 
 DoctorsLogin.usernametwo=sss1@gmail.com
