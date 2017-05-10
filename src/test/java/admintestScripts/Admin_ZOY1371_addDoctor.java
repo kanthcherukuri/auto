@@ -28,11 +28,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="pomscript5@zoy.com";
-	public String docName="ScriptDocThree";
-	public String regNum="Scr3";
+	public String emailID="pomscript6@zoy.com";
+	public String docName="ScriptDocsix";
+	public String regNum="Scr4";
 	public String clinicDefName="Src Default";
-	public String mobNumDoc="7777710008";
+	public String mobNumDoc="7777710009";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()

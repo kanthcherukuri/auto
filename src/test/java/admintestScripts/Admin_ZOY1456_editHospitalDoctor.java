@@ -18,7 +18,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 	public TestUtils Browser;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="pomhop3@zoy.com";
+	public String hopDocEmailID="pomhop4@zoy.com";
 	
 	@DataProvider(name="editHopDoc")
 	public Object[][] details()
@@ -55,7 +55,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Monday.slots.0.locationType']//label//input[@value='hospital']")).click();
 						
 						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[2]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
-												
+											
 						driver.findElement(By.name("doctorInformation.workingHrs.Monday.slots.0.start")).sendKeys(mondayStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Monday.slots.0.end")).sendKeys(mondayEnd);
 						System.out.println("Monday slots entered");
