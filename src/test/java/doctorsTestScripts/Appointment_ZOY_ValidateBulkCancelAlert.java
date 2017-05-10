@@ -1,12 +1,13 @@
-import java.util.concurrent.TimeUnit;
 
+package doctorsTestScripts;
+
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;

@@ -54,6 +54,7 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 		Assert.assertTrue(alert.contains("You have cancelled Appointment:"));
 		Thread.sleep(1000);
 		Assert.assertTrue(alert.contains(id));
+		
 		}
 	
 	@AfterMethod

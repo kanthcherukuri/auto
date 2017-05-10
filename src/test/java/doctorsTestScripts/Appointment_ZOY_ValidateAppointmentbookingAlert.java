@@ -12,7 +12,7 @@ import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointments_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac {
+public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac {
 	
 	public DoctorsPage DoctorsPageOfZoylo;
 	public TestUtils exceldata;

@@ -299,10 +299,8 @@ public class DoctorsPage  {
 	 		System.out.println("Sucessfully clicked on Send Notification button");
 	 		Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
 	 	}
-		
 		}
 			
-	
 
 		public  void expliciteWait(String xpath,int timeToWaitInSec) {
 			WebDriverWait wait = new WebDriverWait(driver, timeToWaitInSec);
@@ -318,7 +316,6 @@ public class DoctorsPage  {
 
 
 	public void ClickingOnDashboard(){
-	
 	driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();	
 	WebDriverWait wait=new WebDriverWait(driver,100);
 	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.getappointlistingtext)));
@@ -334,7 +331,6 @@ public class DoctorsPage  {
 	System.out.println(appointmentlisting);
 	for(int i=1;i<=appointmentlisting; i++)
 	{
-	
 	String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
 	String fullname=firstname+" "+lastname;
 	System.out.println(name);
@@ -468,22 +464,53 @@ public class DoctorsPage  {
 		Select se= new Select(element);
 		se.selectByValue("BACHELOR OF DENTAL SURGERY");
 		Thread.sleep(2000);
-		
 		 Browser.actionbyXpath(".//*[@id='areaOfSpecialisations']/div[2]/span/span[1]/span/ul", "Ayurvedic");
-		
 		 Browser.actionbyXpath(".//*[@id='lineOfPractice']/div[2]/span/span[1]/span/ul", "Homeopathy");
-		
 		Thread.sleep(2000);		 
-
+        driver.findElement(By.id("aboutField")).clear();
+        driver.findElement(By.id("aboutField")).sendKeys("Hi I am Rajasekhar I had 11 years of Experience in Dental");
 		driver.findElement(By.id("saveAboutInfo")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id='myTabs']/li[2]/a")).click();
 		Thread.sleep(3000);
+		driver.findElement(By.id("editProfileAwards")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("membership")).clear();
+		driver.findElement(By.id("membership")).sendKeys("World Health Organisation");
+		Thread.sleep(1000);
+		driver.findElement(By.id("certifications")).clear();
+		driver.findElement(By.id("certifications")).sendKeys("Cisco");
+		Thread.sleep(2000);
+		driver.findElement(By.id("saveAwards")).click();
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[@id='myTabs']/li[3]/a/span[2]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("online")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("cheque")).click();
 		Thread.sleep(1000);
+		driver.findElement(By.id("debitCard")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("creditCard")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("cash")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.id("doctor_edit_save")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='myTabs']/li[4]/a")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("editAddInfo")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("website")).clear();
+		driver.findElement(By.id("website")).sendKeys("www.zoylo.com");
+		Thread.sleep(1000);
+		driver.findElement(By.id("journals")).clear();
+		driver.findElement(By.id("journals")).sendKeys("https://www.omicsonline.org/open-access-journals-list.php");
+		Thread.sleep(1000);
+		driver.findElement(By.id("books")).clear();
+		driver.findElement(By.id("books")).sendKeys("APJ Adbul Kalam");
+		Thread.sleep(1000);
+		driver.findElement(By.id("saveAddInfo")).click();
 		Thread.sleep(3000);
 		}
 

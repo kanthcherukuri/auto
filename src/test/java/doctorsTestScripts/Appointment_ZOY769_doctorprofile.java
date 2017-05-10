@@ -23,7 +23,8 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 DoctorsPageOfZoylo= new DoctorsPage(driver);
+		 Browser= new TestUtils(driver);  
 		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }  
 
@@ -34,7 +35,7 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 
 	
-	String DoctorEmail= Browser.emailResponse(DoctorsLogin_usernameone, "zoylo@123", "Zoylo.com | Your profile is successfully updated.");	
+	String DoctorEmail= Browser.emailResponse("kanthzoylo@gmail.com", "zoylo@123", "Zoylo.com | Your profile is successfully updated.");	
 	Assert.assertTrue(DoctorEmail.contains("Your profile on Zoylo.com is successfully updated."));
 	
 	}
@@ -42,6 +43,6 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		//driver.close();
+		driver.close();
 	}
 	}
