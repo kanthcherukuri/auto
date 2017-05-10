@@ -467,7 +467,14 @@ public class DoctorsPage  {
 		WebElement element=driver.findElement(By.id("doctorQualification"))	; 
 		Select se= new Select(element);
 		se.selectByValue("BACHELOR OF DENTAL SURGERY");
+		Thread.sleep(2000);
+		
+		 Browser.actionbyXpath(".//*[@id='areaOfSpecialisations']/div[2]/span/span[1]/span/ul", "Ayurvedic");
+		
+		 Browser.actionbyXpath(".//*[@id='lineOfPractice']/div[2]/span/span[1]/span/ul", "Homeopathy");
+		
 		Thread.sleep(2000);		 
+
 		driver.findElement(By.id("saveAboutInfo")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='myTabs']/li[3]/a/span[2]")).click();
