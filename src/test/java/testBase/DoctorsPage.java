@@ -426,26 +426,9 @@ public class DoctorsPage  {
 		se.selectByValue("BACHELOR OF DENTAL SURGERY");
 		Thread.sleep(2000);
 		
-		 
+		 Browser.actionbyXpath(".//*[@id='areaOfSpecialisations']/div[2]/span/span[1]/span/ul", "Ayurvedic");
 		
-		
-		
-		
-	
-//        driver.findElement(By.id("areaOfSpecialisations")).click();
-      
-      
-        
-	//	WebElement ele= driver.findElement(By.id("areaOfSpecialisationsSelect"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
-//		WebElement sc= driver.findElement(By.xpath("//select[@id='areaOfSpecialisationsSelect']"));
-//	    Select se1= new Select(sc);
-//		se1.selectByValue("Aesthetic Dentistry");
-		//Thread.sleep(5000);
-//		
-//		WebElement ele2=driver.findElement(By.id("lineOfPracticeSelect"));
-//		Select se2= new Select(ele2);
-//		se2.selectByValue("Naturopathy");
+		 Browser.actionbyXpath(".//*[@id='lineOfPractice']/div[2]/span/span[1]/span/ul", "Homeopathy");
 		
 		driver.findElement(By.id("saveAboutInfo")).click();
 		Thread.sleep(3000);
