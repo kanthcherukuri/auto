@@ -39,7 +39,7 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Siri","Raavi","9999955522","siri@gmail.com","Diabetic" }
+						{ "yes","Srinu","Raavi","9992255522","srinu@gmail.com","Diabetic" }
 
 				};
 			}

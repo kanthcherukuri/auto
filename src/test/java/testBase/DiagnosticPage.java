@@ -710,7 +710,7 @@ public class DiagnosticPage {
 	}
 	
 	public void CheckTodayAppointmentCountInDashBoardScreen() throws InterruptedException{
-		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
+		driver.findElement(By.id(Elements_Diagnostics.clickondashboardmenu)).click();
 		 Thread.sleep(3000);
 		int appointmentsavailable= driver.findElements(By.xpath(Elements_Diagnostics.todaysappointmentslist)).size();
 		//System.out.println(appointmentsavailable);

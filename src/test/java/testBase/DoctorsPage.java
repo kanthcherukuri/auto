@@ -32,6 +32,7 @@ public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public    WebDriver driver;
 	public TestUtils Browser;
+	
 
 	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
@@ -184,10 +185,28 @@ public class DoctorsPage  {
 		}
 
 
-		public void View() throws Exception{
+		public void ClickView() throws Exception{
 			Thread.sleep(1000);
-			driver.findElement(By.id("")).click();
+			driver.findElement(By.id(Elements_Doctors.clickonview)).click();
 			Thread.sleep(5000);
+			
+		}
+		
+		public void CheckAlerts() throws Exception {
+			
+		String name=driver.findElement(By.xpath(Elements_Doctors.getfullnameonclickviewmenu)).getText();
+		System.out.println(name);	
+		String	AppointmentId=driver.findElement(By.xpath(Elements_Doctors.getappointmentid)).getText();
+			System.out.println(AppointmentId);
+			driver.findElement(By.id(Elements_Doctors.clickonalertmenu)).click();
+			Thread.sleep(10000);
+		String Alert=driver.findElement(By.xpath("//*[@id='message' and contains(.,'"+name+"')]")).getText();
+		System.out.println(Alert);
+		Assert.assertTrue(Alert.contains(AppointmentId));
+		Thread.sleep(1000);
+		Assert.assertTrue(Alert.contains("has been booked"));
+		
+			
 		}
 
 
@@ -424,29 +443,7 @@ public class DoctorsPage  {
 		WebElement element=driver.findElement(By.id("doctorQualification"))	; 
 		Select se= new Select(element);
 		se.selectByValue("BACHELOR OF DENTAL SURGERY");
-		Thread.sleep(2000);
-		
-		 
-		
-		
-		
-		
-	
-//        driver.findElement(By.id("areaOfSpecialisations")).click();
-      
-      
-        
-	//	WebElement ele= driver.findElement(By.id("areaOfSpecialisationsSelect"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
-//		WebElement sc= driver.findElement(By.xpath("//select[@id='areaOfSpecialisationsSelect']"));
-//	    Select se1= new Select(sc);
-//		se1.selectByValue("Aesthetic Dentistry");
-		//Thread.sleep(5000);
-//		
-//		WebElement ele2=driver.findElement(By.id("lineOfPracticeSelect"));
-//		Select se2= new Select(ele2);
-//		se2.selectByValue("Naturopathy");
-		
+		Thread.sleep(2000);		 
 		driver.findElement(By.id("saveAboutInfo")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='myTabs']/li[3]/a/span[2]")).click();

@@ -95,6 +95,9 @@ public class Elements_Doctors  {
 				//bulk cancel variables
 				public static String clickonbulkcancelbutton, cancelfromdate, canceltodate, cancelfromtime, canceltotime, submitbulkcancel;
 				
+				//Alert variables
+				public static String clickonview, getfullnameonclickviewmenu, clickonalertmenu, getappointmentid;
+				
 				
 				
 		
@@ -222,6 +225,13 @@ public class Elements_Doctors  {
 			 cancelfromtime="//*[@id='fromTime']";
 			 canceltotime="//*[@id='toTime']";
 			 submitbulkcancel="cancelAppointmentsSubmit";
+			 
+			 //Alert Variables
+			 
+			 clickonview ="view";
+			 getfullnameonclickviewmenu="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
+			 getappointmentid="html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span";
+			 clickonalertmenu="alerts";
 			
 			
 		return driver;	
