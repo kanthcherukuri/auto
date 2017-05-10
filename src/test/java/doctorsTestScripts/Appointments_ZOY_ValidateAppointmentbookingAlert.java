@@ -2,6 +2,8 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -28,7 +30,7 @@ public class Appointments_ZOY_ValidateAppointmentbookingAlert extends LoadPropMa
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Janu","K","9966995533","janu@gmail.com","Diabetic" }
+					{ "yes","Srinu","S","9959559926","srinu@gmail.com","Diabetic" }
 	
 			};
 		}
@@ -37,7 +39,20 @@ public class Appointments_ZOY_ValidateAppointmentbookingAlert extends LoadPropMa
 	public void CheckAlertforAppointmentBooking(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-		
-		
+		DoctorsPageOfZoylo.ClickView();
+		DoctorsPageOfZoylo.CheckAlerts();
+	}
+	
+	@AfterMethod
+	public void bulkCancelandlogout() throws Exception{
+		DoctorsPageOfZoylo.BulkCancel();
+		Thread.sleep(3000);
+		DoctorsPageOfZoylo.doctorlogout();
+	}
+	
+	
+	@AfterClass
+	public void closebrowser(){
+		driver.close();
 	}
 }
