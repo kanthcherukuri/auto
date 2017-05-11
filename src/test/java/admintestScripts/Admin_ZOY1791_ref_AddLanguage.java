@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,7 +22,7 @@ public class Admin_ZOY1791_ref_AddLanguage extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/languageList";
 	public String pit = "https://pit.zoylo.com/admin/languageList";
-	public String languageName="Testlangone";
+	public String languageName="Testlangtwo";
 	
 	@Test()
 	public void addLanguage()

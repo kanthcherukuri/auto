@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,7 +22,7 @@ public class Admin_ZOY1744_ref_EditDocSpecialization extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/areaOfSpecializationList";
 	public String pit = "https://pit.zoylo.com/admin/areaOfSpecializationList";
-	public String specName="Srcone";
+	public String specName="Srctwo";
 	
 	@Test()
 	public void editDocSpecialization()

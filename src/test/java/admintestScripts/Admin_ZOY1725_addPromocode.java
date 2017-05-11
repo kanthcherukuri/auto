@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -21,8 +24,8 @@ public class Admin_ZOY1725_addPromocode extends LoadPropMac
 	public String zqa = "https://zoyloqa.zoylo.com/admin/zyProviderPromoCodes";
 	public String pit = "https://pit.zoylo.com/admin/zyProviderPromoCodes";
 	public String dev = "https://dev.zoylo.com/admin/zyProviderPromoCodes";
-	public String promoType = "referral"; //promotion OR referral ONLY
-	public String codeName = "Script1";
+	public String promoType = "promotion"; //promotion OR referral ONLY
+	public String codeName = "Script2";
 	public String desc = "Availe "+codeName+ " promoCode";
 	public String refferalValue = "10";
 	public String refreValue = "20";

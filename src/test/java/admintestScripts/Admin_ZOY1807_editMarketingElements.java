@@ -14,29 +14,31 @@ import testBase.AdminPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Admin_ZOY1751_ref_EditState extends LoadPropMac
+public class Admin_ZOY1807_editMarketingElements extends LoadPropMac
 {
 	public TestUtils Browser;
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String zqa = "https://zoyloqa.zoylo.com/admin/stateList";
-	public String pit = "https://pit.zoylo.com/admin/stateList";
-	public String stateCode="TSTWO";
+	public String zqa="https://zoyloqa.zoylo.com/admin/marketingElements";
+	public String pit="https://pit.zoylo.com/admin/marketingElements";
+	public String marketHtML = "HTML TO DETECT ONE";
 	
-	@Test()
-	public void editState()
+	@Test
+	public void editMarketing()
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		//Change environment
 		driver.get(zqa);
-		Browser.waitforTextbyxpath("//h4[contains(., 'States')]", "States");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(stateCode);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", stateCode);
-		driver.findElement(By.id("stateEdit")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'State - Edit')]", "State - Edit");
+		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Elements')]", "Marketing Elements");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(marketHtML);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[2]", marketHtML);
+		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[4]/button")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Element - Edit')]", "Marketing Element - Edit");
+		driver.findElement(By.name("isActive")).click();
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'States')]", "States");
+		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Elements')]", "Marketing Elements");
 	}
 	
 	@BeforeClass

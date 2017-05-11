@@ -14,29 +14,29 @@ import testBase.AdminPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Admin_ZOY1751_ref_EditState extends LoadPropMac
+public class Admin_ZOY1808_adminChangePassword extends LoadPropMac
 {
 	public TestUtils Browser;
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String zqa = "https://zoyloqa.zoylo.com/admin/stateList";
-	public String pit = "https://pit.zoylo.com/admin/stateList";
-	public String stateCode="TSTWO";
+	public String oldPw = "Zoylo@123";
+	public String newPw = "Zoylo@123";
+	public String confPw = "Zoylo@123";
 	
 	@Test()
-	public void editState()
+	public void changePw()
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(zqa);
-		Browser.waitforTextbyxpath("//h4[contains(., 'States')]", "States");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(stateCode);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", stateCode);
-		driver.findElement(By.id("stateEdit")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'State - Edit')]", "State - Edit");
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'States')]", "States");
+		driver.findElement(By.xpath("//span[@class='glyphicon glyphicon-align-justify']")).click();
+		driver.findElement(By.id("adminChangePasswordLink")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'Change Password')]", "Change Password");
+		driver.findElement(By.name("oldpassword")).sendKeys(oldPw);
+		driver.findElement(By.name("newpassword")).sendKeys(newPw);
+		driver.findElement(By.name("confirmpassword")).sendKeys(confPw);
+		driver.findElement(By.id("adminChangePasswordButton")).click();
+		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Your password has been successfully changed!");
 	}
 	
 	@BeforeClass
