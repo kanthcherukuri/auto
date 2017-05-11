@@ -780,5 +780,116 @@ public class DiagnosticPage {
 			System.out.println("Diagnostics Logged Out"+LoadPropMac.Environment);
 		}
 
+		
+		
+		//Schedule Methods
+		
+		public void ClickOnScheduleMenu() throws Exception{
+			driver.findElement(By.id(Elements_Diagnostics.clickonschedulemenu)).click();
+			Thread.sleep(3000);
+		}
+		
+		
+		public void AddContactInSchedule(String name,String phone,String email,String fax) throws Exception{
+			
+			driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath(Elements_Diagnostics.clickoncontact)).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Diagnostics.clickaddclinic)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.addname)).sendKeys(name);
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Diagnostics.addphone)).sendKeys(phone);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.addemail)).sendKeys(email);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.addfax)).sendKeys(fax);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.clickonsave)).click();;
+			Browser.CheckNotificationMessage("Contact Information updated successfully");
+			Thread.sleep(5000);
+		}
+		
+		public void DeleteContactInSchedule() throws Exception{
+			
+			driver.findElement(By.xpath(Elements_Diagnostics.clickondelete)).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Diagnostics.clickonsave)).click();
+			Browser.CheckNotificationMessage("Contact Information updated successfully");
+		}
+		
+		public void EditConatctInSchedule(String name,String phone,String email,String fax) throws Exception{
+			
+			driver.findElement(By.xpath("(//*[@id='0'][contains(text(),'Edit')])[3]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Diagnostics.addname)).clear();
+			driver.findElement(By.id(Elements_Diagnostics.addname)).sendKeys(name);
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Diagnostics.addphone)).clear();
+			driver.findElement(By.id(Elements_Diagnostics.addphone)).sendKeys(phone);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.addemail)).clear();
+			driver.findElement(By.id(Elements_Diagnostics.addemail)).sendKeys(email);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.addfax)).clear();
+			driver.findElement(By.id(Elements_Diagnostics.addfax)).sendKeys(fax);
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.clickonsave)).click();;
+			Browser.CheckNotificationMessage("Contact Information updated successfully");
+			Thread.sleep(5000);
+		}
+		
+		public void AddPackageandTestInSchedule(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
+			
+			driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath(Elements_Diagnostics.clickonpackagemenu)).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("addPackage")).click();
+			Thread.sleep(2000);
+			int pkcount=driver.findElements(By.xpath("//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']")).size();
+			System.out.println(pkcount);
+			driver.findElement(By.id(Elements_Diagnostics.clickonaddpackagebutton)).click();
+			Thread.sleep(1000);
+			System.out.println("Clicked on the add button");
+			int add=pkcount+1;
+			int testcount=add*10;
+			System.out.println(testcount);
+			System.out.println(add);
+			driver.findElement(By.id("packageName"+add+"")).sendKeys(packagename);
+			Thread.sleep(1000);
+			driver.findElement(By.id("packageCost"+add+"")).sendKeys(cost);
+			Thread.sleep(1000);
+			driver.findElement(By.id("packageDiscount"+add+"")).sendKeys(discount);
+			Thread.sleep(1000);
+			driver.findElement(By.id("packageDescription"+add+"")).sendKeys(description);
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//*[@id='addPackageTest'])["+pkcount+"]")).click();
+			Thread.sleep(5000);
+			driver.findElement(By.id("packTestName"+testcount+"")).sendKeys( testname);
+			Thread.sleep(1000);
+			driver.findElement(By.id("packTestDesc"+testcount+"")).sendKeys(testdescription);
+			Thread.sleep(3000);
+			driver.findElement(By.id("saveClinicPackages")).click();
+			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 }//main Class

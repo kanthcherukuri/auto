@@ -242,9 +242,6 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
-		//SoftAssert assertion=new SoftAssert();
-		//assertion.assertEquals(ExpectedNotificationMesg,ActualNotification);
-		//assertion.assertAll();
 	    Assert.assertEquals(ExpectedNotificationMesg,ActualNotification);
 		
 	}
