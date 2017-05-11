@@ -246,7 +246,11 @@ public class TestUtils {
 		
 	}
 	
-	
+	/* 
+	 * This function is used to get the values from MongoDB based on the key and value
+	   Ex:Browser.mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue);
+	 *
+	*/
 	
 	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue){
 		
@@ -284,6 +288,34 @@ public class TestUtils {
        // Assert.assertTrue(response.contains("ganesh@zoylo.com"));
         System.out.println("Asserted successfully");
 		return response;
+		
+	}
+	
+public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue){
+		
+		
+		MongoClient mongoClient = null;
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
+
+		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
+
+
+		//Selecting the database
+		DB db = mongoClient.getDB("zoylo_zqa");
+
+		System.out.println("Connect to database successfully");
+
+		//System.out.println(db.getStats());
+        System.out.println(db.getCollectionNames());
+        
+        DBCollection coll = db.getCollection("users");
+        System.out.println("Collection mycol selected successfully");
+        
+        BasicDBObject searchQuery = new BasicDBObject();
+    	searchQuery.put(QueryKey, QueryValue);
+    	
+    	coll.remove(searchQuery);
+    	System.out.println("Removed successfully");
 		
 	}
 	

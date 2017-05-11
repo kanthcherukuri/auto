@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterClass;
@@ -21,8 +24,8 @@ public class Admin_ZOY1709_addHospital extends LoadPropMac
 	//Global variables for pre-condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/hospitalList";
 	public String pit="https://pit.zoylo.com/admin/hospitalList";
-	public String hopName="Hospital Script two";
-	public String shortHopName="HopSrcTwo";
+	public String hopName="Hospital Script three";
+	public String shortHopName="HopSrcThree";
 	
 	
 	@DataProvider(name="hospitalDetails")

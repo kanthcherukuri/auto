@@ -63,6 +63,7 @@ public class Recipient_ZOY1189_ValidateRecipientReferFriend extends LoadPropMac 
 		driver.findElement(By.id("refereeEmail")).sendKeys("ganesh@in.com");
 		driver.findElement(By.id("sendRefer")).click();
 		Browser.verifyNotificationMessage("Referral Code send successfully");
+		//Verify the Logout from the App
 		RecipientPage.recipientLogout();
 		Reporter.log("Logged out Successfully");
 

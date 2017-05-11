@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterClass;
@@ -20,7 +23,7 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/cityList";
 	public String pit = "https://pit.zoylo.com/admin/cityList";
-	public String cityName="Testcone";
+	public String cityName="Testctwo";
 	public String state="Telangana";
 	
 	@Test()

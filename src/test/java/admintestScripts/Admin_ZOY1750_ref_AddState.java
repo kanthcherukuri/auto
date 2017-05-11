@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterClass;
@@ -20,8 +23,8 @@ public class Admin_ZOY1750_ref_AddState extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/stateList";
 	public String pit = "https://pit.zoylo.com/admin/stateList";
-	public String stateCode="TSONE";
-	public String stateName="Testsone";
+	public String stateCode="TSTWO";
+	public String stateName="Teststwo";
 	public String country="India";
 	
 	@Test()
