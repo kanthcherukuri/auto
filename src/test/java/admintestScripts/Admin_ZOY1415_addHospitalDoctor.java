@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.awt.AWTException;
 import java.net.URISyntaxException;
 
@@ -21,10 +24,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="pomhop4@zoy.com";
-	public String hopDocName="ScrHop Doc two";
-	public String hopMedNuber="Srchop4";
-	public String hopDocmobNum="8888810006";
+	public String hopDocEmailID="pomhop5@zoy.com";
+	public String hopDocName="ScrHop Doc three";
+	public String hopMedNuber="Srchop5";
+	public String hopDocmobNum="8888810007";
 	
 	@DataProvider(name="generaldetails")
     public Object[][] getDataFromDataprovider()

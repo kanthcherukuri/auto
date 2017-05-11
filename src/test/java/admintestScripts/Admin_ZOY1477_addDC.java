@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -22,12 +25,12 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	
 	//Global variables for pre condition values
 
-	public String dcNameV="DiagnosticsZoyloOne";
-	public String dcshrV="DiaZoyloOne";
-	public String dcEmail="javadctwo4@zoy.com";
-	public String dcNum="9000000012";
-	public String ucontactNumber="9000000012";
-	public String ucontactEmail="milan6@zoylo.com";
+	public String dcNameV="MayEleven";
+	public String dcshrV="MayEle";
+	public String dcEmail="javadctwo5@zoy.com";
+	public String dcNum="9000000013";
+	public String ucontactNumber="9000000013";
+	public String ucontactEmail="milan7@zoylo.com";
 
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";

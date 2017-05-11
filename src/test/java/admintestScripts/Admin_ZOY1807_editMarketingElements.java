@@ -1,5 +1,8 @@
 package admintestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,7 +22,7 @@ public class Admin_ZOY1807_editMarketingElements extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/marketingElements";
 	public String pit="https://pit.zoylo.com/admin/marketingElements";
-	public String marketHtML = "HTML TO DETECT";
+	public String marketHtML = "HTML TO DETECT ONE";
 	
 	@Test
 	public void editMarketing()
