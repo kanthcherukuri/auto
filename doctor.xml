@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="DoctorRegression">
-  <test name="DoctorTestCases">
+<suite name="Doctors">
+  <test name="DoctorsRegression">
     <classes>
       <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/>
+      <class name="doctorsTestScripts.Appointment_ZOY_ValidateAppointmentCancelAlert"/>
+      <class name="doctorsTestScripts.Appointment_ZOY_ValidateBulkCancelAlert"/>
       <class name="doctorsTestScripts.Appointment_ZOY796_doctorappointment"/>
       <class name="doctorsTestScripts.Appointment_ZOY806_Cancel"/>
       <class name="doctorsTestScripts.Appointment_ZOY801_Reschedule"/>
       <class name="doctorsTestScripts.Appointment_ZOY808_SendNoficationOfTodayTab"/>
+      <class name="doctorsTestScripts.Appointment_ZOY_ValidateRescheduleAlert"/>
       <class name="doctorsTestScripts.Appointment_ZOY769_doctorprofile"/>
       <class name="doctorsTestScripts.Appointment_ZOY773_AppointmentListing"/>
       <class name="doctorsTestScripts.Appointment_ZOY814_ScheduleCheckIn"/>
       <class name="doctorsTestScripts.Appointments_ZOY808_SendNotification"/>
       <class name="doctorsTestScripts.Appointment_ZOY799_SearchFunctionalityInPatientScreen"/>
+      <class name="doctorsTestScripts.Appointment_ZOY_ValidateAppointmentbookingAlert"/>
       <class name="doctorsTestScripts.Appointment_ZOY774_CalenaderDate"/>
       <class name="doctorsTestScripts.Appointment_ZOY776_CheckAppoinmentCountInDashBoard"/>
       <class name="doctorsTestScripts.Appointment_ZOY819_FollowUP"/>
-      
+     
     </classes>
-  </test> <!-- DoctorTestCases -->
-</suite> <!-- DoctorRegression -->
+  </test> <!-- DoctorsRegression -->
+</suite> <!-- Doctors -->

@@ -21,6 +21,8 @@ public class DiagnosticPage {
 	public    WebDriver driver;
 	public TestUtils Browser;
 	
+	
+	
 	public DiagnosticPage(WebDriver driver) throws Exception{
 		this.driver=driver;
 		Browser= new TestUtils(driver); 
@@ -840,7 +842,7 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 		}
 		
-		public void AddPackageandTestInSchedule(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
+		public int AddPackageandTestInSchedule(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 			
 			driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
 			Thread.sleep(3000);
@@ -855,8 +857,8 @@ public class DiagnosticPage {
 			System.out.println("Clicked on the add button");
 			int add=pkcount+1;
 			int testcount=add*10;
-			System.out.println(testcount);
 			System.out.println(add);
+			System.out.println(testcount);
 			driver.findElement(By.id("packageName"+add+"")).sendKeys(packagename);
 			Thread.sleep(1000);
 			driver.findElement(By.id("packageCost"+add+"")).sendKeys(cost);
@@ -873,8 +875,22 @@ public class DiagnosticPage {
 			Thread.sleep(3000);
 			driver.findElement(By.id("saveClinicPackages")).click();
 			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
+			Thread.sleep(3000);
+			return add;
+			
+			
 		}
-		
+		public void clickonsubitForapporovalbutton(int add) throws Exception  {
+			driver.findElement(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[1]/div/label/span[2]")).click();
+			Thread.sleep(8000);
+			//driver.findElement(By.xpath("(//*[@id='"+add+"']/div[1]/div[1]/div[1]/div)[2]")).click();
+			//WebDriverWait wait = (new WebDriverWait(driver, 1000));
+			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[2]")));
+			String ActualNotification= driver.findElement(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[2]")).getText();
+			System.out.println("ActualNotificationMessage="+ActualNotification);
+		    Assert.assertEquals(ActualNotification,"Approval is pending");
+		    
+		}
 		
 		
 		

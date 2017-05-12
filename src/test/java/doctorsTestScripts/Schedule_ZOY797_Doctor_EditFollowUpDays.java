@@ -8,6 +8,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -83,7 +85,7 @@ public class Schedule_ZOY797_Doctor_EditFollowUpDays{
 	  if(!actual_text1.contains("Successfully"))
 	  {
 		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail(actual_text1);
+		  AssertJUnit.fail(actual_text1);
 		  
 	  }	
 	 

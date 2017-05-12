@@ -9,6 +9,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -54,7 +56,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime{
 	  List<WebElement> ct_endslot=driver.findElements(By.xpath(".//*[@id='tab-clinic-schedule']//div[@class='sp-doc-clinic-strt']//input[@class='slot-end']"));
 	  if(ct_endslot.get(ct_endslot.size()-1).getAttribute("value").equals("23:59"))
 	  {
-		  Assert.fail("Time cannot be increased as the maximum time is 23:59 already present in end slot");
+		  AssertJUnit.fail("Time cannot be increased as the maximum time is 23:59 already present in end slot");
 	  }
 	  
 	  System.out.println("Increasing the time slot");
@@ -72,13 +74,13 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime{
 	  if(actual_text.contains("Specified Slot overlaps"))
 	  {
 		  System.out.println("Cannot increase the time as the time slot overlapps, remove the overlapping and try again");
-		  Assert.fail(actual_text); 
+		  AssertJUnit.fail(actual_text); 
 	  }
 	  
 	  if(actual_text.contains("Conflicts"))
 	  {
 		  System.out.println("Test case failed;increasing time slot is unsuccessful");
-		  Assert.fail(actual_text); 
+		  AssertJUnit.fail(actual_text); 
 	  }
 	  
 	  if(actual_text.contains("Successfully"))
