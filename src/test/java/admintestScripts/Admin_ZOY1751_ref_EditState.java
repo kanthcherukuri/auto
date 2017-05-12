@@ -22,7 +22,7 @@ public class Admin_ZOY1751_ref_EditState extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/stateList";
 	public String pit = "https://pit.zoylo.com/admin/stateList";
-	public String stateCode="TSTWO";
+	public String stateCode="TSTHREE";
 	
 	@Test()
 	public void editState()

@@ -22,7 +22,7 @@ public class Admin_ZOY1792_ref_EditLanguage extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/languageList";
 	public String pit = "https://pit.zoylo.com/admin/languageList";
-	public String languageName="TESTLANGTWO";
+	public String languageName="TESTLANGTHREE";
 	
 	@Test()
 	public void editLanguage()
