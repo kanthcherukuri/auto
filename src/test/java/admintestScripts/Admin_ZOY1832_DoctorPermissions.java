@@ -19,7 +19,6 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/approveUser";
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
-	public String adminuser = "sen@zoylo.com";
 	
 	@Test(priority=1)
 	public void DoctorviewPermission() throws Exception
@@ -28,8 +27,8 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
 		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
 		driver.findElement(By.name("profile.defaultRole")).click();
@@ -59,8 +58,8 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
 		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
 		driver.findElement(By.name("profile.roles.0")).click();
@@ -95,8 +94,8 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(zqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
 		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
 		driver.findElement(By.name("profile.roles.0")).click();

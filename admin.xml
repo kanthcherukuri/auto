@@ -35,6 +35,7 @@
       <class name="admintestScripts.Admin_ZOY1807_editMarketingElements"/>
       <class name="admintestScripts.Admin_ZOY1808_adminChangePassword"/>
       <class name="admintestScripts.Admin_ZOY1813_moduleList"/>
+      <class name="admintestScripts.Admin_ZOY1832_DoctorPermissions"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
