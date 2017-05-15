@@ -102,8 +102,8 @@ public class DiagnosticPage {
 		
 		
 	public void diagnosticrescheduleappointment() throws Exception{
-		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
-		Thread.sleep(3000);
+		//driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		//Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonchange)).click();
 		driver.findElement(By.xpath(Elements_Diagnostics.tommorowmenu)).click();
 		Thread.sleep(3000);
@@ -122,10 +122,16 @@ public class DiagnosticPage {
 	
 	
 	
-	public void clickingonappointmentmodification(){
+	public void clickingonappointmentmodification() throws Exception{
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		Thread.sleep(3000);
 	}
   
+	
+	public void GetAlertTextFromAlertMenu(){
+		
+		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
+	}
 	
 	
 	public void CancelAppointmentOfHomeVisit() throws Exception{
@@ -236,12 +242,23 @@ public class DiagnosticPage {
 		}
 	}
 	
+	public String GetDiagnosticAppointmentId() throws Exception{
+		
+	String AppointmentId=driver.findElement(By.xpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]")).getText();
+	Thread.sleep(1000);
+	return AppointmentId;
+	}
+	
+	public void clickOnAlertMenu() throws Exception{
+		driver.findElement(By.id("alerts")).click();
+		Thread.sleep(5000);
+	}
 	
 	public void DiagnosticAppointmentReschedule() throws Exception{
 		
 	
-		driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
-		Thread.sleep(10000);
+		//driver.findElement(By.xpath(Elements_Diagnostics.clickonmore)).click();
+		//Thread.sleep(10000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonchange)).click();
 		driver.findElement(By.xpath(Elements_Diagnostics.nextdaymenu)).click();
 		Thread.sleep(1000);
@@ -892,10 +909,64 @@ public class DiagnosticPage {
 		    
 		}
 		
+		public void clickonhomevisitmenu() throws Exception{
+			
+			driver.findElement(By.xpath(Elements_Diagnostics.clickonhomevisitmenu)).click();
+			Thread.sleep(2000);
+		}
 		
 		
+		public void ScheduleHomeVisitAddTest() throws Exception{
+			
+	String value=driver.findElement(By.xpath("//div[@class='sp-diag-homepick-pack-docard homePickTests testIndex'][last()]")).getAttribute("id");
+			//int count=driver.findElements(By.xpath("//div[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']")).size();
+			System.out.println(value);
+			int count1=Integer.parseInt(value);
+			int add=count1+1;
+			System.out.println(add);
+			driver.findElement(By.id(Elements_Diagnostics.clickonhometestaddbutton)).click();
+			Thread.sleep(3000);
+			driver.findElement(By.id("homeTestName"+add+"")).sendKeys("zoylo home tests");
+			Thread.sleep(1000);
+			driver.findElement(By.id("homeTestDescription"+add+"")).sendKeys("Blood Test Pre Lunch and Post Lunch");
+			Thread.sleep(1000);
+			driver.findElement(By.id("homeTestCost"+add+"")).sendKeys("10000");
+			Thread.sleep(1000);
+			driver.findElement(By.id("homeDiscountPercentage"+add+"")).sendKeys("5");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
+			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
+		}
 		
-		
+		public void ScheduleHomevisitAddPackage() throws Exception{
+			driver.findElement(By.xpath(".//*[@id='tab-home']/div[2]/div[1]/ul/li[2]")).click();
+			 Thread.sleep(2000);
+			 int count=driver.findElements(By.xpath("//div[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']")).size();
+			 System.out.println(count);
+			String value= driver.findElement(By.xpath("//div[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex'][last()]")).getAttribute("id");
+			 System.out.println(value);
+			 int count1=Integer.parseInt(value);
+			int add=count1+1;
+			 System.out.println(add);
+			 int testcount=add*10;
+			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitaddpackagebutton)).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.id("homeVisitPacakageName"+add+"")).sendKeys("Andhra Hospitals Package");
+			 Thread.sleep(2000);
+			 driver.findElement(By.id("homeVisitPacakageDesc"+add+"")).sendKeys("Blodd Tesst Package of Holistic");
+			 Thread.sleep(2000);
+			 driver.findElement(By.id("homeVisitPacakageCost"+add+"")).sendKeys("10000");
+			 Thread.sleep(2000);
+			 driver.findElement(By.id("homeVisitPacakageDiscount"+add+"")).sendKeys("2");
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//*[@id='addHomeVistPackageTest'])[last()]")).click();
+			 driver.findElement(By.id("homeVisitPackTestName"+testcount+"")).sendKeys("Blood Test");
+			 Thread.sleep(1000);
+			 driver.findElement(By.id("homeVisitPackTestDesc"+testcount+"")).sendKeys("Blodd Tesst Package of AndhraHospitals");
+			 Thread.sleep(1000);
+			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitpackagesavebutton)).click();
+			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
+		}
 		
 		
 		

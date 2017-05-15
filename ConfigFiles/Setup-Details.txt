@@ -46,8 +46,11 @@ DoctorsLogin.passwordtwo=Zoylo@123
 //-------Diagnostic Login Details----//
 
 Diagnostic.Url=https://zoyloqa.zoylo.com
-DiagnosticLogin.usernameone=zoylodc@gmail.com
+DiagnosticLogin.usernameone=akashraj@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
+
+DiagonsticLogin.username=akashraj@gmail.com
+DiagnosticLogin.password=Zoylo@123
 
 
 //-------Diagnostic Login Details----//
