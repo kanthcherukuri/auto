@@ -11,7 +11,7 @@ import testBase.AdminPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
+public class Admin_ZOY1845_DCPermissions extends LoadPropMac
 {
 	public TestUtils Browser;
 	public AdminPage admin;
@@ -19,9 +19,10 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/approveUser";
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
+	public String dczqa = "https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	
 	@Test(priority=1)
-	public void DoctorviewPermission() throws Exception
+	public void DCviewPermission() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -32,96 +33,101 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
 		driver.findElement(By.name("profile.defaultRole")).click();
-		Browser.selectbyName("profile.defaultRole", "VIEW DOCTOR");
+		Browser.selectbyName("profile.defaultRole", "VIEW DIAG-CENTER");
 		driver.findElement(By.id("updateButton")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
 		closebrowser();
 		launchbrowser();
 		
-		//Admin user login to check doctor view permission
+		//Admin user login to check diagnostic view permission
 		admin.adminUserSignIn(adminuser_user, adminuser_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		if(driver.findElement(By.xpath("//th[contains(., 'Email Address')]")).isDisplayed())
-		{
-			driver.findElement(By.id("add")).click();
-			Browser.CheckNotificationMessage("Don't have Permission to Add");
-			System.out.println("View permission is working as expected");
-		}
-		closebrowser();
-	}
-	
-	@Test(priority=2)
-	public void DoctorAddPermission() throws Exception
-	{
-		launchbrowser();
-		admin.adminSignIn(admin_user, admin_password);
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(zqa);
-		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
-		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
-		driver.findElement(By.name("profile.roles.0")).click();
-		Browser.selectbyName("profile.roles.0", "ADD DOCTOR");
-		driver.findElement(By.id("updateButton")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		
-		closebrowser();
-		launchbrowser();
-		
-		//Admin user login to check doctor view permission
-		admin.adminUserSignIn(adminuser_user, adminuser_password);
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		if(driver.findElement(By.xpath("//th[contains(., 'Email Address')]")).isDisplayed())
-		{
-			//.waitFortheElementXpath("//span[@class='welcome-admin']");
-			driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sss1@gmail.com");
-			Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "sss1@gmail.com");
-			driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
-			Browser.CheckNotificationMessage("Don't have Permission to Edit");
-			driver.findElement(By.id("add")).click();
-			Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Add')]");
-			closebrowser();
-		}
-	}
-	
-	@Test(priority=3)
-	public void DoctorEditPermission() throws Exception
-	{
-		launchbrowser();
-		admin.adminSignIn(admin_user, admin_password);
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(zqa);
-		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
-		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
-		driver.findElement(By.name("profile.roles.0")).click();
-		Browser.selectbyName("profile.roles.0", "EDIT DOCTOR");
-		driver.findElement(By.id("updateButton")).click();
-		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
-		
-		closebrowser();
-		launchbrowser();
-		
-		//Admin user login to check doctor view permission
-		admin.adminUserSignIn(adminuser_user, adminuser_password);
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		if(driver.findElement(By.xpath("//th[contains(., 'Email Address')]")).isDisplayed())
+		driver.get(dczqa);
+		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
+		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
 			{
 				driver.findElement(By.id("add")).click();
 				Browser.CheckNotificationMessage("Don't have Permission to Add");
 				System.out.println("View permission is working as expected");
-				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sss1@gmail.com");
-				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "sss1@gmail.com");
-				driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
-				Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Edit')]");
 			}
+		closebrowser();
 	}
 	
+	@Test(priority=2)
+	public void DCeditPermission() throws Exception
+	{
+		launchbrowser();
+		admin.adminSignIn(admin_user, admin_password);
+		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		driver.get(zqa);
+		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
+		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
+		driver.findElement(By.name("profile.roles.0")).click();
+		Browser.selectbyName("profile.roles.0", "EDIT DIAG-CENTER");
+		driver.findElement(By.id("updateButton")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
+		
+		closebrowser();
+		launchbrowser();
+		
+		//Admin user login to check diagnostic edit permission
+		admin.adminUserSignIn(adminuser_user, adminuser_password);
+		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		driver.get(dczqa);
+		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
+		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
+			{
+				driver.findElement(By.id("add")).click();
+				Browser.CheckNotificationMessage("Don't have Permission to Add");
+				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sixMarch2017@gmail.com");
+				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[3]", "sixMarch2017@gmail.com");
+				driver.findElement(By.xpath("//button[@class='btn btn-xs edit-btn']")).click();
+				Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Center - Edit')]", "Diagnostic Center - Edit");
+				System.out.println("Edit permission is working as expected");
+			}
+		closebrowser();
+	}
 	
+	@Test(priority=3)
+	public void DCaddPermission() throws Exception
+	{
+		launchbrowser();
+		admin.adminSignIn(admin_user, admin_password);
+		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		driver.get(zqa);
+		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(adminuser_user);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", adminuser_user);
+		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'User - Edit')]", "User - Edit");
+		driver.findElement(By.name("profile.roles.0")).click();
+		Browser.selectbyName("profile.roles.0", "ADD DIAG-CENTER");
+		driver.findElement(By.id("updateButton")).click();
+		Browser.waitforTextbyxpath("//h4[contains(., 'Users')]", "Users");
+		
+		closebrowser();
+		launchbrowser();
+		
+		//Admin user login to check doctor view permission
+		admin.adminUserSignIn(adminuser_user, adminuser_password);
+		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		driver.get(dczqa);
+		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
+		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
+			{
+				Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("sixMarch2017@gmail.com");
+				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[3]", "sixMarch2017@gmail.com");
+				driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
+				Browser.CheckNotificationMessage("Don't have Permission to Edit");
+				driver.findElement(By.id("add")).click();
+				Browser.waitFortheElementXpath("//h4[contains(., 'Diagnostic Center - Add')]");
+				System.out.println("Add permission is working as expected");
+			}
+	}
 	
 	@BeforeClass
 	public void launchbrowser() throws Exception
@@ -140,6 +146,4 @@ public class Admin_ZOY1832_DoctorPermissions extends LoadPropMac
 		Thread.sleep(5000);
 		driver.close();
 	}
-	
-	
 }
