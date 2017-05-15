@@ -102,7 +102,12 @@ public class TestUtils {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollname);
 		}
 		
-	
+	//horizontal scroll
+		public void horizontalScroll()
+		{
+			JavascriptExecutor jse = (JavascriptExecutor) driver;     
+			jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
+		}
 	
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{
