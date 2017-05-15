@@ -49,6 +49,7 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	public void RescheduleAppointment() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow("Bombayone","P","9966000000","bombay@gmail.com","Diabetic");
 		Thread.sleep(2000);
+		DiagnosticPageZoylo.clickingonappointmentmodification();
 		DiagnosticPageZoylo.DiagnosticAppointmentReschedule();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.PatientSerachInAllTabForReschedule("Bombay","P","bombay@gmail.com");

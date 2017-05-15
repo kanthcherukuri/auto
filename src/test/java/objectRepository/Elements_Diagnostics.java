@@ -139,6 +139,9 @@ public class Elements_Diagnostics  {
 		public static String clickonschedulemenu, clickondiagnosticmanage, clickoncontact, clickaddclinic,addname,addphone,addemail,addfax;
 		public static String clickonsave, clickondelete, clickonpackagemenu, clickonaddpackagebutton;
 		
+		//ScheduleHomePickup Variables
+		public static String clickonhomevisitaddpackagebutton, clickonhomevisitpackagesavebutton, clickonhometestaddbutton, clickhomevisittestsavebutton;
+		public static String clickonhomevisitmenu;
 		
 	 
 		
@@ -308,6 +311,12 @@ public class Elements_Diagnostics  {
 		 clickonpackagemenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[3]";
 		 clickonaddpackagebutton="addPackage";
 		 
+		 //Schedule Home Pickup Locators
+		 clickonhomevisitaddpackagebutton="addHomeVistPackage";
+		 clickonhomevisitpackagesavebutton="homeVisitPackages";
+		 clickonhometestaddbutton="addHomeVisitTests";
+		 clickhomevisittestsavebutton="saveHomePickTests";
+		 clickonhomevisitmenu="//*[@id='cd-13']/div";
 		 
 		 
 		return driver;	

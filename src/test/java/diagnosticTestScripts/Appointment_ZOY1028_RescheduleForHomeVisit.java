@@ -48,7 +48,8 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
   public void HomeVistReschedule() throws Exception {
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Ranjith", "N", "9988660022", "ranjith@gmail.com", "kakatiya residency", "Diabetic");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.clickingonappointmentmodification();
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
 		Thread.sleep(3000);
 		
