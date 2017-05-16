@@ -2,7 +2,6 @@ package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,8 +10,8 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
-
+public class Schedule_ZOY982_InManageEditPackage extends LoadPropMac{
+	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
@@ -24,21 +23,21 @@ public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 	
 	@Test
-	public void ScheduleHomeVisitAddTests() throws Exception{
+	public void ScheduleEditPackageInManage() throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ScheduleHomeVisitAddTest("Medwin Test Package", "full body tests", "10000", "2");
-		
-	    }
-	
+		int id=DiagnosticPageZoylo.AddPackageandTestInSchedule("KIMS Full Body", "5000", "2", "To conduct all Body Tests", "Kims Test","To conduct all Body Tests");	
+		System.out.println("Diagnostic Id :"+id);
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.SchecduleEditPackageInManage(id, "ZoyloPackage","10000", "2", "Full Body Test For Diabetic");
+	}
+
 	@AfterClass
-	  public void CloseBrowser() {
-		 driver.close();
-	  }
+	public void CloseBrowser(){
+		driver.close();
+	}
 }

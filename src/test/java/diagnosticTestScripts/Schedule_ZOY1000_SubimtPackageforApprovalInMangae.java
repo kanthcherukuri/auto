@@ -11,7 +11,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY968_SubitforApprovalInMangae extends LoadPropMac{
+public class Schedule_ZOY1000_SubimtPackageforApprovalInMangae extends LoadPropMac{
 	
 
 	public DiagnosticPage DiagnosticPageZoylo;

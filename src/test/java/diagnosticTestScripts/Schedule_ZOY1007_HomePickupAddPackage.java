@@ -32,6 +32,8 @@ public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
 			DiagnosticPageZoylo.clickonhomevisitmenu();
 			Thread.sleep(1000);
 			DiagnosticPageZoylo.ScheduleHomevisitAddPackage();
+			Thread.sleep(2000);
+			DiagnosticPageZoylo.diagnosticlogout();
 			
 		}
 

@@ -307,7 +307,7 @@ public class Elements_Diagnostics  {
 		 addemail="contactPersonEmail0";
 		 addfax="contactPersonFax0";
 		 clickonsave="editClinicContactDetails";
-		 clickondelete="(//i[@id='0'])[4]";
+		 clickondelete="(//i[@id='0'])[3]";
 		 clickonpackagemenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[3]";
 		 clickonaddpackagebutton="addPackage";
 		 

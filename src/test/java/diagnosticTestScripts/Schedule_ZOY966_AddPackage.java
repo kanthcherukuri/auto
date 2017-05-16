@@ -46,7 +46,7 @@ public class Schedule_ZOY966_AddPackage extends LoadPropMac{
 	}
 
 	@AfterClass
-	  public void afterClass() {
+	  public void CloseBrowser() {
 		driver.close();
 	  }
 	
