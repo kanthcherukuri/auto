@@ -20,7 +20,7 @@ public class Admin_ZOY1869_DCapprovalsPermissions extends LoadPropMac
 	public String zqa = "https://zoyloqa.zoylo.com/admin/approveUser";
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
 	public String DCappzqa = "https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList";
-	public String editData = "Sharanya";
+	public String editData = "Testing Sort";
 	
 	@Test(priority=1)
 	public void DCapprovalsViewPermission() throws Exception
@@ -47,8 +47,8 @@ public class Admin_ZOY1869_DCapprovalsPermissions extends LoadPropMac
 		Browser.waitforTextbyxpath("//h4[contains(., 'Diagnostic Approvals')]", "Diagnostic Approvals");
 		if(driver.findElement(By.xpath("//th[contains(., 'Date & Time')]")).isDisplayed())
 			{
-				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Sharanya");
-				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[3]", "Sharanya");
+				driver.findElement(By.xpath("//input[@type='search']")).sendKeys(editData);
+				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[3]", editData);
 				driver.findElement(By.xpath("//input[@class='updatedCharges']")).clear();
 				driver.findElement(By.xpath("//input[@class='updatedCharges']")).sendKeys("10");
 				driver.findElement(By.xpath("//input[@type='search']")).click();

@@ -29,7 +29,7 @@ public class Admin_ZOY1712_editHospital extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Script", "Hospital Script One"}
+					{"Maythirteen", "Maythirteen"}
 				};
 	}
 	

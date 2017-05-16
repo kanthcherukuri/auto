@@ -31,11 +31,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="may12@zoy.com";
-	public String docName="May twelve";
-	public String regNum="May12";
+	public String emailID="may13_0@zoy.com";
+	public String docName="May thirteen";
+	public String regNum="May130";
 	public String clinicDefName="Src Default";
-	public String mobNumDoc="7777710011";
+	public String mobNumDoc="7777710012";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
