@@ -261,7 +261,7 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[4]")).click();
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
