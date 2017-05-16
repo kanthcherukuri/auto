@@ -44,6 +44,9 @@
       <class name="admintestScripts.Admin_ZOY1875_DocAppointmentPermissions"/>
       <class name="admintestScripts.Admin_ZOY1876_DCaptPermission"/>
       <class name="admintestScripts.Admin_ZOY1877_reviewPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1885_recipientPermission"/>
+      <class name="admintestScripts.Admin_ZOY1887_transactionPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1890_providerPromoPermissions"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
