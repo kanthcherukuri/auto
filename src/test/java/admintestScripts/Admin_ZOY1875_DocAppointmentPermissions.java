@@ -78,7 +78,7 @@ public class Admin_ZOY1875_DocAppointmentPermissions extends LoadPropMac
 		closebrowser();
 		launchbrowser();
 		
-		//Admin user login to check doctor appointment view permission
+		//Admin user login to check doctor appointment edit permission
 		admin.adminUserSignIn(adminuser_user, adminuser_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(docAptzqa);
