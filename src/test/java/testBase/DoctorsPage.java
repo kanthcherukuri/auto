@@ -278,11 +278,7 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.sendnotification)).click();
 		System.out.println("Sucessfully clicked on Send Notification button");
 		Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
-//		String notification = driver.findElement(By.xpath(Elements_Doctors.topnotification)).getText();
-//		System.out.println(notification);
-//		SoftAssert assertion=new SoftAssert();
-//		assertion.assertEquals(notification,"Email/SMS Notification sent to the Patient");
-//		assertion.assertAll();
+
 		}
 	}
 			
@@ -519,7 +515,6 @@ public class DoctorsPage  {
 
 
 		public void BulkCancel() throws Exception{
-	
 		Date today = new Date(); 
 		Calendar calendar = Calendar.getInstance();  
 		calendar.setTime(today);  
@@ -728,7 +723,6 @@ public void VerifyCheckINFunctionality() throws Exception{
 }
 
 	public void CheckingFollowUpFunctionality(String firstname,String lastname) throws Exception{
-	
 	driver.findElement(By.xpath(Elements_Doctors.clickonfollowupbutton)).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();

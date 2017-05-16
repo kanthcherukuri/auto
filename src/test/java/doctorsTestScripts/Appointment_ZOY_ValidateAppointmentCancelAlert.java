@@ -1,5 +1,9 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -51,9 +55,9 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		Assert.assertTrue(alert.contains("You have cancelled Appointment:"));
+		AssertJUnit.assertTrue(alert.contains("You have cancelled Appointment:"));
 		Thread.sleep(1000);
-		Assert.assertTrue(alert.contains(id));
+		AssertJUnit.assertTrue(alert.contains(id));
 		
 		}
 	

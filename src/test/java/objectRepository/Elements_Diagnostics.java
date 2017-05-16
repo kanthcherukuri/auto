@@ -135,6 +135,13 @@ public class Elements_Diagnostics  {
 		public static String generatebillsbutton;
 		public static String checkoutbutton;
 		
+		//Schedule Variables
+		public static String clickonschedulemenu, clickondiagnosticmanage, clickoncontact, clickaddclinic,addname,addphone,addemail,addfax;
+		public static String clickonsave, clickondelete, clickonpackagemenu, clickonaddpackagebutton;
+		
+		//ScheduleHomePickup Variables
+		public static String clickonhomevisitaddpackagebutton, clickonhomevisitpackagesavebutton, clickonhometestaddbutton, clickhomevisittestsavebutton;
+		public static String clickonhomevisitmenu;
 		
 	 
 		
@@ -288,6 +295,28 @@ public class Elements_Diagnostics  {
 		 appointmentnotesavebutton="diag-note-btn";
 		 generatebillsbutton="generatReceiptBtn";
 		 checkoutbutton="checkoutBtn";
+		 
+		 //schedule
+		 //Diagnostic Center Manage Locators
+		 clickonschedulemenu="schedule";
+		 clickondiagnosticmanage="cd-12";
+		 clickoncontact="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[4]";
+		 clickaddclinic="addClinicContact";
+		 addname="contactPersonName0";
+		 addphone="contactPersonPhone0";
+		 addemail="contactPersonEmail0";
+		 addfax="contactPersonFax0";
+		 clickonsave="editClinicContactDetails";
+		 clickondelete="(//i[@id='0'])[4]";
+		 clickonpackagemenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[3]";
+		 clickonaddpackagebutton="addPackage";
+		 
+		 //Schedule Home Pickup Locators
+		 clickonhomevisitaddpackagebutton="addHomeVistPackage";
+		 clickonhomevisitpackagesavebutton="homeVisitPackages";
+		 clickonhometestaddbutton="addHomeVisitTests";
+		 clickhomevisittestsavebutton="saveHomePickTests";
+		 clickonhomevisitmenu="//*[@id='cd-13']/div";
 		 
 		 
 		return driver;	

@@ -102,7 +102,12 @@ public class TestUtils {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollname);
 		}
 		
-	
+	//horizontal scroll
+		public void horizontalScroll()
+		{
+			JavascriptExecutor jse = (JavascriptExecutor) driver;     
+			jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
+		}
 	
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{
@@ -242,9 +247,6 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
-		//SoftAssert assertion=new SoftAssert();
-		//assertion.assertEquals(ExpectedNotificationMesg,ActualNotification);
-		//assertion.assertAll();
 	    Assert.assertEquals(ExpectedNotificationMesg,ActualNotification);
 		
 	}

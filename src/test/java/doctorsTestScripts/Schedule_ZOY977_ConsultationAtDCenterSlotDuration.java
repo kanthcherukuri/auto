@@ -8,6 +8,8 @@ Schedule_ZOY977_ConsultationAtDCenterSlotDuration
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -78,7 +80,7 @@ public void testScenario1()
 	  }
 	  else
 	  {
-		  Assert.fail();
+		  AssertJUnit.fail();
 	  }
 	   
   }
@@ -102,7 +104,7 @@ public void testScenario2()
 	  }
 	  else
 	  {
-		  Assert.fail();
+		  AssertJUnit.fail();
 	  }
 	   
   }
@@ -165,7 +167,7 @@ public void testScenario3(String d1,String d2) throws InterruptedException
 	  
 	  else 
 	  {
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 		  
 	  }	 
 	  System.out.println("BEGINNING TO EDIT THE CONSULTATION DURATION - SCENARIO 3");

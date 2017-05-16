@@ -35,6 +35,18 @@
       <class name="admintestScripts.Admin_ZOY1807_editMarketingElements"/>
       <class name="admintestScripts.Admin_ZOY1808_adminChangePassword"/>
       <class name="admintestScripts.Admin_ZOY1813_moduleList"/>
+      <class name="admintestScripts.Admin_ZOY1832_DoctorPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1845_DCPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1864_HospitalPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1868_requestedDoctorsPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1869_DCapprovalsPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1875_DocAppointmentPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1875_DocAppointmentPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1876_DCaptPermission"/>
+      <class name="admintestScripts.Admin_ZOY1877_reviewPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1885_recipientPermission"/>
+      <class name="admintestScripts.Admin_ZOY1887_transactionPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1890_providerPromoPermissions"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

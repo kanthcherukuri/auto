@@ -2,6 +2,8 @@ package doctorsTestScripts;
 
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -84,7 +86,7 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes {
 	  {
            System.out.println("TEST CASE FAILED,AS ADDING TIME SLOT WITH SAME TIMES DOES NOT THROWS AN ERROR");
 		  
-		  Assert.fail(actual_text);
+		  AssertJUnit.fail(actual_text);
 		  
 	  }  
 	  

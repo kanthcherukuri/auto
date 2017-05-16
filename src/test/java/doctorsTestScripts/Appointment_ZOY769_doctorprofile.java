@@ -1,5 +1,8 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -35,8 +38,8 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 
 	
-	String DoctorEmail= Browser.emailResponse("kanthzoylo@gmail.com", "zoylo@123", "Zoylo.com | Your profile is successfully updated.");	
-	Assert.assertTrue(DoctorEmail.contains("Your profile on Zoylo.com is successfully updated."));
+	//String DoctorEmail= Browser.emailResponse("kanthzoylo@gmail.com", "zoylo@123", "Zoylo.com | Your profile is successfully updated.");	
+	//Assert.assertTrue(DoctorEmail.contains("Your profile on Zoylo.com is successfully updated."));
 	
 	}
 	

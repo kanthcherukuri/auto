@@ -22,8 +22,8 @@ public class Admin_ZOY1748_ref_AddCountry extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/countryList";
 	public String pit = "https://pit.zoylo.com/admin/countryList";
-	public String countryCode="TTWO";
-	public String countryName="Testtwo";
+	public String countryCode="TFIVE";
+	public String countryName="Testfive";
 	
 	@Test()
 	public void addCountry()

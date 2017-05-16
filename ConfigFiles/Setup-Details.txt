@@ -26,7 +26,8 @@ admin.user=sagar@zoylo.com
 admin.password=Zoylo@123
 doctor.image=/Users/sen/Desktop/d.png
 dc.image=/Users/sen/Desktop/dc.png
-
+adminuser.user=sen@zoylo.com
+adminuser.password=Zoylo@1234
 
 
 //--------Doctor Login Details----//
@@ -45,8 +46,11 @@ DoctorsLogin.passwordtwo=Zoylo@123
 //-------Diagnostic Login Details----//
 
 Diagnostic.Url=https://zoyloqa.zoylo.com
-DiagnosticLogin.usernameone=zoylodc@gmail.com
+DiagnosticLogin.usernameone=akashraj@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
+
+DiagonsticLogin.username=akashraj@gmail.com
+DiagnosticLogin.password=Zoylo@123
 
 
 //-------Diagnostic Login Details----//

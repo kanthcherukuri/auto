@@ -8,6 +8,8 @@ package doctorsTestScripts;
  */
 
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -71,7 +73,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	  if(!actual_text1.contains("Successfully"))
 	  {
 		  System.out.println("ADDRESS EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail(actual_text1);
+		  AssertJUnit.fail(actual_text1);
 		  
 	  }	 
 	  
@@ -114,7 +116,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	  if(!actual_text2.contains("Successfully"))
 	  {
 		  System.out.println("AMENITIES EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail(actual_text2);
+		  AssertJUnit.fail(actual_text2);
 		  
 	  }	  
 	  
@@ -137,7 +139,7 @@ public class Schedule_ZOY824_ZOY827_ZOY829_Doctor_Edit{
 	  if(!actual_text3.contains("Successfully"))
 	  {
 		  System.out.println("SERVICES EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  Assert.fail(actual_text3);
+		  AssertJUnit.fail(actual_text3);
 		  
 	  }	
 	  
