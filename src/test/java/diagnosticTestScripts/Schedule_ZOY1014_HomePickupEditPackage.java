@@ -31,7 +31,7 @@ public class Schedule_ZOY1014_HomePickupEditPackage extends LoadPropMac {
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomevisit();
-		int editid=DiagnosticPageZoylo.ScheduleHomevisitAddPackage();
+		int editid=DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
 		System.out.println("EditIDValue is:"+editid);
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.ScheduleHomePickupEditPackage(editid);

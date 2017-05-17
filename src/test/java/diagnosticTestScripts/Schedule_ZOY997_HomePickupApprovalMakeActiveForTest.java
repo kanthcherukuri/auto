@@ -3,8 +3,12 @@ package diagnosticTestScripts;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -14,7 +18,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY_ApprovalForTest extends LoadPropMac{
+public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -35,45 +39,48 @@ public class Schedule_ZOY_ApprovalForTest extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","City Hospital Package","Full Body Test","10000","2"}
+					{ "yes","Ganga","Full Body Test","10000","2"}
 
 			};
 		}
 
 	@Test(dataProvider="DP1")
 	public void ScheduleHomePickupTestMakeActiveInActive(String RunMode, String testname,String description,String cost,String discount) throws Exception{
+		//After login Clicking on ScheduleMenu
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(2000);
+		//In Schedule Menu clicking on HomePickup menu
 		DiagnosticPageZoylo.clickonhomevisitmenu();
+		//In Schedule Adding New Test in Test menu
 		int id=DiagnosticPageZoylo.ScheduleHomeVisitAddTest(testname, description, cost, discount);
-
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval(id);
-		CloseBrowser();
-		System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
-		ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
-		options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
-		driver.get("https:zoyloqa.zoylo.com/login");
-		driver.get("https://zoyloqa.zoylo.com/login");
-		driver.manage().window().maximize();
-		driver.findElement(By.id("emailAddress")).sendKeys("laKSHMikanth@zoylo.com");
-		driver.findElement(By.id("password")).sendKeys("Zoylo@123");	
-		driver.findElement(By.xpath("//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div/button")).click();
+        System.out.println("The Id is :"+id);
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='collapseThree']/div/ul/li[7]/a")).click();
-		int tablesize=driver.findElements(By.xpath("//*[@id='DataTables_Table_1']/tbody/tr")).size();
-		for(int i=1;i<=tablesize;i++){
-			driver.findElement(By.xpath("//*[@id='DataTables_Table_1']/tbody/tr["+i+"]/td[2]")).getText();
-			driver.findElement(By.xpath(".//*[@id='DataTables_Table_1']/tbody/tr["+i+"]/td[3]")).getText();
-		}
-		
-		
+		//Created Test will be Sending for Approval
+		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval(id);
+		Thread.sleep(2000);
+		driver.close();
+		Thread.sleep(1000);
+		//Launch New Browser To Login Into Admin Account
+		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com", "Zoylo@123");
+		//Admin Account To Approve the Created Test
+		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
+		//driver.close();
+		//Launching Browser to Login into Diagnostic Provider Account
+		launchbrowser();
+		Thread.sleep(2000);
+		//After login Clicking on ScheduleMenu
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		Thread.sleep(2000);
+		//In Schedule Menu clicking on HomePickup menu
+		DiagnosticPageZoylo.clickonhomevisitmenu();
+		Thread.sleep(3000);
+		//Make the Test Active which is Approved by Admin
+		DiagnosticPageZoylo.ScheduleHomePickupMakeTestsActive(id);
+		Thread.sleep(3000);
 	}
 	
 	@AfterClass
-	  public void CloseBrowser() {
-		driver.close();
-	  }
+	public void closebrowser(){
+		driver.quit();
+	}
 }

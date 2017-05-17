@@ -31,7 +31,7 @@ public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
 			Thread.sleep(2000);
 			DiagnosticPageZoylo.clickonhomevisitmenu();
 			Thread.sleep(1000);
-			DiagnosticPageZoylo.ScheduleHomevisitAddPackage();
+			DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
 			Thread.sleep(2000);
 			DiagnosticPageZoylo.diagnosticlogout();
 			

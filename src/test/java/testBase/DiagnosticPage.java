@@ -7,11 +7,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.asserts.SoftAssert;
+
 import testBase.*;
 
 import objectRepository.Elements_Diagnostics;
@@ -20,6 +24,7 @@ public class DiagnosticPage {
 	
 	public    WebDriver driver;
 	public TestUtils Browser;
+	 private SoftAssert assertion = new SoftAssert();
 	
 	
 	
@@ -992,20 +997,22 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickupSubmitTestsForApproval(int id) throws Exception{
 			driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[1]/div/label/span[2]")).click();
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 			String ActualNotification=driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[2]")).getText();
-			Assert.assertEquals(ActualNotification,"Approval is pending");
+			assertion.assertEquals(ActualNotification, "Approval is pending");
+			assertion.assertAll();
+			//Assert.assertEquals(ActualNotification,"Approval is pending");
 			
 		}
 		
 		
 		public void ClickOnSchedulePackageHomevisit() throws Exception{
-			driver.findElement(By.xpath("//*[@id='tab-home']/div[2]/div[1]/ul/li[2]")).click();
+			driver.findElement(By.xpath(Elements_Diagnostics.clickonpackagemenuinhomepickup)).click();
 			 Thread.sleep(2000);
 			
 		}
 		
-		public int ScheduleHomevisitAddPackage() throws Exception{
+		public int ScheduleHomevisitAddPackage(String packagename,String desc,String cost, String discount,String testname,String testdesc) throws Exception{
 			//driver.findElement(By.xpath("//*[@id='tab-home']/div[2]/div[1]/ul/li[2]")).click();
 			 //Thread.sleep(2000);
 			 int count=driver.findElements(By.xpath("//div[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']")).size();
@@ -1018,18 +1025,18 @@ public class DiagnosticPage {
 			 int testcount=add*10;
 			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitaddpackagebutton)).click();
 			 Thread.sleep(2000);
-			 driver.findElement(By.id("homeVisitPacakageName"+add+"")).sendKeys("KIMS Hospitals Package");
+			 driver.findElement(By.id("homeVisitPacakageName"+add+"")).sendKeys(packagename);
 			 Thread.sleep(2000);
-			 driver.findElement(By.id("homeVisitPacakageDesc"+add+"")).sendKeys("Blodd Tesst Package of KIMS");
+			 driver.findElement(By.id("homeVisitPacakageDesc"+add+"")).sendKeys(desc);
 			 Thread.sleep(2000);
-			 driver.findElement(By.id("homeVisitPacakageCost"+add+"")).sendKeys("10000");
+			 driver.findElement(By.id("homeVisitPacakageCost"+add+"")).sendKeys(cost);
 			 Thread.sleep(2000);
-			 driver.findElement(By.id("homeVisitPacakageDiscount"+add+"")).sendKeys("2");
+			 driver.findElement(By.id("homeVisitPacakageDiscount"+add+"")).sendKeys(discount);
 			 Thread.sleep(1000);
 			 driver.findElement(By.xpath("(//*[@id='addHomeVistPackageTest'])[last()]")).click();
-			 driver.findElement(By.id("homeVisitPackTestName"+testcount+"")).sendKeys("Blood Test");
+			 driver.findElement(By.id("homeVisitPackTestName"+testcount+"")).sendKeys(testname);
 			 Thread.sleep(1000);
-			 driver.findElement(By.id("homeVisitPackTestDesc"+testcount+"")).sendKeys("Blodd Tesst Package of KIMS");
+			 driver.findElement(By.id("homeVisitPackTestDesc"+testcount+"")).sendKeys(testdesc);
 			 Thread.sleep(1000);
 			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitpackagesavebutton)).click();
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
@@ -1039,7 +1046,7 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomevisitPackageSendforApproval(int id) throws Exception{
 			
-			driver.findElement(By.xpath("(//*[@id='"+id+"']/div[1]/div/div[1]/div/label/span[2])[2]")).click();
+			driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[1]/div/label/span[2]")).click();
 			Thread.sleep(8000);
 			String ActualNotification=driver.findElement(By.xpath("(//*[@id='"+id+"']/div[1]/div[1]/div[2])[2]")).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
@@ -1073,7 +1080,7 @@ public class DiagnosticPage {
 		}
 		
 		public void ScheduleDiagnosticManageClickonTestsMenu() throws Exception{
-			driver.findElement(By.xpath("//*[@id='tab-hospital']/div[2]/div[1]/ul/li[2]")).click();
+			driver.findElement(By.xpath(Elements_Diagnostics.clickonmanagetestsmenu)).click();
 			Thread.sleep(2000);
 		}
 		
@@ -1126,7 +1133,45 @@ public class DiagnosticPage {
 		    Browser.CheckNotificationMessage("Tests updated successfully");
 		}
 		
-		
+		public void LaunchBrowserToLoginIntoAdminAccount(String username,String password) throws Exception{
+			
+			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
+			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
+			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
+			driver = new ChromeDriver(options);
+			driver.manage().window().maximize();
+			driver.get("https:zoyloqa.zoylo.com/login");
+			driver.findElement(By.id("emailAddress")).sendKeys(username);
+			Thread.sleep(2000);
+			driver.findElement(By.id("password")).sendKeys(password);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div/button")).click();
+			Thread.sleep(3000);
+		}
+	
+      public void ApproveTestInAdmin(String testname) throws Exception{
+    	driver.get(Elements_Diagnostics.diagnosticapprovalsurl);
+  		Thread.sleep(3000);
+  		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).sendKeys(testname);
+  		Thread.sleep(2000);
+  		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).click();
+  		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).clear();
+  		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).sendKeys("10");
+  		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).click();
+  		Thread.sleep(6000);
+  		driver.findElement(By.xpath(Elements_Diagnostics.adminapprovebutton)).click();
+  		Thread.sleep(8000);
+      }
+      
+      public void ScheduleHomePickupMakeTestsActive(int id) throws Exception{
+    	  
+    	  WebElement sc=driver.findElement(By.xpath("//*[@id='"+id+"']/div[2]/div/div/label/span[2]"));
+  		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+  		driver.findElement(By.xpath("//*[@id='"+id+"']/div[2]/div/div/label/span[2]")).click();
+  		Thread.sleep(2000);
+  		driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
+  		Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
+      }
 		
 	
 }//main Class

@@ -141,7 +141,10 @@ public class Elements_Diagnostics  {
 		
 		//ScheduleHomePickup Variables
 		public static String clickonhomevisitaddpackagebutton, clickonhomevisitpackagesavebutton, clickonhometestaddbutton, clickhomevisittestsavebutton;
-		public static String clickonhomevisitmenu;
+		public static String clickonhomevisitmenu,   clickonmanagetestsmenu, clickonpackagemenuinhomepickup;
+		
+		//Admin variables
+		public static String diagnosticapprovalsurl, adminsearchbutton, facilitationbutton, adminapprovebutton;
 		
 	 
 		
@@ -317,7 +320,14 @@ public class Elements_Diagnostics  {
 		 clickonhometestaddbutton="addHomeVisitTests";
 		 clickhomevisittestsavebutton="saveHomePickTests";
 		 clickonhomevisitmenu="//*[@id='cd-13']/div";
+		 clickonmanagetestsmenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[2]";
+		 clickonpackagemenuinhomepickup="//*[@id='tab-home']/div[2]/div[1]/ul/li[2]";
 		 
+		 //Admin Locators
+		 diagnosticapprovalsurl="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList";
+		 adminsearchbutton="//input[@type='search']";
+		 facilitationbutton="//input[@class='updatedCharges']";
+		 adminapprovebutton="//button[contains(., 'Approve')]";
 		 
 		return driver;	
         

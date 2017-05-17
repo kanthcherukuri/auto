@@ -12,7 +12,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY1013_ScheduleHomeVisitSendForApproval extends LoadPropMac {
+public class Schedule_ZOY1013_ScheduleHomePickupSendPackageForApproval extends LoadPropMac {
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -33,7 +33,7 @@ public class Schedule_ZOY1013_ScheduleHomeVisitSendForApproval extends LoadPropM
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomevisit();
-		int toggle=DiagnosticPageZoylo.ScheduleHomevisitAddPackage();
+		int toggle=DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
 		Thread.sleep(5000);
 		System.out.println("ToggleValue is:"+toggle);
 		DiagnosticPageZoylo.ScheduleHomevisitPackageSendforApproval(toggle);
