@@ -29,9 +29,9 @@ public class Schedule_ZOY1011_HomePickupEditTests extends LoadPropMac{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		int id=DiagnosticPageZoylo.ScheduleHomeVisitAddTest("Medwin Test Package", "full body tests", "10000", "2");
+		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("EcomnetsTest", "Full Company Testing", "30000", "2");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ScheduleHomePickupToEditTests(id, "StarHospitalTestPackage", "Total Body Tests are Conducted", "10000", "2");
+		DiagnosticPageZoylo.ScheduleHomePickupToEditTests("Journal", "Full Lamination Testing", "40000", "2");
 	}
 	
 	

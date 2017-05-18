@@ -32,9 +32,9 @@ public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		int id=DiagnosticPageZoylo.ScheduleHomeVisitAddTest("Medwin Test Package", "full body tests", "10000", "2");
+		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("RajiniTest", "Person Has Robotic sense", "36000", "2");
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval(id);
+		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
 	}
 
 	@AfterClass

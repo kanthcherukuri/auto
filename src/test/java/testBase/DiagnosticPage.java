@@ -867,7 +867,7 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 		}
 		
-		public int AddPackageandTestInSchedule(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
+		public void ScheduleInManageAddPackage(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 			
 			driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
 			Thread.sleep(3000);
@@ -875,69 +875,60 @@ public class DiagnosticPage {
 			Thread.sleep(2000);
 			driver.findElement(By.id("addPackage")).click();
 			Thread.sleep(2000);
-			int testsize=driver.findElements(By.xpath("//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']")).size();
-	String pkcount=driver.findElement(By.xpath("//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex'][last()]")).getAttribute("id");
-			
-	        System.out.println("The ID Count Is :"+pkcount);
-			System.out.println("Test size is:"+testsize);
 			driver.findElement(By.id(Elements_Diagnostics.clickonaddpackagebutton)).click();
 			Thread.sleep(1000);
 			System.out.println("Clicked on the add button");
-			int count=Integer.parseInt(pkcount);
-			int add=count;
-			int testcount=add*10;
-			int size=testsize;
-			System.out.println(add);
-			System.out.println(testcount);
-			driver.findElement(By.id("packageName"+add+"")).sendKeys(packagename);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageName')])[last()]")).sendKeys(packagename);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageCost"+add+"")).sendKeys(cost);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageCost')])[last()]")).sendKeys(cost);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageDiscount"+add+"")).sendKeys(discount);
+			driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[3]/div[3]/div[2]/input)[last()]")).sendKeys(discount);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageDescription"+add+"")).sendKeys(description);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageDescription')])[last()]")).sendKeys(description);
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("(//*[@id='addPackageTest'])["+size+"]")).click();
+			driver.findElement(By.xpath("(//*[@id='addPackageTest'])[last()]")).click();
 			Thread.sleep(5000);
-			driver.findElement(By.id("packTestName"+testcount+"")).sendKeys(testname);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestName')])[last()]")).sendKeys(testname);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packTestDesc"+testcount+"")).sendKeys(testdescription);
-			Thread.sleep(3000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestDesc')])[last()]")).sendKeys(testdescription);
 			driver.findElement(By.id("saveClinicPackages")).click();
 			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 			Thread.sleep(3000);
-			return add;
-		}
-		
-		public void SchecduleEditPackageInManage(int id,String packagename,String cost,String discount,String desc) throws Exception{
 			
-			driver.findElement(By.xpath("//*[@id='"+id+"'][contains(text(),'Edit')]")).click();
+		}
+		
+		public void SchecduleEditPackageInManage(String packagename,String cost,String discount,String desc,String testname,String testdescription) throws Exception{
+			
+			driver.findElement(By.xpath("(//div[@class='paddingb0 sp-diag-dcenter-edit clinicPackageEdit menu_links'])[last()]")).click();
 			Thread.sleep(2000);
-			driver.findElement(By.id("packageName"+id+"")).clear();
-			driver.findElement(By.id("packageName"+id+"")).sendKeys(packagename);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageName')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageName')])[last()]")).sendKeys(packagename);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageCost"+id+"")).clear();
-			driver.findElement(By.id("packageCost"+id+"")).sendKeys(cost);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageCost')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageCost')])[last()]")).sendKeys(cost);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageDiscount"+id+"")).clear();
-			driver.findElement(By.id("packageDiscount"+id+"")).sendKeys(discount);
+			driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[3]/div[3]/div[2]/input)[last()]")).clear();
+			driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[3]/div[3]/div[2]/input)[last()]")).sendKeys(discount);
 			Thread.sleep(1000);
-			driver.findElement(By.id("packageDescription"+id+"")).clear();
-			driver.findElement(By.id("packageDescription"+id+"")).sendKeys(desc);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageDescription')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packageDescription')])[last()]")).sendKeys(desc);
 			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestName')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestName')])[last()]")).sendKeys(testname);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestDesc')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'packTestDesc')])[last()]")).sendKeys(testdescription);
 			driver.findElement(By.id("saveClinicPackages")).click();
 			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 		}
 		
 		
 		
-		public void clickonsubitForapporovalbutton(int add) throws Exception  {
-			driver.findElement(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[1]/div/label/span[2]")).click();
+		public void ScheduleInManageSubmitPackageforApproval() throws Exception  {
+			driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]")).click();
 			Thread.sleep(8000);
-			//driver.findElement(By.xpath("(//*[@id='"+add+"']/div[1]/div[1]/div[1]/div)[2]")).click();
-			//WebDriverWait wait = (new WebDriverWait(driver, 1000));
-			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[2]")));
-			String ActualNotification= driver.findElement(By.xpath("//*[@id='"+add+"']/div[1]/div[1]/div[2]")).getText();
+		
+			String ActualNotification= driver.findElement(By.xpath("(//div[@class='sp-diag-dcenter-aproveswitch-label'][contains(text(),'Approval is pending')])[last()]")).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 		    Assert.assertEquals(ActualNotification,"Approval is pending");
 		    
@@ -950,55 +941,49 @@ public class DiagnosticPage {
 		}
 		
 		
-		public int ScheduleHomeVisitAddTest(String testname,String description,String cost,String discount) throws Exception{	
-	String value=driver.findElement(By.xpath("//div[@class='sp-diag-homepick-pack-docard homePickTests testIndex'][last()]")).getAttribute("id");
-			//int count=driver.findElements(By.xpath("//div[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']")).size();
-			System.out.println(value);
-			int count1=Integer.parseInt(value);
-			int add=count1+1;
-			System.out.println(add);
+		public void ScheduleHomePickUpAddTest(String testname,String description,String cost,String discount) throws Exception{	
+	
 			driver.findElement(By.id(Elements_Diagnostics.clickonhometestaddbutton)).click();
 			Thread.sleep(3000);
-			driver.findElement(By.id("homeTestName"+add+"")).sendKeys(testname);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestName')])[last()]")).sendKeys(testname);
 			Thread.sleep(1000);
-			driver.findElement(By.id("homeTestDescription"+add+"")).sendKeys(description);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestDescription')])[last()]")).sendKeys(description);
 			Thread.sleep(1000);
-			driver.findElement(By.id("homeTestCost"+add+"")).sendKeys(cost);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestCost')])[last()]")).sendKeys(cost);	
 			Thread.sleep(1000);
-			driver.findElement(By.id("homeDiscountPercentage"+add+"")).sendKeys(discount);
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
-			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
-			return add;
-		}
-		
-		
-		public void ScheduleHomePickupToEditTests(int id,String testname,String description,String cost,String discount) throws Exception{
-			driver.findElement(By.xpath("(//*[@id='"+id+"'])[2]")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.id("homeTestName"+id+"")).clear();
-			driver.findElement(By.id("homeTestName"+id+"")).sendKeys(testname);
-			Thread.sleep(1000);
-			driver.findElement(By.id("homeTestDescription"+id+"")).clear();
-			driver.findElement(By.id("homeTestDescription"+id+"")).sendKeys(description);
-			Thread.sleep(1000);
-			driver.findElement(By.id("homeTestCost"+id+"")).clear();
-			driver.findElement(By.id("homeTestCost"+id+"")).sendKeys(cost);
-			Thread.sleep(1000);
-			driver.findElement(By.id("homeDiscountPercentage"+id+"")).clear();
-			driver.findElement(By.id("homeDiscountPercentage"+id+"")).sendKeys(discount);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeDiscountPercentage')])[last()]")).sendKeys(discount);
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
 			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
+			
+		}
+		
+		
+		public void ScheduleHomePickupToEditTests(String testname,String description,String cost,String discount) throws Exception{
+			driver.findElement(By.xpath("(//div[@class='paddingb0 sp-diag-homepick-edit homepickTestEdit menu_links'])[last()]")).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestName')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestName')])[last()]")).sendKeys(testname);
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestDescription')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestDescription')])[last()]")).sendKeys(description);
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestCost')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeTestCost')])[last()]")).sendKeys(cost);	
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeDiscountPercentage')])[last()]")).clear();
+			driver.findElement(By.xpath("(//input[starts-with(@id,'homeDiscountPercentage')])[last()]")).sendKeys(discount);
+			driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
+			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
 		}
 		
 		
 		
 		
-		public void ScheduleHomePickupSubmitTestsForApproval(int id) throws Exception{
-			driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[1]/div/label/span[2]")).click();
+		public void ScheduleHomePickupSubmitTestsForApproval() throws Exception{
+			driver.findElement(By.xpath("(//*[@class='sp-diag-homepick-pack-docard homePickTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]")).click();
 			Thread.sleep(3000);
-			String ActualNotification=driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[2]")).getText();
+			String ActualNotification=driver.findElement(By.xpath("(//div[@class='sp-diag-dcenter-testaproveswitch-label'])[last()]")).getText();
 			assertion.assertEquals(ActualNotification, "Approval is pending");
 			assertion.assertAll();
 			//Assert.assertEquals(ActualNotification,"Approval is pending");
@@ -1051,6 +1036,7 @@ public class DiagnosticPage {
 			String ActualNotification=driver.findElement(By.xpath("(//*[@id='"+id+"']/div[1]/div[1]/div[2])[2]")).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			 Assert.assertEquals(ActualNotification,"Approval is pending");
+			 
 		}
 		
 		public void ScheduleHomePickupEditPackage(int add) throws Exception{
@@ -1084,52 +1070,52 @@ public class DiagnosticPage {
 			Thread.sleep(2000);
 		}
 		
-		public int ScheduleDiagnosticManageAddTests() throws Exception{
+		public void ScheduleDiagnosticManageAddTests(String testname,String description,String cost,String discount) throws Exception{
 			
-			String count=driver.findElement(By.xpath("//div[@class='sp-diag-dcenter-pack-docard clinicTests testIndex'][last( )]")).getAttribute("id");
-		    int id=Integer.parseInt(count);
-		    int add=id+1;
+			//String count=driver.findElement(By.xpath("//div[@class='sp-diag-dcenter-pack-docard clinicTests testIndex'][last( )]")).getAttribute("id");
+		    //int id=Integer.parseInt(count);
+		    //int add=id+1;
 		    driver.findElement(By.id("addTests")).click();
 		    Thread.sleep(2000);
-		    driver.findElement(By.id("testName"+add+"")).sendKeys("Endoscopy Test");
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("testDescription"+add+"")).sendKeys("To Test the functioning of Oragans");
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("testCost"+add+"")).sendKeys("2000");
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("discountPercentage"+add+"")).sendKeys("2");
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("saveClinicTests")).click();
-		    Thread.sleep(5000);
+		    driver.findElement(By.xpath("(//input[starts-with(@id,'testName')])[last()]")).sendKeys(testname);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testDescription')])[last()]")).sendKeys(description);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testCost')])[last()]")).sendKeys(cost);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'discountPercentage')])[last()]")).sendKeys(discount);
+			 Thread.sleep(1000);
+			 driver.findElement(By.id("saveClinicTests")).click();
+		    //Thread.sleep(5000);
 		    Browser.CheckNotificationMessage("Tests updated successfully");
-		    return add;
+		    
 		}
 		
-		public void ClickOnToggletoSubmitTestsForApproval(int id) throws Exception{
-			driver.findElement(By.xpath("(//*[@id='"+id+"']/div[1]/div/div[1]/div/label/span[2])[1]")).click();
-			Thread.sleep(3000);
-			String ActualNotification=driver.findElement(By.xpath("//*[@id='"+id+"']/div[1]/div/div[2]")).getText();
+		public void ClickOnToggletoSubmitTestsForApproval() throws Exception{
+			driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]")).click();
+			Thread.sleep(5000);
+			String ActualNotification=driver.findElement(By.xpath("(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[2])[last()]")).getText();
 			Assert.assertEquals(ActualNotification,"Approval is pending");
+			//driver.findElement(By.id("")).click();
 		}
 		
-		public void ScheduleInManageEditTests(int id,String testname,String testdesc,String cost,String discount) throws Exception{
+		public void ScheduleInManageEditTests(String testname,String testdesc,String cost,String discount) throws Exception{
 		
-			driver.findElement(By.xpath("(//*[@id='"+id+"'][contains(text(),'Edit')])[1]")).click();
+			driver.findElement(By.xpath("(//div[@class='paddingb0 sp-diag-dcenter-edit clinicTestEdit menu_links'])[last()]")).click();
 			Thread.sleep(1000);
-			driver.findElement(By.id("testName"+id+"")).clear();
-			driver.findElement(By.id("testName"+id+"")).sendKeys(testname);
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("testDescription"+id+"")).clear();
-		    driver.findElement(By.id("testDescription"+id+"")).sendKeys(testdesc);
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("testCost"+id+"")).clear();
-		    driver.findElement(By.id("testCost"+id+"")).sendKeys(cost);
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("discountPercentage"+id+"")).clear();
-		    driver.findElement(By.id("discountPercentage"+id+"")).sendKeys(discount);
-		    Thread.sleep(2000);
-		    driver.findElement(By.id("saveClinicTests")).click();
-		    Thread.sleep(5000);
+			driver.findElement(By.xpath("(//input[starts-with(@id,'testName')])[last()]")).clear();
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testName')])[last()]")).sendKeys(testname);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testDescription')])[last()]")).clear();
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testDescription')])[last()]")).sendKeys(testdesc);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testCost')])[last()]")).clear();
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'testCost')])[last()]")).sendKeys(cost);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'discountPercentage')])[last()]")).clear();
+			 driver.findElement(By.xpath("(//input[starts-with(@id,'discountPercentage')])[last()]")).sendKeys(discount);
+			 Thread.sleep(1000);
+			 driver.findElement(By.id("saveClinicTests")).click();
 		    Browser.CheckNotificationMessage("Tests updated successfully");
 		}
 		
@@ -1163,11 +1149,11 @@ public class DiagnosticPage {
   		Thread.sleep(8000);
       }
       
-      public void ScheduleHomePickupMakeTestsActive(int id) throws Exception{
+      public void ScheduleHomePickupMakeTestsActive() throws Exception{
     	  
-    	  WebElement sc=driver.findElement(By.xpath("//*[@id='"+id+"']/div[2]/div/div/label/span[2]"));
+    	  WebElement sc=driver.findElement(By.xpath("(//span[@class='sp-diag-homepick-packactive-hours-switch-switch'])[last()]"));
   		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
-  		driver.findElement(By.xpath("//*[@id='"+id+"']/div[2]/div/div/label/span[2]")).click();
+  		driver.findElement(By.xpath("(//span[@class='sp-diag-homepick-packactive-hours-switch-switch'])[last()]")).click();
   		Thread.sleep(2000);
   		driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();
   		Browser.CheckNotificationMessage("Home Visit Tests updated successfully");

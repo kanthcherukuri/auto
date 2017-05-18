@@ -39,9 +39,9 @@ public class Schedule_ZOY1000_SubimtPackageforApprovalInMangae extends LoadPropM
 	@Test(dataProvider="DP1")
 	public void SubitForApproval(String RunMode,String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		int value=DiagnosticPageZoylo.AddPackageandTestInSchedule(packagename, cost, discount, description, testname, testdescription);
-		System.out.println(value);
-		DiagnosticPageZoylo.clickonsubitForapporovalbutton(value);
+		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
+		
+		DiagnosticPageZoylo.ScheduleInManageSubmitPackageforApproval();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}

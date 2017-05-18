@@ -30,10 +30,9 @@ public class Schedule_ZOY982_InManageEditPackage extends LoadPropMac{
 	public void ScheduleEditPackageInManage() throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		int id=DiagnosticPageZoylo.AddPackageandTestInSchedule("KIMS Full Body", "5000", "2", "To conduct all Body Tests", "Kims Test","To conduct all Body Tests");	
-		System.out.println("Diagnostic Id :"+id);
+		DiagnosticPageZoylo.ScheduleInManageAddPackage("SnehaUllalPackage", "30000", "2", "Full Body Test For Diabetic", "SnehaUllalTest", "Full Body Test For Diseases");	
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.SchecduleEditPackageInManage(id, "ZoyloPackage","10000", "2", "Full Body Test For Diabetic");
+		DiagnosticPageZoylo.SchecduleEditPackageInManage("PrabhasHealthCard", "25000", "2", "Full Body Test For Diabetic", "Prabhastest", "Full Body Test For Diseases");
 	}
 
 	@AfterClass

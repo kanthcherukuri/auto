@@ -33,7 +33,7 @@ public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ScheduleHomeVisitAddTest("Medwin Test Package", "full body tests", "10000", "2");
+		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("JosnaTest", "Full Body Test For Pancreas","26000", "2");
 		
 	    }
 	

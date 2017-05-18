@@ -1,6 +1,7 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -31,7 +32,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Ganga","Full Body Test","10000","2"}
+					{ "yes","Pamaruu","Full Body Test","10000","2"}
 
 			};
 		}
@@ -44,11 +45,11 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		//In Schedule Menu clicking on HomePickup menu
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		//In Schedule Adding New Test in Test menu
-		int id=DiagnosticPageZoylo.ScheduleHomeVisitAddTest(testname, description, cost, discount);
-        System.out.println("The Id is :"+id);
+		DiagnosticPageZoylo.ScheduleHomePickUpAddTest(testname, description, cost, discount);
+      
 		Thread.sleep(3000);
 		//Created Test will be Sending for Approval
-		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval(id);
+		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
 		Thread.sleep(2000);
 		driver.close();
 		Thread.sleep(1000);
@@ -67,7 +68,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		Thread.sleep(3000);
 		//Make the Test Active which is Approved by Admin
-		DiagnosticPageZoylo.ScheduleHomePickupMakeTestsActive(id);
+		DiagnosticPageZoylo.ScheduleHomePickupMakeTestsActive();
 		Thread.sleep(3000);
 	}
 	

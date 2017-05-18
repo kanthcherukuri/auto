@@ -32,9 +32,9 @@ public class Schedule_ZOY976_InManageEditTests extends LoadPropMac{
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
 		Thread.sleep(2000);
-		int id=DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests();
+		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("LucidPackage","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ScheduleInManageEditTests(id, "hamoglobin", "To Get The Precentage of Blod", "3000", "2");		
+		DiagnosticPageZoylo.ScheduleInManageEditTests("Konark", "Not Full Body Test", "20000", "2");	
 	}
 	
 	@AfterClass

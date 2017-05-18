@@ -35,9 +35,9 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
 		Thread.sleep(2000);
-		int toggle=DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests();
+	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("SugarBloodTest","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval(toggle);
+		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
 	}
 	
 	@AfterClass

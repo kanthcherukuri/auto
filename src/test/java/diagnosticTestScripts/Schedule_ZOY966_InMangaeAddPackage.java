@@ -12,7 +12,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY966_AddPackage extends LoadPropMac{
+public class Schedule_ZOY966_InMangaeAddPackage extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -31,7 +31,7 @@ public class Schedule_ZOY966_AddPackage extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-			{ "yes","zoylopackage","9000","10","Check to test how your body parts are working","FullBodyTest", "Check to test how your body parts are working"}
+			{ "yes","SamoraiHospital","9000","10","Check to test how your body parts are working","FullBodyTest", "Check to test how your body parts are working"}
 
 			};
 		}
@@ -40,7 +40,7 @@ public class Schedule_ZOY966_AddPackage extends LoadPropMac{
 	@Test(dataProvider="DP1")
 	public void ScheduleAddPackage(String RunMode,String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		DiagnosticPageZoylo.AddPackageandTestInSchedule(packagename, cost, discount, description, testname, testdescription);	
+		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}

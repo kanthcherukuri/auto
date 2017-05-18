@@ -33,7 +33,7 @@ public class Schedule_ZOY963_ManageADDTests extends LoadPropMac{
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests();
+		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("MonaBlood test","Full body Test for all ", "2000", "2");
 	    }
 	
 
