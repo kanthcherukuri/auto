@@ -20,7 +20,7 @@ public class Admin_ZOY1869_DCapprovalsPermissions extends LoadPropMac
 	public String zqa = "https://zoyloqa.zoylo.com/admin/approveUser";
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
 	public String DCappzqa = "https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList";
-	public String editData = "Testing Sort";
+	public String editData = "Pulivendula";
 	
 	@Test(priority=1)
 	public void DCapprovalsViewPermission() throws Exception
