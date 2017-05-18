@@ -28,6 +28,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public String hopDocName="Eighteen hospital";
 	public String hopMedNuber="m18";
 	public String hopDocmobNum="8888810010";
+	public String errorNotification="Address is required";
 	
 	@DataProvider(name="generaldetails")
     public Object[][] getDataFromDataprovider()
@@ -92,6 +93,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		
 		//Hospital
 		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[18]/ul/li[1]/div/div[2]/div/div[2]/div[1]/span[1]/span[1]/span")).click();
+		Thread.sleep(1000);
 		Browser.actionbyXpath("html/body/span/span/span[1]/input", hospitalName);
 		
 		driver.findElement(By.name("doctorInformation.hospital.0.consultationFee")).sendKeys(hopFee);
@@ -154,6 +156,11 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		Browser.scrollbyxpath(".//*[@id='additionalInformation']/div/div[2]/div[29]/ul/li[1]/div/div[2]/div/div/div/label");
 		
 		driver.findElement(By.id(Elements_Admin.button_DoctorSave)).click();
+		if(errorNotification.equalsIgnoreCase("Address is required"))
+		{
+			Browser.scrollbyID("adminProviderSubmit");
+			driver.findElement(By.id(Elements_Admin.button_DoctorSave)).click();
+		}
 		
 		try {
 			Browser.waitFortheID("add");

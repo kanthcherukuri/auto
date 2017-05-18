@@ -195,13 +195,14 @@ public class TestUtils {
 				}
 		
 		//Actions by xpath
-				public void actionbyXpath(String path, String value)
+				public void actionbyXpath(String path, String value) throws InterruptedException
 				{
 					Actions qua = new Actions(driver);
 					qua.moveToElement(driver.findElement(By.xpath(
 							path)));
 					qua.click();
 					qua.sendKeys(value);
+					Thread.sleep(1000);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
 				}

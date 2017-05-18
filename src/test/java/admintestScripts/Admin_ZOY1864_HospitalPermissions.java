@@ -84,7 +84,7 @@ public class Admin_ZOY1864_HospitalPermissions extends LoadPropMac
 				Browser.CheckNotificationMessage("Don't have Permission to Add");
 				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Columbia");
 				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "Columbia");
-				driver.findElement(By.xpath("//button[@class='btn btn-xs edit-btn']")).click();
+				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 				Browser.waitforTextbyxpath("//h4[contains(., 'Hospital - Edit')]", "Hospital - Edit");
 				System.out.println("Edit permission is working as expected");
 			}
@@ -121,7 +121,7 @@ public class Admin_ZOY1864_HospitalPermissions extends LoadPropMac
 				//Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Columbia");
 				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "Columbia");
-				driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
+				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[6]/button")).click();
 				Browser.CheckNotificationMessage("Don't have Permission to Edit");
 				driver.findElement(By.id("add")).click();
 				Browser.waitFortheElementXpath("//h4[contains(., 'Hospital - Add')]");
