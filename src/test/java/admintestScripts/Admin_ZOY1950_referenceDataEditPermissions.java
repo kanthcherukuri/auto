@@ -28,7 +28,7 @@ public class Admin_ZOY1950_referenceDataEditPermissions extends LoadPropMac
 	public String cityzqa = "https://zoyloqa.zoylo.com/admin/cityList";
 	public String langzqa = "https://zoyloqa.zoylo.com/admin/languageList";
 	
-	@Test(priority=1)
+	@Test()
 	public void referenceDataViewPermission() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
@@ -160,7 +160,7 @@ public class Admin_ZOY1950_referenceDataEditPermissions extends LoadPropMac
 				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "TESTLANGSIX");
 				driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
 				Browser.CheckNotificationMessage("Don't have Permission to Edit");
-				System.out.println("View permission is working as expected for city");
+				System.out.println("View permission is working as expected for language");
 			}
 	}
 	
