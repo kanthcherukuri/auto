@@ -316,6 +316,7 @@ public class DiagnosticPage {
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
+		Thread.sleep(3000);
 		
 	}
 	
