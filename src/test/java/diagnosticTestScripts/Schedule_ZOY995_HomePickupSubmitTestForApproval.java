@@ -3,6 +3,7 @@ package diagnosticTestScripts;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,8 +12,8 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
-
+public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac{
+	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
@@ -26,19 +27,18 @@ public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
 		 Browser=new TestUtils(driver);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
-	
 	@Test
-	public void ScheduleHomeVisitAddTests() throws Exception{
-		
+	public void ScheduleHomePickupTestSubmitForApproval() throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("JosnaTest", "Full Body Test For Pancreas","26000", "2");
-		
-	    }
-	
+		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("RajiniTest", "Person Has Robotic sense", "36000", "2");
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
+	}
+
 	@AfterClass
 	  public void CloseBrowser() {
-		 driver.close();
+		driver.close();
 	  }
 }

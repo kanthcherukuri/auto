@@ -195,13 +195,14 @@ public class TestUtils {
 				}
 		
 		//Actions by xpath
-				public void actionbyXpath(String path, String value)
+				public void actionbyXpath(String path, String value) throws InterruptedException
 				{
 					Actions qua = new Actions(driver);
 					qua.moveToElement(driver.findElement(By.xpath(
 							path)));
 					qua.click();
 					qua.sendKeys(value);
+					Thread.sleep(1000);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
 				}
@@ -243,7 +244,7 @@ public class TestUtils {
 	
 	public void CheckNotificationMessage(String ExpectedNotificationMesg ){
 		
-		WebDriverWait wait = (new WebDriverWait(driver, 1000));
+		WebDriverWait wait = (new WebDriverWait(driver, 2000));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);

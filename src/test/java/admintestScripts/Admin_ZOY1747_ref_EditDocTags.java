@@ -22,7 +22,7 @@ public class Admin_ZOY1747_ref_EditDocTags extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/providerTagList";
 	public String pit = "https://pit.zoylo.com/admin/providerTagList";
-	public String tagName="Tagfive";
+	public String tagName="Tagsix";
 	
 	@Test()
 	public void editDocTag()

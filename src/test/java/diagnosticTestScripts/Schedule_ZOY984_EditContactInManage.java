@@ -10,12 +10,13 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
+public class Schedule_ZOY984_EditContactInManage extends LoadPropMac{
+	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
-		@BeforeClass
-		public void beforeClass() throws Exception {
+	@BeforeClass
+	  public void beforeClass() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
@@ -24,21 +25,22 @@ public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
 		 Browser=new TestUtils(driver);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
-		
-		@Test
-		public void ScheduleHomePickUpAddPackage() throws Exception{
-			DiagnosticPageZoylo.ClickOnScheduleMenu();
-			Thread.sleep(2000);
-			DiagnosticPageZoylo.clickonhomevisitmenu();
-			Thread.sleep(1000);
-			DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
-			Thread.sleep(2000);
-			DiagnosticPageZoylo.diagnosticlogout();
-			
-		}
+	
+	@Test
+	public void EditContactInManage() throws Exception{
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.EditConatctInSchedule("kiran", "9900662288", "kiran@gmail.com", "126428");
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.DeleteContactInSchedule();
 
-		@AfterClass
-		  public void afterClass() {
-			 driver.close();
-		  }
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.close();
+	}
+
+
 }

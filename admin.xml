@@ -47,6 +47,9 @@
       <class name="admintestScripts.Admin_ZOY1885_recipientPermission"/>
       <class name="admintestScripts.Admin_ZOY1887_transactionPermissions"/>
       <class name="admintestScripts.Admin_ZOY1890_providerPromoPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1907_marketingPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1920_lookupCodePermissions"/>
+      <class name="admintestScripts.Admin_ZOY1923_ErrorCodePermissions"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

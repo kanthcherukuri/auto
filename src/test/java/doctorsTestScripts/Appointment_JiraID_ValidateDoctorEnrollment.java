@@ -60,6 +60,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 	        Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Doctor", "TC2");
 	        return(retObjArr);
 	    }
+	 
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	 public void ValidateDoctorEnrollment(String runmode,String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes,String expected) throws Exception {
 	  

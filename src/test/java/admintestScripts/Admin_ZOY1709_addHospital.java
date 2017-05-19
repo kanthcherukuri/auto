@@ -24,8 +24,8 @@ public class Admin_ZOY1709_addHospital extends LoadPropMac
 	//Global variables for pre-condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/hospitalList";
 	public String pit="https://pit.zoylo.com/admin/hospitalList";
-	public String hopName="Maythirteen";
-	public String shortHopName="Maysrcthirteen";
+	public String hopName="Eighteenmay";
+	public String shortHopName="Eteenmay";
 	
 	
 	@DataProvider(name="hospitalDetails")
