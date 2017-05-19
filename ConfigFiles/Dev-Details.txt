@@ -1,0 +1,75 @@
+//Driver -path
+
+driver.path=C:/Users/Z9149/Downloads/
+
+
+
+//----Browser------//
+
+browser.name=chrome
+
+//----Environment----//
+Environment.name=dev
+
+
+//----Login URL Details---//
+
+base.url=https://dev.zoylo.com/
+enrollment.url=https://dev.zoylo.com/doctorenrollmentform
+//recipient.url=http://192.168.1.13:3000/login
+recipient.url=https://dev.zoylo.com/login
+index.url=https://dev.zoylo.com/index
+dev.url=https://dev.zoylo.com/login
+
+//--------Admin Login Details----//
+admin.user=sagar@zoylo.com
+admin.password=Zoylo@123
+doctor.image=/Users/sen/Desktop/d.png
+dc.image=/Users/sen/Desktop/dc.png
+
+
+
+//--------Doctor Login Details----//
+
+Doctors.Url=https://zoyloqa.zoylo.com/login
+DoctorsLogin.username=sagarsen@gmai.com
+DoctorsLogin.password=Zoylo@123
+browser=chrome
+
+DoctorsLogin.usernameone=kanthzoylo@gmail.com
+DoctorsLogin.passwordone=Zoylo@666
+
+DoctorsLogin.usernametwo=sss1@gmail.com
+DoctorsLogin.passwordtwo=Zoylo@123
+
+//-------Diagnostic Login Details----//
+
+Diagnostic.Url=https://zoyloqa.zoylo.com
+DiagnosticLogin.usernameone=zoylodc@gmail.com
+DiagnosticLogin.passwordone=Zoylo@123
+
+
+//-------Diagnostic Login Details----//
+Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
+DiagnosticLogin.usernametwo=sadeq88.ss@gmail.com
+DiagnosticLogin.passwordtwo=Zoylo@123
+
+
+//--------Recipient Login Details----//
+
+Recipient.Username=ganeshzoylo@gmail.com
+Recipient.Password=Zoylo@123
+
+Recipient.DocUsername=zoylodoctor@gmail.com
+Recipient.DocPassword=Zoylo@123
+
+Recipient.DSusername=ganeshkumar.m@zoylo.com
+Recipient.DSpassword=Zoylo@123
+
+Recipient.DiaUsername=Diagnosticszoylo@zoylo.com
+Recipient.DiaPassword=Zoylo@123
+
+Doctor.Name=DoctorZoylo
+Diagnostic.Name=DiagnosticsZoylo
+
+

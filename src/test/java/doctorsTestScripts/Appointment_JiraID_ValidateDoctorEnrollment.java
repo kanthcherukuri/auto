@@ -57,7 +57,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
  
 	 @DataProvider(name = "DP1")
 	    public Object[][] createData_DP1() throws Exception{
-	        Object[][] retObjArr=TestUtils.getTableArray("TestData//Data.xls","Doctor", "TC2");
+	        Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Doctor", "TC2");
 	        return(retObjArr);
 	    }
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })

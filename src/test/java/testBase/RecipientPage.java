@@ -32,8 +32,10 @@ public class RecipientPage  {
 
 
 	/*   Below is the Sample Method
-	 *  @Autur : Ganesh kumar Mandala
-	 *   Entering the test details in Doctor enrollment Page and submitting the page
+	 *  @Author      :Ganesh kumar.M
+	 *  @Description : Entering the test details in Doctor enrollment Page and submitting the page
+	 *  @Parameters  : Area,  FirstName, LastName ..
+	 *  @Return      : 
 	 */
 
 	public void doctorsEnrollment(String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes) throws InterruptedException{
@@ -65,7 +67,12 @@ public class RecipientPage  {
 	}
 
 
-
+	/*  
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to login into zoylo app
+	 *  @Parameters  : Username, Password ..
+	 *  @Return      : 
+	 */
 
 	public void recipientLogin(String email, String password) throws InterruptedException{
 		Browser.waitFortheID("emailAddress");		
@@ -79,7 +86,13 @@ public class RecipientPage  {
 		System.out.println("Logged in as"+email );
 
 	}
-
+	
+	/*  
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Logout from zoylo app
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
 
 	public void recipientLogout() throws InterruptedException{
 
@@ -92,13 +105,12 @@ public class RecipientPage  {
 
 	}
 
-
-
-	/*   
-	 *  @Autur : Ganesh Mandala
-	 *   Entering the search details in Zoylo Map
+	/*  
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Enter the search details in Zoylo Map
+	 *  @Parameters  : Area ..
+	 *  @Return      : 
 	 */
-
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
 
 		driver.findElement(By.id("search2")).click();
@@ -108,7 +120,12 @@ public class RecipientPage  {
 		Thread.sleep(5000);	
 
 	}
-
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Enter the search details in Zoylo Map
+	 *  @Parameters  : Area ..
+	 *  @Return      : 
+	 */	
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 
 
@@ -120,6 +137,12 @@ public class RecipientPage  {
 		System.out.println("Searched with location"+Area);
 
 	}
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Enter the search details in Zoylo detail Map
+	 *  @Parameters  : Location/User ..
+	 *  @Return      : 
+	 */	
 	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
 		driver.findElement(By.id("searchFilter")).click();
 		Thread.sleep(1000);
@@ -130,6 +153,12 @@ public class RecipientPage  {
 		Thread.sleep(5000);	
 
 	}
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to click on book button in Doctors
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */	
 	public void bookAppointment() throws InterruptedException{
 
 		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();  // book
@@ -137,7 +166,12 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		System.out.println("Cliked on Book Button");
 	}
-
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to click on book button in Diagnostics
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */	
 	public void bookAppointmentOnDiagnostics() throws InterruptedException{
 
 		driver.findElement(By.xpath("//*[@id='diagnosticDetails']")).click();  // book
@@ -146,14 +180,19 @@ public class RecipientPage  {
 	}
 
 	public boolean isElementPresent(By by) {
-	    try {
-	      driver.findElement(by);
-	      return true;
-	    } catch (NoSuchElementException e) {
-	      return false;
-	    }
-	  }
-	
+		try {
+			driver.findElement(by);
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to select available slot in Doctors 
+	 *  @Parameters  : 
+	 *  @Return      : Appointment details (clinic name , appointment Time)
+	 */
 	public String[]  selectDefaultSlot() throws InterruptedException{
 		String[] Appointmentdetails= new String[2];
 		//checkSlots();
@@ -174,7 +213,12 @@ public class RecipientPage  {
 		}
 		return Appointmentdetails;
 	}
-
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to select available slot in Diagnostics 
+	 *  @Parameters  : Tests and packages
+	 *  @Return      : 
+	 */
 	public void selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
 		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
 
@@ -208,7 +252,7 @@ public class RecipientPage  {
 			Thread.sleep(5000);
 
 		}
-       
+
 		driver.findElement(By.xpath("//*[@id='schedule-li']/a")).click();
 		Thread.sleep(5000);
 		if(driver.findElements(By.xpath("(//*[@class='timeSlot sp-available-slots'])[1]")).isEmpty()){
@@ -223,6 +267,13 @@ public class RecipientPage  {
 		}
 
 	}
+	
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Confirm Appointments in Doctors 
+	 *  @Parameters  : Health Details
+	 *  @Return      : 
+	 */
 	public void confirmAppointment(String details) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
@@ -232,7 +283,12 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
-	
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Confirm Appointments in Diagnostics 
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
 	public void confirmAppointmentOnDiagnostics() throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//*[@id='bookAndPay']");
@@ -241,6 +297,12 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to Confirm Appointments as Others 
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
 	public void confirmAppointmentAsOthers(String details,String Pname,String Lname,String Pgender,String PAge,String BloodGRP) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
@@ -295,7 +357,7 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		System.out.println("Cliked on Diagnostics Icon");
 	}
-	
+
 
 
 	public void goToAppointments() throws InterruptedException{
@@ -325,9 +387,9 @@ public class RecipientPage  {
 		Thread.sleep(5000);	
 		System.out.println("Applied filter on"+FilterCatagory+" "+Value);
 	}
-	
-	
-	
+
+
+
 	public void ApplyFilterInDiagnostics(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
 
 
@@ -335,14 +397,14 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
 		Thread.sleep(5000);
-		
+
 		if(Search.equals("")){
 			System.out.println("No Serach in filters");
 		}else{
 			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
 			Thread.sleep(2000);	
 		}
-	
+
 		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
@@ -395,31 +457,31 @@ public class RecipientPage  {
 		System.out.println("Cliked on Tab Name"+TabName);
 	}
 
-	
+
 	public void checkSlots() throws InterruptedException{
-	
-			driver.findElement(By.xpath("//a[contains(@href, '#sp-morningslots')]")).click();
+
+		driver.findElement(By.xpath("//a[contains(@href, '#sp-morningslots')]")).click();
+		Thread.sleep(2000);
+		if(driver.findElements(By.xpath("//div[@id='sp-morningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+		{
+			System.out.println("Clicked on After noon slots");
+			driver.findElement(By.xpath("//a[contains(@href, '#sp-afternoonslots')]")).click();
 			Thread.sleep(2000);
-			if(driver.findElements(By.xpath("//div[@id='sp-morningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
-	       {
-				System.out.println("Clicked on After noon slots");
-				driver.findElement(By.xpath("//a[contains(@href, '#sp-afternoonslots')]")).click();
-				Thread.sleep(2000);
-			}
-			else if(driver.findElements(By.xpath("//div[@id='sp-afternoonslots']/ul/li[@class='sp-available-slots']")).isEmpty())
-			{
-				System.out.println("Clicked on Evening  slots");
-				driver.findElement(By.xpath("//a[contains(@href, '#sp-eveningslots')]")).click();
-				Thread.sleep(2000);
-				
-			}else if(driver.findElements(By.xpath("//div[@id='sp-eveningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
-			{
-				System.out.println("Clicked on night slots");
-				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-				Thread.sleep(2000);
-				
-			}
-			
+		}
+		else if(driver.findElements(By.xpath("//div[@id='sp-afternoonslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+		{
+			System.out.println("Clicked on Evening  slots");
+			driver.findElement(By.xpath("//a[contains(@href, '#sp-eveningslots')]")).click();
+			Thread.sleep(2000);
+
+		}else if(driver.findElements(By.xpath("//div[@id='sp-eveningslots']/ul/li[@class='sp-available-slots']")).isEmpty())
+		{
+			System.out.println("Clicked on night slots");
+			driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
+			Thread.sleep(2000);
+
+		}
+
 	}
-	
+
 }
