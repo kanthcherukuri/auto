@@ -6,7 +6,9 @@ import objectRepository.*;
 
 import testBase.*;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -103,6 +105,40 @@ public class RecipientPage  {
 		driver.findElement(By.id("logout")).click();
 		Thread.sleep(2000);	
 
+	}
+	
+	/*  
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to view get directions pop up under address assertion on doctor profile page
+	 *  @Parameters  :
+	 *  @Return      : 
+	 */
+	public void addressAssertion()
+	{
+		driver.findElement(By.xpath("//h4[@class='accordion-toggle']")).click();
+		Browser.waitforTextbyID("default_clini_get", "Get Directions");
+		driver.findElement(By.id("default_clini_get")).click();
+		//Pop up handler
+		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+		String subWindowHandler = null;
+
+		Set<String> handles = driver.getWindowHandles(); // get all window handles
+		Iterator<String> iterator = handles.iterator();
+		while (iterator.hasNext())
+		{
+		    subWindowHandler = iterator.next();
+		}
+		driver.switchTo().window(subWindowHandler); // switch to popup window
+		if(driver.findElement(By.xpath("(//img[@class='adp-marker'])[1]")).isDisplayed())
+		{
+			System.out.println("Get directions is displayed as expected");
+		}
+		else
+		{
+			System.out.println("ERROR - Get directions is not displayed");
+		}
+		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
+		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 	}
 
 	/*  
