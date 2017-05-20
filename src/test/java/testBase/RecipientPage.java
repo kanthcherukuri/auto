@@ -197,7 +197,7 @@ public class RecipientPage  {
 	 */	
 	public void bookAppointment() throws InterruptedException{
 
-		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();  // book
+		driver.findElement(By.id("bookAppointment")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Book Button");
