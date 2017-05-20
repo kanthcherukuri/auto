@@ -1,4 +1,4 @@
-package recipientsTestScripts;
+package recipientDiagnosticTestScripts;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
@@ -11,41 +11,33 @@ import testBase.LoadPropMac;
 import testBase.RecipientPage;
 import testBase.TestUtils;
 
-public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
+public class Recipient_ZOY2001_dcPaymentNegativeScenario extends LoadPropMac
 {
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	
 	@Test()
-	public void paymentPageNegativeScenario() throws InterruptedException
+	public void dcpaymentNegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
-		RecipientPage.searchInZoyloMAP(Doctor_Name);
-		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
-		RecipientPage.selectDefaultSlot();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
-		String verifyDT=driver.findElement(By.xpath("//div[@class='d-y-t']")).getText();
-		String verifyFee=driver.findElement(By.id("providerFees")).getText();
-		RecipientPage.bookAppointment();
+		RecipientPage.goToDiagnostics();
+		RecipientPage.searchInZoyloMAP(Diagnostic_Name);
+		RecipientPage.bookAppointmentOnDiagnostics();
+		String dcName=driver.findElement(By.xpath("//span[@class='zy-rec-diag-m-d-name']")).getText();
+		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
+		RecipientPage.confirmAppointmentOnDiagnostics();
 		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])[1]")).click();
-		//String verifyTobePaid=driver.findElement(By.xpath("(//div[@class='zy-sp-payment-values'])[6]")).getText();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
 		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
-		//Browser.waitforTextbyxpath("//div[@class='zy-sp-payment-values'])[6]", verifyTobePaid);
 		driver.navigate().back();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
-		Browser.waitforTextbyxpath("//div[@class='d-y-t']", verifyDT);
-		Browser.waitforTextbyID("providerFees", verifyFee);
+		Browser.waitforTextbyxpath("//h1[contains(., 'Book Diagnostic Lab Test')]", "Book Diagnostic Lab Test");
 		driver.navigate().back();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
-		driver.navigate().back();
-		Browser.waitFortheElementXpath("//img[@class='indexProfileImg userImgBackground']");
+		Browser.waitforTextbyxpath("//span[@class='zy-rec-diag-m-d-name']", "Diagnosticszoylo");
 	}
 	
 	@BeforeClass
