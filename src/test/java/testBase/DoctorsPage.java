@@ -86,6 +86,21 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();				
 
 	}
+	
+	/*
+	 * Author: Sagar Sen
+	 * @ Description: This method will click schedule from ribbon panel and home visit tab
+	 * @ Params:
+	 * @ Returns:
+	 */
+	public void goToScheduleHomeVisit()
+	{
+		Browser.waitFortheID("schedule");
+		driver.findElement(By.id("schedule")).click();
+		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		driver.findElement(By.xpath("(//div[@class='day-title'])[4]")).click();
+		Browser.waitFortheElementXpath("//i[@class='fa fa-home']");
+	}
 
 	// Doctors logout 
 	public  void doctorlogout() throws IOException, InterruptedException{			
