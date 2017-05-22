@@ -1,7 +1,5 @@
 package recipientsTestScripts;
 
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

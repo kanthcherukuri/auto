@@ -254,23 +254,24 @@ public class RecipientPage  {
 	 * Author: Sagar Sen
 	 * @Description: This method is used to select home visit available slot
 	 * @Params:
-	 * @Return:
+	 * @Return: time slot at which the appointment has been booked
 	 */
-	public void selectHomeVisitSlot() throws InterruptedException
+	public String selectHomeVisitSlot() throws InterruptedException
 	{
 		Thread.sleep(2000);
 		driver.findElement(By.id("session4")).click();
 		Thread.sleep(2000);
 		Browser.waitFortheElementXpath("(.//*[@id='apponitmentTime' and @class='sp-available-slots']//img[@class='homevisiticon'])[1]");
-		//String slotTime=driver.findElement(By.xpath("(.//*[@id='apponitmentTime' AND @class='sp-available-slots']//img[@class='homevisiticon'])[1]")).getText();
+		String slotTime=driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots']//following-sibling::img[@class='homevisiticon'])[1]")).getText();
 		if(driver.findElements(By.xpath("(.//*[@id='apponitmentTime' and @class='sp-available-slots']//img[@class='homevisiticon'])[1]")).isEmpty()){
 
 			throw new SkipException("Home slots are not available");
 		}else{
 			driver.findElement(By.xpath("(.//*[@id='apponitmentTime' and @class='sp-available-slots']//img[@class='homevisiticon'])[1]")).click();  // book
 			Thread.sleep(2000);
-			System.out.println("Cliked on home visit slot");
+			
 		}
+		return slotTime;
 	}
 	
 	/*   
