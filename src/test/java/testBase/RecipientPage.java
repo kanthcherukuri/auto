@@ -196,7 +196,7 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */	
 	public void bookAppointment() throws InterruptedException{
-
+		driver.findElement(By.id("self")).click();
 		driver.findElement(By.id("bookAppointment")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
