@@ -29,11 +29,7 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		String verifyDT=driver.findElement(By.xpath("//div[@class='d-y-t']")).getText();
 		String verifyFee=driver.findElement(By.id("providerFees")).getText();
 		RecipientPage.bookAppointment();
-		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
-		driver.findElement(By.xpath("(//input[@name='paymentOption'])[1]")).click();
-		//String verifyTobePaid=driver.findElement(By.xpath("(//div[@class='zy-sp-payment-values'])[6]")).getText();
-		driver.findElement(By.id("termsAndConditions")).click();
-		driver.findElement(By.id("proceed")).click();
+		RecipientPage.paymentOptions(1);
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
 		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");

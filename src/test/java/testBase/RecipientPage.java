@@ -249,6 +249,20 @@ public class RecipientPage  {
 		}
 		return Appointmentdetails;
 	}
+	
+	/*   
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to select available payment options and proceed to payment page 
+	 *  @Parameters  : paymentValue - mention 1 for ICICI, 2 for EBS and 3 for PayTm
+	 *  @Return      : 
+	 */
+	public void paymentOptions(int paymentValue)
+	{
+		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
+		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
+		driver.findElement(By.id("termsAndConditions")).click();
+		driver.findElement(By.id("proceed")).click();
+	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
 	 *  @Description : This method is used to select available slot in Diagnostics 
