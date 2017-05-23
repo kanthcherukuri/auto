@@ -1,22 +1,21 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY1014_HomePickupEditPackage extends LoadPropMac {
+public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
 	@BeforeClass
-	  public void beforeClass() throws Exception {
+	  public void launchbrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
@@ -27,20 +26,22 @@ public class Schedule_ZOY1014_HomePickupEditPackage extends LoadPropMac {
 		  }
 	
 	@Test
-	public void ScheduleHomePickUpPackageEdit() throws Exception{
-		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
-		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("Surya diagnostic", "Full Body Test Examination", "30000", "2", "Surya Full Tes", "Full Body Test Examination");
+	public void HomeSampleCollectionSlotdurationlessthan15() throws Exception{
 		
+		driver.findElement(By.id("schedule")).click();
 		Thread.sleep(3000);
-		DiagnosticPageZoylo.ScheduleHomePickupEditPackage("Sunny Diagnosis", "Body Total scan", "40000", "2", "SunnyTest", "Toatal Body scan");
+		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticlogout();
+		driver.findElement(By.id("homeVisitSlotDuration")).clear();
+		driver.findElement(By.id("homeVisitSlotDuration")).sendKeys("10");
+		Thread.sleep(2000);
+		driver.findElement(By.id("diagnosticHomeVisitTimeSlots")).click();
+		Browser.CheckNotificationMessage("Select Slot Duration in between 15 to 600");
+		Thread.sleep(3000);
 	}
 
 	@AfterClass
-	  public void afterClass() {
+	public void closebrowser(){
 		driver.close();
-	  }
+	}
 }

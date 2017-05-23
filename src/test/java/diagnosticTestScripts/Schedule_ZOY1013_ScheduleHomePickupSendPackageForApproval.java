@@ -32,11 +32,10 @@ public class Schedule_ZOY1013_ScheduleHomePickupSendPackageForApproval extends L
 	public void ScheduleHomeVistPackageForApproval() throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ClickOnSchedulePackageHomevisit();
-		int toggle=DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
+		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
+		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("konarkpackage", "Full body Examination", "20000", "2","konarttest", "Full body Examination");
 		Thread.sleep(5000);
-		System.out.println("ToggleValue is:"+toggle);
-		DiagnosticPageZoylo.ScheduleHomevisitPackageSendforApproval(toggle);
+		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
