@@ -30,8 +30,10 @@ public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
 			DiagnosticPageZoylo.ClickOnScheduleMenu();
 			Thread.sleep(2000);
 			DiagnosticPageZoylo.clickonhomevisitmenu();
+			Thread.sleep(2000);
+			DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 			Thread.sleep(1000);
-			DiagnosticPageZoylo.ScheduleHomevisitAddPackage("sonat", "Full Body Test For Blood", "10000", "2", "Sonattest", "Full Body Test for blood");
+			DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("Srivalli", "Full Body Test For Blood", "10000", "2", "Srivallitest", "Full Body Test for blood");
 			Thread.sleep(2000);
 			DiagnosticPageZoylo.diagnosticlogout();
 			

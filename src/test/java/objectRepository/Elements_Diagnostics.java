@@ -146,6 +146,9 @@ public class Elements_Diagnostics  {
 		//Admin variables
 		public static String diagnosticapprovalsurl, adminsearchbutton, facilitationbutton, adminapprovebutton;
 		
+		//ScheduleInManageAddPackage Variables
+		public static String ManagePackagename, ManagePackagecost, ManagePackagediscount, ManagePackagedesc, ManagePackageAddTest, ManagePackageTestname;
+		public static String ManagePackageTestdesc, ManagePackageSavePackage, ManagePackageEditlink, ManagePacakgeApproval;
 	 
 		
 		
@@ -328,6 +331,18 @@ public class Elements_Diagnostics  {
 		 adminsearchbutton="//input[@type='search']";
 		 facilitationbutton="//input[@class='updatedCharges']";
 		 adminapprovebutton="//button[contains(., 'Approve')]";
+		 
+		//ScheduleInManageAddPackage locators
+		 ManagePackagename="(//input[starts-with(@id,'packageName')])[last()]";
+		 ManagePackagecost="(//input[starts-with(@id,'packageCost')])[last()]";
+		 ManagePackagediscount="(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[3]/div[3]/div[2]/input)[last()]";
+		 ManagePackagedesc="(//input[starts-with(@id,'packageDescription')])[last()]";
+		 ManagePackageAddTest="(//*[@id='addPackageTest'])[last()]";
+		 ManagePackageTestname="(//input[starts-with(@id,'packTestName')])[last()]";
+		 ManagePackageTestdesc="(//input[starts-with(@id,'packTestDesc')])[last()]";
+		 ManagePackageSavePackage="saveClinicPackages";
+		 ManagePackageEditlink="(//div[@class='paddingb0 sp-diag-dcenter-edit clinicPackageEdit menu_links'])[last()]";
+		 ManagePacakgeApproval="(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
 		 
 		return driver;	
         

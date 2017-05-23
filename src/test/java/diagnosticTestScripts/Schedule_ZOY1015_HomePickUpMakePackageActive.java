@@ -1,16 +1,13 @@
 package diagnosticTestScripts;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -34,7 +31,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Kothapalli","Full Body Test","10000","2","KothapalliTest","Full Body Test"}
+					{ "yes","Sainikapuri","Full Body Test","10000","2","Sainikapuri","Full Body Test"}
 
 			};
 		}
@@ -46,12 +43,11 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.ClickOnSchedulePackageHomevisit();
+		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 		Thread.sleep(1000);
-		int toggle=	DiagnosticPageZoylo.ScheduleHomevisitAddPackage(packagename, desc, cost, discount, testname, testdesc);
-		System.out.println("ToggleValue is:"+toggle);
+		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage(packagename, desc, cost, discount, testname, testdesc);
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ScheduleHomevisitPackageSendforApproval(toggle);
+		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
 		Thread.sleep(2000);
 		driver.close();
 		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com","Zoylo@123" );
@@ -64,17 +60,15 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ClickOnSchedulePackageHomevisit();
+		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 		Thread.sleep(4000);
-		WebElement sc=driver.findElement(By.xpath("//*[@id='"+toggle+"']/div[1]/div[2]/div/label/span[2]"));
-		//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+		WebElement sc=driver.findElement(By.xpath("(//*[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']/div[1]/div[2]/div/label/span[2])[last()]"));
 		Actions actions = new Actions(driver);
-
 		actions.moveToElement(sc).click().perform();
-		//driver.findElement(By.xpath("//*[@id='"+toggle+"']/div[1]/div[2]/div/label")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.id("homeVisitPackages")).click();
 		Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
+		DiagnosticPageZoylo.diagnosticslogout();
 		
 	}
    @AfterClass
