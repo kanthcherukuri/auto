@@ -1,5 +1,11 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -39,14 +45,14 @@ public class Schedule_ZOY992_HomeSampleDistanceCounter extends LoadPropMac{
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
 		Thread.sleep(1000);
-		driver.findElement(By.id("schedule")).click();
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("homeVisitDistance")).clear();
-		driver.findElement(By.id("homeVisitDistance")).sendKeys("8");
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).sendKeys("8");
 		Thread.sleep(2000);
-		driver.findElement(By.id("diagnosticHomeVisitTimeSlots")).click();
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleSave)).click();
 		//Browser.CheckNotificationMessage("Homevisit updated Sucessfully");
 	}
 	@AfterClass

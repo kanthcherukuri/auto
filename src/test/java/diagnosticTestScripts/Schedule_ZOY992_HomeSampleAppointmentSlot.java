@@ -1,5 +1,12 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -34,19 +41,18 @@ public class Schedule_ZOY992_HomeSampleAppointmentSlot extends LoadPropMac{
 	public void HomeSampleAppointmentSlotAppointmentScheduled() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("kiran", "K", "9922006666","kiran@gmail.com", "Kakatiya Residency", "Diabetic");
 		Thread.sleep(2000);
-		driver.findElement(By.id("schedule")).click();
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
+		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(5000);
-		driver.findElement(By.id("homeVisitApptPerSlot")).clear();
-		driver.findElement(By.id("homeVisitApptPerSlot")).clear();
-		driver.findElement(By.id("homeVisitApptPerSlot")).sendKeys("8");
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).sendKeys("8");
 		Thread.sleep(2000);
-		driver.findElement(By.id("diagnosticHomeVisitTimeSlots")).click();
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleSave)).click();
 		WebDriverWait wait = (new WebDriverWait(driver, 2000));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-		Assert.assertTrue(Notification.contains("You can't update home visit Appointments per slot. You have existing appointment on: "));
+		AssertJUnit.assertTrue(Notification.contains("You can't update home visit Appointments per slot. You have existing appointment on: "));
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	

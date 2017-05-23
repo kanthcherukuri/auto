@@ -150,7 +150,20 @@ public class Elements_Diagnostics  {
 		public static String ManagePackagename, ManagePackagecost, ManagePackagediscount, ManagePackagedesc, ManagePackageAddTest, ManagePackageTestname;
 		public static String ManagePackageTestdesc, ManagePackageSavePackage, ManagePackageEditlink, ManagePacakgeApproval,  amenitiesbikeparking;
 		public static String amenitiescarparking, amenitiescardswipe, amenitieswashroom, amenitiespremiunservice, amenitiesemergencyservices;
-		public static String amenitiessave;
+		public static String amenitiessave, clcikondiagnosticmanagemenu, ManageSubmitPackageApproval ;
+		
+		//Schedule Manage Test Variables
+		public static String ManageTestTestname, ManageTestTestDesc, ManageTestCost, ManageTestDiscount, ManageTestSave, ManageTestSubmit;
+		public static String ManageTestSubmitNotification, ManageTestEditLink;
+		
+		//Schedule Home PickUp
+		public static String HomePickupTestTestname, HomePickupTestTestdesc, HomePickupTestTestcost, HomePickupTestTestdiscount;
+		public static String HomePickupTestsEditLink, HomePickupTestSubmit, HomePickupTestSubmitNotification, HomePickupPackName;
+		public static String HomepickupPackDesc, HomepickupPackCost,  HomepickupPackDiscount,  HomepickupPacktestname, HomepickupPacktestdesc;
+		public static String HomePickupPackClickAddTest, HomePickupPackSubmit, HomePickupPackSubmitNotification, HomePickupPackEditLink;
+		
+		//Homesample variables
+		public static String HomeSampleDistance, HomeSampleSave,  HomeSampleCollectionMenu;
 	 
 		
 		
@@ -352,6 +365,43 @@ public class Elements_Diagnostics  {
 		 amenitiespremiunservice="PREMIUM_SERVICE";
 		 amenitiesemergencyservices="EMERGENCY_SERVICE";
 		 amenitiessave="saveClinicAminities";
+		 clcikondiagnosticmanagemenu="//*[@id='cd-12']/div";
+		 ManageSubmitPackageApproval="(//div[@class='sp-diag-dcenter-aproveswitch-label'][contains(text(),'Approval is pending')])[last()]";
+		 
+		 //Managae Tets
+		 ManageTestTestname="(//input[starts-with(@id,'testName')])[last()]";
+		 ManageTestTestDesc="(//input[starts-with(@id,'testDescription')])[last()]";
+		 ManageTestCost="(//input[starts-with(@id,'testCost')])[last()]";
+		 ManageTestDiscount="(//input[starts-with(@id,'discountPercentage')])[last()]";
+		 ManageTestSave="saveClinicTests";
+		 ManageTestSubmit="(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]";
+		 ManageTestSubmitNotification="(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[2])[last()]";
+		 ManageTestEditLink="(//div[@class='paddingb0 sp-diag-dcenter-edit clinicTestEdit menu_links'])[last()]";
+		 
+		 
+		//Schedule Home PickUp
+		 HomePickupTestTestname="(//input[starts-with(@id,'homeTestName')])[last()]";
+		 HomePickupTestTestdesc="(//input[starts-with(@id,'homeTestDescription')])[last()]";
+		 HomePickupTestTestcost="(//input[starts-with(@id,'homeTestCost')])[last()]";
+		 HomePickupTestTestdiscount="(//input[starts-with(@id,'homeDiscountPercentage')])[last()]";
+		 HomePickupTestsEditLink="(//div[@class='paddingb0 sp-diag-homepick-edit homepickTestEdit menu_links'])[last()]";
+		 HomePickupTestSubmit="(//*[@class='sp-diag-homepick-pack-docard homePickTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]";
+		 HomePickupTestSubmitNotification="(//div[@class='sp-diag-dcenter-testaproveswitch-label'])[last()]";
+		 HomePickupPackName="(//input[starts-with(@id, 'homeVisitPacakageName')])[last()]";
+		 HomepickupPackDesc="(//input[starts-with(@id, 'homeVisitPacakageDesc')])[last()]";
+		 HomepickupPackCost="(//input[starts-with(@id, 'homeVisitPacakageCost')])[last()]";
+		 HomepickupPackDiscount="(//input[starts-with(@id, 'homeVisitPacakageDiscount')])[last()]";
+		 HomepickupPacktestname="(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]";
+		 HomepickupPacktestdesc="(//input[starts-with(@id, 'homeVisitPackTestDesc')])[last()]";
+		 HomePickupPackClickAddTest="(//*[@id='addHomeVistPackageTest'])[last()]";
+		 HomePickupPackSubmit="(//*[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
+		 HomePickupPackSubmitNotification="(//div[@class='sp-diag-homepick-aproveswitch-label'])[last()]";
+		 HomePickupPackEditLink="(//div[@class='sp-diag-homepick-edit homepickupPackageEdit menu_links'])[last()]";
+		 //Home Sample Collection menu
+		 
+		 HomeSampleDistance="homeVisitDistance";
+		 HomeSampleSave="diagnosticHomeVisitTimeSlots";
+		 HomeSampleCollectionMenu="//*[@id='cd-11']/div";
 		 
 		return driver;	
         

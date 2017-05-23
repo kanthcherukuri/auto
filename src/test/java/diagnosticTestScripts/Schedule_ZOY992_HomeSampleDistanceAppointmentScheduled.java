@@ -1,8 +1,5 @@
 package diagnosticTestScripts;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -10,11 +7,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule extends LoadPropMac {
+public class Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled  extends LoadPropMac{
+
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -29,22 +28,19 @@ public class Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule extends Load
 		 Browser=new TestUtils(driver);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
-	
 	@Test
-	public void HomeSampleClickToggleAppointmentNotSchedule() throws Exception{
-		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
-		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(1000);
-		driver.findElement(By.id("schedule")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
+	public void CheckHomeSampleDistanceAppointmentScheduled() throws Exception{
+		
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Kumaran", "K", "9900442266", "kumaran@gmail.com", "Kakatiya Residency", "Diabetic");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='tab-homesample']/div[7]/div[3]/div[1]/div/label/span[2]")).click();
-    	Thread.sleep(2000);
-    	driver.findElement(By.id("diagnosticHomeVisitTimeSlots")).click();
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).sendKeys("20");
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleSave)).click();
 	}
 
 	@AfterClass
