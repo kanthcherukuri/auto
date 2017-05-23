@@ -121,6 +121,8 @@ public  void searchQuery(String City, String Locality,String Specialization) thr
 	}
 	 /*   @Autur : Ganesh Mandala
 	  *   Entering the test details in Doctor enrollment Page and submitting the page
+	  *   @Recent Changes : @Authur: Sagar Sen
+	  *   @Changes Made : Called scrolled function for submit button
 	  */
 	
 		public void doctorsEnrollment(String Area, String FirstName,String LastName,String Gender,String Qualification,String Email, String Address,String Fee,String Notes) throws InterruptedException{
@@ -138,7 +140,7 @@ public  void searchQuery(String City, String Locality,String Specialization) thr
 			driver.findElement(By.xpath("//div[2]/span/span/span/ul")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[contains(@id,'"+Qualification+"')]")).click();
-			driver.findElement(By.id(Elements_Doctors.enrollment_regname)).sendKeys(String.valueOf("9"+Phno));
+			driver.findElement(By.id(Elements_Doctors.enrollment_regname)).sendKeys(String.valueOf(Phno));
 			driver.findElement(By.id(Elements_Doctors.enrollment_mobile)).sendKeys(String.valueOf("9"+Phno));
 			driver.findElement(By.id(Elements_Doctors.enrollment_email)).sendKeys(""+Email+""+Phno+"@india.com");
 			driver.findElement(By.id(Elements_Doctors.enrollment_clinicaddress)).sendKeys(Address);
@@ -146,6 +148,7 @@ public  void searchQuery(String City, String Locality,String Specialization) thr
 			driver.findElement(By.id(Elements_Doctors.enrollment_notes)).sendKeys(Notes);
 			driver.findElement(By.id(Elements_Doctors.enrollment_doc_fac)).click();
 			driver.findElement(By.id(Elements_Doctors.enrollment_terms_cond)).click();
+			Browser.scrollbyxpath(Elements_Doctors.enrollment_submit);
 			driver.findElement(By.xpath(Elements_Doctors.enrollment_submit)).click();
 			
 			

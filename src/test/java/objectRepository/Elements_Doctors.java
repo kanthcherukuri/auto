@@ -109,7 +109,10 @@ public class Elements_Doctors  {
 	   
 	
 		
-		
+		/*
+		 * @Recent Changes 	: @Authur: Sagar Sen
+		 * @Changes Made 	: changed xpath of enrollment_submit
+		 */
          // Enrollment page elements 
          enrollment_h5="//h5";         
          enrollment_firstname="fname";
@@ -122,7 +125,7 @@ public class Elements_Doctors  {
          enrollment_notes="zws_notes";
          enrollment_doc_fac="zws_doc_fac";
          enrollment_terms_cond="zws_doc_termsCond";
-         enrollment_submit="//button[text()='Submit']";
+         enrollment_submit="//button[contains(., 'Submit')]";
                   
          //doctors Login Page Locators         
     	 username="emailAddress";
