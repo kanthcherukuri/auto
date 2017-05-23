@@ -148,7 +148,9 @@ public class Elements_Diagnostics  {
 		
 		//ScheduleInManageAddPackage Variables
 		public static String ManagePackagename, ManagePackagecost, ManagePackagediscount, ManagePackagedesc, ManagePackageAddTest, ManagePackageTestname;
-		public static String ManagePackageTestdesc, ManagePackageSavePackage, ManagePackageEditlink, ManagePacakgeApproval;
+		public static String ManagePackageTestdesc, ManagePackageSavePackage, ManagePackageEditlink, ManagePacakgeApproval,  amenitiesbikeparking;
+		public static String amenitiescarparking, amenitiescardswipe, amenitieswashroom, amenitiespremiunservice, amenitiesemergencyservices;
+		public static String amenitiessave;
 	 
 		
 		
@@ -343,6 +345,13 @@ public class Elements_Diagnostics  {
 		 ManagePackageSavePackage="saveClinicPackages";
 		 ManagePackageEditlink="(//div[@class='paddingb0 sp-diag-dcenter-edit clinicPackageEdit menu_links'])[last()]";
 		 ManagePacakgeApproval="(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
+		 amenitiesbikeparking="BIKE_PARKING";
+		 amenitiescarparking="CAR_PARKING";
+		 amenitiescardswipe="CARD_SWIPE";
+		 amenitieswashroom="WASH_ROOM";
+		 amenitiespremiunservice="PREMIUM_SERVICE";
+		 amenitiesemergencyservices="EMERGENCY_SERVICE";
+		 amenitiessave="saveClinicAminities";
 		 
 		return driver;	
         
