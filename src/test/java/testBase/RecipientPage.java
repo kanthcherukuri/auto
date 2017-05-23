@@ -407,6 +407,39 @@ public class RecipientPage  {
 		Thread.sleep(20000);
 		System.out.println("Payment done");
 	}
+	
+	/*   
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to click proceed on payment page for DC 
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
+	public void makePaymentforDC() throws InterruptedException{
+
+		Browser.waitFortheID("applyPromocode");
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
+		Thread.sleep(5000);
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
+		driver.findElement(By.id("termsAndConditions")).click();
+		Browser.scrollbyID("proceed");
+		driver.findElement(By.id("proceed")).click();     //Make payment
+		//Browser.waitTill(60);
+		Thread.sleep(5000);
+		System.out.println("Payment done");
+	}
+	
+	/*   
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to click search icon on home page to navigate to index page post booking DC appointment 
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
+	public void goToDCIndexPageFromHome()
+	{
+		Browser.waitFortheID("diag-search-icon");
+		driver.findElement(By.id("diag-search-icon")).click();
+		Browser.waitFortheElementXpath("//i[@class='fa fa-map-marker']");
+	}
 
 	public void goToMyAccount() throws InterruptedException{
 
