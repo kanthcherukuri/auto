@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -32,7 +35,7 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","KurnooBlood","Full Body Blood Test for Malaria","10000","2"}
+					{ "yes","kadapaBlood","Full Body Blood Test for Malaria","10000","2"}
 
 			};
 		}
@@ -68,7 +71,10 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		actions.moveToElement(sc).click().perform();
 		Thread.sleep(3000);
 		driver.findElement(By.id("saveClinicTests")).click();
+		Thread.sleep(2000);
 		Browser.CheckNotificationMessage("Tests updated successfully");
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.diagnosticslogout();
 	}
 
 	@AfterClass

@@ -1,5 +1,9 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -82,7 +86,7 @@ public class Schedule_ZOY996_HomeSampleTimeslotsToggleAppointmentScheduled exten
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-			Assert.assertTrue(Notification.contains("Home Visit: You can't inactive"));
+			AssertJUnit.assertTrue(Notification.contains("Home Visit: You can't inactive"));
 	}
 	
 	@AfterClass

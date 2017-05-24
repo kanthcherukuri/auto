@@ -1,5 +1,9 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -15,7 +19,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY977_ChangeCounterSlotDurationAppointmentScheduled  extends LoadPropMac{
+public class Schedule_ZOY977_ConsultationChangeSlotDurationAppointmentScheduled  extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -32,7 +36,7 @@ public class Schedule_ZOY977_ChangeCounterSlotDurationAppointmentScheduled  exte
 		  }
 	
 	@Test
-	public void ChangeSlotDurationWhenAppointmentScheduled() throws Exception{
+	public void ConsultatonCenterChangeSlotDurationWhenAppointmentScheduled() throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday("Mohanjdaro", "M", "9900886622", "mohandaro@gmail.com", "Liver problem");
 		Thread.sleep(2000);
@@ -46,7 +50,7 @@ public class Schedule_ZOY977_ChangeCounterSlotDurationAppointmentScheduled  exte
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-			Assert.assertTrue(Notification.contains("You can't update clinic slot duration"));
+			AssertJUnit.assertTrue(Notification.contains("You can't update clinic slot duration"));
 	}
 	
 	@AfterClass

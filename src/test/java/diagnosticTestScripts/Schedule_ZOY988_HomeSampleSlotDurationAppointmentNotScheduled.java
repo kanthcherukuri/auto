@@ -1,5 +1,8 @@
 package diagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -39,13 +42,12 @@ public class Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled exten
 		driver.findElement(By.id("schedule")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.id("homeVisitSlotDuration")).clear();
-		driver.findElement(By.id("homeVisitSlotDuration")).clear();
-		driver.findElement(By.id("homeVisitSlotDuration")).sendKeys("25");
+		driver.findElement(By.id("homeVisitSlotDuration")).sendKeys("20");
 		Thread.sleep(2000);
 		driver.findElement(By.id("diagnosticHomeVisitTimeSlots")).click();
-		DiagnosticPageZoylo.diagnosticlogout();
+		
 	}
 	@AfterClass
 	public void closebrowser(){
