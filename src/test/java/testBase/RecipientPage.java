@@ -140,6 +140,50 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
 		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 	}
+	
+	/*  
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to check if the address is within the service range of DC for home visit
+	 *  @Parameters  :
+	 *  @Return      : 
+	 */
+	public void checkDChomeVisitServiceRange() throws InterruptedException
+	{
+		Browser.waitFortheElementXpath("//div[@class='zy-rec-diag-hm-add-title']");
+		//Select first address
+		driver.findElement(By.xpath("(//div[@class='zy-rec-diag-hm-add-radio']//input[@name='address'])[1]")).click();
+		String address1=driver.findElement(By.xpath("//span[contains(., 'Pragathi nagar jntu road ,Hyderabad ,Telangana ,India.')]")).getText();
+		driver.findElement(By.xpath("//div[@class='zy-rec-diag-add-confirm-btn']//span")).click();
+		Thread.sleep(1000);
+		if(driver.findElement(By.xpath("(.//*[@id='tests_search'])[2]")).isDisplayed())
+		{
+			//Browser.waitFortheElementXpath("(.//*[@id='tests_search'])[2]");
+			System.out.println(address1+" is within the service range");
+			Thread.sleep(5000);
+			driver.findElement(By.id("home_pickup")).click();
+		}
+		else
+		{
+			Browser.CheckNotificationMessage("Home Sample Collection is not availabe at your location");
+		}
+		//Select second address
+		driver.findElement(By.xpath("(//div[@class='zy-rec-diag-hm-add-radio']//input[@name='address'])[2]")).click();
+		String address2=driver.findElement(By.xpath("//span[contains(., 'ECIL, Secunderabad, Telangana, India')]")).getText();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@class='zy-rec-diag-add-confirm-btn']//span")).click();
+		Thread.sleep(1000);
+		if(driver.findElement(By.xpath("(.//*[@id='tests_search'])[2]")).isDisplayed())
+		{
+			//Browser.waitFortheElementXpath("(.//*[@id='tests_search'])[2]");
+			System.out.println(address2+" is within the service range");
+			Thread.sleep(5000);
+			driver.findElement(By.id("home_pickup")).click();
+		}
+		else
+		{
+			Browser.CheckNotificationMessage("Home Sample Collection is not availabe at your location");
+		}
+	}
 
 	/*  
 	 *  @Author      : Ganesh kumar.M

@@ -52,6 +52,9 @@ DiagnosticLogin.passwordone=Zoylo@123
 DiagonsticLogin.username=akashraj@gmail.com
 DiagnosticLogin.password=Zoylo@123
 
+recipientDC.username=Diagnosticszoylo@zoylo.com
+recipientDC.password=Zoylo@123
+
 
 //-------Diagnostic Login Details----//
 Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
