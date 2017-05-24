@@ -63,7 +63,7 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 		 if(runmode.equals("yes")){
 			 			 
 			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
+			 Browser.openUrl(recipient_url);
 		
 			 driver.findElement(By.linkText("Don't have an account?")).click();
 			 Browser.waitTill(10);
