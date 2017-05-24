@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ScheduleSite">
-  <test name="Schedule">
+<suite name="ScheduleDiagnostic">
+  <test name="ScheduleDiagnosticRegression">
     <classes>
       
       <class name="diagnosticTestScripts.Schedule_ZOY_984_EditContactDetails"/>
@@ -30,6 +30,7 @@
       <class name="diagnosticTestScripts.Schedule_ZOY966_InMangaeAddPackage"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceCounter"/>
       <class name="diagnosticTestScripts.Schedule_ZOY1015_HomePickUpMakePackageActive"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationChangeSlotDurationAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY960_InManageUpdateAmenities"/>
       <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotdurationlessthan15"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled"/>
@@ -37,10 +38,10 @@
       <class name="diagnosticTestScripts.Schedule_ZOY991_HomePickUpAddTests"/>
       <class name="diagnosticTestScripts.Schedule_ZOY985_TimeSlotdecreasingwhenAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY977_ChangeCounterSlotDurationAppointmentScheduled"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule"/>
       <class name="diagnosticTestScripts.Schedule_ZOY1007_HomePickupAddPackage"/>
       <class name="diagnosticTestScripts.Schedule_ZOY963_ManageADDTests"/>
     </classes>
-  </test> <!-- Schedule -->
-</suite> <!-- ScheduleSite -->
+  </test> <!-- ScheduleDiagnosticRegression -->
+</suite> <!-- ScheduleDiagnostic -->

@@ -1133,10 +1133,12 @@ public class DiagnosticPage {
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackCost)).sendKeys(cost);
 			 Thread.sleep(2000);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackDiscount)).sendKeys(discount);
-			 Thread.sleep(1000);
+			 Thread.sleep(3000);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackClickAddTest)).click();
 			 Thread.sleep(3000);
-			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestname)).sendKeys(testname);
+			 WebElement sc= driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]"));
+			 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+			 driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]")).sendKeys(testname);
 			 Thread.sleep(3000);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestdesc)).sendKeys(testdesc);
 			 Thread.sleep(3000);

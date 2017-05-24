@@ -3,6 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
@@ -14,7 +17,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY972_ManageMakePackageActive extends LoadPropMac{
+public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -33,7 +36,7 @@ public class Schedule_ZOY972_ManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","aurbindotest","30000","2","Full Body Blood Test for Malaria","aurbindotest","Full Body Blood Test for Malaria"}
+					{ "yes","America","30000","2","Full Body Blood Test for Malaria","americatest","Full Body Blood Test for Malaria"}
 
 			};
 		}
@@ -47,7 +50,7 @@ public class Schedule_ZOY972_ManageMakePackageActive extends LoadPropMac{
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com", "Zoylo@123");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
+		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
 		Thread.sleep(2000);
 		launchbrowser();
 		DiagnosticPageZoylo.ClickOnScheduleMenu();

@@ -3,20 +3,22 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY984_EditContactInManage extends LoadPropMac{
+public class Schedule_ZOY963_InManageADDTests extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
+	
 	
 	@BeforeClass
 	  public void beforeClass() throws Exception {
@@ -30,20 +32,20 @@ public class Schedule_ZOY984_EditContactInManage extends LoadPropMac{
 		  }
 	
 	@Test
-	public void EditContactInManage() throws Exception{
+	public void ScheduleDiagnosticManageAddTests() throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
-		Thread.sleep(1000);
-		DiagnosticPageZoylo.EditConatctInSchedule("kiran", "9900662288", "kiran@gmail.com", "126428");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.DeleteContactInSchedule();
-
-	}
+		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("MonaBlood test","Full body Test for all ", "2000", "2");
+	    }
 	
+
 	@AfterClass
 	public void CloseBrowser(){
 		driver.close();
 	}
-
 
 }

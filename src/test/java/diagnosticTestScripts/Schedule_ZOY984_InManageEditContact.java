@@ -3,6 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -13,7 +16,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY986_Delete extends LoadPropMac{
+public class Schedule_ZOY984_InManageEditContact extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
@@ -30,18 +33,20 @@ public class Schedule_ZOY986_Delete extends LoadPropMac{
 		  }
 	
 	@Test
-	public void ScheuleDeleteContactInManger() throws Exception{
-		
+	public void EditContactInManage() throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.EditConatctInSchedule("kiran", "9900662288", "kiran@gmail.com", "126428");
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.DeleteContactInSchedule();
-		Thread.sleep(3000);
-		DiagnosticPageZoylo.diagnosticlogout();
+
 	}
 	
 	@AfterClass
-	  public void afterClass() {
-		  driver.close();
-	  }
+	public void CloseBrowser(){
+		driver.close();
+	}
+
 
 }
