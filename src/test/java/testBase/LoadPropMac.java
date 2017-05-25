@@ -28,7 +28,7 @@ public class LoadPropMac   {
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
 
-	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name;
+	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount;
 	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment, recipientDC_User, recipientDC_Password;
@@ -43,6 +43,7 @@ public class LoadPropMac   {
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
+        recipient_myaccount=prop.getProperty("recipient.myaccount");
         recipient_url=prop.getProperty("recipient.url");
         dev_url=prop.getProperty("dev.url");
         enrollment_url=prop.getProperty("enrollment.url");

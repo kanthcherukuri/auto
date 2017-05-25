@@ -17,6 +17,7 @@ public class Elements_Recipients  {
 	public static FileInputStream inStream;
 
 	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_privacyIndex,link_cancellationIndex,link_signinIndex;
+	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -44,6 +45,13 @@ public class Elements_Recipients  {
          link_privacyIndex="privacy_Index";
          link_cancellationIndex="cancellationOption_Index";
          link_signinIndex="myAccountLink";
+         dcNameHolder="//span[@class='zy-rec-diag-m-d-name']";
+         dcHomePickUp="home_pickup";
+         recipient_firstHomeAddress="(//div[@class='zy-rec-diag-hm-add-radio']//input[@name='address'])[1]";
+         dcHomeVisitAddressProceed="//div[@class='zy-rec-diag-add-confirm-btn']//span";
+         dcHometestTab="h_Test_li";
+         dcHomePkgTab="h_Package_li";
+         hWorkingTab="h_WorkTimings_li";
         
 		return driver;	
         

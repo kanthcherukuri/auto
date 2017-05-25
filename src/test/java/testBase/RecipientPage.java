@@ -381,9 +381,36 @@ public class RecipientPage  {
 			driver.findElement(By.xpath("(//*[@class='timeSlot sp-available-slots'])[1]")).click();  // book
 			Thread.sleep(2000);
 			System.out.println("Cliked on Available Slot Button from diagonostics");
-
+			
 		}
 
+	}
+	
+	/*   
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to select available slots for home visit in Diagnostics 
+	 *  @Parameters  : 
+	 *  @Return      : 
+	 */
+	public void selectDChomeVisitSlots() throws InterruptedException
+	{
+		driver.findElement(By.id(Elements_Recipients.dcHometestTab)).click();
+		driver.findElement(By.xpath("//span[@class='zy-rec-diag-h-test-chkbox']")).click(); //Select test
+		driver.findElement(By.id(Elements_Recipients.dcHomePkgTab)).click();
+		Browser.waitFortheElementXpath("//span[@class='zy-rec-diag-h-pkg-chkbox']");
+		driver.findElement(By.xpath("//span[@class='zy-rec-diag-h-pkg-chkbox']")).click(); //Select pkg
+		driver.findElement(By.id(Elements_Recipients.hWorkingTab)).click();
+		Thread.sleep(3000);
+		if(driver.findElements(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[1]")).isEmpty())
+		{
+			throw new SkipException("Slots are not available");
+		}
+		else
+		{
+			driver.findElement(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+			System.out.println("Cliked on Available Slot Button from diagonostics");
+		}
 	}
 	
 	/*   
@@ -409,8 +436,8 @@ public class RecipientPage  {
 	 */
 	public void confirmAppointmentOnDiagnostics() throws InterruptedException{
 
-		Browser.waitFortheElementXpath("//*[@id='bookAndPay']");
-
+		Browser.waitFortheElementXpath("//h5[contains(., 'Selected Packages & Tests')]");
+		Browser.scrollbyxpath("//*[@id='bookAndPay']");
 		driver.findElement(By.xpath("//*[@id='bookAndPay']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
