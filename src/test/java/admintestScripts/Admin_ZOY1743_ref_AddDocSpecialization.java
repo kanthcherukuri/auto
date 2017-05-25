@@ -22,7 +22,7 @@ public class Admin_ZOY1743_ref_AddDocSpecialization extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/areaOfSpecializationList";
 	public String pit = "https://pit.zoylo.com/admin/areaOfSpecializationList";
-	public String specName="Srcsix";
+	public String specName="Twofivespec";
 	
 	@Test()
 	public void addDocSpec()

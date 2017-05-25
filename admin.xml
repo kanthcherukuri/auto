@@ -50,6 +50,11 @@
       <class name="admintestScripts.Admin_ZOY1907_marketingPermissions"/>
       <class name="admintestScripts.Admin_ZOY1920_lookupCodePermissions"/>
       <class name="admintestScripts.Admin_ZOY1923_ErrorCodePermissions"/>
+      <class name="admintestScripts.Admin_ZOY1941_appPropertyPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1942_AddEditAppProperty"/>
+      <class name="admintestScripts.Admin_ZOY1950_referenceDataEditPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1954_referenceDataAddPermissions"/>
+      <class name="admintestScripts.Admin_ZOY1972_referenceDataEditPermissions"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
