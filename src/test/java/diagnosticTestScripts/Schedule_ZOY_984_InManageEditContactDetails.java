@@ -6,6 +6,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -18,7 +21,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY_984_EditContactDetails extends LoadPropMac{
+public class Schedule_ZOY_984_InManageEditContactDetails extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	

@@ -8,6 +8,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +27,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY985_TimeSlotdecreasingwhenAppointmentScheduled extends LoadPropMac{
+public class Schedule_ZOY985_ConsultationTimeSlotdecreasingAppointmentScheduled extends LoadPropMac{
 	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
