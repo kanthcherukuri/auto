@@ -33,7 +33,8 @@ public class LoadPropMac   {
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment, recipientDC_User, recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
-
+    public static String Diagnostic_usernamethree, Diagnostic_passwordthree;
+    
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
@@ -82,6 +83,9 @@ public class LoadPropMac   {
         
         Diagnostic_username=prop.getProperty("DiagonsticLogin.username");
         Diagnostic_password=prop.getProperty("DiagnosticLogin.password");
+        
+        Diagnostic_usernamethree=prop.getProperty("DiagnosticLogin.usernamethree");
+        Diagnostic_passwordthree=prop.getProperty("DiagnosticLogin.passwordthree");
         
       
         

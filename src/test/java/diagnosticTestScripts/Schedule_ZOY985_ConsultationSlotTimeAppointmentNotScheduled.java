@@ -6,10 +6,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,8 +20,8 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY977_Counterslotdurationlessthan15mnts extends LoadPropMac {
-
+public class Schedule_ZOY985_ConsultationSlotTimeAppointmentNotScheduled extends LoadPropMac{
+	
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
@@ -33,21 +35,31 @@ public class Schedule_ZOY977_Counterslotdurationlessthan15mnts extends LoadPropM
 		 Browser=new TestUtils(driver);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
-	
 	@Test
-	public void slotdurationlessthan15mnts() throws Exception{
+	public void ChangeSlotTimeWhenAppointmentNotScheduled() throws Exception{
+		DiagnosticPageZoylo.ClickonAppointmentMenu();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.ClickonAppointmentMenu();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
+		Thread.sleep(1000);
 		driver.findElement(By.id("schedule")).click();
-		 Thread.sleep(3000);
-		 driver.findElement(By.id("clinicSlotDuration")).clear();
-		 driver.findElement(By.id("clinicSlotDuration")).sendKeys("10");
-		 driver.findElement(By.id("clinicSlotDuration")).sendKeys(Keys.ENTER);
-		 Thread.sleep(3000);
-		 driver.findElement(By.id("diagnosticClinicTimeSlots")).click();
-		 Browser.CheckNotificationMessage("Select Slot Duration in between 15 to 600");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//input[@id='Monday'])[2]")).clear();
+   	    driver.findElement(By.xpath("(//input[@id='Monday'])[2]")).sendKeys("18:00");
+   	    Thread.sleep(2000);
+   	    driver.findElement(By.id("diagnosticClinicTimeSlots")).click();
 	}
 	
 	@AfterClass
 	public void closebrowser(){
 		driver.close();
 	}
+
 }

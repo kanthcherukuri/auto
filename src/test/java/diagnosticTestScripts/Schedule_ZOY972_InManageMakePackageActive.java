@@ -6,6 +6,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
@@ -36,7 +39,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","America","30000","2","Full Body Blood Test for Malaria","americatest","Full Body Blood Test for Malaria"}
+					{ "yes","Anantpur","30000","2","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
 
 			};
 		}
