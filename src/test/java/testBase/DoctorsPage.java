@@ -80,11 +80,11 @@ public class DoctorsPage  {
 
 	// Doctors login Details 
 	public  void SignIn(String username, String password) throws IOException{	
-		//Browser.waitFortheID("emailAddress");	
+		Browser.waitFortheID("emailAddress");	
 		driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
 		driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
-		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();				
-
+		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();			
+		Browser.waitFortheID("schedule");
 	}
 	
 	/*
@@ -630,6 +630,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
  public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
 	 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();
+	 Browser.waitFortheElementXpath(Elements_Doctors.todaymenu);
 	 driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
 	 driver.findElement(By.xpath(Elements_Doctors.morning)).click();
      Thread.sleep(1000);
