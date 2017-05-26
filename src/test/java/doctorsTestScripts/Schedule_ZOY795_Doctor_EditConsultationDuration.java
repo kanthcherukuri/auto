@@ -16,12 +16,19 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import objectRepository.Elements_Admin;
+import objectRepository.Elements_Recipients;
+import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
+import testBase.TestUtils;
+
 import org.testng.annotations.BeforeTest;
 
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -33,84 +40,49 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
-public class Schedule_ZOY795_Doctor_EditConsultationDuration{
+public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
+{
+	public TestUtils Browser;
+	public DoctorsPage docpage;
+	public String duration="30";
 	
-	WebDriver driver;
-	public  WebDriverWait wait; 
-	String actual_text1;
-	String data="LOCALITY";
-	SoftAssert sa=new SoftAssert();
-	
-	  //===============================================================================================================================================================//	
-	
-  @Test(groups = { "Regression","High" })
-  public void testEditConsultationDuration() throws InterruptedException, ParseException, AWTException {
-	  
-	
-	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
-	  wait=new WebDriverWait(driver, 8000);
-	
-	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]")));
-	  driver.findElement(By.xpath(".//*[@id='schedule_scheduleIcon']")).click();
-	  
-	  
-	  System.out.println("EDITING THE CONSULTATION DURATION OF DOCTOR PROVIDER");
-	  
-	  driver.findElement(By.xpath(".//*[@id='cd-10']/div")).click();
-	  WebElement mainMenu = driver.findElement(By.xpath("//canvas"));
-	  Actions action = new Actions(driver);action.moveToElement(mainMenu,40,0).click().perform();
-	  
-	  System.out.println("Scrolling to the bottom");
-	  
-	  Robot robot = new Robot();
-	  robot.keyPress(KeyEvent.VK_PAGE_DOWN);
-	  robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
-	    
-	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='tab-consult']/div[9]/div/div/span")));
-	    
-	  driver.findElement(By.xpath(".//*[@id='tab-consult']/div[9]/div/div/span")).click();
-	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("html/body/div[6]/div")));
-	  actual_text1=driver.findElement(By.xpath("html/body/div[6]/div")).getText();
-	  System.out.println(actual_text1);
-	  if(actual_text1.contains("Successfully"))
-	  {
-		  System.out.println("THE CONSULTATION DURATION EDITED SUCCESSFULLY AND TEST CASE PASSED");
-	  }
-	  
-	  if(!actual_text1.contains("Successfully"))
-	  {
-		  System.out.println("THE CONSULTATION DURATION EDITED UNSUCCESSFULLY AND TEST CASE FAILED");
-		  AssertJUnit.fail(actual_text1);
-		  
-	  }	 
-	 
-  }
+	@Test()
+	public void editConsultationDuration() throws Exception
+	{
+		docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		docpage.BulkCancel();
+		Thread.sleep(2000);
+		driver.findElement(By.id("schedule")).click();
+		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		driver.findElement(By.id("consultation-min")).clear();
+		Thread.sleep(3000);
+		driver.findElement(By.id("consultation-min")).sendKeys(duration);
+		//driver.findElement(By.xpath("sp-doc-conc-duration-label")).click();
+		Browser.scrollbyxpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']");
+		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+		Thread.sleep(3000);
+		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+	}
   
-  //===============================================================================================================================================================//
-  
-  @BeforeTest(groups = { "Regression","High" })
-  public void beforeTest() throws Exception {
-	  
-	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.doctors_Url);
-	  driver.manage().window().maximize();
-	  Thread.sleep(8000);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernameone);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordone);
-	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
-	  Thread.sleep(4000);
-  }
-  
-  //===============================================================================================================================================================//
-  
-  @AfterTest(groups = { "Regression","High" })
-  public void afterTest() {
-	  
-	  driver.close();
-  }
-
+	@BeforeClass
+	public void launchapp() throws Exception
+	{
+		LoadBrowserProperties();
+		Elements_Admin.Admin_PageProperties(); // loading the Elements
+		Elements_Recipients.Recipients_PageProperties();
+		Browser= new TestUtils(driver);
+		docpage=new DoctorsPage(driver);
+		driver.get(recipient_url);
+	}
+	
+	@AfterClass
+	public void closeapp() throws Exception
+	{
+		Thread.sleep(3000);
+		driver.close();
+	}
 }
-
-//===============================================================================================================================================================//

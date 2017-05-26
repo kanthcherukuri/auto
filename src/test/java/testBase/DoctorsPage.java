@@ -525,10 +525,6 @@ public class DoctorsPage  {
 		Thread.sleep(3000);
 		}
 
-
-
-
-
 		public void BulkCancel() throws Exception{
 		Date today = new Date(); 
 		Calendar calendar = Calendar.getInstance();  
@@ -550,6 +546,7 @@ public class DoctorsPage  {
 	   Thread.sleep(3000);
 	   driver.findElement(By.xpath(Elements_Doctors.canceltodate)).sendKeys(enddate);
 	   Thread.sleep(3000);
+	   driver.findElement(By.xpath(Elements_Doctors.cancelfromtime)).click();
 	   driver.findElement(By.xpath(Elements_Doctors.cancelfromtime)).sendKeys("07:00");
 	   Thread.sleep(2000);
 	   driver.findElement(By.xpath(Elements_Doctors.canceltotime)).sendKeys("23:00");
