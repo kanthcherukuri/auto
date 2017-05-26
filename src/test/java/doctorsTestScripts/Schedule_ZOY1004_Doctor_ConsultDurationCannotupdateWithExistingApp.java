@@ -76,8 +76,9 @@ public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp 
 	}
 	
 	@AfterClass
-	public void closeapp() throws InterruptedException
+	public void closeapp() throws Exception
 	{
+		docpage.BulkCancel();
 		Thread.sleep(3000);
 		driver.close();
 	}

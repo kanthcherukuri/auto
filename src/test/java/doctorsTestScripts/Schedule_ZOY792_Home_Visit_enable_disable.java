@@ -1,42 +1,44 @@
 package doctorsTestScripts;
-
-/*author - manraj bharaj
-
-
-Description: Schedule Doctor under Home Visit tab , actiavte and deactivate the 
-home visit option by clicking on the car icon
-Refer manual test case ZOY792 for any information.
-
-Schedule_ZOY792_Home_Visit_enable_disable
- */
-
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Admin;
+import objectRepository.Elements_Recipients;
+
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import testBase.DoctorsPage;
 import testBase.LoadProp;
+import testBase.LoadPropMac;
+import testBase.TestUtils;
 
-public class Schedule_ZOY792_Home_Visit_enable_disable {
-	
-	WebDriver driver;
+public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
+{
+	public TestUtils Browser;
+	public DoctorsPage docpage;
 	public  WebDriverWait wait;
 	
 	
-  @Test
-  public void testEnableDisableHomeVisit() throws InterruptedException {
-	  
+  @Test()
+  public void testEnableDisableHomeVisit() throws InterruptedException, IOException 
+  {
+	  docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
 	  wait=new WebDriverWait(driver, 8000);
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]")));
@@ -109,32 +111,26 @@ public class Schedule_ZOY792_Home_Visit_enable_disable {
 			  else
 			  {
 				  AssertJUnit.fail("TEST CASE FAILED");
-			  }
-	
-	 
+			  } 
   }
   }
  
   
-  @BeforeTest(groups = { "Regression","High" })
-  public void beforeTest() throws Exception {
-	  
-	  driver=LoadProp.LoadBrowserProperties();
-	  driver.get(LoadProp.doctors_Url);
-	 
-	  driver.manage().window().maximize();
-	  Thread.sleep(4000);
-	  driver.findElement(By.id("emailAddress")).sendKeys(LoadProp.DoctorsLogin_usernametwo);
-	  driver.findElement(By.id("password")).sendKeys(LoadProp.DoctorsLogin_passwordtwo);
-	  driver.findElement(By.xpath(".//*[@id='zoyloCustLogin-form']//button[@class='signup-btn']")).click();
-	  
-  }
-  
-  
-
-  @AfterTest(groups = { "Regression","High" })
-  public void afterTest() {
-	  
-	 driver.close();
-  }
+  @BeforeClass
+	public void launchapp() throws Exception
+	{
+		LoadBrowserProperties();
+		Elements_Admin.Admin_PageProperties(); // loading the Elements
+		Elements_Recipients.Recipients_PageProperties();
+		Browser= new TestUtils(driver);
+		docpage=new DoctorsPage(driver);
+		driver.get(recipient_url);
+	}
+	
+	@AfterClass
+	public void closeapp() throws Exception
+	{
+		Thread.sleep(3000);
+		driver.close();
+	}
 }
