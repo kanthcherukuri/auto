@@ -574,6 +574,38 @@ public class DoctorsPage  {
 		
 		/*
 		 * Author: Sagar Sen
+		 * Description: This method will check the addition of break times for a doctor
+		 * Param: start time and end time
+		 * Return:
+		 */
+		public void checkAddBreakTimes(String strtTime, String endTime)
+		{
+			//Click saturday break time
+			driver.findElement(By.xpath("(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]")).click(); //toggle
+			driver.findElement(By.id("sat_start_time")).sendKeys(strtTime);
+			driver.findElement(By.id("sat_end_time")).sendKeys(endTime);
+			driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will remove the break times for a doctor
+		 * Param: start time and end time
+		 * Return:
+		 */
+		public void checkremoveBreakTimes()
+		{
+			//Click saturday break time
+			driver.findElement(By.id("sat_start_time")).clear();
+			driver.findElement(By.id("sat_end_time")).clear();
+			driver.findElement(By.xpath("(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]")).click(); //toggle
+			driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
 		 * Description: This method will cancel the vacation for a doctor
 		 * Param:
 		 * Return:
