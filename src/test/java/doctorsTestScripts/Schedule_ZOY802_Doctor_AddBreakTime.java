@@ -13,8 +13,6 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 {
 	public TestUtils Browser;
 	public DoctorsPage docpage;
-	public String strtTime="13:00";
-	public String endTime="14:00";
 	
 	@Test()
 	public void testAddBreakTime() throws Exception 

@@ -581,10 +581,10 @@ public class DoctorsPage  {
 		public void checkAddBreakTimes(String strtTime, String endTime)
 		{
 			//Click saturday break time
-			driver.findElement(By.xpath("(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]")).click(); //toggle
-			driver.findElement(By.id("sat_start_time")).sendKeys(strtTime);
-			driver.findElement(By.id("sat_end_time")).sendKeys(endTime);
-			driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+			driver.findElement(By.xpath(Elements_Doctors.satToggle)).click(); //toggle
+			driver.findElement(By.id(Elements_Doctors.satStrtTime)).sendKeys(strtTime);
+			driver.findElement(By.id(Elements_Doctors.satEndTime)).sendKeys(endTime);
+			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		}
 		
@@ -597,10 +597,46 @@ public class DoctorsPage  {
 		public void checkremoveBreakTimes()
 		{
 			//Click saturday break time
-			driver.findElement(By.id("sat_start_time")).clear();
-			driver.findElement(By.id("sat_end_time")).clear();
-			driver.findElement(By.xpath("(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]")).click(); //toggle
-			driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+			driver.findElement(By.id(Elements_Doctors.satStrtTime)).clear();
+			driver.findElement(By.id(Elements_Doctors.satEndTime)).clear();
+			driver.findElement(By.xpath(Elements_Doctors.satToggle)).click(); //toggle
+			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will add the clinic work times for a doctor
+		 * Param: start time and end time
+		 * Return:
+		 */
+		public void addClinicWorkTimings(String strtTime, String endTime) throws Exception
+		{
+			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+			Browser.waitFortheID(Elements_Doctors.clinicName);
+			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
+			driver.findElement(By.id(Elements_Doctors.AddWorkTime)).click(); //Add sat clinic slot
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(strtTime);
+			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(endTime);
+			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will remove the clinic work times for a doctor
+		 * Param: 
+		 * Return:
+		 */
+		public void removeClinicWorkTimings() throws Exception
+		{
+			Thread.sleep(2000);
+			driver.findElement(By.id("0")).click();
+			//driver.findElement(By.id("1")).click();
+			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		}
 		

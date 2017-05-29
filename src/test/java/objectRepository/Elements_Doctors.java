@@ -101,13 +101,34 @@ public class Elements_Doctors  {
 				//set vacation
 				public static String setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
 				
-		
+				//Break timings
+				public static String satToggle, satStrtTime, satEndTime;
+				
+		//submit schedule
+				public static String submitSchedule;
+				
+		//Clinic tab
+				public static String clinicTab, clinicName, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
-	   
+	 //clinic tab
+		clinicTab="(//div[contains(., 'Clinics')])[4]";
+		clinicName="editClinicName";
+		sundayTab="cd-6";
+		AddWorkTime="clinic_add_slot";
+		sundayToggle="//label[@class='sp-doc-clinic-workday-switch-label']";
+		WstrtTime="//input[@class='slot-start']";
+		WendTime="//input[@class='slot-end']";
+		clinicSubmitTimeSlots="(//span[@class='sp-doc-clinic-schd-save'])[2]";
+		
+		
+		//submit schedule
+		submitSchedule="//div[@class='sp-doc-clinic-schd-save-btn menu_links']";
+		
+	//Set Vacation
 	setVacation="setVacation";
 	addVacationSlot="addVacationSlots";
 	vacationStart="(//input[@class='datepicker'])[1]";
@@ -115,6 +136,11 @@ public class Elements_Doctors  {
 	vacationActive="vac_status0";
 	vacationSave="vacation_save";
 	removeVacationSlot="//i[@class='fa fa-minus-circle removeVacationSlots']";
+	
+	//Break Timings
+	satToggle="(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]";
+	satStrtTime="sat_start_time";
+	satEndTime="sat_end_time";
 		
 		/*
 		 * @Recent Changes 	: @Authur: Sagar Sen
