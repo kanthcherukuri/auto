@@ -238,9 +238,10 @@ public class RecipientPage  {
 	 *  @Description : This method is used to click on book button in Doctors
 	 *  @Parameters  : 
 	 *  @Return      : 
+	 *  Last Change  : 
 	 */	
 	public void bookAppointment() throws InterruptedException{
-		driver.findElement(By.id("self")).click();
+		//driver.findElement(By.id("self")).click();
 		driver.findElement(By.id("bookAppointment")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
