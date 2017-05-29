@@ -28,7 +28,7 @@ public class LoadPropMac   {
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
 
-	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount;
+	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount, DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo;
 	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment, recipientDC_User, recipientDC_Password;
@@ -69,6 +69,9 @@ public class LoadPropMac   {
         
         DoctorsLogin_usernameone=prop.getProperty("DoctorsLogin.usernameone");
         DoctorsLogin_passwordone=prop.getProperty("DoctorsLogin.passwordone");
+        
+        DoctorsLogin_usernametwo=prop.getProperty("DoctorLogin.usernamethree");
+        DoctorsLogin_passwordtwo=prop.getProperty("DoctorLogin.passwordthree");
       
        //Recipients -Login Credentails
         Recipient_Username=prop.getProperty("Recipient.Username");

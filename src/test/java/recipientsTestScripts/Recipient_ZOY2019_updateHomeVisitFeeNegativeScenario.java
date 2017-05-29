@@ -16,13 +16,13 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	public testBase.DoctorsPage DoctorsPage;
-	String homeFee="321";
+	String homeFee="333";
 	
 	@Test()
 	public void homeFeeUpdateScenario() throws Exception
 	{
 		//Doctor
-		DoctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		DoctorsPage.SignIn(DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo);
 		DoctorsPage.goToScheduleHomeVisit();
 		driver.findElement(By.id("houseCallServiceFee")).clear();
 		driver.findElement(By.id("houseCallServiceFee")).sendKeys(homeFee);
@@ -50,7 +50,7 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 			System.out.println("Home visit fee on book apt page is "+bookPageFee);
 		}
 		RecipientPage.bookAppointment();
-		Browser.waitforTextbyxpath("//div[@class='payment-top-heading']//span[@class='pmt-top-title']", "Payment Options");
+		Browser.waitforTextbyxpath("//h4[contains(., 'Reveiw Your Appointment Details')]", "Reveiw Your Appointment Details");
 		String pmtPageFee = driver.findElement(By.xpath("(//div[@class='zy-sp-payment-values'])[1]")).getText();
 		if(pmtPageFee.contains(homeFee))
 		{
