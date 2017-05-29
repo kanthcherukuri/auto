@@ -27,10 +27,10 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 
 	public String dcNameV="Twofivedcs";
 	public String dcshrV="Twofives";
-	public String dcEmail="may251@zoy.com";
-	public String dcNum="9000000017";
-	public String ucontactNumber="9000000017";
-	public String ucontactEmail="milan21@zoylo.com";
+	public String dcEmail="may29_1@zoy.com";
+	public String dcNum="9934653212";
+	public String ucontactNumber="9000000018";
+	public String ucontactEmail="milan22@zoylo.com";
 
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";

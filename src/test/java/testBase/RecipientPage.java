@@ -327,7 +327,7 @@ public class RecipientPage  {
 	 */
 	public void paymentOptions(int paymentValue)
 	{
-		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
+		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();
