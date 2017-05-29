@@ -102,7 +102,7 @@ public class Elements_Doctors  {
 				public static String setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
 				
 				//Break timings
-				public static String satToggle, satStrtTime, satEndTime;
+				public static String sunToggle, sunStrtTime, sunEndTime;
 				
 		//submit schedule
 				public static String submitSchedule;
@@ -138,9 +138,9 @@ public class Elements_Doctors  {
 	removeVacationSlot="//i[@class='fa fa-minus-circle removeVacationSlots']";
 	
 	//Break Timings
-	satToggle="(//label[@class='sp-doc-conc-work-hours-switch-label'])[6]";
-	satStrtTime="sat_start_time";
-	satEndTime="sat_end_time";
+	sunToggle="(//label[@class='sp-doc-conc-work-hours-switch-label'])[7]";
+	sunStrtTime="sun_start_time";
+	sunEndTime="sun_end_time";
 		
 		/*
 		 * @Recent Changes 	: @Authur: Sagar Sen

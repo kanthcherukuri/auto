@@ -580,12 +580,13 @@ public class DoctorsPage  {
 		 */
 		public void checkAddBreakTimes(String strtTime, String endTime)
 		{
-			//Click saturday break time
-			driver.findElement(By.xpath(Elements_Doctors.satToggle)).click(); //toggle
-			driver.findElement(By.id(Elements_Doctors.satStrtTime)).sendKeys(strtTime);
-			driver.findElement(By.id(Elements_Doctors.satEndTime)).sendKeys(endTime);
+			//Click Sunday break time
+			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
+			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
+			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
+			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).sendKeys(strtTime);
+			driver.findElement(By.id(Elements_Doctors.sunEndTime)).sendKeys(endTime);
 			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		}
 		
 		/*
@@ -597,9 +598,9 @@ public class DoctorsPage  {
 		public void checkremoveBreakTimes()
 		{
 			//Click saturday break time
-			driver.findElement(By.id(Elements_Doctors.satStrtTime)).clear();
-			driver.findElement(By.id(Elements_Doctors.satEndTime)).clear();
-			driver.findElement(By.xpath(Elements_Doctors.satToggle)).click(); //toggle
+			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
+			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
+			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
 			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		}

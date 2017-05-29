@@ -23,6 +23,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 		driver.findElement(By.id("schedule")).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		docpage.checkAddBreakTimes("13:00", "14:00");
+		Browser.CheckNotificationMessage("Schedule Updated Successfully");
 	}
 	
 	@BeforeClass
