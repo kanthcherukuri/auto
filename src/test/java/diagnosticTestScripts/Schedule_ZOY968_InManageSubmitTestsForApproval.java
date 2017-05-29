@@ -1,7 +1,12 @@
 package diagnosticTestScripts;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -44,9 +49,13 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
 		Thread.sleep(2000);
-	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("SugarBloodTest","Full body Test for all ", "2000", "2");
+	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("Sulochanaytest","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
+		Thread.sleep(8000);
+		String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
+		Assert.assertEquals(ActualNotification,"Approval is pending");
+		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	
 	@AfterClass

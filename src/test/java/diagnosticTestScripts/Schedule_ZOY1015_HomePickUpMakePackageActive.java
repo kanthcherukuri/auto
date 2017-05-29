@@ -40,7 +40,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Singnagar","Full Body Test","10000","2","Singnartest","Full Body Test"}
+					{ "yes","Shampet","Full Body Test","10000","2","Shampettest","Full Body Test"}
 
 			};
 		}

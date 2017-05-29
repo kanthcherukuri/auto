@@ -34,7 +34,7 @@ public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 	@Test
 	public void ScheduleHomePickupTestSubmitForApproval() throws Exception{
@@ -46,6 +46,7 @@ public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac
 		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
 	}
 
+	
 	@AfterClass
 	  public void CloseBrowser() {
 		driver.close();

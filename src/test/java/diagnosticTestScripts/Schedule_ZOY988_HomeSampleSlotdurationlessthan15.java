@@ -31,16 +31,22 @@ public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropM
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamethree, Diagnostic_passwordthree);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
 	
 	@Test
 	public void HomeSampleCollectionSlotdurationlessthan15() throws Exception{
-		
-		driver.findElement(By.id("schedule")).click();
+		DiagnosticPageZoylo.ClickonAppointmentMenu();
+		Thread.sleep(3000);
+		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00","23:00");
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
 		Thread.sleep(2000);
+		
 		driver.findElement(By.id("homeVisitSlotDuration")).clear();
 		driver.findElement(By.id("homeVisitSlotDuration")).sendKeys("10");
 		Thread.sleep(2000);

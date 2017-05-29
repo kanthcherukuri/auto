@@ -53,14 +53,14 @@ public class Schedule_ZOY992_HomeSampleAppointmentSlot extends LoadPropMac{
 		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();
-		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).sendKeys("8");
+		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).sendKeys("30");
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.HomeSampleSave)).click();
 //		WebDriverWait wait = (new WebDriverWait(driver, 2000));
 //		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 //		String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 //		AssertJUnit.assertTrue(Notification.contains("You can't update home visit Appointments per slot. You have existing appointment on: "));
-		DiagnosticPageZoylo.diagnosticlogout();
+		
 	}
 	
 	@AfterClass
