@@ -7,7 +7,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import objectRepository.*;
 import org.openqa.selenium.By;
@@ -523,6 +525,80 @@ public class DoctorsPage  {
 		Thread.sleep(1000);
 		driver.findElement(By.id("saveAddInfo")).click();
 		Thread.sleep(3000);
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will set the vacation for a doctor
+		 * Param:
+		 * Return:
+		 */
+		public void setVacation() throws InterruptedException
+		{
+			Date today = new Date(); 
+			Calendar calendar = Calendar.getInstance();  
+			calendar.setTime(today);  
+			calendar.add(Calendar.MONTH, 1);  
+			calendar.set(Calendar.DAY_OF_MONTH, 1);  
+			calendar.add(Calendar.DATE, -1);  
+			DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+			Date lastDayOfMonth = calendar.getTime(); 
+			String date=sdf.format(today);
+			String enddate= sdf.format(lastDayOfMonth);
+			System.out.println(date);
+			System.out.println(enddate);
+			//Set vacation
+			driver.findElement(By.id(Elements_Doctors.setVacation)).click();
+			//Pop up handler
+			String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+			String subWindowHandler = null;
+			Set<String> handles = driver.getWindowHandles(); // get all window handles
+			Iterator<String> iterator = handles.iterator();
+			while (iterator.hasNext())
+			{
+			    subWindowHandler = iterator.next();
+			}
+			driver.switchTo().window(subWindowHandler); // switch to popup window
+			Thread.sleep(1000);                         // perform operations on popup
+			driver.findElement(By.id(Elements_Doctors.addVacationSlot)).click();
+			Thread.sleep(2000);
+			Browser.actionbyXpath(Elements_Doctors.vacationStart, date);
+			Thread.sleep(2000);
+			Browser.actionbyXpath(Elements_Doctors.vacationEnd, date);
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
+			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
+			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+			Browser.CheckNotificationMessage("Your vacation successfully updated");
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will cancel the vacation for a doctor
+		 * Param:
+		 * Return:
+		 */
+		public void cancelVacation() throws Exception
+		{
+			//Set vacation
+			driver.findElement(By.id(Elements_Doctors.setVacation)).click();
+			//Pop up handler
+			String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+			String subWindowHandler = null;
+			Set<String> handles = driver.getWindowHandles(); // get all window handles
+			Iterator<String> iterator = handles.iterator();
+			while (iterator.hasNext())
+			{
+			    subWindowHandler = iterator.next();
+			}
+			driver.switchTo().window(subWindowHandler); // switch to popup window
+			Thread.sleep(1000);                         // perform operations on popup
+			driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
+			Thread.sleep(1000); 
+			driver.findElement(By.xpath(Elements_Doctors.removeVacationSlot)).click();
+			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
+			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+			Browser.CheckNotificationMessage("Your vacation successfully updated");
 		}
 
 		public void BulkCancel() throws Exception{

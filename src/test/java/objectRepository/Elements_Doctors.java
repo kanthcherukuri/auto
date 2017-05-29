@@ -98,7 +98,8 @@ public class Elements_Doctors  {
 				//Alert variables
 				public static String clickonview, getfullnameonclickviewmenu, clickonalertmenu, getappointmentid;
 				
-				
+				//set vacation
+				public static String setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
 				
 		
 	 
@@ -107,7 +108,13 @@ public class Elements_Doctors  {
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 	   
-	
+	setVacation="setVacation";
+	addVacationSlot="addVacationSlots";
+	vacationStart="(//input[@class='datepicker'])[1]";
+	vacationEnd="(//input[@class='datepicker'])[2]";
+	vacationActive="vac_status0";
+	vacationSave="vacation_save";
+	removeVacationSlot="//i[@class='fa fa-minus-circle removeVacationSlots']";
 		
 		/*
 		 * @Recent Changes 	: @Authur: Sagar Sen
