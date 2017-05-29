@@ -7,8 +7,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
 import objectRepository.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -410,31 +408,6 @@ public class DoctorsPage  {
 		}//For Loop
 			 
 		 }//if loop slotsize
-		 
-		}
-
-
-		public static WebElement isElementPresnt(WebDriver driver,String xpath,int time)
-		{WebElement ele = null;
-		for(int i=0;i<time;i++)
-		{
-		try{
-		ele=driver.findElement(By.xpath(xpath));
-		break;
-		}
-		catch(Exception e)
-		{
-		try 
-		{
-		Thread.sleep(1000);
-		} catch (InterruptedException e1) 
-		{
-		System.out.println("Waiting for element to appear on DOM");
-		}
-		}
-		 
-		}
-		return ele;
 		 
 		}
 

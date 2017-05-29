@@ -20,14 +20,15 @@ import testBase.TestUtils;
 public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	
 		public DoctorsPage DoctorsPageOfZoylo;
-		public TestUtils exceldata;
+		public TestUtils Browser;
 		
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void beforeClass() throws Exception {
 		 LoadBrowserProperties();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+		 Browser=new TestUtils(driver);
 		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 
