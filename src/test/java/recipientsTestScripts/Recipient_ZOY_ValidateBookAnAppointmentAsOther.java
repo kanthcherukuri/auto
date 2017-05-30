@@ -44,7 +44,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 
 
 	@Test(groups = { "Regression","High" })
-	public void validateBookingAnAppointment( ) throws Exception {
+	public void ValidateBookAnAppointmentAsOther( ) throws Exception {
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			

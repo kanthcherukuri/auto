@@ -53,7 +53,7 @@ public class test extends LoadPropMac{
 	         response = cursor.next().toString();
 	             System.out.println(response); 
 	            
-	             
+	     
 	  	 } 
 	          //Assert.assertTrue(response.contains("kanthch@hotmail.com"));
 	          System.out.println("Asserted successfully");

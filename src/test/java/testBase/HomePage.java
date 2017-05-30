@@ -59,6 +59,12 @@ public class HomePage  {
 		
 		
 	}
+	
+	 
+	 
+	 
+	
+	 
 public  void searchDiagnosticsZoylo(String City, String Locality,String Specialization) throws InterruptedException{
 		
 		

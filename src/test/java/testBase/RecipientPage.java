@@ -280,8 +280,8 @@ public class RecipientPage  {
 		Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
 		Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
 		Appointmentdetails[1] = driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).getText();
-
-
+        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+        System.out.println("Appointment Time:"+Appointmentdetails[1]);
 		if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
 
 			throw new SkipException("Slots are not available");
@@ -422,10 +422,10 @@ public class RecipientPage  {
 	 */
 	public void confirmAppointment(String details) throws InterruptedException{
 
-		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
+		Browser.waitFortheElementXpath("//div[@id='bookAppointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
 		driver.findElement(By.xpath("//input[@value='self']")).click(); // self (Added newly)
-		driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
+		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
@@ -451,7 +451,7 @@ public class RecipientPage  {
 	 */
 	public void confirmAppointmentAsOthers(String details,String Pname,String Lname,String Pgender,String PAge,String BloodGRP) throws InterruptedException{
 
-		Browser.waitFortheElementXpath("//div[text()='Confirm Appointment']");
+		Browser.waitFortheElementXpath("//div[@id='bookAppointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
 		driver.findElement(By.xpath("//input[@value='others']")).click(); // self (Added newly)
 		Thread.sleep(2000);
@@ -460,9 +460,9 @@ public class RecipientPage  {
 		driver.findElement(By.id("patientGender")).sendKeys(Pgender);
 		driver.findElement(By.id("patientAge")).sendKeys(PAge);
 		driver.findElement(By.id("bloodGroup")).sendKeys(BloodGRP);
-		Browser.scrollbyxpath("//div[text()='Confirm Appointment']");		
+		Browser.scrollbyxpath("//div[@id='bookAppointment']");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[text()='Confirm Appointment']")).click();  //Confirm Appointment
+		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}

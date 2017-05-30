@@ -40,7 +40,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 
 	
 	@Test(groups = { "Regression","High" })
-	public void validateBookingAnAppointment( ) throws Exception {
+	public void validatePromoCodeInPaymentsDoctors( ) throws Exception {
 
 			//Test Starts-Here
 			Browser.openUrl(recipient_url);			
@@ -70,38 +70,29 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 		    Browser.verifyNotificationMessage("Promocode applied successfully");
 		    //verifying Consultation Fee
 		    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Consultation Fee')]/div[2]")).getText();
-	        System.out.println("PaymentConsultationFee="+PaymentConsultationFee);
-	        Assert.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(". ", ""));
-	        //verifying Booking Fee
-		    String PaymentBookingFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Booking Fee ')]/div[2]")).getText();
-	        System.out.println("PaymentBookingFee="+PaymentBookingFee);
-	        String BookingfeeString = PaymentBookingFee.replace(". ", "");
-	        System.out.println("BookingfeeString="+BookingfeeString);
-	        Assert.assertEquals(BookingfeeString, "9.00");
-	        //verifying Service Tax
-		    String PaymentServiceTax=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Service Tax')]/div[2]")).getText();
-	        System.out.println("PaymentServiceTax="+PaymentServiceTax);
-	        String PaymentServiceTaxString = PaymentServiceTax.replace(". ", "");
-	        System.out.println("PaymentServiceTaxString="+PaymentServiceTaxString);
-	        Assert.assertEquals(PaymentServiceTaxString, "1.00");
+	        System.out.println("PaymentConsultationFee="+PaymentConsultationFee.replace(".00", ""));
+	        Assert.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(".00", ""));
+
 	        //verifying Promotion amount
-		    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Amount')]/div[2]")).getText();
+		    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Applied ')]/div[2]/span[2]")).getText();
 	        System.out.println("PromotionAmount="+PromotionAmount);
-	        String PromotionAmountString = PromotionAmount.replace(". ", "");
-	        System.out.println("PromotionAmountString="+PromotionAmountString);
-	        Assert.assertEquals(PromotionAmountString, "5.00");
-	        //verifying Total amount
-		    String TotalAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Total')]/div[2]")).getText();
-	        System.out.println("TotalAmount="+TotalAmount);
-	        String TotalAmountString = TotalAmount.replace(". ", "");
-	        System.out.println("TotalAmountString="+TotalAmountString);
-	        Assert.assertEquals(TotalAmountString, "5.00");
+	        Assert.assertEquals(PromotionAmount, "5.00");
+	        //verifying Total Fee
+		    String TotalFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Total Fee')]/div[2]")).getText();
+	        System.out.println("TotalAmount="+TotalFee);
+	       // String TotalAmountString = TotalAmount.replace(". ", "");
+	        System.out.println("TotalFee="+TotalFee);
+	        Assert.assertEquals(TotalFee, "95.00");
+	        //verifying Advance Confirmation Fee
+		    String AdvanceFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts'and contains(.,'Advance Conformation Fee')]/div[2]")).getText();
+	        System.out.println("PromotionAmount="+AdvanceFee);
+	        Assert.assertEquals(AdvanceFee, "5.00");
 	        //verifying Balance Amount
-		    String BalanceAmount=driver.findElement(By.xpath("//div[@class='balancetopay zy-sp-payment-opts' and contains(.,'Balance to pay at clinic ')]/div[2]")).getText();
+		    String BalanceAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Balance to pay at Clinic')]/div[2]")).getText();
 	        System.out.println("BalanceAmount="+BalanceAmount);
-	        String BalanceAmountString = BalanceAmount.replace(". ", "");
-	        System.out.println("BalanceAmountString="+BalanceAmountString);
-	        Assert.assertEquals(BalanceAmountString, "90");
+	       // String BalanceAmountString = BalanceAmount.replace(". ", "");
+	        System.out.println("BalanceAmountString="+BalanceAmount);
+	        Assert.assertEquals(BalanceAmount, "90.00");
 	        
 	
 	

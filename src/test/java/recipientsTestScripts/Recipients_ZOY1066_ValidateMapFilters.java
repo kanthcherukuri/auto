@@ -29,9 +29,6 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
-	
-	
-		
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
@@ -47,7 +44,6 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		  	 
  } 
 
- 
 
 	 @Test(groups = { "Regression","High" },priority=1)
 	 public void validateApplyFiltersOptions() throws Exception {

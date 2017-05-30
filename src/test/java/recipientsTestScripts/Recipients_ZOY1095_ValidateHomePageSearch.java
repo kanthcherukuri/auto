@@ -36,27 +36,21 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		  
 		  HomePage = new HomePage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
-	
+		  Browser.shareGeoLocation();
 		  	 
  } 
 
 	 
 	 
-	 @BeforeMethod(groups = { "Regression","High" })
-	 public void HomePage() throws Exception {
-			 Browser.openUrl(base_url);
 	
-	    }
-	 
- 
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
 					{ "yes","Hyderabad","Ameerpet","CARDIOLOGY","Ameerpet" },
 					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Marathahalli" },
 					{ "yes","Bengalore","Koramangala","","Koramangala" },
-					{ "yes","Hyderabad","","","Kachiguda" },
-					{ "yes","Hyderabad","","CARDIOLOGY","Kachiguda" },
+					{ "yes","Hyderabad","","","Kondapur" },
+					{ "yes","Hyderabad","","CARDIOLOGY","Kondapur" },
 
 			};
 		}
@@ -65,11 +59,12 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		  
 		 if(runmode.equals("yes")){
 			 //Test Starts - Here
-			// Browser.openUrl(base_url);
+			 Browser.openUrl(base_url);
+			 Thread.sleep(2000);
 			 HomePage.searchZoylo(City, Locality, Specialization);
 			 Browser.waitFortheID(Elements_Home.map_AreaName);
-			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 Thread.sleep(2000);
+			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
 			 Assert.assertEquals(ActualResult, Expected);	
 			
@@ -77,23 +72,15 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		
 			 throw new SkipException("RUNMODE IS OFF");
 		 }
-			
-			
+	
 	    }
-    
-	 
-	 
-	 
-	 
-	 
+
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
-
-	       
+ 
 	       driver.close();
-	       
-	      
+ 
 	    }
     
 	

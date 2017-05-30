@@ -70,7 +70,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
+			                                    
 			//Review the Appointment
 			RecipientPage.openMyAccounts();
 			driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
@@ -81,6 +81,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 
 			driver.findElement(By.id("reviewIcon")).click();
 			Browser.waitTill(60);
+			Browser.scrollbyID("comment");
 			driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 			driver.findElement(By.id("submitReview")).click();
 			Browser.waitTill(60);

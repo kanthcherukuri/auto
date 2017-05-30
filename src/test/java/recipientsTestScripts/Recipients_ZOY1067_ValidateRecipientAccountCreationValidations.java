@@ -71,8 +71,8 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 			 driver.findElement(By.id("emailAddress")).sendKeys(Email);
 			 driver.findElement(By.id("mobileNumber")).sendKeys(Mobile);
 			 driver.findElement(By.id("password")).sendKeys(Password);
-			 driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
-			 driver.findElement(By.id("referralCode")).sendKeys(RefCode);
+			// driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
+			// driver.findElement(By.id("referralCode")).sendKeys(RefCode);
 			 driver.findElement(By.xpath("//button[text()='Sign Up']")).click();
 			 Thread.sleep(5000);
 			 
@@ -88,9 +88,6 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 			//Validation Of Password
 			 String ActualPasswordValidattion =driver.findElement(By.xpath("(//div[@class='signup-error-msg signup-error-msg-bottom'])[1]")).getText();		 
 			 Assert.assertEquals(ActualPasswordValidattion, PasswordValidation);
-			//Validation Of confirm Password
-			 String ActualConfirmPasswordValidattion =driver.findElement(By.xpath("(//div[@class='signup-error-msg signup-error-msg-bottom'])[2]")).getText();		 
-			 Assert.assertEquals(ActualConfirmPasswordValidattion, ConfirmPasswordValidation);
 			//Verifying screen validation			 
 			 if (ScreenValidationTab.equals("yes")){
 				String ActualscreenValidattion =driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();		 
