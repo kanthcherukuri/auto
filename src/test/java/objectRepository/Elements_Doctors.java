@@ -29,6 +29,7 @@ public class Elements_Doctors  {
 		
 				public static String doctortab;
 				public static String todaymenu;
+				public static String sundayMenu;
 				public static String tommorrowmenu;
 				public static String morning;
 				public static String noon;
@@ -170,6 +171,7 @@ public class Elements_Doctors  {
 			 
 			 doctortab="appointment_appointmentCalendar";
 			 todaymenu="//*[@id='cd-0']";
+			 sundayMenu="(//li[@class='calendarDateli' and contains(., 'Sunday')])[1]";
 			 tommorrowmenu="//*[@id='cd-1']";
 			 morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
 			 noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
