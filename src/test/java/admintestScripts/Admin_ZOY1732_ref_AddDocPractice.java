@@ -22,7 +22,7 @@ public class Admin_ZOY1732_ref_AddDocPractice extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/lineOfPracticeList";
 	public String pit = "https://pit.zoylo.com/admin/lineOfPracticeList";
-	public String lopName="Twofivelop";
+	public String lopName="Threezerolop";
 	
 	@Test()
 	public void addDocPractice()
