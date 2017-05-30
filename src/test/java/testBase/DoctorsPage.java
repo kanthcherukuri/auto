@@ -591,6 +591,17 @@ public class DoctorsPage  {
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
 			driver.findElement(By.id(Elements_Doctors.AddWorkTime)).click(); //Add sat clinic slot
+			
+			try {
+				if(driver.findElements(By.id("1")).size()!=0)
+				{
+					driver.findElement(By.id("1")).click();
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.out.println("Two slot tabs did not open");
+			}
+			
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
 			Thread.sleep(1000);
