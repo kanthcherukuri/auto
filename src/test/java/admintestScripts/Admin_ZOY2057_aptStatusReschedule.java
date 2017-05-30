@@ -34,7 +34,7 @@ public class Admin_ZOY2057_aptStatusReschedule extends LoadPropMac
 		Browser.waitforTextbyxpath("//div[@class='panel-heading text-left adminListHeader']//h4[contains(., 'Appointments')]", "Appointments");
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(aptID);
 		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", aptID);
-		if(driver.findElement(By.xpath("(//select[@class='appointmentsStatusChangeId'])[1]")).isDisplayed())
+		if(driver.findElements(By.xpath("(//select[@class='appointmentsStatusChangeId'])[1]")).size()!=0)
 		{
 			Browser.scrollbyxpath("(//select[@class='appointmentsStatusChangeId'])[1]");
 			Browser.horizontalScroll();
