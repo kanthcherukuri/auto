@@ -202,7 +202,7 @@ public class TestUtils {
 							path)));
 					qua.click();
 					qua.sendKeys(value);
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
 				}
@@ -232,6 +232,14 @@ public class TestUtils {
 				public void selectbyName(String elementName, String selectvalue)
 				{
 					WebElement mySelectElement = driver.findElement(By.name(elementName));
+					Select dropdown= new Select(mySelectElement);
+					dropdown.selectByVisibleText(selectvalue);
+				}
+				
+		//WebElement Select by xpath
+				public void selectbyXpath(String elementXpath, String selectvalue)
+				{
+					WebElement mySelectElement = driver.findElement(By.xpath(elementXpath));
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
 				}
