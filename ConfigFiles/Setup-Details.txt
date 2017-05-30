@@ -44,6 +44,9 @@ DoctorsLogin.passwordone=Zoylo@666
 DoctorsLogin.usernametwo=sss1@gmail.com
 DoctorsLogin.passwordtwo=Zoylo@123
 
+DoctorLogin.usernamethree=sagarsen@gmai.com
+DoctorLogin.passwordthree=Zoylo@123
+
 //-------Diagnostic Login Details----//
 
 Diagnostic.Url=https://zoyloqa.zoylo.com

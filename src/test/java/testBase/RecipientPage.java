@@ -304,7 +304,15 @@ public class RecipientPage  {
 	public String selectHomeVisitSlot() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		driver.findElement(By.id("session4")).click();
+		if(driver.findElement(By.xpath("(.//*[@id='apponitmentTime' and @class='sp-available-slots']//img[@class='homevisiticon'])[1]")).isDisplayed())
+		{
+			System.out.println("Home visit slot is already displaying");
+		}
+		else
+		{
+			driver.findElement(By.id("session4")).click();
+		}
+		
 		Thread.sleep(2000);
 		Browser.waitFortheElementXpath("(.//*[@id='apponitmentTime' and @class='sp-available-slots']//img[@class='homevisiticon'])[1]");
 		String slotTime=driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots']//following-sibling::img[@class='homevisiticon'])[1]")).getText();
@@ -327,7 +335,7 @@ public class RecipientPage  {
 	 */
 	public void paymentOptions(int paymentValue)
 	{
-		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
+		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();

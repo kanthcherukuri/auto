@@ -32,7 +32,7 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		RecipientPage.paymentOptions(1);
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
-		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
+		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
 		//Browser.waitforTextbyxpath("//div[@class='zy-sp-payment-values'])[6]", verifyTobePaid);
 		driver.navigate().back();
 		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
