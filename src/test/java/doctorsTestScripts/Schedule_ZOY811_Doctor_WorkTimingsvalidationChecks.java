@@ -24,7 +24,7 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
   public void testDeleteTimings() throws Exception
   {
 	  	docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-	  	//docpage.BulkCancel();
+	  	docpage.BulkCancel();
 		Thread.sleep(2000);
 		driver.findElement(By.id("schedule")).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
