@@ -602,6 +602,28 @@ public class DoctorsPage  {
 		
 		/*
 		 * Author: Sagar Sen
+		 * Description: This method will update the clinic work times for a doctor
+		 * Param: start time and end time
+		 * Return:
+		 */
+		public void updateClinicWorkTimings(String updtstrtTime, String updtendTime) throws Exception
+		{
+			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+			Browser.waitFortheID(Elements_Doctors.clinicName);
+			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).clear();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(updtstrtTime);
+			driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
+			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
 		 * Description: This method will remove the clinic work times for a doctor
 		 * Param: 
 		 * Return:
