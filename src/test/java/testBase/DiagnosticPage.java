@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -432,8 +433,16 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.eveningmenu)).click();
 		Thread.sleep(1000);
 		int cellsize=driver.findElements(By.xpath("//*[@id='myTab-3']/ul/li")).size();
+		System.out.println(cellsize);
+		
 		for(cellsize=1;cellsize<=6;cellsize++){
+		
+//		WebElement element=	driver.findElement(By.xpath("//*[@id='myTab-3']/ul/li["+cellsize+"]/div[3]"));		
+//			Actions action = new Actions(driver);
+//			action.moveToElement(element).click().perform();
+			
 			driver.findElement(By.xpath("//*[@id='myTab-3']/ul/li["+cellsize+"]")).click();
+			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Diagnostics.detailsfirstname)).sendKeys(firstname	);
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Diagnostics.detailslastname)).sendKeys(lastname);
@@ -452,6 +461,10 @@ public class DiagnosticPage {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
 			Thread.sleep(5000);
+//			WebDriverWait wait = (new WebDriverWait(driver, 8000));
+//			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='myTab-3']/ul/li[1]/div[2]/a")));
+			
+			
 		}
 		
 		}

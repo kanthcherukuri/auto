@@ -1,5 +1,6 @@
 package diagnosticTestScripts;
 
+import java.net.UnknownHostException;
 import java.util.Arrays;
 
 import org.testng.Assert;
@@ -19,7 +20,7 @@ public class test extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
 	
-	public static void main( String args[] ){
+	public static void main( String args[] ) throws UnknownHostException{
 		 
 	    	  
 	    	 MongoClient mongoClient = null;

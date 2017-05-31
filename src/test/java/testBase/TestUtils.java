@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -258,7 +259,7 @@ public class TestUtils {
 	 *
 	*/
 	
-	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue){
+	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue) throws UnknownHostException{
 		
 		
 		MongoClient mongoClient = null;
@@ -297,7 +298,7 @@ public class TestUtils {
 		
 	}
 	
-public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue){
+public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue) throws UnknownHostException{
 		
 		
 		MongoClient mongoClient = null;

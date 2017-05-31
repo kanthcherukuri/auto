@@ -29,7 +29,7 @@ import testBase.TestUtils;
 public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 
 	public DoctorsPage DoctorsPageOfZoylo;
-	 public TestUtils exceldata;
+	 public TestUtils Browser;
 	
 	
 	 @BeforeClass
@@ -37,7 +37,8 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  LoadBrowserProperties();
 		  driver.get(doctors_Url);		 
 		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		  DoctorsPageOfZoylo= new DoctorsPage(driver);		
+		  Browser=new TestUtils(driver);
 		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  }
 		       
@@ -45,7 +46,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Sunkara","R","9933333322","sunkara@gmail.com","Diabetic" }
+						{ "yes","Somuraju","R","9933333322","somuraju@gmail.com","Diabetic" }
 
 				};
 			}
@@ -77,10 +78,6 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 			driver.close();
 		}
 			  
-		  
-		  
-						
-		  
 		  
 	  }
 	  

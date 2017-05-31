@@ -37,7 +37,7 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Somalia","S","9655559923","somalia@gmail.com","Diabetic" }
+					{ "yes","Southkorea","S","9655559923","southko@gmail.com","Diabetic" }
 	
 			};
 		}
@@ -56,9 +56,10 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("has been rescheduled"));
+		Assert.assertTrue(alert.contains("has been rescheduled"));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(id));
+		Assert.assertTrue(alert.contains(id));
+		
 	}
 	
 	@AfterMethod

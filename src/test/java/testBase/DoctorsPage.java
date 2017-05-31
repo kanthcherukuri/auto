@@ -166,6 +166,7 @@ public class DoctorsPage  {
 
 	//DoctorAppointment  Reschedule
 	public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		
 
 		driver.findElement(By.xpath(Elements_Doctors.changeicon)).click();
 		Thread.sleep(2000);

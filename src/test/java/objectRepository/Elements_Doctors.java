@@ -234,7 +234,7 @@ public class Elements_Doctors  {
 			 selectprescription="//*[@id='prescriptionPdfShare']";
 			 selectemailno="//*[@id='sp-patient-sharepopup']/div/div/div/div/div/span[1]";
 			 clickoncheckoutbutton="checkOut";
-			 clickonfollowupbutton="//button[text()='Follow Up']";
+			 clickonfollowupbutton="//button[contains(text(),'Follow Up')]";
 			 savefollowupappointment="saveFollowUpAppiontment";
 			 
 			 
