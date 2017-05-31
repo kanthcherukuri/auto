@@ -85,7 +85,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
 		driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
 		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();			
-		Browser.waitFortheID("schedule");
+		Browser.waitFortheID(Elements_Doctors.schedule);
 	}
 	
 	/*
@@ -96,8 +96,8 @@ public class DoctorsPage  {
 	 */
 	public void goToScheduleHomeVisit()
 	{
-		Browser.waitFortheID("schedule");
-		driver.findElement(By.id("schedule")).click();
+		Browser.waitFortheID(Elements_Doctors.schedule);
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		driver.findElement(By.xpath("(//div[@class='day-title'])[4]")).click();
 		Browser.waitFortheElementXpath("//i[@class='fa fa-home']");
@@ -843,13 +843,37 @@ public void DoctorAppointmentBookingForSunday(String firstname,String lastname,S
 
 /*
  * @ Author: Sagar Sen
+ * @ Description: This method will edit the default clinic address in scheule
+ * @ Param: AddressLine One, locality, pincode
+ * @ Return:
+ */
+public void editScheduleDefaultClinicAddress(String addLineOne, String Locality, String pinCode)
+{
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
+	Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+	Browser.waitFortheElementXpath(Elements_Doctors.addressTab);
+	driver.findElement(By.xpath(Elements_Doctors.addressTab)).click();
+	driver.findElement(By.id(Elements_Doctors.addressEditButton)).click(); //Click on edit
+	driver.findElement(By.id(Elements_Doctors.addLineOne)).clear(); //Add line one
+	driver.findElement(By.id(Elements_Doctors.addLineOne)).sendKeys(addLineOne);
+	driver.findElement(By.id(Elements_Doctors.locality)).clear(); //Locality
+	driver.findElement(By.id(Elements_Doctors.locality)).sendKeys(Locality);
+	driver.findElement(By.id(Elements_Doctors.pincode)).clear(); //pincode
+	driver.findElement(By.id(Elements_Doctors.pincode)).sendKeys(pinCode);
+	Browser.scrollbyID(Elements_Doctors.addSave); //Scroll to save
+	driver.findElement(By.id(Elements_Doctors.addSave)).click();
+	Browser.CheckNotificationMessage("Address Updated Successfully");
+}
+/*
+ * @ Author: Sagar Sen
  * @ Description: This method will check slot deletion conflic message based on test case ZOY-811
  * @ Param: 
  * @ Return:
  */
 public void checkWorkDeletionConflict()
 {
-	driver.findElement(By.id("schedule")).click();
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
 	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 	Browser.waitFortheID(Elements_Doctors.clinicName);
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();

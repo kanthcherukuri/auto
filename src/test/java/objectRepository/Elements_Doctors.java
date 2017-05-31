@@ -107,15 +107,32 @@ public class Elements_Doctors  {
 				
 		//submit schedule
 				public static String submitSchedule;
+				public static String schedule;
 				
 		//Clinic tab
 				public static String clinicTab, clinicName, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
+	 //Clinic Address
+	 public static String addressTab;
+	 public static String addressEditButton;
+	 public static String addLineOne;
+	 public static String locality;
+	 public static String pincode;
+	 public static String addSave;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
-	 //clinic tab
+	 
+		//Clinic Address
+		addressTab="(//li[contains(., 'Address')])[1]";
+		addressEditButton="man_clinic_addr_edit";
+		addLineOne="clinic_addr1";
+		locality="clinic_locality";
+		pincode="clinic_pincode";
+		addSave="clinic_addr_save";
+		
+		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
 		clinicName="editClinicName";
 		sundayTab="cd-6";
@@ -128,6 +145,7 @@ public class Elements_Doctors  {
 		
 		//submit schedule
 		submitSchedule="//div[@class='sp-doc-clinic-schd-save-btn menu_links']";
+		schedule="schedule";
 		
 	//Set Vacation
 	setVacation="setVacation";

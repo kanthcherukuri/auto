@@ -12,22 +12,22 @@ import testBase.TestUtils;
 public class Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime extends LoadPropMac
 {
 	public TestUtils Browser;
-	public DoctorsPage docpage;
+	public DoctorsPage doctorsPage;
 	public String updateStrtTime="12:00";
 	public String updateEndTime="13:00";
 	
 	@Test()
 	public void testBreakTimeDoesntOverlappWithWorkTime() throws Exception
 	{
-		docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-	  	docpage.BulkCancel();
+		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		doctorsPage.BulkCancel();
 		Thread.sleep(2000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
-		docpage.addClinicWorkTimings("10:00", "17:00");
+		doctorsPage.addClinicWorkTimings("10:00", "17:00");
 		driver.navigate().refresh();
 		Browser.waitFortheElementXpath("//strong[contains(., 'SET BREAK TIME')]");
-		docpage.checkAddBreakTimes(updateStrtTime, updateEndTime);
+		doctorsPage.checkAddBreakTimes(updateStrtTime, updateEndTime);
 		Browser.CheckNotificationMessage("Lunch Slots overlap with working slots");
 		driver.navigate().refresh();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
@@ -40,7 +40,7 @@ public class Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime extends 
 	{
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
-		docpage=new DoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		driver.get(recipient_url);
 	}
 	
@@ -48,7 +48,7 @@ public class Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime extends 
 	public void closeapp() throws Exception
 	{
 		Thread.sleep(2000);
-		docpage.removeClinicWorkTimings();
+		doctorsPage.removeClinicWorkTimings();
 		Thread.sleep(3000);
 		driver.close();
 	}
