@@ -121,16 +121,32 @@ public class Elements_Doctors  {
 	 public static String locality;
 	 public static String pincode;
 	 public static String addSave;
+	 public static String aminitiesTab;
+	 public static String aminitiesAmbulance;
+	 public static String aminitiesSave;
+	 public static String servicesTab;
+	 public static String addServices;
+	 public static String servicesText;
+	 public static String serviceSave;
+	 public static String removeService;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 	 
 		//Clinic Address
 		addressTab="(//li[contains(., 'Address')])[1]";
+		aminitiesTab="(//li[contains(., 'Amenities')])[1]";
 		addressEditButton="man_clinic_addr_edit";
 		addLineOne="clinic_addr1";
 		locality="clinic_locality";
 		pincode="clinic_pincode";
 		addSave="clinic_addr_save";
+		aminitiesSave="clinic_aminities_save";
+		aminitiesAmbulance="ambulance";
+		servicesTab="(//li[contains(., 'Services')])[1]";
+		addServices="clinic_add_service";
+		servicesText="//textarea[@class='serviceName']";
+		serviceSave="clinic_service_save";
+		removeService="sr0";
 		
 		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
