@@ -3,13 +3,7 @@ package recipientsTestScripts;
 
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-
-
-
-
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.*;
 /*
