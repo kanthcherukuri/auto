@@ -33,7 +33,7 @@ public class LoadPropMac   {
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment, recipientDC_User, recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
-    public static String Diagnostic_usernamethree, Diagnostic_passwordthree;
+    public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour;
     
 		public static WebDriver driver;
 	public static WebDriver LoadBrowserProperties()throws Exception{
@@ -72,6 +72,9 @@ public class LoadPropMac   {
         
         DoctorsLogin_usernametwo=prop.getProperty("DoctorLogin.usernamethree");
         DoctorsLogin_passwordtwo=prop.getProperty("DoctorLogin.passwordthree");
+        
+        DoctorsLogin_usernamefour=prop.getProperty("DoctorsLogin.usernamefour");
+        DoctorsLogin_passwordfour=prop.getProperty("DoctorsLogin.passwordfour");
       
        //Recipients -Login Credentails
         Recipient_Username=prop.getProperty("Recipient.Username");

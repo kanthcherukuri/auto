@@ -9,6 +9,8 @@ Schedule_ZOY811_Doctor_DeleteWrongTimings
  */
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.Assert;
@@ -110,7 +112,7 @@ public class Schedule_ZOY811_Doctor_DeleteWrongTimings {
 	  
 	  else 
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 		  
 	  }	 
 	  
@@ -129,7 +131,7 @@ public class Schedule_ZOY811_Doctor_DeleteWrongTimings {
 	  }
 	  else
 	  {
-		  AssertJUnit.fail(actual_text);
+		  Assert.fail(actual_text);
 	  }
 	  
   }

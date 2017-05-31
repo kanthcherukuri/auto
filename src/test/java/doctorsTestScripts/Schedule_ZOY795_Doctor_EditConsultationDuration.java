@@ -7,6 +7,9 @@ package doctorsTestScripts;
  * Follow ZOY795 JIRA for understanding the manual test case
  */
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
