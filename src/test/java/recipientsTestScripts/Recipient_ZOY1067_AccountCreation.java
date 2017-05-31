@@ -62,8 +62,8 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			int Phno = (int )(Math.random() *1000000000);
 			driver.findElement(By.id("mobileNumber")).sendKeys(String.valueOf("9"+Phno));
 			driver.findElement(By.id("password")).sendKeys(Password);
-			driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
-			driver.findElement(By.id("referralCode")).sendKeys(RefCode);
+			//driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
+			//driver.findElement(By.id("referralCode")).sendKeys(RefCode);
 			driver.findElement(By.xpath("//button[text()='Sign Up']")).click();
 			Thread.sleep(10000);
 			//*Getting the OTP password from Gmail

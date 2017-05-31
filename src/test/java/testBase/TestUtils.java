@@ -62,7 +62,19 @@ public class TestUtils {
 	}
   
 
+	 /*   @Autur : Ganesh Mandala
+	  *   @Description: Sharing geolocation in zoylo map
+	  *   @Recent Changes : 
+	  *   @Comments : This method works only in Chrome
+	  */
 	
+		public void shareGeoLocation() throws InterruptedException{
+			 driver.navigate().to("chrome://settings/content");
+			 driver.switchTo().frame("settings"); 
+			 driver.findElement(By.xpath("//input[@name='location' and @value='allow']")).click();
+			 driver.findElement(By.xpath("//*[@id='content-settings-overlay-confirm']")).click();
+
+		}
 	
 	
 	//links
@@ -149,7 +161,8 @@ public class TestUtils {
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
 			WebDriverWait wait = (new WebDriverWait(driver, 90));
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
 		}
 		
@@ -203,7 +216,7 @@ public class TestUtils {
 							path)));
 					qua.click();
 					qua.sendKeys(value);
-					Thread.sleep(1000);
+					Thread.sleep(2000);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
 				}
@@ -233,6 +246,14 @@ public class TestUtils {
 				public void selectbyName(String elementName, String selectvalue)
 				{
 					WebElement mySelectElement = driver.findElement(By.name(elementName));
+					Select dropdown= new Select(mySelectElement);
+					dropdown.selectByVisibleText(selectvalue);
+				}
+				
+		//WebElement Select by xpath
+				public void selectbyXpath(String elementXpath, String selectvalue)
+				{
+					WebElement mySelectElement = driver.findElement(By.xpath(elementXpath));
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
 				}

@@ -24,7 +24,7 @@ public class Admin_ZOY1941_appPropertyPermissions extends LoadPropMac
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
 	public String appPropzqa = "https://zoyloqa.zoylo.com/admin/applicationProperties";
 	
-	@Test(priority=1)
+	@Test(priority=2)
 	public void appPropViewPermission() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
@@ -65,7 +65,7 @@ public class Admin_ZOY1941_appPropertyPermissions extends LoadPropMac
 		closebrowser();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=3)
 	public void appPropEditPermission() throws Exception
 	{
 		launchbrowser();
@@ -118,7 +118,7 @@ public class Admin_ZOY1941_appPropertyPermissions extends LoadPropMac
 		closebrowser();
 	}
 	
-	@Test(priority=3)
+	@Test(priority=1)
 	public void appPropAddPermission() throws Exception
 	{
 		launchbrowser();

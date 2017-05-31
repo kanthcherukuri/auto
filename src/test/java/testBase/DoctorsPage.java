@@ -592,11 +592,44 @@ public class DoctorsPage  {
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
 			driver.findElement(By.id(Elements_Doctors.AddWorkTime)).click(); //Add sat clinic slot
+			
+			try {
+				if(driver.findElements(By.id("1")).size()!=0)
+				{
+					driver.findElement(By.id("1")).click();
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				System.out.println("Two slot tabs did not open");
+			}
+			
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(strtTime);
 			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(endTime);
+			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		}
+		
+		/*
+		 * Author: Sagar Sen
+		 * Description: This method will update the clinic work times for a doctor
+		 * Param: start time and end time
+		 * Return:
+		 */
+		public void updateClinicWorkTimings(String updtstrtTime, String updtendTime) throws Exception
+		{
+			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+			Browser.waitFortheID(Elements_Doctors.clinicName);
+			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).clear();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(updtstrtTime);
+			driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		}
@@ -772,6 +805,89 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 String fullname=firstname+" "+lastname;
 	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
  }
+ 
+ /*
+  * @ Author: Sagar Sen
+  * @ Description: This method will book appointment for sunday based on test case ZOY-811
+  * @ Param: firstname, lastname, mobile, email, problem
+  * @ Return:
+  */
+public void DoctorAppointmentBookingForSunday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	 
+	 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();
+	 Browser.waitFortheElementXpath(Elements_Doctors.sundayMenu);
+	 driver.findElement(By.xpath(Elements_Doctors.sundayMenu)).click();
+	 driver.findElement(By.xpath(Elements_Doctors.morning)).click();
+     Thread.sleep(1000);
+	 driver.findElement(By.xpath(Elements_Doctors.noon)).click();
+     Thread.sleep(1000);
+	 driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+	 Thread.sleep(1000);
+	 driver.findElement(By.xpath(Elements_Doctors.eveningfirstcell)).click();
+	 Thread.sleep(1000);
+	 driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys(firstname);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys(lastname);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys(mobile);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys(email);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys(problem);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
+	 Browser.waitFortheElementXpath(Elements_Doctors.backgoundcolor);
+	 String fullname=firstname+" "+lastname;
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+ }
+
+/*
+ * @ Author: Sagar Sen
+ * @ Description: This method will check slot deletion conflic message based on test case ZOY-811
+ * @ Param: 
+ * @ Return:
+ */
+public void checkWorkDeletionConflict()
+{
+	driver.findElement(By.id("schedule")).click();
+	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+	Browser.waitFortheID(Elements_Doctors.clinicName);
+	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
+	driver.findElement(By.id("0")).click();
+	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
+}
+
+/*
+ * @ Author: Sagar Sen
+ * @ Description: This method will cancel the appointment booked by using DoctorAppointmentBookingForSunday() menthod
+ * @ Param: 
+ * @ Return:
+ */
+public void cancelSundayAppt() throws InterruptedException
+{
+	driver.findElement(By.id(Elements_Doctors.doctortab)) .click();
+	Browser.waitFortheElementXpath(Elements_Doctors.sundayMenu);
+	driver.findElement(By.xpath(Elements_Doctors.sundayMenu)).click();
+	driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+	driver.findElement(By.xpath("//div[@class='patient-apt-uname']")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.id(Elements_Doctors.clickoncancelmenu)).click();
+	String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+	String subWindowHandler = null;
+	Set<String> handles = driver.getWindowHandles(); // get all window handles
+	Iterator<String> iterator = handles.iterator();
+	while (iterator.hasNext()) {
+		subWindowHandler = iterator.next();
+	}
+	driver.switchTo().window(subWindowHandler); // switch to popup window
+	Thread.sleep(2000); // perform operations on popup
+	Browser.waitFortheElementXpath("(//div[contains(., 'Reason of cancellation')])[4]");
+	Browser.selectbyXpath("//div[@class='res-slec']//select", "Attending an emergency");
+	driver.findElement(By.id(Elements_Doctors.cancelconfirmation)).click();
+	driver.switchTo().window(parentWindowHandler); // switch back to
+													// parent window
+	Browser.CheckNotificationMessage("Appointment has been Cancelled");
+}
 
 public void CheckPateintScreenForCheckInFunctionality(String firstname,String lastname,String email) throws InterruptedException{
 	driver.findElement(By.id(Elements_Doctors.patienticonid)).click();

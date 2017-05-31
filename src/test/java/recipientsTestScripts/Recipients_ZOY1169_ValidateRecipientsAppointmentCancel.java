@@ -96,10 +96,6 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 	}
 
 
-
-
-
-
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() {
