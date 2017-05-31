@@ -35,14 +35,14 @@ import testBase.TestUtils;
 public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 {
 	public TestUtils Browser;
-	public DoctorsPage docpage;
+	public DoctorsPage doctorsPage;
 	public  WebDriverWait wait;
 	
 	
   @Test()
   public void testEnableDisableHomeVisit() throws InterruptedException, IOException 
   {
-	  docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
 	  wait=new WebDriverWait(driver, 8000);
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]")));
@@ -127,7 +127,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 		Elements_Admin.Admin_PageProperties(); // loading the Elements
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
-		docpage=new DoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		driver.get(recipient_url);
 	}
 	

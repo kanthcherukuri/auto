@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import objectRepository.Elements_Admin;
+import objectRepository.Elements_Doctors;
 import objectRepository.Elements_Recipients;
 import testBase.AdminPage;
 import testBase.DoctorsPage;
@@ -46,16 +47,16 @@ import org.testng.annotations.BeforeClass;
 public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp extends LoadPropMac
 {
 	public TestUtils Browser;
-	public DoctorsPage docpage;
+	public DoctorsPage doctorsPage;
 	public String duration="30";
 	
 	@Test()
 	public void consultationDurationUpdate() throws Exception
 	{
-		docpage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-		docpage.DoctorAppointmentBookingForToday("Saatwika", "Swathi", "7829292920", "adf@fd.com", "dfsdf");
+		doctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		doctorsPage.DoctorAppointmentBookingForToday("Saatwika", "Swathi", "7829292920", "adf@fd.com", "dfsdf");
 		Thread.sleep(2000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		driver.findElement(By.id("consultation-min")).clear();
 		Thread.sleep(3000);
@@ -74,14 +75,14 @@ public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp 
 		Elements_Admin.Admin_PageProperties(); // loading the Elements
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
-		docpage=new DoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		driver.get(recipient_url);
 	}
 	
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		docpage.BulkCancel();
+		doctorsPage.BulkCancel();
 		Thread.sleep(3000);
 		driver.close();
 	}

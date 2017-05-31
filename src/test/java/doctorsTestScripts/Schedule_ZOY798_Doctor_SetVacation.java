@@ -3,6 +3,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -17,17 +19,17 @@ import org.testng.annotations.BeforeClass;
 public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
 {
 	public TestUtils Browser;
-	public DoctorsPage docpage;	
+	public DoctorsPage doctorsPage;	
 	
   @Test()
   public void testSetVacation() throws Exception
   {
-	  	docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-	  	docpage.BulkCancel();
+	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+	  doctorsPage.BulkCancel();
 		Thread.sleep(2000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
-		docpage.setVacation();
+		doctorsPage.setVacation();
   }
   
   @BeforeClass
@@ -35,14 +37,14 @@ public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
 	{
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
-		docpage=new DoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		driver.get(recipient_url);
 	}
 	
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		docpage.cancelVacation();
+		doctorsPage.cancelVacation();
 		Thread.sleep(3000);
 		driver.close();
 	}
