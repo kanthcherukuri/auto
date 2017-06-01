@@ -22,7 +22,7 @@ public class Admin_ZOY1749_EditCountry extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyoqa.zoylo.com/admin/countryList";
 	public String pit = "https://pit.zoylo.com/admin/countryList";
-	public String countryCode="JUNEONECOUN";
+	public String countryCode="JUNEONECOUNONE";
 	
 	@Test()
 	public void editCountry()

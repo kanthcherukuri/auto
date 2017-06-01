@@ -22,7 +22,7 @@ public class Admin_ZOY1807_editMarketingElements extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/marketingElements";
 	public String pit="https://pit.zoylo.com/admin/marketingElements";
-	public String marketHtML = "BETA";
+	public String marketHtML = "ZOO";
 	
 	@Test
 	public void editMarketing()

@@ -22,7 +22,7 @@ public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/doctorQualificationList";
 	public String pit = "https://pit.zoylo.com/admin/doctorQualificationList";
-	public String quaName="JUNEONEQUA";
+	public String quaName="JUNEONEQUAONE";
 	
 	@Test()
 	public void addDocQua()

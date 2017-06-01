@@ -23,7 +23,7 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/cityList";
 	public String pit = "https://pit.zoylo.com/admin/cityList";
-	public String cityName="Juneonecity";
+	public String cityName="Juneonecityone";
 	public String state="Telangana";
 	
 	@Test()

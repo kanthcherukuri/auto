@@ -22,7 +22,7 @@ public class Admin_ZOY1805_marketingElements extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/marketingElements";
 	public String pit="https://pit.zoylo.com/admin/marketingElements";
-	public String marketHtML = "BETA";
+	public String marketHtML = "ZOO";
 	public String htmlDesc = "Description section of the marketing element name is here.";
 	
 	@Test()

@@ -42,7 +42,7 @@ public class Admin_ZOY1845_DCPermissions extends LoadPropMac
 		//Admin user login to check diagnostic view permission
 		admin.adminUserSignIn(adminuser_user, adminuser_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(dczqa);
+		driver.get(zqa);
 		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
 			{
@@ -76,7 +76,7 @@ public class Admin_ZOY1845_DCPermissions extends LoadPropMac
 		//Admin user login to check diagnostic edit permission
 		admin.adminUserSignIn(adminuser_user, adminuser_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(dczqa);
+		driver.get(zqa);
 		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
 			{
@@ -114,7 +114,7 @@ public class Admin_ZOY1845_DCPermissions extends LoadPropMac
 		//Admin user login to check doctor view permission
 		admin.adminUserSignIn(adminuser_user, adminuser_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.get(dczqa);
+		driver.get(zqa);
 		Browser.waitforTextbyxpath("//div[@class='col-md-3 col-sm-4']//h4[contains(., 'Diagnostic Center')]", "Diagnostic Center");
 		if(driver.findElement(By.xpath("//th[contains(., 'Diagnostic Name')]")).isDisplayed())
 			{

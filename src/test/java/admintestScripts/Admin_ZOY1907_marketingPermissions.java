@@ -45,7 +45,7 @@ public class Admin_ZOY1907_marketingPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(marketingzqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Elements')]", "Marketing Elements");
-		if(driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[4]/button")).isDisplayed())
+		if(driver.findElements(By.xpath("//button[contains(., 'EDIT')]")).size()!=0)
 			{
 				driver.findElement(By.id("add")).click();
 				Browser.CheckNotificationMessage("Don't have Permission to Add");
@@ -82,7 +82,7 @@ public class Admin_ZOY1907_marketingPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(marketingzqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Elements')]", "Marketing Elements");
-		if(driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[4]/button")).isDisplayed())
+		if(driver.findElements(By.xpath("//button[contains(., 'EDIT')]")).size()!=0)
 			{
 				driver.findElement(By.id("add")).click();
 				Browser.CheckNotificationMessage("Don't have Permission to Add");
@@ -121,7 +121,7 @@ public class Admin_ZOY1907_marketingPermissions extends LoadPropMac
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(marketingzqa);
 		Browser.waitforTextbyxpath("//h4[contains(., 'Marketing Elements')]", "Marketing Elements");
-		if(driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[4]/button")).isDisplayed())
+		if(driver.findElements(By.xpath("//button[contains(., 'EDIT')]")).size()!=0)
 			{
 				driver.findElement(By.xpath("//input[@type='search']")).sendKeys("matha");
 				Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", "matha");
