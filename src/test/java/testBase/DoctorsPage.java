@@ -1073,6 +1073,30 @@ public void VerifyCheckINFunctionality() throws Exception{
 		}
 		}
 	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will add a clinic in schedule for a doctor
+	 * @ Pram: Other clinic Name, other clinic fee, other clinic mobile number
+	 * @ Return:
+	 */
+	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String othrPin, String othrLon, String othrLat)
+	{
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+		Browser.waitFortheElementXpath(Elements_Doctors.addressTab);
+		driver.findElement(By.id(Elements_Doctors.clickPlusMore)).click();
+		driver.findElement(By.xpath(Elements_Doctors.addClinic)).click();
+		Browser.waitFortheID(Elements_Doctors.popUpHeading);
+		driver.findElement(By.id(Elements_Doctors.otherclinicName)).sendKeys(otherClnName);
+		driver.findElement(By.id(Elements_Doctors.otherClinicFee)).sendKeys(otherfee);
+		driver.findElement(By.id(Elements_Doctors.otherClinicMobile)).sendKeys(othermob);
+		driver.findElement(By.id(Elements_Doctors.otherPincode)).sendKeys(othrPin);
+		Browser.scrollbyID(Elements_Doctors.otherClinicSave);
+		driver.findElement(By.id(Elements_Doctors.otherLon)).sendKeys(othrLon);
+		driver.findElement(By.id(Elements_Doctors.otherLat)).sendKeys(othrLat);
+		driver.findElement(By.id(Elements_Doctors.otherClinicSave)).click();
+	}
 	
 	public void CheckAppointmentsCountinDashboardForToday() throws Exception{
 		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
