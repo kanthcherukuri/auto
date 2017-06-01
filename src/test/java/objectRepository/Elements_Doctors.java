@@ -145,6 +145,7 @@ public class Elements_Doctors  {
 	 public static String otherclinicName;
 	 public static String otherClinicFee;
 	 public static String otherClinicMobile;
+	 public static String addlineone;
 	 public static String otherPincode;
 	 public static String otherLon;
 	 public static String otherLat;
@@ -170,6 +171,7 @@ public class Elements_Doctors  {
 		otherclinicName="aoc_clinicname";
 		otherClinicFee="aoc_consfee";
 		otherClinicMobile="aoc_mobnum";
+		addlineone="aoc_addr1";
 		otherPincode="aoc_pincode";
 		otherLon="aoc_lng";
 		otherLat="aoc_lat";

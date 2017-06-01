@@ -24,10 +24,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="junehospital_1_2@zoy.com";
-	public String hopDocName="Junehospitaldoc";
-	public String hopMedNuber="JU01-2";
-	public String hopDocmobNum="8888810024";
+	public String hopDocEmailID="pomhop30_1@zoy.com";
+	public String hopDocName="Hospital Doctor";
+	public String hopMedNuber="JU01-3";
+	public String hopDocmobNum="8888810000";
 	public String errorNotification="Address is required";
 	
 	@DataProvider(name="generaldetails")
@@ -61,7 +61,7 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	{
 		return new Object[][]
 		    	{
-		            {hopDocName, hopMedNuber, "Male", "qaz", "MBBS", "11/08/1991", "Apollo", "10", "1"}
+		            {hopDocName, hopMedNuber, "Male", "Nutrition", "MBBS", "11/08/1991", "Apollo", "10", "1"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };

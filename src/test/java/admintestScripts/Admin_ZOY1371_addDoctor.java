@@ -31,11 +31,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="june01_2@zoy.com";
-	public String docName="June one second";
-	public String regNum="June01-2";
-	public String clinicDefName="June clinic";
-	public String mobNumDoc="7777710017";
+	public String emailID="zoylodoctor@gmail.com"; //"june01_2@zoy.com";
+	public String docName="Doctorzoylo";
+	public String regNum="June01-6";
+	public String clinicDefName="Default clinic";
+	public String mobNumDoc="7777710006";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
@@ -71,7 +71,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		return new Object[][] 
 		    	{
 
-		            {docName, regNum, "Male", "qaz", clinicDefName, "MBBS", "20", "11/08/1991"}
+		            {docName, regNum, "Male", "Nutrition", clinicDefName, "MBBS", "20", "11/08/1991"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
@@ -118,7 +118,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"true", "05:00", "17:00", "true", "06:00", "18:00", "true", "07:00", "19:00", "true", "08:00", "20:00", "true", "09:00", "21:00"}
+					{"true", "05:00", "20:00", "true", "06:00", "20:00", "true", "07:00", "20:00", "true", "08:00", "20:00", "true", "09:00", "21:00"}
 				};
 	}
 	
