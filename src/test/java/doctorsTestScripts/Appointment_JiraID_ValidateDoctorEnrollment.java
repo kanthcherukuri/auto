@@ -73,7 +73,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 			 String SuccessfulText=driver.findElement(Elements_Doctors.enrollment1_h5).getText();
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
-			 AssertJUnit.assertTrue(SuccessfulText.contains(expected));	
+			 Assert.assertTrue(SuccessfulText.contains(expected));	
 			 
 		 }else{
 			 

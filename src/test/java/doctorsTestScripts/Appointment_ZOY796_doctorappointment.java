@@ -50,6 +50,7 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 	if(RunMode.equals("yes")){
+		
 		 
 		 DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 	}
