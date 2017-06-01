@@ -195,7 +195,7 @@ public class RecipientPage  {
 
 		driver.findElement(By.id("search2")).click();
 		driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(5000);	
 

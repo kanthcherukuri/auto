@@ -55,6 +55,9 @@
       <class name="admintestScripts.Admin_ZOY1950_referenceDataEditPermissions"/>
       <class name="admintestScripts.Admin_ZOY1954_referenceDataAddPermissions"/>
       <class name="admintestScripts.Admin_ZOY1972_referenceDataEditPermissions"/>
+      <class name="admintestScripts.Admin_ZOY2057_aptStatusReschedule"/>
+      <class name="admintestScripts.Admin_ZOY2081_AdminStatusChangeToCancel"/>
+      <class name="admintestScripts.Admin_ZOY2086_aptStatusChangeToCompleted"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

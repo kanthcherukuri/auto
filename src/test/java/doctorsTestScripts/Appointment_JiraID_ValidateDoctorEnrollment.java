@@ -18,6 +18,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 
 
@@ -77,7 +81,7 @@ public class Appointment_JiraID_ValidateDoctorEnrollment extends LoadPropMac {
 			 String SuccessfulText=driver.findElement(Elements_Doctors.enrollment1_h5).getText();
 			 System.out.println("SuccessfulText="+SuccessfulText);
 			//Comparing Actual VS Expected
-			 AssertJUnit.assertTrue(SuccessfulText.contains(expected));	
+			 Assert.assertTrue(SuccessfulText.contains(expected));	
 			 
 		 }else{
 			 

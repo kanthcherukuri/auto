@@ -137,6 +137,18 @@ public class Elements_Doctors  {
 	 public static String serviceSave;
 	 public static String removeService;
 
+	 
+	 //Add clinic
+	 public static String clickPlusMore;
+	 public static String addClinic;
+	 public static String popUpHeading;
+	 public static String otherclinicName;
+	 public static String otherClinicFee;
+	 public static String otherClinicMobile;
+	 public static String otherPincode;
+	 public static String otherLon;
+	 public static String otherLat;
+	 public static String otherClinicSave;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 		
@@ -151,6 +163,19 @@ public class Elements_Doctors  {
 		HospitalDeleteWorkTimings="(//*[@id='0'])[2]";
 		HospitalsSundayMenu="cd-26";
 	 
+		//Add clinic
+		clickPlusMore="profile-flip";
+		addClinic="//span[contains(., 'Add Clinic')]";
+		popUpHeading="myModalLabel";
+		otherclinicName="aoc_clinicname";
+		otherClinicFee="aoc_consfee";
+		otherClinicMobile="aoc_mobnum";
+		otherPincode="aoc_pincode";
+		otherLon="aoc_lng";
+		otherLat="aoc_lat";
+		otherClinicSave="aoc_clinic_addr_save";
+		
+		
 		//Clinic Address
 		addressTab="(//li[contains(., 'Address')])[1]";
 		aminitiesTab="(//li[contains(., 'Amenities')])[1]";

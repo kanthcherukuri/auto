@@ -23,7 +23,7 @@ public class Admin_ZOY2057_aptStatusReschedule extends LoadPropMac
 	public String zqaApt="https://zoyloqa.zoylo.com/admin/appointmentsView";
 	
 	public String status = "Reschedule By Doctor"; // Reschedule By Patient OR Reschedule By Doctor
-	public String aptID = "APT-015760";
+	public String aptID = "APT-016046";
 	
 	@Test()
 	public void aptStatusChange() throws InterruptedException

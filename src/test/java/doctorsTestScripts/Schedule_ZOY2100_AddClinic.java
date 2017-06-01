@@ -6,22 +6,21 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY827_829_AminitiesServicesUpdate extends LoadPropMac
+public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 {
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
 	@Test()
-	public void aminitiesServicesEdit() throws Exception
+	public void addClinic() throws Exception
 	{
-		 doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-		 Thread.sleep(1000);
-		 doctorsPage.editScheduleaminitiesServices("Zoylo Service");
+		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		Thread.sleep(2000);
+		//doctorsPage.addclinicSchedule(otherClnName, otherfee, othermob, othrPin, othrLon, othrLat);
 	}
 	
 	@BeforeClass

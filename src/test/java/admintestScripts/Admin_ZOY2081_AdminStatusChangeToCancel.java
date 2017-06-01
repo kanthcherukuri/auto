@@ -19,7 +19,7 @@ public class Admin_ZOY2081_AdminStatusChangeToCancel extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqaApt="https://zoyloqa.zoylo.com/admin/appointmentsView";
 	public String status = "Cancelled By Doctor"; // Cancelled By Patient OR Cancelled By Doctor
-	public String aptID = "APT-015974";
+	public String aptID = "APT-016030";
 	
 	@Test()
 	public void appChangeCancel() throws Exception

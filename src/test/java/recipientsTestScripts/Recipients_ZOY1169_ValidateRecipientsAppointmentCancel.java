@@ -78,6 +78,9 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		Assert.assertEquals(cancel_mesg, "Appointment has been Cancelled");
 		RecipientPage.recipientLogout();
 
+		
+		/*
+		
 		//Email Verification of recipient
 		String RecipientEmail= Browser.emailResponse(Recipient_Username, Recipient_Password, "Zoylo.com | REFUND NOTIFICATION "+AppointmentId+"Doctor appointment.");
 		Assert.assertTrue(RecipientEmail.contains("We have received your request for a refund and it is being processed. You will get a confirmation once the transaction is complete. Thank you."));
@@ -85,7 +88,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		//Email verification of Doctor
 		String DoctorEmail= Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | "+AppointmentId+". APPOINTMENT CANCELLED.");
 		Assert.assertTrue(DoctorEmail.contains(""+AppointmentId+"</b> is CANCELLED."));
-
+*/
 
 	}
 
