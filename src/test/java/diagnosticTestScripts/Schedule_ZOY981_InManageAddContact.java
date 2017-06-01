@@ -3,21 +3,7 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -43,6 +29,7 @@ public class Schedule_ZOY981_InManageAddContact extends LoadPropMac {
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
+		Thread.sleep(3000);
 		DiagnosticPageZoylo.DeleteContactInSchedule();
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
