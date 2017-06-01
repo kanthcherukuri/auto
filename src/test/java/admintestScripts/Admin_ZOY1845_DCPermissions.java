@@ -19,7 +19,7 @@ public class Admin_ZOY1845_DCPermissions extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/approveUser";
 	public String pit = "https://pit.zoylo.com/admin/approveUser";
-	public String dczqa = "https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
+	public String dczqa = "https://dev.zoylo.com/admin/zyDiagnosticCenters";
 	
 	@Test(priority=1)
 	public void DCviewPermission() throws Exception
