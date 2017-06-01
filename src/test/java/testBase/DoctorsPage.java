@@ -892,6 +892,36 @@ public void editScheduleDefaultClinicAddress(String addLineOne, String Locality,
 	driver.findElement(By.id(Elements_Doctors.addSave)).click();
 	Browser.CheckNotificationMessage("Address Updated Successfully");
 }
+
+/*
+* @ Author: Sagar Sen
+* @ Description: This method will edit the default clinic aminities and services in scheule
+* @ Param: serviceName
+* @ Return:
+*/
+public void editScheduleaminitiesServices(String serviceName) throws Exception
+{
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
+	Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+	Browser.waitFortheElementXpath(Elements_Doctors.aminitiesTab);
+	driver.findElement(By.xpath(Elements_Doctors.aminitiesTab)).click();
+	driver.findElement(By.id(Elements_Doctors.aminitiesAmbulance)).click();
+	driver.findElement(By.id(Elements_Doctors.aminitiesSave)).click();
+	Browser.CheckNotificationMessage("Amenities Updated Successfully");
+	Thread.sleep(5000);
+	driver.findElement(By.xpath(Elements_Doctors.servicesTab)).click();
+	driver.findElement(By.id(Elements_Doctors.addServices)).click();
+	driver.findElement(By.xpath(Elements_Doctors.servicesText)).sendKeys(serviceName);
+	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
+	Browser.CheckNotificationMessage("Services Updated Successfully");
+	Thread.sleep(5000);
+	driver.findElement(By.id(Elements_Doctors.removeService)).click();
+	Thread.sleep(1000);
+	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
+	Browser.CheckNotificationMessage("Services Updated Successfully");
+}
+
 /*
  * @ Author: Sagar Sen
  * @ Description: This method will check slot deletion conflic message based on test case ZOY-811
