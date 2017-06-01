@@ -121,6 +121,13 @@ public class Elements_Doctors  {
 	 public static String locality;
 	 public static String pincode;
 	 public static String addSave;
+
+	 
+	 //Hospital Tab
+	 
+	 public static String ClickOnHospitalTab, HospitalClickAddWorkTimingsButton, HospitalClickOnToggle, HospitalStarttime , HospitalEndTime;
+	 public static String HospitalSaveWorkTimings, HospitalDeleteWorkTimings, HospitalsSundayMenu;
+
 	 public static String aminitiesTab;
 	 public static String aminitiesAmbulance;
 	 public static String aminitiesSave;
@@ -129,6 +136,7 @@ public class Elements_Doctors  {
 	 public static String servicesText;
 	 public static String serviceSave;
 	 public static String removeService;
+
 	 
 	 //Add clinic
 	 public static String clickPlusMore;
@@ -143,6 +151,17 @@ public class Elements_Doctors  {
 	 public static String otherClinicSave;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
+		
+		//Schedule Hospital Tab
+		
+		ClickOnHospitalTab="//*[@id='cd-12']";
+		HospitalClickAddWorkTimingsButton="//i[@class='fa fa-plus-circle slot_hospital_add']";
+		HospitalClickOnToggle="//span[@class='sp-doc-clinic-workday-switch-switch']";
+		HospitalStarttime="//input[@class='slot-start-hos']";
+		HospitalEndTime="//input[@class='slot-end-hos']";
+		HospitalSaveWorkTimings="//span[@class='sp-doc-hosp-schd-save']";
+		HospitalDeleteWorkTimings="(//*[@id='0'])[2]";
+		HospitalsSundayMenu="cd-26";
 	 
 		//Add clinic
 		clickPlusMore="profile-flip";

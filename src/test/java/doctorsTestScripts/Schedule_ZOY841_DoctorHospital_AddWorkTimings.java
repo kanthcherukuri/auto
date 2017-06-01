@@ -19,6 +19,7 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadProp;
 import testBase.LoadPropMac;
@@ -70,28 +71,12 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 		 Thread.sleep(2000);
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(".//*[@id='cd-12']")).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("//i[@class='fa fa-plus-circle slot_hospital_add']")).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("//span[@class='sp-doc-clinic-workday-switch-switch']")).click();
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//input[@class='slot-start-hos']")).clear();
-		 driver.findElement(By.xpath("//input[@class='slot-start-hos']")).sendKeys("07:00");
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath("//input[@class='slot-end-hos']")).clear();
-		 driver.findElement(By.xpath("//input[@class='slot-end-hos']")).sendKeys("23:59");
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//span[@class='sp-doc-hosp-schd-save']")).click();
-		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
-		 Thread.sleep(2000);
-		 
-		 
+		 DoctorsPageOfZoylo.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 	 }
 	 
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath("(//*[@id='0'])[2]")).click();
+		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath("//span[@class='sp-doc-hosp-schd-save']")).click();
 		 Thread.sleep(2000);
