@@ -1,8 +1,8 @@
 package doctorsTestScripts;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
@@ -12,7 +12,7 @@ import testBase.TestUtils;
 public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends LoadPropMac
 {	
 	public TestUtils Browser;
-	public DoctorsPage docpage;
+	public DoctorsPage doctorsPage;
 	
 	//Global variables
 		public String firstName="Gurr";
@@ -25,16 +25,16 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
   @Test()
   public void testEditTimeSlotForClinicsDecreaseTime() throws Exception
   {
-	  	docpage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	//docpage.BulkCancel();
 		Thread.sleep(2000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
-		docpage.addClinicWorkTimings("10:00", "17:00");
+		doctorsPage.addClinicWorkTimings("10:00", "17:00");
 		Thread.sleep(1000);
-		docpage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
+		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
 		Thread.sleep(4000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
@@ -45,9 +45,9 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 		Thread.sleep(4000);
-		docpage.cancelSundayAppt(); //cancel sunday appointment
+		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(4000);
-		driver.findElement(By.id("schedule")).click();
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
@@ -64,7 +64,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 	{
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
-		docpage=new DoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		driver.get(recipient_url);
 	}
 	
@@ -72,7 +72,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 	public void closeapp() throws Exception
 	{
 		Thread.sleep(2000);
-		docpage.removeClinicWorkTimings();
+		doctorsPage.removeClinicWorkTimings();
 		Thread.sleep(3000);
 		driver.close();
 	}

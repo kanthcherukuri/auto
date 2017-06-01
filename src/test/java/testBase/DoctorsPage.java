@@ -85,7 +85,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id(Elements_Doctors.username)).sendKeys(username);
 		driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
 		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();			
-		Browser.waitFortheID("schedule");
+		Browser.waitFortheID(Elements_Doctors.schedule);
 	}
 	
 	/*
@@ -96,8 +96,8 @@ public class DoctorsPage  {
 	 */
 	public void goToScheduleHomeVisit()
 	{
-		Browser.waitFortheID("schedule");
-		driver.findElement(By.id("schedule")).click();
+		Browser.waitFortheID(Elements_Doctors.schedule);
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		driver.findElement(By.xpath("(//div[@class='day-title'])[4]")).click();
 		Browser.waitFortheElementXpath("//i[@class='fa fa-home']");
@@ -677,6 +677,33 @@ public class DoctorsPage  {
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 			Browser.CheckNotificationMessage("Your vacation successfully updated");
 		}
+		
+		/*
+		 * Author: Ch.Lakshmi Kanth
+		 * Description: This method will Create Work Timings for doctor in Hospiatl Tab
+		 * Param:
+		 * Return:
+		 */
+		public void DoctorsHospitalAddWorkTimings(String starttime, String endtime) throws Exception{
+			 driver.findElement(By.xpath(Elements_Doctors.ClickOnHospitalTab)).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalClickAddWorkTimingsButton)).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalClickOnToggle)).click();
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).clear();
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).sendKeys(starttime);
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).clear();
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).sendKeys(endtime);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			 Thread.sleep(2000);
+			
+		}
+		
+		
 
 		public void BulkCancel() throws Exception{
 		Date today = new Date(); 
@@ -842,13 +869,67 @@ public void DoctorAppointmentBookingForSunday(String firstname,String lastname,S
 
 /*
  * @ Author: Sagar Sen
+ * @ Description: This method will edit the default clinic address in scheule
+ * @ Param: AddressLine One, locality, pincode
+ * @ Return:
+ */
+public void editScheduleDefaultClinicAddress(String addLineOne, String Locality, String pinCode)
+{
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
+	Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+	Browser.waitFortheElementXpath(Elements_Doctors.addressTab);
+	driver.findElement(By.xpath(Elements_Doctors.addressTab)).click();
+	driver.findElement(By.id(Elements_Doctors.addressEditButton)).click(); //Click on edit
+	driver.findElement(By.id(Elements_Doctors.addLineOne)).clear(); //Add line one
+	driver.findElement(By.id(Elements_Doctors.addLineOne)).sendKeys(addLineOne);
+	driver.findElement(By.id(Elements_Doctors.locality)).clear(); //Locality
+	driver.findElement(By.id(Elements_Doctors.locality)).sendKeys(Locality);
+	driver.findElement(By.id(Elements_Doctors.pincode)).clear(); //pincode
+	driver.findElement(By.id(Elements_Doctors.pincode)).sendKeys(pinCode);
+	Browser.scrollbyID(Elements_Doctors.addSave); //Scroll to save
+	driver.findElement(By.id(Elements_Doctors.addSave)).click();
+	Browser.CheckNotificationMessage("Address Updated Successfully");
+}
+
+/*
+* @ Author: Sagar Sen
+* @ Description: This method will edit the default clinic aminities and services in scheule
+* @ Param: serviceName
+* @ Return:
+*/
+public void editScheduleaminitiesServices(String serviceName) throws Exception
+{
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
+	Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+	Browser.waitFortheElementXpath(Elements_Doctors.aminitiesTab);
+	driver.findElement(By.xpath(Elements_Doctors.aminitiesTab)).click();
+	driver.findElement(By.id(Elements_Doctors.aminitiesAmbulance)).click();
+	driver.findElement(By.id(Elements_Doctors.aminitiesSave)).click();
+	Browser.CheckNotificationMessage("Amenities Updated Successfully");
+	Thread.sleep(5000);
+	driver.findElement(By.xpath(Elements_Doctors.servicesTab)).click();
+	driver.findElement(By.id(Elements_Doctors.addServices)).click();
+	driver.findElement(By.xpath(Elements_Doctors.servicesText)).sendKeys(serviceName);
+	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
+	Browser.CheckNotificationMessage("Services Updated Successfully");
+	Thread.sleep(5000);
+	driver.findElement(By.id(Elements_Doctors.removeService)).click();
+	Thread.sleep(1000);
+	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
+	Browser.CheckNotificationMessage("Services Updated Successfully");
+}
+
+/*
+ * @ Author: Sagar Sen
  * @ Description: This method will check slot deletion conflic message based on test case ZOY-811
  * @ Param: 
  * @ Return:
  */
 public void checkWorkDeletionConflict()
 {
-	driver.findElement(By.id("schedule")).click();
+	driver.findElement(By.id(Elements_Doctors.schedule)).click();
 	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 	Browser.waitFortheID(Elements_Doctors.clinicName);
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
@@ -1018,6 +1099,30 @@ public void VerifyCheckINFunctionality() throws Exception{
 		}
 		}
 	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will add a clinic in schedule for a doctor
+	 * @ Pram: Other clinic Name, other clinic fee, other clinic mobile number
+	 * @ Return:
+	 */
+	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String othrPin, String othrLon, String othrLat)
+	{
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+		Browser.waitFortheElementXpath(Elements_Doctors.addressTab);
+		driver.findElement(By.id(Elements_Doctors.clickPlusMore)).click();
+		driver.findElement(By.xpath(Elements_Doctors.addClinic)).click();
+		Browser.waitFortheID(Elements_Doctors.popUpHeading);
+		driver.findElement(By.id(Elements_Doctors.otherclinicName)).sendKeys(otherClnName);
+		driver.findElement(By.id(Elements_Doctors.otherClinicFee)).sendKeys(otherfee);
+		driver.findElement(By.id(Elements_Doctors.otherClinicMobile)).sendKeys(othermob);
+		driver.findElement(By.id(Elements_Doctors.otherPincode)).sendKeys(othrPin);
+		Browser.scrollbyID(Elements_Doctors.otherClinicSave);
+		driver.findElement(By.id(Elements_Doctors.otherLon)).sendKeys(othrLon);
+		driver.findElement(By.id(Elements_Doctors.otherLat)).sendKeys(othrLat);
+		driver.findElement(By.id(Elements_Doctors.otherClinicSave)).click();
+	}
 	
 	public void CheckAppointmentsCountinDashboardForToday() throws Exception{
 		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();

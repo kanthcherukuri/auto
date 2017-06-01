@@ -1,33 +1,23 @@
 package doctorsTestScripts;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.openqa.selenium.By;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
-import objectRepository.Elements_Doctors;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-
-public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
+public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 {
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
 	@Test()
-	public void testAddBreakTime() throws Exception 
+	public void addClinic() throws Exception
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-		doctorsPage.BulkCancel();
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
-		doctorsPage.checkAddBreakTimes("13:00", "14:00");
-		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		//doctorsPage.addclinicSchedule(otherClnName, otherfee, othermob, othrPin, othrLon, othrLat);
 	}
 	
 	@BeforeClass
@@ -42,10 +32,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
-		doctorsPage.checkremoveBreakTimes();
 		Thread.sleep(3000);
 		driver.close();
 	}
-
 }

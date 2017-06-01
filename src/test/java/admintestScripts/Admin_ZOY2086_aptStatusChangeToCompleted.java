@@ -18,7 +18,7 @@ public class Admin_ZOY2086_aptStatusChangeToCompleted extends LoadPropMac {
 	// Global variables for pre condition values
 	public String zqaApt = "https://zoyloqa.zoylo.com/admin/appointmentsView";
 	public String status = "Completed";
-	public String aptID = "APT-015972";
+	public String aptID = "APT-015760";
 
 	@Test()
 	public void aptCancel() throws Exception {

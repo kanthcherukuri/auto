@@ -107,15 +107,92 @@ public class Elements_Doctors  {
 				
 		//submit schedule
 				public static String submitSchedule;
+				public static String schedule;
 				
 		//Clinic tab
 				public static String clinicTab, clinicName, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
+	 //Clinic Address
+	 public static String addressTab;
+	 public static String addressEditButton;
+	 public static String addLineOne;
+	 public static String locality;
+	 public static String pincode;
+	 public static String addSave;
+
+	 
+	 //Hospital Tab
+	 
+	 public static String ClickOnHospitalTab, HospitalClickAddWorkTimingsButton, HospitalClickOnToggle, HospitalStarttime , HospitalEndTime;
+	 public static String HospitalSaveWorkTimings, HospitalDeleteWorkTimings, HospitalsSundayMenu;
+
+	 public static String aminitiesTab;
+	 public static String aminitiesAmbulance;
+	 public static String aminitiesSave;
+	 public static String servicesTab;
+	 public static String addServices;
+	 public static String servicesText;
+	 public static String serviceSave;
+	 public static String removeService;
+
+	 
+	 //Add clinic
+	 public static String clickPlusMore;
+	 public static String addClinic;
+	 public static String popUpHeading;
+	 public static String otherclinicName;
+	 public static String otherClinicFee;
+	 public static String otherClinicMobile;
+	 public static String otherPincode;
+	 public static String otherLon;
+	 public static String otherLat;
+	 public static String otherClinicSave;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
-	 //clinic tab
+		
+		//Schedule Hospital Tab
+		
+		ClickOnHospitalTab="//*[@id='cd-12']";
+		HospitalClickAddWorkTimingsButton="//i[@class='fa fa-plus-circle slot_hospital_add']";
+		HospitalClickOnToggle="//span[@class='sp-doc-clinic-workday-switch-switch']";
+		HospitalStarttime="//input[@class='slot-start-hos']";
+		HospitalEndTime="//input[@class='slot-end-hos']";
+		HospitalSaveWorkTimings="//span[@class='sp-doc-hosp-schd-save']";
+		HospitalDeleteWorkTimings="(//*[@id='0'])[2]";
+		HospitalsSundayMenu="cd-26";
+	 
+		//Add clinic
+		clickPlusMore="profile-flip";
+		addClinic="//span[contains(., 'Add Clinic')]";
+		popUpHeading="myModalLabel";
+		otherclinicName="aoc_clinicname";
+		otherClinicFee="aoc_consfee";
+		otherClinicMobile="aoc_mobnum";
+		otherPincode="aoc_pincode";
+		otherLon="aoc_lng";
+		otherLat="aoc_lat";
+		otherClinicSave="aoc_clinic_addr_save";
+		
+		
+		//Clinic Address
+		addressTab="(//li[contains(., 'Address')])[1]";
+		aminitiesTab="(//li[contains(., 'Amenities')])[1]";
+		addressEditButton="man_clinic_addr_edit";
+		addLineOne="clinic_addr1";
+		locality="clinic_locality";
+		pincode="clinic_pincode";
+		addSave="clinic_addr_save";
+		aminitiesSave="clinic_aminities_save";
+		aminitiesAmbulance="ambulance";
+		servicesTab="(//li[contains(., 'Services')])[1]";
+		addServices="clinic_add_service";
+		servicesText="//textarea[@class='serviceName']";
+		serviceSave="clinic_service_save";
+		removeService="sr0";
+		
+		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
 		clinicName="editClinicName";
 		sundayTab="cd-6";
@@ -128,6 +205,7 @@ public class Elements_Doctors  {
 		
 		//submit schedule
 		submitSchedule="//div[@class='sp-doc-clinic-schd-save-btn menu_links']";
+		schedule="schedule";
 		
 	//Set Vacation
 	setVacation="setVacation";
