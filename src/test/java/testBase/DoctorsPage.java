@@ -739,8 +739,7 @@ public class DoctorsPage  {
 	  
 		}
 
-
-
+		
  public void DoctorsAppointmentforTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
 	 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
