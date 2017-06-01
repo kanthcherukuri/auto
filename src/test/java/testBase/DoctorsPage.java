@@ -677,6 +677,33 @@ public class DoctorsPage  {
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 			Browser.CheckNotificationMessage("Your vacation successfully updated");
 		}
+		
+		/*
+		 * Author: Ch.Lakshmi Kanth
+		 * Description: This method will Create Work Timings for doctor in Hospiatl Tab
+		 * Param:
+		 * Return:
+		 */
+		public void DoctorsHospitalAddWorkTimings(String starttime, String endtime) throws Exception{
+			 driver.findElement(By.xpath(Elements_Doctors.ClickOnHospitalTab)).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalClickAddWorkTimingsButton)).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalClickOnToggle)).click();
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).clear();
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).sendKeys(starttime);
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).clear();
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).sendKeys(endtime);
+			 Thread.sleep(1000);
+			 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			 Thread.sleep(2000);
+			
+		}
+		
+		
 
 		public void BulkCancel() throws Exception{
 		Date today = new Date(); 
