@@ -1,15 +1,12 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeClass;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -57,5 +54,30 @@ public class Schedule_ZOY899_DoctorHospital_ActivateDeactivateTimeSlot extends L
 		 driver.findElement(By.id(Elements_Doctors.HospitalsSundayMenu)).click();
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalClickOnToggle)).click();
+		 Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
+		 Thread.sleep(3000);
+         
+		
 	 }
+	 
+	 @AfterMethod
+	 public void DeleteWorktimeandAppointment() throws Exception{
+		 Thread.sleep(3000);
+		 DoctorsPageOfZoylo.cancelSundayAppt(); 
+		 Thread.sleep(3000);
+		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		 Thread.sleep(3000);
+		 driver.findElement(By.xpath(Elements_Doctors.ClickOnHospitalTab)).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.id(Elements_Doctors.HospitalsSundayMenu)).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.xpath("//i[@class='fa fa-minus-circle hospital_rem_slot']")).click();
+		 Thread.sleep(3000);
+		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+	 }
+	 
+	 @AfterClass
+		public void Closebrowser(){
+			driver.close();
+		}
 }
