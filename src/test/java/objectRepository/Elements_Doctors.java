@@ -100,7 +100,7 @@ public class Elements_Doctors  {
 				public static String clickonview, getfullnameonclickviewmenu, clickonalertmenu, getappointmentid;
 				
 				//set vacation
-				public static String setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
+				public static String closevacationArray, setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
 				
 				//Break timings
 				public static String sunToggle, sunStrtTime, sunEndTime;
@@ -211,6 +211,7 @@ public class Elements_Doctors  {
 		
 	//Set Vacation
 	setVacation="setVacation";
+	//closevacationArray="(.//*[@id='0'])[1]";
 	addVacationSlot="addVacationSlots";
 	vacationStart="(//input[@class='datepicker'])[1]";
 	vacationEnd="(//input[@class='datepicker'])[2]";
