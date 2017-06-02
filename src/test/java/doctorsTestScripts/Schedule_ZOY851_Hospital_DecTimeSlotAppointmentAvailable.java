@@ -1,16 +1,11 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
@@ -74,11 +69,19 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 	 
 	 @AfterMethod
 	 public void DeleteWorktimeandAppointment() throws Exception{
+		 DoctorsPageOfZoylo.cancelSundayAppt(); 
+		 Thread.sleep(4000);
+		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		 Thread.sleep(3000);
+		 driver.findElement(By.xpath(Elements_Doctors.ClickOnHospitalTab)).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.id(Elements_Doctors.HospitalsSundayMenu)).click();
+		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.cancelSundayAppt(); 
+		 
 	 }
 	
 	

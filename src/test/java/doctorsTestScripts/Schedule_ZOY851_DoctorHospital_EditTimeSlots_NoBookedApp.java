@@ -10,42 +10,13 @@ Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp
 
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import objectRepository.Elements_Doctors;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import objectRepository.Elements_Doctors;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
 import testBase.DoctorsPage;
-import testBase.LoadProp;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
