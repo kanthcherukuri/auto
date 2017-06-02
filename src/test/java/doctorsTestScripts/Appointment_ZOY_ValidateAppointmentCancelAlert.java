@@ -3,25 +3,11 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -58,14 +44,13 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 		String id=DoctorsPageOfZoylo.getappointmentid();
 		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
 		DoctorsPageOfZoylo.ClickonAlertmenu();
-		//driver.findElement(By.id("alerts")).click();
-		//Thread.sleep(5000);
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("You have cancelled Appointment:"));
+		Assert.assertTrue(alert.contains("You have cancelled Appointment:"));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(id));
+		Assert.assertTrue(alert.contains(id));
+		
 		
 		}
 	
