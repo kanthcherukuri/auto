@@ -274,7 +274,7 @@ public class RecipientPage  {
 	 *  @Parameters  : 
 	 *  @Return      : Appointment details (clinic name , appointment Time)
 	 */
-	public String[]  selectDefaultSlot() throws InterruptedException{
+	public String[]  selectDefaultSlot1() throws InterruptedException{
 		String[] Appointmentdetails= new String[2];
 		//checkSlots();
 		Browser.waitFortheElementXpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]");
@@ -285,7 +285,7 @@ public class RecipientPage  {
 		if(driver.findElements(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).isEmpty()){
 
 			throw new SkipException("Slots are not available");
-
+   //div[@class='panel-collapse collapse in']/ul/li[last()]
 		}else{
 			driver.findElement(By.xpath("(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]")).click();  // book
 			Thread.sleep(2000);
@@ -294,7 +294,32 @@ public class RecipientPage  {
 		}
 		return Appointmentdetails;
 	}
-	
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to select available slot in Doctors 
+	 *  @Parameters  : 
+	 *  @Return      : Appointment details (clinic name , appointment Time)
+	 */
+	public String[]  selectDefaultSlot() throws InterruptedException{
+		String[] Appointmentdetails= new String[2];
+		//checkSlots();
+		Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]");
+		Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
+		Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).getText();
+        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+        System.out.println("Appointment Time:"+Appointmentdetails[1]);
+		if(driver.findElements(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).isEmpty()){
+
+			throw new SkipException("Slots are not available");
+   //div[@class='panel-collapse collapse in']/ul/li[last()]
+		}else{
+			driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+			System.out.println("Cliked on Default Slot Button");
+
+		}
+		return Appointmentdetails;
+	}
 	/*
 	 * Author: Sagar Sen
 	 * @Description: This method is used to select home visit available slot
@@ -477,7 +502,7 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();

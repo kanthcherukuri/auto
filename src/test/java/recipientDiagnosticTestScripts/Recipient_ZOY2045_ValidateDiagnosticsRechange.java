@@ -51,7 +51,7 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 			};
 		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
+	 public void validateDiagnosticsRechange(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -90,13 +90,6 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
 				Browser.openUrl(recipient_url);
 				RecipientPage.recipientLogout();
-				
-				
-				
-				
-				
-				
-				
 				
 				
 		 }else{

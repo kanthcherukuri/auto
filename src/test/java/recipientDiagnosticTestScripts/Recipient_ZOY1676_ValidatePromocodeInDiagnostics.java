@@ -51,7 +51,7 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 			};
 		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
+	 public void validatePromocodeInDiagnostics(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 

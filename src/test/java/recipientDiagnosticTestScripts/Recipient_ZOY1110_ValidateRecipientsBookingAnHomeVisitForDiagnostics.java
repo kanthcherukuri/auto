@@ -67,7 +67,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 			RecipientPage.ApplyFilterInDiagnostics("Home PickUp","homeVisit","doesHomeVisit","");
 	        Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
 			RecipientPage.searchInZoylodetailMAP(Diagnostic_Name);
-			Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
+			//Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
 			String DiagnosticsName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DiagnosticsName);
 			RecipientPage.bookAppointmentOnDiagnostics();

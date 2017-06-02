@@ -64,7 +64,7 @@ public class Recipient_ZOY1085_DiagnosticsChangeLocation extends LoadPropMac {
 	
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchInZoyloMAPArea("Bangalore");
-		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Bengalore");
+		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Bangalore");
 
 	}
 

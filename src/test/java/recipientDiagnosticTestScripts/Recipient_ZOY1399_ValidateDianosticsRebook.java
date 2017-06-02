@@ -54,8 +54,8 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Thread.sleep(5000);// Added for view
 			 driver.findElement(By.id("hist")).click();  // my History
-			 Thread.sleep(5000);
-			 driver.findElement(By.xpath("(//button[text()='Re-Book'])[1]")).click();
+			 Thread.sleep(2000);
+			 driver.findElement(By.xpath("(//button[contains(text(),'Re-Book')])[1]")).click();
 			 Thread.sleep(5000);
 			 RecipientPage.selectAvailableSlotInDiagnostics("Sugar Test", "Zoylo Health Pkg");
 			 RecipientPage.confirmAppointmentOnDiagnostics();
@@ -63,6 +63,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
 			 Browser.openUrl(recipient_url);
+			 //driver.findElement(By.id("skipForLater")).click();
 		     RecipientPage.recipientLogout();
 
 			
