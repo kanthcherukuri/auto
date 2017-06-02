@@ -1105,7 +1105,7 @@ public void VerifyCheckINFunctionality() throws Exception{
 	 * @ Pram: Other clinic Name, other clinic fee, other clinic mobile number
 	 * @ Return:
 	 */
-	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String othrPin, String othrLon, String othrLat)
+	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String lineone, String othrPin, String othrLon, String othrLat)
 	{
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
@@ -1117,11 +1117,36 @@ public void VerifyCheckINFunctionality() throws Exception{
 		driver.findElement(By.id(Elements_Doctors.otherclinicName)).sendKeys(otherClnName);
 		driver.findElement(By.id(Elements_Doctors.otherClinicFee)).sendKeys(otherfee);
 		driver.findElement(By.id(Elements_Doctors.otherClinicMobile)).sendKeys(othermob);
+		driver.findElement(By.id(Elements_Doctors.addlineone)).sendKeys(lineone);
 		driver.findElement(By.id(Elements_Doctors.otherPincode)).sendKeys(othrPin);
 		Browser.scrollbyID(Elements_Doctors.otherClinicSave);
 		driver.findElement(By.id(Elements_Doctors.otherLon)).sendKeys(othrLon);
 		driver.findElement(By.id(Elements_Doctors.otherLat)).sendKeys(othrLat);
 		driver.findElement(By.id(Elements_Doctors.otherClinicSave)).click();
+		Browser.CheckNotificationMessage("Clinic added successfully");
+	}
+	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will delete otherclinic from admin for a doctor
+	 * @ Pram: doctor email
+	 * @ Return:
+	 */
+	public void deleteOtherClinicFromAdmin(String docEmail) throws Exception
+	{
+		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(docEmail);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", docEmail);
+		driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
+		Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Edit')]");
+		driver.findElement(By.id("doctorInformationDiv")).click();
+		Browser.scrollbyxpath("//label[contains(., 'Follow Up Within (Days)')]"); //Scroll to other clinic
+		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
+		Browser.scrollbyID("adminProviderSubmit");
+		driver.findElement(By.id("adminProviderSubmit")).click();
+		Browser.CheckNotificationMessage("Doctor Updated successfully");
 	}
 	
 	public void CheckAppointmentsCountinDashboardForToday() throws Exception{

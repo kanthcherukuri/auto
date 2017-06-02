@@ -406,7 +406,7 @@ public class DiagnosticPage {
 		for(WebElement ele:CancelToDate)
 		{	
 		String date=ele.getText();	
-			if(date.equalsIgnoreCase("31"))
+			if(date.equalsIgnoreCase("30"))
 			{
 				ele.click();
 				break;
@@ -922,7 +922,7 @@ public class DiagnosticPage {
 		
 		public void EditConatctInSchedule(String name,String phone,String email,String fax) throws Exception{
 			
-			driver.findElement(By.xpath("(//div[@id='0'])[4]")).click();
+			driver.findElement(By.xpath("//div[@class='paddingb0 sp-diag-homepick-edit contactsEdit']")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.id(Elements_Diagnostics.addname)).clear();
 			driver.findElement(By.id(Elements_Diagnostics.addname)).sendKeys(name);
@@ -1202,7 +1202,7 @@ public class DiagnosticPage {
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestdesc)).sendKeys(testdesc);
 			 Thread.sleep(3000);
 			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitpackagesavebutton)).click();
-			 Thread.sleep(8000);
+			 //Thread.sleep(8000);
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
 		}
 		

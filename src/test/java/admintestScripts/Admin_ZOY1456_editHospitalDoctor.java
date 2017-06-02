@@ -21,14 +21,14 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 	public TestUtils Browser;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="junehospital_1_2@zoy.com";
+	public String hopDocEmailID="pomhop30_1@zoy.com";
 	
 	@DataProvider(name="editHopDoc")
 	public Object[][] details()
 	{
 		return new Object[][]
 				{
-					{hopDocEmailID, "false", "06:00", "18:00", "true", "06:00", "18:00", "false", "07:00", "19:00", "true", "08:00", "20:00", "true", "09:00", "21:00"}
+					{hopDocEmailID, "true", "06:00", "18:00", "true", "06:00", "18:00", "false", "07:00", "19:00", "true", "08:00", "20:00", "true", "09:00", "21:00"}
 				};
 	}
 	

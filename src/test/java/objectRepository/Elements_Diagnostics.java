@@ -328,7 +328,7 @@ public class Elements_Diagnostics  {
 		 addemail="contactPersonEmail0";
 		 addfax="contactPersonFax0";
 		 clickonsave="editClinicContactDetails";
-		 clickondelete="(//i[@id='0'])[3]";
+		 clickondelete="//i[@class='fa fa-minus-circle diagcontact_rem_slot']";
 		 clickonpackagemenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[3]";
 		 clickonaddpackagebutton="addPackage";
 		 
@@ -360,8 +360,8 @@ public class Elements_Diagnostics  {
 		 ManagePacakgeApproval="(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
 		 amenitiesbikeparking="BIKE_PARKING";
 		 amenitiescarparking="CAR_PARKING";
-		 amenitiescardswipe="CARD_SWIPE";
-		 amenitieswashroom="WASH_ROOM";
+		 amenitiescardswipe="AMBULANCE";
+		 amenitieswashroom="PRO_BONO";
 		 amenitiespremiunservice="PREMIUM_SERVICE";
 		 amenitiesemergencyservices="EMERGENCY_SERVICE";
 		 amenitiessave="saveClinicAminities";

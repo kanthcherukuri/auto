@@ -3,6 +3,9 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -30,7 +33,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Somuraju","R","9933333322","somuraju@gmail.com","Diabetic" }
+						{ "yes","Somasekar","V","9933333322","somasekhar@gmail.com","Diabetic" }
 
 				};
 			}
