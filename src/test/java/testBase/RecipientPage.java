@@ -523,10 +523,26 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
-	public void makePayment() throws InterruptedException{
+	public void makePayment_old() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
+		Thread.sleep(10000);
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
+		driver.findElement(By.id("termsAndConditions")).click();
+		Browser.scrollbyID("proceed");
+		driver.findElement(By.id("proceed")).click();     //Make payment
+		//Browser.waitTill(60);
+		Thread.sleep(20000);
+		System.out.println("Payment done");
+	}
+	
+	//New Promo Page
+	public void makePayment() throws InterruptedException{
+
+		Browser.waitFortheID("promocodeValue");
+		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
+		driver.findElement(By.xpath("//span[3]")).click();
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
