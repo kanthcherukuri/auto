@@ -1146,6 +1146,7 @@ public void VerifyCheckINFunctionality() throws Exception{
 		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
 		Browser.scrollbyID("adminProviderSubmit");
 		driver.findElement(By.id("adminProviderSubmit")).click();
+		Browser.CheckNotificationMessage("Doctor Updated successfully");
 	}
 	
 	public void CheckAppointmentsCountinDashboardForToday() throws Exception{

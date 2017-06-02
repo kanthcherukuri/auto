@@ -34,6 +34,7 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		closeapp();
 		launchapp();
 		admin.adminSignIn(admin_user, admin_password);
+		doctorsPage.deleteOtherClinicFromAdmin(DoctorsLogin_username);
 	}
 	
 	@BeforeClass
