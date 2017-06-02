@@ -32,7 +32,7 @@ adminuser.password=Zoylo@1234
 
 //--------Doctor Login Details----//
 
-Doctors.Url=https://zoyloqa.zoylo.com/login
+Doctors.Url=https://dev.zoylo.com/login
 DoctorsLogin.username=sagarsen@gmai.com
 DoctorsLogin.password=Zoylo@123
 browser=chrome
