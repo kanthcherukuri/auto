@@ -20,7 +20,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY1063_ValidateBookAnAppointmentForOtherClinics extends LoadPropMac {
+public class Recipient_ZOY_ValidateBookAnAppointmentForHospital extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -61,9 +61,9 @@ public class Recipient_ZOY1063_ValidateBookAnAppointmentForOtherClinics extends 
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				driver.findElement(By.id("manage-flip")).click();
-				driver.findElement(By.linkText("Xyz Clinics")).click();
+				driver.findElement(By.linkText("Apollo Hospital")).click();
 				Thread.sleep(2000);
-				RecipientPage.selectDefaultSlot();
+				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[contains(@class,'sp-available-slots')])[1]")).click();
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();

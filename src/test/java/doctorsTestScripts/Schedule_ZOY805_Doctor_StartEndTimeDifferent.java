@@ -31,6 +31,7 @@ public class Schedule_ZOY805_Doctor_StartEndTimeDifferent extends LoadPropMac
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		doctorsPage.checkAddBreakTimes("13:00", "13:00");
 		Browser.CheckNotificationMessage("Start time an end time can't be same");
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -45,9 +46,7 @@ public class Schedule_ZOY805_Doctor_StartEndTimeDifferent extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
 		doctorsPage.checkremoveBreakTimes();
-		Thread.sleep(3000);
 		driver.close();
 	}
 }

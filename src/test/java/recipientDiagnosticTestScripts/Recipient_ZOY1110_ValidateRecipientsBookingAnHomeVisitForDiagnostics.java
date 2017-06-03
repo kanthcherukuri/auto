@@ -44,7 +44,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad","Sugar Test","Zoylo Health Pkg", }
+			{ "yes","Hyderabad","Home Test","Zoylo home pkg", }
 
 		};
 	}
