@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -60,7 +64,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			 Thread.sleep(2000);
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
-			 Assert.assertEquals(ActualResult, Expected);	
+			 AssertJUnit.assertEquals(ActualResult, Expected);	
 			
 		 }else{
 		

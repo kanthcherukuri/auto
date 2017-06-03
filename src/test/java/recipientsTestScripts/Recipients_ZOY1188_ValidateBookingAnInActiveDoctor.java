@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -55,7 +59,7 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 			  RecipientPage.goToMyAccounts("My Favourites");
 			  driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click(); 
 			  String Notification = RecipientPage.getNotificationMesssage();
-			  Assert.assertEquals(Notification, "Doctor is not working");
+			  AssertJUnit.assertEquals(Notification, "Doctor is not working");
 	 
 		 }else{
 			 

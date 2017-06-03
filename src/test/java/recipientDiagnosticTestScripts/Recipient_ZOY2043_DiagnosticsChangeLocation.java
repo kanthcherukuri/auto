@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -55,7 +59,7 @@ public class Recipient_ZOY2043_DiagnosticsChangeLocation extends LoadPropMac {
 		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");
-		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Hyderabad");
+		AssertJUnit.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Hyderabad");
 
 	}
 
@@ -64,7 +68,7 @@ public class Recipient_ZOY2043_DiagnosticsChangeLocation extends LoadPropMac {
 	
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchInZoyloMAPArea("Bangalore");
-		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Bangalore");
+		AssertJUnit.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Bangalore");
 
 	}
 

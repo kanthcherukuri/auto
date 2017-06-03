@@ -44,7 +44,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Veeramachinenit","Full Body Test","10000","2"}
+					{ "yes","Veeramachinenitest","Full Body Test","10000","2"}
 
 			};
 		}
@@ -66,7 +66,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		driver.close();
 		Thread.sleep(1000);
 		//Launch New Browser To Login Into Admin Account
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com", "Zoylo@123");
+		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
 		//Admin Account To Approve the Created Test
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
 		//driver.close();

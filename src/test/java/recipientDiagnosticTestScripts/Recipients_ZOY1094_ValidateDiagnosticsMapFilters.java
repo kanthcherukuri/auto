@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -80,7 +84,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			driver.findElement(By.id("tests_search")).sendKeys("Blood Test");
 			Thread.sleep(2000);
 			String TestName=driver.findElement(By.xpath("(//div[contains(@class,'zy-rec-diag-s-apt-g-table-col')])[1]")).getText();
-			Assert.assertEquals(TestName, "Blood Test");
+			AssertJUnit.assertEquals(TestName, "Blood Test");
 	
 	    }
 	 
@@ -101,7 +105,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			driver.findElement(By.id("packages_search")).sendKeys("Zoylo Health Pkg");
 			Thread.sleep(2000);
 			String PkgName=driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'Zoylo Health Pkg')]")).getText();
-			Assert.assertEquals(PkgName, "Zoylo Health Pkg");
+			AssertJUnit.assertEquals(PkgName, "Zoylo Health Pkg");
 	
 	    }
 	 //

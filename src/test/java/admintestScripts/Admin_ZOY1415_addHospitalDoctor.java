@@ -24,9 +24,9 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="pomhop30_1@zoy.com";
-	public String hopDocName="Hospital Doctor";
-	public String hopMedNuber="JU01-3";
+	public String hopDocEmailID="kanthcherukuri@hotmail.com";
+	public String hopDocName="HospitalGuru";
+	public String hopMedNuber="JU01-2";
 	public String hopDocmobNum="8888810000";
 	public String errorNotification="Address is required";
 	

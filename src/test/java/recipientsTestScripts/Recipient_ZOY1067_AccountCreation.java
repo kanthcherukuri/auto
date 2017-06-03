@@ -1,6 +1,10 @@
 package recipientsTestScripts;
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 
@@ -73,7 +77,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			Thread.sleep(10000);
 			//*Confirming Thank you page
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-			Assert.assertEquals(SuccessfullMesg, "Please login to your email and proceed for verification to confirm your enrollment with us.");
+			AssertJUnit.assertEquals(SuccessfullMesg, "Please login to your email and proceed for verification to confirm your enrollment with us.");
 			//*Removing Created User from the data Base Mongo 
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "username", "doctorzoylo@gmail.com");
 

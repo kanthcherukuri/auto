@@ -3,6 +3,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -54,7 +58,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 Browser.waitTill(10);
 			 driver.findElement(By.id("resetPassword")).click();
 			 String emialMandatory=driver.findElement(By.id("email-err")).getText();
-			 Assert.assertEquals(emialMandatory, "Email or Mobile field is mandatory");
+			 AssertJUnit.assertEquals(emialMandatory, "Email or Mobile field is mandatory");
 			 
 			 //verifying Email with valid data
 			 driver.findElement(By.id("mobileOrEmail")).sendKeys("ganeshmandala@gmail.com");
@@ -65,7 +69,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 driver.findElement(By.id("verify")).click();
 			 Thread.sleep(2000);
 			 String OtpInvalid=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			 Assert.assertEquals(OtpInvalid, "OTP is Invalid, enter a correct one or try resend option");
+			 AssertJUnit.assertEquals(OtpInvalid, "OTP is Invalid, enter a correct one or try resend option");
 			 
 		
 			 }

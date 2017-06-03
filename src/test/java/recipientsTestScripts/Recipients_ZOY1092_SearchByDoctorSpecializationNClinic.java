@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -59,7 +63,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			//Verify search with Doctors name
 			RecipientPage.searchInZoyloMAP(Doctor);
 			String Search_Doctor = driver.findElement(By.xpath("//h1")).getText();
-	        Assert.assertTrue(Search_Doctor.contains(Doctor));
+	        AssertJUnit.assertTrue(Search_Doctor.contains(Doctor));
 	   
 		 }else{
 			 
@@ -81,7 +85,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			 if(runmode.equals("yes")){
 				RecipientPage.searchInZoyloMAP(Specialization);
 				String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-		        Assert.assertTrue(Search_Specialization.contains(Specialization));
+		        AssertJUnit.assertTrue(Search_Specialization.contains(Specialization));
 		        System.out.println("Passed"+Search_Specialization);
  
 			 }else{
@@ -100,7 +104,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 					RecipientPage.bookAppointment();
 					String Search_Clinic = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
 					System.out.println("clicnic name"+Search_Clinic);
-			        Assert.assertEquals(Search_Clinic, Clinic);
+			        AssertJUnit.assertEquals(Search_Clinic, Clinic);
 			        RecipientPage.goToDoctors();
 				 
 			 }else{
@@ -120,7 +124,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
 			    	Thread.sleep(5000);
 			    	String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-			    	Assert.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
+			    	AssertJUnit.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
 			        
 				 
 			 }else{

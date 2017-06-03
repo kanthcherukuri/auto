@@ -21,7 +21,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 	public TestUtils Browser;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="pomhop30_1@zoy.com";
+	public String hopDocEmailID="pomhop31_1@zoy.com";
 	
 	@DataProvider(name="editHopDoc")
 	public Object[][] details()

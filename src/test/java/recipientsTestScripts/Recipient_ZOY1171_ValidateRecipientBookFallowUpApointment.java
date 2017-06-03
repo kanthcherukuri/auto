@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -63,7 +67,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 				RecipientPage.recipientLogout();				
 				//Login as Doctor
 				

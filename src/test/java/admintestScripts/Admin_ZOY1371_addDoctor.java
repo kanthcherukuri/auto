@@ -31,11 +31,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="zoylodoctor@gmail.com"; //"june01_2@zoy.com";
-	public String docName="Doctorzoylo";
-	public String regNum="June01-6";
+	public String emailID="zoylotwodoctor@gmail.com"; //"june01_2@zoy.com";
+	public String docName="Doctorzoyloone";
+	public String regNum="June01-614";
 	public String clinicDefName="Default clinic";
-	public String mobNumDoc="7777710006";
+	public String mobNumDoc="9777710006";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
@@ -71,7 +71,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		return new Object[][] 
 		    	{
 
-		            {docName, regNum, "Male", "Nutrition", clinicDefName, "MBBS", "20", "11/08/1991"}
+		            {docName, regNum, "Male", "Nutrition", clinicDefName, "MBBS", "20", "11/08/1992"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
