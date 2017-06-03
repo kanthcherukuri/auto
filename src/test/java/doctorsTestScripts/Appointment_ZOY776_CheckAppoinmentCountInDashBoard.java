@@ -27,7 +27,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Hero","Honda","9999995522","Honda@gmail.com","Diabetic" }
+						{ "yes","Harini","H","9999995522","Harini@gmail.com","Diabetic" }
 
 				};
 			}
@@ -36,7 +36,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		public void AppointmentCountInDashBoard(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 			DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 			Thread.sleep(3000);
-			DoctorsPageOfZoylo.ClickingOnEllipse();
+			//DoctorsPageOfZoylo.ClickingOnEllipse();
 			Thread.sleep(2000);
 			DoctorsPageOfZoylo.CheckAppointmentsCountinDashboardForToday();
 			Thread.sleep(1000);	

@@ -326,7 +326,7 @@ public class Elements_Doctors  {
 			 dashboardfullname="//*[@id='scrolls']/div/div[1]/div[2]/span";
 			 checktodayappointmentssize="//*[@id='scrolls']/div/div";
 			 checktodayappointmentcountfromgraph="//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div";
-			 clickonellipse="html/body/div[9]/div/div[2]/div[3]/span/i";
+			 clickonellipse="//i[@class='fa fa-ellipsis-v footer-relipse']";
 			 
 			 //show more variables
 			 showmorebutton="show-all-btn";

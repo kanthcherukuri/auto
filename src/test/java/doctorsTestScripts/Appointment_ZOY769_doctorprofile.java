@@ -26,6 +26,8 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 
 	@Test
 	public void doctorprofileverification() throws Exception{
+	DoctorsPageOfZoylo.ClickingOnEllipse();
+	Thread.sleep(2000);
 	DoctorsPageOfZoylo.doctorprofileEditing();
 	DoctorsPageOfZoylo.doctorlogout();
 	

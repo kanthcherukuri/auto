@@ -31,8 +31,8 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
 			Thread.sleep(3000);
-			DoctorsPageOfZoylo.ClickingOnEllipse();
-			Thread.sleep(2000);
+			//DoctorsPageOfZoylo.ClickingOnEllipse();
+			//Thread.sleep(2000);
 			DoctorsPageOfZoylo.ClickingOnDashboard();
 			Thread.sleep(2000);
 			DoctorsPageOfZoylo.CheckShowMore();
