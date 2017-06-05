@@ -34,14 +34,11 @@ public class Recipients_ZOY1095_HomePageSearch extends LoadPropMac {
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
 		  Elements_Home.Home_PageProperties();// loading UI Page Elements / Locators		  
 		  HomePage = new HomePage(driver); // Loading Pages
-		  Browser= new TestUtils(driver);   
-	
+		  Browser= new TestUtils(driver);  
+		  Browser.openUrl(base_url);
 		  	 
  } 
 
-
-	 
- 
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
@@ -57,8 +54,7 @@ public class Recipients_ZOY1095_HomePageSearch extends LoadPropMac {
 		  
 		 if(runmode.equals("yes")){
 			 //Test Starts - Here
-			 Browser.openUrl(base_url);
-			 HomePage.searchQuery(City, Locality, Specialization);
+			 HomePage.searchZoylo(City, Locality, Specialization);
 
 		 }else{
 		
@@ -72,9 +68,8 @@ public class Recipients_ZOY1095_HomePageSearch extends LoadPropMac {
 		  
 		 if(runmode.equals("yes")){
 			 //Test Starts - Here
-			 driver.findElement(By.id("search-icon")).click();
-			 Browser.waitFortheID(Elements_Home.map_AreaName);
 			 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+			 Browser.waitFortheID(Elements_Home.map_AreaName);
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
 			 Assert.assertEquals(ActualResult, Expected);	

@@ -12,19 +12,10 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.*;
-/*
-import atu.testng.reports.listeners.ATUReportsListener;
-import atu.testng.reports.listeners.ConfigurationListener;
-import atu.testng.reports.listeners.MethodListener;
-*/
+
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
-*/
 public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
@@ -48,7 +39,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 			return new String[][] {
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","","","","Password is required","Confirm Password is required" },
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","1234","Zoylo@124","Zoylo@124","Incorrect password","","" },
-					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@123","Current Password and New Password should not be match","","" },
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@123","New password and old password should not be same","","" },
 
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","ssdss","","","Min 8 chars, uppercase, lowercase, number, and special char mandatory","Confirm Password is required" },
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@12345","","","Confirm Password not matched" },
@@ -77,17 +68,17 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 		  Thread.sleep(2000);
 		  //Verify new password validation
 		  String ActualnewPassMesg=driver.findElement(By.xpath("(//div[@class='change-pwd-fields'])[2]/span[2]")).getText();
-		  AssertJUnit.assertEquals(ActualnewPassMesg, newPasswordMesg);
+		  Assert.assertEquals(ActualnewPassMesg, newPasswordMesg);
 		  //Verify confirm password validation
 		  String ActualconfirmPassMesg=driver.findElement(By.xpath("(//div[@class='change-pwd-fields'])[3]/span[2]")).getText();
-		  AssertJUnit.assertEquals(ActualconfirmPassMesg, confirmPasswordMesg);
+		  Assert.assertEquals(ActualconfirmPassMesg, confirmPasswordMesg);
 		//Verify Notification validation
 		  if(notifiMesg.isEmpty()){
 			 System.out.println("notifi is empty");
 		  }else{
 			  System.out.println("notifi is true");
 			  String NotificationMesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			  AssertJUnit.assertEquals(NotificationMesg, notifiMesg);
+			  Assert.assertEquals(NotificationMesg, notifiMesg);
 				  
 		  }
 		  

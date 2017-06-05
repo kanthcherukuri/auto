@@ -5,24 +5,13 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.*;
-/*
-import atu.testng.reports.listeners.ATUReportsListener;
-import atu.testng.reports.listeners.ConfigurationListener;
-import atu.testng.reports.listeners.MethodListener;
-*/
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
-*/
 public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
@@ -72,9 +61,9 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 				Thread.sleep(5000);
 				String AppointmentIdInAlerts = driver.findElement(By.xpath("(//*[@id='recipientMessage'])[1]")).getText();
 				//Verifing appointment id in Alerts
-				AssertJUnit.assertTrue(AppointmentIdInAlerts.contains(APID[1]));
+				Assert.assertTrue(AppointmentIdInAlerts.contains(APID[1]));
 				//Assert.assertTrue(AppointmentIdInAlerts.contains(Doctor));
-				AssertJUnit.assertTrue(AppointmentIdInAlerts.contains("has been booked"));
+				Assert.assertTrue(AppointmentIdInAlerts.contains("has been SCHEDULED"));
 			 
 		 }else{
 			 

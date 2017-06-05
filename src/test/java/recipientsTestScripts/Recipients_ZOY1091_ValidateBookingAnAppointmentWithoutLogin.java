@@ -24,18 +24,10 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
- */
 public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
 	public HomePage HomePage;
-
-
-
 
 	@BeforeClass(groups = { "Regression","High" })	
 	public void LaunchBrowser() throws Exception {
@@ -52,7 +44,7 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad","Ameerpet","Cardiology" }
+			{ "yes","Hyderabad","Hitec City","Nutrition" }
 
 		};
 	}
@@ -60,17 +52,9 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	public void validateBookingAnAppointmentWithoutLogin(String runmode,String city,String area,String specialization ) throws Exception {
 
 		if(runmode.equals("yes")){
-
-
-
 			//Test Starts - Here
-			Browser.openUrl(base_url);
-			HomePage.searchZoylo(city, area, specialization);
-			Browser.waitFortheID(Elements_Home.map_AreaName);
-			Thread.sleep(10000);
-			driver.findElement(By.xpath("//div[@id='mapIconMenu']/span/img")).click();
-			Thread.sleep(5000);
-			RecipientPage.searchInZoylodetailMAP(Doctor_Name);
+			Browser.openUrl(index_url);
+			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DoctorFullName);
@@ -81,14 +65,8 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			RecipientPage.confirmAppointment("Test Details");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			RecipientPage.recipientLogout();
-
-
-
-
-
-
 
 		}else{
 
@@ -98,10 +76,6 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 
 
 	}
-
-
-
-
 
 
 	@AfterClass(groups = { "Regression","High" })
