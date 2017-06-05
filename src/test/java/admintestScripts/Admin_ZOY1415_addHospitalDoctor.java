@@ -24,10 +24,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="kanthcherukuri@hotmail.com";
-	public String hopDocName="HospitalGuru";
-	public String hopMedNuber="JU01-2";
-	public String hopDocmobNum="8888810000";
+	public String hopDocEmailID="hospitaldoc05_1@zoylo.com";
+	public String hopDocName="hospital five one";
+	public String hopMedNuber="JU05-2";
+	public String hopDocmobNum="8888810002";
 	public String errorNotification="Address is required";
 	
 	@DataProvider(name="generaldetails")
@@ -89,10 +89,10 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 				driver.findElement(By.xpath("//input[@file-input='doctorInformation.doctorImage']")).sendKeys(doc_image);
 		        Thread.sleep(5000);
 		
-		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[17]/label");
+		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[18]/label");
 		
 		//Hospital
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[18]/ul/li[1]/div/div[2]/div/div[2]/div[1]/span[1]/span[1]/span")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[19]/ul/li[1]/div/div[2]/div/div[2]/div[1]/span[1]/span[1]/span")).click();
 		Thread.sleep(1000);
 		Browser.actionbyXpath("html/body/span/span/span[1]/input", hospitalName);
 		
@@ -101,33 +101,33 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 		driver.findElement(By.name("doctorInformation.hospital.0.isDefault")).click();
 		
 		//Close vacation array
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[19]/ul/li[1]/div/div[1]/button")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/ul/li[1]/div/div[1]/button")).click();
 		
 		// Inactivate all days
 		Browser.scrollbyName("doctorInformation.hospital.0.isDefault");
 
 		driver.findElement(By.name("doctorInformation.workingHrs.Monday.markedAsOpen")).click(); // Monday inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[2]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[2]/tr/td[2]/button[1]")).click();
 		driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.markedAsOpen")).click(); // Tuesday inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[3]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[3]/tr/td[2]/button[1]")).click();
 		
 		Browser.scrollbyName("doctorInformation.workingHrs.Tuesday.markedAsOpen");
 
 		driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.markedAsOpen")).click(); // Wed inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[4]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[4]/tr/td[2]/button[1]")).click();
 		driver.findElement(By.name("doctorInformation.workingHrs.Thursday.markedAsOpen")).click(); // Thu inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[5]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[5]/tr/td[2]/button[1]")).click();
 		driver.findElement(By.name("doctorInformation.workingHrs.Friday.markedAsOpen")).click(); // Fri inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[6]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[6]/tr/td[2]/button[1]")).click();
 		
 		Browser.scrollbyName("doctorInformation.workingHrs.Thursday.markedAsOpen");
 
 		driver.findElement(By.name("doctorInformation.workingHrs.Saturday.markedAsOpen")).click(); // Sat inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[7]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[7]/tr/td[2]/button[1]")).click();
 		driver.findElement(By.name("doctorInformation.workingHrs.Sunday.markedAsOpen")).click(); // Sun inactive
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[8]/tr/td[2]/button[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[8]/tr/td[2]/button[1]")).click();
 	
-		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[20]/div[2]/table/tbody[8]/tr/td[2]/div[1]/label"); //Scroll to sunday
+		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[21]/div[2]/table/tbody[8]/tr/td[2]/div[1]/label"); //Scroll to sunday
 		
 	} //End of doctorInformation method p2
 	
@@ -144,8 +144,8 @@ public class Admin_ZOY1415_addHospitalDoctor extends LoadPropMac
 	public void docaddInfo(String mobNum, String doclop, String docpt, String savedEmail) throws InterruptedException
 	{
 		driver.findElement(By.id(Elements_Admin.button_AdditionalInformation)).click();
-		driver.findElement(By.name("additionalInformation.mobileNumber")).sendKeys(mobNum);
 		Browser.scrollbyxpath(".//*[@id='additionalInformation']/div/div[1]/h3");
+		driver.findElement(By.name("additionalInformation.mobileNumber")).sendKeys(mobNum);
 		
 		// Line of Practice
 		Browser.actionbyXpath(".//*[@id='additionalInformation']/div/div[2]/div[4]/span[1]/span[1]/span/ul", doclop);

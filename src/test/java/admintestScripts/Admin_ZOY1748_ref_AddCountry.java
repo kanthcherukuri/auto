@@ -22,8 +22,8 @@ public class Admin_ZOY1748_ref_AddCountry extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/countryList";
 	public String pit = "https://pit.zoylo.com/admin/countryList";
-	public String countryCode="JUNEONECOUNONE";
-	public String countryName="Juneonecountryone";
+	public String countryCode="JUNEFIVECOUN";
+	public String countryName="Junefivecountry";
 	
 	@Test()
 	public void addCountry()
@@ -52,9 +52,8 @@ public class Admin_ZOY1748_ref_AddCountry extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

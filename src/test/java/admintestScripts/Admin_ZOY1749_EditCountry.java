@@ -22,7 +22,7 @@ public class Admin_ZOY1749_EditCountry extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyoqa.zoylo.com/admin/countryList";
 	public String pit = "https://pit.zoylo.com/admin/countryList";
-	public String countryCode="JUNEONECOUNONE";
+	public String countryCode="JUNEFIVECOUN";
 	
 	@Test()
 	public void editCountry()
@@ -51,9 +51,8 @@ public class Admin_ZOY1749_EditCountry extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

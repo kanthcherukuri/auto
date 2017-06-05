@@ -22,7 +22,7 @@ public class Admin_ZOY1807_editMarketingElements extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/marketingElements";
 	public String pit="https://pit.zoylo.com/admin/marketingElements";
-	public String marketHtML = "ZOO";
+	public String marketHtML = "IPHONE";
 	
 	@Test
 	public void editMarketing()
@@ -53,9 +53,8 @@ public class Admin_ZOY1807_editMarketingElements extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

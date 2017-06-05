@@ -21,7 +21,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 	public TestUtils Browser;
 	
 	//Global variables for pre condition values
-	public String hopDocEmailID="pomhop31_1@zoy.com";
+	public String hopDocEmailID="hospitaldoc05_1@zoylo.com";
 	
 	@DataProvider(name="editHopDoc")
 	public Object[][] details()
@@ -47,7 +47,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 		
 		driver.findElement(By.name("isActive")).click();
 		driver.findElement(By.id(Elements_Admin.button_doctorInformation)).click();
-		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div/div/div[19]/ul/li[1]/div/div[2]/div/div[2]/div[3]/label");
+		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div/div/div[20]/ul/li[1]/div/div[2]/div/div[2]/div[3]/label");
 		
 		//Monday
 				if(mValue.equalsIgnoreCase("true"))
@@ -57,7 +57,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.name("doctorInformation.workingHrs.Monday.slots.0.isActive")).click(); //Active
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Monday.slots.0.locationType']//label//input[@value='hospital']")).click();
 						
-						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[2]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
+						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[21]/div[2]/table/tbody[2]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
 											
 						driver.findElement(By.name("doctorInformation.workingHrs.Monday.slots.0.start")).sendKeys(mondayStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Monday.slots.0.end")).sendKeys(mondayEnd);
@@ -78,7 +78,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.slots.0.isActive")).click(); //Active
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Tuesday.slots.0.locationType']//label//input[@value='hospital']")).click(); //Location type
 						
-						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[3]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
+						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[21]/div[2]/table/tbody[3]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
 						
 						driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.slots.0.start")).sendKeys(tueStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.slots.0.end")).sendKeys(tueEnd);
@@ -99,7 +99,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.slots.0.isActive")).click(); //Active
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Wednesday.slots.0.locationType']//label//input[@value='hospital']")).click(); //Location type
 						
-						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[4]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
+						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[21]/div[2]/table/tbody[4]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
 						
 						driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.slots.0.start")).sendKeys(wStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.slots.0.end")).sendKeys(wEnd);
@@ -120,7 +120,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.name("doctorInformation.workingHrs.Thursday.slots.0.isActive")).click(); //Active
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Thursday.slots.0.locationType']//label//input[@value='hospital']")).click(); //Location type
 						
-						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[5]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
+						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[21]/div[2]/table/tbody[5]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
 						
 						driver.findElement(By.name("doctorInformation.workingHrs.Thursday.slots.0.start")).sendKeys(thStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Thursday.slots.0.end")).sendKeys(thEnd);
@@ -141,7 +141,7 @@ public class Admin_ZOY1456_editHospitalDoctor extends LoadPropMac
 						driver.findElement(By.name("doctorInformation.workingHrs.Friday.slots.0.isActive")).click(); //Active
 						driver.findElement(By.xpath("//div[@data-schema-key='doctorInformation.workingHrs.Friday.slots.0.locationType']//label//input[@value='hospital']")).click(); //Location type
 						
-						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[20]/div[2]/table/tbody[6]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
+						Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div/div/div[21]/div[2]/table/tbody[6]/tr/td[2]/div[4]/div/div[5]/span[1]/span[1]/span", "Apollo");
 						
 						driver.findElement(By.name("doctorInformation.workingHrs.Friday.slots.0.start")).sendKeys(fStart);
 						driver.findElement(By.name("doctorInformation.workingHrs.Friday.slots.0.end")).sendKeys(fEnd);

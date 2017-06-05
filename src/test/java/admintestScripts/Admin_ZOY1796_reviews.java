@@ -59,7 +59,7 @@ public class Admin_ZOY1796_reviews extends LoadPropMac
 		}
 		
 		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-		
+		Thread.sleep(5000);
 		
 		
 	}
@@ -76,9 +76,8 @@ public class Admin_ZOY1796_reviews extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

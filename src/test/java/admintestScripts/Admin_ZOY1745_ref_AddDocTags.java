@@ -22,7 +22,7 @@ public class Admin_ZOY1745_ref_AddDocTags extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/providerTagList";
 	public String pit = "https://pit.zoylo.com/admin/providerTagList";
-	public String tagName="Juneonetagone";
+	public String tagName="Junefivetag";
 	
 	@Test()
 	public void addDocTag()
@@ -50,9 +50,8 @@ public class Admin_ZOY1745_ref_AddDocTags extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }
