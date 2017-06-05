@@ -20,11 +20,6 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
- */
 public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostics extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
@@ -48,7 +43,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad","Home Test","Zoylo home pkg", }
+			{ "yes","Hyderabad","Sugar Test","Zoylo Health pkg", }
 
 		};
 	}
@@ -75,13 +70,21 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 			String DiagnosticsName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DiagnosticsName);
 			RecipientPage.bookAppointmentOnDiagnostics();
-			RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
+			
+			
+			Browser.waitFortheElementXpath(Elements_Recipients.dcNameHolder);
+			driver.findElement(By.id(Elements_Recipients.dcHomePickUp)).click();
+			Browser.waitFortheElementXpath("//div[@class='zy-rec-diag-hm-add-title']"); //Address heading
+			driver.findElement(By.xpath(Elements_Recipients.recipient_firstHomeAddress)).click();
+			driver.findElement(By.xpath(Elements_Recipients.dcHomeVisitAddressProceed)).click();
+			Browser.waitFortheElementXpath("(.//*[@id='tests_search'])[2]"); //search bar xpath
+			RecipientPage.selectDChomeVisitSlots();
 			RecipientPage.confirmAppointmentOnDiagnostics();
-		    RecipientPage.makePayment();
-			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-			System.out.println("h5"+SuccessfullMesg);
-			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
-            RecipientPage.recipientLogout();
+			RecipientPage.makePaymentforDC();
+			Browser.waitFortheElementXpath("//h5[contains(., 'Thank you for booking appointment at Diagnosticszoylo through Zoylo')]");
+			System.out.println("Home visit appointment is successfully booked");
+		
+		
 
 
 		}else{

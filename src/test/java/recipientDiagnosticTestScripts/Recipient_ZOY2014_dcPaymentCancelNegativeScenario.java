@@ -30,7 +30,7 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 		String dcName=driver.findElement(By.xpath("//span[@class='zy-rec-diag-m-d-name']")).getText();
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
-		Browser.waitFortheElementXpath("//span[contains(., 'Payment Options')]");
+		Browser.waitFortheElementXpath("//*[@id='proceed']");
 		driver.findElement(By.id("cancel")).click();
 		Browser.waitforTextbyxpath("//span[@class='zy-rec-diag-m-d-name']", dcName);
 	}

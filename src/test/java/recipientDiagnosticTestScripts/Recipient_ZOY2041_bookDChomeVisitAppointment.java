@@ -38,6 +38,8 @@ public class Recipient_ZOY2041_bookDChomeVisitAppointment extends LoadPropMac
 		RecipientPage.makePaymentforDC();
 		Browser.waitFortheElementXpath("//h5[contains(., 'Thank you for booking appointment at Diagnosticszoylo through Zoylo')]");
 		System.out.println("Home visit appointment is successfully booked");
+	
+	
 	}
 	
 	@BeforeClass
