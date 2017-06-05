@@ -22,10 +22,10 @@ public class Admin_ZOY1732_ref_AddDocPractice extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/lineOfPracticeList";
 	public String pit = "https://pit.zoylo.com/admin/lineOfPracticeList";
-	public String lopName="Juneonelopone";
+	public String lopName="Junefivelop";
 	
 	@Test()
-	public void addDocPractice()
+	public void addDocPractice() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -37,6 +37,7 @@ public class Admin_ZOY1732_ref_AddDocPractice extends LoadPropMac
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		
 		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor - Practices')]", "Doctor - Practices");
+		Thread.sleep(2000);
 	}
 	
 	
@@ -52,9 +53,8 @@ public class Admin_ZOY1732_ref_AddDocPractice extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

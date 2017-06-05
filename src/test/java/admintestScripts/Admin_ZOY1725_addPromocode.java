@@ -25,7 +25,7 @@ public class Admin_ZOY1725_addPromocode extends LoadPropMac
 	public String pit = "https://pit.zoylo.com/admin/zyProviderPromoCodes";
 	public String dev = "https://dev.zoylo.com/admin/zyProviderPromoCodes";
 	public String promoType = "promotion"; //promotion OR referral ONLY
-	public String codeName = "100Percent";
+	public String codeName = "05June17";
 	public String desc = "Availe "+codeName+ " promoCode";
 	public String refferalValue = "10";
 	public String refreValue = "20";
@@ -102,7 +102,7 @@ public class Admin_ZOY1725_addPromocode extends LoadPropMac
 	    Thread.sleep(1000);
 	    driver.findElement(By.xpath("//button[@type='submit']")).click();
 	    Browser.waitforTextbyxpath("//h4[contains(., 'Provider Promotions')]", "Provider Promotions");
-	    
+	    Thread.sleep(2000);
 	}
 
 	@BeforeClass
@@ -117,9 +117,8 @@ public class Admin_ZOY1725_addPromocode extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

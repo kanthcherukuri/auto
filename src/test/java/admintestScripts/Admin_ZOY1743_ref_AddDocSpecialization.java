@@ -22,10 +22,10 @@ public class Admin_ZOY1743_ref_AddDocSpecialization extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/areaOfSpecializationList";
 	public String pit = "https://pit.zoylo.com/admin/areaOfSpecializationList";
-	public String specName="Juneonespecone";
+	public String specName="Junefivespec";
 	
 	@Test()
-	public void addDocSpec()
+	public void addDocSpec() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -36,6 +36,7 @@ public class Admin_ZOY1743_ref_AddDocSpecialization extends LoadPropMac
 		driver.findElement(By.name("name")).sendKeys(specName);
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor - Specializations')]", "Doctor - Specializations");
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -50,9 +51,8 @@ public class Admin_ZOY1743_ref_AddDocSpecialization extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 	

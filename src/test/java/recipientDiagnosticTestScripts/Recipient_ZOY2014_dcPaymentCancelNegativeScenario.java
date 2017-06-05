@@ -47,9 +47,9 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
-		driver.close();
-	}
+	public void closeBrowser() {
+
+	       driver.close();
+
+	    }
 }

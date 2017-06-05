@@ -22,7 +22,7 @@ public class Admin_ZOY1744_ref_EditDocSpecialization extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/areaOfSpecializationList";
 	public String pit = "https://pit.zoylo.com/admin/areaOfSpecializationList";
-	public String specName="Juneonespecone";
+	public String specName="Junefivespec";
 	
 	@Test()
 	public void editDocSpecialization()
@@ -51,9 +51,8 @@ public class Admin_ZOY1744_ref_EditDocSpecialization extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

@@ -48,9 +48,9 @@ public class Recipient_ZOY1984_BookAptNegativeScenario extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+      public void Exit() {
+		
 		driver.close();
+
 	}
 }

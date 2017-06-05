@@ -31,7 +31,7 @@ public class Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario extends L
 		RecipientPage.selectDefaultSlot();
 		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
 		RecipientPage.bookAppointment();
-		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
+		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
 		driver.findElement(By.id("cancel")).click();
 		Browser.waitforTextbyxpath("//h1[@class='tr-override-dctr-content-h1']", docName);
 	}
@@ -48,9 +48,9 @@ public class Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario extends L
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+    public void Exit() {
+		
 		driver.close();
+
 	}
 }

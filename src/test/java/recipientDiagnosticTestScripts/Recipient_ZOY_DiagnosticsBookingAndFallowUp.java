@@ -125,14 +125,11 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 			
 	    }
 
-	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
+	 @AfterClass(groups = { "Regression","High" })	 
+	 public void closeBrowser() {
 
-	       
 	       driver.close();
-	       
-	      
+  
 	    }
     
 	

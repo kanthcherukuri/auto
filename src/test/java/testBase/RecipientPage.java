@@ -384,7 +384,7 @@ public class RecipientPage  {
 	 */
 	public void paymentOptions(int paymentValue)
 	{
-		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
+		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();
@@ -523,10 +523,14 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
-	public void makePayment_old() throws InterruptedException{
+	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
+
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
+
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[1]")).click();
+
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
@@ -538,7 +542,7 @@ public class RecipientPage  {
 	}
 	
 	//New Promo Page
-	public void makePayment() throws InterruptedException{
+	public void makePayment_old() throws InterruptedException{
 
 		Browser.waitFortheID("promocodeValue");
 		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
