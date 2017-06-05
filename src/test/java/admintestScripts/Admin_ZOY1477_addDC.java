@@ -25,11 +25,11 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	
 	//Global variables for pre condition values
 
-	public String dcNameV="June five dc one";
-	public String dcshrV="Junefivedcone";
-	public String dcEmail="june05_1dc@zoylo.com";
-	public String dcNum="7778800002";
-	public String ucontactNumber="9000000002";
+	public String dcNameV="Srinivas diagnostics";
+	public String dcshrV="Srinivasdc";
+	public String dcEmail="srinivas_dc@zoylo.com";
+	public String dcNum="7778800003";
+	public String ucontactNumber="9000000003";
 	public String ucontactEmail="milan33@zoylo.com";
 
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
@@ -138,7 +138,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Thursday", "09:00", "20:00", "Thursday", "09:00", "20:00"}
+					{"Monday", "09:00", "20:00", "Monday", "09:00", "20:00"}
 				};
 	}
 	
