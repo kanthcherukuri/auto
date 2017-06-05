@@ -29,12 +29,12 @@ public class Admin_ZOY1712_editHospital extends LoadPropMac
 	{
 		return new Object[][]
 				{
-					{"Eighteenmay", "Eighteenmay"}
+					{"Eighteenhospital", "Eighteenhospital"}
 				};
 	}
 	
 	@Test(dataProvider="editDataHop")
-	public void editHop(String hopName, String hopVerify)
+	public void editHop(String hopName, String hopVerify) throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -56,6 +56,7 @@ public class Admin_ZOY1712_editHospital extends LoadPropMac
 		} catch (Exception e) {
 			System.out.println("Hospital "+hopVerify+" save failed");
 		}
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -72,7 +73,6 @@ public class Admin_ZOY1712_editHospital extends LoadPropMac
 	@AfterClass
 	public void closebrowser() throws InterruptedException
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

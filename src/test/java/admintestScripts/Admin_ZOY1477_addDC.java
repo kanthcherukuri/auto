@@ -25,12 +25,12 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	
 	//Global variables for pre condition values
 
-	public String dcNameV="New diagnostic";
-	public String dcshrV="Smscheck";
-	public String dcEmail="charancss267@gmail.com";
-	public String dcNum="9010504605";
-	public String ucontactNumber="9000000001";
-	public String ucontactEmail="milan31@zoylo.com";
+	public String dcNameV="June five dc one";
+	public String dcshrV="Junefivedcone";
+	public String dcEmail="june05_1dc@zoylo.com";
+	public String dcNum="7778800002";
+	public String ucontactNumber="9000000002";
+	public String ucontactEmail="milan33@zoylo.com";
 
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
@@ -178,7 +178,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	}
 	
 	@Test(dataProvider="testAndPackage", priority=5)
-	public void testPackage(String pStatus, String pType, String pName, String pCost, String pZFC, String tname, String taStatus, String tMode, String tCost, String tZFC)
+	public void testPackage(String pStatus, String pType, String pName, String pCost, String pZFC, String tname, String taStatus, String tMode, String tCost, String tZFC) throws Exception
 	{
 		//Package
 		Browser.actionbyname("healthPackages.0.adminStatus", pStatus);
@@ -220,6 +220,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	   driver.findElement(By.id("zyInsertDiagnosticCenter")).click();
 	   
 	   System.out.println("Diagnostic centre " +dcEmail+ " saved");
+	   Thread.sleep(2000);
 	    
 	}//End of p5
 	
@@ -235,9 +236,8 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 	

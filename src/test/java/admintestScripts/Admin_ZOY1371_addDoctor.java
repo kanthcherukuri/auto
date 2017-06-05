@@ -31,11 +31,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="zoylotwodoctor@gmail.com"; //"june01_2@zoy.com";
-	public String docName="Doctorzoyloone";
-	public String regNum="June01-614";
+	public String emailID="june05_3@zoy.com";
+	public String docName="June fivetwo";
+	public String regNum="June05-2";
 	public String clinicDefName="Default clinic";
-	public String mobNumDoc="9777710006";
+	public String mobNumDoc="9777710009";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
@@ -105,11 +105,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
         Thread.sleep(5000);
 		
 		//Close other clinic tab
-        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[23]/ul/li[1]/div/div[1]/button")).click(); 
-        //Close hospital tab
         driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[24]/ul/li[1]/div/div[1]/button")).click(); 
+        //Close hospital tab
+        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[25]/ul/li[1]/div/div[1]/button")).click(); 
 		//Close vacation tab
-        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[25]/ul/li[1]/div/div[1]/button")).click();
+        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/ul/li[1]/div/div[1]/button")).click();
         
 	} // End of doctorInformation method p2
 	
@@ -125,7 +125,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	@Test(dataProvider="timeSlots", priority=3)
 	public void doctorTimeSlots(String mValue, String mondayStart, String mondayEnd, String tValue, String tueStart, String tueEnd, String wValue, String wStart, String wEnd, String thValue, String thStart, String thEnd, String fValue, String fStart, String fEnd)
 	{
-		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[25]/div"); //Scroll to Vacation text
+		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div"); //Scroll to Vacation text
 		//Monday
 		if(mValue.equalsIgnoreCase("true"))
 			{
@@ -140,7 +140,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Monday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Monday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[2]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[2]/tr/td[2]/button[1]"));
 				System.out.println("Monday slots are not provided");
 			}
 		
@@ -158,7 +158,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Tuesday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[3]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[3]/tr/td[2]/button[1]"));
 				System.out.println("Tuesday slots are not provided");
 			}
 		
@@ -176,7 +176,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Wednesday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[4]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[4]/tr/td[2]/button[1]"));
 				System.out.println("Wednesday slots are not provided");
 			}
 		
@@ -194,7 +194,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Thursday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Thursday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[5]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[5]/tr/td[2]/button[1]"));
 				System.out.println("Thursday slots are not provided");
 			}
 		
@@ -212,18 +212,18 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 			//Friday check box
 			driver.findElement(By.name("doctorInformation.workingHrs.Friday.markedAsOpen")).click();
 			//div close
-			driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[6]/tr/td[2]/button[1]"));
+			driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[6]/tr/td[2]/button[1]"));
 			System.out.println("Friday slots are not provided");
 			}
 		
 		//Saturday and Sunday arrays close and inactive
 		driver.findElement(By.name("doctorInformation.workingHrs.Saturday.markedAsOpen")).click();
 		//div close
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[7]/tr/td[2]/button[1]"));
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[7]/tr/td[2]/button[1]"));
 		
 		driver.findElement(By.name("doctorInformation.workingHrs.Sunday.markedAsOpen")).click();
 		//div close
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div[2]/table/tbody[8]/tr/td[2]/button[1]"));
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[8]/tr/td[2]/button[1]"));
 		
 	} //End of doctorTimeSlots method p3
 	

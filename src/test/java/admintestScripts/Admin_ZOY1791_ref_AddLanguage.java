@@ -22,7 +22,7 @@ public class Admin_ZOY1791_ref_AddLanguage extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/languageList";
 	public String pit = "https://pit.zoylo.com/admin/languageList";
-	public String languageName="Juneonelanguageone";
+	public String languageName="Junefivelanguage";
 	
 	@Test()
 	public void addLanguage()
@@ -50,9 +50,8 @@ public class Admin_ZOY1791_ref_AddLanguage extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 	

@@ -21,7 +21,7 @@ public class Admin_ZOY1661_DCchangePassword extends LoadPropMac
 	public AdminPage admin;
 	
 	//Global variables for pre condition values
-	public String emailID="sixMarch2017@gmail.com";
+	public String emailID="june05_1dc@zoylo.com";
 	public String zqa="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenters";
 	public String pit="https://pit.zoylo.com/admin/zyDiagnosticCenters";
 	
@@ -36,7 +36,7 @@ public class Admin_ZOY1661_DCchangePassword extends LoadPropMac
 	}
 	
 	@Test(dataProvider="userDetails")
-	public void editDCsave(String dcEmail)
+	public void editDCsave(String dcEmail) throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -55,7 +55,7 @@ public class Admin_ZOY1661_DCchangePassword extends LoadPropMac
 		driver.findElement(By.id("changePassword")).click();
 		
 		Browser.waitFortheElementXpath("html/body/div[6]/div/div/div/div[2]/div/div[1]/div[1]/h4");
-		
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -70,9 +70,8 @@ public class Admin_ZOY1661_DCchangePassword extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 	

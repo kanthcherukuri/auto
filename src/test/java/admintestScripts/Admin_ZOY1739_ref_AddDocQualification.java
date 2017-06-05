@@ -22,10 +22,10 @@ public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/doctorQualificationList";
 	public String pit = "https://pit.zoylo.com/admin/doctorQualificationList";
-	public String quaName="JUNEONEQUAONE";
+	public String quaName="JUNEFIVEQUA";
 	
 	@Test()
-	public void addDocQua()
+	public void addDocQua() throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -36,6 +36,7 @@ public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
 		driver.findElement(By.name("name")).sendKeys(quaName);
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Doctor - Qualifications')]", "Doctor - Qualifications");
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -50,9 +51,8 @@ public class Admin_ZOY1739_ref_AddDocQualification extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

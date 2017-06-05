@@ -24,8 +24,8 @@ public class Admin_ZOY1709_addHospital extends LoadPropMac
 	//Global variables for pre-condition values
 	public String zqa="https://zoyloqa.zoylo.com/admin/hospitalList";
 	public String pit="https://pit.zoylo.com/admin/hospitalList";
-	public String hopName="Junehospitalone";
-	public String shortHopName="Junehopone";
+	public String hopName="Junefivehospital";
+	public String shortHopName="Junehopfive";
 	
 	
 	@DataProvider(name="hospitalDetails")
@@ -77,7 +77,7 @@ public class Admin_ZOY1709_addHospital extends LoadPropMac
 		} catch (Exception e) {
 			System.out.println("Hospital "+hopname+" save failed");
 		}
-		
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -94,7 +94,6 @@ public class Admin_ZOY1709_addHospital extends LoadPropMac
 	@AfterClass
 	public void closebrowser() throws InterruptedException
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }

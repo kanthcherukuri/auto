@@ -23,7 +23,7 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 	//Global variables for pre condition values
 	public String zqa = "https://zoyloqa.zoylo.com/admin/cityList";
 	public String pit = "https://pit.zoylo.com/admin/cityList";
-	public String cityName="Juneonecityone";
+	public String cityName="Junefivecity";
 	public String state="Telangana";
 	
 	@Test()
@@ -57,9 +57,8 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
+	public void closebrowser()
 	{
-		Thread.sleep(5000);
 		driver.close();
 	}
 }
