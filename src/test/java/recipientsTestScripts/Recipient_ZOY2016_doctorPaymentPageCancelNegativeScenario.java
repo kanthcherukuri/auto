@@ -48,9 +48,9 @@ public class Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario extends L
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+public void Exit() {
+		
 		driver.close();
+
 	}
 }

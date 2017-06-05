@@ -58,9 +58,9 @@ public class Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario extends Loa
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+     public void Exit() {
+		
 		driver.close();
+
 	}
 }

@@ -80,7 +80,7 @@ Recipient.Password=Zoylo@123
 Recipient.DocUsername=zoylodoctor@gmail.com
 Recipient.DocPassword=Zoylo@123
 
-Recipient.DSusername=ganeshkumar.m@zoylo.com
+Recipient.DSusername=dczoylo@zoylo.com
 Recipient.DSpassword=Zoylo@123
 
 Recipient.DiaUsername=Diagnosticszoylo@zoylo.com

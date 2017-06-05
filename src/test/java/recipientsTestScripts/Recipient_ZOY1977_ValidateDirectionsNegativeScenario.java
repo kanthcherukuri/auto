@@ -50,9 +50,9 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+     public void Exit() {
+		
 		driver.close();
+
 	}
 }

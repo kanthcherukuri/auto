@@ -62,9 +62,9 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
-		driver.close();
-	}
+	public void closeBrowser() {
+
+	       driver.close();
+
+	    }
 }
