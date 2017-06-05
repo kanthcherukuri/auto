@@ -32,10 +32,10 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		String verifyDT=driver.findElement(By.xpath("//div[@class='d-y-t']")).getText();
 		String verifyFee=driver.findElement(By.id("providerFees")).getText();
 		RecipientPage.bookAppointment();
-		RecipientPage.paymentOptions(1);
+		RecipientPage.paymentOptions(3);
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
-		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
+		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
 		//Browser.waitforTextbyxpath("//div[@class='zy-sp-payment-values'])[6]", verifyTobePaid);
 		driver.navigate().back();
 		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
@@ -59,9 +59,9 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 	}
 	
 	@AfterClass
-	public void closebrowser() throws InterruptedException
-	{
-		Thread.sleep(3000);
+     public void Exit() {
+		
 		driver.close();
+
 	}
 }

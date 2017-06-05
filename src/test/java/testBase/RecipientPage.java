@@ -384,7 +384,7 @@ public class RecipientPage  {
 	 */
 	public void paymentOptions(int paymentValue)
 	{
-		Browser.waitFortheElementXpath("//h4[contains(., 'Reveiw Your Appointment Details')]");
+		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();
@@ -526,11 +526,11 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-<<<<<<< HEAD
+
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
-=======
+
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[1]")).click();
->>>>>>> 7390b73cab44f9816a05ec9e713a2b22059aa905
+
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();

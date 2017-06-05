@@ -48,7 +48,7 @@ public class Recipient_ZOY1984_BookAptNegativeScenario extends LoadPropMac
 	}
 	
 	@AfterClass
-public void Exit() {
+      public void Exit() {
 		
 		driver.close();
 

@@ -81,7 +81,7 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 	}
 	
 	@AfterClass
-public void Exit() {
+     public void closebrowser() {
 		
 		driver.close();
 
