@@ -100,7 +100,7 @@ public class Elements_Doctors  {
 				public static String clickonview, getfullnameonclickviewmenu, clickonalertmenu, getappointmentid;
 				
 				//set vacation
-				public static String setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
+				public static String closevacationArray, setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
 				
 				//Break timings
 				public static String sunToggle, sunStrtTime, sunEndTime;
@@ -211,6 +211,7 @@ public class Elements_Doctors  {
 		
 	//Set Vacation
 	setVacation="setVacation";
+	//closevacationArray="(.//*[@id='0'])[1]";
 	addVacationSlot="addVacationSlots";
 	vacationStart="(//input[@class='datepicker'])[1]";
 	vacationEnd="(//input[@class='datepicker'])[2]";
@@ -326,7 +327,7 @@ public class Elements_Doctors  {
 			 dashboardfullname="//*[@id='scrolls']/div/div[1]/div[2]/span";
 			 checktodayappointmentssize="//*[@id='scrolls']/div/div";
 			 checktodayappointmentcountfromgraph="//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div";
-			 clickonellipse="html/body/div[9]/div/div[2]/div[3]/span/i";
+			 clickonellipse="//i[@class='fa fa-ellipsis-v footer-relipse']";
 			 
 			 //show more variables
 			 showmorebutton="show-all-btn";

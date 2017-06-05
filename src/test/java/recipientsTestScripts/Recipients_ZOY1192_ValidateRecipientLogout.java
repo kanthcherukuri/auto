@@ -3,6 +3,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -49,7 +53,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 		
 		String Email= Browser.emailResponse("ganeshzoylo@gmail.com", "Zoylo@123", "Zoylo.com | Your appointment with Dr.Doctorzoylo has been confirmed.");
 		System.out.println("Email_response="+Email);
-		Assert.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
+		AssertJUnit.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
         
 	}
 

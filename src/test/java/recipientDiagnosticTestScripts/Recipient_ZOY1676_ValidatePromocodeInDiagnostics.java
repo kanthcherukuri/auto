@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -83,37 +87,37 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 			    //verifying Consultation Fee
 			    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Consultation Fee')]/div[2]")).getText();
 		        System.out.println("PaymentConsultationFee="+PaymentConsultationFee);
-		        Assert.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(". ", ""));
+		        AssertJUnit.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(". ", ""));
 		        //verifying Booking Fee
 			    String PaymentBookingFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Booking Fee ')]/div[2]")).getText();
 		        System.out.println("PaymentBookingFee="+PaymentBookingFee);
 		        String BookingfeeString = PaymentBookingFee.replace(". ", "");
 		        System.out.println("BookingfeeString="+BookingfeeString);
-		        Assert.assertEquals(BookingfeeString, "27.00");
+		        AssertJUnit.assertEquals(BookingfeeString, "27.00");
 		        //verifying Service Tax
 			    String PaymentServiceTax=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Service Tax')]/div[2]")).getText();
 		        System.out.println("PaymentServiceTax="+PaymentServiceTax);
 		        String PaymentServiceTaxString = PaymentServiceTax.replace(". ", "");
 		        System.out.println("PaymentServiceTaxString="+PaymentServiceTaxString);
-		        Assert.assertEquals(PaymentServiceTaxString, "3.00");
+		        AssertJUnit.assertEquals(PaymentServiceTaxString, "3.00");
 		        //verifying Promotion amount
 			    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Amount')]/div[2]")).getText();
 		        System.out.println("PromotionAmount="+PromotionAmount);
 		        String PromotionAmountString = PromotionAmount.replace(". ", "");
 		        System.out.println("PromotionAmountString="+PromotionAmountString);
-		        Assert.assertEquals(PromotionAmountString, "15.00");
+		        AssertJUnit.assertEquals(PromotionAmountString, "15.00");
 		        //verifying Total amount
 			    String TotalAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Total')]/div[2]")).getText();
 		        System.out.println("TotalAmount="+TotalAmount);
 		        String TotalAmountString = TotalAmount.replace(". ", "");
 		        System.out.println("TotalAmountString="+TotalAmountString);
-		        Assert.assertEquals(TotalAmountString, "15.00");
+		        AssertJUnit.assertEquals(TotalAmountString, "15.00");
 		        //verifying Balance Amount
 			    String BalanceAmount=driver.findElement(By.xpath("//div[@class='balancetopay zy-sp-payment-opts' and contains(.,'Balance to pay at clinic ')]/div[2]")).getText();
 		        System.out.println("BalanceAmount="+BalanceAmount);
 		        String BalanceAmountString = BalanceAmount.replace(". ", "");
 		        System.out.println("BalanceAmountString="+BalanceAmountString);
-		        Assert.assertEquals(BalanceAmountString, "270");
+		        AssertJUnit.assertEquals(BalanceAmountString, "270");
 		        
 		
 	 

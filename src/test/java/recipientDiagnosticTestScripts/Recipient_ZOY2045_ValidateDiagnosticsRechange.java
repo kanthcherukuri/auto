@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -70,7 +74,7 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 			    RecipientPage.makePaymentforDC();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
-				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
+				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 
 				//Re Scheduling the Apppointment
 				Browser.openUrl(recipient_url);
@@ -87,7 +91,7 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 				Thread.sleep(2000);
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
-				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
+				AssertJUnit.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
 				Browser.openUrl(recipient_url);
 				RecipientPage.recipientLogout();
 				

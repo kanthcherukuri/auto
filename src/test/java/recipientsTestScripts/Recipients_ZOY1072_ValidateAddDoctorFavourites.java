@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -63,7 +67,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);
 			String myActFav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
-			Assert.assertEquals(Fav_DoctorFullName, myActFav_DoctorFullName);
+			AssertJUnit.assertEquals(Fav_DoctorFullName, myActFav_DoctorFullName);
 			
 			
 			//Verifying the reset of favaourites
@@ -74,7 +78,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			Browser.waitTill(30);
 			boolean fav_doc= driver.findElements(By.xpath("//h1")).isEmpty();
 			System.out.println("fav doc after un check"+fav_doc);
-			Assert.assertTrue(fav_doc);
+			AssertJUnit.assertTrue(fav_doc);
 			RecipientPage.goToDoctors();
 		
 			 

@@ -1,6 +1,10 @@
 package recipientsTestScripts;
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -63,28 +67,28 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 		    //verifying Consultation Fee
 		    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Consultation Fee')]/div[2]")).getText();
 	        System.out.println("PaymentConsultationFee="+PaymentConsultationFee.replace(".00", ""));
-	        Assert.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(".00", ""));
+	        AssertJUnit.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee.replace(".00", ""));
 
 	        //verifying Promotion amount
 		    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Applied ')]/div[2]")).getText();
 	        System.out.println("PromotionAmount="+PromotionAmount);
-	        Assert.assertEquals(PromotionAmount, "-5.00");
+	        AssertJUnit.assertEquals(PromotionAmount, "-5.00");
 	        //verifying Total Fee
 		    String TotalFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Total Fee')]/div[2]")).getText();
 	        System.out.println("TotalAmount="+TotalFee);
 	       // String TotalAmountString = TotalAmount.replace(". ", "");
 	        System.out.println("TotalFee="+TotalFee);
-	        Assert.assertEquals(TotalFee, "95.00");
+	        AssertJUnit.assertEquals(TotalFee, "95.00");
 	        //verifying Advance Confirmation Fee
 		    String AdvanceFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Advance Confirmation Fee')]/div[2]")).getText();
 	        System.out.println("PromotionAmount="+AdvanceFee);
-	        Assert.assertEquals(AdvanceFee, "0.00");
+	        AssertJUnit.assertEquals(AdvanceFee, "0.00");
 	        //verifying Balance Amount
 		    String BalanceAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Balance to pay at Clinic')]/div[2]")).getText();
 	        System.out.println("BalanceAmount="+BalanceAmount);
 	       // String BalanceAmountString = BalanceAmount.replace(". ", "");
 	        System.out.println("BalanceAmountString="+BalanceAmount);
-	        Assert.assertEquals(BalanceAmount, "95.00");
+	        AssertJUnit.assertEquals(BalanceAmount, "95.00");
 	        
 	
 	

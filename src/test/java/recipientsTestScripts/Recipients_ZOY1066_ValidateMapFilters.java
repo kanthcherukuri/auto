@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -63,7 +67,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			Assert.assertTrue(Doctor_designation.contains("Cardiology"));
+			AssertJUnit.assertTrue(Doctor_designation.contains("Cardiology"));
 	
 	    }
 	 
@@ -79,7 +83,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
             RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy","searchPractices");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			Assert.assertEquals(LOP_designation, "Homeopathy");
+			AssertJUnit.assertEquals(LOP_designation, "Homeopathy");
 	
 	    }
 	 //
@@ -102,7 +106,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			    System.out.println("Fee value is"+FinalFeeValue);
 			}
 			else  {
-			   Assert.fail("Value is not between Fee");
+			   AssertJUnit.fail("Value is not between Fee");
 			}
 	
 	    }
@@ -120,7 +124,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurvedic","searchSpecialization");
 			Thread.sleep(5000);
 			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
-			Assert.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
+			AssertJUnit.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
 	
 	    }
 	 

@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 
 import org.testng.Assert;
@@ -56,8 +60,8 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			String ClinicName = driver.findElement(By.xpath("//div[@class='book-dtbox']/h3[2]")).getText();
-			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
+			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+			AssertJUnit.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
             
 
 	}

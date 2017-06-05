@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -44,7 +48,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad","Sugar Test","Zoylo Health Pkg", }
+			{ "yes","Hyderabad","Home Test","Zoylo home pkg", }
 
 		};
 	}
@@ -76,7 +80,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 		    RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			System.out.println("h5"+SuccessfullMesg);
-			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
+			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagnosticsName+" through Zoylo. Your appointment booking details are below:");
             RecipientPage.recipientLogout();
 
 

@@ -152,7 +152,7 @@ public class RecipientPage  {
 		Browser.waitFortheElementXpath("//div[@class='zy-rec-diag-hm-add-title']");
 		//Select first address
 		driver.findElement(By.xpath("(//div[@class='zy-rec-diag-hm-add-radio']//input[@name='address'])[1]")).click();
-		String address1=driver.findElement(By.xpath("//span[contains(., 'Pragathi nagar jntu road ,Hyderabad ,Telangana ,India.')]")).getText();
+		String address1=driver.findElement(By.xpath("//span[contains(., 'Pragathi nagar jntu ,Housing Board Colony ,Telangana ,India.')]")).getText();
 		driver.findElement(By.xpath("//div[@class='zy-rec-diag-add-confirm-btn']//span")).click();
 		Thread.sleep(1000);
 		if(driver.findElement(By.xpath("(.//*[@id='tests_search'])[2]")).isDisplayed())
@@ -168,7 +168,7 @@ public class RecipientPage  {
 		}
 		//Select second address
 		driver.findElement(By.xpath("(//div[@class='zy-rec-diag-hm-add-radio']//input[@name='address'])[2]")).click();
-		String address2=driver.findElement(By.xpath("//span[contains(., 'ECIL, Secunderabad, Telangana, India')]")).getText();
+		String address2=driver.findElement(By.xpath("//span[contains(., 'ECIL X Roads, Moula Ali, Secunderabad, Telangana, India')]")).getText();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@class='zy-rec-diag-add-confirm-btn']//span")).click();
 		Thread.sleep(1000);
@@ -526,7 +526,11 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
+<<<<<<< HEAD
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
+=======
+		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[1]")).click();
+>>>>>>> 7390b73cab44f9816a05ec9e713a2b22059aa905
 		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
@@ -561,15 +565,16 @@ public class RecipientPage  {
 	 */
 	public void makePaymentforDC() throws InterruptedException{
 
-		Browser.waitFortheID("applyPromocode");
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[3]")).click();
-		Thread.sleep(5000);
+		Browser.waitFortheID("promocodeValue");
+		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
+		driver.findElement(By.xpath("//span[3]")).click();
+		Thread.sleep(10000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		//Browser.waitTill(60);
-		Thread.sleep(5000);
+		Thread.sleep(20000);
 		System.out.println("Payment done");
 	}
 	

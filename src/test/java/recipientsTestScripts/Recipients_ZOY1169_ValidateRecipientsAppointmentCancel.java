@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 
 import org.testng.Assert;
@@ -62,7 +66,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		RecipientPage.confirmAppointment("Test Details");
 		RecipientPage.makePayment();
 		String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-		Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+		AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 		String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
 		driver.get(""+base_url+"myaccount");
 		Thread.sleep(5000);
@@ -75,7 +79,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		driver.findElement(By.id("confirmYes")).click();
 		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 
-		Assert.assertEquals(cancel_mesg, "Appointment has been Cancelled");
+		AssertJUnit.assertEquals(cancel_mesg, "Appointment has been Cancelled");
 		RecipientPage.recipientLogout();
 
 		

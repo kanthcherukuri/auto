@@ -2,6 +2,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -68,9 +72,9 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 				Thread.sleep(5000);
 				String AppointmentIdInAlerts = driver.findElement(By.xpath("(//*[@id='recipientMessage'])[1]")).getText();
 				//Verifing appointment id in Alerts
-				Assert.assertTrue(AppointmentIdInAlerts.contains(APID[1]));
+				AssertJUnit.assertTrue(AppointmentIdInAlerts.contains(APID[1]));
 				//Assert.assertTrue(AppointmentIdInAlerts.contains(Doctor));
-				Assert.assertTrue(AppointmentIdInAlerts.contains("has been booked"));
+				AssertJUnit.assertTrue(AppointmentIdInAlerts.contains("has been booked"));
 			 
 		 }else{
 			 

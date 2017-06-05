@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 import objectRepository.*;
 import org.openqa.selenium.By;
@@ -535,16 +534,18 @@ public class DoctorsPage  {
 			}
 			driver.switchTo().window(subWindowHandler); // switch to popup window
 			Thread.sleep(1000);                         // perform operations on popup
-			driver.findElement(By.id(Elements_Doctors.addVacationSlot)).click();
-			Thread.sleep(2000);
-			Browser.actionbyXpath(Elements_Doctors.vacationStart, date);
-			Thread.sleep(2000);
-			Browser.actionbyXpath(Elements_Doctors.vacationEnd, date);
-			Thread.sleep(2000);
-			driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
-			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
-			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-			Browser.CheckNotificationMessage("Your vacation successfully updated");
+				
+				driver.findElement(By.id(Elements_Doctors.addVacationSlot)).click();
+				Thread.sleep(2000);
+				Browser.actionbyXpath(Elements_Doctors.vacationStart, date);
+				Thread.sleep(2000);
+				Browser.actionbyXpath(Elements_Doctors.vacationEnd, date);
+				Thread.sleep(2000);
+				driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
+				driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
+				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+				Browser.CheckNotificationMessage("Your vacation successfully updated");
+			
 		}
 		
 		/*
@@ -643,7 +644,7 @@ public class DoctorsPage  {
 		public void removeClinicWorkTimings() throws Exception
 		{
 			Thread.sleep(2000);
-			driver.findElement(By.id("0")).click();
+			driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
@@ -930,10 +931,11 @@ public void editScheduleaminitiesServices(String serviceName) throws Exception
 public void checkWorkDeletionConflict()
 {
 	driver.findElement(By.id(Elements_Doctors.schedule)).click();
+	Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 	driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 	Browser.waitFortheID(Elements_Doctors.clinicName);
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-	driver.findElement(By.id("0")).click();
+	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
 	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
 }
 

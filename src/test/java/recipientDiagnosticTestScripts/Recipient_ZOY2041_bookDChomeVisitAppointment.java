@@ -1,5 +1,8 @@
 package recipientDiagnosticTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -51,7 +54,6 @@ public class Recipient_ZOY2041_bookDChomeVisitAppointment extends LoadPropMac
 	@AfterClass
 	public void closebrowser() throws InterruptedException
 	{
-		Thread.sleep(3000);
 		driver.close();
 	}
 }

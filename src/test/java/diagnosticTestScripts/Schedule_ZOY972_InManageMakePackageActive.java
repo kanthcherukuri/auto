@@ -42,7 +42,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","JorgBush","30000","2","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
+					{ "yes","Bushamerica","30000","2","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
 
 			};
 		}
@@ -54,7 +54,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		Thread.sleep(2000);	
 		driver.close();
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com", "Zoylo@123");
+		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
 		Thread.sleep(2000);

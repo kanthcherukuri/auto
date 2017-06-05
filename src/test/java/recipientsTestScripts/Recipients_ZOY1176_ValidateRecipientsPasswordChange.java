@@ -3,6 +3,10 @@ package recipientsTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -73,17 +77,17 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 		  Thread.sleep(2000);
 		  //Verify new password validation
 		  String ActualnewPassMesg=driver.findElement(By.xpath("(//div[@class='change-pwd-fields'])[2]/span[2]")).getText();
-		  Assert.assertEquals(ActualnewPassMesg, newPasswordMesg);
+		  AssertJUnit.assertEquals(ActualnewPassMesg, newPasswordMesg);
 		  //Verify confirm password validation
 		  String ActualconfirmPassMesg=driver.findElement(By.xpath("(//div[@class='change-pwd-fields'])[3]/span[2]")).getText();
-		  Assert.assertEquals(ActualconfirmPassMesg, confirmPasswordMesg);
+		  AssertJUnit.assertEquals(ActualconfirmPassMesg, confirmPasswordMesg);
 		//Verify Notification validation
 		  if(notifiMesg.isEmpty()){
 			 System.out.println("notifi is empty");
 		  }else{
 			  System.out.println("notifi is true");
 			  String NotificationMesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			  Assert.assertEquals(NotificationMesg, notifiMesg);
+			  AssertJUnit.assertEquals(NotificationMesg, notifiMesg);
 				  
 		  }
 		  

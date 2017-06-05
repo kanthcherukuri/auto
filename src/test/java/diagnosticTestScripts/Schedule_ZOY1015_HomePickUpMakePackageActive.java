@@ -43,7 +43,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Suryapeta","Full Body Test","10000","2","Suryapetattest","Full Body Test"}
+					{ "yes","Surineya","Full Body Test","10000","2","Surineyatest","Full Body Test"}
 
 			};
 		}
@@ -62,7 +62,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
 		Thread.sleep(2000);
 		driver.close();
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("laKSHMikanth@zoylo.com","Zoylo@123" );
+		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com","Zoylo@123" );
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
 		Thread.sleep(1000);

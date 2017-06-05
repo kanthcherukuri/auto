@@ -60,8 +60,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		@AfterClass
 		public void closebrowser(){
 			driver.close();
-		}
-			  
+		}  
 		  
 	  }
 	  

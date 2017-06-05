@@ -53,7 +53,7 @@ DoctorsLogin.passwordfour=Zoylo@123
 //-------Diagnostic Login Details----//
 
 Diagnostic.Url=https://zoyloqa.zoylo.com
-DiagnosticLogin.usernameone=vanaja123@gmail.com
+DiagnosticLogin.usernameone=sampoornemail@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
 
 DiagonsticLogin.username=email1@zoylo.com

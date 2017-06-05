@@ -40,8 +40,8 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone,DoctorsLogin_passwordone);
 		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.ClickingOnEllipse();
-		Thread.sleep(2000);
+		//DoctorsPageOfZoylo.ClickingOnEllipse();
+		//Thread.sleep(2000);
 		DoctorsPageOfZoylo.CheckAppointmentBySelectingDateFromCalendar(firstname, lastname);
 				 
 		}

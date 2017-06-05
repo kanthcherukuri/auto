@@ -41,8 +41,8 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 		 DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		 DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.ClickingOnEllipse();
-		 Thread.sleep(2000);
+		 //DoctorsPageOfZoylo.ClickingOnEllipse();
+		 //Thread.sleep(2000);
 		 DoctorsPageOfZoylo.ClickingOnDashboard();
 		 Thread.sleep(3000);
 	    //DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);

@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.*;
@@ -72,7 +76,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			Thread.sleep(3000);
 			String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			//Comparing Actual VS Expected
-			Assert.assertEquals(ActualResult, Expected);	
+			AssertJUnit.assertEquals(ActualResult, Expected);	
 
 		}else{
 
@@ -105,7 +109,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			driver.findElement(By.id("packages_search")).sendKeys(pkg);
 			Thread.sleep(2000);
 			String PkgNameActual = driver.findElement(By.xpath("//span[@class='zy-rec-diag-s-pkg-chkbox']/following-sibling::span[1]")).getText();
-			Assert.assertEquals(PkgNameActual, pkg);
+			AssertJUnit.assertEquals(PkgNameActual, pkg);
 
 
 

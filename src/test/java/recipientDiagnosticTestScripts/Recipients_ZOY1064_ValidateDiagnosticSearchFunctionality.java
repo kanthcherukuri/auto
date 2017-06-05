@@ -2,6 +2,10 @@ package recipientDiagnosticTestScripts;
 
 
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -60,7 +64,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			//Verify search with Doctors name
 			RecipientPage.searchInZoyloMAP(Diagnostics);
 			String Search_Diagnostics = driver.findElement(By.xpath("//h1")).getText();
-			Assert.assertEquals(Search_Diagnostics, Diagnostics);
+			AssertJUnit.assertEquals(Search_Diagnostics, Diagnostics);
 
 		}else{
 
@@ -80,7 +84,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			driver.findElement(By.id("tests_search")).sendKeys(Tests);
 			Thread.sleep(2000);
 			String Search_tests = driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col']")).getText();
-			Assert.assertTrue(Search_tests.equals(Tests));
+			AssertJUnit.assertTrue(Search_tests.equals(Tests));
 
 
 
@@ -105,7 +109,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			Thread.sleep(2000);
 			String Search_pkg = driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'"+Packages+"')]")).getText();
 
-			Assert.assertEquals(Search_pkg, Packages);
+			AssertJUnit.assertEquals(Search_pkg, Packages);
 
 
 		}else{
@@ -125,7 +129,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
 			Thread.sleep(10000);
 			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-			Assert.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
+			AssertJUnit.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
 
 
 		}else{

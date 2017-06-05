@@ -978,7 +978,7 @@ public class DiagnosticPage {
 			
 		}
 		
-		/*   Below is the Sample Method
+		/*   
 		 *  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu : Edit Package
 		 *  @Parameters  : packagename,discount,Description, testname,testdescription 

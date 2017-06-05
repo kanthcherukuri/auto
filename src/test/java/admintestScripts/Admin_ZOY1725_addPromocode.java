@@ -25,11 +25,11 @@ public class Admin_ZOY1725_addPromocode extends LoadPropMac
 	public String pit = "https://pit.zoylo.com/admin/zyProviderPromoCodes";
 	public String dev = "https://dev.zoylo.com/admin/zyProviderPromoCodes";
 	public String promoType = "promotion"; //promotion OR referral ONLY
-	public String codeName = "01June171";
+	public String codeName = "100Percent";
 	public String desc = "Availe "+codeName+ " promoCode";
 	public String refferalValue = "10";
 	public String refreValue = "20";
-	public String promoValue = "25";
+	public String promoValue = "100";
 	public String miniAmt = "1";
 	public String codeApplyType="automatic"; //automatic OR manual ONLY
 	

@@ -31,6 +31,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
 		doctorsPage.checkAddBreakTimes("13:00", "14:00");
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		Thread.sleep(5000);
 	}
 	
 	@BeforeClass
@@ -45,9 +46,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
 		doctorsPage.checkremoveBreakTimes();
-		Thread.sleep(3000);
 		driver.close();
 	}
 
