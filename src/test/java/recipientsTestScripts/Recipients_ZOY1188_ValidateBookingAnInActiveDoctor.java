@@ -54,6 +54,7 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 			  //Test Starts-Here
 			  Browser.openUrl(recipient_url);			
 		      //Verify Recipient Login with valid details
+			Assert.assertEquals(true, false);
 			  RecipientPage.recipientLogin(Username, Password);
 			  Thread.sleep(2000);
 			  RecipientPage.goToMyAccounts("My Favourites");
