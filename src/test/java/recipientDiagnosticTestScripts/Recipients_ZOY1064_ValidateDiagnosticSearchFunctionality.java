@@ -12,19 +12,10 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.*;
-/*
-import atu.testng.reports.listeners.ATUReportsListener;
-import atu.testng.reports.listeners.ConfigurationListener;
-import atu.testng.reports.listeners.MethodListener;
- */
+
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
- */
 public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
@@ -52,11 +43,11 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Diagnosticszoylo","Blood Test","Zoylo Health Package","sfd" }
+					{ "yes","Diagnostic Centre & Rajesh Clinic","All Routine Blood Test","Zoylo Health Pkg","sfdsfd123" }
 
 			};
 		}
-	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	public void mapSearchByDiagnostics(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -129,8 +120,9 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
 			Thread.sleep(10000);
 			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-			AssertJUnit.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
-
+		
+			Assert.assertTrue(OppsContent.contains("Oops! your search"));
+            
 
 		}else{
 

@@ -46,16 +46,11 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 
 
 	} 
-
-
-
 	@BeforeMethod(groups = { "Regression","High" })
 	public void HomePage() throws Exception {
 		Browser.openUrl(base_url);
 
-
 	}
-
 
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
@@ -64,7 +59,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 
 		};
 	}
-	//@Test(dataProvider="DP1",groups = { "Regression","High" })
+	@Test(dataProvider="DP1",groups = { "Regression","High" })
 	public void HomePageDiagnosticsSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -72,8 +67,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			// Browser.openUrl(base_url);
 			driver.findElement(By.xpath("//*[@id='onlyDiagnostics']/a")).click();			 
 			HomePage.searchDiagnosticsZoylo(City, Locality, Specialization);
-			Browser.waitFortheID(Elements_Home.map_AreaName);
-			Thread.sleep(3000);
+			Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 			String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			//Comparing Actual VS Expected
 			AssertJUnit.assertEquals(ActualResult, Expected);	
@@ -102,7 +96,8 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			driver.findElement(By.xpath("//*[@id='onlyDiagnostics']/a")).click();
 
 		 	HomePage.searchDiagnosticsZoylo(City, Locality, pkg);
-			Browser.waitFortheID(Elements_Home.map_AreaName);
+		 	Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
+			Thread.sleep(10000);
 			RecipientPage.clickOnMapICon();
 			Thread.sleep(10000);
 			RecipientPage.bookAppointmentOnDiagnostics();

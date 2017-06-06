@@ -15,7 +15,7 @@ public class Elements_Home  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String home_city,home_area,home_specialization,map_AreaName,searchIcon,link_customerlogin,link_practicelogin,link_contactus,link_aboutus,link_diagnostics,link_termsconditions,link_privacypolicy,link_cancellationrefundpolicy,button_forandroid,button_forios;
+	 public static String home_city,home_area,home_specialization,map_AreaName,searchIcon,Map_Doctors,Map_DiagnosticsCenters,link_customerlogin,link_practicelogin,link_contactus,link_aboutus,link_diagnostics,link_termsconditions,link_privacypolicy,link_cancellationrefundpolicy,button_forandroid,button_forios;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -34,6 +34,8 @@ public class Elements_Home  {
          home_city="search-city";         
          home_area="search-area";
          home_specialization="name";
+         Map_Doctors="//div[@class='pin bounce ']";
+         Map_DiagnosticsCenters="//div[@class='pin bounce pin-dg-center']";
          map_AreaName="zy-location-right";
          searchIcon="search-icon";
          link_customerlogin="//a[contains(.,'Customer Login')]";

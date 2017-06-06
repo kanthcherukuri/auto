@@ -29,7 +29,7 @@ import objectRepository.*;
 MethodListener.class })
 
 */
-public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
+public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
@@ -55,7 +55,7 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 			};
 		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateDiagnosticsRechange(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
+	 public void validateDiagnosticsRechangeAndCancel(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -78,23 +78,27 @@ public class Recipient_ZOY2045_ValidateDiagnosticsRechange extends LoadPropMac {
 
 				//Re Scheduling the Apppointment
 				Browser.openUrl(recipient_url);
-				//RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
-				Browser.scrollbyxpath("(//div[@class='zy-diagno-zy-day-change'])[last()]");
+				//Browser.scrollbyxpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
 				Thread.sleep(2000);
-				driver.findElement(By.xpath("(//div[@class='zy-diagno-zy-day-change']/div/span)[last()]")).click();
-				Browser.waitTill(60);
+				driver.findElement(By.xpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
 				Thread.sleep(2000);
-				driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[contains(@class,'sp-available-slots')]/span)[1]")).click();
+				driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[contains(@class,'sp-available-slots')])[1]")).click();
 				Thread.sleep(2000);
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
-				AssertJUnit.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
-				Browser.openUrl(recipient_url);
-				RecipientPage.recipientLogout();
-				
+				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
+				//Canceling the appointment
+				driver.findElement(By.xpath("//div[@class='menu_links appt-cancel apt-doc-col']")).click();
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
+				Thread.sleep(2000);
+				String Appointment_Cancelled_Mesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+				System.out.println("Appointment_Cancelled_Mesg"+Appointment_Cancelled_Mesg);
+				Assert.assertEquals(Appointment_Cancelled_Mesg, "Appointment has been Cancelled");
 				
 		 }else{
 			 

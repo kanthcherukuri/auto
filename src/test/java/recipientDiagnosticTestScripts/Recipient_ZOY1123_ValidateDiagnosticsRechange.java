@@ -55,7 +55,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 		 if(runmode.equals("yes")){
 			 		 
 			// 
-			 /*
+			
 			    //Test Starts-Here
 				Browser.openUrl(recipient_url);			
 				//Verify Recipient Login with valid details
@@ -71,10 +71,10 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
 				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
-*/
+
 				//Re Scheduling the Apppointment
 				Browser.openUrl(recipient_url);
-				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
+				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
 				//Browser.scrollbyxpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
 				Thread.sleep(2000);

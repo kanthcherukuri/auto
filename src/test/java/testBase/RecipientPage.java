@@ -382,11 +382,12 @@ public class RecipientPage  {
 	 *  @Parameters  : paymentValue - mention 1 for ICICI, 2 for EBS and 3 for PayTm
 	 *  @Return      : 
 	 */
-	public void paymentOptions(int paymentValue)
+	public void paymentOptions(int paymentValue) throws InterruptedException
 	{
 		Browser.waitFortheElementXpath("//*[@id='proceed']");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
+		Thread.sleep(5000);
 		driver.findElement(By.id("proceed")).click();
 	}
 	/*   
