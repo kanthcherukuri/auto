@@ -1,13 +1,9 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
+
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+
 
 public class Testfailedclass {
 

@@ -5,7 +5,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -138,6 +137,7 @@ public class DiagnosticPage {
 	public void GetAlertTextFromAlertMenu(){
 		
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
+		System.out.println(alert);
 	}
 	
 	
@@ -860,8 +860,8 @@ public class DiagnosticPage {
 		//Schedule Methods
 		
 		
-		/*   Below is the Sample Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		
+		/*  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : Click On the Schedule Menu From The Ribbon Panel
 		 *  @Parameters  : 
 		 *  @Return      : 
@@ -874,8 +874,8 @@ public class DiagnosticPage {
 		
 		
 		
-		/*   Below is the Sample Method
-		 *  @Author      :Ch.Lakshmi Kanth
+	   
+		/*  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Add Contact
 		 *  @Parameters  : name,phone,email,fax
 		 *  @Return      : 
@@ -902,7 +902,7 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 		}
 		
-		/*   Below is the Sample Method
+		/*   Below is the  Method
 		 *  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Delete Contact
 		 *  @Parameters  : 
@@ -917,7 +917,7 @@ public class DiagnosticPage {
 			Browser.CheckNotificationMessage("Contact Information updated successfully");
 		}
 		
-		/*   Below is the Sample Method
+		/*   Below is the  Method
 		 *  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Edit Contact
 		 *  @Parameters  : name,phone,email,fax
@@ -945,7 +945,7 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 		}
 		
-		/*   Below is the Sample Method
+		/*   Below is the  Method
 		 *  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu :Add Package
 		 *  @Parameters  : packagename,discount,Description, testname,testdescription 
@@ -982,8 +982,8 @@ public class DiagnosticPage {
 			
 		}
 		
-		/*   
-		 *  @Author      :Ch.Lakshmi Kanth
+		  
+		/*  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu : Edit Package
 		 *  @Parameters  : packagename,discount,Description, testname,testdescription 
 		 *  @Return      : 
@@ -1014,7 +1014,7 @@ public class DiagnosticPage {
 			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 		}
 		
-		/*   Below is the Sample Method
+		/*   Below is the  Method
 		 *  @Author      :Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu : Submit The Package for Approval
 		 *  @Parameters  : 
@@ -1030,9 +1030,9 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*   Below is the Sample Method
+		/*   Below is the  Method
 		 *  @Author      :Ch.Lakshmi Kanth
-		 *  @Description : In Schedule To Click on HomeSamplePickup Menu
+		 *  @Description : In Schedule To Click on HomePickup Menu
 		 *  @Parameters  : 
 		 *  @Return      : 
 		 */
@@ -1044,9 +1044,9 @@ public class DiagnosticPage {
 		
 		
 
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Tests : Add Tests
+		 *  @Description : In Schedule HomePickup Menu Tests : Add Tests
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
 		 */
@@ -1069,9 +1069,9 @@ public class DiagnosticPage {
 		}
 		
 
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Tests : Edit Tests
+		 *  @Description : In Schedule HomePickup Menu Tests : Edit Tests
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
 		 */
@@ -1096,9 +1096,9 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Tests : Submit Test For Approval
+		 *  @Description : In Schedule HomePickup Menu Tests : Submit Test For Approval
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
 		 */
@@ -1113,9 +1113,9 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu : Click On Packages Menu
+		 *  @Description : In Schedule HomePickup Menu : Click On Packages Menu
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
 		 */
@@ -1126,9 +1126,9 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Packages Menu: Add Package
+		 *  @Description : In Schedule HomePickup Menu Packages Menu: Add Package
 		 *  @Parameters  :packagename, desc,  cost, discount, testname, testdesc
 		 *  @Return      : 
 		 */
@@ -1158,9 +1158,9 @@ public class DiagnosticPage {
 			
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Packages Menu: Submit the Package For Approval
+		 *  @Description : In Schedule HomePickup Menu Packages Menu: Submit the Package For Approval
 		 *  @Parameters  :
 		 *  @Return      : 
 		 */
@@ -1175,9 +1175,9 @@ public class DiagnosticPage {
 			 
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : In Schedule HomeSamplePickup Menu Packages Menu: Edit Package
+		 *  @Description : In Schedule HomePickup Menu Packages Menu: Edit Package
 		 *  @Parameters  :packagename, desc,  cost, discount, testname, testdesc
 		 *  @Return      : 
 		 */
@@ -1210,7 +1210,7 @@ public class DiagnosticPage {
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Click on Diagnostic Center- Manage Menu
 		 *  @Parameters  :
@@ -1221,7 +1221,7 @@ public class DiagnosticPage {
 			driver.findElement(By.xpath(Elements_Diagnostics.clcikondiagnosticmanagemenu)).click();
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu : Click On Tests Menu
 		 *  @Parameters  :packagename, desc, testname, cost, discount, testname, testdesc
@@ -1234,7 +1234,7 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Add Tests
 		 *  @Parameters  :packagename, desc, testname, cost, discount, testname, testdesc
@@ -1259,7 +1259,7 @@ public class DiagnosticPage {
 		    
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Submit Tests For Approval
 		 *  @Parameters  :
@@ -1276,7 +1276,7 @@ public class DiagnosticPage {
 		
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Edit Tests
 		 *  @Parameters  : testname, testdesc cost, discount 
@@ -1304,7 +1304,7 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : Launching New Browser To Log In To Admin Account
 		 *  @Parameters  : username,password
@@ -1328,7 +1328,7 @@ public class DiagnosticPage {
 			Thread.sleep(3000);
 		}
 		
-		/*  Below is the Sample Method
+		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
 		 *  @Description : Functionality in Admin Login Search for testname
 		 *  @Parameters  : testnames
@@ -1349,9 +1349,9 @@ public class DiagnosticPage {
   		Thread.sleep(8000);
       }
       
-      /*  Below is the Sample Method
+      /*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : To Make the Tests and Packages in Diagnostic Centre- Manager Menu & Home Sample Pickup Menu as Active
+		 *  @Description : To Make the Tests and Packages in Diagnostic Centre- Manager Menu & Home  Pickup Menu as Active
 		 *  @Parameters  : username,password
 		 *  @Return      : 
 		 */
