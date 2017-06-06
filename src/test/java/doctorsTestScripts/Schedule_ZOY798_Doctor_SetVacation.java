@@ -2,22 +2,12 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
-
-import java.util.Iterator;
-import java.util.Set;
-
 import org.openqa.selenium.By;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+
 
 public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
 {

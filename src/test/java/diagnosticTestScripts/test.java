@@ -19,6 +19,7 @@ public class test extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
 	
+	@SuppressWarnings("resource")
 	public static void main( String args[] ) throws UnknownHostException{
 		 
 	    	  
