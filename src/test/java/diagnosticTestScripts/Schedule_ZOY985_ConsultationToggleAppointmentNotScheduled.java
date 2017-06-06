@@ -1,19 +1,10 @@
 package diagnosticTestScripts;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -53,6 +44,11 @@ public class Schedule_ZOY985_ConsultationToggleAppointmentNotScheduled extends L
 		 driver.findElement(By.xpath(".//*[@id='tab-consult']/div[6]/div[3]/div[1]/div/label/span[2]")).click();
     	 Thread.sleep(2000);
     	 driver.findElement(By.id("diagnosticClinicTimeSlots")).click();
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.close();
 	}
 
 }

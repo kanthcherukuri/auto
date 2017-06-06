@@ -15,7 +15,7 @@ public class Appointment_ZOY1043_BulkCancellationHomeVisit extends LoadPropMac{
 	
 	
 	@BeforeClass	 
-	 public void beforeClass() throws Exception {	
+	 public void LaunchBrowser() throws Exception {	
 		LoadBrowserProperties();
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);		 

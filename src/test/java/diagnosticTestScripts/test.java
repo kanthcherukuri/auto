@@ -3,7 +3,6 @@ package diagnosticTestScripts;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
-import org.testng.Assert;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;

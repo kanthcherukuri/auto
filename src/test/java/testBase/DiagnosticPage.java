@@ -347,8 +347,6 @@ public class DiagnosticPage {
 		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
 	    }
 		
-		
-		
 	
 	
 	public void patientserachforintoday(String firstname,String lastname,String email) throws Exception{
@@ -382,33 +380,26 @@ public class DiagnosticPage {
 		
 	
 	public void DiagnosticAppointmentsBulkCancellation(String CancelFromTime,String CancelToTime) throws InterruptedException{
-		
+		Date today = new Date(); 
+		Calendar calendar = Calendar.getInstance();  
+		calendar.setTime(today);  
+		calendar.add(Calendar.MONTH, 1);  
+		calendar.set(Calendar.DAY_OF_MONTH, 1);  
+		calendar.add(Calendar.DATE, -1);  
+		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+		Date lastDayOfMonth = calendar.getTime(); 
+		String date=sdf.format(today);
+		String enddate= sdf.format(lastDayOfMonth);
+		System.out.println(date);
+		System.out.println(enddate);
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonbulkcancelcalendar)).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(Elements_Diagnostics.fromcanceldate)).click();
+		Browser.actionbyXpath(Elements_Diagnostics.fromcanceldate, date);
 		Thread.sleep(2000);
-		List<WebElement> allDates=driver.findElements(By.xpath(Elements_Diagnostics.enableddates));
-		for(WebElement ele:allDates)
-		{
-			boolean date2=ele.isEnabled();
-			ele.click();
-			break;
-		}
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(Elements_Diagnostics.tocanceldate)).click();
+		Browser.actionbyXpath(Elements_Diagnostics.tocanceldate, enddate);
 		Thread.sleep(2000);
-		List<WebElement> CancelToDate=driver.findElements(By.xpath(Elements_Diagnostics.enableddates));
-		for(WebElement ele:CancelToDate)
-		{	
-		String date=ele.getText();	
-			if(date.equalsIgnoreCase("30"))
-			{
-				ele.click();
-				break;
-			}	
-		}//cancletodate
 		driver.findElement(By.xpath(Elements_Diagnostics.fromtime)).sendKeys(CancelFromTime);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.totime)).sendKeys(CancelToTime);
@@ -651,8 +642,24 @@ public class DiagnosticPage {
 			Thread.sleep(20000);
 			driver.findElement(By.id("checkoutBtn")).click();
 			Browser.CheckNotificationMessage("Check Out Success");	
+			System.out.println("SUCESSFULLY CHECKED OUT");
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//li[@class='tab-link'][contains(text(),'Reports')]")).click();
+			driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("download_notes")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("billDwnld")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("consultationNotesShare")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.id("Email-share")).click();
+			Browser.CheckNotificationMessage("your email has been sent successfully");
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
 			Thread.sleep(3000);

@@ -19,7 +19,7 @@ public class Alert_ZOY953_CheckAlertForAppointmentBooking extends LoadPropMac{
 	public TestUtils Browser;
 	
 	@BeforeClass
-	  public void beforeClass() throws Exception {
+	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 

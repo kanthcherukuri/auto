@@ -39,7 +39,7 @@ public class Elements_Diagnostics  {
 		public static String detailsproblem;
 		public static String packagetab;
 		public static String packagecheckbox;
-		public static String windowsavebutton;
+		public static String windowsavebutton, homevisitdashboardsize, homevisitimageindashboard;
 		
 		//notification variable
 		public static String notification;
@@ -218,6 +218,8 @@ public class Elements_Diagnostics  {
 		 packagetab="//li[2]//a[@data-toggle='tab']";
 		 packagecheckbox="//input[@class='pack_select_checkbox']";
 		 windowsavebutton="diagServiceAptms_save";
+		 homevisitdashboardsize="//*[@class='sp-diagno-dash-patient-details apt_details']";
+		 homevisitimageindashboard="//img[@class='diagno-homvisitimg']";
 		 
 		//notification locator
 		 

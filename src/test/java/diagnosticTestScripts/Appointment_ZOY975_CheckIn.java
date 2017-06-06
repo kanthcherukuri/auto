@@ -3,30 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -39,7 +15,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	public TestUtils exceldata;
 	
 	@BeforeClass
-	  public void beforeClass() throws Exception {
+	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);		 
@@ -53,7 +29,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Adaviseshu","V","9963992222","adaviseshu@gmail.com","Diabetic" }
+					{ "yes","Adinarayana","V","9963992222","adinarayana@gmail.com","Diabetic" }
 
 			};
 		}
