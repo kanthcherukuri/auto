@@ -15,14 +15,9 @@ import java.util.concurrent.TimeUnit;
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.search.SubjectTerm;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Properties;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -43,8 +38,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
