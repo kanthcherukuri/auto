@@ -35,6 +35,7 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		
+		  System.out.println("Executing Before Class");
 		// Note: Make sure  doctor is inactive and add him to recipient fav list 	 
  } 
 
