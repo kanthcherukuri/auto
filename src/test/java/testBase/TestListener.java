@@ -13,16 +13,20 @@ import org.testng.ITestResult;
 
 
 
-public class TestListener extends LoadProp implements ITestListener {
+public class TestListener extends LoadPropMac implements ITestListener {
 	
-	String filePath = "Screenshots\\";
+	String filePath = "Screenshots/";
 	
 	
 	
     public void onTestFailure(ITestResult result) {
     	System.out.println("***** Error "+result.getName()+" test has failed *****");
     	String methodName=result.getName().toString().trim();
+    	String className=result.getTestClass().toString().trim();
+    	System.out.println("Failed Class Name ="+className);
+    	System.out.println("Failed Method Name ="+methodName);
     	takeScreenShot(methodName);
+    	
     }
     
     public void takeScreenShot(String methodName) {
@@ -31,7 +35,7 @@ public class TestListener extends LoadProp implements ITestListener {
          //The below method will save the screen shot in d drive with test method name 
             try {
 				FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
-				System.out.println("***Placed screen shot in "+filePath+" ***");
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
