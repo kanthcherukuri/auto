@@ -85,7 +85,7 @@ public  void searchDiagnosticsZoylo(String City, String Locality,String Speciali
 		// In case of Null Specialization
 		try{
 		driver.findElement(By.id("search-test-pkg")).sendKeys(Specialization);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[@id='two']/div/div[3]/div/div[1]/div/div[1]")).click();
 		Thread.sleep(2000);
         } catch(Exception e) {

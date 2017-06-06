@@ -227,7 +227,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("searchFilter")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
 		System.out.println("Cliked on span");
 		Thread.sleep(5000);	
@@ -384,7 +384,7 @@ public class RecipientPage  {
 	 */
 	public void paymentOptions(int paymentValue)
 	{
-		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
+		Browser.waitFortheElementXpath("//*[@id='proceed']");
 		driver.findElement(By.xpath("(//input[@name='paymentOption'])["+paymentValue+"]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		driver.findElement(By.id("proceed")).click();
@@ -395,7 +395,7 @@ public class RecipientPage  {
 	 *  @Parameters  : Tests and packages
 	 *  @Return      : 
 	 */
-	public void selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
+	public void selectAvailableSlotInDiagnostics_old(String tests,String pkg ) throws InterruptedException{
 		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
 
 		if(pkg.isEmpty()){
@@ -441,6 +441,83 @@ public class RecipientPage  {
 			System.out.println("Cliked on Available Slot Button from diagonostics");
 			
 		}
+
+	}
+	
+	/*   
+	 *  @Author      : Ganesh kumar.M
+	 *  @Description : This method is used to select available slot in Diagnostics 
+	 *  @Parameters  : Tests and packages
+	 *  @Return      : 
+	 */
+	public void selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
+		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
+
+		if(pkg.isEmpty()){
+			//tests
+			driver.findElement(By.xpath("//*[@id='test-li']/a")).click();
+			driver.findElement(By.id("tests_search")).sendKeys(tests);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
+
+		}else if (tests.isEmpty()){
+			//pkg
+			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
+			driver.findElement(By.id("packages_search")).sendKeys(pkg);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
+
+		}else{
+			System.out.println("Enter in test pkg");
+			//tests
+			driver.findElement(By.xpath("//*[@id='test-li']/a")).click();
+			driver.findElement(By.id("tests_search")).sendKeys(tests);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
+
+			//pkg
+			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
+			driver.findElement(By.id("packages_search")).sendKeys(pkg);
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
+			Thread.sleep(5000);
+
+		}
+		
+		String[] Appointmentdetails= new String[2];
+		driver.findElement(By.xpath("//*[@id='schedule-li']/a")).click();  // click on Schedule tab
+		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li)[1]");
+		String SlotStatus=driver.findElement(By.xpath("//div[@class='panel-collapse collapse in']/ul/li[last()]")).getAttribute("class");
+		
+		
+		if(SlotStatus.equals("timeSlot sp-available-slots")){
+			System.out.println("Default Slot Tab");
+			
+			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).getText();
+	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
+		
+				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+				Thread.sleep(2000);
+				System.out.println("Cliked on Default Slot Button");
+
+		}else{
+			System.out.println("Cliked on Next Slot Tab");
+			driver.findElement(By.xpath("//div[@class='panel-collapse collapse in']/parent::*/following-sibling::div[@class='panel panel-default'][1]/div[1]//a")).click();
+			Thread.sleep(2000);
+			Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
+			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).getText();
+	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
+		
+				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+				Thread.sleep(2000);
+			
+		
+		
+		}
+		
 
 	}
 	
@@ -526,8 +603,6 @@ public class RecipientPage  {
 	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
-
-		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[2]")).click();
 
 		driver.findElement(By.xpath("(//input[@id='applyPromocode'])[1]")).click();
 

@@ -52,11 +52,11 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Noha Diagnostics","Blood Test","Noha Health Package","abcdefg" }
+					{ "yes","Diagnosticszoylo","Blood Test","Zoylo Health Package","sfd" }
 
 			};
 		}
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
+	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	public void mapSearchByDiagnostics(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -64,7 +64,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			//Verify search with Doctors name
 			RecipientPage.searchInZoyloMAP(Diagnostics);
 			String Search_Diagnostics = driver.findElement(By.xpath("//h1")).getText();
-			AssertJUnit.assertEquals(Search_Diagnostics, Diagnostics);
+			Assert.assertEquals(Search_Diagnostics, Diagnostics);
 
 		}else{
 

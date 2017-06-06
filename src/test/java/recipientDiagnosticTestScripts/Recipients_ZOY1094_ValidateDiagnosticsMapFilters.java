@@ -76,15 +76,15 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
 			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilterInDiagnostics("Test","test", "Blood Test","searchDiagnosticTest");
+			RecipientPage.ApplyFilterInDiagnostics("Test","test", "All Routine Blood Test","searchDiagnosticTest");
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
 			RecipientPage.bookAppointmentOnDiagnostics();
 			Browser.waitFortheElementXpath("//*[@id='test-li']/a");
-			driver.findElement(By.id("tests_search")).sendKeys("Blood Test");
+			driver.findElement(By.id("tests_search")).sendKeys("All Routine Blood Test");
 			Thread.sleep(2000);
 			String TestName=driver.findElement(By.xpath("(//div[contains(@class,'zy-rec-diag-s-apt-g-table-col')])[1]")).getText();
-			AssertJUnit.assertEquals(TestName, "Blood Test");
+			AssertJUnit.assertEquals(TestName, "All Routine Blood Test");
 	
 	    }
 	 
@@ -105,7 +105,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			driver.findElement(By.id("packages_search")).sendKeys("Zoylo Health Pkg");
 			Thread.sleep(2000);
 			String PkgName=driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'Zoylo Health Pkg')]")).getText();
-			AssertJUnit.assertEquals(PkgName, "Zoylo Health Pkg");
+			Assert.assertEquals(PkgName, "Zoylo Health Pkg");
 	
 	    }
 	 //

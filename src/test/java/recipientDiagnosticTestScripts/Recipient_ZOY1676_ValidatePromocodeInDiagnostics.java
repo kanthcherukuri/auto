@@ -68,22 +68,26 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 				System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 				RecipientPage.bookAppointmentOnDiagnostics();
-				RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
+				RecipientPage.selectAvailableSlotInDiagnostics("", Pkg);
 				String ConsultationFee=driver.findElement(By.xpath("//div[@class='zy-rec-diag-txt-amt']")).getText();
+				System.out.println("ConsultationFee"+ConsultationFee);
 				RecipientPage.confirmAppointmentOnDiagnostics();
 				 //verifying Promo code with no data
-				driver.findElement(By.xpath("//span[text()='Apply']")).click();
+				driver.findElement(By.xpath("//span[text()='APPLY']")).click();
 			    Browser.verifyNotificationMessage("Please enter promocode");
 			    driver.navigate().refresh();
 			    //verifying Promo code with Invalid data
 			    driver.findElement(By.id("promocodeValue")).sendKeys("asdg123");
-				driver.findElement(By.xpath("//span[text()='Apply']")).click();
+				driver.findElement(By.xpath("//span[text()='APPLY']")).click();
 			    Browser.verifyNotificationMessage("Promo Code Not Found or Invalid");
 			    //verifying Promo code with Valid data
 			    driver.navigate().refresh();
-			    driver.findElement(By.id("promocodeValue")).sendKeys("Promo code 4");
-				driver.findElement(By.xpath("//span[text()='Apply']")).click();
+			    driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
+				driver.findElement(By.xpath("//span[text()='APPLY']")).click();
 			    Browser.verifyNotificationMessage("Promocode applied successfully");
+			    
+			    /*
+			    
 			    //verifying Consultation Fee
 			    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Consultation Fee')]/div[2]")).getText();
 		        System.out.println("PaymentConsultationFee="+PaymentConsultationFee);
@@ -118,6 +122,33 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 		        String BalanceAmountString = BalanceAmount.replace(". ", "");
 		        System.out.println("BalanceAmountString="+BalanceAmountString);
 		        AssertJUnit.assertEquals(BalanceAmountString, "270");
+		        */
+			    
+			  //verifying Consultation Fee
+			    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Amount Payable')]/div[2]")).getText();
+		       // System.out.println("PaymentConsultationFee="+PaymentConsultationFee.replace(".00", ""));
+		        AssertJUnit.assertEquals(ConsultationFee.replace(" ", ""), PaymentConsultationFee);
+
+		        //verifying Promotion amount
+			    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Applied ')]/div[2]")).getText();
+		        System.out.println("PromotionAmount="+PromotionAmount);
+		        AssertJUnit.assertEquals(PromotionAmount, "-5.00");
+		        //verifying Total Amount
+			    String TotalFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Total Amount')]/div[2]")).getText();
+		        System.out.println("TotalAmount="+TotalFee);
+		       // String TotalAmountString = TotalAmount.replace(". ", "");
+		        System.out.println("TotalFee="+TotalFee);
+		        AssertJUnit.assertEquals(TotalFee, "95.00");
+		        //verifying Advance Confirmation Fee
+			    String AdvanceFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Advance Confirmation Fee')]/div[2]")).getText();
+		        System.out.println("PromotionAmount="+AdvanceFee);
+		        AssertJUnit.assertEquals(AdvanceFee, "0.00");
+		        //verifying Balance Amount
+			    String BalanceAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Balance to pay at Center')]/div[2]")).getText();
+		        System.out.println("BalanceAmount="+BalanceAmount);
+		       // String BalanceAmountString = BalanceAmount.replace(". ", "");
+		        System.out.println("BalanceAmountString="+BalanceAmount);
+		        AssertJUnit.assertEquals(BalanceAmount, "95.00");
 		        
 		
 	 
