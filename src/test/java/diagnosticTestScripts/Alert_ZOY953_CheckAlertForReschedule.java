@@ -18,7 +18,7 @@ public class Alert_ZOY953_CheckAlertForReschedule extends LoadPropMac{
 	public TestUtils Browser;
 	
 	@BeforeClass
-	  public void beforeClass() throws Exception {
+	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
