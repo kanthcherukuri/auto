@@ -5,11 +5,11 @@
        <listener class-name="listners.TestListener"/>
       
   </listeners>
-  <test name="Test">
+  <test name="Recipient Test Scripts">
   
     <classes>
       <class name="recipientsTestScripts.Recipients_ZOY1188_ValidateBookingAnInActiveDoctor"/>
-       <class name="recipientsTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>
+      <class name="recipientsTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>
       <!-- <class name="recipientsTestScripts.Recipient_ZOY1986_PaymentPageNegativeScenario"/>
       <class name="recipientsTestScripts.Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario"/>
       <class name="recipientsTestScripts.Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin"/>
