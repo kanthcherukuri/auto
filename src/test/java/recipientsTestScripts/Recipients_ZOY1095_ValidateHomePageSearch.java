@@ -60,8 +60,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			 Browser.openUrl(base_url);
 			 Thread.sleep(2000);
 			 HomePage.searchZoylo(City, Locality, Specialization);
-			 Browser.waitFortheID(Elements_Home.map_AreaName);
-			 Thread.sleep(2000);
+			 Browser.waitFortheElementXpath(Elements_Home.Map_Doctors);
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();
 			 //Comparing Actual VS Expected
 			 AssertJUnit.assertEquals(ActualResult, Expected);	
