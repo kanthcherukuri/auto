@@ -4,10 +4,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Home;
 import testBase.LoadPropMac;
 import testBase.TestUtils;

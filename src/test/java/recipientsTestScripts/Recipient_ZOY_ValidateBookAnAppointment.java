@@ -6,10 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
-	
-import org.testng.Assert;
 
-import org.testng.annotations.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;
@@ -54,7 +51,7 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			AssertJUnit.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
 			String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
-			
+			System.out.println(AppointmentId);
 		/*
            //Email Verification of recipient
 			String RecipientEmail= Browser.emailResponse(Recipient_Username, Recipient_Password, "Zoylo.com | Your appointment with "+DoctorFullName+" has been confirmed.");

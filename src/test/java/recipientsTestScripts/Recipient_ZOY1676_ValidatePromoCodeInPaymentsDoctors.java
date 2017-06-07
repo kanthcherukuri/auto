@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
-import org.testng.Assert;
-import org.testng.annotations.*;
 import testBase.*;
 import objectRepository.*;
 
@@ -45,6 +43,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 			Thread.sleep(2000);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
+			System.out.println(DoctorFullName);
 			String ConsultationFee=driver.findElement(By.xpath("//*[@id='bookAppointment']/div")).getText();
 			RecipientPage.bookAppointment();
 			String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
