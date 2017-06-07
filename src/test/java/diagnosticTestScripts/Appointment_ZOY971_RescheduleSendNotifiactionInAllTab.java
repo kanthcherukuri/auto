@@ -9,7 +9,7 @@ import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Appointment_ZOY971_DiagnosticSendNotifiactionInAllTab extends LoadPropMac {
+public class Appointment_ZOY971_RescheduleSendNotifiactionInAllTab extends LoadPropMac {
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils exceldata;
 	

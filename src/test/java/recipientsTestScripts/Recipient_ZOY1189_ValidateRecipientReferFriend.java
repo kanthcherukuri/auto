@@ -1,14 +1,10 @@
 package recipientsTestScripts;
 
-
-
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.*;
 import org.testng.Reporter;
-import org.testng.annotations.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;

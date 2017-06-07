@@ -3,16 +3,10 @@ package testBase;
 
 
 import objectRepository.*;
-
-import testBase.*;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Set;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.SkipException;
 

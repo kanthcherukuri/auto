@@ -7,9 +7,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
-
-import org.testng.Assert;
-import org.testng.annotations.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
 import atu.testng.reports.listeners.ConfigurationListener;
@@ -68,6 +65,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 		AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 		String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
+		System.out.println(AppointmentId);
 		driver.get(""+base_url+"myaccount");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Appointments')]")).click();
