@@ -60,7 +60,6 @@ public class Appointment_ZOY971_SendNotificationInAllTab extends LoadPropMac{
 			driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[3]/div/div/div[3]/div[2]/button")).click();
 			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
 			}
-
 			}
 			}
 	
