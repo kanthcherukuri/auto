@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import objectRepository.Elements_Doctors;
@@ -16,14 +17,14 @@ public class Appointment_ZOY2140_checkOutScenraio extends LoadPropMac
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
-	public String firstName="June";
-	public String lastName="Sevenone";
-	public String Mobile="9870000000";
-	public String mail="june7_1@gmail.com";
-	public String prob="This is my problem";
-	
-	@Test()
-	public void checkoutScenario() throws Exception
+	@DataProvider(name="Dataname")
+	public Object[][] docapt() throws Exception
+	{
+		Object[][] datacells=TestUtils.getTableArray("TestData/Doctors_TestData.xls","docApt", "ZOY2140");
+		return(datacells);
+	}
+	@Test(dataProvider="Dataname")
+	public void checkoutScenario(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.DoctorAppointmentBookingForToday(firstName, lastName, Mobile, mail, prob);
