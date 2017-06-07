@@ -988,7 +988,6 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 		}
 		}
 
-
 public void VerifyCheckINFunctionality() throws Exception{
 	
 	driver.findElement(By.id(Elements_Doctors.clickoncheckinbutton)).click();
