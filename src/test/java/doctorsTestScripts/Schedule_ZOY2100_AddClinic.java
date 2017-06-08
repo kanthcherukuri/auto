@@ -42,7 +42,7 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
 		admin=new AdminPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

@@ -32,7 +32,7 @@ public class UserLogin extends LoadPropMac {
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);   
 		//Test Starts-Here
-		Browser.openUrl(recipient_url);			
+		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		Browser.waitFortheID("emailAddress");		
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(Recipient_Username);

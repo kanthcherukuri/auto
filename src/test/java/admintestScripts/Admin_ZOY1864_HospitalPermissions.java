@@ -137,7 +137,7 @@ public class Admin_ZOY1864_HospitalPermissions extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		admin=new AdminPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

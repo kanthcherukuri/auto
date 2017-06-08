@@ -55,7 +55,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			Thread.sleep(10000);

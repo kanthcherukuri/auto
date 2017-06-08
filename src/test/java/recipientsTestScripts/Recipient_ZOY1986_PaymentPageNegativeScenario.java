@@ -51,13 +51,12 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
-	@AfterClass
-     public void Exit() {
+	@AfterClass()
+	public void Exit() {
 		
-		driver.close();
-
-	}
+		driver.quit();
+	} 
 }

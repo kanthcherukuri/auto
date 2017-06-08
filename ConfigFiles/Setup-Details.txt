@@ -6,7 +6,7 @@ driver.path=C:/Users/Z9149/Downloads/
 
 //----Browser------//
 
-browser.name=chrome
+browser.name=safari
 
 //----Environment----//
 Environment.name=zoyloqa
@@ -17,7 +17,7 @@ Environment.name=zoyloqa
 base.url=https://zoyloqa.zoylo.com/
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 //recipient.url=http://192.168.1.13:3000/login
-recipient.url=https://zoyloqa.zoylo.com/login
+loginPage.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
 dev.url=https://dev.zoylo.com/login
 recipient.myaccount=https://zoyloqa.zoylo.com/myaccount

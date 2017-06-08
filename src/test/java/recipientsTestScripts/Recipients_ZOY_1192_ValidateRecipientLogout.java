@@ -40,7 +40,7 @@ public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadPropMac {
 	 @Test(groups = { "Regression","High" })
 	 public void ValidateRecipientlogout() throws Exception {
  			 
-		  Browser.openUrl(recipient_url);			
+		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		  Thread.sleep(2000);
@@ -52,14 +52,10 @@ public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadPropMac {
 			 
 		
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

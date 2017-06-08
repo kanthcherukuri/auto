@@ -59,7 +59,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
@@ -76,7 +76,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				RecipientPage.recipientLogout();
 				
 
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Doctor Login with valid details
 				Thread.sleep(5000);
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
@@ -87,7 +87,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				
 				
 				//Login as Recipient
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				Thread.sleep(2000);

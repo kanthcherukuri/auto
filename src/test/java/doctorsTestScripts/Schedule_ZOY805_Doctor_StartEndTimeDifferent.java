@@ -34,7 +34,7 @@ public class Schedule_ZOY805_Doctor_StartEndTimeDifferent extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

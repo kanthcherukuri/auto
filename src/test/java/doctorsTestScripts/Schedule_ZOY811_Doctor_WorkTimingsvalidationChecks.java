@@ -49,7 +49,7 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

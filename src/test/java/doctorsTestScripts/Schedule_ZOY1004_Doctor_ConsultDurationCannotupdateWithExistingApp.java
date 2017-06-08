@@ -46,7 +46,7 @@ public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp 
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

@@ -61,7 +61,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 			 		 
 			// /*
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
          		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
@@ -77,7 +77,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 
 				//Re Scheduling the Apppointment
-				Browser.openUrl(recipient_url);
+				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
 				//Browser.scrollbyxpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");

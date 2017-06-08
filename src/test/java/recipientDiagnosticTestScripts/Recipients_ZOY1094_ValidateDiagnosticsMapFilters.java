@@ -44,7 +44,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(recipient_url);			
+		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		  Thread.sleep(2000);

@@ -55,7 +55,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	  
 		 if(runmode.equals("yes")){
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
@@ -70,7 +70,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				RecipientPage.recipientLogout();				
 				//Login as Doctor
 				
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				DoctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 				//Browser.waitTill(60);
 				DoctorsPage.clickOnTheRecentPatientFromDashBoard();
@@ -78,7 +78,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				DoctorsPage.doctorlogout();
 				
 				//Login as Recipient
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
@@ -118,8 +118,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	 
 	 public void Exit() {
  
-	       driver.close();
-
+		 driver.quit();
 	    }
     
 	
