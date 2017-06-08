@@ -1145,6 +1145,8 @@ public void VerifyCheckINFunctionality() throws Exception{
 		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
 		Browser.scrollbyID("adminProviderSubmit");
 		driver.findElement(By.id("adminProviderSubmit")).click();
 		Browser.CheckNotificationMessage("Doctor Updated successfully");
