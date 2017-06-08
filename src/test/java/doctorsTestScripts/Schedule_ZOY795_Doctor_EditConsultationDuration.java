@@ -23,7 +23,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 {
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
-	public String duration="30";
+	public String duration="1";
 	
 	@Test()
 	public void editConsultationDuration() throws Exception

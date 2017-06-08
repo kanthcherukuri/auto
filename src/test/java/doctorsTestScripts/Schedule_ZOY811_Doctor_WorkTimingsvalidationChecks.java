@@ -3,6 +3,7 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
@@ -14,15 +15,15 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
-	//Global variables
-	public String firstName="Guru";
-	public String lastName="Charan";
-	public String Mobile="9870000000";
-	public String mail="guru1@gmail.com";
-	public String prob="This is my problem";
+	@DataProvider(name="addAptdetail")
+	  public Object[][] adAptInfo() throws Exception
+	  {
+		  Object[][] aptdetails=TestUtils.getTableArray("TestData/Doctors_TestData.xls", "Schedule", "ZOY811");
+		  return(aptdetails);
+	  }
 	
-  @Test()
-  public void testDeleteTimings() throws Exception
+	@Test(dataProvider="addAptdetail")
+  public void testDeleteTimings(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
   {
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  doctorsPage.BulkCancel();
