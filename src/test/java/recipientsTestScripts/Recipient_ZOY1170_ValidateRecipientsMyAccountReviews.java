@@ -53,7 +53,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
@@ -86,7 +86,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			String ReviewMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("Review mesg"+ReviewMesg);
 			AssertJUnit.assertEquals(ReviewMesg, "Review submitted successfully.");
-			Browser.openUrl(recipient_url);
+			Browser.openUrl(loginPage_Url);
 			RecipientPage.recipientLogout();
 
 
@@ -108,10 +108,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 
 	public void Exit() {
 
-
-		driver.close();
-
-
+		driver.quit();
 	}
 
 

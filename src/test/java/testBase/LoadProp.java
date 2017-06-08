@@ -16,7 +16,7 @@ public class LoadProp   {
 	public static FileInputStream inStream;
 	 public static String driverpath;
 
-	 public static String base_url,recipient_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl,Diagnostic_Url,Diagnostic_Urltwo ;
+	 public static String base_url,loginPage_Url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl,Diagnostic_Url,Diagnostic_Urltwo ;
 	public static String DoctorsLogin_username, DoctorsLogin_password;
 	public static String Recipient_Username, Recipient_Password;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,DoctorsLogin_usernametwo,DoctorsLogin_passwordtwo,DiagnosticLogin_usernameone,DiagnosticLogin_passwordone
@@ -31,7 +31,7 @@ public class LoadProp   {
         prop.load(inStream);
         //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
-        recipient_url=prop.getProperty("recipient.url");
+        loginPage_Url=prop.getProperty("recipient.url");
         enrollment_url=prop.getProperty("enrollment.url");
         doctors_Url=prop.getProperty("Doctors.Url");
         login_password=prop.getProperty("login.password");

@@ -28,7 +28,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 	public void validateRecipientlogout() throws Exception {
 
 		
-		Browser.openUrl(recipient_url);			
+		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
@@ -43,15 +43,12 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 		AssertJUnit.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
         */
 	}
-
-
+	
 	@AfterClass(groups = { "Regression","High" })
-
 	public void Exit() {
-
-		driver.close();
-
-	}
+		
+		driver.quit();
+	} 
 
 
 

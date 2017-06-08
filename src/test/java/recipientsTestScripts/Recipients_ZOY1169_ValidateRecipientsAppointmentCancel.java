@@ -43,7 +43,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 	public void validateRecipientsAppointmentCancel() throws Exception {
 
 		//Test Starts-Here
-		Browser.openUrl(recipient_url);			
+		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(10000);
@@ -93,17 +93,12 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 */
 
 	}
-
-
+	
 	@AfterClass(groups = { "Regression","High" })
-
 	public void Exit() {
-
-
-		driver.close();
-
-
-	}
+		
+		driver.quit();
+	} 
 
 
 

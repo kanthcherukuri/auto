@@ -57,7 +57,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 			// 
 			
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
          		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
@@ -73,7 +73,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 
 				//Re Scheduling the Apppointment
-				Browser.openUrl(recipient_url);
+				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
 				//Browser.scrollbyxpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
@@ -87,7 +87,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
 				AssertJUnit.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
-				Browser.openUrl(recipient_url);
+				Browser.openUrl(loginPage_Url);
 				RecipientPage.recipientLogout();
 	
 		 }else{

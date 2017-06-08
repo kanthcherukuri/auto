@@ -50,7 +50,7 @@ public class Admin_ZOY1813_moduleList extends LoadPropMac
 		{
 			System.out.println("Hospitals is not visible as it is not activated in module config");
 		}
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
 		driver.get(zqa);
@@ -69,7 +69,7 @@ public class Admin_ZOY1813_moduleList extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		admin=new AdminPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

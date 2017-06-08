@@ -104,7 +104,7 @@ public class DoctorsPage  {
 
 	// Doctors logout 
 	public  void doctorlogout() throws IOException, InterruptedException{			
-		driver.get("https://zoyloqa.zoylo.com/providerAccount");
+		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
 		Thread.sleep(2000);

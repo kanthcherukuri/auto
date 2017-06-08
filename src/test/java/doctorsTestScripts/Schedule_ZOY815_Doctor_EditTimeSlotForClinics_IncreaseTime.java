@@ -66,7 +66,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
  		LoadBrowserProperties();
  		Browser= new TestUtils(driver);
  		doctorsPage=new DoctorsPage(driver);
- 		driver.get(recipient_url);
+ 		driver.get(loginPage_Url);
  	}
  	
  	@AfterClass

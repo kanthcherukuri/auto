@@ -42,7 +42,7 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 	 public void validateRecipientRebookingOfAppointment() throws Exception {
 	   			 
 			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
+			 Browser.openUrl(loginPage_Url);			
 			 //Verify Recipient Login with valid details
 			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			 Thread.sleep(2000);
@@ -57,21 +57,17 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 AssertJUnit.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
-			 Browser.openUrl(recipient_url);
+			 Browser.openUrl(loginPage_Url);
 		     RecipientPage.recipientLogout();
 
 			
 	    }
 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

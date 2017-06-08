@@ -37,7 +37,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	public void validatePromoCodeInPaymentsDoctors( ) throws Exception {
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
@@ -95,12 +95,10 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	}
 
 	@AfterClass(groups = { "Regression","High" })
-
 	public void Exit() {
 		
-		driver.close();
-
-	}
+		driver.quit();
+	} 
 
 
 

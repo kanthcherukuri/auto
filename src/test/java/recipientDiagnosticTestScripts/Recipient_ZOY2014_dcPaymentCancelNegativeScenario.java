@@ -43,7 +43,7 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

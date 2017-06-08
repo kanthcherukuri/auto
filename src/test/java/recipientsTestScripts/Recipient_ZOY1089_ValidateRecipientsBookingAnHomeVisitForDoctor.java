@@ -49,7 +49,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(10000);
@@ -81,19 +81,10 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 
 	}
 
-
-
-
-
-
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() {
-
-
-		driver.close();
-
-
+		driver.quit();
 	}
 
 

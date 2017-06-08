@@ -47,7 +47,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		
 			 			 
 			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);
+			 Browser.openUrl(loginPage_Url);
 			 
 		
 		
@@ -71,24 +71,11 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 
 		
 			 }
-			 
-			
-	
-    
-	
-	 
-	 
-	 
-	 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

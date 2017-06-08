@@ -125,7 +125,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	public void Exit() {
 
 
-		driver.close();
+		driver.quit();
 
 
 	}

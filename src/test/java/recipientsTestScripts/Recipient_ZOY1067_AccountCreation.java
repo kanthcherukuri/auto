@@ -49,7 +49,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);				
+			Browser.openUrl(loginPage_Url);				
 			driver.findElement(By.linkText("Don't have an account?")).click();
 			Browser.waitTill(10);
 			//*Creating the Recipient 
@@ -99,7 +99,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 	public void Exit() {
 
 
-		driver.close();
+		driver.quit();
 
 
 	}
