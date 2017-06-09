@@ -104,7 +104,7 @@ public class DoctorsPage  {
 
 	// Doctors logout 
 	public  void doctorlogout() throws IOException, InterruptedException{			
-		driver.get("https://zoyloqa.zoylo.com/providerAccount");
+		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
 		Thread.sleep(2000);
@@ -988,7 +988,6 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 		}
 		}
 
-
 public void VerifyCheckINFunctionality() throws Exception{
 	
 	driver.findElement(By.id(Elements_Doctors.clickoncheckinbutton)).click();
@@ -1143,6 +1142,8 @@ public void VerifyCheckINFunctionality() throws Exception{
 		Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Edit')]");
 		driver.findElement(By.id("doctorInformationDiv")).click();
 		Browser.scrollbyxpath("//label[contains(., 'Follow Up Within (Days)')]"); //Scroll to other clinic
+		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();

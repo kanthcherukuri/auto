@@ -29,7 +29,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 	
 	
 		
-	 @BeforeClass(groups = { "Regression","High" })	
+	 @BeforeClass(groups = { "Regression","Medium" })	
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
@@ -37,7 +37,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(recipient_url);			
+		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		  Thread.sleep(2000);
@@ -79,11 +79,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			System.out.println("fav doc after un check"+fav_doc);
 			AssertJUnit.assertTrue(fav_doc);
 			RecipientPage.goToDoctors();
-		
-			 
-			 
-			
-			 
+ 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
@@ -94,19 +90,11 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 	    }
     
 	 
-	 
-	 
-	 
-	 
-	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+	 @AfterClass(groups = { "Regression","Medium" })
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

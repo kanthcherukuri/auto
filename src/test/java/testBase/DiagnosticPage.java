@@ -846,13 +846,13 @@ public class DiagnosticPage {
 		
 		// Diagnostic logout 
 		public  void diagnosticslogout() throws IOException, InterruptedException{			
-			driver.get("https://"+LoadPropMac.Environment+".zoylo.com/zyDiagnosticCenterAccount");
+			driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/zyDiagnosticCenterAccount");
 			Thread.sleep(5000);
 			driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
 			Thread.sleep(2000);
 			driver.findElement(By.id("logout")).click();
 			Thread.sleep(5000);
-			System.out.println("Diagnostics Logged Out"+LoadPropMac.Environment);
+			System.out.println("Diagnostics Logged Out"+LoadPropMac.Environment_Name);
 		}
 
 		

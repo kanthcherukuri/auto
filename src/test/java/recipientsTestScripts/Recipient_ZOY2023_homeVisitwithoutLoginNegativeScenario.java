@@ -49,14 +49,13 @@ public class Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario extends Loa
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		//driver.get(recipient_url);
+		//driver.get(loginPage_Url);
 		driver.get(index_url);
 	}
 	
 	@AfterClass
-     public void Exit() {
+	public void Exit() {
 		
-		driver.close();
-
-	}
+		driver.quit();
+	} 
 }

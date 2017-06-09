@@ -3,6 +3,7 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
@@ -14,15 +15,15 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
-	//Global variables
-	public String firstName="Gurr";
-	public String lastName="Charan";
-	public String Mobile="9870000000";
-	public String mail="guru1@gmail.com";
-	public String prob="This is my problem";
+	@DataProvider(name="addAptdetail")
+	  public Object[][] adAptInfo() throws Exception
+	  {
+		  Object[][] aptdetails=TestUtils.getTableArray("TestData/Doctors_TestData.xls", "Schedule", "ZOY811");
+		  return(aptdetails);
+	  }
 	
-  @Test()
-  public void testActivateDeactivateTimeSlot() throws Exception
+	@Test(dataProvider="addAptdetail")
+  public void testActivateDeactivateTimeSlot(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
   {
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	//docpage.BulkCancel();
@@ -66,7 +67,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
   @AfterClass

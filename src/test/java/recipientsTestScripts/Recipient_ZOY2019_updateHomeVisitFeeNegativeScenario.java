@@ -28,7 +28,7 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 		Browser.scrollbyxpath("(//div[@class='sp-doc-clinic-schd-save-btn'])[2]");
 		driver.findElement(By.xpath("(//div[@class='sp-doc-clinic-schd-save-btn'])[2]")).click();
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
-		closebrowser();
+		Exit();
 		launchbrowser();
 		//Recipient
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -73,13 +73,12 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		DoctorsPage=new testBase.DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass
-     public void closebrowser() {
+	public void Exit() {
 		
-		driver.close();
-
-	}
+		driver.quit();
+	} 
 }

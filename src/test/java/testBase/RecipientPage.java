@@ -92,7 +92,7 @@ public class RecipientPage  {
 
 	public void recipientLogout() throws InterruptedException{
 
-		driver.get("https://zoyloqa.zoylo.com/myaccount");
+		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/myaccount");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
 		Thread.sleep(2000);
@@ -606,8 +606,8 @@ public class RecipientPage  {
 		driver.findElement(By.id("termsAndConditions")).click();
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
-		//Browser.waitTill(60);
-		Thread.sleep(20000);
+		Browser.waitTill(60);
+		//Thread.sleep(20000);
 		System.out.println("Payment done");
 	}
 	

@@ -49,7 +49,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 	  
 		if(runmode.equals("yes")) {
 			 			 
-		  Browser.openUrl(recipient_url);			
+		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(username, password);
 		  Thread.sleep(2000);
@@ -93,21 +93,11 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 			 
 	 }
 	
-    
-	
-	 
-	 
-	 
-	 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

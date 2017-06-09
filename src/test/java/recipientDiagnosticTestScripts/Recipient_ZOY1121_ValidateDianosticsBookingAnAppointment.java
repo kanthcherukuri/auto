@@ -60,7 +60,7 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();

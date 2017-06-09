@@ -42,7 +42,7 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
@@ -75,20 +75,11 @@ public class Recipients_ZOY1182_ValidateRecipientsAlerts extends LoadPropMac {
 			
 	    }
     
-	 
-	 
-	 
-	 
-	 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

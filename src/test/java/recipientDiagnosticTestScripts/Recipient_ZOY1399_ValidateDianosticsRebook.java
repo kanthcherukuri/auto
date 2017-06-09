@@ -51,7 +51,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 	 public void validateRecipientRebookingOfAppointment() throws Exception {
 	   			 
 			 //Test Starts-Here
-			 Browser.openUrl(recipient_url);			
+			 Browser.openUrl(loginPage_Url);			
 			 //Verify Recipient Login with valid details
 			 RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			 Thread.sleep(2000);
@@ -66,7 +66,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 AssertJUnit.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
-			 Browser.openUrl(recipient_url);
+			 Browser.openUrl(loginPage_Url);
 			 //driver.findElement(By.id("skipForLater")).click();
 		     RecipientPage.recipientLogout();
 

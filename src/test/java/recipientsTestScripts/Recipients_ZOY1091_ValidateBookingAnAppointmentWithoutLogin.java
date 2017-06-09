@@ -67,17 +67,12 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 
 
 	}
-
-
-	@AfterClass(groups = { "Regression","High" })
-
-	public void Exit() {
-
-
-		driver.close();
-
-
-	}
+	
+	 @AfterClass(groups = { "Regression","High" })
+		public void Exit() {
+			
+			driver.quit();
+		} 
 
 
 

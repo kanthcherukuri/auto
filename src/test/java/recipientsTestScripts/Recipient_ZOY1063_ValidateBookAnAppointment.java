@@ -7,29 +7,18 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
+import org.testng.Assert;
 
 import org.testng.SkipException;
 import org.testng.annotations.*;
-/*
-import atu.testng.reports.listeners.ATUReportsListener;
-import atu.testng.reports.listeners.ConfigurationListener;
-import atu.testng.reports.listeners.MethodListener;
-*/
+
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
-
-*/
 public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 
-	
-	
-		
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
@@ -56,7 +45,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
-				Browser.openUrl(recipient_url);			
+				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);
@@ -86,9 +75,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+	       driver.quit();
 	      
 	    }
     

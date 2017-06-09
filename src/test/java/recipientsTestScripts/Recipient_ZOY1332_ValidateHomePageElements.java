@@ -1,6 +1,7 @@
 package recipientsTestScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
@@ -70,6 +71,12 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 		driver.get(base_url);
 
 	}
+	
+	@AfterClass()
+	public void Exit() {
+		
+		driver.quit();
+	}  
 	
 	public void reloadtohomePge() //method to reload and wait until page is loaded
 	{

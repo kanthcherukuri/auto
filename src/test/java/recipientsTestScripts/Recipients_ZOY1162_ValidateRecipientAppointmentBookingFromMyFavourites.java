@@ -27,7 +27,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 	
 	
 		
-	 @BeforeClass(groups = { "Regression","High" })	
+	 @BeforeClass(groups = { "Regression","Medium" })	
     public void LaunchBrowser() throws Exception {
   
 		  LoadBrowserProperties(); // Create driver instance and launch the browser
@@ -43,7 +43,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 	 public void validateRecipientAppointmentBookingFromMyFavourites() throws Exception {
 	   			 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);
+			Browser.openUrl(loginPage_Url);
 			Thread.sleep(2000);
 		    //Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -83,20 +83,11 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			
 	    }
     
-	 
-	 
-	 
-	 
-	 
-	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
-	    }
+	 @AfterClass(groups = { "Regression","Medium" })
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

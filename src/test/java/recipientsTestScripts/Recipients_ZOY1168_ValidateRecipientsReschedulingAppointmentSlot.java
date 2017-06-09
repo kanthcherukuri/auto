@@ -54,7 +54,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
@@ -71,7 +71,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
 
 			//Re Scheduling the Apppointment
-			Browser.openUrl(recipient_url);
+			Browser.openUrl(loginPage_Url);
 			driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 			Browser.waitTill(60);
 			driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
@@ -88,7 +88,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("RescheduleMesg"+RescheduleMesg);
 			AssertJUnit.assertEquals(RescheduleMesg, SlotChangeMesg);
-			Browser.openUrl(recipient_url);
+			Browser.openUrl(loginPage_Url);
 			RecipientPage.recipientLogout();
 
 
@@ -101,20 +101,11 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
 	}
 
-
-
-
-
-
 	@AfterClass(groups = { "Regression","High" })
-
 	public void Exit() {
-
-
-		driver.close();
-
-
-	}
+		
+		driver.quit();
+	} 
 
 
 

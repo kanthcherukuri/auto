@@ -78,7 +78,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropM
 	 @BeforeMethod(groups = { "Regression","High" })
 	 public void openUrl() throws Exception {
 		 //Test Starts-Here
-		 Browser.openUrl(recipient_url);
+		 Browser.openUrl(loginPage_Url);
 
 	    }
 
@@ -101,12 +101,10 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropM
 	 
 	 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
-     
-	       driver.close();
-    
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

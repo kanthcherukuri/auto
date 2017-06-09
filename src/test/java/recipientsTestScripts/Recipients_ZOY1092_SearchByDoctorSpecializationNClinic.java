@@ -32,7 +32,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);   
 		//Test Starts-Here
-		Browser.openUrl(recipient_url);			
+		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
@@ -147,18 +147,12 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
 		}	
 	}
-
-
-
-	@AfterClass(groups = { "Regression","High" })
-
-	public void Exit() {
-
-
-		driver.close();
-
-
-	}
+	
+	 @AfterClass(groups = { "Regression","High" })
+		public void Exit() {
+			
+			driver.quit();
+		} 
 
 
 

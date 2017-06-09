@@ -23,11 +23,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="june05_3@zoy.com";
-	public String docName="June fivetwo";
-	public String regNum="June05-2";
+	public String emailID="srinivas.t@zoylo.com";
+	public String docName="Srinivas T";
+	public String regNum="June08-1";
 	public String clinicDefName="Default clinic";
-	public String mobNumDoc="9777710009";
+	public String mobNumDoc="9618750064";//"9777710011";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
@@ -317,7 +317,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		admin=new AdminPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

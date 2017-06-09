@@ -2,6 +2,7 @@ package testBase;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.URL;
 import java.util.Properties;
 
 
@@ -9,38 +10,42 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestResult;
 
 public class LoadPropMac   {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
-	 public static String driverpath;
-
-	 public static String base_url, dev_url, recipient_url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
-
-
+	public static String driverpath;
+	public static String base_url, dev_url, loginPage_Url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
 	public static String diagnostic_url;
 	
+	//To Run On Cloud - Sauce Labs
+	public static final String USERNAME = "ganeshmandala123";
+ 	public static final String ACCESS_KEY = "54f5beb0-8191-4184-9094-ec209f9b300c";
+ 	public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
-
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount, DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo;
 	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment, recipientDC_User, recipientDC_Password;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment_Name, recipientDC_User, recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
     public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour;
     
-		public static WebDriver driver;
+	public static WebDriver driver;
+
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
         inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
         Properties prop = new Properties();
         prop.load(inStream);
-        //driverpath=prop.getProperty("driver.path");
         base_url=prop.getProperty("base.url");
         recipient_myaccount=prop.getProperty("recipient.myaccount");
-        recipient_url=prop.getProperty("recipient.url");
+        loginPage_Url=prop.getProperty("loginPage.url");
         dev_url=prop.getProperty("dev.url");
         enrollment_url=prop.getProperty("enrollment.url");
         doctors_Url=prop.getProperty("Doctors.Url");
@@ -100,14 +105,24 @@ public class LoadPropMac   {
         Recipient_DiaUsername=prop.getProperty("Recipient.DiaUsername");
         Recipient_DiaPassword=prop.getProperty("Recipient.DiaPassword");
         
-        Environment=prop.getProperty("Environment.name");
+        Environment_Name=prop.getProperty("Environment.name");
         
         //Admin - Login credentials
         admin_user=prop.getProperty("admin.user");
         admin_password=prop.getProperty("admin.password");
-       
         
-        if(browser_name.equals("chrome")){
+        
+        //Sauce Labs - Capabilities
+        
+      /*  DesiredCapabilities caps = DesiredCapabilities.chrome();
+        caps.setCapability("platform", "macOS 10.12");
+        caps.setCapability("version", "58.0");
+        driver = new RemoteWebDriver(new URL(URL), caps);
+       
+        */
+      
+      
+       if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
@@ -126,11 +141,13 @@ public class LoadPropMac   {
 			driver.manage().window().maximize();
 			
 		}
+       
+       
 		return driver;
 }
 	
 	
+
+
 	
-
-
 }

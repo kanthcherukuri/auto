@@ -38,7 +38,7 @@ public class Recipient_ZOY1063_BookAnAppointment extends LoadPropMac {
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);        
 		//Test Starts-Here
-		Browser.openUrl(recipient_url);			
+		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);

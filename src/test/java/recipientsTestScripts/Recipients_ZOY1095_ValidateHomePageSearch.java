@@ -72,12 +72,10 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	    }
 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void Exit() {
- 
-	       driver.close();
- 
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 

@@ -31,7 +31,7 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab extends LoadPr
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(recipient_url);
+		driver.get(loginPage_Url);
 	}
 	
 	@AfterClass

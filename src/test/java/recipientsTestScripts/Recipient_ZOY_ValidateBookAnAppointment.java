@@ -7,11 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.AssertJUnit;
 import org.openqa.selenium.*;
 
-/*
-import atu.testng.reports.listeners.ATUReportsListener;
-import atu.testng.reports.listeners.ConfigurationListener;
-import atu.testng.reports.listeners.MethodListener;
- */
 import testBase.*;
 import objectRepository.*;
 
@@ -34,7 +29,7 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 	public void validateBookingAnAppointment( ) throws Exception {
 
 			//Test Starts-Here
-			Browser.openUrl(recipient_url);			
+			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
@@ -68,7 +63,7 @@ public class Recipient_ZOY_ValidateBookAnAppointment extends LoadPropMac {
 
 	public void Exit() {
 		
-		driver.close();
+		driver.quit();
 
 	}
 

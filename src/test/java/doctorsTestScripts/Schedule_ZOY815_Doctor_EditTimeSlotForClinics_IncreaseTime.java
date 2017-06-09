@@ -3,6 +3,7 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
@@ -16,15 +17,16 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 	
 
 	//Global variables
-	public String firstName="Gurr";
-	public String lastName="Charan";
-	public String Mobile="9870000000";
-	public String mail="guru1@gmail.com";
-	public String prob="This is my problem";
 	public String updtendTime="18:00";
-		
-  @Test()
-  public void testEditTimeSlotForClinicsIncreaseTime() throws Exception
+	@DataProvider(name="addAptdetail")
+	  public Object[][] adAptInfo() throws Exception
+	  {
+		  Object[][] aptdetails=TestUtils.getTableArray("TestData/Doctors_TestData.xls", "Schedule", "ZOY811");
+		  return(aptdetails);
+	  }
+	
+	@Test(dataProvider="addAptdetail")
+  public void testEditTimeSlotForClinicsIncreaseTime(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
   {
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	//docpage.BulkCancel();
@@ -45,7 +47,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(4000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
@@ -53,11 +55,6 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
-		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-		Browser.CheckNotificationMessage("Schedule Updated Successfully");
   }
   
   @BeforeClass
@@ -66,13 +63,12 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
  		LoadBrowserProperties();
  		Browser= new TestUtils(driver);
  		doctorsPage=new DoctorsPage(driver);
- 		driver.get(recipient_url);
+ 		driver.get(loginPage_Url);
  	}
  	
  	@AfterClass
  	public void closeapp() throws Exception
  	{
- 		Thread.sleep(2000);
  		doctorsPage.removeClinicWorkTimings();
  		Thread.sleep(3000);
  		driver.close();

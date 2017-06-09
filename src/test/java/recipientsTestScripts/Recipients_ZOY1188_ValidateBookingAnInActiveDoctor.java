@@ -53,9 +53,8 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 		 if(runmode.equals("yes")){
 			 			 
 			  //Test Starts-Here
-			  Browser.openUrl(recipient_url);			
+			  Browser.openUrl(loginPage_Url);			
 		      //Verify Recipient Login with valid details
-			Assert.assertEquals(true, false);
 			  RecipientPage.recipientLogin(Username, Password);
 			  Thread.sleep(2000);
 			  RecipientPage.goToMyAccounts("My Favourites");
@@ -72,15 +71,11 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 			
 	    }
     
- 
-	 
 	 @AfterClass(groups = { "Regression","High" })
-	 
-	 public void exit() {
- 
-	       driver.close();
-	
-	    }
+		public void Exit() {
+			
+			driver.quit();
+		} 
     
 	
 
