@@ -3,12 +3,7 @@ package sanityTestScipts;
 
 
 import org.openqa.selenium.*;
-
-
-
-
 import org.testng.Assert;
-import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.*;
 /*
