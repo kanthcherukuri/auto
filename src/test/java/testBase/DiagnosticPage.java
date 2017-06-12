@@ -1320,11 +1320,11 @@ public class DiagnosticPage {
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 			driver.get("https:zoyloqa.zoylo.com/login");
-			driver.findElement(By.id("emailAddress")).sendKeys(username);
+			driver.findElement(By.id(Elements_Diagnostics.adminusername)).sendKeys(username);
 			Thread.sleep(2000);
-			driver.findElement(By.id("password")).sendKeys(password);
+			driver.findElement(By.id(Elements_Diagnostics.adminpassword)).sendKeys(password);
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div/button")).click();
+			driver.findElement(By.xpath(Elements_Diagnostics.adminlogin)).click();
 			Thread.sleep(3000);
 		}
 		
