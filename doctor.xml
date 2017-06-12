@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Doctors">
+<suite name="Doctor">
   <test name="DoctorRegression">
     <classes>
       <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/>
