@@ -595,7 +595,7 @@ public class RecipientPage  {
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
-	public void makePayment() throws InterruptedException{
+	public void makePayment_old() throws InterruptedException{
 
 		Browser.waitFortheID("applyPromocode");
 
@@ -612,7 +612,7 @@ public class RecipientPage  {
 	}
 	
 	//New Promo Page
-	public void makePayment_old() throws InterruptedException{
+	public void makePayment() throws InterruptedException{
 
 		Browser.waitFortheID("promocodeValue");
 		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");

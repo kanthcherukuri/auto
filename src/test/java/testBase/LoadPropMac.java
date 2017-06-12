@@ -93,9 +93,6 @@ public class LoadPropMac   {
         
         Diagnostic_usernamethree=prop.getProperty("DiagnosticLogin.usernamethree");
         Diagnostic_passwordthree=prop.getProperty("DiagnosticLogin.passwordthree");
-        
-      
-        
 
         Recipient_DSusername=prop.getProperty("Recipient.DSusername");
         Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
