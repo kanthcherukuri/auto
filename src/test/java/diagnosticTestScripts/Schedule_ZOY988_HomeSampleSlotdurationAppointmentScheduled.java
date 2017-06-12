@@ -50,7 +50,7 @@ public class Schedule_ZOY988_HomeSampleSlotdurationAppointmentScheduled extends 
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

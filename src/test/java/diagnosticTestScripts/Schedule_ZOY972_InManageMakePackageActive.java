@@ -60,6 +60,6 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

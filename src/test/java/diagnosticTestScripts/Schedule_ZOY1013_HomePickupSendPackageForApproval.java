@@ -39,7 +39,7 @@ public class Schedule_ZOY1013_HomePickupSendPackageForApproval extends LoadPropM
 	
 	@AfterClass
 	  public void CloseBrowser() {
-		driver.close();
+		driver.quit();
 	  }
 	
 

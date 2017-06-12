@@ -50,7 +50,7 @@ public class Schedule_ZOY960_InManageUpdateAmenities extends LoadPropMac {
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

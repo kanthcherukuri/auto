@@ -46,7 +46,7 @@ public class Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled exten
 	}
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

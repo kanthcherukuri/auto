@@ -48,7 +48,7 @@ public class Schedule_ZOY985_ConsultationSlotTimeAppointmentNotScheduled extends
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

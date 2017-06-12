@@ -48,7 +48,7 @@ public class Schedule_ZOY985_ConsultationToggleAppointmentNotScheduled extends L
 	
 	@AfterClass
 	public void CloseBrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

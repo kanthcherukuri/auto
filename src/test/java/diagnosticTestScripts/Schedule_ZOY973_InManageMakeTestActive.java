@@ -75,6 +75,6 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 
 	@AfterClass
 		public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

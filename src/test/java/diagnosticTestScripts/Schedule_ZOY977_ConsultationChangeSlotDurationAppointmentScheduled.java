@@ -49,7 +49,7 @@ public class Schedule_ZOY977_ConsultationChangeSlotDurationAppointmentScheduled 
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

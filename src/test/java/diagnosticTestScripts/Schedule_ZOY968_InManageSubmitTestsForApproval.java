@@ -47,6 +47,6 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 	
 	@AfterClass
 	  public void CloaseBrowser() {
-		driver.close();
+		driver.quit();
 	  }
 }

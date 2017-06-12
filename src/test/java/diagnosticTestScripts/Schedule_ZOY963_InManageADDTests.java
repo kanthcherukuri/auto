@@ -39,7 +39,7 @@ public class Schedule_ZOY963_InManageADDTests extends LoadPropMac{
 
 	@AfterClass
 	public void CloseBrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

@@ -52,6 +52,6 @@ public class Schedule_ZOY984_InManageEditContactDetails extends LoadPropMac{
 	
 	@AfterClass
 	  public void afterClass() {
-		 driver.close();
+		 driver.quit();
 	  }
 }

@@ -36,6 +36,6 @@ public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
 	
 	@AfterClass
 	  public void CloseBrowser() {
-		 driver.close();
+		 driver.quit();
 	  }
 }

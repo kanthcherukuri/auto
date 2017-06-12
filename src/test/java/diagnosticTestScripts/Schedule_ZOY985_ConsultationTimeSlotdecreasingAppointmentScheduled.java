@@ -88,7 +88,7 @@ public class Schedule_ZOY985_ConsultationTimeSlotdecreasingAppointmentScheduled 
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

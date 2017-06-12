@@ -47,7 +47,7 @@ public class Schedule_ZOY992_HomeSampleAppointmentSlot extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

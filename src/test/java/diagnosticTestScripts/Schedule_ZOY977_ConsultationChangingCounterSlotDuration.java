@@ -53,6 +53,6 @@ public class Schedule_ZOY977_ConsultationChangingCounterSlotDuration  extends Lo
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

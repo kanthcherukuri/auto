@@ -36,6 +36,6 @@ public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac
 	
 	@AfterClass
 	  public void CloseBrowser() {
-		driver.close();
+		driver.quit();
 	  }
 }

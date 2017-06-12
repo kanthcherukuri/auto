@@ -82,7 +82,7 @@ public class Schedule_ZOY985_ConsultationToggleAppointmentScheduled extends Load
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 	

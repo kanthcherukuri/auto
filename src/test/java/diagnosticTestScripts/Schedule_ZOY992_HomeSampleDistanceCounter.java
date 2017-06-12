@@ -47,6 +47,6 @@ public class Schedule_ZOY992_HomeSampleDistanceCounter extends LoadPropMac{
 	}
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

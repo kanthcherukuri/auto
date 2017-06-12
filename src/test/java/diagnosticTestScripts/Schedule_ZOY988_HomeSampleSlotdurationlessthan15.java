@@ -48,6 +48,6 @@ public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropM
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

@@ -44,6 +44,6 @@ public class Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule extends Load
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

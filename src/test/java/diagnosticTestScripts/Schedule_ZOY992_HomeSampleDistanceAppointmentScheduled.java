@@ -43,6 +43,6 @@ public class Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled  extends Loa
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

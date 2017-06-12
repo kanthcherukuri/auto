@@ -36,7 +36,7 @@ public class Schedule_ZOY986_InMangeDeleteContact extends LoadPropMac{
 	
 	@AfterClass
 	  public void CloseBrowser() {
-		  driver.close();
+		  driver.quit();
 	  }
 
 }
