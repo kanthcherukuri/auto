@@ -33,7 +33,7 @@ public class Schedule_ZOY1011_HomePickupEditTests extends LoadPropMac{
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("EcomnetsTest", "Full Company Testing", "30000", "2");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		DiagnosticPageZoylo.ScheduleHomePickupToEditTests("Journal", "Full Lamination Testing", "40000", "2");
 	}
 	

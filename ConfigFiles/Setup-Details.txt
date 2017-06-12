@@ -55,10 +55,10 @@ Diagnostic.Url=https://zoyloqa.zoylo.com
 DiagnosticLogin.usernameone=sampoornemail@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
 
-DiagonsticLogin.username=email1@zoylo.com
+DiagonsticLogin.username=sampoornemail@gmail.com
 DiagnosticLogin.password=Zoylo@123
 
-DiagnosticLogin.usernamethree=sajjadiagnostic@gmail.com
+DiagnosticLogin.usernamethree=sampoornemail@gmail.com
 DiagnosticLogin.passwordthree=Zoylo@123
 
 recipientDC.username=Diagnosticszoylo@zoylo.com

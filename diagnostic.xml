@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Diagnostic"  verbose="2">
-  <test name="DiagnosticRegression">
+<suite name="DiagnosticSuite">
+  <test name="DiagnosticRegre">
     <classes>
       <class name="diagnosticTestScripts.Appointment_ZOY956_SearchInPatientScreen"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForAppointmentBooking"/>
@@ -12,6 +12,7 @@
       <class name="diagnosticTestScripts.Appointment_ZOY955_CheckShowMore"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1028_RescheduleForHomeVisit"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertHomeVisitCancel"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY971_RescheduleSendNotifiactionInAllTab"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForCancel"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1009_RescheduleAppointment"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForHomeAppointment"/>
@@ -21,14 +22,15 @@
       <class name="diagnosticTestScripts.Appointment_ZOY1036_CancelAppointHomeVisit"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1005_ViewAppointment"/>
       <class name="diagnosticTestScripts.Appointment_ZOYO1010_CancelAppointment"/>
-      <class name="diagnosticTestScripts.Appointment_ZOY971_DiagnosticSendNotifiactionInAllTab"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY971_SendNotificationInAllTab"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1043_BulkCancellationHomeVisit"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1026_AppointmentForHomeVisit"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForHomeVisitReschedule"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForReschedule"/>
       <class name="diagnosticTestScripts.Appoinment_ZOY964_DiagnosticProfile"/>
+      <class name="diagnosticTestScripts.Appointment_ZOY_HomeAppointmentInDashBoard"/>
       <class name="diagnosticTestScripts.Appointment_ZOY956_SearchPatientScreenAllTab"/>
       
     </classes>
-  </test> <!-- DiagnosticRegression -->
-</suite> <!-- Diagnostic -->
+  </test> <!-- DiagnosticRegre -->
+</suite> <!-- DiagnosticSuite -->

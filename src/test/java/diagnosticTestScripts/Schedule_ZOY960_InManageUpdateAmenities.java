@@ -39,10 +39,10 @@ public class Schedule_ZOY960_InManageUpdateAmenities extends LoadPropMac {
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Diagnostics.amenitiescarparking)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiescardswipe)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitieswashroom)).click();
-		Thread.sleep(1000);
+		//driver.findElement(By.id(Elements_Diagnostics.amenitiescardswipe)).click();
+		//Thread.sleep(1000);
+		//driver.findElement(By.id(Elements_Diagnostics.amenitieswashroom)).click();
+		//Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Diagnostics.amenitiespremiunservice)).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Diagnostics.amenitiesemergencyservices)).click();

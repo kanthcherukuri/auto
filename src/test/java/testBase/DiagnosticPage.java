@@ -49,7 +49,7 @@ public class DiagnosticPage {
 	
 	
 	public void DiagnosticAppointmentForHomeVisit(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
-		
+		Thread.sleep(3000);
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle)).click();
