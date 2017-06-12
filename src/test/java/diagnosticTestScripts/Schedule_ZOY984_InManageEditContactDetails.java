@@ -4,12 +4,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 
-public class Schedule_ZOY_984_InManageEditContactDetails extends LoadPropMac{
+public class Schedule_ZOY984_InManageEditContactDetails extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
 	public TestUtils Browser;
 	
@@ -25,11 +27,19 @@ public class Schedule_ZOY_984_InManageEditContactDetails extends LoadPropMac{
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 	
-	@Test
-	public void ScheduleEditInManager() throws Exception{
+	 @DataProvider(name = "DP1")
+	    public Object[][] createData_DP1() throws Exception{
+	  Object[][] retObjArr=TestUtils.getTableArray("TestData/Diagnostics_TestData.xls","DiagnosticSchedule","ZOY984");
+	        return(retObjArr);
+	    }
+	
+	
+	@Test(dataProvider="DP1")
+	public void ScheduleEditInManager(String RunMode,String name,String phone,String email,String fax,String editedname,String editedphone,String editedemail,String editedfax) throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
-		DiagnosticPageZoylo.EditConatctInSchedule("kiran", "9988002220", "kiran@gmail.com","99001266");
+		DiagnosticPageZoylo.AddContactInSchedule(name, phone, email, fax);
+		DiagnosticPageZoylo.EditConatctInSchedule(editedname, editedphone, editedemail, editedfax);
+	
 		
 	}
 
