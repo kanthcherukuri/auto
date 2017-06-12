@@ -70,7 +70,6 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
  	public void closeapp() throws Exception
  	{
  		doctorsPage.removeClinicWorkTimings();
- 		Thread.sleep(3000);
- 		driver.close();
+ 		driver.quit();
  	}
 }

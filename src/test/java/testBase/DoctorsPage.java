@@ -648,6 +648,7 @@ public class DoctorsPage  {
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Thread.sleep(3000);
 		}
 		
 		/*
@@ -677,6 +678,7 @@ public class DoctorsPage  {
 			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 			Browser.CheckNotificationMessage("Your vacation successfully updated");
+			Thread.sleep(3000);
 		}
 		
 		/*
@@ -736,7 +738,7 @@ public class DoctorsPage  {
 	   Thread.sleep(3000);
 	   //Browser.CheckNotificationMessage("Appointments cancelled successfully");
 	   Browser.verifyNotificationMessage("Appointments cancelled successfully");
-		
+	   Thread.sleep(3000);
 	  
 		}
 

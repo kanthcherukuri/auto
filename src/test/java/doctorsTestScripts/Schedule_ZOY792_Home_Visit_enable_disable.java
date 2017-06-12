@@ -100,6 +100,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 				  AssertJUnit.fail("TEST CASE FAILED");
 			  } 
   }
+	  Thread.sleep(3000);
   }
  
   
@@ -117,7 +118,6 @@ public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

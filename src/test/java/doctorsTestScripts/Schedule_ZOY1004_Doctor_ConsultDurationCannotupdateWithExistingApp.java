@@ -53,8 +53,7 @@ public class Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp 
 	public void closeapp() throws Exception
 	{
 		doctorsPage.BulkCancel();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }
 	

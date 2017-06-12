@@ -26,6 +26,7 @@ public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  Thread.sleep(1000);
 	  doctorsPage.editScheduleDefaultClinicAddress(AddLineOne, CityLocality, CityPincode);
+	  Thread.sleep(3000);
   }
 
   @BeforeClass
@@ -40,7 +41,6 @@ public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 @AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

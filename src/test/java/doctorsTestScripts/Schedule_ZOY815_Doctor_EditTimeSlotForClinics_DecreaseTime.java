@@ -59,6 +59,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		Thread.sleep(2000);
   }
   
   @BeforeClass
@@ -73,10 +74,8 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
 		doctorsPage.removeClinicWorkTimings();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 
 }
