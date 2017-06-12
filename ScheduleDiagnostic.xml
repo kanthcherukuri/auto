@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Schedule">
-  <test name="ScheduleRegression">
+<suite name="ScheduleDiagnostic">
+  <test name="ScheduleDiagnosticReg">
     <classes>
       
-      <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationCounterslotdurationlessthan15mnts"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY997_HomePickupApprovalMakeActiveForTest"/>
-       <class name="diagnosticTestScripts.Schedule_ZOY991_HomePickUpAddTests"/>
-     <class name="diagnosticTestScripts.Schedule_ZOY1007_HomePickupAddPackage"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY1011_HomePickupEditTests"/>
-       <class name="diagnosticTestScripts.Schedule_ZOY995_HomePickupSubmitTestForApproval"/>
-       <class name="diagnosticTestScripts.Schedule_ZOY1014_HomePickupEditPackage"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY1015_HomePickUpMakePackageActive"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY976_InManageEditTests"/>
-     <class name="diagnosticTestScripts.Schedule_ZOY1013_HomePickupSendPackageForApproval"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY973_InManageMakeTestActive"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationCounterslotdurationlessthan15mnts"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY997_HomePickupApprovalMakeActiveForTest"/>
+       	<class name="diagnosticTestScripts.Schedule_ZOY1011_HomePickupEditTests"/>
+       	<class name="diagnosticTestScripts.Schedule_ZOY995_HomePickupSubmitTestForApproval"/>
+       	<class name="diagnosticTestScripts.Schedule_ZOY1015_HomePickUpMakePackageActive"/>
+        <class name="diagnosticTestScripts.Schedule_ZOY1014_HomePickupEditPackage"/>
+        <class name="diagnosticTestScripts.Schedule_ZOY1013_HomePickupSendPackageForApproval"/>
+        <class name="diagnosticTestScripts.Schedule_ZOY991_HomePickUpAddTests"/>
+       	<class name="diagnosticTestScripts.Schedule_ZOY1007_HomePickupAddPackage"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY982_InManageEditPackage"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY976_InManageEditTests"/>
+     	 <class name="diagnosticTestScripts.Schedule_ZOY973_InManageMakeTestActive"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY968_InManageSubmitTestsForApproval"/>
+       <class name="diagnosticTestScripts.Schedule_ZOY984_InManageEditContactDetails"/>
        <class name="diagnosticTestScripts.Schedule_ZOY966_InMangaeAddPackage"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY968_InManageSubmitTestsForApproval"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY1000_InMangaeSubimtPackageforApproval"/>
-        <class name="diagnosticTestScripts.Schedule_ZOY982_InManageEditPackage"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY972_InManageMakePackageActive"/>
        <class name="diagnosticTestScripts.Schedule_ZOY960_InManageUpdateAmenities"/>
+       <class name="diagnosticTestScripts.Schedule_ZOY972_InManageMakePackageActive"/>
+        <class name="diagnosticTestScripts.Schedule_ZOY986_InMangeDeleteContact"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY963_InManageADDTests"/>
+       <class name="diagnosticTestScripts.Schedule_ZOY981_InManageAddContact"/>
+        <class name="diagnosticTestScripts.Schedule_ZOY1000_InMangaeSubimtPackageforApproval"/>
       <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationTimeSlotdecreasingAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleChangeSlotTimeAppointmentNotScheduled"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationToggleAppointmentScheduled"/> 
+      <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationToggleAppointmentScheduled"/>
+    <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationSlotTimeAppointmentNotScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationToggleAppointmentNotScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleAppointmentSlot"/>
       <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotdurationAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceCounter"/>
       <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationChangeSlotDurationAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotdurationlessthan15"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled" />
-      <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleTimeslotsToggleAppointmentScheduled"/>  
-      <class name="diagnosticTestScripts.Schedule_ZOY986_InMangeDeleteContact"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY984_InManageEditContact"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY963_InManageADDTests"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY_984_InManageEditContactDetails"/>
-      <class name="diagnosticTestScripts.Schedule_ZOY981_InManageAddContact"/>
-        <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationSlotTimeAppointmentNotScheduled"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleTimeslotsToggleAppointmentScheduled"/>
+      <class name="diagnosticTestScripts.Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationChangingCounterSlotDuration"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule"/>
-     
+      
     </classes>
-  </test> <!-- ScheduleRegression -->
-</suite> <!-- Schedule -->
+  </test> <!-- ScheduleDiagnosticReg -->
+</suite> <!-- ScheduleDiagnostic -->
