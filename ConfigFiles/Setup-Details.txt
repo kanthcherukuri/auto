@@ -6,7 +6,7 @@ driver.path=C:/Users/Z9149/Downloads/
 
 //----Browser------//
 
-browser.name=safari
+browser.name=chrome
 
 //----Environment----//
 Environment.name=zoyloqa
