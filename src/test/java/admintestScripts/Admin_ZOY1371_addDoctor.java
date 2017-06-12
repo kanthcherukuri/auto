@@ -23,11 +23,12 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	public AdminPage admin;
 
 	//Global variables for pre condition values
-	public String emailID="srinivas.t@zoylo.com";
-	public String docName="Srinivas T";
-	public String regNum="June08-1";
+	public String emailID="jun12_0@zoy.com";
+	public String docName="Junetwelve";
+	public String shrtName="juntwlv";
+	public String regNum="June12-0";
 	public String clinicDefName="Default clinic";
-	public String mobNumDoc="9618750064";//"9777710011";
+	public String mobNumDoc="9777710012";
 		
 	@DataProvider(name="genericdetails")
     public Object[][] getDataFromDataprovider()
@@ -63,17 +64,18 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		return new Object[][] 
 		    	{
 
-		            {docName, regNum, "Male", "Nutrition", clinicDefName, "MBBS", "20", "11/08/1992"}
+		            {docName, shrtName, regNum, "Male", "Nutrition", clinicDefName, "MBBS", "20", "11/08/1992"}
 		            //Data must be valid and defined in database for fields like gender, qualification, specialization etc
 		            //practiceDate format DD/MM/YYYY
 		        };
 	}
 	@Test(dataProvider="docInfo", priority=2)
-	public void doctorInformation(String docFirstName, String docMedNum, String gender, String areaOfSpec, String defaultClinicName, String docQualification, String consultationFee, String practiceDate) throws InterruptedException, URISyntaxException, AWTException
+	public void doctorInformation(String docFirstName, String docshrtName, String docMedNum, String gender, String areaOfSpec, String defaultClinicName, String docQualification, String consultationFee, String practiceDate) throws InterruptedException, URISyntaxException, AWTException
 	{
 		
 		driver.findElement(By.id(Elements_Admin.button_doctorInformation)).click();
 		driver.findElement(By.name("doctorInformation.firstName")).sendKeys(docFirstName);
+		driver.findElement(By.name("doctorInformation.shortName")).sendKeys(docshrtName);
 		driver.findElement(By.name("doctorInformation.medicalRegistrationNumber")).sendKeys(docMedNum);
 		driver.findElement(By.name("doctorInformation.gender")).click();
 		
@@ -82,12 +84,12 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 		dropdown.selectByVisibleText(gender);
 		
 		// Specialization
-		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[7]/span[1]/span[1]/span/ul", areaOfSpec);
+		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[8]/span[1]/span[1]/span/ul", areaOfSpec);
 		
 		driver.findElement(By.name("doctorInformation.clinicName")).sendKeys(defaultClinicName);
 		
 		// Qualification
-		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[13]/span[1]/span[1]/span/ul", docQualification);
+		Browser.actionbyXpath(".//*[@id='doctorInformation']/div/div[2]/div/div[14]/span[1]/span[1]/span/ul", docQualification);
 		
 		driver.findElement(By.name("doctorInformation.consultationFee")).sendKeys(consultationFee);
 		driver.findElement(By.name("doctorInformation.practiceStartDate")).sendKeys(practiceDate);
@@ -97,11 +99,11 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
         Thread.sleep(5000);
 		
 		//Close other clinic tab
-        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[24]/ul/li[1]/div/div[1]/button")).click(); 
-        //Close hospital tab
         driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[25]/ul/li[1]/div/div[1]/button")).click(); 
+        //Close hospital tab
+        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/ul/li[1]/div/div[1]/button")).click(); 
 		//Close vacation tab
-        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/ul/li[1]/div/div[1]/button")).click();
+        driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/ul/li[1]/div/div[1]/button")).click();
         
 	} // End of doctorInformation method p2
 	
@@ -117,7 +119,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	@Test(dataProvider="timeSlots", priority=3)
 	public void doctorTimeSlots(String mValue, String mondayStart, String mondayEnd, String tValue, String tueStart, String tueEnd, String wValue, String wStart, String wEnd, String thValue, String thStart, String thEnd, String fValue, String fStart, String fEnd)
 	{
-		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[26]/div"); //Scroll to Vacation text
+		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div"); //Scroll to Vacation text
 		//Monday
 		if(mValue.equalsIgnoreCase("true"))
 			{
@@ -132,7 +134,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Monday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Monday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[2]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[2]/tr/td[2]/button[1]"));
 				System.out.println("Monday slots are not provided");
 			}
 		
@@ -150,7 +152,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Tuesday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Tuesday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[3]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[3]/tr/td[2]/button[1]"));
 				System.out.println("Tuesday slots are not provided");
 			}
 		
@@ -168,7 +170,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Wednesday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Wednesday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[4]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[4]/tr/td[2]/button[1]"));
 				System.out.println("Wednesday slots are not provided");
 			}
 		
@@ -186,7 +188,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 				//Thursday check box
 				driver.findElement(By.name("doctorInformation.workingHrs.Thursday.markedAsOpen")).click();
 				//div close
-				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[5]/tr/td[2]/button[1]"));
+				driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[5]/tr/td[2]/button[1]"));
 				System.out.println("Thursday slots are not provided");
 			}
 		
@@ -204,18 +206,18 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 			//Friday check box
 			driver.findElement(By.name("doctorInformation.workingHrs.Friday.markedAsOpen")).click();
 			//div close
-			driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[6]/tr/td[2]/button[1]"));
+			driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[6]/tr/td[2]/button[1]"));
 			System.out.println("Friday slots are not provided");
 			}
 		
 		//Saturday and Sunday arrays close and inactive
 		driver.findElement(By.name("doctorInformation.workingHrs.Saturday.markedAsOpen")).click();
 		//div close
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[7]/tr/td[2]/button[1]"));
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[7]/tr/td[2]/button[1]"));
 		
 		driver.findElement(By.name("doctorInformation.workingHrs.Sunday.markedAsOpen")).click();
 		//div close
-		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div[2]/table/tbody[8]/tr/td[2]/button[1]"));
+		driver.findElement(By.xpath(".//*[@id='doctorInformation']/div/div[2]/div/div[28]/div[2]/table/tbody[8]/tr/td[2]/button[1]"));
 		
 	} //End of doctorTimeSlots method p3
 	
