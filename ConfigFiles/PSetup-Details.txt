@@ -13,7 +13,7 @@ browser.name=chrome
 
 base.url=https://www.zoylo.com/
 enrollment.url=https://pit.zoylo.com/doctorenrollmentform
-recipient.url=https://pit.zoylo.com/login
+loginPage.url=https://pit.zoylo.com/login
 index.url=https://pit.zoylo.com/index
 
 //--------Admin Login Details----//
