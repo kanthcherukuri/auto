@@ -1,12 +1,6 @@
 package doctorsTestScripts;
 
-/*
- * @author-Manraj Bharaj
 
- * 
- * Description- Test case for "Adding time slots" under HOSPITAL tab for DOCTORS module. 
- * Follow ZOY841 JIRA for understanding the manual test case
- */
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;

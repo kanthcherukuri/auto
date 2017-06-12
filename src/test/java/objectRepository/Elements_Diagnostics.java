@@ -164,7 +164,7 @@ public class Elements_Diagnostics  {
 		
 		//Homesample variables
 		public static String HomeSampleDistance, HomeSampleSave,  HomeSampleCollectionMenu;
-	 
+	 public static String adminusername, adminpassword, adminlogin;
 		
 		
 	public static WebDriver Diag_PageProperties()throws Exception{
@@ -404,6 +404,10 @@ public class Elements_Diagnostics  {
 		 HomeSampleDistance="homeVisitDistance";
 		 HomeSampleSave="diagnosticHomeVisitTimeSlots";
 		 HomeSampleCollectionMenu="//*[@id='cd-11']/div";
+		 
+		 adminusername="emailAddress";
+		 adminpassword="password";
+		 adminlogin="//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div/button";
 		 
 		return driver;	
         
