@@ -68,6 +68,6 @@ public class Alert_ZOY953_CheckAlertForCancel extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

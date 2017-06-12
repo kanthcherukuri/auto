@@ -53,7 +53,7 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 		
 	@AfterClass
 	public void browserclose(){
-		driver.close();
+		driver.quit();
 	}
 		
 	}

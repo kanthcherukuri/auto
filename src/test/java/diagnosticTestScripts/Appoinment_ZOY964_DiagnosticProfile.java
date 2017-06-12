@@ -35,6 +35,7 @@ public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 		
 		@AfterClass
 		public void CloseBrowser(){
-			driver.close();
+			driver.quit();
+			
 		}
 }

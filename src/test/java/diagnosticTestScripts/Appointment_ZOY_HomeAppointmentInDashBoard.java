@@ -78,7 +78,7 @@ public class Appointment_ZOY_HomeAppointmentInDashBoard extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

@@ -55,6 +55,6 @@ public class Appointment_ZOY961_CheckUnderAllTab extends LoadPropMac{
 	
    @AfterClass
    public void closebrowser(){
-	   driver.close();
+	   driver.quit();
    }
 }

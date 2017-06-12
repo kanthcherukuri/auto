@@ -40,7 +40,7 @@ public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	  @AfterClass
 	  public void afterClass() {
 		  
-		  driver.close();
+		  driver.quit();
 	  }
 
   

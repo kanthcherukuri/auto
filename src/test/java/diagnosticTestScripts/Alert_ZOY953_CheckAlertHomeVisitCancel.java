@@ -70,6 +70,6 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

@@ -35,6 +35,6 @@ public class Appointment_ZOY1045_DiagnosticAppointmentBulkCancel extends LoadPro
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

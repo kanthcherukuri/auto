@@ -43,7 +43,7 @@ public class Appointment_ZOY1043_BulkCancellationHomeVisit extends LoadPropMac{
 		
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	}
 

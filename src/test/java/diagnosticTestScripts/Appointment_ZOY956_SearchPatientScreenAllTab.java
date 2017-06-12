@@ -54,6 +54,6 @@ public class Appointment_ZOY956_SearchPatientScreenAllTab extends LoadPropMac {
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

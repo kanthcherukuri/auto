@@ -50,7 +50,8 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	  @AfterClass
 	  public void afterClass() {
 	  
-		  driver.close();
+		  driver.quit();
+		  
 	  }
 	  
 }

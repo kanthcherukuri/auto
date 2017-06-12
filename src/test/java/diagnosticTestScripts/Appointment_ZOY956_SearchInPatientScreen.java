@@ -63,7 +63,7 @@ public class Appointment_ZOY956_SearchInPatientScreen extends LoadPropMac {
 
 	      @AfterClass
 	      public void closebrowser(){
-	    	  driver.close();
+	    	  driver.quit();
 	      }
 }
 

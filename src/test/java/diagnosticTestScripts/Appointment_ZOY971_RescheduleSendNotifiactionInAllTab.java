@@ -41,6 +41,6 @@ public class Appointment_ZOY971_RescheduleSendNotifiactionInAllTab extends LoadP
 		
 		@AfterClass
 		public void browserclose(){
-			driver.close();
+			driver.quit();
 		}
 }

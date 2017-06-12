@@ -72,7 +72,7 @@ public class Appointment_ZOY971_SendNotificationInAllTab extends LoadPropMac{
 	
 	@AfterClass
 	public void browserclose(){
-		driver.close();
+		driver.quit();
 	}
 	
 }

@@ -68,7 +68,7 @@ public class Alert_ZOY953_CheckAlertForReschedule extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	
 }

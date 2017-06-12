@@ -52,7 +52,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	
 	  @AfterClass
 	  public void afterClass() {
-		driver.close();
+		driver.quit();
 	  }
 	
 	}

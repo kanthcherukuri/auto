@@ -41,7 +41,7 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	
 	@AfterClass()
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	
 	

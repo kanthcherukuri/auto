@@ -42,6 +42,6 @@ public class Appointment_ZOY955_CheckShowMore extends LoadPropMac {
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

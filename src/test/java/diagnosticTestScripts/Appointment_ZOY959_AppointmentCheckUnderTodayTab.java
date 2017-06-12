@@ -54,6 +54,6 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 
 	@AfterClass
 	public void browserclose(){
-		driver.close();
+		driver.quit();
 	}
 }

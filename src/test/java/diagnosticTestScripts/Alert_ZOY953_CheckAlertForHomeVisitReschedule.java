@@ -70,6 +70,6 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 	  @AfterClass
 	  public void afterClass() {
 	  
-		  driver.close();
+		  driver.quit();
 	  }
 }
