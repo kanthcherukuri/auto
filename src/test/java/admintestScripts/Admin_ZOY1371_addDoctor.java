@@ -291,9 +291,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	{
 		return new Object[][]
 				{
-
 					{emailID}
-
 				};
 	}
 	@Test(dataProvider="saved", priority=6)
