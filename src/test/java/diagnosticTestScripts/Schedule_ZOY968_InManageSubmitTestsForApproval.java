@@ -43,10 +43,7 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 		Thread.sleep(8000);
 		String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
 		Assert.assertEquals(ActualNotification,"Approval is pending");
-<<<<<<< HEAD
-=======
-		
->>>>>>> b722668502c564b6811c28f68a510fb17ea6b393
+
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	
