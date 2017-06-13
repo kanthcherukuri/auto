@@ -4,7 +4,7 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -73,20 +73,20 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 			 
 			 //Validation Of Full Name
 			 String ActualFullNameValidattion =driver.findElement(By.xpath("(//div[@class='signup-error-msg'])[1]")).getText();		 
-			 AssertJUnit.assertEquals(ActualFullNameValidattion, FullNameValidation);
+			 Assert.assertEquals(ActualFullNameValidattion, FullNameValidation);
 			//Validation Of Email
 			 String ActualEmailValidattion =driver.findElement(By.xpath("(//div[@class='signup-error-msg'])[2]")).getText();		 
-			 AssertJUnit.assertEquals(ActualEmailValidattion, EmailValidation);
+			 Assert.assertEquals(ActualEmailValidattion, EmailValidation);
 			//Validation Of Mobile
 			 String ActualMobileValidattion =driver.findElement(By.xpath("//div[@class='signup-error-msg mn']")).getText();		 
-			 AssertJUnit.assertEquals(ActualMobileValidattion, MobileValidation);
+			 Assert.assertEquals(ActualMobileValidattion, MobileValidation);
 			//Validation Of Password
 			 String ActualPasswordValidattion =driver.findElement(By.xpath("(//div[@class='signup-error-msg signup-error-msg-bottom'])[1]")).getText();		 
-			 AssertJUnit.assertEquals(ActualPasswordValidattion, PasswordValidation);
+			 Assert.assertEquals(ActualPasswordValidattion, PasswordValidation);
 			//Verifying screen validation			 
 			 if (ScreenValidationTab.equals("yes")){
 				String ActualscreenValidattion =driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();		 
-			    AssertJUnit.assertEquals(ActualscreenValidattion, ScreenValidation);
+			    Assert.assertEquals(ActualscreenValidattion, ScreenValidation);
 			 }
 			 
 			

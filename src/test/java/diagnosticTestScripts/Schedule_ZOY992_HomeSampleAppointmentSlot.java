@@ -41,7 +41,7 @@ public class Schedule_ZOY992_HomeSampleAppointmentSlot extends LoadPropMac{
 //		WebDriverWait wait = (new WebDriverWait(driver, 2000));
 //		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 //		String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-//		AssertJUnit.assertTrue(Notification.contains("You can't update home visit Appointments per slot. You have existing appointment on: "));
+//		Assert.assertTrue(Notification.contains("You can't update home visit Appointments per slot. You have existing appointment on: "));
 		
 	}
 	

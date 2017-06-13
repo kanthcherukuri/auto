@@ -35,6 +35,7 @@ public class Appointment_ZOY1026_AppointmentForHomeVisit extends LoadPropMac{
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();	
+		//
 		}	
 		
 	@AfterClass

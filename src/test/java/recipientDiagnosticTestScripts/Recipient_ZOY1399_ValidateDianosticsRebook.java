@@ -5,7 +5,7 @@ package recipientDiagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -65,7 +65,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 RecipientPage.confirmAppointmentOnDiagnostics();
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
-			 AssertJUnit.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
+			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
 			 Browser.openUrl(loginPage_Url);
 			 //driver.findElement(By.id("skipForLater")).click();
 		     RecipientPage.recipientLogout();

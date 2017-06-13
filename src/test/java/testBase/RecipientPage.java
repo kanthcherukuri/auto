@@ -74,7 +74,7 @@ public class RecipientPage  {
 		Browser.waitFortheID("emailAddress");		
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).clear();
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(email);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
@@ -330,12 +330,7 @@ public class RecipientPage  {
 		
 		
 		}
-		
-		
-		
-		
-		
-		
+
 		return Appointmentdetails;
 	}
 	/*

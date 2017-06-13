@@ -5,7 +5,7 @@ package recipientDiagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -75,7 +75,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			driver.findElement(By.id("tests_search")).sendKeys(Tests);
 			Thread.sleep(2000);
 			String Search_tests = driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col']")).getText();
-			AssertJUnit.assertTrue(Search_tests.equals(Tests));
+			Assert.assertTrue(Search_tests.equals(Tests));
 
 
 
@@ -100,7 +100,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			Thread.sleep(2000);
 			String Search_pkg = driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'"+Packages+"')]")).getText();
 
-			AssertJUnit.assertEquals(Search_pkg, Packages);
+			Assert.assertEquals(Search_pkg, Packages);
 
 
 		}else{

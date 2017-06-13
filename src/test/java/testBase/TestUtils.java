@@ -63,6 +63,7 @@ public class TestUtils {
 	
 		public void shareGeoLocation() throws InterruptedException{
 			 driver.navigate().to("chrome://settings/content");
+			 Thread.sleep(2000);
 			 driver.switchTo().frame("settings"); 
 			 driver.findElement(By.xpath("//input[@name='location' and @value='allow']")).click();
 			 driver.findElement(By.xpath("//*[@id='content-settings-overlay-confirm']")).click();
@@ -82,7 +83,7 @@ public class TestUtils {
 	//Open Browser
 	public void openUrl(String name) throws InterruptedException{
 		driver.get(name);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		System.out.println("Opened URL="+name);
 	}
 	

@@ -5,7 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import testBase.DoctorsPage;
@@ -50,9 +50,9 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("has been rescheduled"));
+		Assert.assertTrue(alert.contains("has been rescheduled"));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(id));
+		Assert.assertTrue(alert.contains(id));
 		
 	}
 	

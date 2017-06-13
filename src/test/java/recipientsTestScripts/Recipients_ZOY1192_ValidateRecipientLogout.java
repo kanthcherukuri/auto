@@ -40,7 +40,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 		
 		/*String Email= Browser.emailResponse("ganeshzoylo@gmail.com", "Zoylo@123", "Zoylo.com | Your appointment with Dr.Doctorzoylo has been confirmed.");
 		System.out.println("Email_response="+Email);
-		AssertJUnit.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
+		Assert.assertTrue(Email.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
         */
 	}
 	

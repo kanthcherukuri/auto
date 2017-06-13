@@ -5,7 +5,7 @@ package recipientDiagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -84,7 +84,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			driver.findElement(By.id("tests_search")).sendKeys("All Routine Blood Test");
 			Thread.sleep(2000);
 			String TestName=driver.findElement(By.xpath("(//div[contains(@class,'zy-rec-diag-s-apt-g-table-col')])[1]")).getText();
-			AssertJUnit.assertEquals(TestName, "All Routine Blood Test");
+			Assert.assertEquals(TestName, "All Routine Blood Test");
 	
 	    }
 	 

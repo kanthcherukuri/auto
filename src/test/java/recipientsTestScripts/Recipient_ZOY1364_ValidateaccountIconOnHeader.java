@@ -3,7 +3,7 @@ package recipientsTestScripts;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Home;
 import objectRepository.Elements_Recipients;
@@ -23,35 +23,35 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 		driver.findElement(By.id(Elements_Recipients.link_aboutHeaderIndex)).click();
 		Browser.waitFortheElementXpath("//h2[@class='page-head']");
 		String actual2 = driver.findElement(By.xpath("//h2[@class='page-head']")).getText();
-		AssertJUnit.assertEquals("About Us", actual2);
+		Assert.assertEquals("About Us", actual2);
 		
 		reloadtohomePge();
 		
 		driver.findElement(By.id(Elements_Recipients.link_contactUsIndex)).click();
 		Browser.waitFortheElementXpath("//h2[contains(., 'Our Location')]");
 		String actual1 = driver.findElement(By.xpath("//h2[contains(., 'Our Location')]")).getText();
-		AssertJUnit.assertEquals("Our Location", actual1);
+		Assert.assertEquals("Our Location", actual1);
 		
 		reloadtohomePge();
 		
 		driver.findElement(By.id(Elements_Recipients.link_termsIndex)).click();
 		Browser.waitFortheElementXpath("//h3[@class='page-head']");
 		String actual3 = driver.findElement(By.xpath("//h3[@class='page-head']")).getText();
-		AssertJUnit.assertEquals("TERMS AND CONDITIONS", actual3);
+		Assert.assertEquals("TERMS AND CONDITIONS", actual3);
 		
 		reloadtohomePge();
 		
 		driver.findElement(By.id(Elements_Recipients.link_privacyIndex)).click();
 		Browser.waitFortheElementXpath("//h3[contains(., 'PRIVACY POLICY')]");
 		String actual4 = driver.findElement(By.xpath("//h3[contains(., 'PRIVACY POLICY')]")).getText();
-		AssertJUnit.assertEquals("PRIVACY POLICY", actual4);
+		Assert.assertEquals("PRIVACY POLICY", actual4);
 		
 		reloadtohomePge();
 		
 		driver.findElement(By.id(Elements_Recipients.link_cancellationIndex)).click();
 		Browser.waitFortheElementXpath("//h3[contains(., 'Cancellation & Refund')]");
 		String actual5 = driver.findElement(By.xpath("//h3[contains(., 'Cancellation & Refund')]")).getText();
-		AssertJUnit.assertEquals("Cancellation & Refund", actual5);
+		Assert.assertEquals("Cancellation & Refund", actual5);
 		
 		reloadtohomePge();
 		

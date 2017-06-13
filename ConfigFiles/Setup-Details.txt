@@ -85,7 +85,7 @@ Recipient.DSpassword=Zoylo@123
 Recipient.DiaUsername=Diagnosticszoylo@zoylo.com
 Recipient.DiaPassword=Zoylo@123
 
-Doctor.Name=DoctorZoylo
+Doctor.Name=Doctorzoylo
 Diagnostic.Name=DiagnosticsZoylo
 
 

@@ -45,7 +45,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","Clinic Niramoi","sda","Apollo Hospitals" }
+			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx","Apollo Hospitals" }
 
 		};
 	}
@@ -57,6 +57,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			//Verify search with Doctors name
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String Search_Doctor = driver.findElement(By.xpath("//h1")).getText();
+			System.out.println("Doctor name is"+Search_Doctor);
 			Assert.assertTrue(Search_Doctor.contains(Doctor_Name));
 
 		}else{
