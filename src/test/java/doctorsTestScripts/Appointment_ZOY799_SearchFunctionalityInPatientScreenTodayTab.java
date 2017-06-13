@@ -63,7 +63,6 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreenTodayTab exten
 			}else{
 				System.out.println("Appointment Created User Not Available");
 			}
-			
 		  }
 	      }
 	@AfterMethod

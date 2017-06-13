@@ -50,6 +50,6 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 	}
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }
