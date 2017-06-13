@@ -67,7 +67,7 @@ else{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	
 	}

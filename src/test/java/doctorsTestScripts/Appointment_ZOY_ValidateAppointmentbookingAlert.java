@@ -51,6 +51,7 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
+		
 	}
 }

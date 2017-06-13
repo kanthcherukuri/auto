@@ -48,6 +48,6 @@ public class Appointment_ZOY_ValidateBulkCancelAlert extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

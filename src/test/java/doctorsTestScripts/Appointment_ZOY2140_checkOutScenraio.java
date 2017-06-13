@@ -92,6 +92,6 @@ public class Appointment_ZOY2140_checkOutScenraio extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		driver.close();
+		driver.quit();
 	}
 }

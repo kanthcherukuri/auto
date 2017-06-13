@@ -41,6 +41,6 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	}

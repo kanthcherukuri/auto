@@ -68,7 +68,7 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 			
 			@AfterClass
 			public void closebrowser(){
-				driver.close();
+				driver.quit();
 			}
 			
 			

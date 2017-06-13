@@ -51,6 +51,6 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		
 		@AfterClass
 		public void Closebrowser(){
-			driver.close();
+			driver.quit();
 		}
 }

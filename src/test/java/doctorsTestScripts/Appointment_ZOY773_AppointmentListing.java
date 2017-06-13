@@ -20,6 +20,10 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {		
 	 LoadBrowserProperties();
+	 driver.get(doctors_Url);		 
+	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+	 DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  }
 	
 	 @DataProvider(name = "DP1")
@@ -35,10 +39,7 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 public void appListing(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	
 		//DoctorsPageOfZoylo.DoctorAppointmentListing();	
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		 
 		 DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		 Thread.sleep(3000);
 		 //DoctorsPageOfZoylo.ClickingOnEllipse();

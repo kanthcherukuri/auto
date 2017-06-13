@@ -18,6 +18,11 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 		 @BeforeClass
 		 public void beforeClass() throws Exception {  	 
 		 LoadBrowserProperties();
+		 driver.manage().window().maximize();
+	 		driver.get(doctors_Url);		 
+	 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 		DoctorsPageOfZoylo= new DoctorsPage(driver);			
+		 	DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	
 		   }       
 	  		
@@ -32,11 +37,7 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 	  		
 	 	  @Test(dataProvider="DP1",priority=2)
 	 	  public void SendNoficationForTodayTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{	
-	 		driver.manage().window().maximize();
-	 		driver.get(doctors_Url);		 
-	 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 		DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 	DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+	 		
 	 		DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 	 		Thread.sleep(5000);
 	 		DoctorsPageOfZoylo.CheckPatientScreenSendNotificationOfTodayTab(firstname, lastname, email);
@@ -52,7 +53,7 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 	 		}
 	 	  @AfterClass
 	 	  public void Closebrowser(){
-	 		  driver.close();
+	 		  driver.quit();
 	 	  }
 	 	  
 	 

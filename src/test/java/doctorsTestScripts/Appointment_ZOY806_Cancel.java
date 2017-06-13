@@ -71,7 +71,7 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 
 		@AfterClass
 		public void closebrowser(){
-			driver.close();
+			driver.quit();
 		}
 
 

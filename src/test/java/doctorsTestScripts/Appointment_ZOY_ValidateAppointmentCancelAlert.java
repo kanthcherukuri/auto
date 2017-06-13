@@ -19,8 +19,8 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	
 	@BeforeClass
 	public void beforeClass() throws Exception {
-	LoadBrowserProperties();
 	
+		LoadBrowserProperties();
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -64,6 +64,6 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

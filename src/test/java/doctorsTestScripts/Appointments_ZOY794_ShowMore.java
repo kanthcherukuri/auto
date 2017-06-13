@@ -19,16 +19,17 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 		@BeforeClass
 		public void beforeClass() throws Exception {
 		  		LoadBrowserProperties();
+		  		driver.manage().window().maximize();
+				 driver.get(doctors_Url);		 
+				 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				 DoctorsPageOfZoylo= new DoctorsPage(driver);			
+				 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				 
 				  }	  
 
 		@Test
 		public void CheckingDashBoradShowMore() throws Exception{
-			driver.manage().window().maximize();
-			 driver.get(doctors_Url);		 
-			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+			
 			DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
 			Thread.sleep(3000);
 			//DoctorsPageOfZoylo.ClickingOnEllipse();
@@ -49,6 +50,6 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
  
 		@AfterClass
 		public void CloseBrowser(){
-			driver.close();
+			driver.quit();
 		}
 }

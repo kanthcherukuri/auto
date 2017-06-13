@@ -52,7 +52,7 @@ public DoctorsPage DoctorsPageOfZoylo;
 		}
 	  @AfterClass
 	  public void Closebrowser(){
-		  driver.close();
+		  driver.quit();
 	  }
 	  
 	  

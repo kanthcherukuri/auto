@@ -58,7 +58,7 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	  
 	  @AfterClass
 	  public void closebrowser(){
-		  driver.close();
+		  driver.quit();
 	  }
 	
 	  
