@@ -15,7 +15,7 @@ import testBase.TestUtils;
 public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPage;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 	@BeforeClass
 	public void beforeClass() throws Exception {
@@ -24,14 +24,15 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DoctorsPage= new DoctorsPage(driver);			
+	 DoctorsPage= new DoctorsPage(driver);
+	 Browser=new TestUtils(driver);
 	 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  } 
 	
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Sreyzero","S","9955559923","sreyzero@gmail.com","Diabetic" }
+					{ "yes","Adazkhan","S","9955559922","abazkhan@gmail.com","Diabetic" }
 	
 			};
 		}
@@ -43,6 +44,7 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 		DoctorsPage.ClickView();
 		String id=DoctorsPage.getappointmentid();
 		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
+		Browser.CheckNotificationMessage("Appointment has been Cancelled");
 		DoctorsPage.ClickonAlertmenu();
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
@@ -57,7 +59,6 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
 		DoctorsPage.BulkCancel();
-		Thread.sleep(3000);
 		DoctorsPage.doctorlogout();
 	}
 	

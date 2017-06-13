@@ -85,7 +85,7 @@ public class Elements_Doctors  {
 				//Dashboard variables
 				
 				public static String clickondashboardmenu, selecttodaysdate, dashboardfullname, checktodayappointmentssize;
-				public static String checktodayappointmentcountfromgraph, clickonellipse;
+				public static String checktodayappointmentcountfromgraph, clickonellipse, waitfornextpage, getnameforpage;
 				
 				//show more variables
 				public static String showmorebutton, showlessbutton;
@@ -328,6 +328,8 @@ public class Elements_Doctors  {
 			 checktodayappointmentssize="//*[@id='scrolls']/div/div";
 			 checktodayappointmentcountfromgraph="//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div";
 			 clickonellipse="//i[@class='fa fa-ellipsis-v footer-relipse']";
+			 waitfornextpage="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
+			 getnameforpage="//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span";
 			 
 			 //show more variables
 			 showmorebutton="show-all-btn";

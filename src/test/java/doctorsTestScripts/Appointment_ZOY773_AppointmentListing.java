@@ -1,8 +1,15 @@
 package doctorsTestScripts;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -29,7 +36,7 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Janu","K","9966995533","janu@gmail.com","Diabetic" }
+					{ "yes","Jhansirani","K","9966995511","jhansirani@gmail.com","Diabetic" }
 	
 			};
 		}
@@ -37,23 +44,42 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
   
 @Test(dataProvider="DP1",priority=1)
 public void appListing(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-	
-		//DoctorsPage.DoctorAppointmentListing();	
 		 
 		 DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
-		 Thread.sleep(3000);
-		 //DoctorsPage.ClickingOnEllipse();
-		 //Thread.sleep(2000);
 		 DoctorsPage.ClickingOnDashboard();
 		 Thread.sleep(3000);
-	    //DoctorsPage.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
-		 DoctorsPage.dashboardAppointmentListing(firstname, lastname);
+		 int appointmentlisting= driver.findElements(By.xpath(Elements_Doctors.getappointmentlistingsize)).size();
+			System.out.println(appointmentlisting);
+			for(int i=1;i<=appointmentlisting; i++)
+			{
+			String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
+			String fullname=firstname+" "+lastname;
+			System.out.println(name);
+			if(name.equalsIgnoreCase(fullname))
+			{
+			System.out.println("User Name Matched");
+			System.out.println("The appointment created from Doctors login is Listed");
+			driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
+			WebDriverWait wait = new WebDriverWait(driver, 2000);
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.waitfornextpage)));
+			String validation=driver.findElement(By.xpath(Elements_Doctors.getnameforpage)).getText();
+			System.out.println(validation);
+			Assert.assertEquals(validation,fullname);
+			break;
 			}
+			else{
+			
+				System.out.println("User Name Not Matched");
+				}
+			}
+			
+			}
+			
+
 	
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
 		DoctorsPage.BulkCancel();
-		Thread.sleep(3000);
 		DoctorsPage.doctorlogout();
 	}
 	

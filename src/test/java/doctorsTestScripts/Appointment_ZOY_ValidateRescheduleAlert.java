@@ -44,8 +44,6 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 		String id=DoctorsPage.getappointmentid();
 		DoctorsPage.reschedule(firstname, lastname, mobile, email, problem);
 		DoctorsPage.ClickonAlertmenu();
-		//driver.findElement(By.id("alerts")).click();
-		//Thread.sleep(8000);
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);

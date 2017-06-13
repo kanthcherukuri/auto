@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.asserts.SoftAssert;
+
 
 
 
@@ -177,7 +177,7 @@ public class DoctorsPage  {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Doctors.changeslot)).click();
 		Thread.sleep(1000);
-		Browser.CheckNotificationMessage("Successfully changed the appointment slot");
+		Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
 		Thread.sleep(2000);
 		}
 	
@@ -256,8 +256,8 @@ public class DoctorsPage  {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Doctors.selectcancelreason)).sendKeys("Personal reason");
 		driver.findElement(By.id(Elements_Doctors.cancelconfirmation)).click();
-		Browser.CheckNotificationMessage("Appointment has been Cancelled");
-		Thread.sleep(5000);
+		
+		
 	}
 		
 	public void CheckCancelAppointmentInPatientScreen(String firstname,String lastname,String email) throws Exception	{
@@ -338,50 +338,7 @@ public class DoctorsPage  {
 	}
 
 
-
-	public void dashboardAppointmentListing(String firstname,String lastname){
-	String listingavailable=driver.findElement(By.xpath(Elements_Doctors.getappointlistingtext)).getText();
-	System.out.println("Listing Name:" +listingavailable );
-	if(listingavailable.equalsIgnoreCase("Appointments Listing")){
-	int appointmentlisting= driver.findElements(By.xpath(Elements_Doctors.getappointmentlistingsize)).size();
-	System.out.println(appointmentlisting);
-	for(int i=1;i<=appointmentlisting; i++)
-	{
-	String name=driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).getText();
-	String fullname=firstname+" "+lastname;
-	System.out.println(name);
-	if(name.equalsIgnoreCase(fullname))
-	{
-	System.out.println("User Name Matched");
-	System.out.println("The appointment created from Doctors login is Listed");
-	driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
-	expliciteWait("html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span",5000);
-	String validation=driver.findElement(By.xpath("//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span")).getText();
-	System.out.println(validation);
-	SoftAssert assertion=new SoftAssert();
-	assertion.assertEquals(validation,fullname);
-	assertion.assertAll();
-		break;
-	}
-	else{
 	
-		System.out.println("User Name Not Matched");
-	
-		}
-	
-	}//for loop i
-	
-	}// if loop for checking listingavailable 
-	
-	else{
-	
-		System.out.println("Appointments Listing is not Displayed");
-	
-		}
-	
-	}//if loop for sizeslot	
-
-
 
 
 		public void DoctorAppointmentForShowMore() throws Exception{	
