@@ -3,15 +3,8 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
+
 import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +42,8 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
 		Thread.sleep(8000);
 		String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
-		AssertJUnit.assertEquals(ActualNotification,"Approval is pending");
+		Assert.assertEquals(ActualNotification,"Approval is pending");
+		
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	
