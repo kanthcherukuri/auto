@@ -79,7 +79,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				Thread.sleep(2000);
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
-				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
+				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
 				Browser.openUrl(loginPage_Url);
 				RecipientPage.recipientLogout();
 	

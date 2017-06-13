@@ -66,7 +66,7 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 			driver.findElement(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[2]")).click();  // book
 			Thread.sleep(2000);
 			System.out.println("Cliked on Available Slot Button from diagonostics");
-			Browser.CheckNotificationMessage("Successfully changed the appointment slot");
+			Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
 		}
 	}
 	

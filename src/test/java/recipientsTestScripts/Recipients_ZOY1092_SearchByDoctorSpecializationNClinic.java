@@ -137,10 +137,8 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			//Verify with Invalid data
 			driver.findElement(By.id("search2")).click();
 			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
-			Thread.sleep(5000);
-			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-			Assert.assertEquals(OppsContent, "Oops! your search for "+invalidData+" did not match any records");
-
+			Browser.waitforTextbyxpath("//div[@class='a-s-w']/span", "Oops! your search for "+invalidData+" did not match any records");
+			
 
 		}else{
 

@@ -90,7 +90,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				Thread.sleep(2000);
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
-				Assert.assertEquals(RerechangeMesg, "Successfully changed the appointment slot");
+				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
 				//Canceling the appointment
 				driver.findElement(By.xpath("//div[@class='menu_links appt-cancel apt-doc-col']")).click();
 				Thread.sleep(5000);
@@ -98,7 +98,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				Thread.sleep(2000);
 				String Appointment_Cancelled_Mesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("Appointment_Cancelled_Mesg"+Appointment_Cancelled_Mesg);
-				Assert.assertEquals(Appointment_Cancelled_Mesg, "Appointment has been Cancelled");
+				Assert.assertEquals(Appointment_Cancelled_Mesg, "Appointment has been CANCELLED");
 				
 		 }else{
 			 

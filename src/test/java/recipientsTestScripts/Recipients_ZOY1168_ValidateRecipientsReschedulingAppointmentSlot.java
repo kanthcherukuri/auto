@@ -44,7 +44,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Successfully changed the appointment slot","Deepak" }
+			{ "yes","Your appointment slot has been successfully CHANGED","Deepak" }
 
 
 		};
@@ -58,7 +58,6 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			Thread.sleep(2000);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();

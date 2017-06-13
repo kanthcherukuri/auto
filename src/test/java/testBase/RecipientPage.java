@@ -186,7 +186,7 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
-
+        Browser.waitFortheID("search2");
 		driver.findElement(By.id("search2")).click();
 		driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
 		Thread.sleep(10000);

@@ -78,7 +78,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		driver.findElement(By.id("confirmYes")).click();
 		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 
-		Assert.assertEquals(cancel_mesg, "Appointment has been Cancelled");
+		Assert.assertEquals(cancel_mesg, "Appointment has been CANCELLED");
 		RecipientPage.recipientLogout();
 
 		

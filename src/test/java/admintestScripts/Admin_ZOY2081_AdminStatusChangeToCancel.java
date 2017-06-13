@@ -58,7 +58,7 @@ public class Admin_ZOY2081_AdminStatusChangeToCancel extends LoadPropMac
 					driver.findElement(By.id("submitCancelledByPatient")).click();
 				}
 				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-				Browser.CheckNotificationMessage("Appointment has been Cancelled");
+				Browser.CheckNotificationMessage("Appointment has been CANCELLED");
 			}
 		}
 		else
