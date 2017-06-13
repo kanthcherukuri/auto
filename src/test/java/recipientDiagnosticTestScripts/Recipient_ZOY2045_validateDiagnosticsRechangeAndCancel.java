@@ -5,7 +5,7 @@ package recipientDiagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -74,7 +74,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 			    RecipientPage.makePaymentforDC();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
-				AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
+				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 
 				//Re Scheduling the Apppointment
 				Browser.openUrl(loginPage_Url);

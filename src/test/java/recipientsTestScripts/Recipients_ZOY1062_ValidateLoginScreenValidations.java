@@ -5,7 +5,7 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -55,16 +55,16 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropM
 			 //verifing email validation
 			 RecipientPage.recipientLogin(InvalidEmail, BlankPassword);
 			 String ActualemailValidation= driver.findElement(By.xpath("(//div[@class='login-error-msg'])[1]")).getText();
-			 AssertJUnit.assertEquals(ActualemailValidation, Emailvalidation); 
+			 Assert.assertEquals(ActualemailValidation, Emailvalidation); 
             //verifing password validation
 			 RecipientPage.recipientLogin(ValidEmail, BlankPassword);
 			 String ActualPasswordValidation= driver.findElement(By.xpath("(//div[@class='login-error-msg'])[2]")).getText();
-			 AssertJUnit.assertEquals(ActualPasswordValidation, PassswordValidation);
+			 Assert.assertEquals(ActualPasswordValidation, PassswordValidation);
 			 //verifing  Screen validations
 			 RecipientPage.recipientLogin(Username, InvalidPassword);
 			 Thread.sleep(2000);
 			 String ActualScreenValidation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			 AssertJUnit.assertEquals(ActualScreenValidation, ScreenValidation);
+			 Assert.assertEquals(ActualScreenValidation, ScreenValidation);
  
 		 }else{
 			 
@@ -93,7 +93,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropM
 			// Browser.waitTill(60);
 			 Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
 		     String ActualRecipientTitle = driver.getTitle();
-			 AssertJUnit.assertEquals(ActualRecipientTitle, "Find a Doctor, Book Doctors Appointment Online in India - Zoylo");
+			 Assert.assertEquals(ActualRecipientTitle, "Find a Doctor, Book Doctors Appointment Online in India - Zoylo");
 
 	    }
 	 

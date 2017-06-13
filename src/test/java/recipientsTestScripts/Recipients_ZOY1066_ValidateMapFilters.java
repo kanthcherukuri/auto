@@ -5,7 +5,8 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
@@ -65,7 +66,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			AssertJUnit.assertTrue(Doctor_designation.contains("Cardiology"));
+			Assert.assertTrue(Doctor_designation.contains("Cardiology"));
 	
 	    }
 	 
@@ -81,7 +82,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
             RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy","searchPractices");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			AssertJUnit.assertEquals(LOP_designation, "Homeopathy");
+			Assert.assertEquals(LOP_designation, "Homeopathy");
 	
 	    }
 	 //
@@ -104,7 +105,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			    System.out.println("Fee value is"+FinalFeeValue);
 			}
 			else  {
-			   AssertJUnit.fail("Value is not between Fee");
+			   Assert.fail("Value is not between Fee");
 			}
 	
 	    }
@@ -119,10 +120,10 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			RecipientPage.clickOnFilterImg();
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
 			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilter("Specialization","specialization", "Ayurvedic","searchSpecialization");
+			RecipientPage.ApplyFilter("Specialization","specialization", "Trichology","searchSpecialization");
 			Thread.sleep(5000);
 			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
-			AssertJUnit.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
+			Assert.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
 	
 	    }
 	 

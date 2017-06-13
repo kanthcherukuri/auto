@@ -3,7 +3,7 @@ package recipientsTestScripts;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Home;
 import testBase.LoadPropMac;
@@ -26,21 +26,21 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 		driver.findElement(By.xpath(Elements_Home.link_practicelogin)).click();
 		Browser.waitFortheElementXpath("//div[@class='login-hd-txt']");
 		String actual = driver.findElement(By.xpath("//div[@class='login-hd-txt']")).getText();
-		AssertJUnit.assertEquals("Sign in", actual);
+		Assert.assertEquals("Sign in", actual);
 		reloadtohomePge();
 		driver.findElement(By.xpath(Elements_Home.link_contactus)).click();
 		String actual1 = driver.findElement(By.xpath("//h2[contains(., 'Our Location')]")).getText();
-		AssertJUnit.assertEquals("Our Location", actual1);
+		Assert.assertEquals("Our Location", actual1);
 		reloadtohomePge();
 		driver.findElement(By.xpath(Elements_Home.link_aboutus)).click();
 		String actual2 = driver.findElement(By.xpath("//h2[@class='page-head']")).getText();
-		AssertJUnit.assertEquals("About Us", actual2);
+		Assert.assertEquals("About Us", actual2);
 		reloadtohomePge();
 		Browser.scrollbyxpath("//a[contains(.,'Terms & Conditions')]");
 		Browser.waitFortheElementXpath("//a[contains(.,'Terms & Conditions')]");
 		driver.findElement(By.xpath(Elements_Home.link_termsconditions)).click();
 		String actual3 = driver.findElement(By.xpath("//h4[contains(., 'Disclaimer')]")).getText();
-		AssertJUnit.assertEquals("Disclaimer", actual3);
+		Assert.assertEquals("Disclaimer", actual3);
 		reloadtohomePge();
 		Browser.scrollbyxpath("//a[contains(.,'Terms & Conditions')]");
 		Browser.waitFortheElementXpath("//a[contains(.,'Terms & Conditions')]");
@@ -48,7 +48,7 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 		Browser.scrollbyxpath("//h2[@class='page-head']");
 		Browser.waitFortheElementXpath("//a[contains(.,'Terms & Conditions')]");
 		String actual4 = driver.findElement(By.xpath("//h2[@class='page-head']")).getText();
-		AssertJUnit.assertEquals("PRIVACY POLICY", actual4);
+		Assert.assertEquals("PRIVACY POLICY", actual4);
 		reloadtohomePge();
 		Browser.scrollbyxpath("//a[contains(.,'Terms & Conditions')]");
 		Browser.waitFortheElementXpath("//a[contains(.,'Terms & Conditions')]");
@@ -56,7 +56,7 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 		Browser.scrollbyxpath("//h2[@class='page-head']");
 		Browser.waitFortheElementXpath("//a[contains(.,'Terms & Conditions')]");
 		String actual5 = driver.findElement(By.xpath("//h2[@class='page-head']")).getText();
-		AssertJUnit.assertEquals("Cancellation & Refund", actual5);
+		Assert.assertEquals("Cancellation & Refund", actual5);
 		reloadtohomePge();
 		
 	}

@@ -45,7 +45,11 @@ public class Schedule_ZOY988_HomeSampleSlotdurationAppointmentScheduled extends 
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
+
+			Assert.assertTrue(Notification.contains("You can't update home visit slot duration. You have existing appointment on: "));
+
 		Assert.assertTrue(Notification.contains("You can't update home visit slot duration. You have existing appointment on: "));
+
 			DiagnosticPageZoylo.diagnosticlogout();
 	}
 	

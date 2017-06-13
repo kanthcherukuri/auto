@@ -5,7 +5,7 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -66,7 +66,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			RecipientPage.confirmAppointment("Test details");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
-			AssertJUnit.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			                                    
 			//Review the Appointment
 			RecipientPage.openMyAccounts();
@@ -85,7 +85,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			Thread.sleep(2000);
 			String ReviewMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("Review mesg"+ReviewMesg);
-			AssertJUnit.assertEquals(ReviewMesg, "Review submitted successfully.");
+			Assert.assertEquals(ReviewMesg, "Review submitted successfully.");
 			Browser.openUrl(loginPage_Url);
 			RecipientPage.recipientLogout();
 
