@@ -1,8 +1,13 @@
 package doctorsTestScripts;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import java.util.concurrent.TimeUnit;
@@ -29,7 +34,7 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Sreenivas","S","9959555522","sreenivas@gmail.com","Diabetic" }
+					{ "yes","Singaporeaj","S","9959555522","singaporeaj@gmail.com","Diabetic" }
 	
 			};
 		}
@@ -42,7 +47,17 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
 		Thread.sleep(2000);
 		DoctorsPage.ClickView();
-		DoctorsPage.CheckAlerts();
+		String name=driver.findElement(By.xpath(Elements_Doctors.getfullnameonclickviewmenu)).getText();
+		System.out.println(name);	
+		String	AppointmentId=driver.findElement(By.xpath(Elements_Doctors.getappointmentid)).getText();
+		System.out.println(AppointmentId);
+		driver.findElement(By.id(Elements_Doctors.clickonalertmenu)).click();
+		Thread.sleep(10000);
+		String Alert=driver.findElement(By.xpath("//*[@id='message' and contains(.,'"+name+"')]")).getText();
+		System.out.println(Alert);
+		Assert.assertTrue(Alert.contains(AppointmentId));
+		Thread.sleep(1000);
+		Assert.assertTrue(Alert.contains("has been booked"));
 	}
 	
 	@AfterMethod

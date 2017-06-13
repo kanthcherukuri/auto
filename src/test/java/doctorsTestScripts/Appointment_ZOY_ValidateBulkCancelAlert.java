@@ -37,7 +37,7 @@ public class Appointment_ZOY_ValidateBulkCancelAlert extends LoadPropMac{
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
 		Assert.assertTrue(alert.contains("Bulk Cancellation by the Doctor"));
-		//Assert.assertTrue(alert.contains("Bulk Cancellation by the Doctor"));	
+
 		
 	}
 	
