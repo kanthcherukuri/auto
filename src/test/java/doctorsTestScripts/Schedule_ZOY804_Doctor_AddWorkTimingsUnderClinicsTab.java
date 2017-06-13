@@ -38,8 +38,7 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab extends LoadPr
 	public void closeapp() throws Exception
 	{
 		doctorsPage.removeClinicWorkTimings();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 
 }

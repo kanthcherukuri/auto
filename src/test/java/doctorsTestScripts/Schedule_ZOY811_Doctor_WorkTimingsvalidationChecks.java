@@ -55,9 +55,7 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
 		doctorsPage.removeClinicWorkTimings();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

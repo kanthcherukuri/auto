@@ -16,7 +16,7 @@ import org.openqa.selenium.By;
 
 public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 
 	 public TestUtils Browser;
 	 
@@ -25,18 +25,18 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
+			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void DoctorHospitalAddWorkTimings() throws Exception{
-		 DoctorsPageOfZoylo.BulkCancel();
+		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.DoctorsHospitalAddWorkTimings("07:00", "23:59");
+		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 	 }
 	 
 	 @AfterMethod
@@ -45,7 +45,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath("//span[@class='sp-doc-hosp-schd-save']")).click();
 		 Thread.sleep(2000);
-		 DoctorsPageOfZoylo.doctorlogout();
+		 DoctorsPage.doctorlogout();
 		 
 	 }
 	 

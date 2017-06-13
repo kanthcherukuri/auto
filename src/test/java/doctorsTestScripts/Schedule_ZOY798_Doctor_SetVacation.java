@@ -38,7 +38,6 @@ public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
 	public void closeapp() throws Exception
 	{
 		doctorsPage.cancelVacation();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

@@ -31,6 +31,7 @@ public class Schedule_ZOY797_Doctor_EditFollowUpDays extends LoadPropMac
 		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
 		Thread.sleep(3000);
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		Thread.sleep(3000);
   }
   
   @BeforeClass
@@ -45,8 +46,7 @@ public class Schedule_ZOY797_Doctor_EditFollowUpDays extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 
 }

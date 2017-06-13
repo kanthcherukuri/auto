@@ -177,6 +177,7 @@ public class TestUtils {
 					WebDriverWait wait = (new WebDriverWait(driver, 30));
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 					String validation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+					System.out.println(validation);
 				  
 				}
 		//Wait for the Screen Validation

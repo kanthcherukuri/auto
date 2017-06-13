@@ -78,7 +78,7 @@ public class Appointment_ZOY2030_ValidateDoctorEnrollment extends LoadPropMac {
 	 public void Exit() {
 
 	       
-	       driver.close();
+	       driver.quit();
 	       
 	      
 	    }

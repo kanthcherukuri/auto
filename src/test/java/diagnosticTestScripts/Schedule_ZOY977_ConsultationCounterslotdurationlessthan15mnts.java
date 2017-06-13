@@ -40,6 +40,6 @@ public class Schedule_ZOY977_ConsultationCounterslotdurationlessthan15mnts exten
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

@@ -17,7 +17,7 @@ public class Schedule_ZOY986_InMangeDeleteContact extends LoadPropMac{
 	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
@@ -36,7 +36,7 @@ public class Schedule_ZOY986_InMangeDeleteContact extends LoadPropMac{
 	
 	@AfterClass
 	  public void CloseBrowser() {
-		  driver.close();
+		  driver.quit();
 	  }
 
 }

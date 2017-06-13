@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -45,11 +46,12 @@ public class Schedule_ZOY977_ConsultationChangeSlotDurationAppointmentScheduled 
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 			Assert.assertTrue(Notification.contains("You can't update clinic slot duration"));
+
 	}
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

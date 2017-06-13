@@ -17,7 +17,7 @@ public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 		public void beforeClass() throws Exception {
 		LoadBrowserProperties();
 		driver.manage().window().maximize();
-		driver.get(doctors_Url);		 
+		driver.get(doctors_Url);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPageZoylo=new DiagnosticPage(driver);	
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
@@ -35,6 +35,7 @@ public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 		
 		@AfterClass
 		public void CloseBrowser(){
-			driver.close();
+			driver.quit();
+			
 		}
 }

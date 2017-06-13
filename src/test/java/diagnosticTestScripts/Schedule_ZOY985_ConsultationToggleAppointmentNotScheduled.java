@@ -1,7 +1,7 @@
 package diagnosticTestScripts;
 
-import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -48,7 +48,7 @@ public class Schedule_ZOY985_ConsultationToggleAppointmentNotScheduled extends L
 	
 	@AfterClass
 	public void CloseBrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

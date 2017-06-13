@@ -3,9 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import testBase.DiagnosticPage;
@@ -55,6 +55,7 @@ public class Alert_ZOY953_CheckAlertForAppointmentBooking extends LoadPropMac{
 		Assert.assertTrue(alert.contains(Id));
 		
 		
+		
 	}
 	
 	
@@ -68,7 +69,7 @@ public class Alert_ZOY953_CheckAlertForAppointmentBooking extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 		
 }

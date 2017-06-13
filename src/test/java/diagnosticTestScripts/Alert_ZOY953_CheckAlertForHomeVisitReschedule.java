@@ -21,7 +21,7 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
@@ -54,6 +54,8 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 		Thread.sleep(1000);
 		Assert.assertTrue(alert.contains(Id));
 		
+		
+		
 	}
 	
 	@AfterMethod
@@ -70,6 +72,6 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 	  @AfterClass
 	  public void afterClass() {
 	  
-		  driver.close();
+		  driver.quit();
 	  }
 }

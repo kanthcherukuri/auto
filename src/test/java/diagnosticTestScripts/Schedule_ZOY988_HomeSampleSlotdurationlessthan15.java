@@ -3,7 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -18,7 +20,7 @@ public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropM
 	  public void launchbrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);	
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
@@ -48,6 +50,6 @@ public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropM
 
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

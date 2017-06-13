@@ -21,7 +21,7 @@ public class Alert_ZOY953_CheckAlertForHomeAppointment extends LoadPropMac{
 	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
@@ -52,6 +52,8 @@ public class Alert_ZOY953_CheckAlertForHomeAppointment extends LoadPropMac{
 		Thread.sleep(1000);
 		Assert.assertTrue(alert.contains(Id));
 		
+		
+		
 	}
 	
 	@AfterMethod()
@@ -68,6 +70,6 @@ public class Alert_ZOY953_CheckAlertForHomeAppointment extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

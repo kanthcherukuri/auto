@@ -49,7 +49,7 @@ public class DiagnosticPage {
 	
 	
 	public void DiagnosticAppointmentForHomeVisit(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
-		
+		Thread.sleep(3000);
 		driver.findElement(By.id(Elements_Diagnostics.clickonappointmentsmenu)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.clickontoggle)).click();
@@ -505,7 +505,6 @@ public class DiagnosticPage {
 			String schedule=driver.findElement(By.xpath(".//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p")).getText();
 			String fullname=firstname+" "+lastname;
 			if(name.equalsIgnoreCase(fullname)&& schedule.equalsIgnoreCase("Scheduled")){
-				
 				WebElement sc = driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[2]/p"));
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 				driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div["+i+"]/div/div[2]/div/h1/span[1]")).click();

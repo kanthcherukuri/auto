@@ -44,7 +44,7 @@ public class Schedule_ZOY966_InMangaeAddPackage extends LoadPropMac{
 
 	@AfterClass
 	  public void CloseBrowser() {
-		driver.close();
+		driver.quit();
 	  }
 	
 }

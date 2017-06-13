@@ -51,7 +51,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		activateDeactivate();
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
-
+		Thread.sleep(4000);
   }
   
   public void activateDeactivate() throws Exception
@@ -73,10 +73,8 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
   @AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(4000);
 		doctorsPage.removeClinicWorkTimings();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 
 }

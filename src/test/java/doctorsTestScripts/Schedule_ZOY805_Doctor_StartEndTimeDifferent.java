@@ -41,6 +41,6 @@ public class Schedule_ZOY805_Doctor_StartEndTimeDifferent extends LoadPropMac
 	public void closeapp() throws Exception
 	{
 		doctorsPage.checkremoveBreakTimes();
-		driver.close();
+		driver.quit();
 	}
 }

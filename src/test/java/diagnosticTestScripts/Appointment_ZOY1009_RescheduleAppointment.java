@@ -3,8 +3,10 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
+
+
+import org.testng.annotations.AfterMethod;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -17,7 +19,7 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	  public void beforeClass() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPageZoylo=new DiagnosticPage(driver);	
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
@@ -47,7 +49,7 @@ public class Appointment_ZOY1009_RescheduleAppointment extends LoadPropMac{
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

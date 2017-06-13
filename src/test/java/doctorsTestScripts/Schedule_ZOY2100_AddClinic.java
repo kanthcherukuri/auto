@@ -48,6 +48,6 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		driver.close();
+		driver.quit();
 	}
 }

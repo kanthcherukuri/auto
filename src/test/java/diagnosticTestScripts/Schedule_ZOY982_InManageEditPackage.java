@@ -35,6 +35,6 @@ public class Schedule_ZOY982_InManageEditPackage extends LoadPropMac{
 
 	@AfterClass
 	public void CloseBrowser(){
-		driver.close();
+		driver.quit();
 	}
 }

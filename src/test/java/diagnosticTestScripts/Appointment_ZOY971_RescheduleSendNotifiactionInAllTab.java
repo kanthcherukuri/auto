@@ -17,7 +17,7 @@ public class Appointment_ZOY971_RescheduleSendNotifiactionInAllTab extends LoadP
 		public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		driver.manage().window().maximize();
-		driver.get(doctors_Url);		 
+		driver.get(doctors_Url);	
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPageZoylo=new DiagnosticPage(driver);	
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
@@ -41,6 +41,6 @@ public class Appointment_ZOY971_RescheduleSendNotifiactionInAllTab extends LoadP
 		
 		@AfterClass
 		public void browserclose(){
-			driver.close();
+			driver.quit();
 		}
 }

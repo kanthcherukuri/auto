@@ -20,6 +20,7 @@ public class Schedule_ZOY827_829_AminitiesServicesUpdate extends LoadPropMac
 		 doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		 Thread.sleep(1000);
 		 doctorsPage.editScheduleaminitiesServices("Zoylo Service");
+		 Thread.sleep(3000);
 	}
 	
 	@BeforeClass
@@ -34,7 +35,6 @@ public class Schedule_ZOY827_829_AminitiesServicesUpdate extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

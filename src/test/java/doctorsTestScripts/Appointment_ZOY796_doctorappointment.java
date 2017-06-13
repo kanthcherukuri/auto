@@ -13,7 +13,7 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	
-		public DoctorsPage DoctorsPageOfZoylo;
+		public DoctorsPage DoctorsPage;
 		public TestUtils Browser;
 		
 	 @BeforeClass(groups = { "Regression","High" })	
@@ -21,9 +21,9 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 		 LoadBrowserProperties();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+		 DoctorsPage= new DoctorsPage(driver);	
 		 Browser=new TestUtils(driver);
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 
 
@@ -46,7 +46,7 @@ public void doctorappointmentcreation(String RunMode,String timeslot,String firs
 	if(RunMode.equals("yes")){
 		
 		 
-		 DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+		 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 	}
 
 else{
@@ -60,14 +60,14 @@ else{
 	
 	@AfterMethod
 	public void CancelAllAppointments() throws Exception{
-		DoctorsPageOfZoylo.BulkCancel();
+		DoctorsPage.BulkCancel();
 		Thread.sleep(2000);
-		DoctorsPageOfZoylo.doctorlogout();
+		DoctorsPage.doctorlogout();
 	}
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 	
 	}

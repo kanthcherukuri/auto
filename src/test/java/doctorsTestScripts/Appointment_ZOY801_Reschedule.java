@@ -13,7 +13,7 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 
 	 public TestUtils Browser;
 	
@@ -23,9 +23,9 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 		 LoadBrowserProperties();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);
+		 DoctorsPage= new DoctorsPage(driver);
 		 Browser= new TestUtils(driver); 
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }
 	 
 	 
@@ -48,11 +48,11 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	public void AppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
 		 if(RunMode.equalsIgnoreCase("yes")){ 
-			 DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+			 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 			 Thread.sleep(2000);
-			 DoctorsPageOfZoylo.reschedule(firstname, lastname, mobile, email, problem); 
+			 DoctorsPage.reschedule(firstname, lastname, mobile, email, problem); 
 			 Thread.sleep(3000);
-			 DoctorsPageOfZoylo.CheckPatientScreenForReschedule(firstname, lastname, email); 
+			 DoctorsPage.CheckPatientScreenForReschedule(firstname, lastname, email); 
 		 }
 		 else{
 				throw new SkipException("RUNMODE IS OFF");
@@ -61,14 +61,14 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 			
 		@AfterMethod
 		public void CancelAllAppointments() throws Exception{
-			DoctorsPageOfZoylo.BulkCancel();
+			DoctorsPage.BulkCancel();
 			Thread.sleep(2000);
-			DoctorsPageOfZoylo.doctorlogout();
+			DoctorsPage.doctorlogout();
 		}
 			
 			@AfterClass
 			public void closebrowser(){
-				driver.close();
+				driver.quit();
 			}
 			
 			

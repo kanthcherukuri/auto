@@ -11,7 +11,7 @@ import testBase.TestUtils;
 
 public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 	
-		public DoctorsPage DoctorsPageOfZoylo;
+		public DoctorsPage DoctorsPage;
 		public TestUtils exceldata;
 
 
@@ -19,36 +19,37 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 		@BeforeClass
 		public void beforeClass() throws Exception {
 		  		LoadBrowserProperties();
+		  		driver.manage().window().maximize();
+				 driver.get(doctors_Url);		 
+				 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+				 DoctorsPage= new DoctorsPage(driver);			
+				 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				 
 				  }	  
 
 		@Test
 		public void CheckingDashBoradShowMore() throws Exception{
-			driver.manage().window().maximize();
-			 driver.get(doctors_Url);		 
-			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-			DoctorsPageOfZoylo.DoctorAppointmentForShowMore();
+			
+			DoctorsPage.DoctorAppointmentForShowMore();
 			Thread.sleep(3000);
-			//DoctorsPageOfZoylo.ClickingOnEllipse();
+			//DoctorsPage.ClickingOnEllipse();
 			//Thread.sleep(2000);
-			DoctorsPageOfZoylo.ClickingOnDashboard();
+			DoctorsPage.ClickingOnDashboard();
 			Thread.sleep(2000);
-			DoctorsPageOfZoylo.CheckShowMore();
+			DoctorsPage.CheckShowMore();
 			Thread.sleep(2000);
 			
 		}
 		
 		@AfterMethod
 		public void AppointmentBulkCancelandLogout() throws Exception{
-			DoctorsPageOfZoylo.BulkCancel();
+			DoctorsPage.BulkCancel();
 			Thread.sleep(3000);
-			DoctorsPageOfZoylo.doctorlogout();
+			DoctorsPage.doctorlogout();
 		}
  
 		@AfterClass
 		public void CloseBrowser(){
-			driver.close();
+			driver.quit();
 		}
 }

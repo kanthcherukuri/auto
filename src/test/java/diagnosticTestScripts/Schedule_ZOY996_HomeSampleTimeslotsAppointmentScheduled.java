@@ -94,7 +94,7 @@ public class Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled extends Loa
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }

@@ -21,7 +21,7 @@ import testBase.LoadPropMac;
 import testBase.TestUtils;
 
 public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends LoadPropMac {
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;
 	 
 	 @BeforeClass
@@ -29,18 +29,18 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
+			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void HospitalIncreaseTimeSlotNoBookedApp() throws Exception{
-		 DoctorsPageOfZoylo.BulkCancel();
+		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.DoctorsHospitalAddWorkTimings("07:00", "14:00");
+		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "14:00");
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).clear();
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).sendKeys("16:00");
@@ -55,7 +55,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
 		 Thread.sleep(2000);
-		 DoctorsPageOfZoylo.doctorlogout();
+		 DoctorsPage.doctorlogout();
 		 
 	 }
 	 

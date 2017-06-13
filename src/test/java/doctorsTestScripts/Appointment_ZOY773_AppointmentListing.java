@@ -13,13 +13,17 @@ import testBase.TestUtils;
 public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 
 	 public TestUtils exceldata;
 	 
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {		
 	 LoadBrowserProperties();
+	 driver.get(doctors_Url);		 
+	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 DoctorsPage= new DoctorsPage(driver);			
+	 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  }
 	
 	 @DataProvider(name = "DP1")
@@ -34,26 +38,23 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 @Test(dataProvider="DP1",priority=1)
 public void appListing(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	
-		//DoctorsPageOfZoylo.DoctorAppointmentListing();	
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 DoctorsPageOfZoylo.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
-		 DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
+		//DoctorsPage.DoctorAppointmentListing();	
+		 
+		 DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		 Thread.sleep(3000);
-		 //DoctorsPageOfZoylo.ClickingOnEllipse();
+		 //DoctorsPage.ClickingOnEllipse();
 		 //Thread.sleep(2000);
-		 DoctorsPageOfZoylo.ClickingOnDashboard();
+		 DoctorsPage.ClickingOnDashboard();
 		 Thread.sleep(3000);
-	    //DoctorsPageOfZoylo.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
-		 DoctorsPageOfZoylo.dashboardAppointmentListing(firstname, lastname);
+	    //DoctorsPage.expliciteWait("//*[@id='sp-dashboard-content']/div[1]/div[2]",100);
+		 DoctorsPage.dashboardAppointmentListing(firstname, lastname);
 			}
 	
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
-		DoctorsPageOfZoylo.BulkCancel();
+		DoctorsPage.BulkCancel();
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.doctorlogout();
+		DoctorsPage.doctorlogout();
 	}
 	
 	

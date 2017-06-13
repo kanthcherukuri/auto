@@ -19,7 +19,7 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
 		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
+		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);	
 			DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
@@ -51,7 +51,7 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 	 }
 	 @AfterClass
 	 public void CloseBrowser(){
-		 driver.close();
+		 driver.quit();
 	 }
 }
 

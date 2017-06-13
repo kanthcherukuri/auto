@@ -46,7 +46,7 @@ public class Schedule_ZOY1000_InMangaeSubimtPackageforApproval extends LoadPropM
 	
 	@AfterClass
 	  public void afterClass() {
-		driver.close();
+		driver.quit();
 	  }
 
 }

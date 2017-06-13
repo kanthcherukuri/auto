@@ -41,7 +41,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	public void closeapp() throws Exception
 	{
 		doctorsPage.checkremoveBreakTimes();
-		driver.close();
+		driver.quit();
 	}
 
 }

@@ -27,6 +27,7 @@ public class Schedule_ZOY807_Doctor_UpdateTimings extends LoadPropMac
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
 		driver.navigate().refresh();
 		doctorsPage.updateClinicWorkTimings(updateStrtTime, updateEndTime);
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -41,9 +42,7 @@ public class Schedule_ZOY807_Doctor_UpdateTimings extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Thread.sleep(2000);
 		doctorsPage.removeClinicWorkTimings();
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

@@ -14,18 +14,18 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	public TestUtils exceldata;
 	
 	@BeforeClass
 	public void beforeClass() throws Exception {
-	LoadBrowserProperties();
 	
+		LoadBrowserProperties();
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-	 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+	 DoctorsPage= new DoctorsPage(driver);			
+	 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  } 
 	
 	@DataProvider(name = "DP1")
@@ -39,11 +39,11 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	@Test(dataProvider="DP1")
 	public void CheckAlertforAppointmentCancel(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
-		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-		DoctorsPageOfZoylo.ClickView();
-		String id=DoctorsPageOfZoylo.getappointmentid();
-		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
-		DoctorsPageOfZoylo.ClickonAlertmenu();
+		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+		DoctorsPage.ClickView();
+		String id=DoctorsPage.getappointmentid();
+		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
+		DoctorsPage.ClickonAlertmenu();
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
@@ -56,14 +56,14 @@ public class Appointment_ZOY_ValidateAppointmentCancelAlert extends LoadPropMac{
 	
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
-		DoctorsPageOfZoylo.BulkCancel();
+		DoctorsPage.BulkCancel();
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.doctorlogout();
+		DoctorsPage.doctorlogout();
 	}
 	
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 }
