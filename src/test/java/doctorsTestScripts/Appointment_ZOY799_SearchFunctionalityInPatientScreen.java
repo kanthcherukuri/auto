@@ -11,7 +11,7 @@ import testBase.LoadPropMac;
 import testBase.TestUtils;
 
 public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadPropMac{
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	public TestUtils Browser;
 	
 	
@@ -20,9 +20,9 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 		  	LoadBrowserProperties();
 		  	driver.get(doctors_Url);		 
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			DoctorsPageOfZoylo= new DoctorsPage(driver);
+			DoctorsPage= new DoctorsPage(driver);
 			Browser=new TestUtils(driver);
-			DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+			DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		
 			  }		     
 	
@@ -36,17 +36,17 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 	
 	@Test(dataProvider="DP1")
 	public void CheckSearchFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.CheckPatientScreenSearchFunctionality(firstname, lastname, mobile, email);
+		DoctorsPage.CheckPatientScreenSearchFunctionality(firstname, lastname, mobile, email);
 		Thread.sleep(3000);
 	}
   
 	@AfterMethod
 	public void AppointmentBulkCancelandLogout() throws Exception{
-		DoctorsPageOfZoylo.BulkCancel();
+		DoctorsPage.BulkCancel();
 		Thread.sleep(2000);
-		DoctorsPageOfZoylo.doctorlogout();
+		DoctorsPage.doctorlogout();
 	}
 	@AfterClass
 	public void closebrowser(){

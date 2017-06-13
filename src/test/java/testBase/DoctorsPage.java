@@ -274,7 +274,11 @@ public class DoctorsPage  {
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Cancelled By Provider")){
 			System.out.println("Appointment is Sucessfully Cancelled");
-		}													
+		}	
+		else{
+			System.out.println("Appointment is  Not Sucessfully Cancelled");
+			Assert.fail("Appointment is  Not Sucessfully Cancelled");
+		}
 		}
 
 

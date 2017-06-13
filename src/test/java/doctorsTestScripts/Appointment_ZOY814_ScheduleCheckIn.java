@@ -12,15 +12,20 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 
 	 public TestUtils exceldata;
 	
 	
  
   @BeforeClass
-  public void beforeClass() throws Exception {
-	  LoadBrowserProperties();
+  public void LaunchBrowser() throws Exception {
+	  	
+	  	LoadBrowserProperties();
+	  	driver.get(doctors_Url);		 
+	  	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  	DoctorsPage= new DoctorsPage(driver);			
+		DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 	  
   
@@ -36,24 +41,21 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
   @Test(dataProvider="DP1",priority=2)
   public void CheckingCheckInFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	  	
-	  driver.get(doctors_Url);		 
-	  	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	  	DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);						
-		DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
+	  					
+		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
-		DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
+		DoctorsPage.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.VerifyCheckINFunctionality();		
+		DoctorsPage.VerifyCheckINFunctionality();		
 		Thread.sleep(2000);				
 			
 	 }
   
 	  @AfterMethod
 	  public void bulkcancelandlogout() throws Exception{
-		  DoctorsPageOfZoylo.BulkCancel();
+		  DoctorsPage.BulkCancel();
 		  Thread.sleep(2000);
-		  DoctorsPageOfZoylo.doctorlogout();
+		  DoctorsPage.doctorlogout();
 	  }
 	  
 	  @AfterClass

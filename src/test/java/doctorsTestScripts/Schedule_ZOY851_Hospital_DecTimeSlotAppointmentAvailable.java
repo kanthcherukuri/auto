@@ -12,7 +12,7 @@ import testBase.LoadPropMac;
 import testBase.TestUtils;
 
 public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends LoadPropMac{
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;
 	 
 	 @BeforeClass
@@ -20,9 +20,9 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
+			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
@@ -45,7 +45,7 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
 		 Thread.sleep(4000);
-		 DoctorsPageOfZoylo.DoctorAppointmentBookingForSunday("Mohan", "M", "9900224466", "mohan@gmail.com", "liver");
+		 DoctorsPage.DoctorAppointmentBookingForSunday("Mohan", "M", "9900224466", "mohan@gmail.com", "liver");
 		 Thread.sleep(4000);
 		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		 Thread.sleep(2000);
@@ -69,7 +69,7 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 	 
 	 @AfterMethod
 	 public void DeleteWorktimeandAppointment() throws Exception{
-		 DoctorsPageOfZoylo.cancelSundayAppt(); 
+		 DoctorsPage.cancelSundayAppt(); 
 		 Thread.sleep(4000);
 		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		 Thread.sleep(3000);

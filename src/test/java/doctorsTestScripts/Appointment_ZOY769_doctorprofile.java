@@ -10,7 +10,7 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	public TestUtils Browser;
 	
 		@BeforeClass
@@ -19,17 +19,17 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 		 driver.manage().window().maximize();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);
+		 DoctorsPage= new DoctorsPage(driver);
 		 Browser= new TestUtils(driver);  
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }  
 
 	@Test
 	public void doctorprofileverification() throws Exception{
-	DoctorsPageOfZoylo.ClickingOnEllipse();
+	DoctorsPage.ClickingOnEllipse();
 	Thread.sleep(2000);
-	DoctorsPageOfZoylo.doctorprofileEditing();
-	DoctorsPageOfZoylo.doctorlogout();
+	DoctorsPage.doctorprofileEditing();
+	DoctorsPage.doctorlogout();
 	
 
 	

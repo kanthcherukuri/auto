@@ -12,7 +12,7 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;
 	
 	
@@ -21,9 +21,9 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  LoadBrowserProperties();
 		  driver.get(doctors_Url);		 
 		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		  DoctorsPageOfZoylo= new DoctorsPage(driver);		
+		  DoctorsPage= new DoctorsPage(driver);		
 		  Browser=new TestUtils(driver);
-		  DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		  DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  }
 		       
 	  
@@ -40,21 +40,21 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @Test(dataProvider="DP1")
 	  public void CheckingFollowupFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		  
-		  DoctorsPageOfZoylo.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
+		  DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
-		  DoctorsPageOfZoylo.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
+		  DoctorsPage.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
 		  Thread.sleep(1000);
-		  DoctorsPageOfZoylo.VerifyCheckINFunctionality();
+		  DoctorsPage.VerifyCheckINFunctionality();
 		  Thread.sleep(2000);
-		  DoctorsPageOfZoylo.CheckingFollowUpFunctionality(firstname, lastname);
+		  DoctorsPage.CheckingFollowUpFunctionality(firstname, lastname);
 		  Thread.sleep(2000);
 	  		}
 	  
 		  @AfterMethod
 		  public void bulkcancelandlogout() throws Exception{
-			  DoctorsPageOfZoylo.BulkCancel();
+			  DoctorsPage.BulkCancel();
 			  Thread.sleep(2000);
-			  DoctorsPageOfZoylo.doctorlogout();
+			  DoctorsPage.doctorlogout();
 		  }
 		  
 		@AfterClass

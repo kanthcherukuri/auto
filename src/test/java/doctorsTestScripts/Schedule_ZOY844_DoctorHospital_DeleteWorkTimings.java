@@ -13,7 +13,7 @@ import testBase.TestUtils;
 
 public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;
 
 	 @BeforeClass
@@ -21,26 +21,26 @@ public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings extends LoadPropMa
 			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
+			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void DoctorHospitalDeleteWorkTimings() throws Exception{
 		 
-		 DoctorsPageOfZoylo.BulkCancel();
+		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.DoctorsHospitalAddWorkTimings("07:00", "23:59");
+		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
 		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		 Thread.sleep(2000);
-		 DoctorsPageOfZoylo.doctorlogout();
+		 DoctorsPage.doctorlogout();
 	 }
 	 
 	 @AfterClass

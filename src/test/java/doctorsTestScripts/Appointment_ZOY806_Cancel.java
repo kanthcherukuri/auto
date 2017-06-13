@@ -13,17 +13,17 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils exceldata;
 	
 
 	 @BeforeClass(groups = { "Regression","High" })	
-	 public void beforeClass() throws Exception {
+	 public void LaunchBrowser() throws Exception {
 		 LoadBrowserProperties();
 		 driver.get(doctors_Url);		 
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPageOfZoylo= new DoctorsPage(driver);			
-		 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		 DoctorsPage= new DoctorsPage(driver);			
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 	 
 	 @DataProvider(name = "DP1")
@@ -47,11 +47,11 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 
 	if(RunMode.equals("yes")){
 		
-		DoctorsPageOfZoylo.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
+		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.Cancel(firstname, lastname, mobile, email, problem);
+		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
 		Thread.sleep(3000);
-		DoctorsPageOfZoylo.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
+		DoctorsPage.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
 	}
 	 else{
 		 
@@ -63,9 +63,9 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 
 		@AfterMethod
 		public void CancelAllAppointments() throws Exception{
-			DoctorsPageOfZoylo.BulkCancel();
+			DoctorsPage.BulkCancel();
 			Thread.sleep(2000);
-			DoctorsPageOfZoylo.doctorlogout();	
+			DoctorsPage.doctorlogout();	
 		}
 
 

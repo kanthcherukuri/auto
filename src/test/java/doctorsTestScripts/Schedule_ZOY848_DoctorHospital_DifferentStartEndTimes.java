@@ -14,7 +14,7 @@ import testBase.TestUtils;
 
 public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadPropMac{
 	
-	public DoctorsPage DoctorsPageOfZoylo;
+	public DoctorsPage DoctorsPage;
 	 public TestUtils Browser;
 
 	 @BeforeClass
@@ -22,18 +22,18 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 			LoadBrowserProperties();
 			 driver.get(doctors_Url);		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPageOfZoylo= new DoctorsPage(driver);	
+			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 DoctorsPageOfZoylo.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
+			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void DoctorHospitalsSameStartEndTimes() throws Exception{
-		 DoctorsPageOfZoylo.BulkCancel();
+		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
-		 DoctorsPageOfZoylo.DoctorsHospitalAddWorkTimings("10:00", "10:00");
+		 DoctorsPage.DoctorsHospitalAddWorkTimings("10:00", "10:00");
 		 Browser.CheckNotificationMessage("Error in form: Monday: Slot begin should be less than slot end");
 		 Thread.sleep(2000);
 	 }
@@ -44,7 +44,7 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
 		 Thread.sleep(2000);
-		 DoctorsPageOfZoylo.doctorlogout();
+		 DoctorsPage.doctorlogout();
 		 
 	 }
 	 

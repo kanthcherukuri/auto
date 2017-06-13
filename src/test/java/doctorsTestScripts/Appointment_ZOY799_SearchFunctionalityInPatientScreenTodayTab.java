@@ -3,6 +3,7 @@ package doctorsTestScripts;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -31,7 +32,7 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreenTodayTab exten
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Nizampetvillage","N","9966222222","nizampet@gmail.com","Diabetic" }
+					{ "yes","Elurubusstop","N","9966226611","elurubus@gmail.com","Diabetic" }
 
 			};
 		}
@@ -62,6 +63,7 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreenTodayTab exten
 				System.out.println("Appointment Created User Had Available");
 			}else{
 				System.out.println("Appointment Created User Not Available");
+				Assert.fail("Appointment Created User Not Available");
 			}
 		  }
 	      }
