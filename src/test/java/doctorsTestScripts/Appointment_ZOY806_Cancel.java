@@ -2,9 +2,17 @@ package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-import org.testng.SkipException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
@@ -34,7 +42,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","kony","K","9499929191","kony@gmail.com","Diabetic" }
+					{ "yes","konylabs","K","9999929191","konylabs@gmail.com","Diabetic" }
 
 			};
 		}
@@ -44,19 +52,29 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 @Test(dataProvider="DP1",groups = { "Regression","High" })
 
 public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-
-	if(RunMode.equals("yes")){
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
-		Thread.sleep(3000);
-		DoctorsPage.CheckCancelAppointmentInPatientScreen(firstname, lastname, email);
-	}
-	 else{
-		 
-			throw new SkipException("RUNMODE IS OFF");
-		 }
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(driver, 100);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patientsearchbox)));
+		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
+		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
+		Thread.sleep(5000);
+		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
+		String status=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+		String fullname=firstname+" "+lastname;
+		if(name.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Cancelled By Provider")){
+			System.out.println("Appointment is Sucessfully Cancelled");
+		}	
+		else{
+			System.out.println("Appointment is  Not Sucessfully Cancelled");
+			Assert.fail("Appointment is  Not Sucessfully Cancelled");
+		}
 	
 		}
 
@@ -64,7 +82,6 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 		@AfterMethod
 		public void CancelAllAppointments() throws Exception{
 			DoctorsPage.BulkCancel();
-			Thread.sleep(2000);
 			DoctorsPage.doctorlogout();	
 		}
 

@@ -2,9 +2,15 @@ package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-import org.testng.SkipException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
@@ -43,25 +49,34 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
 public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
-	if(RunMode.equals("yes")){
-		
-		 
-		 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-	}
-
-else{
-	 
-	throw new SkipException("RUNMODE IS OFF");
-	
-	}
-	
+		 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
+		 driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.morning)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.noon)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+		 driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys(firstname);
+		 Thread.sleep(1000);
+		 driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys(lastname);
+		 Thread.sleep(1000);
+		 driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys(mobile);
+		 Thread.sleep(1000);
+		 driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys(email);
+		 Thread.sleep(1000);
+		 driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys(problem);
+		 Thread.sleep(1000);
+		 driver.findElement(By.id(Elements_Doctors.locatorsave)).click();
+		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
+		 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Elements_Doctors.backgoundcolor)));
+		 String fullname=firstname+" "+lastname;
+		 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname);	
 	}
 	
 	
 	@AfterMethod
 	public void CancelAllAppointments() throws Exception{
 		DoctorsPage.BulkCancel();
-		Thread.sleep(2000);
 		DoctorsPage.doctorlogout();
 	}
 	

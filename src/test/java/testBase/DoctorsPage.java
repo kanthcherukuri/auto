@@ -197,7 +197,9 @@ public class DoctorsPage  {
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Rescheduled")){
 			System.out.println("Appointment Rescheduled Is Sucessfully Verified");
-		}		
+		}else{
+			Assert.fail();
+		}
 		}
 
 
@@ -302,22 +304,7 @@ public class DoctorsPage  {
 		}
 	}
 			
-	public void CheckPatientScreenSendNotificationOfTodayTab(String firstname,String lastname,String email) throws Exception{
-		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
-		Thread.sleep(1000);	
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);	 
-	 	driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
-	 	String name=driver.findElement(By.xpath(Elements_Doctors.todaytabname)).getText();
-	 	String schedule=driver.findElement(By.xpath(Elements_Doctors.todaytabschedule)).getText();
-	 	String fullname=firstname+" "+lastname;
-	 	if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-	 		driver.findElement(By.xpath(Elements_Doctors.sendnotification)).click();
-	 		System.out.println("Sucessfully clicked on Send Notification button");
-	 		Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
-	 	}
-		}
 			
-
 		public  void expliciteWait(String xpath,int timeToWaitInSec) {
 			WebDriverWait wait = new WebDriverWait(driver, timeToWaitInSec);
 			//wait.until(ExpectedConditions.visibilityOf(element));
@@ -1038,30 +1025,6 @@ public void VerifyCheckINFunctionality() throws Exception{
 		}
 	
 	
-	public void CheckAppointmentBySelectingDateFromCalendar(String firstname,String lastname) throws Exception{
-		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
-		LoadProp.isElementPresnt(driver, "//a[@class='monthly-day monthly-day-event monthly-today']", 20).click();
-		String date=driver.findElement(By.xpath(Elements_Doctors.selecttodaysdate)).getText();
-		System.out.println(date);
-		String fullname=firstname+" "+lastname;
-		driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
-		Thread.sleep(3000);
-		String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
-		if(name.equalsIgnoreCase(fullname))
-		{	
-		
-		driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).click();	
-		System.out.println("Created Appointment is Available");
-		Thread.sleep(3000);
-		}
-
-		else
-		{	
-			
-		Assert.fail("Appointment For the selected User Not Available");
-
-		}
-		}
 	
 	/*
 	 * @ Author: Sagar Sen
@@ -1115,18 +1078,6 @@ public void VerifyCheckINFunctionality() throws Exception{
 		Browser.CheckNotificationMessage("Doctor Updated successfully");
 	}
 	
-	public void CheckAppointmentsCountinDashboardForToday() throws Exception{
-		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
-		Thread.sleep(3000);
-		int appointmentsavailable=driver.findElements(By.xpath(Elements_Doctors.checktodayappointmentssize)).size();
-		System.out.println(appointmentsavailable);
-		String count=driver.findElement(By.xpath(Elements_Doctors.checktodayappointmentcountfromgraph)).getText();
-		if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
-			System.out.println("Appointment Count for Today is"+appointmentsavailable+"Sucessfully Verified");
-		}else{
-			
-			Assert.fail("Appointment Count Verification for Today is UnSucess");
-		}
-	}
+	
 
 }//main class
