@@ -1,5 +1,13 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,7 +72,7 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.waitfornextpage)));
 			String validation=driver.findElement(By.xpath(Elements_Doctors.getnameforpage)).getText();
 			System.out.println(validation);
-			Assert.assertEquals(validation,fullname);
+			AssertJUnit.assertEquals(validation,fullname);
 			break;
 			}
 			else{

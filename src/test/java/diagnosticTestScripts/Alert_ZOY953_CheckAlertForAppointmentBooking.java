@@ -3,6 +3,10 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -50,9 +54,9 @@ public class Alert_ZOY953_CheckAlertForAppointmentBooking extends LoadPropMac{
 		DiagnosticPageZoylo.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		Assert.assertTrue(alert.contains("has been booked"));
+		AssertJUnit.assertTrue(alert.contains("has been booked"));
 		Thread.sleep(1000);
-		Assert.assertTrue(alert.contains(Id));
+		AssertJUnit.assertTrue(alert.contains(Id));
 		
 		
 		
