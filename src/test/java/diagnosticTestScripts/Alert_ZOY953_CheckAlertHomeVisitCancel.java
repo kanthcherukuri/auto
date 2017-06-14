@@ -3,10 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -54,9 +50,9 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 		DiagnosticPageZoylo.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("You have cancelled Diagnostic Home visit Appointment:"));
+		Assert.assertTrue(alert.contains("You have cancelled Diagnostic Home visit Appointment:"));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(Id));
+		Assert.assertTrue(alert.contains(Id));
 		
 	
 		

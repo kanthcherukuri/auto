@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.Reporter;
+
 
 
 
@@ -166,7 +166,6 @@ public class DoctorsPage  {
 	//DoctorAppointment  Reschedule
 	public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
-
 		driver.findElement(By.xpath(Elements_Doctors.changeicon)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Doctors.nextmenu)).click();
@@ -693,37 +692,25 @@ public class DoctorsPage  {
 		
  public void DoctorsAppointmentforTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
-	 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
-
+	 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();
 	 driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();
-
 	 driver.findElement(By.xpath(Elements_Doctors.morning)).click();
-
 	 driver.findElement(By.xpath(Elements_Doctors.noon)).click();
-
 	 driver.findElement(By.xpath(Elements_Doctors.evening)).click();
-	 
 	 driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
 	 Thread.sleep(2000);
-	 
 	 driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys(firstname);
 	 Thread.sleep(1000);
-		
-		driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys(lastname);
-		Thread.sleep(1000);
-		
-		driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys(mobile);
-		Thread.sleep(1000);
-		
-		driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys(email);
-		Thread.sleep(1000);
-		
-		driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys(problem);
-		Thread.sleep(1000);
-		
-		driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
-		
-		Browser.waitFortheElementXpath(Elements_Doctors.backgoundcolor);
+	 driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys(lastname);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys(mobile);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys(email);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys(problem);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
+	 Browser.waitFortheElementXpath(Elements_Doctors.backgoundcolor);
 	 }
 
 
@@ -941,20 +928,15 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 public void VerifyCheckINFunctionality() throws Exception{
 	
 	driver.findElement(By.id(Elements_Doctors.clickoncheckinbutton)).click();
-	Thread.sleep(1000);
-	Reporter.log("Clicked on CheckIn button");
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	driver.findElement(By.id(Elements_Doctors.clickonstartconsulationbutton)).click();
-	Thread.sleep(1000);
-	Reporter.log("Clicked on Start Consultation Button");
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	driver.findElement(By.id(Elements_Doctors.prognosis)).sendKeys("Normal");
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.diagnosis)).sendKeys("Done");
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.saveproblems)).click();
 	Thread.sleep(1000);
-	Reporter.log("Problems Saved");
 	driver.findElement(By.id(Elements_Doctors.height)).sendKeys("5");
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.heightinches)).sendKeys("9");
@@ -963,7 +945,6 @@ public void VerifyCheckINFunctionality() throws Exception{
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.savevitals)).click();
 	Thread.sleep(1000);
-	Reporter.log("Vital Details Saved");
 	driver.findElement(By.id(Elements_Doctors.druginstructions)).sendKeys("Crocin");
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.strenght)).sendKeys("2");
@@ -972,20 +953,16 @@ public void VerifyCheckINFunctionality() throws Exception{
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.saveprescription)).click();
 	Thread.sleep(1000);
-	Reporter.log("Prescription Details Saved");
 	driver.findElement(By.id(Elements_Doctors.consultationnotes)).sendKeys("Normal");
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.savenotes)).click();
-	Reporter.log("Consultation Notes Saved");
 	System.out.println("Consultation Notes Saved");
 	Thread.sleep(3000);
 	driver.findElement(By.id(Elements_Doctors.generatereciept)).click();
 	Thread.sleep(2000);
 	System.out.println("generateReceipt");
-	Reporter.log("Clicked on generateReceipt");
 	driver.findElement(By.xpath(Elements_Doctors.clickonrecieptdownload)).click();		
 	System.out.println("click on the download Receipt icon");		
-	Reporter.log("click on the download Receipt icon");
 	Thread.sleep(5000);
 	driver.findElement(By.xpath(Elements_Doctors.selectreciepttodownload)).click();		
 	Thread.sleep(10000);
