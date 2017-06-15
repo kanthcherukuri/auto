@@ -64,13 +64,14 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
-
+				String APID = Browser.getAppointmentID();
 				//Re Scheduling the Apppointment
 				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
 				//Browser.scrollbyxpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
 				Thread.sleep(2000);
+				
 				driver.findElement(By.xpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']/i)[last()]")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
@@ -82,6 +83,8 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
 				Browser.openUrl(loginPage_Url);
 				RecipientPage.recipientLogout();
+				
+				
 	
 		 }else{
 			 

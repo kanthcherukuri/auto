@@ -75,13 +75,17 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
-
+                //Get Appointment ID
+				String APID = Browser.getAppointmentID();
 				//Re Scheduling the Apppointment
 				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
-				//Browser.scrollbyxpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
-				Thread.sleep(2000);
+				//Browser.scrollbyxpath("(//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus'])[last()]");
+	            String Appointment_Status=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
+	            
+	            Assert.assertEquals(Appointment_Status, "Scheduled");
+	            
 				driver.findElement(By.xpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
@@ -91,14 +95,21 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("RescheduleMesg"+RerechangeMesg);
 				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
+				//Verifying Reshedule label in appointments
+				String Appointment_Status_Reshedule=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
+	            Assert.assertEquals(Appointment_Status_Reshedule, "Rescheduled");
 				//Canceling the appointment
-				driver.findElement(By.xpath("//div[@class='menu_links appt-cancel apt-doc-col']")).click();
+				driver.findElement(By.xpath("//span[contains(.,'"+APID+"')]/preceding-sibling::div//div[@class='menu_links appt-cancel apt-doc-col']/i")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
 				Thread.sleep(2000);
 				String Appointment_Cancelled_Mesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 				System.out.println("Appointment_Cancelled_Mesg"+Appointment_Cancelled_Mesg);
-				Assert.assertEquals(Appointment_Cancelled_Mesg, "Appointment has been CANCELLED");
+				Assert.assertEquals(Appointment_Cancelled_Mesg, "Appointment has been Cancelled");
+				driver.findElement(By.id("hist")).click();  // my History
+				Thread.sleep(2000);
+				String Appointment_Status_cancelled=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
+	            Assert.assertEquals(Appointment_Status_cancelled, "Cancelled");
 				
 		 }else{
 			 

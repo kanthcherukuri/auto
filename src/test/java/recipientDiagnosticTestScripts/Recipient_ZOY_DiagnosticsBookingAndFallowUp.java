@@ -68,12 +68,13 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				System.out.println("h5"+SuccessfullMesg);
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
+				String APID=Browser.getAppointmentID();
+				
 				RecipientPage.recipientLogout();
 				
 
 				Browser.openUrl(loginPage_Url);			
 				//Verify Doctor Login with valid details
-				Thread.sleep(5000);
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 				//Browser.waitTill(60);
 				DiagnosticPage.clickOnTheRecentPatientFromDashBoardInDiagnostics();
@@ -86,30 +87,17 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				Thread.sleep(2000);
+				
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				Browser.scrollbyID("submitReview");
 				//driver.findElement(By.id("submitReview")).click();
 				driver.findElement(By.id("skipForLater")).click();
 				//Browser.verifyNotificationMessage("Review submitted successfully.");
-				Thread.sleep(5000);
-				 //FallowUp the Appointment
-				/* RecipientPage.goToMyAccounts("Appointment");
-				 Thread.sleep(2000);// Added for view
-				 driver.findElement(By.id("hist")).click();  // my History
-				 Thread.sleep(5000);
-				 driver.findElement(By.xpath("(//img[@class='followup'])[1]")).click();
-				 Browser.waitTill(60);
-				 //Book FallowUp Slot
-				 RecipientPage.selectDefaultSlot();
-				 Browser.waitFortheID("followUpBookAppointment");
-				 driver.findElement(By.id("problem")).sendKeys("Health details");
-				 driver.findElement(By.id("followUpBookAppointment")).click();  // FollowUp Book
-				 WebDriverWait wait = (new WebDriverWait(driver, 60));
-				 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
-				 String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-				 ActualError.contains("You will Recieve a confirmation SMS");
-				 System.out.println("followUpBookAppointment Confirmed");
-				*/
+				RecipientPage.goToAppointments();
+				driver.findElement(By.id("hist")).click();  // my History
+				Thread.sleep(2000);
+				String Appointment_Status_Completed=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
+	            Assert.assertEquals(Appointment_Status_Completed, "Completed");
 	 
 		 }else{
 			 

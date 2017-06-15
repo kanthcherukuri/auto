@@ -78,7 +78,7 @@ public class RecipientPage  {
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
-		Browser.waitTill(30);
+		Browser.waitTill(60);
 		System.out.println("Logged in as"+email );
 
 	}
@@ -218,6 +218,7 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */	
 	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
+		Browser.waitFortheID("searchFilter");
 		driver.findElement(By.id("searchFilter")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
@@ -684,11 +685,13 @@ public class RecipientPage  {
 
 	public void goToAppointments() throws InterruptedException{
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
-		Browser.waitTill(60);
+		Thread.sleep(5000);
+		System.out.println("Clicked On My Account");
 		driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
-		Browser.waitTill(60);
+		Thread.sleep(2000);
+		System.out.println("Clicked On Appointments");	
 		Thread.sleep(5000);// Added for view
-		System.out.println("Clicked On Appointments");
+		
 	}
 	public void ApplyFilter(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
 

@@ -63,7 +63,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			RecipientPage.searchInZoyloMAPArea("Miyapur");
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String Doctor_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertTrue(Doctor_designation.contains("Cardiology"));
@@ -91,10 +91,10 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 
 			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
-			Thread.sleep(5000);
+			//Thread.sleep(5000);
 			driver.findElement(By.xpath("//input[@data-start='300' and @data-end='500']")).click();
 			driver.findElement(By.id("applyFilter")).click();
-			Thread.sleep(5000);		
+			//Thread.sleep(5000);		
         	Browser.waitFortheElementXpath("//div[@class='consultFee']");
         	
 			String Fee_Value=driver.findElement(By.xpath("//div[@class='consultFee']")).getText();
@@ -125,6 +125,29 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
 			Assert.assertEquals(NoDataFound, "NO results found within 15 kms of range.");
 	
+	    }
+	 
+	 @Test(groups = { "Regression","High" },priority=6)
+	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
+
+		    RecipientPage.clickOnFilterImg();
+			//Reset
+		    RecipientPage.ClearFilters();
+			//SET Filter
+			RecipientPage.clickOnFilterImg();
+			
+			//Verify Specialization Filter Option
+			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
+			Thread.sleep(5000);
+			//Verify with Invalid data
+			driver.findElement(By.id("searchFilter")).click();
+			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx");
+			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
+			driver.findElement(By.xpath("(//*[@id='clearFilter'])[2]")).click();
+			//get filter count and make sure filter count is 0 after clearing the filter
+			String FilterCount=driver.findElement(By.xpath("//span[@class='zy-filtercount']")).getText();
+			Assert.assertEquals(FilterCount, "0");
+			
 	    }
 	 
 	 @AfterClass(groups = { "Regression","High" })
