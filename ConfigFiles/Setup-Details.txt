@@ -88,4 +88,8 @@ Recipient.DiaPassword=Zoylo@123
 Doctor.Name=Doctorzoylo
 Diagnostic.Name=DiagnosticsZoylo
 
+//---------Admin Login Details-------//
+AdminLogin.username=kanthl@zoylo.com
+AdminLogin.password=Zoylo@123
+
 

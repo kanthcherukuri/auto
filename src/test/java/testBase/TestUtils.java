@@ -230,6 +230,18 @@ public class TestUtils {
 					qua.build().perform();
 				}
 				
+				
+			//Actions by id	
+				public void actionbyid(String id, String value)
+				{
+					Actions qua = new Actions(driver);
+					qua.moveToElement(driver.findElement(By.id(id)));
+					qua.click();
+					qua.sendKeys(value);
+					qua.sendKeys(Keys.ENTER);
+					qua.build().perform();
+				}
+				
 		//close second tab
 				public void closeSecondTab()
 				{

@@ -29,6 +29,7 @@ public class LoadPropMac   {
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment_Name, recipientDC_User, recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
     public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour;
+    public static String Admin_Username, Admin_Password;
     
 	public static WebDriver driver;
 
@@ -70,6 +71,11 @@ public class LoadPropMac   {
         
         DoctorsLogin_usernamefour=prop.getProperty("DoctorsLogin.usernamefour");
         DoctorsLogin_passwordfour=prop.getProperty("DoctorsLogin.passwordfour");
+        
+        
+        //Admin - Login Credentials
+        Admin_Username=prop.getProperty("AdminLogin.username");
+        Admin_Password=prop.getProperty("AdminLogin.password");
       
        //Recipients -Login Credentails
         Recipient_Username=prop.getProperty("Recipient.Username");
