@@ -109,6 +109,28 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	
 	    }
 	 //
+	 @Test(groups = { "Regression","High" },priority=6)
+	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
+		    RecipientPage.goToDiagnostics();
+		    RecipientPage.clickOnFilterImg();
+			//Reset
+		    RecipientPage.ClearFilters();
+			//SET Filter
+			RecipientPage.clickOnFilterImg();
+			
+			//Verify Specialization Filter Option
+			RecipientPage.ApplyFilterInDiagnostics("Package","package","Zoylo Health Pkg","searchDiagnosticPackage");
+			Thread.sleep(5000);
+			//Verify with Invalid data
+			driver.findElement(By.id("searchFilter")).click();
+			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx");
+			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
+			driver.findElement(By.xpath("(//*[@id='clearFilter'])[2]")).click();
+			//get filter count and make sure filter count is 0 after clearing the filter
+			String FilterCount=driver.findElement(By.xpath("//span[@class='zy-filtercount']")).getText();
+			Assert.assertEquals(FilterCount, "0");
+			
+	    }
 	
 	 
 	 @AfterClass(groups = { "Regression","High" })

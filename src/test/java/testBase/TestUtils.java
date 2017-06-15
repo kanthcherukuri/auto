@@ -149,13 +149,15 @@ public class TestUtils {
 	
 	//Wait for the ID
 	public void waitFortheID(String ID){
+		System.out.println("waiting for "+ID);
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
-		 wait.until(ExpectedConditions.elementToBeClickable(By.id(ID)));
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		 
 	}
 	
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
+			System.out.println("waiting for "+xpath);
 			WebDriverWait wait = (new WebDriverWait(driver, 100));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
@@ -187,15 +189,17 @@ public class TestUtils {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("ActualError="+ActualError);			    
-			Assert.assertEquals(ExpectedErrorMesg, ActualError);
+			Assert.assertEquals(ActualError, ExpectedErrorMesg);
+			
 	
 						}	
 		//Wait for text to be present by xpath
 		public void waitforTextbyxpath(String xpath, String value)
 		{
-			WebDriverWait wait = (new WebDriverWait(driver, 20));
-			wait.until(ExpectedConditions.textToBePresentInElement(By.xpath(xpath), value));
-			//wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
+			
+			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
+
 		}
 		
 		//Wait for text to be present by ID
@@ -254,6 +258,44 @@ public class TestUtils {
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
 				}
+				
+				//Click on the element ID
+				public void clickOnTheElementByID(String ID)
+				{
+					
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					driver.findElement(By.id(ID)).click();
+					System.out.println("Clicked on "+ID);
+				}
+				
+				//Click on the element Xpath
+				public void clickOnTheElementByXpath(String Xpath)
+				{
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+					driver.findElement(By.xpath(Xpath)).click();
+					System.out.println("Clicked on "+Xpath);
+				}
+				
+				// Enter text by id
+				public void enterTextByID(String ID,String data)
+				{
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					driver.findElement(By.id(ID)).sendKeys(data);
+					System.out.println("Texted = "+data);
+				}
+				
+				//Enter text by  Xpath
+				public void enterTextByXpath(String Xpath,String data)
+				{
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+					driver.findElement(By.xpath(Xpath)).sendKeys(data);
+					System.out.println("Texted = "+data);
+				}
 		
 	//Wait Till int
 	public void waitTill(int time) {
@@ -270,6 +312,24 @@ public class TestUtils {
 	    Assert.assertEquals(ExpectedNotificationMesg,ActualNotification);
 		
 	}
+	
+	
+	/* 
+	 * @Description:This function is used to get the appointment id from thank you page
+	   @Return type appointment id
+	 *
+	*/
+	
+public String getAppointmentID(){
+		
+	String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
+	System.out.println("before split id is "+AppointmentId);
+	String APID[]=AppointmentId.split(":");
+	System.out.println("After split id is "+APID[1]);
+	return APID[1];
+
+	}
+	
 	
 	/* 
 	 * This function is used to get the values from MongoDB based on the key and value

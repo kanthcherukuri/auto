@@ -71,6 +71,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				RecipientPage.goToAppointments();
 				//Browser.scrollbyxpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
 				Thread.sleep(2000);
+				
 				driver.findElement(By.xpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']/i)[last()]")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
@@ -82,6 +83,8 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
 				Browser.openUrl(loginPage_Url);
 				RecipientPage.recipientLogout();
+				
+				
 	
 		 }else{
 			 

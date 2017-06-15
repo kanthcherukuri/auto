@@ -800,15 +800,16 @@ public class DiagnosticPage {
 	
 	// Click on recent Patient from dashboard
 		public  void clickOnTheRecentPatientFromDashBoardInDiagnostics() throws IOException, InterruptedException{
-			Thread.sleep(5000);
-			if(driver.findElements(By.xpath("//button[text()='SHOW MORE']")).size() !=0){
+			Thread.sleep(2000);
+			if(driver.findElements(By.xpath("//button[@class='sp-diagno-dash-showall sp-diagno-dash-showall-btn']")).size()!=0){
 				System.out.println("show all btn exisit");
-				driver.findElement(By.xpath("//button[text()='SHOW MORE']")).click();
+				driver.findElement(By.xpath("//button[@class='sp-diagno-dash-showall sp-diagno-dash-showall-btn']")).click();
 				Thread.sleep(2000);
-				JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+				Browser.scrollbyxpath("(//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span)[last()]");
+/*				JavascriptExecutor jse = (JavascriptExecutor)driver;
 				jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
-				Thread.sleep(5000);
-				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+				Thread.sleep(5000);*/
 				driver.findElement(By.xpath("(//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span)[last()]")).click();  // Recent Appointment
 				Browser.waitTill(60);
 				
@@ -822,26 +823,41 @@ public class DiagnosticPage {
 
 		}
 		// Doctors Checkin and check the recipient
-		public  void diagnosticsCheckinCheckOut() throws IOException, InterruptedException{			
-			driver.findElement(By.xpath(Elements_Diagnostics.checkinbutton)).click();
-			Thread.sleep(2000);
-			driver.findElement(By.id(Elements_Diagnostics.checkinstartconsultation)).click();				
-			Thread.sleep(2000);
-			driver.findElement(By.id("0")).sendKeys("Completed");
-			driver.findElement(By.id("1")).sendKeys("Completed");
-			driver.findElement(By.id(Elements_Diagnostics.packagessavebutton)).click();			
-			Thread.sleep(2000);	
-			driver.findElement(By.id(Elements_Diagnostics.appointmentnotes)).sendKeys("Notes of diagnotics");
-			driver.findElement(By.id(Elements_Diagnostics.appointmentnotesavebutton)).click();				
-			Thread.sleep(2000);
-			driver.findElement(By.id(Elements_Diagnostics.generatebillsbutton)).click();
-			Thread.sleep(5000);
-			//Browser.verifyNotificationMessage("Bill generated successfully");
-			//Thread.sleep(5000);
-			driver.findElement(By.id(Elements_Diagnostics.checkoutbutton)).click();
+		public  void diagnosticsCheckinCheckOut() throws IOException, InterruptedException{
+			Browser.clickOnTheElementByXpath(Elements_Diagnostics.checkinbutton);
+			Browser.clickOnTheElementByID(Elements_Diagnostics.checkinstartconsultation);
+			Browser.enterTextByID("0", "Completed");
+			Browser.enterTextByID("1", "Completed");
+			Browser.clickOnTheElementByID(Elements_Diagnostics.packagessavebutton);
+			Browser.enterTextByID(Elements_Diagnostics.appointmentnotes, "Notes of diagnotics");
+			Browser.clickOnTheElementByID(Elements_Diagnostics.appointmentnotesavebutton);
+			Browser.clickOnTheElementByID(Elements_Diagnostics.generatebillsbutton);
+			Thread.sleep(10000);
+			Browser.clickOnTheElementByID(Elements_Diagnostics.checkoutbutton);
 			Thread.sleep(2000);
 			Browser.verifyNotificationMessage("Check Out Success");
 		}
+		// Doctors Checkin and check the recipient
+				public  void diagnosticsCheckinCheckOut1() throws IOException, InterruptedException{			
+					driver.findElement(By.xpath(Elements_Diagnostics.checkinbutton)).click();
+					Thread.sleep(2000);
+					driver.findElement(By.id(Elements_Diagnostics.checkinstartconsultation)).click();				
+					Thread.sleep(2000);
+					driver.findElement(By.id("0")).sendKeys("Completed");
+					driver.findElement(By.id("1")).sendKeys("Completed");
+					driver.findElement(By.id(Elements_Diagnostics.packagessavebutton)).click();			
+					Thread.sleep(2000);	
+					driver.findElement(By.id(Elements_Diagnostics.appointmentnotes)).sendKeys("Notes of diagnotics");
+					driver.findElement(By.id(Elements_Diagnostics.appointmentnotesavebutton)).click();				
+					Thread.sleep(2000);
+					driver.findElement(By.id(Elements_Diagnostics.generatebillsbutton)).click();
+					Thread.sleep(10000);
+					//Browser.verifyNotificationMessage("Bill generated successfully");
+					//Thread.sleep(5000);
+					driver.findElement(By.id(Elements_Diagnostics.checkoutbutton)).click();
+					Thread.sleep(2000);
+					Browser.verifyNotificationMessage("Check Out Success");
+				}
 		
 		// Diagnostic logout 
 		public  void diagnosticslogout() throws IOException, InterruptedException{			
