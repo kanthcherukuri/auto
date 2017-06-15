@@ -22,6 +22,10 @@ public static String doctor_workDays_WednesdayTab, doctor_workDays_WednesdayActi
 public static String doctor_workDays_ThursdayTab, doctor_workDays_ThursdayActiveCheckBox, doctor_workDays_ThursdayLunchStart, doctor_workDays_ThursdayLunchEnd, doctor_workDays_ThursdayHouseCallStart, doctor_workDays_ThursdayHouseCallEnd;
 public static String doctor_workDays_FridayTab, doctor_workDays_FridayActiveCheckBox, doctor_workDays_FridayLunchStart, doctor_workDays_FridayLunchEnd, doctor_workDays_FridayHouseCallStart, doctor_workDays_FridayHouseCallEnd;
 public static String doctor_workDays_SaturdayTab, doctor_workDays_SaturdayActiveCheckBox, doctor_workDays_SaturdayLunchStart, doctor_workDays_SaturdayLunchEnd, doctor_workDays_SaturdayHouseCallStart, doctor_workDays_SaturdayHouseCallEnd;
+public static String doctor_additionalInforTab, doctor_socialLink_fbActiveCheckBox, doctor_socialLink_fbInput, doctor_socialLink_GoogleActiveCheckBox, doctor_socialLink_GoogleInput, doctor_socialLink_LinkedInActiveCheckBox, doctor_socialLink_LinkedInInput, doctor_socialLink_TwitterActiveCheckBox, doctor_socialLink_TwitterInInput;
+public static String doctor_additionalInfo_services, doctor_additionalInfo_servicesAddButton, doctor_additionalInfo_servicesName, doctor_additionalInfo_servicesSave, doctor_additionalInfo_servicesCancel;
+public static String doctor_additionalInfo_awardsAndRecognition, doctor_additionalInfo_awardsAndRecognitionAdd, doctor_additionalInfo_awardsAndRecognitionName, doctor_additionalInfo_awardsAndRecognitionSource, doctor_additionalInfo_awardsAndRecognitionYear, doctor_additionalInfo_awardsAndRecognitionSave, doctor_additionalInfo_awardsAndRecognitionCancel;
+public static String doctor_additionalInfo_OtherInfo;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -150,8 +154,31 @@ public static String doctor_workDays_SaturdayTab, doctor_workDays_SaturdayActive
 		doctor_workDays_SaturdayLunchEnd="workingHrsSatLunchEnd"; //ID
 		doctor_workDays_SaturdayHouseCallStart="workingHrsSatHouseStart"; //ID
 		doctor_workDays_SaturdayHouseCallEnd="workingHrsSatHouseEnd"; //ID
+		doctor_additionalInforTab="additionalInfoTab"; //ID
+		doctor_socialLink_fbActiveCheckBox="zyDocFBActive"; //ID
+		doctor_socialLink_fbInput="zyDocFBUrl"; //ID
+		doctor_socialLink_GoogleActiveCheckBox="zyDocGPlusActive";
+		doctor_socialLink_GoogleInput="zyDocGPlusUrl"; //ID
+		doctor_socialLink_LinkedInActiveCheckBox="zyDocLindnActive"; //ID
+		doctor_socialLink_LinkedInInput="zyDocLindnUrl"; //ID
+		doctor_socialLink_TwitterActiveCheckBox="zyDocTwtActive"; //ID
+		doctor_socialLink_TwitterInInput="zyDocTwtUrl"; //ID
+		doctor_additionalInfo_services="//a[@href='#docServicesTab']"; //XPATH
+		doctor_additionalInfo_servicesAddButton="zoyDocAddService"; //ID
+		doctor_additionalInfo_servicesName="zoyDocServiceName"; //ID
+		doctor_additionalInfo_servicesSave="zoyDocServiceSaveBtn"; //ID
+		doctor_additionalInfo_servicesCancel="zoyDocServiceCancelBtn"; //ID
+		doctor_additionalInfo_awardsAndRecognition="//a[@href='#docAwardsTab']"; //XPATH
+		doctor_additionalInfo_awardsAndRecognitionAdd="//div[@data-target='#zoyDocAddAwards']"; //XPATH
+		doctor_additionalInfo_awardsAndRecognitionName="zoyDocAwardName"; //ID
+		doctor_additionalInfo_awardsAndRecognitionSource="zoyDocAwardSource"; //ID
+		doctor_additionalInfo_awardsAndRecognitionYear="zoyDocAwardYear"; //ID
+		doctor_additionalInfo_awardsAndRecognitionSave="zoyDocAwardSaveBtn"; //ID
+		doctor_additionalInfo_awardsAndRecognitionCancel="zoyDocAwardCancelBtn"; //ID
+		doctor_additionalInfo_OtherInfo="//a[@href='#docOtherInfoTab']"; //XPATH
 		
-		//Pending from Additonal Info tab
+		
+		//Pending from Additonal Info - other info tab
 		
 		return driver;
 	}
