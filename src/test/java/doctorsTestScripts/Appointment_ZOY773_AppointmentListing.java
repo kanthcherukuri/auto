@@ -1,16 +1,14 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
-
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
@@ -21,15 +19,15 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	
 	
 	public DoctorsPage DoctorsPage;
-	 
-	 public TestUtils exceldata;
+	 public TestUtils Browser;
 	 
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {		
 	 LoadBrowserProperties();
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DoctorsPage= new DoctorsPage(driver);			
+	 DoctorsPage= new DoctorsPage(driver);	
+	 Browser= new TestUtils(driver);
 	 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  }
 	
@@ -75,8 +73,6 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 			
 			}
 			
-
-	
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
 		DoctorsPage.BulkCancel();

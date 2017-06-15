@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
 
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -74,7 +75,7 @@ public class Appointment_ZOY_HomeAppointmentInDashBoard extends LoadPropMac{
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	

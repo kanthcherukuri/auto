@@ -3,6 +3,19 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -27,7 +40,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Harini","H","9999995522","Harini@gmail.com","Diabetic" }
+						{ "yes","Haritha","H","9999999922","Haritha@gmail.com","Diabetic" }
 
 				};
 			}
@@ -36,16 +49,26 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		public void AppointmentCountInDashBoard(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 			DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 			Thread.sleep(3000);
-			//DoctorsPage.ClickingOnEllipse();
-			Thread.sleep(2000);
-			DoctorsPage.CheckAppointmentsCountinDashboardForToday();
-			Thread.sleep(1000);	
+			driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
+			Thread.sleep(3000);
+			int appointmentsavailable=driver.findElements(By.xpath(Elements_Doctors.checktodayappointmentssize)).size();
+			System.out.println("Appointments avialable : "+appointmentsavailable);
+			String count=driver.findElement(By.xpath(Elements_Doctors.checktodayappointmentcountfromgraph)).getText();
+			if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
+				System.out.println("Appointment Count for Today is"+appointmentsavailable+"Sucessfully Verified");
+			}else{
+				
+				Assert.fail("Appointment Count Verification for Today is UnSucess");
 			}
+		}
+			
+			
+			
+			
 		
 		@AfterMethod
 		public void BulkCancelandLogout() throws Exception{
 			DoctorsPage.BulkCancel();
-			Thread.sleep(3000);
 			DoctorsPage.doctorlogout();
 		}
 		

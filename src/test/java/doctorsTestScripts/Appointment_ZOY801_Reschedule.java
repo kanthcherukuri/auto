@@ -1,11 +1,27 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
-import org.testng.SkipException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
@@ -30,39 +46,51 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	 
 	 
 	 @DataProvider(name = "DP1")
-	    public Object[][] createData_DP1() throws Exception{
-	  Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Kanth","ZOY801");
-	        return(retObjArr);
-	    }
+//	    public Object[][] createData_DP1() throws Exception{
+//	  Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Kanth","ZOY801");
+//	        return(retObjArr);
+//	    }
 	 
-//	 public String[][] createData1() {
-//			return new String[][] {
-//					{ "yes","Suzki","Samuri","9291219191","suzki@gmail.com","Diabetic" }
-//
-//			};
-//		}
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "yes","Yamahasz","Y","9191219191","yamahasz@gmail.com","Diabetic" }
+
+			};
+		}
 
 	 
 	
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
 	public void AppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
-		 if(RunMode.equalsIgnoreCase("yes")){ 
+		 
 			 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-			 Thread.sleep(2000);
+			 Thread.sleep(1000);
 			 DoctorsPage.reschedule(firstname, lastname, mobile, email, problem); 
-			 Thread.sleep(3000);
-			 DoctorsPage.CheckPatientScreenForReschedule(firstname, lastname, email); 
+			 Thread.sleep(2000);
+			 driver.findElement(By.id(Elements_Doctors.patienticon)).click();
+				WebDriverWait wait = new WebDriverWait(driver, 8000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
+				driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
+				driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+				Thread.sleep(3000);
+				driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
+				Thread.sleep(3000);
+				String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
+				String schedule=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+				String fullname=firstname+" "+lastname;
+				if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Rescheduled")){
+					System.out.println("Appointment Rescheduled Is Sucessfully Verified");
+				}else{
+					Assert.fail();
+				}
 		 }
-		 else{
-				throw new SkipException("RUNMODE IS OFF");
-			 }
-	 		}
+		 
+	 	
 			
 		@AfterMethod
 		public void CancelAllAppointments() throws Exception{
 			DoctorsPage.BulkCancel();
-			Thread.sleep(2000);
 			DoctorsPage.doctorlogout();
 		}
 			

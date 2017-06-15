@@ -3,6 +3,16 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -30,7 +40,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Somasekar","V","9933333322","somasekhar@gmail.com","Diabetic" }
+						{ "yes","Suryanaryana","V","9933332222","suryanarayana@gmail.com","Diabetic" }
 
 				};
 			}
@@ -46,8 +56,25 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  Thread.sleep(1000);
 		  DoctorsPage.VerifyCheckINFunctionality();
 		  Thread.sleep(2000);
-		  DoctorsPage.CheckingFollowUpFunctionality(firstname, lastname);
-		  Thread.sleep(2000);
+		  driver.findElement(By.xpath(Elements_Doctors.clickonfollowupbutton)).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.morning)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.noon)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath(Elements_Doctors.eveningfirstcell)).click();
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("Diabetic");
+			Thread.sleep(1000);
+			driver.findElement(By.id(Elements_Doctors.savefollowupappointment)).click();
+			Browser.waitFortheElementXpath(Elements_Doctors.backgoundcolor);
+			String fullname=firstname+" "+lastname;
+			Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name:"+fullname);
+			Thread.sleep(2000);
 	  		}
 	  
 		  @AfterMethod

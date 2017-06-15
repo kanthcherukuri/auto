@@ -3,6 +3,21 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+
+import objectRepository.Elements_Doctors;
+
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -30,7 +45,7 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 		@DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Joo","G","9999335522","joo@gmail.com","Diabetic" }
+						{ "yes","Joshjacab","G","9999116622","joshjacab@gmail.com","Diabetic" }
 
 				};
 			}
@@ -39,12 +54,33 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 	public void CheckingDashBoradCalendarDatefunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-		Thread.sleep(3000);
-		//DoctorsPage.ClickingOnEllipse();
-		//Thread.sleep(2000);
-		DoctorsPage.CheckAppointmentBySelectingDateFromCalendar(firstname, lastname);
-				 
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
+		WebDriverWait wait = new WebDriverWait(driver, 2000);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.waitfortodaydate)));
+		//LoadProp.isElementPresnt(driver, "//a[@class='monthly-day monthly-day-event monthly-today']", 20).click();
+		String date=driver.findElement(By.xpath(Elements_Doctors.selecttodaysdate)).getText();
+		System.out.println(date);
+		String fullname=firstname+" "+lastname;
+		if(date.equals("30")||(date.equals("31"))){
+			driver.findElement(By.xpath(Elements_Doctors.clickonnextmonth)).click();
+			driver.findElement(By.xpath(Elements_Doctors.clickondateone)).click();
+			String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
+			AssertJUnit.assertEquals(name, fullname);
+			System.out.println("Created Appointment is Available");
 		}
+		else{
+			driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
+			Thread.sleep(3000);
+			String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
+			AssertJUnit.assertEquals(name, fullname);
+			driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).click();
+			System.out.println("Created Appointment is Available");
+		}
+		}
+		
+				 
+		
 		
 	@AfterMethod
 	public void AppointmentbulkCancelandLogout() throws Exception{

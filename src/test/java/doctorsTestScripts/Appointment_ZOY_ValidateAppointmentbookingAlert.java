@@ -1,5 +1,13 @@
 package doctorsTestScripts;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -55,9 +63,9 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		Thread.sleep(10000);
 		String Alert=driver.findElement(By.xpath("//*[@id='message' and contains(.,'"+name+"')]")).getText();
 		System.out.println(Alert);
-		Assert.assertTrue(Alert.contains(AppointmentId));
+		AssertJUnit.assertTrue(Alert.contains(AppointmentId));
 		Thread.sleep(1000);
-		Assert.assertTrue(Alert.contains("has been booked"));
+		AssertJUnit.assertTrue(Alert.contains("has been booked"));
 	}
 	
 	@AfterMethod
