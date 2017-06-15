@@ -55,7 +55,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Hyderabad","","","Kondapur" },
+			{ "yes","Hyderabad","","","Hyderabad" },
 
 		};
 	}

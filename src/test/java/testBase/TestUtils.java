@@ -325,8 +325,9 @@ public String getAppointmentID(){
 	String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
 	System.out.println("before split id is "+AppointmentId);
 	String APID[]=AppointmentId.split(":");
-	System.out.println("After split id is "+APID[1]);
-	return APID[1];
+	String Apid=APID[1].replace(" ", "");
+	System.out.println("After split id is="+Apid);
+	return Apid;
 
 	}
 	

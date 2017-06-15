@@ -837,27 +837,7 @@ public class DiagnosticPage {
 			Thread.sleep(2000);
 			Browser.verifyNotificationMessage("Check Out Success");
 		}
-		// Doctors Checkin and check the recipient
-				public  void diagnosticsCheckinCheckOut1() throws IOException, InterruptedException{			
-					driver.findElement(By.xpath(Elements_Diagnostics.checkinbutton)).click();
-					Thread.sleep(2000);
-					driver.findElement(By.id(Elements_Diagnostics.checkinstartconsultation)).click();				
-					Thread.sleep(2000);
-					driver.findElement(By.id("0")).sendKeys("Completed");
-					driver.findElement(By.id("1")).sendKeys("Completed");
-					driver.findElement(By.id(Elements_Diagnostics.packagessavebutton)).click();			
-					Thread.sleep(2000);	
-					driver.findElement(By.id(Elements_Diagnostics.appointmentnotes)).sendKeys("Notes of diagnotics");
-					driver.findElement(By.id(Elements_Diagnostics.appointmentnotesavebutton)).click();				
-					Thread.sleep(2000);
-					driver.findElement(By.id(Elements_Diagnostics.generatebillsbutton)).click();
-					Thread.sleep(10000);
-					//Browser.verifyNotificationMessage("Bill generated successfully");
-					//Thread.sleep(5000);
-					driver.findElement(By.id(Elements_Diagnostics.checkoutbutton)).click();
-					Thread.sleep(2000);
-					Browser.verifyNotificationMessage("Check Out Success");
-				}
+		
 		
 		// Diagnostic logout 
 		public  void diagnosticslogout() throws IOException, InterruptedException{			

@@ -218,6 +218,7 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */	
 	public void searchInZoylodetailMAP(String keyword) throws InterruptedException{
+		Browser.waitFortheID("searchFilter");
 		driver.findElement(By.id("searchFilter")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
@@ -684,7 +685,7 @@ public class RecipientPage  {
 
 	public void goToAppointments() throws InterruptedException{
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		System.out.println("Clicked On My Account");
 		driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
 		Thread.sleep(2000);

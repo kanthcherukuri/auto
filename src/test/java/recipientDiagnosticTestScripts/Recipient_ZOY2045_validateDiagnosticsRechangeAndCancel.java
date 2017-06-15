@@ -81,8 +81,9 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
-				//Browser.scrollbyxpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
-	            String Appointment_Status=driver.findElement(By.xpath("(//div[@class='dcApmtsStatus apps_status_color'])[last()]")).getText();
+				//Browser.scrollbyxpath("(//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus'])[last()]");
+	            String Appointment_Status=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
+	            
 	            Assert.assertEquals(Appointment_Status, "Scheduled");
 	            
 				driver.findElement(By.xpath("(//div/span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]")).click();
@@ -95,10 +96,10 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				System.out.println("RescheduleMesg"+RerechangeMesg);
 				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
 				//Verifying Reshedule label in appointments
-				String Appointment_Status_Reshedule=driver.findElement(By.xpath("(//div[@class='dcApmtsStatus apps_status_color'])[last()]")).getText();
+				String Appointment_Status_Reshedule=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
 	            Assert.assertEquals(Appointment_Status_Reshedule, "Rescheduled");
 				//Canceling the appointment
-				driver.findElement(By.xpath("//div[@class='menu_links appt-cancel apt-doc-col']")).click();
+				driver.findElement(By.xpath("//span[contains(.,'"+APID+"')]/preceding-sibling::div//div[@class='menu_links appt-cancel apt-doc-col']/i")).click();
 				Thread.sleep(5000);
 				driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
 				Thread.sleep(2000);

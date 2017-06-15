@@ -30,7 +30,7 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 		String dcName=driver.findElement(By.xpath("//span[@class='zy-rec-diag-m-d-name']")).getText();
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
-		RecipientPage.makePaymentforDC();
+		RecipientPage.makePayment();
 		String checkdcName=driver.findElement(By.xpath("(//div[@class='book-dtbox']//h3)[2]")).getText();
 		if(checkdcName.contains(dcName))
 		{
@@ -40,7 +40,7 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 		Browser.waitFortheElementXpath("//a[@class='desktop-logo']");
 		driver.findElement(By.xpath("//a[@class='desktop-logo']")).click();
 		RecipientPage.goToDCIndexPageFromHome();
-		RecipientPage.searchInZoyloMAP(Diagnostic_Name);
+		RecipientPage.searchInZoylodetailMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		Browser.waitFortheID("schedule-li");
 		driver.findElement(By.id("schedule-li")).click();
