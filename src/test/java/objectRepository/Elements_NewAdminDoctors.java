@@ -234,8 +234,6 @@ public static String doctorSave, doctorCancel;
 		doctorSave="zoyDocAddProviderBtn"; //ID
 		doctorCancel="zoyDocAddProviderCancelBtn"; //ID
 		
-		//Pending from Additonal Info - other info tab
-		
 		return driver;
 	}
 }
