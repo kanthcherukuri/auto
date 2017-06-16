@@ -52,10 +52,11 @@ public class Schedule_ZOY977_ConsultationChangingCounterSlotDuration  extends Lo
 		 Thread.sleep(3000);
 		 driver.findElement(By.id("diagnosticClinicTimeSlots")).click();
 		 //Browser.CheckNotificationMessage("Diagnostics updated sucessfully");
+		 
 	}
 
 	@AfterClass
 	public void closebrowser(){
-		driver.quit();
+		//driver.quit();
 	}
 }

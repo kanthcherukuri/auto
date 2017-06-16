@@ -185,7 +185,8 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.totime)).sendKeys(CancelTotime);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.bulksubmitbutton)).click();
-		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
+		Browser.CheckNotificationMessage("No Diagnostic Center associated with current user or, it is not active");
+		//Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
 		}
 	
 	//DiagnosticAppointmentbooking
@@ -405,7 +406,7 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.totime)).sendKeys(CancelToTime);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.bulksubmitbutton)).click();
-		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
+		Browser.CheckNotificationMessage("No Diagnostic Center associated with current user or, it is not active");
 		}
 	
 	
@@ -1337,7 +1338,9 @@ public class DiagnosticPage {
   		Thread.sleep(5000);
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).click();
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).clear();
+  		Thread.sleep(2000);
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).sendKeys("10");
+  		Thread.sleep(2000);
   		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).click();
   		Thread.sleep(6000);
   		driver.findElement(By.xpath(Elements_Diagnostics.adminapprovebutton)).click();

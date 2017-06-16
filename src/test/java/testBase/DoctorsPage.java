@@ -327,42 +327,6 @@ public class DoctorsPage  {
 	
 
 
-		public void DoctorAppointmentForShowMore() throws Exception{	
-		driver.findElement(By.id(Elements_Doctors.doctortab)).click();	
-		driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
-		driver.findElement(By.xpath(Elements_Doctors.morning)).click();
-		driver.findElement(By.xpath(Elements_Doctors.noon)).click();
-		driver.findElement(By.xpath(Elements_Doctors.evening)).click();
-		int slotsize = driver.findElements(By.xpath(Elements_Doctors.eveningfirstcellsize)).size();
-		 if(slotsize>0)
-		 {
-		for( slotsize=1;slotsize<=6; slotsize++) {						
-		 WebElement  elementtoclick= driver.findElement(By.xpath("//*[@id='tab-3']/ul/li["+slotsize+"]/div[2]"));
-		 ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+ elementtoclick.getLocation().x+")");
-		 elementtoclick.click();
-		Thread.sleep(1000);	 
-		driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys("Anji");
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys("R");
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("9988664422");
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys("anji@gmail.com");
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
-		Thread.sleep(1000);	
-		driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
-		Browser.waitFortheElementXpath("//*[@id='tab-3']/ul/li["+slotsize+"][@class='bg-red']");
-		Thread.sleep(1000);
-		
-		}//For Loop
-			 
-		 }//if loop slotsize
-		 
-		}
-
-
-
 		public void CheckShowMore() throws InterruptedException{	
 		Thread.sleep(3000);
 		System.out.println(driver.manage().window().getSize());

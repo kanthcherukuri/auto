@@ -126,6 +126,23 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.AddTestsInHealthPackage(testname, testdesc);
 		Thread.sleep(2000);
 		AdminDiagnostic.SaveAddHealthPackages();
+		
+	}
+	
+	
+	@DataProvider(name ="DiagnosticTests")
+    public Object[][] createData_DP6() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","AdminDiagnostic", "TC6");
+        return(retObjArr);
+    }
+	
+	@Test(dataProvider="DiagnosticTests", priority=7)
+	public void AddDiagnosticTests(String diagTestname,String diagTestdesc,String servicemode,String diagTestcost,String diagdiscountper,
+			String diagZoyloper,String diagduration,String diagNumofSlots) throws Exception{
+		
+		AdminDiagnostic.CreateDiagnosticTests(diagTestname, diagTestdesc, servicemode, diagTestcost, diagdiscountper, 
+				diagZoyloper, diagduration, diagNumofSlots);
+		
 	}
 	
 	
