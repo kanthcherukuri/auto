@@ -86,4 +86,56 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.mobileNumber)).sendKeys(mobileNumber);
 		driver.findElement(By.id(Elements_NewAdminDoctors.password)).sendKeys(password);
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter primary information tab details of doctor on admin add doctor screen
+	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
+	 * @ return			: NA
+	 */
+	public void primaryInfoDetails_Enter(String isActiveValue, String workTypeValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc)
+	{
+		if(isActiveValue.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.Active)).click();
+		}
+		else
+		{
+			System.out.println("Doctor isActive is marked as false");
+		}
+		if(workTypeValue.equalsIgnoreCase("Hospital"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workTypeHospital)).click();
+		}
+		else
+		{
+			System.out.println("Work type is marked as hospital clinic");
+		}
+		if(houseCallStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.houseCallActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.houseCallServiceFee)).sendKeys(houseCallFee);
+		}
+		else
+		{
+			System.out.println("House call is marked as false");
+		}
+		if(genderValue.equalsIgnoreCase("Male"))
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Male");
+			System.out.println("Gender of the doctor being entered is Male");
+		}
+		else
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Female");
+			System.out.println("Gender of the doctor being entered is Female");
+		}
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).sendKeys(DOB); //(MM/DD/YYYY)
+		driver.findElement(By.id(Elements_NewAdminDoctors.medicalRegistrationNumber)).sendKeys(regNum);
+		Browser.selectbyXpath(Elements_NewAdminDoctors.Qualification, qualification);
+		Browser.selectbyXpath(Elements_NewAdminDoctors.professionalTag, tag);
+		Browser.selectbyXpath(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
+		Browser.selectbyXpath(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
+		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
+	}
 } //End of class

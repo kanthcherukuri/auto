@@ -262,6 +262,14 @@ public class TestUtils {
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
 				}
+		
+		//WebElement Select by ID
+		public void selectbyID(String elementName, String selectvalue)
+		{
+			WebElement mySelectElement = driver.findElement(By.id(elementName));
+			Select dropdown= new Select(mySelectElement);
+			dropdown.selectByVisibleText(selectvalue);
+				}
 				
 		//WebElement Select by xpath
 				public void selectbyXpath(String elementXpath, String selectvalue)
