@@ -56,6 +56,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void doctorsTab_click()
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorLabel)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
 	}
 	
 	/*
@@ -137,5 +138,129 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.selectbyXpath(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
 		Browser.selectbyXpath(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
 		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter practice information tab details of doctor on admin add doctor screen
+	 * @ Param			: ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrState, othrCity, othrAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayOnlineStatus, othrClincPayCashStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus
+	 * @ return			: NA
+	 */
+	public void practiceDetails_otherClinic_Enter(String ifOtherClinicAvailable, String othrClinicName, String othrClinicPhoneNumber, String othrClinicFee, String othrClinicState, String othrClinicCity, String othrClinicAddressLineOne, String othrClinicPinCode, String othrClinicLongitude, String othrClinicLatitude, String othrClinicFacilityStatus, String othrClinicAmbulanceStatus, String othrClinicEmergencyStatus, String othrClinicBikeParkStatus, String othrClinicCarParkStatus, String othrClincPayCreditStatus, String othrClincPayDebitStatus, String othrClincPayCashStatus, String othrClincPayOnlineStatus, String othrClincPayChecqueStatus, String othrClinicPremiumServiceStatus) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.addOtherClinic);
+		if(ifOtherClinicAvailable.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.addOtherClinic)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.otherClinicName);
+			//Other clinic pop up to add
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicName)).sendKeys(othrClinicName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicPhoneNumber)).sendKeys(othrClinicPhoneNumber);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFee)).sendKeys(othrClinicFee);
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCountry, "India");
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicState, othrClinicState);
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCity, othrClinicCity);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicAddressLineOne)).sendKeys(othrClinicAddressLineOne);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicPinCode)).sendKeys(othrClinicPinCode);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicLongitude)).sendKeys(othrClinicLongitude);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicLatitude)).sendKeys(othrClinicLatitude);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicActiveCheckBox)).click();
+			if(othrClinicFacilityStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.xpath(Elements_NewAdminDoctors.otherClinicFacilitiesTab)).click();
+				Browser.waitFortheID(Elements_NewAdminDoctors.otherClinicFacilities_Ambulance);
+				if(othrClinicAmbulanceStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_Ambulance)).click();
+				}
+				else
+				{
+					System.out.println("Ambulance facility for other clinic is not checked");
+				}
+				if(othrClinicEmergencyStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_emergency)).click();
+				}
+				else
+				{
+					System.out.println("Emergency facility for other clinic is not checked");
+				}
+				if(othrClinicBikeParkStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_bikeParking)).click();
+				}
+				else
+				{
+					System.out.println("Bike parking facility for other clinic is not checked");
+				}
+				if(othrClinicCarParkStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_CarParking)).click();
+				}
+				else
+				{
+					System.out.println("Car parking facility for other clinic is not checked");
+				}
+				if(othrClincPayCreditStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_paymentCredit)).click();
+				}
+				else
+				{
+					System.out.println("Credit payment facility for other clinic is not checked");
+				}
+				if(othrClincPayDebitStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_paymentDebit)).click();
+				}
+				else
+				{
+					System.out.println("Debit payment facility for other clinic is not checked");
+				}
+				if(othrClincPayCashStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_paymentCash)).click();
+				}
+				else
+				{
+					System.out.println("Cash payment facility for other clinic is not checked");
+				}
+				if(othrClincPayOnlineStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_paymentOnline)).click();
+				}
+				else
+				{
+					System.out.println("Online payment facility for other clinic is not checked");
+				}
+				if(othrClincPayChecqueStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_paymentCheque)).click();
+				}
+				else
+				{
+					System.out.println("Checque payment facility for other clinic is not checked");
+				}
+				if(othrClinicPremiumServiceStatus.equalsIgnoreCase("true"))
+				{
+					driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFacilities_premiumService)).click();
+				}
+				else
+				{
+					System.out.println("Premium service facility for other clinic is not checked");
+				}
+			}
+			else
+			{
+				System.out.println("Other clinic facility is not given for this doctor");
+			}
+			Thread.sleep(2000);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicSave)).click();
+		}
+		else
+		{
+			System.out.println("There is no other clinic associated for this doctor.");
+		}
 	}
 } //End of class
