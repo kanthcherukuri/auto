@@ -19,7 +19,6 @@
       <class name="doctorsTestScripts.Appointments_ZOY808_SendNotification"/>
       <class name="doctorsTestScripts.Appointment_ZOY799_SearchFunctionalityInPatientScreen"/>
       <class name="doctorsTestScripts.Appointment_ZOY_ValidateAppointmentbookingAlert"/>
-      <class name="doctorsTestScripts.Appointment_JiraID_ValidateDoctorEnrollment"/>
       <class name="doctorsTestScripts.Appointment_ZOY774_CalenaderDate"/>
       <class name="doctorsTestScripts.Appointment_ZOY776_CheckAppoinmentCountInDashBoard"/>
       <class name="doctorsTestScripts.Appointment_ZOY799_SearchFunctionalityInPatientScreenTodayTab"/>

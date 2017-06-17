@@ -383,20 +383,80 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id("isTestActive")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("zoyPackageTestSave")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 	
-	
-	public void SaveAddHealthPackages(){
+	public void SaveAddHealthPackages() throws Exception{
 		
 		driver.findElement(By.id("diagPackagesSave")).click();
+		Thread.sleep(2000);
 		
 	}
 
 	
+	public void CreateDiagnosticTests(String diagTestname,String diagTestdesc,String servicemode,String diagTestcost,String diagdiscountper,
+	String diagZoyloper,String diagduration,String diagNumofSlots	) throws Exception{
+		
+		driver.findElement(By.id("zyDCTests")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='zoyDiagPackTest']/div/div[1]/button")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagTestName")).sendKeys(diagTestname);
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagTestDescription")).sendKeys(diagTestdesc);
+		Thread.sleep(1000);
+		Browser.selectbyid("diagAdminStatus", "approved");
+		Thread.sleep(1000);
+		if(servicemode.equalsIgnoreCase("Lab Visit")){
+			Browser.selectbyid("diagServiceMode", "C");
+		}else{
+			Browser.selectbyid("diagServiceMode", "H");
+		}
+		driver.findElement(By.id("diagTestCost")).sendKeys(diagTestcost);;
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagDiscountPercentage")).sendKeys(diagdiscountper);
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagZoyloChargePercentage")).sendKeys(diagZoyloper);
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagAverageDuration")).sendKeys(diagduration);
+		Thread.sleep(1000);
+		driver.findElement(By.id("diagAverageNumberOfTestsPerSlot")).sendKeys(diagNumofSlots);
+		Thread.sleep(1000);
+		driver.findElement(By.id("isDiagTestActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDiagnosticTestSave")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("testCancel")).click();
+		Thread.sleep(3000);
+	}
 	
 	
+	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
+		
+		driver.findElement(By.xpath("//*[@id='zoyDiagAIContact']/div/div[1]/button")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("contactPersonName")).sendKeys(Personname);
+		Thread.sleep(1000);
+		driver.findElement(By.id("contactPersonPhone")).sendKeys(PersonPhone);
+		Thread.sleep(1000);
+		driver.findElement(By.id("contactPersonEmail")).sendKeys(PersonEmail);
+		Thread.sleep(1000);
+		driver.findElement(By.id("contactPersonFax")).sendKeys(PersonFax);
+		Thread.sleep(1000);
+		driver.findElement(By.id("contacPersonSubmit")).click();
+		Thread.sleep(2000);
+	}
 	
+	
+	public void EnterMarkedasClosedInformation() throws Exception{
+		
+		driver.findElement(By.id("zyDCInfoMarkClosed")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyAddMarkAsClosed")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyAddMarkAsClosed")).click();
+		Thread.sleep(1000);
+	}
 	
 	
 	

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.mail.Flags;
@@ -262,6 +263,14 @@ public class TestUtils {
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
 				}
+		
+		//WebElement Select by ID
+		public void selectbyID(String elementName, String selectvalue)
+		{
+			WebElement mySelectElement = driver.findElement(By.id(elementName));
+			Select dropdown= new Select(mySelectElement);
+			dropdown.selectByVisibleText(selectvalue);
+				}
 				
 		//WebElement Select by xpath
 				public void selectbyXpath(String elementXpath, String selectvalue)
@@ -269,6 +278,16 @@ public class TestUtils {
 					WebElement mySelectElement = driver.findElement(By.xpath(elementXpath));
 					Select dropdown= new Select(mySelectElement);
 					dropdown.selectByVisibleText(selectvalue);
+				}
+				
+				
+		// WebElement Select by id
+				
+				public void selectbyid(String elementid,String selectvalue)
+				{
+					WebElement mySelectElement=driver.findElement(By.id(elementid));
+					Select dropdown=new Select(mySelectElement);
+					dropdown.selectByValue(selectvalue);
 				}
 				
 				//Click on the element ID
@@ -529,12 +548,22 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 		        }
 		    
 
-		    return(tabArray);
+		    return(tabArray);  
 		}
 
+     public String randomalphabets(){
+    	 String alphabet= "abcdefghijklmnopqrstuvwxyz";
+         String s = "";
+         Random random = new Random();
+         int randomLen = 1+random.nextInt(9);
+         for (int i = 0; i < randomLen; i++) {
+             char c = alphabet.charAt(random.nextInt(26));
+             s+=c;
+          
+     }
+		return s;
 
-
-
+     }
 
 	
     
