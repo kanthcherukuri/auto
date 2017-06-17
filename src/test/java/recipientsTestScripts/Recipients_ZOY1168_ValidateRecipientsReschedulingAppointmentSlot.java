@@ -77,13 +77,8 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
 			Browser.waitTill(60);
 			Thread.sleep(5000);// Added for view
-			driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]")).click();  // Change
-			Browser.waitTill(60);
-			Thread.sleep(5000);
-			Browser.scrollbyxpath("//a[contains(@href, '#sp-nightslots')]");
-			driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[@class='sp-available-slots']/span)[1]")).click();
+			driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]")).click();  // Change		
+            Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[2]");			
 			Thread.sleep(2000);
 			String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("RescheduleMesg"+RescheduleMesg);

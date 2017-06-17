@@ -47,7 +47,6 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			Thread.sleep(2000);
 		    //Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			Thread.sleep(2000);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("fav"+Fav_DoctorFullName);

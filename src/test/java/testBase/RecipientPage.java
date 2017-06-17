@@ -202,7 +202,7 @@ public class RecipientPage  {
 	 */	
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 
-
+        Browser.waitFortheElementXpath("//span[@id='zy-location-right']/span[2]");
 		driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
 		driver.findElement(By.id("location")).sendKeys(Area);
 		Thread.sleep(5000);
@@ -613,7 +613,7 @@ public class RecipientPage  {
 		Browser.waitFortheID("promocodeValue");
 		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
 		driver.findElement(By.xpath("//span[3]")).click();
-		Thread.sleep(10000);
+		Thread.sleep(6000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
 		driver.findElement(By.id("termsAndConditions")).click();
 		Browser.scrollbyID("proceed");

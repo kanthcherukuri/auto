@@ -47,7 +47,6 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(10000);
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");
 		RecipientPage.clickOnMapICon();
 		RecipientPage.searchInZoylodetailMAP(Doctor_Name);
@@ -65,14 +64,13 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		RecipientPage.makePayment();
 		String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 		Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-		String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
+		String AppointmentId = Browser.getAppointmentID();
 		System.out.println(AppointmentId);
-		driver.get(""+base_url+"myaccount");
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Appointments')]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@id='myAppointment']//h2[contains(.,'"+DoctorFirstName+"')]")).click();
-		Browser.waitTill(60);
+		driver.get(""+base_url+"myAppointments");
+	/*	Thread.sleep(5000);		
+		driver.findElement(By.xpath("(//*[@id='myAppointment']//h2[contains(.,'Doctorzoylo')])[1]")).click();
+		Browser.waitTill(60);*/
+		Browser.clickOnTheElementByXpath("(//*[@id='myAppointment']//h2[contains(.,'"+Doctor_Name+"')])[1]");
 		driver.findElement(By.id("cancel")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("confirmYes")).click();

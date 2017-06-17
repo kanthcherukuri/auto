@@ -52,9 +52,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(username, password);
-		  Thread.sleep(2000);
-		  RecipientPage.goToMyAccount();
-		  driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Change Password')]")).click();
+		  RecipientPage.goToMyAccounts("Change Password");
 		  Thread.sleep(2000);
 		  driver.findElement(By.id("currentPassword")).sendKeys(currentPassword);
 		  driver.findElement(By.id("newPassword")).sendKeys(newPassword);

@@ -47,8 +47,8 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 					{ "yes","Hyderabad","Ameerpet","CARDIOLOGY","Ameerpet" },
 					{ "yes","Bengalore","Marathahalli","CARDIOLOGY","Marathahalli" },
 					{ "yes","Bengalore","Koramangala","","Koramangala" },
-					{ "yes","Hyderabad","","","Kondapur" },
-					{ "yes","Hyderabad","","CARDIOLOGY","Kondapur" },
+					{ "yes","Hyderabad","","","Hyderabad" },
+					{ "yes","Hyderabad","","CARDIOLOGY","Hyderabad" },
 
 			};
 		}

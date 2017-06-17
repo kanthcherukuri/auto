@@ -6,6 +6,7 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.Reporter;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
@@ -36,8 +37,8 @@ public class Recipients_ZOY_1192_ValidateRecipientLogout extends LoadPropMac {
 		  Browser= new TestUtils(driver);  
 				  	 
  } 
-
-	 @Test(groups = { "Regression","High" })
+	
+	 @Test(groups = { "Regression","High" },priority=2)
 	 public void ValidateRecipientlogout() throws Exception {
  			 
 		  Browser.openUrl(loginPage_Url);			
