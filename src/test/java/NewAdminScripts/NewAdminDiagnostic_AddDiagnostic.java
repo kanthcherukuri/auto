@@ -102,7 +102,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	@Test(dataProvider="HealthPackages", priority=5)
+	@Test(dataProvider="HealthPackages", priority=5,enabled=false)
 	public void AddHealthPackages(String servicemode,String packagename,String packagedesc,String packagecost, String discountpercentage,
 			String zoylopercentage,String packageduration,String packageperslot	) throws Exception{
 		
@@ -120,7 +120,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	@Test(dataProvider="HealthTests", priority=6)
+	@Test(dataProvider="HealthTests", priority=6,enabled=false)
 	public void AddTestsInHealthPackage(String testname,String testdesc) throws Exception{
 		
 		AdminDiagnostic.AddTestsInHealthPackage(testname, testdesc);
@@ -136,7 +136,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	@Test(dataProvider="DiagnosticTests", priority=7)
+	@Test(dataProvider="DiagnosticTests", priority=7,enabled=false)
 	public void AddDiagnosticTests(String diagTestname,String diagTestdesc,String servicemode,String diagTestcost,String diagdiscountper,
 			String diagZoyloper,String diagduration,String diagNumofSlots) throws Exception{
 		
@@ -147,7 +147,36 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	
 	
 	
+	@DataProvider(name ="AdditionalInformation")
+    public Object[][] createData_DP7() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","AdminDiagnostic", "TC7");
+        return(retObjArr);
+    }
+	@Test(dataProvider="AdditionalInformation", priority=8)
+	public void AddAdditionalInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax,String startdate,String enddate,
+	String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline,String facebookurl,String googleurl,
+	String linkedinurl,String twiterurl) throws Exception{
+		
+		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
+		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
+		AdminDiagnostic.EnterOtherInformationdetails(discountoffered, websiteURL, accreditations, ngo, reportonline);
+		AdminDiagnostic.EnterSocialInformation(facebookurl, googleurl, linkedinurl, twiterurl);
+		
+	}
 	
+	@DataProvider(name ="Addressdetails")
+    public Object[][] createData_DP8() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","AdminDiagnostic", "TC8");
+        return(retObjArr);
+    }
+	@Test(dataProvider="Addressdetails", priority=9)
+	public void EnterAddressFacilitiesSEODetails(String address, String country,String state,String city,String pincode,String locality,String landmark,
+			String longitude,String latitude,String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
+		
+		AdminDiagnostic.EnterAddressDetails(address, country, state, city, pincode, locality, landmark, longitude, latitude);
+		AdminDiagnostic.EnterTheFacilities();
+		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
+	}
 	
 	
 	

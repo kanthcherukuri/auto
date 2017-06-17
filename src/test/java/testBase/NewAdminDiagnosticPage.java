@@ -412,7 +412,7 @@ public class NewAdminDiagnosticPage
 		}else{
 			Browser.selectbyid("diagServiceMode", "H");
 		}
-		driver.findElement(By.id("diagTestCost")).sendKeys(diagTestcost);;
+		driver.findElement(By.id("diagTestCost")).sendKeys(diagTestcost);
 		Thread.sleep(1000);
 		driver.findElement(By.id("diagDiscountPercentage")).sendKeys(diagdiscountper);
 		Thread.sleep(1000);
@@ -432,7 +432,8 @@ public class NewAdminDiagnosticPage
 	
 	
 	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
-		
+		driver.findElement(By.id("additionInfotab")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='zoyDiagAIContact']/div/div[1]/button")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("contactPersonName")).sendKeys(Personname);
@@ -448,19 +449,145 @@ public class NewAdminDiagnosticPage
 	}
 	
 	
-	public void EnterMarkedasClosedInformation() throws Exception{
+	public void EnterMarkedasClosedInformation(String startdate,String enddate) throws Exception{
 		
 		driver.findElement(By.id("zyDCInfoMarkClosed")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("zyAddMarkAsClosed")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyAddMarkAsClosed")).click();
+		driver.findElement(By.id("startDate")).clear();
+		driver.findElement(By.id("startDate")).sendKeys(startdate);
 		Thread.sleep(1000);
+		driver.findElement(By.id("endDate")).clear();
+		driver.findElement(By.id("endDate")).sendKeys(enddate);
+		Thread.sleep(1000);
+		driver.findElement(By.id("isMarkActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("markAsCloseSubmit")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void EnterOtherInformationdetails(String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline) throws Exception{
+		
+		driver.findElement(By.id("zyDCOtherInfo")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='zoyDiagAIOtherInfo']/div[1]/div[1]/div/input")).sendKeys(discountoffered);
+		Thread.sleep(1000);
+		driver.findElement(By.id("isNABLAccredited")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("websiteURL")).sendKeys(websiteURL);
+		Thread.sleep(1000);
+		driver.findElement(By.id("accreditationsReceived")).sendKeys(accreditations);
+		Thread.sleep(1000);
+		driver.findElement(By.id("ngosAssociatedWith")).sendKeys(ngo);
+		Thread.sleep(1000);
+		driver.findElement(By.id("reportOnlineDuration")).sendKeys(reportonline);
+		Thread.sleep(1000);
+		driver.findElement(By.id("isOnlineAppointmentUsingZoylo")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("isSelfCheckInSoftwareAppUsingZoylo")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("isReportOnline")).click();
+		Thread.sleep(2000);
 	}
 	
 	
+	public void EnterSocialInformation(String facebookurl,String googleurl,String linkedinurl,String twiterurl) throws Exception{
+		driver.findElement(By.id("zyDCInfoSocial")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocFBActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocFBUrl")).sendKeys(facebookurl);
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocGPlusActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocGPlusUrl")).sendKeys(googleurl);
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocLindnActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocLindnUrl")).sendKeys(linkedinurl);
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocTwtActive")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("zyDocTwtUrl")).sendKeys(twiterurl);
+		Thread.sleep(2000);
+	}
 	
 	
+	public void EnterAddressDetails(String address, String country,String state,String city,String pincode,String locality,String landmark,
+			String longitude,String latitude) throws Exception{
+		
+		driver.findElement(By.id("addressTab")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressLine1")).sendKeys(address);
+		Thread.sleep(1000);
+		driver.findElement(By.id("select2-addressCountry-container")).click();
+		Browser.selectbyID("addressCountry", country);
+		Thread.sleep(1000);
+		driver.findElement(By.id("select2-addressState-container")).click();
+		Browser.selectbyID("addressState", state);
+		Thread.sleep(1000);
+		driver.findElement(By.id("select2-addressCity-container")).click();
+		Browser.selectbyID("addressCity", city);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressPincode")).sendKeys(pincode);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressLocality")).sendKeys(locality);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressLandmark")).sendKeys(landmark);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressLocality")).sendKeys(locality);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressGPSLongitude")).sendKeys(longitude);
+		Thread.sleep(1000);
+		driver.findElement(By.id("addressGPSLatitude")).sendKeys(latitude);
+		Thread.sleep(2000);
+	}
+	
+	
+	public void EnterTheFacilities() throws Exception{
+		
+		driver.findElement(By.id("facilitiesTab")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("debitCard")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("bikeParking")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("creditCard")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("carParking")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("ambulance")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("proBono")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("onlinePayment")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("premium")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("cheque")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("emergency")).click();
+		Thread.sleep(2000);
+	}
+	
+	
+	public void EnterDetailsForSEO(String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
+		
+		driver.findElement(By.id("seoTab")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("seoTitle")).sendKeys(SEOtitle);
+		Thread.sleep(1000);
+		driver.findElement(By.id("seoDescription")).sendKeys(SEOdesc);
+		Thread.sleep(1000);
+		driver.findElement(By.id("seoKeywords")).sendKeys(SEOkeywords);
+		Thread.sleep(1000);
+		driver.findElement(By.id("seoUrl")).sendKeys(SEOurl);
+		Thread.sleep(2000);
+		
+	
+		
+	}
 	
 	
 	
