@@ -9,7 +9,7 @@ public static String doctorLabel, addDoctorButton;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
 public static String practiceTab, addOtherClinic;
-public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicState, otherClinicCity, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
+public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
 public static String defaultClinicTab, defaultClinicName, defaultClinicconsultationFee, defaultClinicPracticeStartDate, defaultClinicFacilitationCharges;
 public static String VacationTab, vacationAddButton, vacationStartDate, vacationEndDate, vacationActiveCheckBox, vacationSave, vacationCancel;
 public static String HospitalTab, hospitaladdHospitalBtn, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpSaveButton, hospitalpopUpCancelButton;
@@ -61,7 +61,9 @@ public static String doctorSave, doctorCancel;
 		otherClinicPhoneNumber="zoyOtherClinicsPhnNum"; //ID
 		otherClinicFee="zoyOtherClinicsConFee"; //ID
 		otherClinicCountry="select2-zoyOtherClinicsCountry-container"; //ID
+		otherClinicCountrySelectID="zoyOtherClinicsCountry"; //ID
 		otherClinicState="select2-zoyOtherClinicsState-container"; //ID
+		otherClinicStateSelectID="zoyOtherClinicsState"; //ID
 		otherClinicCity="select2-zoyOtherClinicsCity-container"; //ID
 		otherClinicAddressLineOne="zoyOtherClinicsAddrLine1"; //ID
 		otherClinicPinCode="zoyOtherClinicsPincode"; //ID
@@ -101,7 +103,7 @@ public static String doctorSave, doctorCancel;
 		vacationCancel="addVacationCancel"; //ID
 		HospitalTab="//li[@class='zoyDocInfoHospitalTab']"; //XPATH
 		hospitaladdHospitalBtn="addHospitalBtn"; //ID
-		hospitalpopUpName="select2-zoyDocAddHospitalName-container"; //ID
+		hospitalpopUpName="zoyDocAddHospitalName"; //ID
 		hospitalpopUpConsultationFee="zoyDocAddHospConsFee"; //ID
 		hospitalpopUpzoyloCharges="zoyDocAddHospFacCharge"; //ID
 		hospitalpopUpActiveCheckBox="zoyDocAddHospActive"; //ID

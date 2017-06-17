@@ -1,6 +1,7 @@
 package testBase;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import objectRepository.Elements_NewAdminDoctors;
@@ -31,7 +32,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(admin_user);
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(admin_password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();	
-	}
+	} //Admin sign in method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -45,7 +46,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(adminuser_user);
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(adminuser_password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
-	}
+	} //Admin user sign in method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -57,7 +58,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorLabel)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
-	}
+	} //Doctors tab click method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -69,7 +70,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.addDoctorButton)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
-	}
+	} //Add doctor method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -86,7 +87,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.emailID)).sendKeys(emailID);
 		driver.findElement(By.id(Elements_NewAdminDoctors.mobileNumber)).sendKeys(mobileNumber);
 		driver.findElement(By.id(Elements_NewAdminDoctors.password)).sendKeys(password);
-	}
+	} //Generic details method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -138,11 +139,11 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.selectbyXpath(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
 		Browser.selectbyXpath(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
 		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
-	}
+	} //Primary info method end ***
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to enter practice information tab details of doctor on admin add doctor screen
+	 * @ Description	: This method is used to enter other clinic information under practice tab of doctor on admin add doctor screen
 	 * @ Param			: ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrState, othrCity, othrAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayOnlineStatus, othrClincPayCashStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus
 	 * @ return			: NA
 	 */
@@ -158,9 +159,12 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicName)).sendKeys(othrClinicName);
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicPhoneNumber)).sendKeys(othrClinicPhoneNumber);
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicFee)).sendKeys(othrClinicFee);
-			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCountry, "India");
-			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicState, othrClinicState);
-			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCity, othrClinicCity);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicCountry)).click();
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCountrySelectID, "India");
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicState)).click();
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicStateSelectID, othrClinicState);
+			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicCity)).click();
+			Browser.selectbyID(Elements_NewAdminDoctors.otherClinicCitySelectID, othrClinicCity);
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicAddressLineOne)).sendKeys(othrClinicAddressLineOne);
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicPinCode)).sendKeys(othrClinicPinCode);
 			driver.findElement(By.id(Elements_NewAdminDoctors.otherClinicLongitude)).sendKeys(othrClinicLongitude);
@@ -262,5 +266,89 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			System.out.println("There is no other clinic associated for this doctor.");
 		}
-	}
+	} //Practice other clinic method end ****
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter default clinic information under practice tab of doctor on admin add doctor screen
+	 * @ Param			: defaultClinicName, defaultClinicFee, practiceStartDate
+	 * @ return			: NA
+	 */
+	public void practiceDetails_DefaultClinic_Enter(String defaultClinicName, String defaultClinicFee, String practiceStartDate, String zoyloFacilitationFee)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.defaultClinicTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.defaultClinicName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicName)).sendKeys(defaultClinicName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicconsultationFee)).sendKeys(defaultClinicFee);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).sendKeys(practiceStartDate);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicFacilitationCharges)).sendKeys(zoyloFacilitationFee);
+	} //Practice default clinic method end ****
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter vacation information under practice tab of doctor on admin add doctor screen
+	 * @ Param			: vacationStatus, vacationStartDate
+	 * @ return			: NA
+	 */
+	public void practiceDetails_Vacation_Enter(String vacationStatus, String vacationStartDate, String vacationEndDate)
+	{
+		if(vacationStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.VacationTab)).click();
+			Browser.waitFortheElementXpath(Elements_NewAdminDoctors.vacationAddButton);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.vacationAddButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.vacationStartDate);
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationStartDate)).clear();
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationStartDate)).sendKeys(vacationStartDate);
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationEndDate)).clear();
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationEndDate)).sendKeys(vacationEndDate);
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationSave)).click();
+		}
+		else
+		{
+			System.out.println("There is no vacation set for this doctor");
+		}
+	} //Practice vacation method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter hospital information under practice tab of doctor on admin add doctor screen
+	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
+	 * @ return			: NA
+	 */
+	public void practiceDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital)
+	{
+		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.HospitalTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.hospitaladdHospitalBtn);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitaladdHospitalBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.hospitalpopUpName);
+			Browser.selectbyID(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpConsultationFee)).sendKeys(hospitalFee);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpzoyloCharges)).sendKeys(zfcForHospital);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpSaveButton)).click();
+		}
+		else
+		{
+			System.out.println("There is no hospital associated against this doctor");
+		}
+	} //Practice hospital info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to upload doctor default image under practice tab of doctor on admin add doctor screen
+	 * @ Param			: imageURL
+	 * @ return			: NA
+	 */
+	public void practiceDetails_GalleryInfo_Enter(String imageURL) throws Exception
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.galleryTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.galleryUploadButton);
+		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(imageURL);
+		Thread.sleep(5000);
+	} //Practice gallery info method end ***
 } //End of class
