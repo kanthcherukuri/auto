@@ -57,6 +57,6 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 	@AfterClass
 	public void closeapp()
 	{
-		//driver.close();
+		//driver.quit();
 	}
 }

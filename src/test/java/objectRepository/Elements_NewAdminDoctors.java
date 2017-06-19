@@ -54,10 +54,10 @@ public static String doctorSave, doctorCancel;
 		gender="gender"; //ID
 		dateOfBirth="dateOfBirth"; //ID
 		medicalRegistrationNumber="medicalRegistrationNumber"; //ID
-		Qualification="//span[@title='Doctor Qualification']//ul[@class='select2-selection__rendered']"; //XPATH
-		professionalTag="//span[@title='Professional Tag']//ul[@class='select2-selection__rendered']"; //XPATH
-		areaOfSpecialization="//span[@title='Area of Specialization']//ul[@class='select2-selection__rendered']"; //XPATH
-		lineOfPractice="//span[@title='Line of Practice']//ul[@class='select2-selection__rendered']"; //XPATH
+		Qualification="doctorQualification"; //ID
+		professionalTag="tag"; //ID
+		areaOfSpecialization="areaOfSpecialisations"; //ID
+		lineOfPractice="lineOfPractice"; //ID
 		aboutDoctor="about"; //ID
 		practiceTab="practiceInfoTab"; //ID
 		addOtherClinic="zoyAddOtherClinicsBtn"; //ID
@@ -69,6 +69,7 @@ public static String doctorSave, doctorCancel;
 		otherClinicState="select2-zoyOtherClinicsState-container"; //ID
 		otherClinicStateSelectID="zoyOtherClinicsState"; //ID
 		otherClinicCity="select2-zoyOtherClinicsCity-container"; //ID
+		otherClinicCitySelectID="zoyOtherClinicsCity";
 		otherClinicAddressLineOne="zoyOtherClinicsAddrLine1"; //ID
 		otherClinicPinCode="zoyOtherClinicsPincode"; //ID
 		otherClinicLongitude="zoyOtherClinicsLng"; //ID
@@ -93,7 +94,7 @@ public static String doctorSave, doctorCancel;
 		otherClinicServiceSave="//button[@class='pull-right zoySubmitBtn zoyOtherClinicAddServiceBtn']"; //XPATH
 		otherClinicSave="zoyOtherClinicSave"; //ID
 		otherClinicCancel="otherClinicCancel"; //ID
-		defaultClinicTab="//li[@class='zoyDocInfoDefaultClinicTab']"; //XPATH
+		defaultClinicTab="(//ul[@class='zoyDocInfoTabContent']//li)[2]"; //XPATH
 		defaultClinicName="clinicName"; //ID
 		defaultClinicconsultationFee="consultationFee"; //ID
 		defaultClinicPracticeStartDate="practiceStartDate"; //ID

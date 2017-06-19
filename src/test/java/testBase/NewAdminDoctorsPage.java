@@ -94,7 +94,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
 	 * @ return			: NA
 	 */
-	public void primaryInfoDetails_Enter(String isActiveValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc)
+	public void primaryInfoDetails_Enter(String isActiveValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
 	{
 		if(isActiveValue.equalsIgnoreCase("true"))
 		{
@@ -123,12 +123,14 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Female");
 			System.out.println("Gender of the doctor being entered is Female");
 		}
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).sendKeys(DOB); //(MM/DD/YYYY)
 		driver.findElement(By.id(Elements_NewAdminDoctors.medicalRegistrationNumber)).sendKeys(regNum);
-		Browser.selectbyXpath(Elements_NewAdminDoctors.Qualification, qualification);
-		Browser.selectbyXpath(Elements_NewAdminDoctors.professionalTag, tag);
-		Browser.selectbyXpath(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
-		Browser.selectbyXpath(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
+		Browser.selectbyID(Elements_NewAdminDoctors.Qualification, qualification);
+		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, tag);
+		Browser.selectbyID(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
 		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
 	} //Primary info method end ***
 	
@@ -257,6 +259,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			System.out.println("There is no other clinic associated for this doctor.");
 		}
+		Thread.sleep(3000);
 	} //Practice other clinic method end ****
 	
 	/*
@@ -267,10 +270,13 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void practiceDetails_DefaultClinic_Enter(String defaultClinicName, String defaultClinicFee, String practiceStartDate, String zoyloFacilitationFee)
 	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.defaultClinicTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.defaultClinicName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicName)).sendKeys(defaultClinicName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicconsultationFee)).sendKeys(defaultClinicFee);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).click();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).sendKeys(practiceStartDate);
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicFacilitationCharges)).sendKeys(zoyloFacilitationFee);
