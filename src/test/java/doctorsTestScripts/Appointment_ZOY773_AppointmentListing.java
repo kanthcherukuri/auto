@@ -46,7 +46,7 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 		 DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		 DoctorsPage.ClickingOnDashboard();
 		 Thread.sleep(3000);
-		 int appointmentlisting= driver.findElements(By.xpath(Elements_Doctors.getappointmentlistingsize)).size();
+		 int appointmentlisting= driver.findElements(By.xpath(Elements_Doctors.dashboard_getappointmentlistingsize)).size();
 			System.out.println(appointmentlisting);
 			for(int i=1;i<=appointmentlisting; i++)
 			{
@@ -59,8 +59,8 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 			System.out.println("The appointment created from Doctors login is Listed");
 			driver.findElement(By.xpath("//*[@id='scrolls']/div/div["+i+"]/div[2]/span")).click();	
 			WebDriverWait wait = new WebDriverWait(driver, 2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.waitfornextpage)));
-			String validation=driver.findElement(By.xpath(Elements_Doctors.getnameforpage)).getText();
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.dashboard_waitfornextpage)));
+			String validation=driver.findElement(By.xpath(Elements_Doctors.dashboard_getnameforpage)).getText();
 			System.out.println(validation);
 			Assert.assertEquals(validation,fullname);
 			break;

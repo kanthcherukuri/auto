@@ -41,48 +41,44 @@ public class NewAdminDiagnosticPage
 	
 	public void ClickOnAddDiagnostic(){
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ClickOnAddDiagnostic)).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Diagnostic_ClickOnAddDiagnostic)).click();
 	}
 	
 	public void EnterDiagnosticDetails(String DiagnosticName,String ShortName,String fullname,String email,String phone,String password) throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticName)).sendKeys(DiagnosticName);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_Name)).sendKeys(DiagnosticName);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ShortName)).sendKeys(ShortName);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_ShortName)).sendKeys(ShortName);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.fullname)).sendKeys(fullname);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_fullname)).sendKeys(fullname);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.email)).sendKeys(email);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_email)).sendKeys(email);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.phone)).sendKeys(phone);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_phone)).sendKeys(phone);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.password)).sendKeys(password);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_password)).sendKeys(password);
 	}
 	
 	public void EnterMandatoryFields(String dateofbirth,String desc,String regno,String dateofreg,String rating,String startedyear) throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.dateofbirth)).clear();
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.dateofbirth)).sendKeys(dateofbirth);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth)).clear();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth)).sendKeys(dateofbirth);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.desc)).sendKeys(desc);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_desc)).sendKeys(desc);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.regno)).sendKeys(regno);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_regno)).sendKeys(regno);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.dateofreg)).clear();
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.dateofreg)).sendKeys(dateofreg);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofreg)).clear();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofreg)).sendKeys(dateofreg);
 		Thread.sleep(2000);
-		WebElement element=driver.findElement(By.id("zoyloStatusCode"));
-		Select se=new Select(element);
-		se.selectByValue("approved");
+		Browser.selectbyid(Elements_NewAdminDiagnostic.MandatoryFields_StatusCode, "approved");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("(//ul[@class='select2-selection__rendered'])[4]")).click();
-		WebElement ele=driver.findElement(By.id("languagesSpoken"));
-		Select opt=new Select(ele);
-		opt.selectByValue("ENGLISH");
+		Browser.selectbyid(Elements_NewAdminDiagnostic.MandatoryFields_languagesSpoken, "ENGLISH");
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.rating)).sendKeys(rating);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_rating)).sendKeys(rating);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.startedyear)).sendKeys(startedyear);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_startedyear)).sendKeys(startedyear);
 		
 		
 	}
@@ -585,11 +581,12 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id("seoUrl")).sendKeys(SEOurl);
 		Thread.sleep(2000);
 		
-	
-		
 	}
 	
-	
+	public void SaveDiagnosticDetails() throws Exception{
+		driver.findElement(By.id("addDiagnosticSubmit")).click();
+		Thread.sleep(2000);
+	}
 	
 	
 	

@@ -4,7 +4,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -40,12 +39,12 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 		
 		@BeforeMethod
 		public void CreateAppointmentsForshowmore() throws Exception{
-			driver.findElement(By.id(Elements_Doctors.doctortab)).click();	
-			driver.findElement(By.xpath(Elements_Doctors.todaymenu)).click();
-			driver.findElement(By.xpath(Elements_Doctors.morning)).click();
-			driver.findElement(By.xpath(Elements_Doctors.noon)).click();
-			driver.findElement(By.xpath(Elements_Doctors.evening)).click();
-			int slotsize = driver.findElements(By.xpath(Elements_Doctors.eveningfirstcellsize)).size();
+			driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();	
+			driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
+			driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
+			driver.findElement(By.xpath(Elements_Doctors.appointment_noon)).click();
+			driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
+			int slotsize = driver.findElements(By.xpath(Elements_Doctors.appointment_eveningfirstcellsize)).size();
 			 if(slotsize>0)
 			 {
 			for( slotsize=1;slotsize<=6; slotsize++) {	
@@ -54,17 +53,17 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 			 ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+ elementtoclick.getLocation().x+")");
 			 elementtoclick.click();
 			Thread.sleep(1000);	 
-			driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys("Anji"+Browser.randomalphabets());
+			driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys("Anji"+Browser.randomalphabets());
 			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys("R");
+			driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys("R");
 			Thread.sleep(2000);
-			driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys("9988664422");
+			driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys("9988664422");
 			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys("anji@gmail.com");
+			driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys("anji@gmail.com");
 			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys("diabetic");
+			driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys("diabetic");
 			Thread.sleep(1000);	
-			driver.findElement(By.id(Elements_Doctors.locatorsave)).click();	
+			driver.findElement(By.id(Elements_Doctors.appointment_save)).click();	
 			Browser.waitFortheElementXpath("//*[@id='tab-3']/ul/li["+slotsize+"][@class='bg-red']");
 			Thread.sleep(1000);
 			}	 
@@ -82,18 +81,18 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 			Dimension d= new Dimension(1920, 1080);
 			driver.manage().window().setSize(d);		
 			Thread.sleep(5000);		        	
-			if(driver.findElements(By.id(Elements_Doctors.showmorebutton)).isEmpty()){
+			if(driver.findElements(By.id(Elements_Doctors.dashboard_showmorebutton)).isEmpty()){
 			Assert.fail("Show More Button is not avaiable");		
 			}	
 			else{
-			driver.findElement(By.id(Elements_Doctors.showmorebutton)).click();
+			driver.findElement(By.id(Elements_Doctors.dashboard_showmorebutton)).click();
 			System.out.println("show More Button is present");
 			System.out.println("show More Button is Clicked");
 			Thread.sleep(2000);	  		
 			((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 			Thread.sleep(2000);
 			System.out.println("Scroll Button is Available");
-			driver.findElement(By.id(Elements_Doctors.showlessbutton)).click();
+			driver.findElement(By.id(Elements_Doctors.dashboard_showlessbutton)).click();
 			System.out.println("Show Less Button is Present");	  	
 			System.out.println("Show Less Button is Clicked");	  				
 			}

@@ -55,11 +55,11 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
 		Thread.sleep(2000);
 		DoctorsPage.ClickView();
-		String name=driver.findElement(By.xpath(Elements_Doctors.getfullnameonclickviewmenu)).getText();
+		String name=driver.findElement(By.xpath(Elements_Doctors.appointment_getfullnameonclickviewmenu)).getText();
 		System.out.println(name);	
-		String	AppointmentId=driver.findElement(By.xpath(Elements_Doctors.getappointmentid)).getText();
+		String	AppointmentId=driver.findElement(By.xpath(Elements_Doctors.appointment_getappointmentid)).getText();
 		System.out.println(AppointmentId);
-		driver.findElement(By.id(Elements_Doctors.clickonalertmenu)).click();
+		driver.findElement(By.id(Elements_Doctors.alert_clickonalertmenu)).click();
 		Thread.sleep(10000);
 		String Alert=driver.findElement(By.xpath("//*[@id='message' and contains(.,'"+name+"')]")).getText();
 		System.out.println(Alert);

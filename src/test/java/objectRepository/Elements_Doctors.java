@@ -27,29 +27,29 @@ public class Elements_Doctors  {
 		
 		//Doctor Appointment & Reschedule Locators
 		
-				public static String doctortab;
-				public static String todaymenu;
-				public static String sundayMenu;
-				public static String tommorrowmenu;
-				public static String morning;
-				public static String noon;
-				public static String evening;
-				public static String eveningfirstcell;
-				public static String locatorfirstname;
-				public static String locatorlsatname;
-				public static String locatormobile;
-				public static String locatoremail;
-				public static String locatorproblem;
-				public static String locatorsave;
-				public static String backgoundcolor;
-				public static String changeicon;
-				public static String nextmenu;
-				public static String morningfirstcell;
-				public static String changeslot;
+				public static String appointments_doctortab;
+				public static String appointment_todaymenu;
+				public static String appointment_sundayMenu;
+				public static String appointment_tommorrowmenu;
+				public static String appointment_morning;
+				public static String appointment_noon;
+				public static String appointment_eveningtab;
+				public static String appointment_eveningfirstcell;
+				public static String appointment_firstname;
+				public static String appointment_lsatname;
+				public static String appointment_mobile;
+				public static String appointment_email;
+				public static String appointment_problem;
+				public static String appointment_save;
+				public static String appointment_backgoundcolor;
+				public static String appointment_changeicon;
+				public static String appointment_nextmenu;
+				public static String appointment_morningfirstcell;
+				public static String appointment_changeslot;
 				public static String topnotification;
 				public static String patient_searchbox;
 				public static String patientallmenu;
-				public static String patientallmenuname, clickoncancelmenu, selectcancelreason, cancelconfirmation, eveningfirstcellsize;
+				public static String patientallmenuname, appointment_clickoncancelmenu, appointment_selectcancelreason, appointment_cancelconfirmation, appointment_eveningfirstcellsize;
 				
 				
 				//Patients screen 
@@ -83,20 +83,20 @@ public class Elements_Doctors  {
 				
 				//Dashboard variables
 				
-				public static String clickondashboardmenu, selecttodaysdate, dashboardfullname, checktodayappointmentssize, waitfortodaydate;
-				public static String checktodayappointmentcountfromgraph, clickonellipse, waitfornextpage, getnameforpage, clickonnextmonth, clickondateone;
+				public static String dashboard_clickondashboardmenu, dashboard_selecttodaysdate, dashboard_fullname, dashboard_checktodayappointmentssize, dashboard_waitfortodaydate;
+				public static String dashboard_checktodayappointmentcountfromgraph, clickonellipse, dashboard_waitfornextpage, dashboard_getnameforpage, dashboard_clickonnextmonth, dashboard_clickondateone;
 				
 				//show more variables
-				public static String showmorebutton, showlessbutton;
+				public static String dashboard_showmorebutton, dashboard_showlessbutton;
 				
 				//appointments listing
-				public static String getappointlistingtext,  getappointmentlistingsize;
+				public static String dashboard_getappointlistingtext,  dashboard_getappointmentlistingsize;
 				
 				//bulk cancel variables
-				public static String clickonbulkcancelbutton, cancelfromdate, canceltodate, cancelfromtime, canceltotime, submitbulkcancel;
+				public static String bulkcancel_clickonbulkcancelbutton, bulkcancel_fromdate, bulkcancel_todate, bulkcancel_fromtime, bulkcancel_totime, bulkcancel_submit;
 				
 				//Alert variables
-				public static String clickonview, getfullnameonclickviewmenu, clickonalertmenu, getappointmentid;
+				public static String appointment_clickonview, appointment_getfullnameonclickviewmenu, alert_clickonalertmenu, appointment_getappointmentid;
 				
 				//set vacation
 				public static String closevacationArray, setVacation, addVacationSlot, vacationStart, vacationEnd, vacationActive, vacationSave, removeVacationSlot;
@@ -249,33 +249,33 @@ public class Elements_Doctors  {
 		 
 			//Doctor Appointment & Reschedule Locators
 			 
-			 doctortab="appointment_appointmentCalendar";
-			 todaymenu="//*[@id='cd-0']";
-			 sundayMenu="(//li[@class='calendarDateli' and contains(., 'Sunday')])[1]";
-			 tommorrowmenu="//*[@id='cd-1']";
-			 morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
-			 noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
-			 evening="//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]";
-			 eveningfirstcell="//div[@id='tab-3']/ul/li[1]/div[2]";
-			 eveningfirstcellsize="//*[@id='tab-3']/ul/li";
-			 locatorfirstname="//*[@id='firstName']";
-			 locatorlsatname="lastName";
-			 locatormobile="mobileNumber";
-			 locatoremail="email";
-			 locatorproblem="problem";
-			 locatorsave="saveAppiontment";
-			 backgoundcolor="//*[@id='tab-3']/ul/li[1][@class='bg-red']";
-			 changeicon="//*[@id='change']";
-			 nextmenu="//*[@id='cd-2']";
-			 morningfirstcell="//*[@id='tab-1']/ul/li[1]";
-			 changeslot="//*[@id='confrimSlotChange']";
+			 appointments_doctortab="appointment_appointmentCalendar";
+			 appointment_todaymenu="//*[@id='cd-0']";
+			 appointment_sundayMenu="(//li[@class='calendarDateli' and contains(., 'Sunday')])[1]";
+			 appointment_tommorrowmenu="//*[@id='cd-1']";
+			 appointment_morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
+			 appointment_noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
+			 appointment_eveningtab="//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]";
+			 appointment_eveningfirstcell="//div[@id='tab-3']/ul/li[1]/div[2]";
+			 appointment_eveningfirstcellsize="//*[@id='tab-3']/ul/li";
+			 appointment_firstname="//*[@id='firstName']";
+			 appointment_lsatname="lastName";
+			 appointment_mobile="mobileNumber";
+			 appointment_email="email";
+			 appointment_problem="problem";
+			 appointment_save="saveAppiontment";
+			 appointment_backgoundcolor="//*[@id='tab-3']/ul/li[1][@class='bg-red']";
+			 appointment_changeicon="//*[@id='change']";
+			 appointment_nextmenu="//*[@id='cd-2']";
+			 appointment_morningfirstcell="//*[@id='tab-1']/ul/li[1]";
+			 appointment_changeslot="//*[@id='confrimSlotChange']";
 			 topnotification="html/body/div[6]/div";
 			 patient_searchbox="searchPatientsList";
 			 patientallmenu=" html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
 			 patientallmenuname="all";
-			 clickoncancelmenu="cancel";
-			 cancelconfirmation="confirmYes";
-			 selectcancelreason="//*[@id='cancel-appointment-popup']/div/div/div[3]/select";
+			 appointment_clickoncancelmenu="cancel";
+			 appointment_cancelconfirmation="confirmYes";
+			 appointment_selectcancelreason="//*[@id='cancel-appointment-popup']/div/div/div[3]/select";
 			 
 			 //Patient screen send notification
 		 
@@ -320,41 +320,41 @@ public class Elements_Doctors  {
 			 
 			 
 			 //Dashboard variables
-			 clickondashboardmenu="dashBoard";
-			 selecttodaysdate="//a[@class='monthly-day monthly-day-event monthly-today']";
-			 dashboardfullname="//*[@id='scrolls']/div/div[1]/div[2]/span";
-			 checktodayappointmentssize="//*[@id='scrolls']/div/div";
-			 checktodayappointmentcountfromgraph="//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div";
+			 dashboard_clickondashboardmenu="dashBoard";
+			 dashboard_selecttodaysdate="//a[@class='monthly-day monthly-day-event monthly-today']";
+			 dashboard_fullname="//*[@id='scrolls']/div/div[1]/div[2]/span";
+			 dashboard_checktodayappointmentssize="//*[@id='scrolls']/div/div";
+			 dashboard_checktodayappointmentcountfromgraph="//*[@id='sp-dashboard-content']/div[2]/div[5]/div[1]/div[1]/div";
 			 clickonellipse="//i[@class='fa fa-ellipsis-v footer-relipse']";
-			 waitfornextpage="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
-			 getnameforpage="//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span";
-			 clickonnextmonth="//*[@id='mycalendar']/div[1]/a[2]";
-			 clickondateone="(//a[@class='monthly-day monthly-day-event']/div)[1]";
-			 waitfortodaydate="//a[@class='monthly-day monthly-day-event monthly-today']";
+			 dashboard_waitfornextpage="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
+			 dashboard_getnameforpage="//div[@class='zy-rec-content']/div[@class='rec-content']/h1[@class='zy-rec-name']/span";
+			 dashboard_clickonnextmonth="//*[@id='mycalendar']/div[1]/a[2]";
+			 dashboard_clickondateone="(//a[@class='monthly-day monthly-day-event']/div)[1]";
+			 dashboard_waitfortodaydate="//a[@class='monthly-day monthly-day-event monthly-today']";
 			 
 			 
 			 //show more variables
-			 showmorebutton="show-all-btn";
-			 showlessbutton="show-less-btn";
+			 dashboard_showmorebutton="show-all-btn";
+			 dashboard_showlessbutton="show-less-btn";
 			 
 			 //appointment listing
-			 getappointlistingtext="//div[@class='label-font']";
-			 getappointmentlistingsize="//div[@class='force-overflow']//div[@class='patient-details-dashboard']";
+			 dashboard_getappointlistingtext="//div[@class='label-font']";
+			 dashboard_getappointmentlistingsize="//div[@class='force-overflow']//div[@class='patient-details-dashboard']";
 			 
 			 //bulk cancel locators
-			 clickonbulkcancelbutton="//div//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']";
-			 cancelfromdate="//*[@id='datepicker-cancelfrom']";
-			 canceltodate="//*[@id='datepicker-cancelto']";
-			 cancelfromtime="//*[@id='fromTime']";
-			 canceltotime="//*[@id='toTime']";
-			 submitbulkcancel="cancelAppointmentsSubmit";
+			 bulkcancel_clickonbulkcancelbutton="//div//i[@class='pa-cancl-apt fa fa-calendar-times-o cancel-apmpt-btn menu_links']";
+			 bulkcancel_fromdate="//*[@id='datepicker-cancelfrom']";
+			 bulkcancel_todate="//*[@id='datepicker-cancelto']";
+			 bulkcancel_fromtime="//*[@id='fromTime']";
+			 bulkcancel_totime="//*[@id='toTime']";
+			 bulkcancel_submit="cancelAppointmentsSubmit";
 			 
 			 //Alert Variables
 			 
-			 clickonview ="view";
-			 getfullnameonclickviewmenu="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
-			 getappointmentid="html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span";
-			 clickonalertmenu="alerts";
+			 appointment_clickonview ="view";
+			 appointment_getfullnameonclickviewmenu="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
+			 appointment_getappointmentid="html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span";
+			 alert_clickonalertmenu="alerts";
 			
 			
 		return driver;	

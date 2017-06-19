@@ -55,26 +55,26 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
 public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
-		 driver.findElement(By.id(Elements_Doctors.doctortab)) .click();	
-		 driver.findElement(By.xpath(Elements_Doctors.tommorrowmenu)).click();
-		 driver.findElement(By.xpath(Elements_Doctors.morning)).click();
-		 driver.findElement(By.xpath(Elements_Doctors.noon)).click();
-		 driver.findElement(By.xpath(Elements_Doctors.evening)).click();
+		 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();	
+		 driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.appointment_noon)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
 		 driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.locatorfirstname)).sendKeys(firstname);
+		 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.locatorlsatname)).sendKeys(lastname);
+		 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.locatormobile)).sendKeys(mobile);
+		 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.locatoremail)).sendKeys(email);
+		 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.locatorproblem)).sendKeys(problem);
+		 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.locatorsave)).click();
+		 driver.findElement(By.id(Elements_Doctors.appointment_save)).click();
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
-		 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Elements_Doctors.backgoundcolor)));
+		 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Elements_Doctors.appointment_backgoundcolor)));
 		 String fullname=firstname+" "+lastname;
 		 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname);	
 	}
