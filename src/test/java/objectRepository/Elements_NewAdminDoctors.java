@@ -14,7 +14,7 @@ public static String defaultClinicTab, defaultClinicName, defaultClinicconsultat
 public static String VacationTab, vacationAddButton, vacationStartDate, vacationEndDate, vacationActiveCheckBox, vacationSave, vacationCancel;
 public static String HospitalTab, hospitaladdHospitalBtn, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpSaveButton, hospitalpopUpCancelButton;
 public static String galleryTab, galleryUploadButton;
-public static String workDaysTab, workDays_addTimeSlotsButton, workDays_workType, workDays_hospitalType, workDays_ClinicType, workDays_workStartTime, workDays_workEndTime, workDays_workTimeSave;
+public static String workDaysTab, workDays_addTimeSlotsButton, workDays_workType, workDays_hospitalType, workDays_ClinicType, workDays_workStartTime, workDays_workEndTime, workDays_ActiveCheckBox, workDays_workTimeSave;
 public static String workDays_SundayActiveCheckBox, workDays_SundayLunchStart, workDays_SundayLunchEnd, workDays_SundayHouseCallStart, workDays_SundayHouseCallEnd;
 public static String workDays_MondayTab, workDays_MondayActiveCheckBox, workDays_MondayLunchStart, workDays_MondayLunchEnd, workDays_MondayHouseCallStart, workDays_MondayHouseCallEnd;
 public static String workDays_TuesdayTab, workDays_TuesdayActiveCheckBox, workDays_TuesdayLunchStart, workDays_TuesdayLunchEnd, workDays_TuesdayHouseCallStart, workDays_TuesdayHouseCallEnd;
@@ -27,7 +27,7 @@ public static String additionalInfo_services, additionalInfo_servicesAddButton, 
 public static String additionalInfo_awardsAndRecognition, additionalInfo_awardsAndRecognitionAdd, additionalInfo_awardsAndRecognitionName, additionalInfo_awardsAndRecognitionSource, additionalInfo_awardsAndRecognitionYear, additionalInfo_awardsAndRecognitionSave, additionalInfo_awardsAndRecognitionCancel;
 public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoActiveCheckBox, additionalInfo_OtherInfo_ProBonoFee, additionalInfo_OtherInfo_SecondOpinionActiveCheckBox, additionalInfo_OtherInfo_SecondOpinionFee, additionalInfo_OtherInfo_WaitTime, additionalInfo_OtherInfo_website, additionalInfo_OtherInfo_books, additionalInfo_OtherInfo_blogs, additionalInfo_OtherInfo_journals, additionalInfo_OtherInfo_offersDiscounts, additionalInfo_OtherInfo_membership, additionalInfo_OtherInfo_ngo, additionalInfo_OtherInfo_notes, additionalInfo_OtherInfo_certificates, additionalInfo_OtherInfo_registrationActiveCheckBox, additionalInfo_OtherInfo_verifiedActiveCheckBox, additionalInfo_OtherInfo_ePriscriptionsActiveCheckBox, additionalInfo_OtherInfo_associatedPharmaActiveCheckBox, additionalInfo_OtherInfo_hasDiagnosticActiveCheckBox;
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
-public static String addressTab, addressTab_Country, addressTab_State, addressTab_City, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
+public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
 public static String doctorSave, doctorCancel;
 
@@ -123,6 +123,7 @@ public static String doctorSave, doctorCancel;
 		workDays_ClinicType="workingHrsAddClinicName"; //ID
 		workDays_workStartTime="workingHrsStartTime"; //ID
 		workDays_workEndTime="workingHrsEndTime"; //ID
+		workDays_ActiveCheckBox="workingHrsAddSlotActive"; //ID
 		workDays_workTimeSave="workingHrsSlotSaveBtn"; //ID
 		workDays_MondayTab="monday"; //ID
 		workDays_MondayActiveCheckBox="workingHrsMonMarkAsOpen"; //ID
@@ -216,8 +217,11 @@ public static String doctorSave, doctorCancel;
 		facilitiesTab_paymentCleanScore="cleanlinessScore"; //ID
 		addressTab="addressInfoTab"; //ID
 		addressTab_Country="select2-zoyDocdefaultCountry-container"; //ID
+		addressTab_CountrySelectID="zoyDocdefaultCountry"; //ID
 		addressTab_State="select2-zoyDocdefaultState-container"; //ID
+		addressTab_StateSelectID="zoyDocdefaultState"; //ID
 		addressTab_City="select2-zoyDocdefaultCity-container"; //ID
+		addressTab_CitySelectID="zoyDocdefaultCity"; //ID
 		addressTab_completeAddress="completeAddress"; //ID
 		addressTab_locality="locality"; //ID
 		addressTab_pinCode="pincode"; //ID

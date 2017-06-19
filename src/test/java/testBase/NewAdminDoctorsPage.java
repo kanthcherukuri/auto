@@ -94,7 +94,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
 	 * @ return			: NA
 	 */
-	public void primaryInfoDetails_Enter(String isActiveValue, String workTypeValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc)
+	public void primaryInfoDetails_Enter(String isActiveValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc)
 	{
 		if(isActiveValue.equalsIgnoreCase("true"))
 		{
@@ -103,14 +103,6 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		else
 		{
 			System.out.println("Doctor isActive is marked as false");
-		}
-		if(workTypeValue.equalsIgnoreCase("Hospital"))
-		{
-			driver.findElement(By.xpath(Elements_NewAdminDoctors.workTypeHospital)).click();
-		}
-		else
-		{
-			System.out.println("Work type is marked as hospital clinic");
 		}
 		if(houseCallStatus.equalsIgnoreCase("true"))
 		{
@@ -350,4 +342,353 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(imageURL);
 		Thread.sleep(5000);
 	} //Practice gallery info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add doctor workTimings on admin add doctor screen
+	 * @ Param			: mondayStatus,  MondayworkType,  isMondayHospitalTrue,  mondayHospitalName,  isMondayClinicTrue,  mondayClinicName,  mondayStartTime,  mondayEndTime,  tuesdayStatus,  tuesdayworkType,  istuesdayHospitalTrue,  tuesdayHospitalName,  istuesdayClinicTrue,  tuesdayClinicName,  tuesdayStartTime,  tuesdayEndTime,  wednesdayStatus,  wednesdayworkType,  iswednesdayHospitalTrue,  wednesdayHospitalName,  iswednesdayClinicTrue,  wednesdayClinicName,  wednesdayStartTime,  wednesdayEndTime,  thursdayStatus,  thursdayworkType,  isthursdayHospitalTrue,  thursdayHospitalName,  isthursdayClinicTrue,  thursdayClinicName,  thursdayStartTime,  thursdayEndTime,  fridayStatus,  fridayworkType,  isfridayHospitalTrue,  fridayHospitalName,  isfridayClinicTrue,  fridayClinicName,  fridayStartTime,  fridayEndTime
+	 * @ return			: NA
+	 */
+	public void workDaysInfo_Enter(String mondayStatus, String MondayworkType, String isMondayHospitalTrue, String mondayHospitalName, String isMondayClinicTrue, String mondayClinicName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayworkType, String istuesdayHospitalTrue, String tuesdayHospitalName, String istuesdayClinicTrue, String tuesdayClinicName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayworkType, String iswednesdayHospitalTrue, String wednesdayHospitalName, String iswednesdayClinicTrue, String wednesdayClinicName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayworkType, String isthursdayHospitalTrue, String thursdayHospitalName, String isthursdayClinicTrue, String thursdayClinicName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayworkType, String isfridayHospitalTrue, String fridayHospitalName, String isfridayClinicTrue, String fridayClinicName, String fridayStartTime, String fridayEndTime)
+	{
+		//Monday
+		if(mondayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
+			if(MondayworkType.equalsIgnoreCase("hospital"))
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Hospital");
+				if(isMondayHospitalTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
+				}
+				else
+				{
+					System.out.println("Selected hospital type and mapped to default clinic.");
+				}
+			}
+			else
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Other Clinics");
+				if(isMondayClinicTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_ClinicType, mondayClinicName);
+				}
+				else
+				{
+					System.out.println("Selected clinic type and mapped to default clinic.");
+				}
+			}
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(mondayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(mondayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayTab);
+		}
+		else
+		{
+			System.out.println("Monday slots are not provided for this doctor");
+		} // Monday condition end
+		//Tuesday
+		if(tuesdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
+			if(tuesdayworkType.equalsIgnoreCase("hospital"))
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Hospital");
+				if(istuesdayHospitalTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, tuesdayHospitalName);
+				}
+				else
+				{
+					System.out.println("Selected hospital type and mapped to default clinic.");
+				}
+			}
+			else
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Other Clinics");
+				if(istuesdayClinicTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_ClinicType, tuesdayClinicName);
+				}
+				else
+				{
+					System.out.println("Selected clinic type and mapped to default clinic.");
+				}
+			}
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(tuesdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(tuesdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayTab);
+		}
+		else
+		{
+			System.out.println("Tuesday slots are not provided for this doctor");
+		} //Tuesday condition end
+		//Wednesday
+		if(wednesdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
+			if(wednesdayworkType.equalsIgnoreCase("hospital"))
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Hospital");
+				if(iswednesdayHospitalTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, wednesdayHospitalName);
+				}
+				else
+				{
+					System.out.println("Selected hospital type and mapped to default clinic.");
+				}
+			}
+			else
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Other Clinics");
+				if(iswednesdayClinicTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_ClinicType, wednesdayClinicName);
+				}
+				else
+				{
+					System.out.println("Selected clinic type and mapped to default clinic.");
+				}
+			}
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(wednesdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(wednesdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayTab);
+		}
+		else
+		{
+			System.out.println("Wednesday slots are not provided for this doctor");
+		} //Wednesday condition end
+		//Thursday
+		if(thursdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
+			if(thursdayworkType.equalsIgnoreCase("hospital"))
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Hospital");
+				if(isthursdayHospitalTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, thursdayHospitalName);
+				}
+				else
+				{
+					System.out.println("Selected hospital type and mapped to default clinic.");
+				}
+			}
+			else
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Other Clinics");
+				if(isthursdayClinicTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_ClinicType, thursdayClinicName);
+				}
+				else
+				{
+					System.out.println("Selected clinic type and mapped to default clinic.");
+				}
+			}
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(thursdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(thursdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayTab);
+		}
+		else
+		{
+			System.out.println("thursday slots are not provided for this doctor");
+		} //Thursday condition end
+		//Friday
+		if(fridayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
+			if(fridayworkType.equalsIgnoreCase("hospital"))
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Hospital");
+				if(isfridayHospitalTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, fridayHospitalName);
+				}
+				else
+				{
+					System.out.println("Selected hospital type and mapped to default clinic.");
+				}
+			}
+			else
+			{
+				Browser.selectbyID(Elements_NewAdminDoctors.workDays_workType, "Other Clinics");
+				if(isfridayClinicTrue.equalsIgnoreCase("true"))
+				{
+					Browser.selectbyID(Elements_NewAdminDoctors.workDays_ClinicType, fridayClinicName);
+				}
+				else
+				{
+					System.out.println("Selected clinic type and mapped to default clinic.");
+				}
+			}
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(fridayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(fridayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_SaturdayTab);
+		}
+		else
+		{
+			System.out.println("Friday slots are not provided for this doctor");
+		} //Friday condition end
+	} //work days info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add doctor's default clinic facilities on admin add doctor screen
+	 * @ Param			:  FacilityStatus,  AmbulanceStatus,  EmergencyStatus,  BikeParkStatus,  CarParkStatus,  PayCreditStatus,  PayDebitStatus,  PayCashStatus,  PayOnlineStatus,  PayChecqueStatus,  PremiumServiceStatus
+	 * @ return			: NA
+	 */
+	public void defaultFacilities_Enter(String FacilityStatus, String AmbulanceStatus, String EmergencyStatus, String BikeParkStatus, String CarParkStatus, String PayCreditStatus, String PayDebitStatus, String PayCashStatus, String PayOnlineStatus, String PayChecqueStatus, String PremiumServiceStatus)
+	{
+		if(FacilityStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.facilitiesTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.facilitiesTab_ambulance);
+			if(AmbulanceStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_ambulance)).click();
+			}
+			else
+			{
+				System.out.println("Ambulance facility is not checked");
+			}
+			if(EmergencyStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_emergency)).click();
+			}
+			else
+			{
+				System.out.println("Emergency facility is not checked");
+			}
+			if(BikeParkStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_bikePark)).click();
+			}
+			else
+			{
+				System.out.println("Bike parking facility is not checked");
+			}
+			if(CarParkStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_carPark)).click();
+			}
+			else
+			{
+				System.out.println("Car parking facility is not checked");
+			}
+			if(PayCreditStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentCredit)).click();
+			}
+			else
+			{
+				System.out.println("Credit payment facility is not checked");
+			}
+			if(PayDebitStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentDebit)).click();
+			}
+			else
+			{
+				System.out.println("Debit payment facility is not checked");
+			}
+			if(PayCashStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentCash)).click();
+			}
+			else
+			{
+				System.out.println("Cash payment facility is not checked");
+			}
+			if(PayOnlineStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentOnline)).click();
+			}
+			else
+			{
+				System.out.println("Online payment facility is not checked");
+			}
+			if(PayChecqueStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentChecque)).click();
+			}
+			else
+			{
+				System.out.println("Checque payment facility is not checked");
+			}
+			if(PremiumServiceStatus.equalsIgnoreCase("true"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab_paymentPremiumService)).click();
+			}
+			else
+			{
+				System.out.println("Premium service facility is not checked");
+			}
+		}
+		else
+		{
+			System.out.println("Other clinic facility is not given for this doctor");
+		}
+	} //Facility info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add doctor's default clinic address under address tab on admin add doctor screen
+	 * @ Param			: Country, State, City, completeAddress, Locality, pin, longitude, latitude
+	 * @ return			: NA
+	 */
+	public void addressInfo_Enter(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude)
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.addressTab_Country);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_Country)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.addressTab_CountrySelectID, Country);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_State)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.addressTab_StateSelectID, State);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_City)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.addressTab_CitySelectID, City);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_completeAddress)).sendKeys(completeAddress);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_locality)).sendKeys(Locality);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_pinCode)).sendKeys(pin);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_longitude)).sendKeys(longitude);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys(latitude);
+	} //Address info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click Submit button on admin add doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void clickSubmitDoctor()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
+		//Browser.CheckNotificationMessage("Doctor created successfully");
+	} //Save method end ***
 } //End of class
