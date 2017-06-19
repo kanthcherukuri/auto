@@ -30,7 +30,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.waitFortheID("emailAddress");
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(admin_user);
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(admin_password);
-		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();	
+		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctorLabel);
 	} //Admin sign in method end ***
 	
 	/*
