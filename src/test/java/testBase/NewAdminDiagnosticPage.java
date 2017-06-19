@@ -428,84 +428,84 @@ public class NewAdminDiagnosticPage
 	
 	
 	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
-		driver.findElement(By.id("additionInfotab")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.AdditionalInformation_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id='zoyDiagAIContact']/div/div[1]/button")).click();
+		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("contactPersonName")).sendKeys(Personname);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Name)).sendKeys(Personname);
 		Thread.sleep(1000);
-		driver.findElement(By.id("contactPersonPhone")).sendKeys(PersonPhone);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Phone)).sendKeys(PersonPhone);
 		Thread.sleep(1000);
-		driver.findElement(By.id("contactPersonEmail")).sendKeys(PersonEmail);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Email)).sendKeys(PersonEmail);
 		Thread.sleep(1000);
-		driver.findElement(By.id("contactPersonFax")).sendKeys(PersonFax);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Fax)).sendKeys(PersonFax);
 		Thread.sleep(1000);
-		driver.findElement(By.id("contacPersonSubmit")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Save)).click();
 		Thread.sleep(2000);
 	}
 	
 	
 	public void EnterMarkedasClosedInformation(String startdate,String enddate) throws Exception{
 		
-		driver.findElement(By.id("zyDCInfoMarkClosed")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyAddMarkAsClosed")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Add)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("startDate")).clear();
-		driver.findElement(By.id("startDate")).sendKeys(startdate);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_startdate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_startdate)).sendKeys(startdate);
 		Thread.sleep(1000);
-		driver.findElement(By.id("endDate")).clear();
-		driver.findElement(By.id("endDate")).sendKeys(enddate);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_enddate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_enddate)).sendKeys(enddate);
 		Thread.sleep(1000);
-		driver.findElement(By.id("isMarkActive")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Active)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("markAsCloseSubmit")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Save)).click();
 		Thread.sleep(2000);
 	}
 	
 	public void EnterOtherInformationdetails(String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline) throws Exception{
 		
-		driver.findElement(By.id("zyDCOtherInfo")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id='zoyDiagAIOtherInfo']/div[1]/div[1]/div/input")).sendKeys(discountoffered);
+		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.OtherInformation_Discountoffered)).sendKeys(discountoffered);
 		Thread.sleep(1000);
-		driver.findElement(By.id("isNABLAccredited")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_NABL)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("websiteURL")).sendKeys(websiteURL);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_websiteURL)).sendKeys(websiteURL);
 		Thread.sleep(1000);
-		driver.findElement(By.id("accreditationsReceived")).sendKeys(accreditations);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_accreditations)).sendKeys(accreditations);
 		Thread.sleep(1000);
-		driver.findElement(By.id("ngosAssociatedWith")).sendKeys(ngo);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_NGO)).sendKeys(ngo);
 		Thread.sleep(1000);
-		driver.findElement(By.id("reportOnlineDuration")).sendKeys(reportonline);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_reportOnlineduration)).sendKeys(reportonline);
 		Thread.sleep(1000);
-		driver.findElement(By.id("isOnlineAppointmentUsingZoylo")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_isOnline)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("isSelfCheckInSoftwareAppUsingZoylo")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_isSelfCheckIn)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("isReportOnline")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInforamtion_isReportOnline)).click();
 		Thread.sleep(2000);
 	}
 	
 	
 	public void EnterSocialInformation(String facebookurl,String googleurl,String linkedinurl,String twiterurl) throws Exception{
-		driver.findElement(By.id("zyDCInfoSocial")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocFBActive")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Facebook)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocFBUrl")).sendKeys(facebookurl);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_FaceboolURL)).sendKeys(facebookurl);
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocGPlusActive")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_GooglePlus)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocGPlusUrl")).sendKeys(googleurl);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_GooglePlusURL)).sendKeys(googleurl);
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocLindnActive")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_LinkedIn)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocLindnUrl")).sendKeys(linkedinurl);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_LinkedInURL)).sendKeys(linkedinurl);
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocTwtActive")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Twitter)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("zyDocTwtUrl")).sendKeys(twiterurl);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_TwitterURL)).sendKeys(twiterurl);
 		Thread.sleep(2000);
 	}
 	
@@ -513,78 +513,76 @@ public class NewAdminDiagnosticPage
 	public void EnterAddressDetails(String address, String country,String state,String city,String pincode,String locality,String landmark,
 			String longitude,String latitude) throws Exception{
 		
-		driver.findElement(By.id("addressTab")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressLine1")).sendKeys(address);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Line1)).sendKeys(address);
 		Thread.sleep(1000);
-		driver.findElement(By.id("select2-addressCountry-container")).click();
-		Browser.selectbyID("addressCountry", country);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_ClickOnCountry)).click();
+		Browser.selectbyID(Elements_NewAdminDiagnostic.Address_Country, country);
 		Thread.sleep(1000);
-		driver.findElement(By.id("select2-addressState-container")).click();
-		Browser.selectbyID("addressState", state);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_ClicOnState)).click();
+		Browser.selectbyID(Elements_NewAdminDiagnostic.Address_State, state);
 		Thread.sleep(1000);
-		driver.findElement(By.id("select2-addressCity-container")).click();
-		Browser.selectbyID("addressCity", city);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_ClickOnCity)).click();
+		Browser.selectbyID(Elements_NewAdminDiagnostic.Address_City, city);
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressPincode")).sendKeys(pincode);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Pincode)).sendKeys(pincode);
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressLocality")).sendKeys(locality);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Locality)).sendKeys(locality);
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressLandmark")).sendKeys(landmark);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Landmark)).sendKeys(landmark);
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressLocality")).sendKeys(locality);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_Longitude)).sendKeys(longitude);
 		Thread.sleep(1000);
-		driver.findElement(By.id("addressGPSLongitude")).sendKeys(longitude);
-		Thread.sleep(1000);
-		driver.findElement(By.id("addressGPSLatitude")).sendKeys(latitude);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Address_latitude)).sendKeys(latitude);
 		Thread.sleep(2000);
 	}
 	
 	
 	public void EnterTheFacilities() throws Exception{
 		
-		driver.findElement(By.id("facilitiesTab")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("debitCard")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_DebitCard)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("bikeParking")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Bike)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("creditCard")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_CreditCard)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("carParking")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_CarParking)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("ambulance")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_ambulance)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("proBono")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_proBono)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("onlinePayment")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_onlinePayment)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("premium")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Premium)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("cheque")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Cheque)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("emergency")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Emergency)).click();
 		Thread.sleep(2000);
 	}
 	
 	
 	public void EnterDetailsForSEO(String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
 		
-		driver.findElement(By.id("seoTab")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Menu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("seoTitle")).sendKeys(SEOtitle);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Title)).sendKeys(SEOtitle);
 		Thread.sleep(1000);
-		driver.findElement(By.id("seoDescription")).sendKeys(SEOdesc);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Desc)).sendKeys(SEOdesc);
 		Thread.sleep(1000);
-		driver.findElement(By.id("seoKeywords")).sendKeys(SEOkeywords);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Keywords)).sendKeys(SEOkeywords);
 		Thread.sleep(1000);
-		driver.findElement(By.id("seoUrl")).sendKeys(SEOurl);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_URL)).sendKeys(SEOurl);
 		Thread.sleep(2000);
 		
 	}
 	
 	public void SaveDiagnosticDetails() throws Exception{
-		driver.findElement(By.id("addDiagnosticSubmit")).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.AddDiagnostic_Submit)).click();
 		Thread.sleep(2000);
 	}
 	
