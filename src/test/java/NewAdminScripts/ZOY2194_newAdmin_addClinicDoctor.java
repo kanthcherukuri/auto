@@ -1,5 +1,7 @@
 package NewAdminScripts;
 
+import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -51,6 +53,7 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
 		driver.get(loginPage_Url);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
 	@AfterClass
