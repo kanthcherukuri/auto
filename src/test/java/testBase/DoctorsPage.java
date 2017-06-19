@@ -183,16 +183,16 @@ public class DoctorsPage  {
 	
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
 
-		driver.findElement(By.id(Elements_Doctors.patienticon)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 		WebDriverWait wait = new WebDriverWait(driver, 8000);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
 		Thread.sleep(3000);
-		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-		String schedule=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+		String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+		String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Rescheduled")){
 			System.out.println("Appointment Rescheduled Is Sucessfully Verified");
@@ -262,16 +262,16 @@ public class DoctorsPage  {
 	}
 		
 	public void CheckCancelAppointmentInPatientScreen(String firstname,String lastname,String email) throws Exception	{
-		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver, 100);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patientsearchbox)));
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patient_searchbox)));
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 		Thread.sleep(5000);
-		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-		String status=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+		String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+		String status=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Cancelled By Provider")){
 			System.out.println("Appointment is Sucessfully Cancelled");
@@ -284,19 +284,19 @@ public class DoctorsPage  {
 
 
 	public void CheckPatientScreenSendNotificationOfAllTab(String firstname,String lastname,String email) throws Exception{
-		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 		Thread.sleep(5000);
 		// Clicking on all Tab in Patient Screen  
-		driver.findElement(By.xpath(Elements_Doctors.alltab)).click();
+		driver.findElement(By.xpath(Elements_Doctors.patient_alltab)).click();
 		System.out.println("Clicked on all tab");
 		Thread.sleep(3000);
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);	 
-	 	driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
-		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-		String schedule=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);	 
+	 	driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
+		String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+		String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-		driver.findElement(By.xpath(Elements_Doctors.sendnotification)).click();
+		driver.findElement(By.xpath(Elements_Doctors.patient_sendnotification)).click();
 		System.out.println("Sucessfully clicked on Send Notification button");
 		Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
 
@@ -680,7 +680,7 @@ public class DoctorsPage  {
 
 public void CheckPatientScreenSearchFunctionality(String firstname,String lastname,String mobile,String email) throws Exception{
 	
-	driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+	driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 	Thread.sleep(10000);
 	driver.findElement(By.name("all")).click();
 	Thread.sleep(2000);
@@ -690,13 +690,13 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 topping[1]=mobile;
 	 topping[2]=email;
 	 for(int i=0;i<=topping.length-1;i++){
-		 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).clear();
+		 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).clear();
 		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(topping[i]);	 
-		 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+		 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(topping[i]);	 
+		 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		 Thread.sleep(3000);
-		String name= driver.findElement(By.xpath(Elements_Doctors.patientgetfullname)).getText();
-		String schedule=driver.findElement(By.xpath(Elements_Doctors.patientgetstatus)).getText();
+		String name= driver.findElement(By.xpath(Elements_Doctors.patient_getfullname)).getText();
+		String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).getText();
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
 			System.out.println("Appointment Created User Had Available");
 		}else{
@@ -873,18 +873,18 @@ public void cancelSundayAppt() throws InterruptedException
 }
 
 public void CheckPateintScreenForCheckInFunctionality(String firstname,String lastname,String email) throws InterruptedException{
-	driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+	driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 	Thread.sleep(10000);
 	driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 	Thread.sleep(2000);
-	 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);	 
-	 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+	 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);	 
+	 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 	 String fullname=firstname+" "+lastname;
 	 Thread.sleep(3000);
-	 String name= driver.findElement(By.xpath(Elements_Doctors.patientgetfullname)).getText();
-	 String schedule=driver.findElement(By.xpath(Elements_Doctors.patientgetstatus)).getText();
+	 String name= driver.findElement(By.xpath(Elements_Doctors.patient_getfullname)).getText();
+	 String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).getText();
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-			driver.findElement(By.xpath(Elements_Doctors.patientgetstatus)).click();
+			driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).click();
 			Thread.sleep(5000);
 		}
 		}

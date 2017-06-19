@@ -52,18 +52,18 @@ public DoctorsPage DoctorsPage;
 		  
 		  DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem); 
 		  Thread.sleep(2000);
-		  driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		  driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 			Thread.sleep(5000);
-			driver.findElement(By.xpath(Elements_Doctors.alltab)).click();
+			driver.findElement(By.xpath(Elements_Doctors.patient_alltab)).click();
 			System.out.println("Clicked on all tab");
 			Thread.sleep(3000);
-			driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);	 
-		 	driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
-			String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-			String schedule=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+			driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);	 
+		 	driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
+			String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+			String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 			String fullname=firstname+" "+lastname;
 			if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-			driver.findElement(By.xpath(Elements_Doctors.sendnotification)).click();
+			driver.findElement(By.xpath(Elements_Doctors.patient_sendnotification)).click();
 			System.out.println("Sucessfully clicked on Send Notification button");
 			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
 

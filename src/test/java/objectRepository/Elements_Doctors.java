@@ -47,23 +47,22 @@ public class Elements_Doctors  {
 				public static String morningfirstcell;
 				public static String changeslot;
 				public static String topnotification;
-				public static String patienticon;
-				public static String patientsearchbox;
+				public static String patient_searchbox;
 				public static String patientallmenu;
 				public static String patientallmenuname, clickoncancelmenu, selectcancelreason, cancelconfirmation, eveningfirstcellsize;
 				
 				
 				//Patients screen 
 				
-				public static String patienticonid;
-				public static String alltab;
-				public static String alltabdivsize;
-				public static String sendnotficationbutton;
-				public static String sendnotification;
-				public static String alltabname;
-				public static String alltabschedule;
-				public static String todaytabname;
-				public static String todaytabschedule, patientgetfullname,patientgetstatus;
+				public static String patient_id;
+				public static String patient_alltab;
+				public static String patient_alltabdivsize;
+				public static String patient_sendnotficationbutton;
+				public static String patient_sendnotification;
+				public static String patient_alltabfullname;
+				public static String patient_alltabschedule;
+				public static String patient_todaytabname;
+				public static String patient_todaytabschedule,patient_getfullname,patient_getstatus;
 				
 				//Checkin variables
 				public static String clickoncheckinbutton;
@@ -271,8 +270,7 @@ public class Elements_Doctors  {
 			 morningfirstcell="//*[@id='tab-1']/ul/li[1]";
 			 changeslot="//*[@id='confrimSlotChange']";
 			 topnotification="html/body/div[6]/div";
-			 patienticon="patients_patientsIcon";
-			 patientsearchbox="searchPatientsList";
+			 patient_searchbox="searchPatientsList";
 			 patientallmenu=" html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
 			 patientallmenuname="all";
 			 clickoncancelmenu="cancel";
@@ -281,17 +279,17 @@ public class Elements_Doctors  {
 			 
 			 //Patient screen send notification
 		 
-			 patienticonid="patients";
-			 alltab="html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
-			 alltabdivsize="//*[@id='all']/div";
-			 sendnotficationbutton="//button[text()='Send Notification']";
-			sendnotification="//*[@id='resendNotification']/button";
-			alltabname="//*[@id='all']/div[1]/div[1]/div[2]/div/h1/span";
-			alltabschedule="//*[@id='all']/div[1]/div[2]/p[1]";
-			todaytabname="//*[@id='today']/div/div[1]/div[2]/div/h1/span";
-			todaytabschedule="//*[@id='today']/div/div[2]/p[1]";
-			patientgetfullname="//*[@id='all']/div[1]/div[1]/div[2]/div/h1/span";
-			patientgetstatus="//*[@id='all']/div[1]/div[2]/p[1]";
+			 patient_id="patients";
+			 patient_alltab="html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
+			 patient_alltabdivsize="//*[@id='all']/div";
+			 patient_sendnotficationbutton="//button[text()='Send Notification']";
+			patient_sendnotification="//*[@id='resendNotification']/button";
+			patient_alltabfullname="//*[@id='all']/div[1]/div[1]/div[2]/div/h1/span";
+			patient_alltabschedule="//*[@id='all']/div[1]/div[2]/p[1]";
+			patient_todaytabname="//*[@id='today']/div/div[1]/div[2]/div/h1/span";
+			patient_todaytabschedule="//*[@id='today']/div/div[2]/p[1]";
+			patient_getfullname="//*[@id='all']/div[1]/div[1]/div[2]/div/h1/span";
+			patient_getstatus="//*[@id='all']/div[1]/div[2]/p[1]";
 			
 			
 			//Checkin locators

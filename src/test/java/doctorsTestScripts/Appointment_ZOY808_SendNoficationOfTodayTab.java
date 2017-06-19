@@ -52,16 +52,16 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 	 		
 	 		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 	 		Thread.sleep(1000);
-	 		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+	 		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 			Thread.sleep(3000);	
-			driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);	 
-		 	driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+			driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);	 
+		 	driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		 	Thread.sleep(1000);
-		 	String name=driver.findElement(By.xpath(Elements_Doctors.todaytabname)).getText();
-		 	String schedule=driver.findElement(By.xpath(Elements_Doctors.todaytabschedule)).getText();
+		 	String name=driver.findElement(By.xpath(Elements_Doctors.patient_todaytabname)).getText();
+		 	String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_todaytabschedule)).getText();
 		 	String fullname=firstname+" "+lastname;
 		 	if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-		 		driver.findElement(By.xpath(Elements_Doctors.sendnotification)).click();
+		 		driver.findElement(By.xpath(Elements_Doctors.patient_sendnotification)).click();
 		 		System.out.println("Sucessfully clicked on Send Notification button");
 		 		Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
 		 		Thread.sleep(2000);

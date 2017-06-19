@@ -65,16 +65,16 @@ public void doctorappointment(String RunMode,String firstname,String lastname,St
 		Thread.sleep(2000);
 		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver, 100);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patientsearchbox)));
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
-		driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patient_searchbox)));
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 		Thread.sleep(5000);
-		String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-		String status=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+		String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+		String status=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&&status.equalsIgnoreCase("Cancelled By Provider")){
 			System.out.println("Appointment is Sucessfully Cancelled");

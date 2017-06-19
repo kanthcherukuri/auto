@@ -51,7 +51,7 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 	public void CheckSearchFunctionalityAllTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.patienticonid)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 		Thread.sleep(10000);
 		driver.findElement(By.name("all")).click();
 		Thread.sleep(2000);
@@ -61,13 +61,13 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 		 topping[1]=mobile;
 		 topping[2]=email;
 		 for(int i=0;i<=topping.length-1;i++){
-			 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).clear();
+			 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).clear();
 			 Thread.sleep(1000);
-			 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(topping[i]);	 
-			 driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+			 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(topping[i]);	 
+			 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 			 Thread.sleep(3000);
-			String name= driver.findElement(By.xpath(Elements_Doctors.patientgetfullname)).getText();
-			String schedule=driver.findElement(By.xpath(Elements_Doctors.patientgetstatus)).getText();
+			String name= driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+			String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 			if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
 				System.out.println("Appointment Created User Had Available");
 			}else{
