@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import objectRepository.Elements_NewAdminDoctors;
-import objectRepository.Elements_Recipients;
 
 public class NewAdminDoctorsPage extends LoadPropMac
 {
@@ -27,11 +26,11 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void adminSignIn (String username, String password)
 	{
-		Browser.waitFortheID("emailAddress");
-		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(admin_user);
-		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(admin_password);
-		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctorLabel);
+		Browser.waitFortheID(Elements_NewAdminDoctors.loginemail);
+		driver.findElement(By.id(Elements_NewAdminDoctors.loginemail)).sendKeys(username);
+		driver.findElement(By.id(Elements_NewAdminDoctors.loginpassword)).sendKeys(password);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.loginbutton)).click();	
+		Browser.waitFortheID("tabs");
 	} //Admin sign in method end ***
 	
 	/*
@@ -42,10 +41,10 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void adminUserSignIn(String adminUserName, String adminUserPassword)
 	{
-		Browser.waitFortheID("emailAddress");
-		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(adminuser_user);
-		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(adminuser_password);
-		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.loginemail);
+		driver.findElement(By.id(Elements_NewAdminDoctors.loginemail)).sendKeys(adminUserName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.loginpassword)).sendKeys(adminUserPassword);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.loginbutton)).click();
 	} //Admin user sign in method end ***
 	
 	/*
@@ -691,5 +690,5 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
 		//Browser.CheckNotificationMessage("Doctor created successfully");
-	} //Save method end ***
+	}
 } //End of class

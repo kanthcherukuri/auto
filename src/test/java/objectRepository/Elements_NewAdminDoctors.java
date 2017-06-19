@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Elements_NewAdminDoctors {
 
 public static WebDriver driver;
+public static String loginemail, loginpassword, loginbutton;
 public static String doctorLabel, addDoctorButton;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
@@ -33,6 +34,9 @@ public static String doctorSave, doctorCancel;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
+		loginemail="emailAddress"; //ID
+		loginpassword="password"; //ID
+		loginbutton="//button[text()='Login']"; //XPATH
 		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
 		addDoctorButton="add"; //ID
 		firstName="firstName"; //ID
