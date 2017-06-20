@@ -614,14 +614,37 @@ public class RecipientPage  {
 		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
 		driver.findElement(By.xpath("//span[3]")).click();
 		Thread.sleep(6000);
-		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
-		driver.findElement(By.id("termsAndConditions")).click();
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();  // To check the 3rd Option of promo code
+		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		//Browser.waitTill(60);
-		Thread.sleep(20000);
+		Thread.sleep(15000);
 		System.out.println("Payment done");
 	}
+	
+	//New Promo Page
+		public void UpcomingAppointment(String APID , String Action) throws InterruptedException{
+
+			Browser.waitFortheID("upcmng");
+			driver.findElement(By.id("aptSearch")).click();
+			driver.findElement(By.id("aptSearch")).sendKeys(APID);
+			Thread.sleep(5000);
+			Browser.waitFortheElementXpath("(//div[@class='zy-diagno-zy-apt-chng']//div[@class='zyBookApmptId' and contains(.,'"+APID+"')])");	
+			//driver.findElement(By.xpath("//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
+		if(Action.equals("Reschedule")){
+			System.out.println("Reshedule Action Is Executed");
+			driver.findElement(By.xpath("(//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col' and contains(.,'Reschedule Appointment')])")).click();
+		}else if (Action.equals("Cancel")){
+			System.out.println("Cancelled Action Is Executed");
+			driver.findElement(By.xpath("(//div[@class='menu_links appt-cancel apt-doc-col'])[1]")).click();
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
+			Thread.sleep(2000);
+		}
+			
+			
+		}
 	
 	/*   
 	 *  @Author      : Sagar Sen
@@ -634,13 +657,13 @@ public class RecipientPage  {
 		Browser.waitFortheID("promocodeValue");
 		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
 		driver.findElement(By.xpath("//span[3]")).click();
-		Thread.sleep(10000);
-		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();
-		driver.findElement(By.id("termsAndConditions")).click();
+		Thread.sleep(6000);
+		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();  // To check the 3rd Option of promo code
+		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		//Browser.waitTill(60);
-		Thread.sleep(20000);
+		Thread.sleep(15000);
 		System.out.println("Payment done");
 	}
 	
@@ -684,6 +707,7 @@ public class RecipientPage  {
 
 
 	public void goToAppointments() throws InterruptedException{
+		
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 		Thread.sleep(5000);
 		System.out.println("Clicked On My Account");

@@ -17,11 +17,7 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
 
-*/
 public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
@@ -71,9 +67,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				String APID=Browser.getAppointmentID();
 				
 				RecipientPage.recipientLogout();
-				
-
-				Browser.openUrl(loginPage_Url);			
+			
 				//Verify Doctor Login with valid details
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 				//Browser.waitTill(60);

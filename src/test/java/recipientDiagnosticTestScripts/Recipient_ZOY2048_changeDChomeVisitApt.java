@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -37,7 +38,7 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 		Browser.waitFortheElementXpath("(.//*[@id='tests_search'])[2]"); //search bar xpath
 		RecipientPage.selectDChomeVisitSlots();
 		RecipientPage.confirmAppointmentOnDiagnostics();
-		RecipientPage.makePaymentforDC();
+		RecipientPage.makePayment();
 		Browser.waitFortheElementXpath("//h5[contains(., 'Thank you for booking appointment at Diagnosticszoylo through Zoylo')]");
 		System.out.println("Home visit appointment is successfully booked");
 		String aptID=driver.findElement(By.xpath("(//div[@class='book-dtbox']//h3)[1]")).getText();
@@ -50,8 +51,11 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 		Browser.waitFortheID("upcmng");
 		driver.findElement(By.id("aptSearch")).click();
 		driver.findElement(By.id("aptSearch")).sendKeys(lastWord);
-		Browser.waitforTextbyxpath("(//div[@class='zy-diagno-zy-apt-chng']//span)[2]", lastWord);
-		driver.findElement(By.xpath("//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
+		Thread.sleep(5000);
+	/*    String chkAppointmentIDInUpcoming=driver.findElement(By.xpath("(//div[@class='zy-diagno-zy-apt-chng']//div[@class='zyBookApmptId'])")).getText();
+	    System.out.println("AP id="+chkAppointmentIDInUpcoming);
+	    Assert.assertTrue(chkAppointmentIDInUpcoming.contains("-"+aptID));*/
+		driver.findElement(By.xpath("//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
 		Browser.waitforTextbyxpath(Elements_Recipients.dcNameHolder, dcName);
 		Browser.waitFortheElementXpath("//div[@class='zy-rec-diag-hm-add-title']"); //Address heading
 		driver.findElement(By.xpath(Elements_Recipients.recipient_firstHomeAddress)).click();

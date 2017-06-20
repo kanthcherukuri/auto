@@ -184,23 +184,23 @@ public class TestUtils {
 				  
 				}
 		//Wait for the Screen Validation
-		public void verifyNotificationMessage(String ExpectedErrorMesg ){
-					
+		public void verifyNotificationMessage(String ExpectedErrorMesg ) throws InterruptedException{
+			Thread.sleep(2000);
 			WebDriverWait wait = (new WebDriverWait(driver, 1000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 			System.out.println("ActualError="+ActualError);			    
 			Assert.assertEquals(ActualError, ExpectedErrorMesg);
-			
-	
+
 						}	
+		
 		//Wait for text to be present by xpath
 		public void waitforTextbyxpath(String xpath, String value)
 		{
 			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
-
+		
 		}
 		
 		//Wait for text to be present by ID

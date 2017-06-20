@@ -69,19 +69,10 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				Browser.openUrl(loginPage_Url);
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
-				//Browser.scrollbyxpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col'])[last()]");
-				Thread.sleep(2000);
-				
-				driver.findElement(By.xpath("(//span[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']/i)[last()]")).click();
-				Thread.sleep(5000);
-				driver.findElement(By.xpath("//a[contains(@href, '#sp-nightslots')]")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.xpath("(//div[@id='sp-nightslots']/ul/li[contains(@class,'timeSlot sp-available-slots')])[1]")).click();
-				Thread.sleep(2000);
-				String RerechangeMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-				System.out.println("RescheduleMesg"+RerechangeMesg);
-				Assert.assertEquals(RerechangeMesg, "Your appointment slot has been successfully CHANGED");
-				Browser.openUrl(loginPage_Url);
+				//Rescheduling the appointment	
+				RecipientPage.UpcomingAppointment(APID, "Reschedule");
+				Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[4]");							 
+				Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
 				RecipientPage.recipientLogout();
 				
 				
