@@ -1339,7 +1339,7 @@ public class DiagnosticPage {
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).click();
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).clear();
   		Thread.sleep(2000);
-  		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).sendKeys("10");
+  		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).sendKeys("2");
   		Thread.sleep(2000);
   		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).click();
   		Thread.sleep(6000);

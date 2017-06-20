@@ -53,7 +53,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  Thread.sleep(1000);
 		  DoctorsPage.VerifyCheckINFunctionality();
 		  Thread.sleep(2000);
-		  driver.findElement(By.xpath(Elements_Doctors.clickonfollowupbutton)).click();
+		  driver.findElement(By.xpath(Elements_Doctors.patient_clickonfollowupbutton)).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();
 			Thread.sleep(1000);
@@ -67,7 +67,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys("Diabetic");
 			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.savefollowupappointment)).click();
+			driver.findElement(By.id(Elements_Doctors.patient_savefollowupappointment)).click();
 			Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 			String fullname=firstname+" "+lastname;
 			Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name:"+fullname);

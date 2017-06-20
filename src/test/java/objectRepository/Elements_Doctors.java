@@ -65,21 +65,21 @@ public class Elements_Doctors  {
 				public static String patient_todaytabschedule,patient_getfullname,patient_getstatus;
 				
 				//Checkin variables
-				public static String clickoncheckinbutton;
-				public static String clickonstartconsulationbutton;
-				public static String diagnosis;
-				public static String prognosis;
-				public static String saveproblems;
-				public static String height;
-				public static String heightinches;
-				public static String weight;
-				public static String savevitals;
-				public static String druginstructions;
-				public static String strenght;
-				public static String medicinetime;
-				public static String saveprescription,consultationnotes,savenotes,generatereciept,clickonrecieptdownload,selectreciepttodownload;
-				public static String clickonprescription, selectprescription, selectemailno, clickoncheckoutbutton, clickonfollowupbutton;
-				public static String savefollowupappointment;
+				public static String patient_clickoncheckinbutton;
+				public static String patient_clickonstartconsulationbutton;
+				public static String patient_diagnosis;
+				public static String patient_prognosis;
+				public static String patient_saveproblems;
+				public static String patient_height;
+				public static String patient_heightinches;
+				public static String patient_weight;
+				public static String patient_savevitals;
+				public static String patient_druginstructions;
+				public static String patient_strenght;
+				public static String patient_medicinetime;
+				public static String patient_saveprescription,patient_consultationnotes,patient_savenotes,patient_generatereciept,patient_clickonrecieptdownload,patient_selectreciepttodownload;
+				public static String patient_clickonprescription, patient_selectprescription, patient_selectemailno, patient_clickoncheckoutbutton, patient_clickonfollowupbutton;
+				public static String patient_savefollowupappointment;
 				
 				//Dashboard variables
 				
@@ -124,8 +124,8 @@ public class Elements_Doctors  {
 	 
 	 //Hospital Tab
 	 
-	 public static String ClickOnHospitalTab, HospitalClickAddWorkTimingsButton, HospitalClickOnToggle, HospitalStarttime , HospitalEndTime;
-	 public static String HospitalSaveWorkTimings, HospitalDeleteWorkTimings, HospitalsSundayMenu;
+	 public static String Schedule_Hospital_ClickOnHospitalTab, Schedule_Hospital_ClickAddWorkTimingsButton, Schedule_Hospital_ClickOnToggle, Schedule_Hospital_Starttime , Schedule_Hospital_EndTime;
+	 public static String Schedule_Hospital_SaveWorkTimings, Schedule_Hospital_DeleteWorkTimings, Schedule_Hospital_SundayMenu;
 
 	 public static String aminitiesTab;
 	 public static String aminitiesAmbulance;
@@ -154,14 +154,14 @@ public class Elements_Doctors  {
 		
 		//Schedule Hospital Tab
 		
-		ClickOnHospitalTab="//*[@id='cd-12']";
-		HospitalClickAddWorkTimingsButton="//i[@class='fa fa-plus-circle slot_hospital_add']";
-		HospitalClickOnToggle="//span[@class='sp-doc-clinic-workday-switch-switch']";
-		HospitalStarttime="//input[@class='slot-start-hos']";
-		HospitalEndTime="//input[@class='slot-end-hos']";
-		HospitalSaveWorkTimings="//span[@class='sp-doc-hosp-schd-save']";
-		HospitalDeleteWorkTimings="(//*[@id='0'])[2]";
-		HospitalsSundayMenu="cd-26";
+		Schedule_Hospital_ClickOnHospitalTab="//*[@id='cd-12']";
+		Schedule_Hospital_ClickAddWorkTimingsButton="//i[@class='fa fa-plus-circle slot_hospital_add']";
+		Schedule_Hospital_ClickOnToggle="//span[@class='sp-doc-clinic-workday-switch-switch']";
+		Schedule_Hospital_Starttime="//input[@class='slot-start-hos']";
+		Schedule_Hospital_EndTime="//input[@class='slot-end-hos']";
+		Schedule_Hospital_SaveWorkTimings="//span[@class='sp-doc-hosp-schd-save']";
+		Schedule_Hospital_DeleteWorkTimings="(//*[@id='0'])[2]";
+		Schedule_Hospital_SundayMenu="cd-26";
 	 
 		//Add clinic
 		clickPlusMore="profile-flip";
@@ -293,30 +293,30 @@ public class Elements_Doctors  {
 			
 			
 			//Checkin locators
-			clickoncheckinbutton="checkIn";
-			clickonstartconsulationbutton="startConsultation";
-			 diagnosis="diagnosis";
-			 prognosis="prognosis";
-			 saveproblems="saveProblems";
-			 height="heightFeet";
-			 heightinches="heightInches";
-			 weight="weight";
-			 savevitals="saveVitals";
-			 druginstructions="drugAndInstructions";
-			 strenght="strength";
-			 medicinetime="//*[@id='tab-pres']/div[1]/div[2]/div[3]/div[2]/span/input";
-			 saveprescription="savePrescription";
-			 consultationnotes="consultationNotes";
-			 savenotes="saveNotes";
-			 generatereciept="generateReceipt";
-			 clickonrecieptdownload="html/body/div[7]/div[3]/div/div[2]/div[2]/div[1]/button";
-			 selectreciepttodownload="//*[@id='presDownload']";
-			 clickonprescription="html/body/div[7]/div[3]/div/div[2]/div[2]/div[2]/button";
-			 selectprescription="//*[@id='prescriptionPdfShare']";
-			 selectemailno="//*[@id='sp-patient-sharepopup']/div/div/div/div/div/span[1]";
-			 clickoncheckoutbutton="checkOut";
-			 clickonfollowupbutton="//button[contains(text(),'Follow Up')]";
-			 savefollowupappointment="saveFollowUpAppiontment";
+			patient_clickoncheckinbutton="checkIn";
+			patient_clickonstartconsulationbutton="startConsultation";
+			 patient_diagnosis="diagnosis";
+			 patient_prognosis="prognosis";
+			 patient_saveproblems="saveProblems";
+			 patient_height="heightFeet";
+			 patient_heightinches="heightInches";
+			 patient_weight="weight";
+			 patient_savevitals="saveVitals";
+			 patient_druginstructions="drugAndInstructions";
+			 patient_strenght="strength";
+			 patient_medicinetime="//*[@id='tab-pres']/div[1]/div[2]/div[3]/div[2]/span/input";
+			 patient_saveprescription="savePrescription";
+			 patient_consultationnotes="consultationNotes";
+			 patient_savenotes="saveNotes";
+			 patient_generatereciept="generateReceipt";
+			 patient_clickonrecieptdownload="html/body/div[7]/div[3]/div/div[2]/div[2]/div[1]/button";
+			 patient_selectreciepttodownload="//*[@id='presDownload']";
+			 patient_clickonprescription="html/body/div[7]/div[3]/div/div[2]/div[2]/div[2]/button";
+			 patient_selectprescription="//*[@id='prescriptionPdfShare']";
+			 patient_selectemailno="//*[@id='sp-patient-sharepopup']/div/div/div/div/div/span[1]";
+			 patient_clickoncheckoutbutton="checkOut";
+			 patient_clickonfollowupbutton="//button[contains(text(),'Follow Up')]";
+			 patient_savefollowupappointment="saveFollowUpAppiontment";
 			 
 			 
 			 //Dashboard variables

@@ -38,48 +38,48 @@ public class Appointment_ZOY2140_checkOutScenraio extends LoadPropMac
 		doctorsPage.DoctorAppointmentBookingForToday(firstName, lastName, Mobile, mail, prob);
 		Thread.sleep(2000);
 		doctorsPage.CheckPateintScreenForCheckInFunctionality(firstName, lastName, mail);
-		driver.findElement(By.id(Elements_Doctors.clickoncheckinbutton)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_clickoncheckinbutton)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.clickonstartconsulationbutton)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_clickonstartconsulationbutton)).click();
 		Browser.waitFortheID("prognosis");
-		driver.findElement(By.id(Elements_Doctors.prognosis)).sendKeys("Normal");
-		driver.findElement(By.id(Elements_Doctors.diagnosis)).sendKeys("Done");
-		driver.findElement(By.id(Elements_Doctors.saveproblems)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_prognosis)).sendKeys("Normal");
+		driver.findElement(By.id(Elements_Doctors.patient_diagnosis)).sendKeys("Done");
+		driver.findElement(By.id(Elements_Doctors.patient_saveproblems)).click();
 		Browser.CheckNotificationMessage("Saved successfully");
-		driver.findElement(By.id(Elements_Doctors.height)).sendKeys("5");
+		driver.findElement(By.id(Elements_Doctors.patient_height)).sendKeys("5");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.heightinches)).sendKeys("9");
+		driver.findElement(By.id(Elements_Doctors.patient_heightinches)).sendKeys("9");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.weight)).sendKeys("83");
+		driver.findElement(By.id(Elements_Doctors.patient_weight)).sendKeys("83");
 		Thread.sleep(3000);
-		driver.findElement(By.id(Elements_Doctors.savevitals)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_savevitals)).click();
 		Browser.CheckNotificationMessage("Saved successfully");
-		driver.findElement(By.id(Elements_Doctors.druginstructions)).sendKeys("Crocin");
+		driver.findElement(By.id(Elements_Doctors.patient_druginstructions)).sendKeys("Crocin");
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Doctors.strenght)).sendKeys("2");
+		driver.findElement(By.id(Elements_Doctors.patient_strenght)).sendKeys("2");
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Doctors.medicinetime)).click();
+		driver.findElement(By.xpath(Elements_Doctors.patient_medicinetime)).click();
 		Thread.sleep(3000);
-		driver.findElement(By.id(Elements_Doctors.saveprescription)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_saveprescription)).click();
 		Browser.CheckNotificationMessage("Saved successfully");
-		driver.findElement(By.id(Elements_Doctors.consultationnotes)).sendKeys("Normal");
+		driver.findElement(By.id(Elements_Doctors.patient_consultationnotes)).sendKeys("Normal");
 		Thread.sleep(4000);
-		driver.findElement(By.id(Elements_Doctors.savenotes)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_savenotes)).click();
 		Browser.CheckNotificationMessage("Saved successfully");
 		Thread.sleep(6000);
-		driver.findElement(By.id(Elements_Doctors.generatereciept)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_generatereciept)).click();
 		Browser.CheckNotificationMessage("Bill generated successfully");
 		Thread.sleep(2000);
 		driver.findElement(By.id("notes")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.consultationnotes)).clear();
-		driver.findElement(By.id(Elements_Doctors.consultationnotes)).sendKeys("Normal edit");
+		driver.findElement(By.id(Elements_Doctors.patient_consultationnotes)).clear();
+		driver.findElement(By.id(Elements_Doctors.patient_consultationnotes)).sendKeys("Normal edit");
 		Thread.sleep(3000);
-		driver.findElement(By.id(Elements_Doctors.savenotes)).click();
+		driver.findElement(By.id(Elements_Doctors.patient_savenotes)).click();
 		Thread.sleep(3000);
-		if(driver.findElements(By.id(Elements_Doctors.clickoncheckoutbutton)).size()!=0)
+		if(driver.findElements(By.id(Elements_Doctors.patient_clickoncheckoutbutton)).size()!=0)
 		{
-			driver.findElement(By.id(Elements_Doctors.clickoncheckoutbutton)).click();
+			driver.findElement(By.id(Elements_Doctors.patient_clickoncheckoutbutton)).click();
 		}
 		else
 		{
