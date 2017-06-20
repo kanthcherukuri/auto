@@ -288,7 +288,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: vacationStatus, vacationStartDate
 	 * @ return			: NA
 	 */
-	public void practiceDetails_Vacation_Enter(String vacationStatus, String vacationStartDate, String vacationEndDate)
+	public void practiceDetails_Vacation_Enter(String vacationStatus, String vacationStartDate, String vacationEndDate) throws Exception
 	{
 		if(vacationStatus.equalsIgnoreCase("true"))
 		{
@@ -296,17 +296,20 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			Browser.waitFortheElementXpath(Elements_NewAdminDoctors.vacationAddButton);
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.vacationAddButton)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.vacationStartDate);
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationStartDate)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.vacationStartDate)).clear();
 			driver.findElement(By.id(Elements_NewAdminDoctors.vacationStartDate)).sendKeys(vacationStartDate);
+			driver.findElement(By.id(Elements_NewAdminDoctors.vacationEndDate)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.vacationEndDate)).clear();
 			driver.findElement(By.id(Elements_NewAdminDoctors.vacationEndDate)).sendKeys(vacationEndDate);
 			driver.findElement(By.id(Elements_NewAdminDoctors.vacationActiveCheckBox)).click();
-			driver.findElement(By.id(Elements_NewAdminDoctors.vacationSave)).click();
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.vacationSave)).click();
 		}
 		else
 		{
 			System.out.println("There is no vacation set for this doctor");
 		}
+		Thread.sleep(1500);
 	} //Practice vacation method end ***
 	
 	/*
@@ -325,8 +328,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			Browser.waitFortheID(Elements_NewAdminDoctors.hospitalAddHeading);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpName)).click();
 			Thread.sleep(3000);
-			Browser.actionbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
-			//Browser.selectbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			//Browser.actionbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			Browser.selectbyID(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpConsultationFee)).sendKeys(hospitalFee);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpzoyloCharges)).sendKeys(zfcForHospital);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpActiveCheckBox)).click();
@@ -350,7 +353,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.galleryTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.galleryUploadButton);
 		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(imageURL);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	} //Practice gallery info method end ***
 	
 	/*
@@ -397,6 +400,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(mondayEndTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayTab);
 		}
 		else
@@ -438,6 +442,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(tuesdayEndTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayTab);
 		}
 		else
@@ -479,7 +484,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(wednesdayEndTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
-			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayTab);
+			Thread.sleep(1500);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayTab);
 		}
 		else
 		{
@@ -520,6 +526,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(thursdayEndTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayTab);
 		}
 		else
@@ -666,7 +673,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		}
 		else
 		{
-			System.out.println("Other clinic facility is not given for this doctor");
+			System.out.println("Default clinic facility is not given for this doctor");
 		}
 	} //Facility info method end ***
 	
@@ -702,6 +709,6 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void clickSubmitDoctor()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
-		//Browser.CheckNotificationMessage("Doctor created successfully");
+		Browser.CheckNotificationMessage("Doctor created successfully");
 	}
 } //End of class

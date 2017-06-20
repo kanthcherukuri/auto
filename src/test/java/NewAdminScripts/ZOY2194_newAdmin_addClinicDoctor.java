@@ -34,11 +34,12 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 		admin.practiceDetails_otherClinic_Enter(ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrClinicState, othrClinicCity, othrClinicAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayCashStatus, othrClincPayOnlineStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus);
 		admin.practiceDetails_DefaultClinic_Enter(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
 		admin.practiceDetails_Vacation_Enter(vacationStatus, vacationStartDate, vacationEndDate);
-		admin.practiceDetails_HospitalInfo_Enter(hospitalWorkTypeStatus, fridayHospitalName, hospitalFee, zfcForHospital);
+		admin.practiceDetails_HospitalInfo_Enter(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);
 		admin.practiceDetails_GalleryInfo_Enter(imageURL);
 		admin.workDaysInfo_Enter(mondayStatus, MondayworkType, isMondayHospitalTrue, mondayHospitalName, isMondayClinicTrue, mondayClinicName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayworkType, istuesdayHospitalTrue, tuesdayHospitalName, istuesdayClinicTrue, tuesdayClinicName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayworkType, iswednesdayHospitalTrue, wednesdayHospitalName, iswednesdayClinicTrue, wednesdayClinicName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayworkType, isthursdayHospitalTrue, thursdayHospitalName, isthursdayClinicTrue, thursdayClinicName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayworkType, isfridayHospitalTrue, fridayHospitalName, isfridayClinicTrue, fridayClinicName, fridayStartTime, fridayEndTime);
 		admin.defaultFacilities_Enter(FacilityStatus, AmbulanceStatus, EmergencyStatus, BikeParkStatus, CarParkStatus, PayCreditStatus, PayDebitStatus, PayCashStatus, PayOnlineStatus, PayChecqueStatus, PremiumServiceStatus);
 		admin.addressInfo_Enter(Country, State, City, completeAddress, Locality, pin, longitude, latitude);
+		admin.clickSubmitDoctor();
 		Thread.sleep(5000);
 	}
 	
@@ -57,6 +58,6 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 	@AfterClass
 	public void closeapp()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 }
