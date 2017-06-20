@@ -47,7 +47,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 	 
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath("//span[@class='sp-doc-hosp-schd-save']")).click();
 		 Thread.sleep(2000);

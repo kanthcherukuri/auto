@@ -46,9 +46,9 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 	 
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 		 

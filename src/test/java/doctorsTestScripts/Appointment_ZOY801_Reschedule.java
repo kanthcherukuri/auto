@@ -68,16 +68,16 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 			 Thread.sleep(1000);
 			 DoctorsPage.reschedule(firstname, lastname, mobile, email, problem); 
 			 Thread.sleep(2000);
-			 driver.findElement(By.id(Elements_Doctors.patienticon)).click();
+			 driver.findElement(By.id(Elements_Doctors.patient_id)).click();
 				WebDriverWait wait = new WebDriverWait(driver, 8000);
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
-				driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(email);
-				driver.findElement(By.id(Elements_Doctors.patientsearchbox)).sendKeys(Keys.ENTER);
+				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 				Thread.sleep(3000);
 				driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
 				Thread.sleep(3000);
-				String name=driver.findElement(By.xpath(Elements_Doctors.alltabname)).getText();
-				String schedule=driver.findElement(By.xpath(Elements_Doctors.alltabschedule)).getText();
+				String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+				String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 				String fullname=firstname+" "+lastname;
 				if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Rescheduled")){
 					System.out.println("Appointment Rescheduled Is Sucessfully Verified");

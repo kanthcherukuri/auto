@@ -48,22 +48,22 @@ public class Schedule_ZOY842_DoctorHospital_UpdateWorkTimings extends LoadPropMa
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalStarttime)).sendKeys("09:00");
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).sendKeys("09:00");
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).sendKeys("14:00");
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("14:00");
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
 		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		 Thread.sleep(3000);
 	 }
 	 
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 		 

@@ -49,11 +49,11 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 		public void AppointmentCountInDashBoard(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 			DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 			Thread.sleep(3000);
-			driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
+			driver.findElement(By.id(Elements_Doctors.dashboard_clickondashboardmenu)).click();
 			Thread.sleep(3000);
-			int appointmentsavailable=driver.findElements(By.xpath(Elements_Doctors.checktodayappointmentssize)).size();
+			int appointmentsavailable=driver.findElements(By.xpath(Elements_Doctors.dashboard_checktodayappointmentssize)).size();
 			System.out.println("Appointments avialable : "+appointmentsavailable);
-			String count=driver.findElement(By.xpath(Elements_Doctors.checktodayappointmentcountfromgraph)).getText();
+			String count=driver.findElement(By.xpath(Elements_Doctors.dashboard_checktodayappointmentcountfromgraph)).getText();
 			if(count.equalsIgnoreCase(Integer.toString(appointmentsavailable))){
 				System.out.println("Appointment Count for Today is"+appointmentsavailable+"Sucessfully Verified");
 			}else{

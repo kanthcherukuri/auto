@@ -46,7 +46,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
     }
 	
 	
-	@Test(dataProvider="DiagnosticDetails", priority=2,enabled=false)
+	@Test(dataProvider="DiagnosticDetails", priority=2)
 	public void EnterDiagnosticDetailsAndMandatoryFields(String RunMode,String DiagnosticName,String ShortName,String fullname,String email,String phone,String password, 
 	String dateofbirth,String desc,String regno,String dateofreg,String rating,String  startedyear ) throws Exception{
 		
@@ -64,7 +64,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	@Test(dataProvider="HomeVisitDetails", priority=3,enabled=false)
+	@Test(dataProvider="HomeVisitDetails", priority=3)
 	public void EnterHomevisitDetails(String RunMode,String homevisitvalue,String charge,String range,String appperslot,String mvalue,String starttime,String endtime,
 			String tvalue,String tstarttime,String tendtime,String Wvalue,String Wstarttime,String Wendtime,String thvalue,String thstarttime,String thendtime,
 			String fvalue,String fstarttime,String fendtime,String Svalue,String Sstarttime,String Sendtime) throws Exception{
@@ -83,7 +83,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	@Test(dataProvider="LabVisitDetails", priority=4,enabled=false)
+	@Test(dataProvider="LabVisitDetails", priority=4)
 	public void EnterLabvisitDetails(String RunMode,String labslotduration,String labapptperslot,String Lmvalue,String Lmstarttime,String Lmendtime,
 			String Ltvalue,String Ltstarttime,String Ltendtime,String LWvalue,String LWstarttime,String LWendtime,String LThvalue,String LThstarttime,
 			String LThendtime,String Lfvalue,String Lfstarttime,String Lfendtime,String LSvalue,String LSstarttime,String LSendtime) throws Exception{
@@ -147,10 +147,43 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	
 	
 	
+	@DataProvider(name ="AdditionalInformation")
+    public Object[][] createData_DP7() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","AdminDiagnostic", "TC7");
+        return(retObjArr);
+    }
+	@Test(dataProvider="AdditionalInformation", priority=8)
+	public void AddAdditionalInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax,String startdate,String enddate,
+	String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline,String facebookurl,String googleurl,
+	String linkedinurl,String twiterurl) throws Exception{
+		
+		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
+		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
+		AdminDiagnostic.EnterOtherInformationdetails(discountoffered, websiteURL, accreditations, ngo, reportonline);
+		AdminDiagnostic.EnterSocialInformation(facebookurl, googleurl, linkedinurl, twiterurl);
+		
+	}
+	
+	@DataProvider(name ="Addressdetails")
+    public Object[][] createData_DP8() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","AdminDiagnostic", "TC8");
+        return(retObjArr);
+    }
+	@Test(dataProvider="Addressdetails", priority=9)
+	public void EnterAddressFacilitiesSEODetails(String address, String country,String state,String city,String pincode,String locality,String landmark,
+			String longitude,String latitude,String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
+		
+		AdminDiagnostic.EnterAddressDetails(address, country, state, city, pincode, locality, landmark, longitude, latitude);
+		AdminDiagnostic.EnterTheFacilities();
+		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
+	}
 	
 	
-	
-	
+	@Test(priority=10)
+	public void SaveTheEnterDiagnosticDetails() throws Exception{
+		AdminDiagnostic.SaveDiagnosticDetails();
+		Browser.CheckNotificationMessage("Diagnostic Center created successfully");
+	}
 	
 	
 	

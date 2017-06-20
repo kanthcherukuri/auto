@@ -55,26 +55,26 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.clickondashboardmenu)).click();
+		driver.findElement(By.id(Elements_Doctors.dashboard_clickondashboardmenu)).click();
 		WebDriverWait wait = new WebDriverWait(driver, 2000);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.waitfortodaydate)));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.dashboard_waitfortodaydate)));
 		//LoadProp.isElementPresnt(driver, "//a[@class='monthly-day monthly-day-event monthly-today']", 20).click();
-		String date=driver.findElement(By.xpath(Elements_Doctors.selecttodaysdate)).getText();
+		String date=driver.findElement(By.xpath(Elements_Doctors.dashboard_selecttodaysdate)).getText();
 		System.out.println(date);
 		String fullname=firstname+" "+lastname;
 		if(date.equals("30")||(date.equals("31"))){
-			driver.findElement(By.xpath(Elements_Doctors.clickonnextmonth)).click();
-			driver.findElement(By.xpath(Elements_Doctors.clickondateone)).click();
-			String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
+			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickonnextmonth)).click();
+			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickondateone)).click();
+			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
 			AssertJUnit.assertEquals(name, fullname);
 			System.out.println("Created Appointment is Available");
 		}
 		else{
 			driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
 			Thread.sleep(3000);
-			String name=driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).getText();
+			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
 			AssertJUnit.assertEquals(name, fullname);
-			driver.findElement(By.xpath(Elements_Doctors.dashboardfullname)).click();
+			driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).click();
 			System.out.println("Created Appointment is Available");
 		}
 		}

@@ -35,7 +35,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Bhumratestsa","30000","2","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
+					{ "yes","Bhumratestsa","30000","10","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
 
 			};
 		}

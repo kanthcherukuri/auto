@@ -48,18 +48,18 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "14:00");
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalEndTime)).sendKeys("16:00");
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("16:00");
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
 		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		 Thread.sleep(2000);
 	 }
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalDeleteWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.HospitalSaveWorkTimings)).click();
+		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 		 
