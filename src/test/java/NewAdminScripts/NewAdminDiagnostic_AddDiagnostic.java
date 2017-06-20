@@ -182,6 +182,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	@Test(priority=10)
 	public void SaveTheEnterDiagnosticDetails() throws Exception{
 		AdminDiagnostic.SaveDiagnosticDetails();
+		Browser.CheckNotificationMessage("Diagnostic Center created successfully");
 	}
 	
 	

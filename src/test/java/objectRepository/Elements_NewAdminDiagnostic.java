@@ -9,8 +9,28 @@ public class Elements_NewAdminDiagnostic
 	public static String MandatoryFields_dateofbirth, MandatoryFields_desc, MandatoryFields_regno, MandatoryFields_dateofreg;
 	public static String MandatoryFields_StatusCode,MandatoryFields_languagesSpoken,MandatoryFields_rating,MandatoryFields_startedyear;
 	
+	public static String Diagnostic_Menu;
 	
+	public static String HomeVisit_Menu,HomeVisit_Active,HomeVisit_Charge,HomeVisit_ServiceRange,HomeVisit_SlotDuration;
+	public static String HomeVisit_AppointmentsPerSlot, HomeVisit_Monday,HomeVisit_AddHomeVisitHoursMonday,HomeVisit_AddHoursActive,
+	HomeVisit_AddHomeVisitHoursStartTime,HomeVisit_AddHomeVisitHoursEndTime,HomeVisit_AddHomeVisitHoursSubmit,HomeVisit_Tuesday,HomeVisit_AddHomeVisitHoursTuesday,
+	HomeVisit_Wednesday,HomeVisit_AddHomeVisitHoursWednesday,HomeVisit_Thursday,HomeVisit_AddHomeVisitHoursThursday,HomeVisit_Friday,
+	HomeVisit_AddHomeVistHoursFriday,HomeVisit_Saturday,HomeVisit_AddHomeVistHoursSaturday;
 	
+	public static String LabVisit_Menu,LabVisit_SlotDuration,LabVisit_AppointmentsPerSlot,LabVisit_Monday,LabVisit_AddLabVisitHoursMonday,
+	LabVisit_AddLabVisitHoursActive, LabVisit_AddLabVisitHoursStartTime,LabVisit_AddLabVisitHoursEndTime,LabVisit_AddLabVisitHoursSubmit,
+	LabVisit_Tuesday,  LabVisit_AddLabVisitHoursTuesday,LabVisit_Wednesday,LabVisit_AddLabVisitHoursWednesday,LabVisit_Thursday,
+	LabVisit_AddLabVisitHoursThursday,LabVisit_Friday, LabVisit_AddLabVisitHoursFriday,LabVisit_Saturday,LabVisit_AddLabVisitHoursSaturday;
+	
+	public static String PackageandTests_Menu,HealthPackage_AddPackage,HealthPackage_Status,HealthPackage_ClickOnServiceMode,HealthPackage_LabVisit,
+	HealthPackage_HomeVisit,HealthPackage_packageName,HealthPackage_packageDescription,HealthPackage_packageCost,HealthPackage_discountPercentage,
+	HealthPackage_zoyloChargePercentage,HealthPackage_averageDuration,HealthPackage_PackagesPerSlot,HealthPackage_PackagesActive,HealthPackage_Save;
+	
+	public static String PackageTests_Add,PackageTests_TestName,PackageTests_TestDescription,PackageTests_TestActive,PackageTests_TestSave;
+	
+	public static String DiagnosticTests_Menu,DiagnosticTests_AddTests,DiagnosticTests_TestName,DiagnosticTests_TestDescription,
+	DiagnosticTests_AdminStatus,DiagnosticTests_TestCost,DiagnosticTests_DiscountPercentage,DiagnosticTests_ZoyloChargePercentage,
+	DiagnosticTests_AverageDuration,DiagnosticTests_TestsPerSlot,DiagnosticTests_TestActive,DiagnosticTests_TestSave,DiagnosticTests_TestCancel;
 	
 	
 	
@@ -44,6 +64,7 @@ public class Elements_NewAdminDiagnostic
 	public static WebDriver newAdmin_DiagnosticPageProperties()
 	{
 	
+		Diagnostic_Menu="//*[@id='tabs']/li[3]/a/div/div/a";
 		Diagnostic_ClickOnAddDiagnostic="add";
 		DiagnosticCenter_Name="diagnosticCenterName";
 		DiagnosticCenter_ShortName="diagnosticCenterShortName";
@@ -61,6 +82,89 @@ public class Elements_NewAdminDiagnostic
 		MandatoryFields_languagesSpoken="languagesSpoken";
 		MandatoryFields_rating="zoyloRating";
 		MandatoryFields_startedyear="establishedYear";
+		
+		HomeVisit_Menu="homeVisitTab";
+		HomeVisit_Active="doesHomeVisit";
+		HomeVisit_Charge="homeVisitCharge";
+		HomeVisit_ServiceRange="homeVisitServiceRangeKms";
+		HomeVisit_SlotDuration="homeVisitSlotDuration";
+		HomeVisit_AppointmentsPerSlot="homeVisitAppointmentsPerSlot";
+		HomeVisit_Monday="monday";
+		HomeVisit_AddHomeVisitHoursMonday="//*[@id='dcHomeVisitMon']/div[1]/div[4]/button";
+		HomeVisit_AddHoursActive="isHomeActive";
+		HomeVisit_AddHomeVisitHoursStartTime="workHomeStartTime";
+		HomeVisit_AddHomeVisitHoursEndTime="workHomeEndTime";
+		HomeVisit_AddHomeVisitHoursSubmit="workingHrsSubmit";
+		HomeVisit_Tuesday="tuesday";
+		HomeVisit_AddHomeVisitHoursTuesday="//*[@id='dcHomeVisitTue']/div[1]/div[4]/button";
+		HomeVisit_Wednesday="//a[@href='#dcHomeVisitWed']";
+		HomeVisit_AddHomeVisitHoursWednesday="//*[@id='dcHomeVisitWed']/div[1]/div[4]/button";
+		HomeVisit_Thursday="thursday";
+		HomeVisit_AddHomeVisitHoursThursday="//*[@id='dcHomeVisitThu']/div[1]/div[4]/button";
+		HomeVisit_Friday="friday";
+		HomeVisit_AddHomeVistHoursFriday="//*[@id='dcHomeVisitFri']/div[1]/div[4]/button";
+		HomeVisit_Saturday="saturday";
+		HomeVisit_AddHomeVistHoursSaturday="//*[@id='dcHomeVisitSat']/div[1]/div[4]/button";
+		
+		LabVisit_Menu="labVisitTab";
+		LabVisit_SlotDuration="clinicSlotDuration";
+		LabVisit_AppointmentsPerSlot="clinicAppointmentsPerSlot";
+		LabVisit_Monday="//a[@href='#dcLabVisitMon']";
+		LabVisit_AddLabVisitHoursMonday="//*[@id='dcLabVisitMon']/div[1]/div[4]/button";
+		LabVisit_AddLabVisitHoursActive="isLabVisitActive";
+		LabVisit_AddLabVisitHoursStartTime="workLabStartTime";
+		LabVisit_AddLabVisitHoursEndTime="workLabEndTime";
+		LabVisit_AddLabVisitHoursSubmit="(//*[@id='workingHrsSubmit'])[2]";
+		LabVisit_Tuesday="//a[@href='#dcLabVisitTue']";
+		LabVisit_AddLabVisitHoursTuesday="//*[@id='dcLabVisitTue']/div[1]/div[4]/button";
+		LabVisit_Wednesday="//a[@href='#dcLabVisitWed']";
+		LabVisit_AddLabVisitHoursWednesday="//*[@id='dcLabVisitWed']/div[1]/div[4]/button";
+		LabVisit_Thursday="//a[@href='#dcLabVisitThu']";
+		LabVisit_AddLabVisitHoursThursday="//*[@id='dcLabVisitThu']/div[1]/div[4]/button";
+		LabVisit_Friday="//a[@href='#dcLabVisitFri']" ;
+		LabVisit_AddLabVisitHoursFriday="//*[@id='dcLabVisitFri']/div[1]/div[4]/button";
+		LabVisit_Saturday="//a[@href='#dcLabVisitSat']";
+		LabVisit_AddLabVisitHoursSaturday="//*[@id='dcLabVisitSat']/div[1]/div[4]/button";
+		
+		PackageandTests_Menu="packageAndTestsTab";
+		HealthPackage_AddPackage="//*[@id='zoyDiagPackHealth']/div/div[1]/button";
+		HealthPackage_Status="adminStatus";
+		HealthPackage_ClickOnServiceMode="select2-serviceMode-container";
+		HealthPackage_LabVisit="//*[@id='select2-serviceMode-results']/li[2]";
+		HealthPackage_HomeVisit="//*[@id='select2-serviceMode-results']/li[3]";	
+		HealthPackage_packageName="packageName";
+		HealthPackage_packageDescription="packageDescription";
+		HealthPackage_packageCost="packageCost";
+		HealthPackage_discountPercentage="discountPercentage";
+		HealthPackage_zoyloChargePercentage="zoyloChargePercentage";
+		HealthPackage_averageDuration="averageDuration";
+		HealthPackage_PackagesPerSlot="averageNumberOfPackagesPerSlot";
+		HealthPackage_PackagesActive="isPackagesActive";
+		HealthPackage_Save="diagPackagesSave";
+		
+		PackageTests_Add="//*[@id='zoyDCAddHealthPackageForm']/div/div/button";
+		PackageTests_TestName="testName";
+		PackageTests_TestDescription="testDescription";
+		PackageTests_TestActive="isTestActive";
+		PackageTests_TestSave="zoyPackageTestSave";
+		
+		DiagnosticTests_Menu="zyDCTests";
+		DiagnosticTests_AddTests="//*[@id='zoyDiagPackTest']/div/div[1]/button";
+		DiagnosticTests_TestName="diagTestName";
+		DiagnosticTests_TestDescription="diagTestDescription";
+		DiagnosticTests_AdminStatus="diagAdminStatus";
+		DiagnosticTests_TestCost="diagTestCost";
+		DiagnosticTests_DiscountPercentage="diagDiscountPercentage";
+		DiagnosticTests_ZoyloChargePercentage="diagZoyloChargePercentage";
+		DiagnosticTests_AverageDuration="diagAverageDuration";
+		DiagnosticTests_TestsPerSlot="diagAverageNumberOfTestsPerSlot";
+		DiagnosticTests_TestActive="isDiagTestActive";
+		DiagnosticTests_TestSave="zyDiagnosticTestSave";
+		DiagnosticTests_TestCancel="testCancel";
+		
+		
+		
+		
 		
 		//Additional Information
 		
