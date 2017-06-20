@@ -259,7 +259,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			System.out.println("There is no other clinic associated for this doctor.");
 		}
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 	} //Practice other clinic method end ****
 	
 	/*
@@ -315,15 +315,18 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
 	 * @ return			: NA
 	 */
-	public void practiceDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital)
+	public void practiceDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
 	{
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.HospitalTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.hospitaladdHospitalBtn);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitaladdHospitalBtn)).click();
-			Browser.waitFortheID(Elements_NewAdminDoctors.hospitalpopUpName);
-			Browser.selectbyID(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			Browser.waitFortheID(Elements_NewAdminDoctors.hospitalAddHeading);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpName)).click();
+			Thread.sleep(3000);
+			Browser.actionbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			//Browser.selectbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpConsultationFee)).sendKeys(hospitalFee);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpzoyloCharges)).sendKeys(zfcForHospital);
 			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpActiveCheckBox)).click();
@@ -333,6 +336,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			System.out.println("There is no hospital associated against this doctor");
 		}
+		Thread.sleep(2000);
 	} //Practice hospital info method end ***
 	
 	/*
@@ -355,14 +359,15 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: mondayStatus,  MondayworkType,  isMondayHospitalTrue,  mondayHospitalName,  isMondayClinicTrue,  mondayClinicName,  mondayStartTime,  mondayEndTime,  tuesdayStatus,  tuesdayworkType,  istuesdayHospitalTrue,  tuesdayHospitalName,  istuesdayClinicTrue,  tuesdayClinicName,  tuesdayStartTime,  tuesdayEndTime,  wednesdayStatus,  wednesdayworkType,  iswednesdayHospitalTrue,  wednesdayHospitalName,  iswednesdayClinicTrue,  wednesdayClinicName,  wednesdayStartTime,  wednesdayEndTime,  thursdayStatus,  thursdayworkType,  isthursdayHospitalTrue,  thursdayHospitalName,  isthursdayClinicTrue,  thursdayClinicName,  thursdayStartTime,  thursdayEndTime,  fridayStatus,  fridayworkType,  isfridayHospitalTrue,  fridayHospitalName,  isfridayClinicTrue,  fridayClinicName,  fridayStartTime,  fridayEndTime
 	 * @ return			: NA
 	 */
-	public void workDaysInfo_Enter(String mondayStatus, String MondayworkType, String isMondayHospitalTrue, String mondayHospitalName, String isMondayClinicTrue, String mondayClinicName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayworkType, String istuesdayHospitalTrue, String tuesdayHospitalName, String istuesdayClinicTrue, String tuesdayClinicName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayworkType, String iswednesdayHospitalTrue, String wednesdayHospitalName, String iswednesdayClinicTrue, String wednesdayClinicName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayworkType, String isthursdayHospitalTrue, String thursdayHospitalName, String isthursdayClinicTrue, String thursdayClinicName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayworkType, String isfridayHospitalTrue, String fridayHospitalName, String isfridayClinicTrue, String fridayClinicName, String fridayStartTime, String fridayEndTime)
+	public void workDaysInfo_Enter(String mondayStatus, String MondayworkType, String isMondayHospitalTrue, String mondayHospitalName, String isMondayClinicTrue, String mondayClinicName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayworkType, String istuesdayHospitalTrue, String tuesdayHospitalName, String istuesdayClinicTrue, String tuesdayClinicName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayworkType, String iswednesdayHospitalTrue, String wednesdayHospitalName, String iswednesdayClinicTrue, String wednesdayClinicName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayworkType, String isthursdayHospitalTrue, String thursdayHospitalName, String isthursdayClinicTrue, String thursdayClinicName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayworkType, String isfridayHospitalTrue, String fridayHospitalName, String isfridayClinicTrue, String fridayClinicName, String fridayStartTime, String fridayEndTime) throws Exception
 	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.workDaysTab)).click();
 		//Monday
 		if(mondayStatus.equalsIgnoreCase("true"))
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
-			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox);
-			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(MondayworkType.equalsIgnoreCase("hospital"))
 			{
@@ -403,7 +408,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
-			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_TuesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(tuesdayworkType.equalsIgnoreCase("hospital"))
 			{
@@ -444,7 +449,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
-			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_WednesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(wednesdayworkType.equalsIgnoreCase("hospital"))
 			{
@@ -485,7 +490,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
-			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_ThursdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(thursdayworkType.equalsIgnoreCase("hospital"))
 			{
@@ -526,7 +531,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
-			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_addTimeSlotsButton)).click();
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_FridayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(fridayworkType.equalsIgnoreCase("hospital"))
 			{
@@ -562,6 +567,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			System.out.println("Friday slots are not provided for this doctor");
 		} //Friday condition end
+		Thread.sleep(2000);
 	} //work days info method end ***
 	
 	/*
@@ -572,9 +578,10 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void defaultFacilities_Enter(String FacilityStatus, String AmbulanceStatus, String EmergencyStatus, String BikeParkStatus, String CarParkStatus, String PayCreditStatus, String PayDebitStatus, String PayCashStatus, String PayOnlineStatus, String PayChecqueStatus, String PremiumServiceStatus)
 	{
+		
 		if(FacilityStatus.equalsIgnoreCase("true"))
 		{
-			driver.findElement(By.xpath(Elements_NewAdminDoctors.facilitiesTab)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.facilitiesTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.facilitiesTab_ambulance);
 			if(AmbulanceStatus.equalsIgnoreCase("true"))
 			{

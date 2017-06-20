@@ -237,12 +237,14 @@ public class TestUtils {
 				
 				
 			//Actions by id	
-				public void actionbyid(String id, String value)
+				public void actionbyid(String id, String value) throws Exception
 				{
 					Actions qua = new Actions(driver);
 					qua.moveToElement(driver.findElement(By.id(id)));
 					qua.click();
+					//Thread.sleep(4000);
 					qua.sendKeys(value);
+					//Thread.sleep(2000);
 					qua.sendKeys(Keys.ENTER);
 					qua.build().perform();
 				}

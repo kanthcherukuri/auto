@@ -13,16 +13,16 @@ public static String practiceTab, addOtherClinic;
 public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
 public static String defaultClinicTab, defaultClinicName, defaultClinicconsultationFee, defaultClinicPracticeStartDate, defaultClinicFacilitationCharges;
 public static String VacationTab, vacationAddButton, vacationStartDate, vacationEndDate, vacationActiveCheckBox, vacationSave, vacationCancel;
-public static String HospitalTab, hospitaladdHospitalBtn, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpSaveButton, hospitalpopUpCancelButton;
+public static String HospitalTab, hospitaladdHospitalBtn, hospitalAddHeading, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpSaveButton, hospitalpopUpCancelButton;
 public static String galleryTab, galleryUploadButton;
 public static String workDaysTab, workDays_addTimeSlotsButton, workDays_workType, workDays_hospitalType, workDays_ClinicType, workDays_workStartTime, workDays_workEndTime, workDays_ActiveCheckBox, workDays_workTimeSave;
-public static String workDays_SundayActiveCheckBox, workDays_SundayLunchStart, workDays_SundayLunchEnd, workDays_SundayHouseCallStart, workDays_SundayHouseCallEnd;
-public static String workDays_MondayTab, workDays_MondayActiveCheckBox, workDays_MondayLunchStart, workDays_MondayLunchEnd, workDays_MondayHouseCallStart, workDays_MondayHouseCallEnd;
-public static String workDays_TuesdayTab, workDays_TuesdayActiveCheckBox, workDays_TuesdayLunchStart, workDays_TuesdayLunchEnd, workDays_TuesdayHouseCallStart, workDays_TuesdayHouseCallEnd;
-public static String workDays_WednesdayTab, workDays_WednesdayActiveCheckBox, workDays_WednesdayLunchStart, workDays_WednesdayLunchEnd, workDays_WednesdayHouseCallStart, workDays_WednesdayHouseCallEnd;
-public static String workDays_ThursdayTab, workDays_ThursdayActiveCheckBox, workDays_ThursdayLunchStart, workDays_ThursdayLunchEnd, workDays_ThursdayHouseCallStart, workDays_ThursdayHouseCallEnd;
-public static String workDays_FridayTab, workDays_FridayActiveCheckBox, workDays_FridayLunchStart, workDays_FridayLunchEnd, workDays_FridayHouseCallStart, workDays_FridayHouseCallEnd;
-public static String workDays_SaturdayTab, workDays_SaturdayActiveCheckBox, workDays_SaturdayLunchStart, workDays_SaturdayLunchEnd, workDays_SaturdayHouseCallStart, workDays_SaturdayHouseCallEnd;
+public static String workDays_SundayActiveCheckBox, workDays_SundayAddSlotsBtn, workDays_SundayLunchStart, workDays_SundayLunchEnd, workDays_SundayHouseCallStart, workDays_SundayHouseCallEnd;
+public static String workDays_MondayTab, workDays_MondayAddSlotsBtn, workDays_MondayActiveCheckBox, workDays_MondayLunchStart, workDays_MondayLunchEnd, workDays_MondayHouseCallStart, workDays_MondayHouseCallEnd;
+public static String workDays_TuesdayTab, workDays_TuesdayAddSlotsBtn, workDays_TuesdayActiveCheckBox, workDays_TuesdayLunchStart, workDays_TuesdayLunchEnd, workDays_TuesdayHouseCallStart, workDays_TuesdayHouseCallEnd;
+public static String workDays_WednesdayTab, workDays_WednesdayAddSlotsBtn, workDays_WednesdayActiveCheckBox, workDays_WednesdayLunchStart, workDays_WednesdayLunchEnd, workDays_WednesdayHouseCallStart, workDays_WednesdayHouseCallEnd;
+public static String workDays_ThursdayTab, workDays_ThursdayAddSlotsBtn, workDays_ThursdayActiveCheckBox, workDays_ThursdayLunchStart, workDays_ThursdayLunchEnd, workDays_ThursdayHouseCallStart, workDays_ThursdayHouseCallEnd;
+public static String workDays_FridayTab, workDays_FridayAddSlotsBtn, workDays_FridayActiveCheckBox, workDays_FridayLunchStart, workDays_FridayLunchEnd, workDays_FridayHouseCallStart, workDays_FridayHouseCallEnd;
+public static String workDays_SaturdayTab, workDays_SaturdayAddSlotsBtn, workDays_SaturdayActiveCheckBox, workDays_SaturdayLunchStart, workDays_SaturdayLunchEnd, workDays_SaturdayHouseCallStart, workDays_SaturdayHouseCallEnd;
 public static String additionalInforTab, socialLink_fbActiveCheckBox, socialLink_fbInput, socialLink_GoogleActiveCheckBox, socialLink_GoogleInput, socialLink_LinkedInActiveCheckBox, socialLink_LinkedInInput, socialLink_TwitterActiveCheckBox, socialLink_TwitterInInput;
 public static String additionalInfo_services, additionalInfo_servicesAddButton, additionalInfo_servicesName, additionalInfo_servicesSave, additionalInfo_servicesCancel;
 public static String additionalInfo_awardsAndRecognition, additionalInfo_awardsAndRecognitionAdd, additionalInfo_awardsAndRecognitionName, additionalInfo_awardsAndRecognitionSource, additionalInfo_awardsAndRecognitionYear, additionalInfo_awardsAndRecognitionSave, additionalInfo_awardsAndRecognitionCancel;
@@ -108,6 +108,7 @@ public static String doctorSave, doctorCancel;
 		vacationCancel="addVacationCancel"; //ID
 		HospitalTab="//li[@class='zoyDocInfoHospitalTab']"; //XPATH
 		hospitaladdHospitalBtn="addHospitalBtn"; //ID
+		hospitalAddHeading="hospitalAddPopUp"; //ID
 		hospitalpopUpName="zoyDocAddHospitalName"; //ID
 		hospitalpopUpConsultationFee="zoyDocAddHospConsFee"; //ID
 		hospitalpopUpzoyloCharges="zoyDocAddHospFacCharge"; //ID
@@ -118,6 +119,7 @@ public static String doctorSave, doctorCancel;
 		galleryUploadButton="doctorImage"; //ID
 		workDaysTab="wokringHrsInfoTab"; //ID
 		workDays_SundayActiveCheckBox="workingHrsSunMarkAsOpen"; //ID
+		workDays_SundayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[1]"; //XPATH
 		workDays_SundayLunchStart="workingHrsSunLunchStart"; //ID
 		workDays_SundayLunchEnd="workingHrsSunLunchEnd"; //ID
 		workDays_SundayHouseCallStart="workingHrsSunHouseStart"; //ID
@@ -131,36 +133,42 @@ public static String doctorSave, doctorCancel;
 		workDays_ActiveCheckBox="workingHrsAddSlotActive"; //ID
 		workDays_workTimeSave="workingHrsSlotSaveBtn"; //ID
 		workDays_MondayTab="monday"; //ID
+		workDays_MondayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[2]"; //XPATH
 		workDays_MondayActiveCheckBox="workingHrsMonMarkAsOpen"; //ID
 		workDays_MondayLunchStart="workingHrsMonLunchStart"; //ID
 		workDays_MondayLunchEnd="workingHrsMonLunchEnd"; //ID
 		workDays_MondayHouseCallStart="workingHrsMonHouseStart"; //ID
 		workDays_MondayHouseCallEnd="workingHrsMonHouseEnd"; //ID
 		workDays_TuesdayTab="tuesday"; //ID
+		workDays_TuesdayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[3]"; //XPATH
 		workDays_TuesdayActiveCheckBox="workingHrsTueMarkAsOpen"; //ID
 		workDays_TuesdayLunchStart="workingHrsTueLunchStart"; //ID
 		workDays_TuesdayLunchEnd="workingHrsTueLunchEnd"; //ID
 		workDays_TuesdayHouseCallStart="workingHrsTueHouseStart"; //ID
 		workDays_TuesdayHouseCallEnd="workingHrsTueHouseEnd"; //ID
 		workDays_WednesdayTab="wednesday"; //ID
+		workDays_WednesdayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[4]"; //XPATH
 		workDays_WednesdayActiveCheckBox="workingHrsWedMarkAsOpen"; //ID
 		workDays_WednesdayLunchStart="workingHrsWedLunchStart"; //ID
 		workDays_WednesdayLunchEnd="workingHrsWedLunchEnd"; //ID
 		workDays_WednesdayHouseCallStart="workingHrsWedHouseStart"; //ID
 		workDays_WednesdayHouseCallEnd="workingHrsWedHouseEnd"; //ID
 		workDays_ThursdayTab="thursday"; //ID
+		workDays_ThursdayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[5]"; //XPATH
 		workDays_ThursdayActiveCheckBox="workingHrsThuMarkAsOpen"; //ID
 		workDays_ThursdayLunchStart="workingHrsThuLunchStart"; //ID
 		workDays_ThursdayLunchEnd="workingHrsThuLunchEnd"; //ID
 		workDays_ThursdayHouseCallStart="workingHrsThuHouseStart"; //ID
 		workDays_ThursdayHouseCallEnd="workingHrsThuHouseEnd"; //ID
 		workDays_FridayTab="friday"; //ID
+		workDays_FridayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[6]"; //XPATH
 		workDays_FridayActiveCheckBox="workingHrsFriMarkAsOpen"; //ID
 		workDays_FridayLunchStart="workingHrsFriLunchStart"; //ID
 		workDays_FridayLunchEnd="workingHrsFriLunchEnd"; //ID
 		workDays_FridayHouseCallStart="workingHrsFriHouseStart"; //ID
 		workDays_FridayHouseCallEnd="workingHrsFriHouseEnd"; //ID
 		workDays_SaturdayTab="saturday";
+		workDays_SaturdayAddSlotsBtn="(//div[@id='addWorkTimingdBtn'])[7]"; //XPATH
 		workDays_SaturdayActiveCheckBox="workingHrsSatMarkAsOpen"; //ID
 		workDays_SaturdayLunchStart="workingHrsSatLunchStart"; //ID
 		workDays_SaturdayLunchEnd="workingHrsSatLunchEnd"; //ID
