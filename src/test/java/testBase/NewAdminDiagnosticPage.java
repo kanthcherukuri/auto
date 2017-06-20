@@ -33,16 +33,35 @@ public class NewAdminDiagnosticPage
 		Browser.waitFortheID("tabs");
 		Thread.sleep(2000);
 	}
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will click Diagnostics Menu
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void ClickOnDiagnosticMenu(){
 		
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_Menu)).click();
 	}
 	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will click AddDiagnostics Button
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void ClickOnAddDiagnostic(){
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.Diagnostic_ClickOnAddDiagnostic)).click();
 	}
+	
+	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Enter Diagnostic Center Details
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void EnterDiagnosticDetails(String DiagnosticName,String ShortName,String fullname,String email,String phone,String password) throws Exception{
 		
@@ -59,6 +78,12 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_password)).sendKeys(password);
 	}
 	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Enter Mandator Field values 
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterMandatoryFields(String dateofbirth,String desc,String regno,String dateofreg,String rating,String startedyear) throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth)).clear();
@@ -82,6 +107,12 @@ public class NewAdminDiagnosticPage
 		
 		
 	}
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Enter Home Visit Details While Creating Diagnostic Center 
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void EnterHomeVisitDetails(String homevisitvalue,String charge,String range,String appperslot,String mvalue,String starttime,String endtime,
 			String tvalue,String tstarttime,String tendtime,String Wvalue,String Wstarttime,String Wendtime,String thvalue,String thstarttime,String thendtime,
@@ -210,7 +241,12 @@ public class NewAdminDiagnosticPage
 			System.out.println("HomeVisit Appointment is Not Available");
 		}
 	}
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Enter Lab Visit Details While Creating Diagnostic Center 
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterLabVisitDetails(String labslotduration,String labapptperslot,String Lmvalue,String Lmstarttime,String Lmendtime,
 		String Ltvalue,String Ltstarttime,String Ltendtime,String LWvalue,String LWstarttime,String LWendtime,String LThvalue,String LThstarttime,
 		String LThendtime,String Lfvalue,String Lfstarttime,String Lfendtime,String LSvalue,String LSstarttime,String LSendtime) throws Exception{
@@ -319,7 +355,12 @@ public class NewAdminDiagnosticPage
 		}
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Click On The PackageAndTests Menu 
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void ClickOnPackageAndTestsMenu() throws Exception{
 		
@@ -328,6 +369,12 @@ public class NewAdminDiagnosticPage
 	}
 	
 	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add Health Packages For Lab/Home Visits while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void AddHealthPackages(String servicemode,String packagename,String packagedesc,String packagecost, String discountpercentage,
 	String zoylopercentage,String packageduration,String packageperslot		) throws Exception{
@@ -367,6 +414,12 @@ public class NewAdminDiagnosticPage
 		
 	}
 	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add Tests in Packages For Lab/Home Visits while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void AddTestsInHealthPackage(String testname,String testdesc) throws Exception{
 		
@@ -382,6 +435,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Save The Packages that are Created while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void SaveAddHealthPackages() throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_Save)).click();
@@ -389,6 +448,12 @@ public class NewAdminDiagnosticPage
 		
 	}
 
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add and save the Diagnostic Tests For Lab/Home Visits while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void CreateDiagnosticTests(String diagTestname,String diagTestdesc,String servicemode,String diagTestcost,String diagdiscountper,
 	String diagZoyloper,String diagduration,String diagNumofSlots	) throws Exception{
@@ -426,7 +491,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(3000);
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add Contact Information  while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.AdditionalInformation_Menu)).click();
 		Thread.sleep(1000);
@@ -444,7 +514,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add the period when the Diagnostic to be shown as Closed while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterMarkedasClosedInformation(String startdate,String enddate) throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Menu)).click();
@@ -462,7 +537,12 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Save)).click();
 		Thread.sleep(2000);
 	}
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add Other Information Details of Diagnostic while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterOtherInformationdetails(String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline) throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_Menu)).click();
@@ -486,7 +566,12 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInforamtion_isReportOnline)).click();
 		Thread.sleep(2000);
 	}
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method will Add the Social Information Of the Diagnostic while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	
 	public void EnterSocialInformation(String facebookurl,String googleurl,String linkedinurl,String twiterurl) throws Exception{
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Menu)).click();
@@ -509,7 +594,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method To Add the Address of the Diagnostic while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterAddressDetails(String address, String country,String state,String city,String pincode,String locality,String landmark,
 			String longitude,String latitude) throws Exception{
 		
@@ -538,7 +628,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This methodto select the facilities provided by the Diagnostic while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterTheFacilities() throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Menu)).click();
@@ -565,7 +660,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method to  Add the SEO details of the Diagnostics while Creating Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void EnterDetailsForSEO(String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Menu)).click();
@@ -580,7 +680,12 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 		
 	}
-	
+	/*
+	 * Author: Ch.Lakshmi Kanth
+	 * @ Description: This method to Save the all the Details and  Create the Diagnostic Center
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void SaveDiagnosticDetails() throws Exception{
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.AddDiagnostic_Submit)).click();
 		Thread.sleep(2000);
