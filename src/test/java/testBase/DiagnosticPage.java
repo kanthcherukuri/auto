@@ -824,7 +824,7 @@ public class DiagnosticPage {
 
 		}
 		// Doctors Checkin and check the recipient
-		public  void diagnosticsCheckinCheckOut() throws IOException, InterruptedException{
+		public  void diagnosticsCheckinCheckOut() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.checkinbutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.checkinstartconsultation);
 			Browser.enterTextByID("0", "Completed");

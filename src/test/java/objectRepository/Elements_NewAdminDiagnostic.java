@@ -32,13 +32,6 @@ public class Elements_NewAdminDiagnostic
 	DiagnosticTests_AdminStatus,DiagnosticTests_TestCost,DiagnosticTests_DiscountPercentage,DiagnosticTests_ZoyloChargePercentage,
 	DiagnosticTests_AverageDuration,DiagnosticTests_TestsPerSlot,DiagnosticTests_TestActive,DiagnosticTests_TestSave,DiagnosticTests_TestCancel;
 	
-	
-	
-	
-	
-	
-	
-	
 	public static String AdditionalInformation_Menu,ContactPerson_AddContact,ContactPerson_Name, ContactPerson_Phone,ContactPerson_Email,
 	ContactPerson_Fax,ContactPerson_Save;
 	
@@ -56,6 +49,14 @@ public class Elements_NewAdminDiagnostic
 	
 	public static String Facilities_Menu,Facilities_DebitCard,Facilities_Bike,Facilities_CreditCard,Facilities_CarParking,Facilities_ambulance,
 	Facilities_proBono,Facilities_onlinePayment,Facilities_Premium,Facilities_Cheque,Facilities_Emergency;
+	
+	public static String HomeVisit_MondayAssert,HomeVisit_TuesdayAssert,HomeVisit_WednesdayAssert,HomeVisit_ThusdayAssert,
+	HomeVisit_FridayAssert,HomeVisit_SaturdayAssert;
+	
+	public static String LabVisit_MondayAssert,LabVisit_TuesdayAssert,LabVisit_WednesdayAssert,LabVisit_ThursdayAssert,LabVisit_FridayAssert,
+	LabVisit_SaturdayAssert, HealthPackage_TestAssert,DiagnosticTests_Assert,ContactPerson_Assert,MarkedasClosed_Assert;
+	
+	
 	
 	public static String SEO_Menu,SEO_Title,SEO_Desc,SEO_Keywords,SEO_URL;
 	
@@ -237,7 +238,23 @@ public class Elements_NewAdminDiagnostic
 		SEO_URL="seoUrl";
 		AddDiagnostic_Submit="addDiagnosticSubmit";
 		
+		HomeVisit_MondayAssert="//*[@id='dcHomeVisitMon']/div[2]/table/tbody/tr[2]/td[1]";
+		HomeVisit_TuesdayAssert="//*[@id='dcHomeVisitTue']/div[2]/table/tbody/tr[2]/td[1]";
+		HomeVisit_WednesdayAssert="//*[@id='dcHomeVisitWed']/div[2]/table/tbody/tr[2]/td[1]";
+		HomeVisit_ThusdayAssert="//*[@id='dcHomeVisitThu']/div[2]/table/tbody/tr[2]/td[1]";
+		HomeVisit_FridayAssert="//*[@id='dcHomeVisitFri']/div[2]/table/tbody/tr[2]/td[1]";
+		HomeVisit_SaturdayAssert="//*[@id='dcHomeVisitSat']/div[2]/table/tbody/tr[2]/td[1]";
 		
+		LabVisit_MondayAssert="//*[@id='dcLabVisitMon']/div[2]/table/tbody/tr[2]/td[1]";
+		LabVisit_TuesdayAssert="//*[@id='dcLabVisitTue']/div[2]/table/tbody/tr[2]/td[1]";
+		LabVisit_WednesdayAssert="//*[@id='dcLabVisitWed']/div[2]/table/tbody/tr[2]/td[1]";
+		LabVisit_ThursdayAssert="//*[@id='dcLabVisitThu']/div[2]/table/tbody/tr[2]/td[1]";
+		LabVisit_FridayAssert="//*[@id='dcLabVisitFri']/div[2]/table/tbody/tr[2]/td[1]";
+		LabVisit_SaturdayAssert="//*[@id='dcLabVisitSat']/div[2]/table/tbody/tr[2]/td[1]";
+		HealthPackage_TestAssert="//*[@id='zoyDCAddHealthPackageForm']/div/div/div[7]/table/tbody/tr[2]/td[1]";
+		DiagnosticTests_Assert="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
+		ContactPerson_Assert="//*[@id='zoyDiagAIContact']/div/div[2]/table/tbody/tr[2]/td[1]";
+		MarkedasClosed_Assert="//*[@id='zoyDiagAIClosed']/div/div[2]/table/tbody/tr[2]/td[1]";
 		
 		
 		return driver;
