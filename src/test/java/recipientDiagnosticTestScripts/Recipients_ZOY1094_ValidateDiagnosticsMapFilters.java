@@ -113,9 +113,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
 		    RecipientPage.goToDiagnostics();
 		    RecipientPage.clickOnFilterImg();
-			//Reset
 		    RecipientPage.ClearFilters();
-			//SET Filter
 			RecipientPage.clickOnFilterImg();
 			
 			//Verify Specialization Filter Option
@@ -123,7 +121,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			Thread.sleep(5000);
 			//Verify with Invalid data
 			driver.findElement(By.id("searchFilter")).click();
-			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx");
+			driver.findElement(By.id("listingSearchTextbox")).sendKeys("sdf12345");
 			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
 			driver.findElement(By.xpath("(//*[@id='clearFilter'])[2]")).click();
 			//get filter count and make sure filter count is 0 after clearing the filter
