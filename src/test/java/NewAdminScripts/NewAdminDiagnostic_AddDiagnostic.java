@@ -216,14 +216,14 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	@Test(dataProvider="AdditionalInformation", priority=8)
-	public void AddAdditionalInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax,String startdate,String enddate,
+	public void AddAdditionalInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax,String imageURL,String startdate,String enddate,
 	String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline,String facebookurl,String googleurl,
 	String linkedinurl,String twiterurl) throws Exception{
 		
 		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
 		String person=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.ContactPerson_Assert)).getText();
 		Assert.assertEquals(person,Personname);
-				
+		AdminDiagnostic.AddDiagnosticImage(imageURL);		
 		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
 		String close=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.MarkedasClosed_Assert)).getText();
 		Assert.assertEquals(close,startdate);
@@ -248,7 +248,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	}
 	
 	
-	@Test(priority=10)
+	@Test(priority=10,enabled=false)
 	public void SaveTheEnterDiagnosticDetails() throws Exception{
 		AdminDiagnostic.SaveDiagnosticDetails();
 		Browser.CheckNotificationMessage("Diagnostic Center created successfully");

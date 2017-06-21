@@ -41,7 +41,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 	String Ltvalue,String Ltstarttime,String Ltendtime,String LWvalue,String LWstarttime,String LWendtime,String LThvalue,String LThstarttime,
 	String LThendtime,String Lfvalue,String Lfstarttime,String Lfendtime,String LSvalue,String LSstarttime,String LSendtime,String servicemode,String packagename,String packagedesc,String packagecost, String discountpercentage,
 	String zoylopercentage,String packageduration,String packageperslot,String testname,String testdesc,String diagTestname,String diagTestdesc,String diagservicemode,String diagTestcost,String diagdiscountper,
-	String diagZoyloper,String diagduration,String diagNumofSlots,String Personname,String PersonPhone,String PersonEmail,String PersonFax,String startdate,String enddate,
+	String diagZoyloper,String diagduration,String diagNumofSlots,String Personname,String PersonPhone,String PersonEmail,String PersonFax,String imageURL,String startdate,String enddate,
 	String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline,String facebookurl,String googleurl,
 	String linkedinurl,String twiterurl,String address, String country,String state,String city,String pincode,String locality,String landmark,
 	String longitude,String latitude,String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
@@ -63,6 +63,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.CreateDiagnosticTests(diagTestname, diagTestdesc, diagservicemode, diagTestcost, diagdiscountper, 
 		diagZoyloper, diagduration, diagNumofSlots);
 		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
+		AdminDiagnostic.AddDiagnosticImage(imageURL);
 		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
 		AdminDiagnostic.EnterOtherInformationdetails(discountoffered, websiteURL, accreditations, ngo, reportonline);
 		AdminDiagnostic.EnterSocialInformation(facebookurl, googleurl, linkedinurl, twiterurl);

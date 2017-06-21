@@ -487,6 +487,16 @@ public class NewAdminDiagnosticPage
 		Thread.sleep(2000);
 	}
 	
+	
+	public void AddDiagnosticImage(String imageURL ){
+		String current = System.getProperty("user.dir");
+		driver.findElement(By.id("zyDCInfoGallery")).click();
+		driver.findElement(By.id("isDiagnoDefault")).click();
+		
+		driver.findElement(By.id("diagnosDefaImagesList")).sendKeys(current+imageURL);
+	}
+	
+	
 	/*
 	 * Author: Ch.Lakshmi Kanth
 	 * @ Description: This method will Add the period when the Diagnostic to be shown as Closed while Creating Diagnostic Center
