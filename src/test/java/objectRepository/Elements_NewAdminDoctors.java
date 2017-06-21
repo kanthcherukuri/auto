@@ -10,10 +10,10 @@ public static String doctorLabel, addDoctorButton;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
 public static String practiceTab, addOtherClinic;
-public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
+public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicTable_ClinicName, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
 public static String hospitalGenericInfo, defaultClinicTab, defaultClinicName, defaultClinicconsultationFee, defaultClinicPracticeStartDate, defaultClinicFacilitationCharges;
 public static String VacationTab, vacationAddButton, vacationStartDate, vacationEndDate, vacationActiveCheckBox, vacationSave, vacationCancel;
-public static String HospitalTab, hospitaladdHospitalBtn, hospitalAddHeading, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpDefaultCheckBox, hospitalpopUpSaveButton, hospitalpopUpCancelButton;
+public static String HospitalTab, hospitaladdHospitalBtn, hospitalAddHeading, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpDefaultCheckBox, hospitalpopUpSaveButton, hospitalTable_hospitalName, hospitalpopUpCancelButton;
 public static String galleryTab, galleryUploadButton;
 public static String workDaysTab, workDays_addTimeSlotsButton, workDays_workType, workDays_hospitalType, workDays_ClinicType, workDays_workStartTime, workDays_workEndTime, workDays_ActiveCheckBox, workDays_workTimeSave;
 public static String workDays_SundayActiveCheckBox, workDays_SundayAddSlotsBtn, workDays_SundayLunchStart, workDays_SundayLunchEnd, workDays_SundayHouseCallStart, workDays_SundayHouseCallEnd;
@@ -93,6 +93,7 @@ public static String doctorSave, doctorCancel;
 		otherClinicServiceName="zoyOtherClinicServiceName"; //ID
 		otherClinicServiceSave="//button[@class='pull-right zoySubmitBtn zoyOtherClinicAddServiceBtn']"; //XPATH
 		otherClinicSave="zoyOtherClinicSave"; //ID
+		otherClinicTable_ClinicName="//div[@id='zoyDocOtherClinics']//table//td[1]"; //XPATH
 		otherClinicCancel="otherClinicCancel"; //ID
 		hospitalGenericInfo="//li[contains(., 'Generic Info')]"; //XPATH
 		defaultClinicTab="(//ul[@class='zoyDocInfoTabContent']//li)[2]"; //XPATH
@@ -116,6 +117,7 @@ public static String doctorSave, doctorCancel;
 		hospitalpopUpActiveCheckBox="zoyDocAddHospActive"; //ID
 		hospitalpopUpDefaultCheckBox="zoyDocAddHospDefault"; //ID
 		hospitalpopUpSaveButton="zoyDocAddHospSaveBtn"; //ID
+		hospitalTable_hospitalName="//div[@id='zoyDocInfoHospital']//table//td[1]"; //XPATH
 		hospitalpopUpCancelButton="zoyDocAddHospCancelBtn"; //ID
 		galleryTab="//li[@class='zoyDocInfoGalleryTab']"; //XPATH
 		galleryUploadButton="doctorImage"; //ID

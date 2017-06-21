@@ -447,9 +447,11 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void practiceDetails_GalleryInfo_Enter(String imageURL) throws Exception
 	{
+		String current = System.getProperty("user.dir");
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.galleryTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.galleryUploadButton);
-		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(imageURL);
+		System.out.println("image path"+imageURL);
+		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(current+imageURL);
 		Thread.sleep(2000);
 	} //Practice gallery info method end ***
 	
@@ -912,6 +914,5 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void clickSubmitDoctor()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
-		Browser.CheckNotificationMessage("Doctor created successfully");
 	}
 } //End of class
