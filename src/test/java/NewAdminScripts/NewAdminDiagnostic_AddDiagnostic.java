@@ -11,6 +11,9 @@ import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
 import testBase.TestUtils;
 
+//@Author:Ch.Lakshmi Kanth
+
+
 public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;

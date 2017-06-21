@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.Set;
 import objectRepository.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

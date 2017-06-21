@@ -73,6 +73,18 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click hospital worj type of doctor on admin add doctor screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void clickHospitalWorkType() throws Exception
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.workTypeHospital)).click();
+		Thread.sleep(1500);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
 	 * @ Description	: This method is used to enter generic details of doctor on admin add doctor screen
 	 * @ Param			: First, middle and last names, short name, email ID, mobile Number, password
 	 * @ return			: NA
@@ -133,6 +145,43 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
 		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
 	} //Primary info method end ***
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter primary information tab details of hospital doctor on admin add doctor screen
+	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
+	 * @ return			: NA
+	 */
+	public void hospitalDoctorPrimaryInfoDetails_Enter(String isActiveValue, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
+	{
+		if(isActiveValue.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.Active)).click();
+		}
+		else
+		{
+			System.out.println("Doctor isActive is marked as false");
+		}
+		if(genderValue.equalsIgnoreCase("Male"))
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Male");
+			System.out.println("Gender of the doctor being entered is Male");
+		}
+		else
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Female");
+			System.out.println("Gender of the doctor being entered is Female");
+		}
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).clear();
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).sendKeys(DOB); //(MM/DD/YYYY)
+		driver.findElement(By.id(Elements_NewAdminDoctors.medicalRegistrationNumber)).sendKeys(regNum);
+		Browser.selectbyID(Elements_NewAdminDoctors.Qualification, qualification);
+		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, tag);
+		Browser.selectbyID(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
+		driver.findElement(By.id(Elements_NewAdminDoctors.aboutDoctor)).sendKeys(aboutDoc);
+	} //Primary info method end for hospital***
 	
 	/*
 	 * @ Authour		: Sagar Sen
@@ -284,6 +333,23 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter generic info method end for hospital under practice tab of doctor on admin add doctor screen
+	 * @ Param			: practiceStartDate
+	 * @ return			: NA
+	 */
+	public void HospitalpracticeGenericDetails_DefaultClinic_Enter(String practiceStartDate) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.hospitalGenericInfo);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).sendKeys(practiceStartDate);
+		Thread.sleep(1000);
+	} //Practice generic info method end for hospital****
+	
+	/*
+	 * @ Authour		: Sagar Sen
 	 * @ Description	: This method is used to enter vacation information under practice tab of doctor on admin add doctor screen
 	 * @ Param			: vacationStatus, vacationStartDate
 	 * @ return			: NA
@@ -344,15 +410,48 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter hospital information under practice tab of doctor on admin add doctor screen
+	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
+	 * @ return			: NA
+	 */
+	public void hospitalDoctorpracticeDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
+	{
+		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.HospitalTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.hospitaladdHospitalBtn);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitaladdHospitalBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.hospitalAddHeading);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpName)).click();
+			Thread.sleep(3000);
+			//Browser.actionbyid(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			Browser.selectbyID(Elements_NewAdminDoctors.hospitalpopUpName, hospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpConsultationFee)).sendKeys(hospitalFee);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpzoyloCharges)).sendKeys(zfcForHospital);
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpDefaultCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.hospitalpopUpSaveButton)).click();
+		}
+		else
+		{
+			System.out.println("There is no hospital associated against this doctor");
+		}
+		Thread.sleep(2000);
+	} //Practice hospital info method end for hospital***
+	
+	/*
+	 * @ Authour		: Sagar Sen
 	 * @ Description	: This method is used to upload doctor default image under practice tab of doctor on admin add doctor screen
 	 * @ Param			: imageURL
 	 * @ return			: NA
 	 */
 	public void practiceDetails_GalleryInfo_Enter(String imageURL) throws Exception
 	{
+		String current = System.getProperty("user.dir");
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.galleryTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.galleryUploadButton);
-		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(imageURL);
+		System.out.println("image path"+imageURL);
+		driver.findElement(By.id(Elements_NewAdminDoctors.galleryUploadButton)).sendKeys(current+imageURL);
 		Thread.sleep(2000);
 	} //Practice gallery info method end ***
 	
@@ -579,6 +678,112 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add hospital doctor workTimings on admin add doctor screen
+	 * @ Param			: mondayStatus,  MondayworkType,  isMondayHospitalTrue,  mondayHospitalName,  isMondayClinicTrue,  mondayClinicName,  mondayStartTime,  mondayEndTime,  tuesdayStatus,  tuesdayworkType,  istuesdayHospitalTrue,  tuesdayHospitalName,  istuesdayClinicTrue,  tuesdayClinicName,  tuesdayStartTime,  tuesdayEndTime,  wednesdayStatus,  wednesdayworkType,  iswednesdayHospitalTrue,  wednesdayHospitalName,  iswednesdayClinicTrue,  wednesdayClinicName,  wednesdayStartTime,  wednesdayEndTime,  thursdayStatus,  thursdayworkType,  isthursdayHospitalTrue,  thursdayHospitalName,  isthursdayClinicTrue,  thursdayClinicName,  thursdayStartTime,  thursdayEndTime,  fridayStatus,  fridayworkType,  isfridayHospitalTrue,  fridayHospitalName,  isfridayClinicTrue,  fridayClinicName,  fridayStartTime,  fridayEndTime
+	 * @ return			: NA
+	 */
+	public void hospitalDoctorworkDaysInfo_Enter(String mondayStatus, String mondayHospitalName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayHospitalName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayHospitalName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayHospitalName, String fridayStartTime, String fridayEndTime) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.workDaysTab)).click();
+		//Monday
+		if(mondayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(mondayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(mondayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayTab);
+		}
+		else
+		{
+			System.out.println("Monday slots are not provided for this doctor");
+		} // Monday condition end
+		//Tuesday
+		if(tuesdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_TuesdayAddSlotsBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, tuesdayHospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(tuesdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(tuesdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayTab);
+		}
+		else
+		{
+			System.out.println("Tuesday slots are not provided for this doctor");
+		} //Tuesday condition end
+		//Wednesday
+		if(wednesdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_WednesdayAddSlotsBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, wednesdayHospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(wednesdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(wednesdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayTab);
+		}
+		else
+		{
+			System.out.println("Wednesday slots are not provided for this doctor");
+		} //Wednesday condition end
+		//Thursday
+		if(thursdayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_ThursdayAddSlotsBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, thursdayHospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(thursdayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(thursdayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Thread.sleep(1500);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayTab);
+		}
+		else
+		{
+			System.out.println("thursday slots are not provided for this doctor");
+		} //Thursday condition end
+		//Friday
+		if(fridayStatus.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_FridayAddSlotsBtn)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, fridayHospitalName);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(fridayStartTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(fridayEndTime);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ActiveCheckBox)).click();
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workTimeSave)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_SaturdayTab);
+		}
+		else
+		{
+			System.out.println("Friday slots are not provided for this doctor");
+		} //Friday condition end
+		Thread.sleep(2000);
+	} //work days info method end for hospital***
+	
+	/*
+	 * @ Authour		: Sagar Sen
 	 * @ Description	: This method is used to add doctor's default clinic facilities on admin add doctor screen
 	 * @ Param			:  FacilityStatus,  AmbulanceStatus,  EmergencyStatus,  BikeParkStatus,  CarParkStatus,  PayCreditStatus,  PayDebitStatus,  PayCashStatus,  PayOnlineStatus,  PayChecqueStatus,  PremiumServiceStatus
 	 * @ return			: NA
@@ -709,6 +914,5 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void clickSubmitDoctor()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
-		Browser.CheckNotificationMessage("Doctor created successfully");
 	}
 } //End of class

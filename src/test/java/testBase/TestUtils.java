@@ -533,7 +533,7 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 		        startRow=tableStart.getRow();
 		        startCol=tableStart.getColumn();
 
-		        Cell tableEnd= sheet.findCell(tableName, startCol+1,startRow+1, 200, 64000,  false);                
+		        Cell tableEnd= sheet.findCell(tableName, startCol+1,startRow+1, 64000, 64000,  false);                
 
 		        endRow=tableEnd.getRow();
 		        endCol=tableEnd.getColumn();

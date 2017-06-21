@@ -2,15 +2,20 @@ package NewAdminScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import junit.framework.Assert;
 import objectRepository.Elements_NewAdminDoctors;
 //import objectRepository.Elements_Recipients;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
 import testBase.TestUtils;
+
+//@Authour: Sagar Sen
 
 public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 {
@@ -33,15 +38,29 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 		admin.primaryInfoDetails_Enter(isActiveValue, houseCallStatus, houseCallFee, genderValue, DOB, regNum, qualification, tag, specialization, practiceLine, aboutDoc);
 		
 		admin.practiceDetails_otherClinic_Enter(ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrClinicState, othrClinicCity, othrClinicAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayCashStatus, othrClincPayOnlineStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus);
+		//Assert check point for other clinic data table
+		if(ifOtherClinicAvailable.equalsIgnoreCase("true"))
+		{
+			String verifyClinicName=driver.findElement(By.xpath(Elements_NewAdminDoctors.otherClinicTable_ClinicName)).getText();
+			Assert.assertEquals("Other clinic add verification", othrClinicName, verifyClinicName);
+		}
 		admin.practiceDetails_DefaultClinic_Enter(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
 		admin.practiceDetails_Vacation_Enter(vacationStatus, vacationStartDate, vacationEndDate);
 		admin.practiceDetails_HospitalInfo_Enter(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);
+		//Assert check point for hospital add data table
+		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
+		{
+			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
+			Assert.assertEquals("Hospital add verification", hospitalName, verifyHospitalName);
+		}
 		admin.practiceDetails_GalleryInfo_Enter(imageURL);
 		admin.workDaysInfo_Enter(mondayStatus, MondayworkType, isMondayHospitalTrue, mondayHospitalName, isMondayClinicTrue, mondayClinicName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayworkType, istuesdayHospitalTrue, tuesdayHospitalName, istuesdayClinicTrue, tuesdayClinicName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayworkType, iswednesdayHospitalTrue, wednesdayHospitalName, iswednesdayClinicTrue, wednesdayClinicName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayworkType, isthursdayHospitalTrue, thursdayHospitalName, isthursdayClinicTrue, thursdayClinicName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayworkType, isfridayHospitalTrue, fridayHospitalName, isfridayClinicTrue, fridayClinicName, fridayStartTime, fridayEndTime);
 		admin.defaultFacilities_Enter(FacilityStatus, AmbulanceStatus, EmergencyStatus, BikeParkStatus, CarParkStatus, PayCreditStatus, PayDebitStatus, PayCashStatus, PayOnlineStatus, PayChecqueStatus, PremiumServiceStatus);
 		admin.addressInfo_Enter(Country, State, City, completeAddress, Locality, pin, longitude, latitude);
 		admin.clickSubmitDoctor();
-		
+
+		Browser.CheckNotificationMessage("Doctor created successfully");
+
 		Thread.sleep(5000);
 	}
 	
