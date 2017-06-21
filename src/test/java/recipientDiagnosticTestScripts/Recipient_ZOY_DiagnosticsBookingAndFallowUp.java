@@ -65,12 +65,10 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				System.out.println("h5"+SuccessfullMesg);
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment at "+DiagonosticsFullName+" through Zoylo. Your appointment booking details are below:");
 				String APID=Browser.getAppointmentID();
-				
 				RecipientPage.recipientLogout();
 			
 				//Verify Doctor Login with valid details
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
-				//Browser.waitTill(60);
 				DiagnosticPage.clickOnTheRecentPatientFromDashBoardInDiagnostics();
 				DiagnosticPage.diagnosticsCheckinCheckOut();
 				DiagnosticPage.diagnosticslogout();
@@ -78,15 +76,12 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				
 				//Login as Recipient
 				Browser.openUrl(loginPage_Url);			
-				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				Thread.sleep(2000);
 				
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				Browser.scrollbyID("submitReview");
-				//driver.findElement(By.id("submitReview")).click();
 				driver.findElement(By.id("skipForLater")).click();
-				//Browser.verifyNotificationMessage("Review submitted successfully.");
 				RecipientPage.goToAppointments();
 				driver.findElement(By.id("hist")).click();  // my History
 				Thread.sleep(2000);

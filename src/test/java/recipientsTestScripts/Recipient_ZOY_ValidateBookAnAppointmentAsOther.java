@@ -56,6 +56,18 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 			String ClinicName = driver.findElement(By.xpath("//div[@class='book-dtbox']/h3[2]")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			Assert.assertEquals(ClinicName,"Clinic:"+Appointmentdetails[0]+",");
+			String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
+			System.out.println(AppointmentId);
+			
+			/*
+	           //Email Verification of recipient
+				String RecipientEmail= Browser.emailResponse(Recipient_Username, Recipient_Password, "Zoylo.com | Your appointment with "+DoctorFullName+" has been confirmed.");
+				Assert.assertTrue(RecipientEmail.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
+				
+				//Email verification of Doctor
+				String DoctorEmail= Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | "+AppointmentId+".You have a new patient appointment.");
+				Assert.assertTrue(DoctorEmail.contains("You have a new patient appointment booked"));
+				*/
             
 
 	}

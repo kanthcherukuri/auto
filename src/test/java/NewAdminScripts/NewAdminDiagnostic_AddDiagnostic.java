@@ -91,6 +91,8 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterLabVisitDetails(labslotduration, labapptperslot, Lmvalue, Lmstarttime, Lmendtime, Ltvalue, Ltstarttime, Ltendtime, 
 		LWvalue, LWstarttime, LWendtime, LThvalue, LThstarttime, LThendtime, Lfvalue, Lfstarttime, Lfendtime, LSvalue, LSstarttime, LSendtime);
 		Thread.sleep(2000);
+	
+		
 	}
 	
 	
@@ -126,6 +128,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.AddTestsInHealthPackage(testname, testdesc);
 		Thread.sleep(2000);
 		AdminDiagnostic.SaveAddHealthPackages();
+		
 		
 	}
 	

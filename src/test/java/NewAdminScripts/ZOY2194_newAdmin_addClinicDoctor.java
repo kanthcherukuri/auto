@@ -31,6 +31,7 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 		admin.addDoctor_click();
 		admin.doctorGenericDetails_Enter(firstName, MiddleName, LastName, ShortName, emailID, mobileNumber, password);
 		admin.primaryInfoDetails_Enter(isActiveValue, houseCallStatus, houseCallFee, genderValue, DOB, regNum, qualification, tag, specialization, practiceLine, aboutDoc);
+		
 		admin.practiceDetails_otherClinic_Enter(ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrClinicState, othrClinicCity, othrClinicAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayCashStatus, othrClincPayOnlineStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus);
 		admin.practiceDetails_DefaultClinic_Enter(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
 		admin.practiceDetails_Vacation_Enter(vacationStatus, vacationStartDate, vacationEndDate);
@@ -40,6 +41,7 @@ public class ZOY2194_newAdmin_addClinicDoctor extends LoadPropMac
 		admin.defaultFacilities_Enter(FacilityStatus, AmbulanceStatus, EmergencyStatus, BikeParkStatus, CarParkStatus, PayCreditStatus, PayDebitStatus, PayCashStatus, PayOnlineStatus, PayChecqueStatus, PremiumServiceStatus);
 		admin.addressInfo_Enter(Country, State, City, completeAddress, Locality, pin, longitude, latitude);
 		admin.clickSubmitDoctor();
+		
 		Thread.sleep(5000);
 	}
 	
