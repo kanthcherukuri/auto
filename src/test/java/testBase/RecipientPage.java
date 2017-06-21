@@ -549,7 +549,8 @@ public class RecipientPage  {
 
 		Browser.waitFortheElementXpath("//div[@id='bookAppointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
-		driver.findElement(By.xpath("//input[@value='self']")).click(); // self (Added newly)
+		//driver.findElement(By.xpath("//input[@value='self']")).click(); // self (Added newly)
+		Browser.scrollbyxpath("//div[@id='bookAppointment']");
 		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
@@ -707,7 +708,7 @@ public class RecipientPage  {
 
 
 	public void goToAppointments() throws InterruptedException{
-		
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 		Thread.sleep(5000);
 		System.out.println("Clicked On My Account");
@@ -769,8 +770,8 @@ public class RecipientPage  {
 	}
 
 	public void clickOnFilterImg() throws InterruptedException{
-
-		driver.findElement(By.cssSelector("span.zy-filtersimg > img")).click();
+        Browser.waitFortheElementXpath("//span[@class='zy-filtersimg']/img");
+		driver.findElement(By.xpath("//span[@class='zy-filtersimg']/img")).click();
 		Thread.sleep(5000);	
 		System.out.println("Cliked on filter img");
 	}

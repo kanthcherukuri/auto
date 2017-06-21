@@ -121,6 +121,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterLabVisitDetails(labslotduration, labapptperslot, Lmvalue, Lmstarttime, Lmendtime, Ltvalue, Ltstarttime, Ltendtime, 
 		LWvalue, LWstarttime, LWendtime, LThvalue, LThstarttime, LThendtime, Lfvalue, Lfstarttime, Lfendtime, LSvalue, LSstarttime, LSendtime);
 		Thread.sleep(2000);
+
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Monday);
 		String labMonStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_MondayAssert)).getText();
@@ -146,6 +147,9 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Saturday);
 		String labSatStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_SaturdayAssert)).getText();
 		Assert.assertEquals(labSatStart, LSstarttime);
+
+	
+
 		
 	}
 	

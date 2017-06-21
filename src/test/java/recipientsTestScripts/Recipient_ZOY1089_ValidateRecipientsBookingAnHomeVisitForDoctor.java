@@ -50,7 +50,6 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			Thread.sleep(10000);
 			//Searching Locality/Area
 			RecipientPage.searchInZoyloMAPArea(City);
 			RecipientPage.clickOnFilterImg();
@@ -67,7 +66,6 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			RecipientPage.recipientLogout();
 
 
 		}else{

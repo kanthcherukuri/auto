@@ -57,7 +57,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
+				
 	 
 		 }else{
 			 
