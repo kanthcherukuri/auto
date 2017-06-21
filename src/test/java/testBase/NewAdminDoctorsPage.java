@@ -925,4 +925,44 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter emailID in search bar on admin doctor's screen
+	 * @ Param			: emailID
+	 * @ return			: NA
+	 */
+	public void searchDoctorbyEmailID(String emailID)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.dotorSearchTab)).sendKeys(emailID);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", emailID);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on edit button for doctor on admin doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void clickEditbutton()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorEditButton)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to edit seo information of doctor on admin edit doctor's screen
+	 * @ Param			: isSEOInfoTrue
+	 * @ return			: NA
+	 */
+	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle)
+	{
+		if(isSEOInfoTrue.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab_metaTitle);
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).clear();
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).sendKeys(metaTitle);
+		}
+	}
 } //End of class
