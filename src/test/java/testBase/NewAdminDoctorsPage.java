@@ -341,7 +341,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.hospitalGenericInfo);
-		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		//driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).click();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).sendKeys(practiceStartDate);
