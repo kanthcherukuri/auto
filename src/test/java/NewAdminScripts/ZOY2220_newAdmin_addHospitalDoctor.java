@@ -2,6 +2,8 @@ package NewAdminScripts;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -37,9 +39,15 @@ public class ZOY2220_newAdmin_addHospitalDoctor extends LoadPropMac
 		admin.HospitalpracticeGenericDetails_DefaultClinic_Enter(practiceStartDate);
 		admin.practiceDetails_Vacation_Enter(vacationStatus, vacationStartDate, vacationEndDate);
 		admin.hospitalDoctorpracticeDetails_HospitalInfo_Enter(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);
+		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
+		{
+			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
+			Assert.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
+		}
 		admin.practiceDetails_GalleryInfo_Enter(imageURL);
 		admin.hospitalDoctorworkDaysInfo_Enter(mondayStatus, mondayHospitalName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayHospitalName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayHospitalName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayHospitalName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayHospitalName, fridayStartTime, fridayEndTime);
 		admin.clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Doctor created successfully");
 		Thread.sleep(5000);
 	}
 	

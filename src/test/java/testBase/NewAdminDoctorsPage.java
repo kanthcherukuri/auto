@@ -695,6 +695,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
@@ -714,6 +715,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_TuesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, tuesdayHospitalName);
@@ -733,6 +735,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_WednesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, wednesdayHospitalName);
@@ -752,6 +755,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_ThursdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, thursdayHospitalName);
@@ -771,6 +775,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_FridayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, fridayHospitalName);
