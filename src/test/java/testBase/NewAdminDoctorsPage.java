@@ -934,8 +934,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void searchDoctorbyEmailID(String emailID)
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.dotorSearchTab)).sendKeys(emailID);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", emailID);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(emailID);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, emailID);
 	}
 	
 	/*
@@ -946,7 +946,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void clickEditbutton()
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorEditButton)).click();
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.EditButton)).click();
 	}
 	
 	/*
@@ -964,5 +964,91 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).clear();
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).sendKeys(metaTitle);
 		}
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferences()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_referenceTabAssertion)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_referencesOption);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click practice option of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferencePracticeTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_practice)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click practice add button of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReference_practiceAddBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceAdd)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceAddHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add practice details of doctor references on admin screen
+	 * @ Param			: practiceName, practiceDescription
+	 * @ return			: NA
+	 */
+	public void Enter_practiceDetails(String practiceName, String practiceDescription) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceName)).sendKeys(practiceName);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceDescription)).sendKeys(practiceDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for practice add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_practiceSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for edit practice add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_editPracticeSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updatePracticeSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter practiceName in search bar on admin doctor's practice screen
+	 * @ Param			: practiceName
+	 * @ return			: NA
+	 */
+	public void searchDoctorPracticeByName(String practiceName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(practiceName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, practiceName);
 	}
 } //End of class

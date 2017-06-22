@@ -30,7 +30,8 @@ public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoA
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
-public static String doctorSave, doctorCancel, dotorSearchTab, doctorEditButton;
+public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable;
+public static String doctor_referenceTabAssertion, doctor_referencesOption, doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAdd, doctor_reference_practiceAddHeader, doctor_reference_practiceName, doctor_reference_practiceDescription, doctor_reference_practiceActiveCheckBox, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -256,8 +257,21 @@ public static String doctorSave, doctorCancel, dotorSearchTab, doctorEditButton;
 		seoInfoTab_scoreCard="scoreCard"; //ID
 		doctorSave="zoyDocAddProviderBtn"; //ID
 		doctorCancel="zoyDocAddProviderCancelBtn"; //ID
-		dotorSearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
-		doctorEditButton="//button[contains(., 'EDIT')]"; //XPATH
+		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
+		EditButton="//button[contains(., 'EDIT')]"; //XPATH
+		doctor_referenceTabAssertion="//a[@href='#collapseDoctorReferences']"; //XPATH
+		doctor_referencesOption="//div[@id='collapseDoctorReferences']//ul"; //XPATH
+		doctor_reference_practice="//a[@href='/admin/lineOfPracticeList']"; //XPATH
+		doctor_reference_practiceHeader="//h1[contains(., 'Doctor - Practices')]"; //XPATH
+		doctor_reference_practiceAdd="add"; //ID
+		doctor_reference_practiceAddHeader="//h1[contains(., 'Doctor Practice - Add')]"; //XPATH
+		doctor_reference_practiceName="name"; //ID
+		doctor_reference_practiceDescription="description"; //ID
+		doctor_reference_practiceActiveCheckBox="isActive"; //ID
+		doctor_reference_practiceSave="saveLineOfPractices"; //ID
+		doctor_reference_updatePracticeSave="updateLineOfPracticeBtn"; //ID
+		doctor_reference_practiceEditHeader="//h1[contains(., 'Doctor Practice - Edit')]"; //XPATH
+		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
 		
 		return driver;
 	}
