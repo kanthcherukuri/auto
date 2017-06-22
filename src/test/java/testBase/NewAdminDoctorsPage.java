@@ -414,7 +414,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
 	 * @ return			: NA
 	 */
-	public void hospitalDoctorEnter_practiceDetails_HospitalInfo(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
+	public void Enter_hospitalDoctor_practiceDetails_HospitalInfo(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
 	{
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
