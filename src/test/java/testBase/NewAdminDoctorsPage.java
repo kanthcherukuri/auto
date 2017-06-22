@@ -53,7 +53,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void doctorsTab_click()
+	public void click_doctorsTab()
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorLabel)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
@@ -65,7 +65,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void addDoctor_click()
+	public void click_addDoctor()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.addDoctorButton)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
@@ -89,7 +89,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: First, middle and last names, short name, email ID, mobile Number, password
 	 * @ return			: NA
 	 */
-	public void doctorGenericDetails_Enter(String firstName, String MiddleName, String LastName, String ShortName, String emailID, String mobileNumber, String password)
+	public void Enter_doctorGenericDetails(String firstName, String MiddleName, String LastName, String ShortName, String emailID, String mobileNumber, String password)
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.firstName)).sendKeys(firstName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.middleName)).sendKeys(MiddleName);
@@ -106,7 +106,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
 	 * @ return			: NA
 	 */
-	public void primaryInfoDetails_Enter(String isActiveValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
+	public void Enter_primaryInfoDetails(String isActiveValue, String houseCallStatus, String houseCallFee, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
 	{
 		if(isActiveValue.equalsIgnoreCase("true"))
 		{
@@ -152,7 +152,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: is doctor Active, doctor workType, doctor housecall status, doc housecall fee, doctor's gender, doctors DOB, doctor's reg Num, doctors qualification, doctors prof tag, doctors specialization, doctor's practice line, about the doctor
 	 * @ return			: NA
 	 */
-	public void hospitalDoctorPrimaryInfoDetails_Enter(String isActiveValue, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
+	public void Enter_hospitalDoctorPrimaryInfoDetails(String isActiveValue, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc) throws Exception
 	{
 		if(isActiveValue.equalsIgnoreCase("true"))
 		{
@@ -189,7 +189,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrState, othrCity, othrAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayOnlineStatus, othrClincPayCashStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus
 	 * @ return			: NA
 	 */
-	public void practiceDetails_otherClinic_Enter(String ifOtherClinicAvailable, String othrClinicName, String othrClinicPhoneNumber, String othrClinicFee, String othrClinicState, String othrClinicCity, String othrClinicAddressLineOne, String othrClinicPinCode, String othrClinicLongitude, String othrClinicLatitude, String othrClinicFacilityStatus, String othrClinicAmbulanceStatus, String othrClinicEmergencyStatus, String othrClinicBikeParkStatus, String othrClinicCarParkStatus, String othrClincPayCreditStatus, String othrClincPayDebitStatus, String othrClincPayCashStatus, String othrClincPayOnlineStatus, String othrClincPayChecqueStatus, String othrClinicPremiumServiceStatus) throws Exception
+	public void Enter_practiceDetails_otherClinic(String ifOtherClinicAvailable, String othrClinicName, String othrClinicPhoneNumber, String othrClinicFee, String othrClinicState, String othrClinicCity, String othrClinicAddressLineOne, String othrClinicPinCode, String othrClinicLongitude, String othrClinicLatitude, String othrClinicFacilityStatus, String othrClinicAmbulanceStatus, String othrClinicEmergencyStatus, String othrClinicBikeParkStatus, String othrClinicCarParkStatus, String othrClincPayCreditStatus, String othrClincPayDebitStatus, String othrClincPayCashStatus, String othrClincPayOnlineStatus, String othrClincPayChecqueStatus, String othrClinicPremiumServiceStatus) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addOtherClinic);
@@ -317,7 +317,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: defaultClinicName, defaultClinicFee, practiceStartDate
 	 * @ return			: NA
 	 */
-	public void practiceDetails_DefaultClinic_Enter(String defaultClinicName, String defaultClinicFee, String practiceStartDate, String zoyloFacilitationFee)
+	public void Enter_practiceDetails_DefaultClinic(String defaultClinicName, String defaultClinicFee, String practiceStartDate, String zoyloFacilitationFee)
 	{
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.defaultClinicTab)).click();
@@ -337,7 +337,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: practiceStartDate
 	 * @ return			: NA
 	 */
-	public void HospitalpracticeGenericDetails_DefaultClinic_Enter(String practiceStartDate) throws Exception
+	public void Enter_HospitalpracticeGenericDetails_DefaultClinic(String practiceStartDate) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.hospitalGenericInfo);
@@ -354,7 +354,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: vacationStatus, vacationStartDate
 	 * @ return			: NA
 	 */
-	public void practiceDetails_Vacation_Enter(String vacationStatus, String vacationStartDate, String vacationEndDate) throws Exception
+	public void Enter_practiceDetails_Vacation(String vacationStatus, String vacationStartDate, String vacationEndDate) throws Exception
 	{
 		if(vacationStatus.equalsIgnoreCase("true"))
 		{
@@ -384,7 +384,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
 	 * @ return			: NA
 	 */
-	public void practiceDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
+	public void Enter_practiceDetails_HospitalInfo(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
 	{
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
@@ -414,7 +414,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital
 	 * @ return			: NA
 	 */
-	public void hospitalDoctorpracticeDetails_HospitalInfo_Enter(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
+	public void hospitalDoctorEnter_practiceDetails_HospitalInfo(String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital) throws Exception
 	{
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
@@ -445,7 +445,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: imageURL
 	 * @ return			: NA
 	 */
-	public void practiceDetails_GalleryInfo_Enter(String imageURL) throws Exception
+	public void Enter_practiceDetails_GalleryInfo(String imageURL) throws Exception
 	{
 		String current = System.getProperty("user.dir");
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.galleryTab)).click();
@@ -461,7 +461,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: mondayStatus,  MondayworkType,  isMondayHospitalTrue,  mondayHospitalName,  isMondayClinicTrue,  mondayClinicName,  mondayStartTime,  mondayEndTime,  tuesdayStatus,  tuesdayworkType,  istuesdayHospitalTrue,  tuesdayHospitalName,  istuesdayClinicTrue,  tuesdayClinicName,  tuesdayStartTime,  tuesdayEndTime,  wednesdayStatus,  wednesdayworkType,  iswednesdayHospitalTrue,  wednesdayHospitalName,  iswednesdayClinicTrue,  wednesdayClinicName,  wednesdayStartTime,  wednesdayEndTime,  thursdayStatus,  thursdayworkType,  isthursdayHospitalTrue,  thursdayHospitalName,  isthursdayClinicTrue,  thursdayClinicName,  thursdayStartTime,  thursdayEndTime,  fridayStatus,  fridayworkType,  isfridayHospitalTrue,  fridayHospitalName,  isfridayClinicTrue,  fridayClinicName,  fridayStartTime,  fridayEndTime
 	 * @ return			: NA
 	 */
-	public void workDaysInfo_Enter(String mondayStatus, String MondayworkType, String isMondayHospitalTrue, String mondayHospitalName, String isMondayClinicTrue, String mondayClinicName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayworkType, String istuesdayHospitalTrue, String tuesdayHospitalName, String istuesdayClinicTrue, String tuesdayClinicName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayworkType, String iswednesdayHospitalTrue, String wednesdayHospitalName, String iswednesdayClinicTrue, String wednesdayClinicName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayworkType, String isthursdayHospitalTrue, String thursdayHospitalName, String isthursdayClinicTrue, String thursdayClinicName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayworkType, String isfridayHospitalTrue, String fridayHospitalName, String isfridayClinicTrue, String fridayClinicName, String fridayStartTime, String fridayEndTime) throws Exception
+	public void Enter_workDaysInfo(String mondayStatus, String MondayworkType, String isMondayHospitalTrue, String mondayHospitalName, String isMondayClinicTrue, String mondayClinicName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayworkType, String istuesdayHospitalTrue, String tuesdayHospitalName, String istuesdayClinicTrue, String tuesdayClinicName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayworkType, String iswednesdayHospitalTrue, String wednesdayHospitalName, String iswednesdayClinicTrue, String wednesdayClinicName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayworkType, String isthursdayHospitalTrue, String thursdayHospitalName, String isthursdayClinicTrue, String thursdayClinicName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayworkType, String isfridayHospitalTrue, String fridayHospitalName, String isfridayClinicTrue, String fridayClinicName, String fridayStartTime, String fridayEndTime) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.workDaysTab)).click();
 		//Monday
@@ -687,7 +687,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: mondayStatus,  MondayworkType,  isMondayHospitalTrue,  mondayHospitalName,  isMondayClinicTrue,  mondayClinicName,  mondayStartTime,  mondayEndTime,  tuesdayStatus,  tuesdayworkType,  istuesdayHospitalTrue,  tuesdayHospitalName,  istuesdayClinicTrue,  tuesdayClinicName,  tuesdayStartTime,  tuesdayEndTime,  wednesdayStatus,  wednesdayworkType,  iswednesdayHospitalTrue,  wednesdayHospitalName,  iswednesdayClinicTrue,  wednesdayClinicName,  wednesdayStartTime,  wednesdayEndTime,  thursdayStatus,  thursdayworkType,  isthursdayHospitalTrue,  thursdayHospitalName,  isthursdayClinicTrue,  thursdayClinicName,  thursdayStartTime,  thursdayEndTime,  fridayStatus,  fridayworkType,  isfridayHospitalTrue,  fridayHospitalName,  isfridayClinicTrue,  fridayClinicName,  fridayStartTime,  fridayEndTime
 	 * @ return			: NA
 	 */
-	public void hospitalDoctorworkDaysInfo_Enter(String mondayStatus, String mondayHospitalName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayHospitalName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayHospitalName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayHospitalName, String fridayStartTime, String fridayEndTime) throws Exception
+	public void Enter_hospitalDoctor_workDaysInfo(String mondayStatus, String mondayHospitalName, String mondayStartTime, String mondayEndTime, String tuesdayStatus, String tuesdayHospitalName, String tuesdayStartTime, String tuesdayEndTime, String wednesdayStatus, String wednesdayHospitalName, String wednesdayStartTime, String wednesdayEndTime, String thursdayStatus, String thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String fridayStatus, String fridayHospitalName, String fridayStartTime, String fridayEndTime) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.workDaysTab)).click();
 		//Monday
@@ -798,7 +798,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			:  FacilityStatus,  AmbulanceStatus,  EmergencyStatus,  BikeParkStatus,  CarParkStatus,  PayCreditStatus,  PayDebitStatus,  PayCashStatus,  PayOnlineStatus,  PayChecqueStatus,  PremiumServiceStatus
 	 * @ return			: NA
 	 */
-	public void defaultFacilities_Enter(String FacilityStatus, String AmbulanceStatus, String EmergencyStatus, String BikeParkStatus, String CarParkStatus, String PayCreditStatus, String PayDebitStatus, String PayCashStatus, String PayOnlineStatus, String PayChecqueStatus, String PremiumServiceStatus)
+	public void Enter_defaultFacilities(String FacilityStatus, String AmbulanceStatus, String EmergencyStatus, String BikeParkStatus, String CarParkStatus, String PayCreditStatus, String PayDebitStatus, String PayCashStatus, String PayOnlineStatus, String PayChecqueStatus, String PremiumServiceStatus)
 	{
 		
 		if(FacilityStatus.equalsIgnoreCase("true"))
@@ -898,7 +898,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: Country, State, City, completeAddress, Locality, pin, longitude, latitude
 	 * @ return			: NA
 	 */
-	public void addressInfo_Enter(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude)
+	public void Enter_addressInfo(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude)
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addressTab_Country);
