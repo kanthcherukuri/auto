@@ -996,10 +996,9 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_doctorReference_practiceAddBtn()
+	public void click_doctorReference_AddBtn()
 	{
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceAdd)).click();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceAddHeader);
+		driver.findElement(By.id(Elements_NewAdminDoctors.Add_doctor_reference)).click();
 	}
 	
 	/*
@@ -1010,10 +1009,10 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_practiceDetails(String practiceName, String practiceDescription) throws Exception
 	{
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceName)).sendKeys(practiceName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(practiceName);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceDescription)).sendKeys(practiceDescription);
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_practiceActiveCheckBox)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(practiceDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
 	}
 	
 	/*
@@ -1050,5 +1049,67 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(practiceName);
 		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, practiceName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click qualification option of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferenceQualificationTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_qualification)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_qualificationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add qualification details of doctor references on admin screen
+	 * @ Param			: practiceName, practiceDescription
+	 * @ return			: NA
+	 */
+	public void Enter_QualificationDetails(String qualificationName, String qualificationDescription) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(qualificationName);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(qualificationDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for qualification add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_qualificationSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_qualificationSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_qualificationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter qualification in search bar on admin doctor's practice screen
+	 * @ Param			: practiceName
+	 * @ return			: NA
+	 */
+	public void searchDoctorQualificationByName(String qualificationName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(qualificationName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, qualificationName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for edit qualification of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_editQualificationSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateQualificationSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_qualificationHeader);
 	}
 } //End of class
