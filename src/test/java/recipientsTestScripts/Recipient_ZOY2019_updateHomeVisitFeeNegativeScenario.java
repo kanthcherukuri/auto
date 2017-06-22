@@ -46,9 +46,10 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 		String bookPageFee = driver.findElement(By.id("providerFees")).getText();
 		if(bookPageFee.contains(homeFee))
 		{
-			System.out.println("Home visit fee on book apt page is "+bookPageFee);
+			System.out.println("Home visit fee on Confirm Appointment page is "+bookPageFee);
 		}
-		RecipientPage.bookAppointment();
+		//RecipientPage.bookAppointment();
+		RecipientPage.confirmAppointment("Home Visit");
 		Browser.waitforTextbyxpath("//h4[contains(.,'Review Your Appointment Details')]", "Review Your Appointment Details");
 		String pmtPageFee = driver.findElement(By.xpath("(//div[@class='zy-sp-payment-values'])[1]")).getText();
 		if(pmtPageFee.contains(homeFee))
