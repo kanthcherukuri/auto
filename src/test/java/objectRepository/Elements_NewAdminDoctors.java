@@ -30,7 +30,7 @@ public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoA
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
-public static String doctorSave, doctorCancel;
+public static String doctorSave, doctorCancel, dotorSearchTab, doctorEditButton;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -256,6 +256,8 @@ public static String doctorSave, doctorCancel;
 		seoInfoTab_scoreCard="scoreCard"; //ID
 		doctorSave="zoyDocAddProviderBtn"; //ID
 		doctorCancel="zoyDocAddProviderCancelBtn"; //ID
+		dotorSearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
+		doctorEditButton="//button[contains(., 'EDIT')]"; //XPATH
 		
 		return driver;
 	}

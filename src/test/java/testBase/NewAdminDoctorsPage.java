@@ -341,7 +341,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.hospitalGenericInfo);
-		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
+		//driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).click();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).clear();
 		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicPracticeStartDate)).sendKeys(practiceStartDate);
@@ -469,6 +469,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(MondayworkType.equalsIgnoreCase("hospital"))
@@ -511,6 +512,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_TuesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(tuesdayworkType.equalsIgnoreCase("hospital"))
@@ -553,6 +555,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_WednesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(wednesdayworkType.equalsIgnoreCase("hospital"))
@@ -595,6 +598,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_ThursdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(thursdayworkType.equalsIgnoreCase("hospital"))
@@ -637,6 +641,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_FridayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_workType);
 			if(fridayworkType.equalsIgnoreCase("hospital"))
@@ -690,6 +695,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
@@ -709,6 +715,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_TuesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_TuesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, tuesdayHospitalName);
@@ -728,6 +735,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_WednesdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_WednesdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, wednesdayHospitalName);
@@ -747,6 +755,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_ThursdayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_ThursdayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, thursdayHospitalName);
@@ -766,6 +775,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		{
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox);
+			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_FridayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_FridayAddSlotsBtn)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, fridayHospitalName);
@@ -914,5 +924,45 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void clickSubmitDoctor()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter emailID in search bar on admin doctor's screen
+	 * @ Param			: emailID
+	 * @ return			: NA
+	 */
+	public void searchDoctorbyEmailID(String emailID)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.dotorSearchTab)).sendKeys(emailID);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", emailID);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on edit button for doctor on admin doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void clickEditbutton()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorEditButton)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to edit seo information of doctor on admin edit doctor's screen
+	 * @ Param			: isSEOInfoTrue
+	 * @ return			: NA
+	 */
+	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle)
+	{
+		if(isSEOInfoTrue.equalsIgnoreCase("true"))
+		{
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab)).click();
+			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab_metaTitle);
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).clear();
+			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).sendKeys(metaTitle);
+		}
 	}
 } //End of class
