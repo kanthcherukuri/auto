@@ -3,6 +3,7 @@ package recipientsTestScripts;
 
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
@@ -36,9 +37,24 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		  Browser.openUrl(index_url);			
 		  RecipientPage.searchInZoyloMAPArea("Miyapur");
  } 
+	 
+	 
+	 @Test(groups = { "Regression","High" },priority=4)
+	 public void validateAvailabilityFilter() throws Exception {
 
+		    //verifying Home Visit Filter
+		    RecipientPage.clickOnFilterImg();
+            RecipientPage.ApplyFilter("Availability","availabilityDays","Sunday","");
+     	    Browser.clickOnTheElementByXpath("//div[@class='dctr-desig']");
+     	    Browser.clickOnTheElementByXpath("//div[@class='day-title' and contains(text(),'Sunday')]");
+			Boolean SlotsExisit=driver.findElement(By.xpath("//li[@id='apponitmentTime' and @class='sp-available-slots']")).isDisplayed();
+			Assert.assertTrue(SlotsExisit);
+			Browser.clickOnTheElementByID("backArrow");
+	
+	    }
+	
 
-	// @Test(groups = { "Regression","High" },priority=1)
+	 @Test(groups = { "Regression","High" },priority=1)
 	 public void validateApplyFiltersOptions() throws Exception {
 
 			RecipientPage.clickOnFilterImg();
@@ -52,13 +68,18 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	    }
     
 	 //
+	 @AfterMethod
+	 public void AfterFiters() throws Exception {
+
+			driver.navigate().refresh();
+			
+	    }
 	 
-	// @Test(groups = { "Regression","High" },priority=2)
+	 @Test(groups = { "Regression","High" },priority=2)
 	 public void validateApplyFiltersBySpecilization() throws Exception {
-	
-			//Searching Locality/Area
-			//RecipientPage.searchInZoyloMAPArea("Miyapur");
+
 			//Verify Specialization Filter Option
+		    RecipientPage.clickOnFilterImg();
 			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
 			//Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
@@ -67,29 +88,42 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	// @Test(groups = { "Regression","High" },priority=3)
+	 @Test(groups = { "Regression","High" },priority=3)
 	 public void validateApplylineOfPractice() throws Exception {
 
 			//verifying Line of Practice
 		    RecipientPage.clickOnFilterImg();
-			//Reset
-		    RecipientPage.ClearFilters();
-			//SET Filter
-			RecipientPage.clickOnFilterImg();
-            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice ","Homeopathy","searchPractices");
+            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy","searchPractices");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			Assert.assertEquals(LOP_designation, "Skin");
+			Assert.assertEquals(LOP_designation, "Homeopathy");
 	
 	    }
+	 
+	 @Test(groups = { "Regression","High" },priority=0)
+	 public void validateHomeVisitFilter() throws Exception {
+
+		    //verifying Home Visit Filter
+		    RecipientPage.clickOnFilterImg();
+            RecipientPage.ApplyFilter("Home Visits","homeVisit","doesHouseCalls","");
+     	    Browser.clickOnTheElementByXpath("//div[@class='dctr-desig']");
+			Boolean HomeVisitExisit=driver.findElements(By.xpath("//*[@id='myclinics-section']//span/strike")).isEmpty();
+			Assert.assertTrue(HomeVisitExisit);
+			Browser.clickOnTheElementByID("backArrow");
+	
+	    }
+	 
 	 //
-	 @Test(groups = { "Regression","High" },priority=4)
+	 @Test(groups = { "Regression","High" },priority=5)
 	 public void validateApplyFiltersByFee( ) throws Exception {
 
 			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
 			// Between 300 to 500
-			driver.findElement(By.xpath("//div[@id='500']/span")).click();
+			//driver.findElement(By.id("filterFields500")).click();
+			WebElement invisibleelement= driver.findElement(By.id("filterFields500"));  
+			JavascriptExecutor js = (JavascriptExecutor)driver; 
+			js.executeScript("arguments[0].click();", invisibleelement); 
 			driver.findElement(By.id("applyFilter")).click();
 			//Thread.sleep(5000);		
         	Browser.waitFortheElementXpath("//div[@class='consultFee']");
@@ -107,16 +141,11 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	 @Test(groups = { "Regression","High" },priority=5)
+	@Test(groups = { "Regression","High" },priority=6)
 	 public void validateApplyFiltersWithinvalidData() throws Exception {
 
 		    RecipientPage.clickOnFilterImg();
-			//Reset
-		    RecipientPage.ClearFilters();
-			//SET Filter
-			RecipientPage.clickOnFilterImg();
-			RecipientPage.searchInZoyloMAPArea("Miyapur");
-			//Verify Specialization Filter Option
+
 			RecipientPage.ApplyFilter("Specialization","specialization", "Trichology","searchSpecialization");
 			Thread.sleep(5000);
 			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
@@ -124,21 +153,17 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	 @Test(groups = { "Regression","High" },priority=6)
+	 @Test(groups = { "Regression","High" },priority=7)
 	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
 
 		    RecipientPage.clickOnFilterImg();
-			//Reset
-		    RecipientPage.ClearFilters();
-			//SET Filter
-			RecipientPage.clickOnFilterImg();
 			
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
 			Thread.sleep(5000);
 			//Verify with Invalid data
 			driver.findElement(By.id("searchFilter")).click();
-			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx");
+			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx12345");
 			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
 			driver.findElement(By.xpath("(//*[@id='clearFilter'])[2]")).click();
 			//get filter count and make sure filter count is 0 after clearing the filter

@@ -7,7 +7,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Reporter;
 import org.testng.SkipException;
 
 
@@ -80,6 +83,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
 		Browser.waitTill(60);
 		System.out.println("Logged in as"+email );
+		Reporter.log("Logged in as"+email);
 
 	}
 	
@@ -189,9 +193,9 @@ public class RecipientPage  {
         Browser.waitFortheID("search2");
 		driver.findElement(By.id("search2")).click();
 		driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(10000);
+		Thread.sleep(6000);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
-		Thread.sleep(5000);	
+		Thread.sleep(2000);	
 
 	}
 	/*   
@@ -236,8 +240,8 @@ public class RecipientPage  {
 	 *  Last Change  : 
 	 */	
 	public void bookAppointment() throws InterruptedException{
-		//driver.findElement(By.id("self")).click();
-		driver.findElement(By.id("bookAppointment")).click();  // book
+
+		Browser.clickOnTheElementByID("bookAppointment");
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Book Button");
@@ -549,10 +553,9 @@ public class RecipientPage  {
 
 		Browser.waitFortheElementXpath("//div[@id='bookAppointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
-		//driver.findElement(By.xpath("//input[@value='self']")).click(); // self (Added newly)
 		Browser.scrollbyxpath("//div[@id='bookAppointment']");
 		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
-		Thread.sleep(5000); //changed
+		Thread.sleep(5000); //Add Due to clickable Issue
 		System.out.println("Appointment Confirmed");
 	}
 	/*   
@@ -610,16 +613,18 @@ public class RecipientPage  {
 	//New Promo Page
 	public void makePayment() throws InterruptedException{
 
-		Browser.waitFortheID("promocodeValue");
-		driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
-		driver.findElement(By.xpath("//span[3]")).click();
+		Browser.waitFortheElementXpath("//h4[@class='review-panelLink']");
+		Browser.enterTextByID("promocodeValue", "ZOY15");
+		//driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
+		//driver.findElement(By.xpath("//span[3]")).click();
+		Browser.clickOnTheElementByXpath("//span[@class='btn btn-default applyPromocode']");
 		Thread.sleep(6000);
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();  // To check the 3rd Option of promo code
 		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		//Browser.waitTill(60);
-		Thread.sleep(15000);
+		//Thread.sleep(15000);
 		System.out.println("Payment done");
 	}
 	
@@ -723,17 +728,19 @@ public class RecipientPage  {
 
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		if(Search.equals("")){
 			System.out.println("No Serach in filters");
 		}else{
 			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
 			Thread.sleep(2000);	
 		}
-		//driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
-		System.out.println(""+Value+""+name+"");
-		//Browser.clickOnTheElementByID(""+Value+""+name+"");
-		driver.findElement(By.xpath("//div[@id='"+Value+""+name+"']")).click();
+		//Browser.waitFortheElementXpath("//input[@name='"+name+"' and @value='"+Value+"']");
+		
+		WebElement invisibleelement= driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']"));  
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].click();", invisibleelement); 
+		 
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	
