@@ -31,12 +31,13 @@ public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public    WebDriver driver;
 	public TestUtils Browser;
+	public NewAdminDoctorsPage admin;
 	
 
 	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
 		Browser= new TestUtils(driver); 
-
+		admin= new NewAdminDoctorsPage(driver);
 		Elements_Doctors.Doc_PageProperties();
         Elements_Recipients.Recipients_PageProperties();
 	}
@@ -994,21 +995,24 @@ public void VerifyCheckINFunctionality() throws Exception{
 	 */
 	public void deleteOtherClinicFromAdmin(String docEmail) throws Exception
 	{
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(docEmail);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", docEmail);
-		driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
-		Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Edit')]");
-		driver.findElement(By.id("doctorInformationDiv")).click();
-		Browser.scrollbyxpath("//label[contains(., 'Follow Up Within (Days)')]"); //Scroll to other clinic
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Browser.scrollbyID("adminProviderSubmit");
-		driver.findElement(By.id("adminProviderSubmit")).click();
-		Browser.CheckNotificationMessage("Doctor Updated successfully");
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID("may19_0@zoy.com");
+		admin.clickEditbutton();
+		Browser.waitFortheID(Elements_NewAdminDoctors.practiceTab);
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.addOtherClinic);
+		if(driver.findElements(By.xpath("//i[@class='fa fa-trash-o zoyDeleteOtherClinicsBtn']")).size()>0)
+		{
+			driver.findElement(By.xpath("//i[@class='fa fa-trash-o zoyDeleteOtherClinicsBtn']")).click();
+			Thread.sleep(2000);
+			System.out.println("Other clinic is available and deleted");
+		}
+		else
+		{
+			System.out.println("There is no other clinic for this doctor");
+		}
+		admin.clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 	
 	
