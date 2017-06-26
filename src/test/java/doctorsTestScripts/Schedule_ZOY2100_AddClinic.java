@@ -14,13 +14,14 @@ import org.testng.annotations.DataProvider;
 import testBase.AdminPage;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
+import testBase.NewAdminDoctorsPage;
 import testBase.TestUtils;
 
 public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 {
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
-	public AdminPage admin;
+	public NewAdminDoctorsPage admin;
 	
 	@DataProvider(name="clinicdata")
 	public Object[][] clinicdetails() throws Exception
@@ -47,7 +48,7 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		admin=new AdminPage(driver);
+		admin=new NewAdminDoctorsPage(driver);
 		driver.get(loginPage_Url);
 	}
 	

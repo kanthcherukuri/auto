@@ -3,7 +3,6 @@ package doctorsTestScripts;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -84,7 +83,6 @@ public class Appointment_ZOY2208_CheckShowMoreButtonAfterClickingRecepient exten
 		Thread.sleep(2000);
 		//Browser.waitFortheElementXpath("//a[@class='monthly-day monthly-day-event monthly-today']");
 		driver.findElement(By.id(Elements_Doctors.dashboard_showmorebutton)).click();
-		//Thread.sleep(2000);
 		if(driver.findElements(By.xpath(Elements_Doctors.dashboard_AppointmentLisitingSize)).size()==0){
 			Assert.fail();
 		}

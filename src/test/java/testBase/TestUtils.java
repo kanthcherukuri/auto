@@ -162,7 +162,7 @@ public class TestUtils {
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
 			System.out.println("waiting for "+xpath);
-			WebDriverWait wait = (new WebDriverWait(driver, 100));
+			WebDriverWait wait = (new WebDriverWait(driver, 2000));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
@@ -370,7 +370,7 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
-	    Assert.assertEquals(ExpectedNotificationMesg,ActualNotification);
+	    Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
 		
 	}
 	
