@@ -148,8 +148,6 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		String labSatStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_SaturdayAssert)).getText();
 		Assert.assertEquals(labSatStart, LSstarttime);
 
-	
-
 		
 	}
 	
@@ -248,7 +246,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	}
 	
 	
-	@Test(priority=10,enabled=false)
+	@Test(priority=10)
 	public void SaveTheEnterDiagnosticDetails() throws Exception{
 		AdminDiagnostic.SaveDiagnosticDetails();
 		Browser.CheckNotificationMessage("Diagnostic Center created successfully");

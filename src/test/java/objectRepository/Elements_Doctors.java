@@ -84,7 +84,8 @@ public class Elements_Doctors  {
 				//Dashboard variables
 				
 				public static String dashboard_clickondashboardmenu, dashboard_selecttodaysdate, dashboard_fullname, dashboard_checktodayappointmentssize, dashboard_waitfortodaydate;
-				public static String dashboard_checktodayappointmentcountfromgraph, clickonellipse, dashboard_waitfornextpage, dashboard_getnameforpage, dashboard_clickonnextmonth, dashboard_clickondateone;
+				public static String dashboard_checktodayappointmentcountfromgraph, clickonellipse, dashboard_waitfornextpage, dashboard_getnameforpage, dashboard_clickonnextmonth, 
+				dashboard_clickondateone,dashboard_ClickOnRecepientName, dashboard_ClickonBack, dashboard_AppointmentLisitingSize;
 				
 				//show more variables
 				public static String dashboard_showmorebutton, dashboard_showlessbutton;
@@ -109,7 +110,7 @@ public class Elements_Doctors  {
 				public static String schedule;
 				
 		//Clinic tab
-				public static String clinicTab, clinicName, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
+				public static String clinicTab, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
@@ -196,6 +197,7 @@ public class Elements_Doctors  {
 		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
 		clinicName="editClinicName";
+		clinicTimeSlotMinusBtn="//i[@class='fa fa-minus-circle clinc_rem_slot']";
 		sundayTab="cd-6";
 		AddWorkTime="clinic_add_slot";
 		sundayToggle="//label[@class='sp-doc-clinic-workday-switch-label']";
@@ -331,6 +333,9 @@ public class Elements_Doctors  {
 			 dashboard_clickonnextmonth="//*[@id='mycalendar']/div[1]/a[2]";
 			 dashboard_clickondateone="(//a[@class='monthly-day monthly-day-event']/div)[1]";
 			 dashboard_waitfortodaydate="//a[@class='monthly-day monthly-day-event monthly-today']";
+			 dashboard_ClickOnRecepientName="//*[@id='scrolls']/div/div[3]/div[2]/span";
+			 dashboard_ClickonBack="backbtn";
+			 dashboard_AppointmentLisitingSize="//*[@id='scrolls']/div/div";
 			 
 			 
 			 //show more variables

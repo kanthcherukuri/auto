@@ -56,11 +56,22 @@ public class Elements_NewAdminDiagnostic
 	public static String LabVisit_MondayAssert,LabVisit_TuesdayAssert,LabVisit_WednesdayAssert,LabVisit_ThursdayAssert,LabVisit_FridayAssert,
 	LabVisit_SaturdayAssert, HealthPackage_TestAssert,DiagnosticTests_Assert,ContactPerson_Assert,MarkedasClosed_Assert;
 	
-	
-	
 	public static String SEO_Menu,SEO_Title,SEO_Desc,SEO_Keywords,SEO_URL;
 	
 	public static String AddDiagnostic_Submit;
+	
+	public static String Diagnostic_SearchBox,Diagnostic_ClickOnEdit,HealthPackage_ClickOnEditButton,HealthPackage_CheckPackageName,
+	HealthPackage_EditDiscount,HealthPackage_EditFacilitationCharge,DiagnosticTests_ClickOnEdit,DiagnosticTests_EditTestName,
+	DiagnosticTests_EditDiscountPercentage,DiagnosticTests_EditZoyloCharge,DiagnosticTests_EditTestSave,DiagnosticTests_EditCancel,
+	DiagnosticTests_CheckTestName;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static WebDriver newAdmin_DiagnosticPageProperties()
 	{
@@ -163,10 +174,6 @@ public class Elements_NewAdminDiagnostic
 		DiagnosticTests_TestSave="zyDiagnosticTestSave";
 		DiagnosticTests_TestCancel="testCancel";
 		
-		
-		
-		
-		
 		//Additional Information
 		
 		AdditionalInformation_Menu="additionInfotab";
@@ -255,6 +262,21 @@ public class Elements_NewAdminDiagnostic
 		DiagnosticTests_Assert="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
 		ContactPerson_Assert="//*[@id='zoyDiagAIContact']/div/div[2]/table/tbody/tr[2]/td[1]";
 		MarkedasClosed_Assert="//*[@id='zoyDiagAIClosed']/div/div[2]/table/tbody/tr[2]/td[1]";
+
+		
+		Diagnostic_SearchBox="//input[@class='form-control input-sm']";
+		Diagnostic_ClickOnEdit="//button[@class='btn btn-xs edit-btn']";
+		HealthPackage_ClickOnEditButton="(//*[@id='0'])[1]";
+		HealthPackage_CheckPackageName="//*[@id='zoyDiagPackHealth']/div/div[2]/table/tbody/tr[2]/td[1]";
+		HealthPackage_EditDiscount="dp-0";
+		HealthPackage_EditFacilitationCharge="zcp-0";
+		DiagnosticTests_ClickOnEdit="(//*[@id='0'])[2]";
+		DiagnosticTests_EditTestName="diagEditTestName";
+		DiagnosticTests_EditDiscountPercentage="diagEditDiscountPercentage";
+		DiagnosticTests_EditZoyloCharge="diagEditZoyloChargePercentage";
+		DiagnosticTests_EditTestSave="zyDiagnosticEditTestSave";
+		DiagnosticTests_EditCancel="testEditCancel";
+		DiagnosticTests_CheckTestName="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
 		
 		
 		return driver;

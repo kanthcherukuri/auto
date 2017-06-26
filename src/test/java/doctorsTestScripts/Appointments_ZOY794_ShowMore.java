@@ -104,7 +104,6 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 		@AfterMethod
 		public void AppointmentBulkCancelandLogout() throws Exception{
 			DoctorsPage.BulkCancel();
-			Thread.sleep(3000);
 			DoctorsPage.doctorlogout();
 		}
  

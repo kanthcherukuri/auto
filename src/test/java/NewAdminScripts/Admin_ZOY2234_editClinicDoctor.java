@@ -14,7 +14,7 @@ import testBase.TestUtils;
 
 //@Authour: Sagar Sen
 
-public class ZOY2238_newAdmin_editHospitalDoctor extends LoadPropMac
+public class Admin_ZOY2234_editClinicDoctor extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
@@ -22,14 +22,14 @@ public class ZOY2238_newAdmin_editHospitalDoctor extends LoadPropMac
 	@DataProvider(name="clinicDoctorDetails")
 	public Object[][] clinicDocInfo() throws Exception
 	{
-		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/rvmpAdmin_addDoctor.xls", "hospitalDoctor", "ZOY2238");
+		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/rvmpAdmin_addDoctor.xls", "clinicDoctor", "ZOY2234");
 		return(clinicDocInformation);
 	}
 	
 	@Test(dataProvider="clinicDoctorDetails")
-	public void editHospitalDoctor(String emailID, String isSEOInfoTrue, String metaTitle)
+	public void editClinicDoctor(String emailID, String isSEOInfoTrue, String metaTitle)
 	{
-		admin.doctorsTab_click();
+		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		admin.clickEditbutton();
 		admin.seoInfoEdit(isSEOInfoTrue, metaTitle);

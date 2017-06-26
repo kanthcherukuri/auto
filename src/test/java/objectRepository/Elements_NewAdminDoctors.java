@@ -30,14 +30,25 @@ public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoA
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
-public static String doctorSave, doctorCancel, dotorSearchTab, doctorEditButton;
+public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable;
+public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_ActiveCheckBox;
+public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
+public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
+		//LOGIN PAGE
 		loginemail="emailAddress"; //ID
 		loginpassword="password"; //ID
 		loginbutton="//button[text()='Login']"; //XPATH
+		
+		//GENERIC ADMIN
 		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
+		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
+		EditButton="//button[contains(., 'EDIT')]"; //XPATH
+		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
+		
+		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
 		firstName="firstName"; //ID
 		middleName="middleName"; //ID
@@ -256,8 +267,30 @@ public static String doctorSave, doctorCancel, dotorSearchTab, doctorEditButton;
 		seoInfoTab_scoreCard="scoreCard"; //ID
 		doctorSave="zoyDocAddProviderBtn"; //ID
 		doctorCancel="zoyDocAddProviderCancelBtn"; //ID
-		dotorSearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
-		doctorEditButton="//button[contains(., 'EDIT')]"; //XPATH
+		
+		//GENERIC REFERENCE
+		doctor_referenceTabAssertion="//a[@href='#collapseDoctorReferences']"; //XPATH
+		doctor_referencesOption="//div[@id='collapseDoctorReferences']//ul"; //XPATH
+		Add_doctor_reference="add"; //ID
+		doctor_reference_Name="name"; //ID
+		doctor_reference_Description="description"; //ID
+		doctor_reference_ActiveCheckBox="isActive"; //ID
+		
+		//REFERENCE PRACTICE
+		doctor_reference_practice="//a[@href='/admin/lineOfPracticeList']"; //XPATH
+		doctor_reference_practiceHeader="//h1[contains(., 'Doctor - Practices')]"; //XPATH
+		doctor_reference_practiceAddHeader="//h1[contains(., 'Doctor Practice - Add')]"; //XPATH
+		doctor_reference_practiceSave="saveLineOfPractices"; //ID
+		doctor_reference_updatePracticeSave="updateLineOfPracticeBtn"; //ID
+		doctor_reference_practiceEditHeader="//h1[contains(., 'Doctor Practice - Edit')]"; //XPATH
+		
+		//REFERENCE QUALIFICATION
+		doctor_reference_qualification="//a[@href='/admin/doctorQualificationList']"; //XPATH
+		doctor_reference_qualificationHeader="//h1[contains(., 'Doctor - Qualifications')]"; //XPATH
+		doctor_reference_qualificationAddHeader="//h1[contains(., 'Doctor Qualification - Add')]"; //XPATH
+		doctor_reference_qualificationSave="addDoctorQualificationBtn"; //ID
+		doctor_reference_updateQualificationSave="editDoctorQualificationBnt"; //ID
+		doctor_reference_qualificationEditHeader="//h1[contains(., 'Doctor Qualification - Edit')]"; //XPATH
 		
 		return driver;
 	}

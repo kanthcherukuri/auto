@@ -16,7 +16,7 @@ import testBase.TestUtils;
 
 //@Authour: Sagar Sen
 
-public class ZOY2220_newAdmin_addHospitalDoctor extends LoadPropMac
+public class Admin_ZOY2220_addHospitalDoctor extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
@@ -31,21 +31,21 @@ public class ZOY2220_newAdmin_addHospitalDoctor extends LoadPropMac
 	@Test(dataProvider="clinicDoctorDetails")
 	public void addHospitalDoctor(String firstName, String MiddleName, String	LastName, String ShortName, String emailID, String mobileNumber, String	password, String isActiveValue,	String genderValue, String	DOB, String	regNum, String	qualification, String tag, String specialization, String practiceLine, String aboutDoc, String practiceStartDate, String vacationStatus, String	vacationStartDate, String vacationEndDate, String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital, String imageURL, String mondayStatus, String	mondayHospitalName, String	mondayStartTime, String	mondayEndTime, String tuesdayStatus, String	tuesdayHospitalName, String	tuesdayStartTime, String tuesdayEndTime, String	wednesdayStatus, String	wednesdayHospitalName, String	wednesdayStartTime, String	wednesdayEndTime, String thursdayStatus, String	thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String	fridayStatus, String fridayHospitalName, String	fridayStartTime, String	fridayEndTime) throws Exception
 	{
-		admin.doctorsTab_click();
-		admin.addDoctor_click();
+		admin.click_doctorsTab();
+		admin.click_addDoctor();
 		admin.clickHospitalWorkType();
-		admin.doctorGenericDetails_Enter(firstName, MiddleName, LastName, ShortName, emailID, mobileNumber, password);
-		admin.hospitalDoctorPrimaryInfoDetails_Enter(isActiveValue, genderValue, DOB, regNum, qualification, tag, specialization, practiceLine, aboutDoc);
-		admin.HospitalpracticeGenericDetails_DefaultClinic_Enter(practiceStartDate);
-		admin.practiceDetails_Vacation_Enter(vacationStatus, vacationStartDate, vacationEndDate);
-		admin.hospitalDoctorpracticeDetails_HospitalInfo_Enter(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);
+		admin.Enter_doctorGenericDetails(firstName, MiddleName, LastName, ShortName, emailID, mobileNumber, password);
+		admin.Enter_hospitalDoctorPrimaryInfoDetails(isActiveValue, genderValue, DOB, regNum, qualification, tag, specialization, practiceLine, aboutDoc);
+		admin.Enter_HospitalpracticeGenericDetails_DefaultClinic(practiceStartDate);
+		admin.Enter_practiceDetails_Vacation(vacationStatus, vacationStartDate, vacationEndDate);
+		admin.Enter_hospitalDoctor_practiceDetails_HospitalInfo(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
 			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
 			Assert.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
 		}
-		admin.practiceDetails_GalleryInfo_Enter(imageURL);
-		admin.hospitalDoctorworkDaysInfo_Enter(mondayStatus, mondayHospitalName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayHospitalName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayHospitalName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayHospitalName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayHospitalName, fridayStartTime, fridayEndTime);
+		admin.Enter_practiceDetails_GalleryInfo(imageURL);
+		admin.Enter_hospitalDoctor_workDaysInfo(mondayStatus, mondayHospitalName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayHospitalName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayHospitalName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayHospitalName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayHospitalName, fridayStartTime, fridayEndTime);
 		admin.clickSubmitDoctor();
 		Browser.CheckNotificationMessage("Doctor created successfully");
 		Thread.sleep(5000);
