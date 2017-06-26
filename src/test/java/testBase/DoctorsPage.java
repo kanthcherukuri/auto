@@ -532,8 +532,8 @@ public class DoctorsPage  {
 		{
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(Elements_Doctors.clinicTimeSlotMinusBtn)).click();
-			//Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
-			//Thread.sleep(5000);
+			Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
+			Thread.sleep(6000);
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
@@ -744,7 +744,7 @@ public void DoctorAppointmentBookingForSunday(String firstname,String lastname,S
 	 driver.findElement(By.id(Elements_Doctors.appointment_save)).click();	
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
-	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: " +fullname); 
  }
 
 /*
@@ -815,7 +815,7 @@ public void checkWorkDeletionConflict()
 	Browser.waitFortheID(Elements_Doctors.clinicName);
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
-	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
+	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 }
 
 /*
