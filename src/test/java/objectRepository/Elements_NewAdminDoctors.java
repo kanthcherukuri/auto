@@ -34,6 +34,7 @@ public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResu
 public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
+public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -291,6 +292,17 @@ public static String doctor_reference_qualification, doctor_reference_qualificat
 		doctor_reference_qualificationSave="addDoctorQualificationBtn"; //ID
 		doctor_reference_updateQualificationSave="editDoctorQualificationBnt"; //ID
 		doctor_reference_qualificationEditHeader="//h1[contains(., 'Doctor Qualification - Edit')]"; //XPATH
+		
+		//REFERENCE SPECIALIZATION
+		doctor_reference_specialisation="//a[@href='/admin/areaOfSpecializationList']"; //XPATH
+		doctor_reference_specialisationHeader="//h1[contains(., 'Doctor - Specializations')]"; //XPATH
+		doctor_reference_specialisationAddHeader="//h1[contains(., 'Doctor Specialization - Add')]"; //XPATH
+		doctor_reference_specialisationSave="saveAreaOfSpecialization"; //ID
+		doctor_reference_updateSpecialisationSave="updateAreaOfSpecialization";
+		doctor_reference_specialisationEditHeader="//h1[contains(., 'Doctor Specialization - Edit')]"; //XPATH
+		doctor_reference_specialisation_metaTitle="seoTitle"; //ID
+		doctor_reference_specialisation_metaDescription="seoDescription"; //ID
+		doctor_reference_specialisation_keyword="seoKeywords"; //ID
 		
 		return driver;
 	}

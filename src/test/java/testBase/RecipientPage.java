@@ -579,16 +579,15 @@ public class RecipientPage  {
 
 		Browser.waitFortheElementXpath("//div[@id='bookAppointment']");
 		driver.findElement(By.id("problem")).sendKeys(details);
-		driver.findElement(By.xpath("//input[@value='others']")).click(); // self (Added newly)
+		driver.findElement(By.id("radio-checkbtn-others")).click(); // self (Added newly)
 		Thread.sleep(2000);
 		driver.findElement(By.id("firstName")).sendKeys(Pname);
 		driver.findElement(By.id("lastName")).sendKeys(Lname);
 		driver.findElement(By.id("patientGender")).sendKeys(Pgender);
 		driver.findElement(By.id("patientAge")).sendKeys(PAge);
-		driver.findElement(By.id("bloodGroup")).sendKeys(BloodGRP);
-		Browser.scrollbyxpath("//div[@id='bookAppointment']");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
+		//driver.findElement(By.id("bloodGroup")).sendKeys(BloodGRP);
+		Browser.scrollbyID("bookAppointment");
+		driver.findElement(By.id("bookAppointment")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
 	}
@@ -731,7 +730,10 @@ public class RecipientPage  {
 			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
 			Thread.sleep(2000);	
 		}
-		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
+		//driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
+		System.out.println(""+Value+""+name+"");
+		//Browser.clickOnTheElementByID(""+Value+""+name+"");
+		driver.findElement(By.xpath("//div[@id='"+Value+""+name+"']")).click();
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	

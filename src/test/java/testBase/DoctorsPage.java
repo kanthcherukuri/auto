@@ -31,12 +31,13 @@ public class DoctorsPage  {
 	//FirefoxDriver browser = new FirefoxDriver();
 	public    WebDriver driver;
 	public TestUtils Browser;
+	public NewAdminDoctorsPage admin;
 	
 
 	public DoctorsPage(WebDriver driver) throws Exception {
 		this.driver=driver;
 		Browser= new TestUtils(driver); 
-
+		admin= new NewAdminDoctorsPage(driver);
 		Elements_Doctors.Doc_PageProperties();
         Elements_Recipients.Recipients_PageProperties();
 	}
@@ -135,10 +136,24 @@ public class DoctorsPage  {
 
 	}
 
-	
+	// Doctors Checkin and check the recipient
+		public  void doctorCheckinCheckOut() throws IOException, InterruptedException{
+			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckinbutton);
+			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickonstartconsulationbutton);			
+			Browser.enterTextByID(Elements_Doctors.patient_diagnosis, "Doctor Details");
+			Browser.clickOnTheElementByID(Elements_Doctors.patient_saveproblems);
+			Browser.clickOnTheElementByID("saveVitals");
+			Browser.clickOnTheElementByID("savePrescription");
+			Browser.clickOnTheElementByID("saveNotes");
+			Browser.clickOnTheElementByID("generateReceipt");
+			Thread.sleep(10000);
+			Browser.clickOnTheElementByID("checkOut");
+			Thread.sleep(2000);
+			Browser.verifyNotificationMessage("Appointment checked out successfully");
+		}
 	
 	// Doctors Checkin and check the recipient
-	public  void doctorCheckinCheckOut() throws IOException, InterruptedException{			
+	public  void doctorCheckinCheckOut1() throws IOException, InterruptedException{			
 		driver.findElement(By.id(Elements_Doctors.patient_clickoncheckinbutton)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.patient_clickonstartconsulationbutton)).click();				
@@ -155,7 +170,7 @@ public class DoctorsPage  {
 		Thread.sleep(5000);
 		driver.findElement(By.id("generateReceipt")).click();
 		Thread.sleep(5000);
-		Browser.verifyNotificationMessage("Bill generated successfully");
+		//Browser.verifyNotificationMessage("Bill generated successfully");
 		Thread.sleep(5000);
 		driver.findElement(By.id("checkOut")).click();
 		Thread.sleep(2000);
@@ -496,7 +511,7 @@ public class DoctorsPage  {
 			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(strtTime);
 			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(endTime);
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		}
 		
 		/*
@@ -507,6 +522,7 @@ public class DoctorsPage  {
 		 */
 		public void updateClinicWorkTimings(String updtstrtTime, String updtendTime) throws Exception
 		{
+			Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
@@ -518,7 +534,7 @@ public class DoctorsPage  {
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		}
 		
 		/*
@@ -530,10 +546,12 @@ public class DoctorsPage  {
 		public void removeClinicWorkTimings() throws Exception
 		{
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
+			driver.findElement(By.xpath(Elements_Doctors.clinicTimeSlotMinusBtn)).click();
+			Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
+			Thread.sleep(6000);
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 			Thread.sleep(3000);
 		}
 		
@@ -741,7 +759,7 @@ public void DoctorAppointmentBookingForSunday(String firstname,String lastname,S
 	 driver.findElement(By.id(Elements_Doctors.appointment_save)).click();	
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
-	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: " +fullname); 
  }
 
 /*
@@ -812,7 +830,7 @@ public void checkWorkDeletionConflict()
 	Browser.waitFortheID(Elements_Doctors.clinicName);
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
-	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
+	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 }
 
 /*
@@ -977,21 +995,24 @@ public void VerifyCheckINFunctionality() throws Exception{
 	 */
 	public void deleteOtherClinicFromAdmin(String docEmail) throws Exception
 	{
-		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(docEmail);
-		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[1]", docEmail);
-		driver.findElement(By.xpath("//button[contains(., 'EDIT')]")).click();
-		Browser.waitFortheElementXpath("//h4[contains(., 'Doctor - Edit')]");
-		driver.findElement(By.id("doctorInformationDiv")).click();
-		Browser.scrollbyxpath("//label[contains(., 'Follow Up Within (Days)')]"); //Scroll to other clinic
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@class='btn btn-primary autoform-remove-item'])[2]")).click();
-		Browser.scrollbyID("adminProviderSubmit");
-		driver.findElement(By.id("adminProviderSubmit")).click();
-		Browser.CheckNotificationMessage("Doctor Updated successfully");
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID("may19_0@zoy.com");
+		admin.clickEditbutton();
+		Browser.waitFortheID(Elements_NewAdminDoctors.practiceTab);
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.addOtherClinic);
+		if(driver.findElements(By.xpath("//i[@class='fa fa-trash-o zoyDeleteOtherClinicsBtn']")).size()>0)
+		{
+			driver.findElement(By.xpath("//i[@class='fa fa-trash-o zoyDeleteOtherClinicsBtn']")).click();
+			Thread.sleep(2000);
+			System.out.println("Other clinic is available and deleted");
+		}
+		else
+		{
+			System.out.println("There is no other clinic for this doctor");
+		}
+		admin.clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 	
 	

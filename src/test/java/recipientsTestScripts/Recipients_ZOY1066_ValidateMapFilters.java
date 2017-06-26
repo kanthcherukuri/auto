@@ -33,15 +33,12 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(loginPage_Url);			
-	      //Verify Recipient Login with valid details
-		  RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		  Thread.sleep(2000);
-		  	 
+		  Browser.openUrl(index_url);			
+		  RecipientPage.searchInZoyloMAPArea("Miyapur");
  } 
 
 
-	 @Test(groups = { "Regression","High" },priority=1)
+	// @Test(groups = { "Regression","High" },priority=1)
 	 public void validateApplyFiltersOptions() throws Exception {
 
 			RecipientPage.clickOnFilterImg();
@@ -56,11 +53,11 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
     
 	 //
 	 
-	 @Test(groups = { "Regression","High" },priority=2)
+	// @Test(groups = { "Regression","High" },priority=2)
 	 public void validateApplyFiltersBySpecilization() throws Exception {
 	
 			//Searching Locality/Area
-			RecipientPage.searchInZoyloMAPArea("Miyapur");
+			//RecipientPage.searchInZoyloMAPArea("Miyapur");
 			//Verify Specialization Filter Option
 			RecipientPage.ApplyFilter("Specialization","specialization", "Cardiology","searchSpecialization");
 			//Thread.sleep(5000);
@@ -70,8 +67,8 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	 @Test(groups = { "Regression","High" },priority=3)
-	 public void validateApplyFiltersByLineOfPractice() throws Exception {
+	// @Test(groups = { "Regression","High" },priority=3)
+	 public void validateApplylineOfPractice() throws Exception {
 
 			//verifying Line of Practice
 		    RecipientPage.clickOnFilterImg();
@@ -79,10 +76,10 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		    RecipientPage.ClearFilters();
 			//SET Filter
 			RecipientPage.clickOnFilterImg();
-            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice","Homeopathy","searchPractices");
+            RecipientPage.ApplyFilter("Line Of Practices","lineOfPractice ","Homeopathy","searchPractices");
         	Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String LOP_designation=driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
-			Assert.assertEquals(LOP_designation, "Homeopathy");
+			Assert.assertEquals(LOP_designation, "Skin");
 	
 	    }
 	 //
@@ -91,8 +88,8 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 
 			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
-			//Thread.sleep(5000);
-			driver.findElement(By.xpath("//input[@data-start='300' and @data-end='500']")).click();
+			// Between 300 to 500
+			driver.findElement(By.xpath("//div[@id='500']/span")).click();
 			driver.findElement(By.id("applyFilter")).click();
 			//Thread.sleep(5000);		
         	Browser.waitFortheElementXpath("//div[@class='consultFee']");
