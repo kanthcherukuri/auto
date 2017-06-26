@@ -47,10 +47,11 @@ public class Admin_ZOY2239_AddEditDoctorReference_Practice extends LoadPropMac
 	}
 	
 	@Test(dataProvider="DoctorPracticeDetailsEDIT", priority=2)
-	public void editDoctorPractice(String practiceName)
+	public void editDoctorPractice(String practiceName) throws Exception
 	{
 		driver.navigate().refresh();
 		admin.searchDoctorPracticeByName(practiceName);
+		Thread.sleep(1500);
 		admin.clickEditbutton();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_practiceEditHeader);
 		admin.click_editPracticeSaveBtn();
