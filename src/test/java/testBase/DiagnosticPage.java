@@ -104,6 +104,7 @@ public class DiagnosticPage {
 		driver.findElement(By.xpath(Elements_Diagnostics.clickonsignout)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.confirmsignout)).click();
+		Thread.sleep(2000);
 	}
 		
 		
@@ -220,7 +221,7 @@ public class DiagnosticPage {
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
-        Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
+        Browser.CheckNotificationMessage("Appointment is confirmed for "+firstname);
 
 	}
 		

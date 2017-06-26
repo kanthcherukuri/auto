@@ -65,6 +65,10 @@ public class Elements_NewAdminDiagnostic
 	DiagnosticTests_EditDiscountPercentage,DiagnosticTests_EditZoyloCharge,DiagnosticTests_EditTestSave,DiagnosticTests_EditCancel,
 	DiagnosticTests_CheckTestName;
 	
+	public static String  Diagnostic_AppointmentsUrl,Diagnostic_StatusChange,Reschedule_SelectTommorowMenu,Reschedule_SelectAvailableSlot,
+	Reschedule_ClosePopup,Reschedule_SelectNextDay,StatusChange_SubmitCancelledByPatient, StatusChange_SubmitCancelledByDoctor,
+	StatusChange_SubmitCompleted;
+	
 	
 	
 	
@@ -278,6 +282,16 @@ public class Elements_NewAdminDiagnostic
 		DiagnosticTests_EditCancel="testEditCancel";
 		DiagnosticTests_CheckTestName="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
 		
+		
+		 Diagnostic_AppointmentsUrl="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterAppointmentsView";
+		 Diagnostic_StatusChange="//select[@class='diagAppointmentsStatusChangeId']";
+		 Reschedule_SelectTommorowMenu="//*[@id='cd-1']";
+		 Reschedule_SelectAvailableSlot="(//div[@class='panel-collapse collapse in']/ul/li[contains(@class,'timeSlot sp-available-slots')])[1]";
+		 Reschedule_ClosePopup="(//button[@class='button-close'])[4]";
+		 Reschedule_SelectNextDay="//*[@id='cd-2']";
+		 StatusChange_SubmitCancelledByPatient="submitCancelledByPatient";
+		 StatusChange_SubmitCancelledByDoctor="submitCancelledByDoctor";
+		 StatusChange_SubmitCompleted="submitCompleted";
 		
 		return driver;
 	}
