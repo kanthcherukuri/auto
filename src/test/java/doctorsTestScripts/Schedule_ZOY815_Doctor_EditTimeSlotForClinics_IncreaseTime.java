@@ -52,7 +52,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		Thread.sleep(3000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(4000);
