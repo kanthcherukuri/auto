@@ -110,7 +110,7 @@ public class Elements_Doctors  {
 				public static String schedule;
 				
 		//Clinic tab
-				public static String clinicTab, clinicName, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
+				public static String clinicTab, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
@@ -197,6 +197,7 @@ public class Elements_Doctors  {
 		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
 		clinicName="editClinicName";
+		clinicTimeSlotMinusBtn="//i[@class='fa fa-minus-circle clinc_rem_slot']";
 		sundayTab="cd-6";
 		AddWorkTime="clinic_add_slot";
 		sundayToggle="//label[@class='sp-doc-clinic-workday-switch-label']";

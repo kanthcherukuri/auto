@@ -496,7 +496,7 @@ public class DoctorsPage  {
 			driver.findElement(By.xpath(Elements_Doctors.WstrtTime)).sendKeys(strtTime);
 			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(endTime);
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		}
 		
 		/*
@@ -507,6 +507,7 @@ public class DoctorsPage  {
 		 */
 		public void updateClinicWorkTimings(String updtstrtTime, String updtendTime) throws Exception
 		{
+			Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
@@ -518,7 +519,7 @@ public class DoctorsPage  {
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		}
 		
 		/*
@@ -530,10 +531,12 @@ public class DoctorsPage  {
 		public void removeClinicWorkTimings() throws Exception
 		{
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
+			driver.findElement(By.xpath(Elements_Doctors.clinicTimeSlotMinusBtn)).click();
+			//Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
+			//Thread.sleep(5000);
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 			Thread.sleep(3000);
 		}
 		
