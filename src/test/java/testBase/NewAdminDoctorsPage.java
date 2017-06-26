@@ -1112,4 +1112,66 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateQualificationSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_qualificationHeader);
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click specialition option of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferenceSpecialitionTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_specialisation)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add specialisation details of doctor references on admin screen
+	 * @ Param			: practiceName, practiceDescription
+	 * @ return			: NA
+	 */
+	public void Enter_specialisationDetails(String specialisationName, String specialisationDescription) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(specialisationName+Browser.randomalphabets());
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(specialisationDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for specialisation add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_specialisationSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_specialisationSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter specialisation in search bar on admin doctor's practice screen
+	 * @ Param			: specialisationName
+	 * @ return			: NA
+	 */
+	public void searchDoctorspecialisationByName(String specialisationName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(specialisationName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, specialisationName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for edit specialisation of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_editSpecialisationSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateSpecialisationSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
+	}
 } //End of class
