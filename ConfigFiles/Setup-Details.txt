@@ -75,6 +75,10 @@ DiagnosticLogin.passwordtwo=Zoylo@123
 
 Recipient.Username=ganeshzoylo@gmail.com
 Recipient.Password=Zoylo@123
+Recipient2.Username=ganeshmandala@gmail.com
+Recipient2.Password=Zoylo@123
+Recipient3.Username=ganeshkumar.m@zoylo.com
+Recipient3.Password=Zoylo@123
 
 Recipient.DocUsername=zoylodoctor@gmail.com
 Recipient.DocPassword=Zoylo@123

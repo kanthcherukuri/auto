@@ -3,6 +3,8 @@ package testBase;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,7 +26,7 @@ public class LoadPropMac   {
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount, DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo;
-	public static String Recipient_Username, Recipient_Password,Recipient_DSusername,
+	public static String Recipient_Username, Recipient_Password,Recipient2_Username, Recipient2_Password,Recipient3_Username, Recipient3_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment_Name, recipientDC_User, recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
@@ -80,7 +82,10 @@ public class LoadPropMac   {
        //Recipients -Login Credentails
         Recipient_Username=prop.getProperty("Recipient.Username");
         Recipient_Password=prop.getProperty("Recipient.Password");
-        
+        Recipient2_Username=prop.getProperty("Recipient2.Username");
+        Recipient2_Password=prop.getProperty("Recipient2.Password");
+        Recipient3_Username=prop.getProperty("Recipient3.Username");
+        Recipient3_Password=prop.getProperty("Recipient3.Password");
 
         //Diagnostic- Login Credentials
         
@@ -126,6 +131,7 @@ public class LoadPropMac   {
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
+			driver.manage().window().setSize(new Dimension(1080, 1080));
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");

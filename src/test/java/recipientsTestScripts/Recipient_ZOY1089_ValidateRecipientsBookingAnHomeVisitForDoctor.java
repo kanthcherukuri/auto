@@ -49,19 +49,13 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 			//Test Starts-Here
 			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
-			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			//Searching Locality/Area
-			RecipientPage.searchInZoyloMAPArea(City);
-			RecipientPage.clickOnFilterImg();
-			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilter("Home Visits","homeVisit", "doesHouseCalls","");
-			Thread.sleep(5000);
-			RecipientPage.searchInZoylodetailMAP("srscript");
+			RecipientPage.recipientLogin(Recipient2_Username, Recipient2_Password);	
+			RecipientPage.searchInZoyloMAP("srscript");
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("Doctor is"+DoctorFullName);
 			RecipientPage.bookAppointment();
-			RecipientPage.selectDefaultSlot();
+			RecipientPage.selectHomeVisitSlot();
 			RecipientPage.confirmAppointment("Test Details");
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();

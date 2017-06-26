@@ -17,7 +17,7 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 	
 	
 	@Test
-	public void homefunctionality()
+	public void homefunctionality() throws InterruptedException
 	{
 		Browser.waitFortheElementXpath("//a[contains(.,'Contact us')]");
 		driver.findElement(By.xpath(Elements_Home.link_customerlogin)).click();
@@ -28,7 +28,9 @@ public class Recipient_ZOY1332_ValidateHomePageElements extends LoadPropMac
 		String actual = driver.findElement(By.xpath("//div[@class='login-hd-txt']")).getText();
 		Assert.assertEquals("Sign in", actual);
 		reloadtohomePge();
+		Browser.scrollbyxpath(Elements_Home.link_contactus);
 		driver.findElement(By.xpath(Elements_Home.link_contactus)).click();
+		Thread.sleep(5000);
 		String actual1 = driver.findElement(By.xpath("//h2[contains(., 'Our Location')]")).getText();
 		Assert.assertEquals("Our Location", actual1);
 		reloadtohomePge();

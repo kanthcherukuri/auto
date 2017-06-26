@@ -83,7 +83,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				RecipientPage.goToAppointments();
 				//Rescheduling the appointment	
 				RecipientPage.UpcomingAppointment(APID, "Reschedule");
-				Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[4]");							 
+				Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[2]");							 
 				Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
 				//Verifying Reshedule label in appointments
 				String Appointment_Status_Reshedule=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
