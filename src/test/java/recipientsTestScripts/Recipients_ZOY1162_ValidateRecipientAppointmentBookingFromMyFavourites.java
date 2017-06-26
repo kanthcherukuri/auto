@@ -51,7 +51,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("fav"+Fav_DoctorFullName);
 			RecipientPage.bookAppointment();
-			driver.findElement(By.xpath("//*[@id='favourites']/a/span[1]")).click();
+			driver.findElement(By.id("favourites")).click();
 			Thread.sleep(2000);
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
@@ -69,7 +69,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click();
 			Thread.sleep(2000);
 			RecipientPage.bookAppointment();
-			driver.findElement(By.xpath("//*[@id='favourites']/a/span[1]")).click();
+			driver.findElement(By.id("favourites")).click();
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);

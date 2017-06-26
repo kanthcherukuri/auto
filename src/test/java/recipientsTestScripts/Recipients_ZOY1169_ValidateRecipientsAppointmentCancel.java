@@ -67,9 +67,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		String AppointmentId = Browser.getAppointmentID();
 		System.out.println(AppointmentId);
 		driver.get(""+base_url+"myAppointments");
-	/*	Thread.sleep(5000);		
-		driver.findElement(By.xpath("(//*[@id='myAppointment']//h2[contains(.,'Doctorzoylo')])[1]")).click();
-		Browser.waitTill(60);*/
+
 		Browser.clickOnTheElementByXpath("(//*[@id='myAppointment']//h2[contains(.,'"+Doctor_Name+"')])[1]");
 		driver.findElement(By.id("cancel")).click();
 		Thread.sleep(5000);

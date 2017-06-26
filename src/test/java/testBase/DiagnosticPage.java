@@ -836,7 +836,7 @@ public class DiagnosticPage {
 			Thread.sleep(10000);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.checkoutbutton);
 			Thread.sleep(2000);
-			Browser.verifyNotificationMessage("Check Out Success");
+			Browser.verifyNotificationMessage("Checked-out successfully");
 		}
 		
 		

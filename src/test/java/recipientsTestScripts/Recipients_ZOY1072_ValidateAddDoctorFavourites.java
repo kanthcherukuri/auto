@@ -61,7 +61,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			RecipientPage.searchInZoyloMAP(Doctor);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();
-			driver.findElement(By.xpath("//*[@id='favourites']/a/span[1]")).click();
+			Browser.clickOnTheElementByID("favourites");
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);
@@ -71,7 +71,7 @@ public class Recipients_ZOY1072_ValidateAddDoctorFavourites extends LoadPropMac 
 			
 			//Verifying the reset of favaourites
 			RecipientPage.bookAppointment();
-			driver.findElement(By.xpath("//*[@id='favourites']/a/span[1]")).click();
+			Browser.clickOnTheElementByID("favourites");
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);
