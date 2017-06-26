@@ -1009,7 +1009,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_practiceDetails(String practiceName, String practiceDescription) throws Exception
 	{
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(practiceName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(practiceName+Browser.randomalphabets());
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(practiceDescription);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
@@ -1071,7 +1071,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_QualificationDetails(String qualificationName, String qualificationDescription) throws Exception
 	{
-		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(qualificationName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(qualificationName+Browser.randomalphabets());
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(qualificationDescription);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
