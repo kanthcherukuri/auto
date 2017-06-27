@@ -67,7 +67,7 @@ public class Elements_NewAdminDiagnostic
 	
 	public static String  Diagnostic_AppointmentsUrl,Diagnostic_StatusChange,Reschedule_SelectTommorowMenu,Reschedule_SelectAvailableSlot,
 	Reschedule_ClosePopup,Reschedule_SelectNextDay,StatusChange_SubmitCancelledByPatient, StatusChange_SubmitCancelledByDoctor,
-	StatusChange_SubmitCompleted;
+	StatusChange_SubmitCompleted,Diagnostic_ClickOnLoginUser,Diagnostic_Logout,DiagnosticLogs_NewCost,DiagnosticLogs_url;
 	
 	
 	
@@ -292,6 +292,10 @@ public class Elements_NewAdminDiagnostic
 		 StatusChange_SubmitCancelledByPatient="submitCancelledByPatient";
 		 StatusChange_SubmitCancelledByDoctor="submitCancelledByDoctor";
 		 StatusChange_SubmitCompleted="submitCompleted";
+		 Diagnostic_ClickOnLoginUser="html/body/div[6]/header/div[2]/ul/li/div/button";
+		 Diagnostic_Logout="logout";
+		 DiagnosticLogs_NewCost="//*[@id='DataTables_Table_0']/tbody/tr/td[5]";
+		 DiagnosticLogs_url="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestsLogList";
 		
 		return driver;
 	}

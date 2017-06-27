@@ -1,27 +1,21 @@
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
 
 import objectRepository.Elements_Doctors;
 
-import org.testng.annotations.BeforeClass;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
@@ -53,7 +47,7 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	 
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Yamahasz","Y","9191219191","yamahasz@gmail.com","Diabetic" }
+					{ "yes","Yamahaeight","Y","9191219222","yamahaeight@gmail.com","Diabetic" }
 
 			};
 		}
@@ -65,17 +59,16 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 		 
 		 
 			 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
-			 Thread.sleep(1000);
+			 Thread.sleep(5000);
 			 DoctorsPage.reschedule(firstname, lastname, mobile, email, problem); 
-			 Thread.sleep(2000);
-			 driver.findElement(By.id(Elements_Doctors.patient_id)).click();
-				WebDriverWait wait = new WebDriverWait(driver, 8000);
+			 Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
+			 Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
+				WebDriverWait wait = new WebDriverWait(driver, 5000);
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
 				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
 				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
-				Thread.sleep(3000);
-				driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
-				Thread.sleep(3000);
+				Browser.clickOnTheElementByXpath(Elements_Doctors.patient_alltab);
+				Browser.waitFortheElementXpath(Elements_Doctors.patient_alltabfullname);
 				String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
 				String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 				String fullname=firstname+" "+lastname;

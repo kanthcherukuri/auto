@@ -14,7 +14,7 @@ Environment.name=zoyloqa
 
 //----Login URL Details---//
 
-base.url=https://zoyloqa.zoylo.com/
+base.url=https://zoyloqa.zoylo.com/login
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 loginPage.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
@@ -60,6 +60,9 @@ DiagnosticLogin.password=Zoylo@123
 
 DiagnosticLogin.usernamethree=sajjadiagnostic@gmail.com
 DiagnosticLogin.passwordthree=Zoylo@123
+
+DiagnosticLogin.usernamesix=divya@gmail.com
+DiagnosticLogin.passwordsix=Zoylo@123
 
 recipientDC.username=Diagnosticszoylo@zoylo.com
 recipientDC.password=Zoylo@123
