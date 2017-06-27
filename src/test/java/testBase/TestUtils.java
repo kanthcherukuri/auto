@@ -39,6 +39,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -86,6 +88,7 @@ public class TestUtils {
 		driver.get(name);
 		Thread.sleep(2000);
 		System.out.println("Opened URL="+name);
+		Reporter.log("Opened URL="+name);
 	}
 	
 
@@ -295,7 +298,7 @@ public class TestUtils {
 				//Click on the element ID
 				public void clickOnTheElementByID(String ID)
 				{
-					
+					System.out.println("waiting  for "+ID);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
 					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
@@ -303,9 +306,34 @@ public class TestUtils {
 					System.out.println("Clicked on "+ID);
 				}
 				
+				//Get text of the element by Xpath
+				public String getTextByXpath(String xpath)
+				{
+					System.out.println("waiting  for "+xpath);
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+					String text =driver.findElement(By.xpath(xpath)).getText();
+					System.out.println("Text = "+text);
+					return text;
+				}
+				
+				//Get text of the element by ID
+				public String getTextByID(String ID)
+				{
+					System.out.println("waiting  for "+ID);
+					WebDriverWait wait = (new WebDriverWait(driver, 90));
+					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					String text =driver.findElement(By.id(ID)).getText();
+					System.out.println("Text = "+text);
+					return text;
+				}
+				
 				//Click on the element Xpath
 				public void clickOnTheElementByXpath(String Xpath)
 				{
+					System.out.println("Waiting for "+Xpath);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 					driver.findElement(By.xpath(Xpath)).click();
