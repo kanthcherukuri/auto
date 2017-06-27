@@ -1440,5 +1440,80 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		} else {
 			System.out.println("Status change select box is not available");
 		}
+	} //End of complete method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click requested doctor tab
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_requestedDoctorTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDocTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.requestedDocTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDoctorHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter emailID in search bar on admin requested doctor's screen
+	 * @ Param			: Email
+	 * @ return			: NA
+	 */
+	public void searchRequestedDoctorbyEmailID(String Email) throws Exception
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(Email);
+		Thread.sleep(1500);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on details button requested doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_detailsBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.detailsBtn)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDoctorEditHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to edit details of requested doctor's screen
+	 * @ Param			: 
+	 * @ return			: NA
+	 */
+	public void edit_requestedDoctorDetails() throws Exception
+	{
+		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, "Sonologist");
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Skin");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.defaultClinicTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.defaultClinicName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicName)).sendKeys("XYZ Clinic");
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.requestedDoctorCountry);
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorCountry)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorCountry, "India");
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorState)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorState, "Telangana");
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorCity)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorCity, "Hyderabad");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_locality)).sendKeys("Locality");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_pinCode)).sendKeys("500056");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_longitude)).sendKeys("77.983");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys("17.839");
+	} //End of edit req doctor method
+	
+	
+	public void click_validateBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.requestedDoctorValidateBtn)).click();
+		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 } //End of class
