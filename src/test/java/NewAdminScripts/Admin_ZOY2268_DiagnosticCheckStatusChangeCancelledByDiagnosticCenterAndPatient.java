@@ -15,7 +15,7 @@ import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
 import testBase.TestUtils;
 
-public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByPatient extends LoadPropMac{
+public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCenterAndPatient extends LoadPropMac {
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
@@ -24,24 +24,26 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByPatient extends
 	@BeforeClass	 
 	 public void launchbrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 driver.get(doctors_Url);		 
+	 		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
-	 DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+	 
 	}
 	
-	@DataProvider(name = "StatusCheckByPatient")
+
+	@DataProvider(name = "StatusCheckByDiagnostic")
     public Object[][] createData_DP1() throws Exception{
         Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","StatusChange", "ZOY2268Patient");
         return(retObjArr);
     }
 	
-	@Test(dataProvider="StatusCheckByPatient")
-	public void CheckStatusChangeCancelledByPatient(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-		
-		
+	@Test(dataProvider="StatusCheckByDiagnostic")
+	public void CheckStatusChangeCancelledByDiagnosticCenter(String firstname,String lastname,String mobile,String email,String problem,
+			String status) throws Exception{
+		Browser.openUrl(doctors_Url);
+		DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl(doctors_Url);
@@ -51,7 +53,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByPatient extends
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(firstname);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
-		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, "Cancelled By Patient");
+		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, status);
 		Thread.sleep(1000);
 		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
 		String subWindowHandler = null;
@@ -63,9 +65,20 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByPatient extends
 		}
 		driver.switchTo().window(subWindowHandler); // switch to popup window
 		Thread.sleep(2000);                         // perform operations on popup
-		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.StatusChange_SubmitCancelledByPatient);
+		if(status.equalsIgnoreCase("Cancelled By Diagnostic Center")){
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.StatusChange_SubmitCancelledByDoctor);
+		}else{
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.StatusChange_SubmitCancelledByPatient);
+		}
+		
 		driver.switchTo().window(parentWindowHandler);
 		Browser.CheckNotificationMessage("Appointment has been Cancelled");
+		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Diagnostic_Logout);
+		Thread.sleep(2000);
+		
 	}
 	}
+
 

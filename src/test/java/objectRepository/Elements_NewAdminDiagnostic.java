@@ -67,7 +67,7 @@ public class Elements_NewAdminDiagnostic
 	
 	public static String  Diagnostic_AppointmentsUrl,Diagnostic_StatusChange,Reschedule_SelectTommorowMenu,Reschedule_SelectAvailableSlot,
 	Reschedule_ClosePopup,Reschedule_SelectNextDay,StatusChange_SubmitCancelledByPatient, StatusChange_SubmitCancelledByDoctor,
-	StatusChange_SubmitCompleted;
+	StatusChange_SubmitCompleted,Diagnostic_ClickOnLoginUser,Diagnostic_Logout;
 	
 	
 	
@@ -292,6 +292,8 @@ public class Elements_NewAdminDiagnostic
 		 StatusChange_SubmitCancelledByPatient="submitCancelledByPatient";
 		 StatusChange_SubmitCancelledByDoctor="submitCancelledByDoctor";
 		 StatusChange_SubmitCompleted="submitCompleted";
+		 Diagnostic_ClickOnLoginUser="html/body/div[6]/header/div[2]/ul/li/div/button";
+		 Diagnostic_Logout="logout";
 		
 		return driver;
 	}

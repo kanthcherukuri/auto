@@ -71,7 +71,6 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
 		DoctorsPage.BulkCancel();
-		Thread.sleep(3000);
 		DoctorsPage.doctorlogout();
 	}
 	

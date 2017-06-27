@@ -14,7 +14,7 @@ Environment.name=zoyloqa
 
 //----Login URL Details---//
 
-base.url=https://zoyloqa.zoylo.com/
+base.url=https://zoyloqa.zoylo.com/login
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 loginPage.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
