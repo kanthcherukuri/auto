@@ -1153,7 +1153,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to enter specialisation in search bar on admin doctor's practice screen
+	 * @ Description	: This method is used to enter specialisation in search bar on admin doctor's specilisation screen
 	 * @ Param			: specialisationName
 	 * @ return			: NA
 	 */
@@ -1173,5 +1173,67 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateSpecialisationSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click tag option of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferenceTagTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_tag)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add tag details of doctor references on admin screen
+	 * @ Param			: practiceName, practiceDescription
+	 * @ return			: NA
+	 */
+	public void Enter_tagDetails(String tagName, String tagDescription) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(tagName+Browser.randomalphabets());
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(tagDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for tag add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_tagSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_tagSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter tag in search bar on admin doctor's tag screen
+	 * @ Param			: specialisationName
+	 * @ return			: NA
+	 */
+	public void searchDoctorTagByName(String tagName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(tagName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, tagName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for edit tag of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_editTagSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateTagSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
 	}
 } //End of class

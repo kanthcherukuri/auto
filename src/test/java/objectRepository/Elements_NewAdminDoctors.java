@@ -35,6 +35,7 @@ public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
 public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
+public static String doctor_reference_tag, doctor_reference_tagHeader, doctor_reference_tagAddHeader, doctor_reference_tagSave, doctor_reference_tagEditHeader, doctor_reference_updateTagSave;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -303,6 +304,14 @@ public static String doctor_reference_specialisation, doctor_reference_specialis
 		doctor_reference_specialisation_metaTitle="seoTitle"; //ID
 		doctor_reference_specialisation_metaDescription="seoDescription"; //ID
 		doctor_reference_specialisation_keyword="seoKeywords"; //ID
+		
+		//REFERENCE TAGS
+		doctor_reference_tag="//a[@href='/admin/providerTagList']"; //XPATH
+		doctor_reference_tagHeader="//h1[contains(., 'Doctor - Professional Tags')]"; //XPATh
+		doctor_reference_tagAddHeader="//h1[contains(., 'Professional Tag - Add')]"; //XPATh
+		doctor_reference_tagSave="saveProfessionalTags"; //ID
+		doctor_reference_tagEditHeader="//h1[contains(., 'Professional Tag - Edit')]"; //XPATH
+		doctor_reference_updateTagSave="updateProviderTag"; //ID
 		
 		return driver;
 	}
