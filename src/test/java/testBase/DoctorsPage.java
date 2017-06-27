@@ -219,7 +219,7 @@ public class DoctorsPage  {
 		public void ClickView() throws Exception{
 			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.appointment_clickonview)).click();
-			Thread.sleep(5000);
+			Browser.waitFortheID("about");
 		}
 		
 		public void ClickonAlertmenu(){
@@ -724,7 +724,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 driver.findElement(By.id(Elements_Doctors.appointment_save)).click();	
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
-	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
  }
  
  /*

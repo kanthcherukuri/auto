@@ -1,5 +1,8 @@
 package testBase;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -1235,5 +1238,207 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateTagSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click appointments tab and completed appointments
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_aptTabToCompletedApt()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_AppointmentTabAssertion)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_appointmentCompleted);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentCompleted)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_appointmentHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to search appointments by ID
+	 * @ Param			: APTID
+	 * @ return			: NA
+	 */
+	public void search_aptTbyAPTID(String APTID) throws InterruptedException
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(APTID);
+		Thread.sleep(2000);
+		//Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, APTID);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to reschedule
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToReschedule(String status, String Notification) throws Exception
+	{
+		if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size()!=0)
+		{
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			//driver.findElement(By.xpath("(//select[@class='appointmentsStatusChangeId'])[1]")).click();
+			Thread.sleep(2000);
+			Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+			if(status.contains("Reschedule By Patient") || status.contains("Reschedule By Doctor"))
+			{
+				Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+				//Pop up handler
+				String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+				String subWindowHandler = null;
+
+				Set<String> handles = driver.getWindowHandles(); // get all window handles
+				Iterator<String> iterator = handles.iterator();
+				while (iterator.hasNext())
+				{
+				    subWindowHandler = iterator.next();
+				}
+				driver.switchTo().window(subWindowHandler); // switch to popup window
+				Thread.sleep(2000);                         // perform operations on popup
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentTodayTabID)).click(); //Click today
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningTab)).click();
+				//Morning
+				if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningMsg)).size()!=0)
+				{
+					Thread.sleep(1000);
+					driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningTab)).click();
+					Thread.sleep(1500);
+					driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonTab)).click(); //Choose afternoon
+					//Afternoon
+					if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonMsg)).size()!=0)
+					{
+						Thread.sleep(1000);
+						driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonTab)).click();
+						Thread.sleep(1500);
+						driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveTab)).click(); //Choose evening
+						//Evening
+						if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveMsg)).size()!=0)
+						{
+							Thread.sleep(1000);
+							driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveTab)).click();
+							Thread.sleep(1500);
+							driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NightTab)).click(); //Choose night
+							//night
+							if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_NightMsg)).size()!=0)
+							{
+								System.out.println("No slots available for current day");
+							}
+							else
+							{
+								driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+								Browser.CheckNotificationMessage(Notification);
+								System.out.println("Reschedule in night session");
+							}
+						}
+						else
+						{
+							driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+							Browser.CheckNotificationMessage(Notification);
+							System.out.println("Reschedule in evening session");
+						}
+					}
+					else
+					{
+						driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+						Browser.CheckNotificationMessage(Notification);
+						System.out.println("Reschedule in afternoon session");
+					}
+				}
+				else
+				{
+					driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+					Browser.CheckNotificationMessage(Notification);
+					System.out.println("Reschedule in morning session");
+				}
+				//(//div[@class='panel-collapse collapse in']//li[@class='sp-available-slots'])[1]
+				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+				
+			}
+		}
+		else
+		{
+			System.out.println("Status change select box is not available");
+		}
+	} //End of reschedule method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to cancel
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToCancel(String status, String Notification) throws Exception
+	{
+		if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size()!=0)
+		{
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			Thread.sleep(2000);
+		if(status.contains("Cancelled By Patient") || status.contains("Cancelled By Doctor"))
+		{
+			Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+			String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+			String subWindowHandler = null;
+			Set<String> handles = driver.getWindowHandles(); // get all window handles
+			Iterator<String> iterator = handles.iterator();
+			while (iterator.hasNext())
+			{
+			    subWindowHandler = iterator.next();
+			}
+			driver.switchTo().window(subWindowHandler); // switch to popup window
+			Thread.sleep(2000);                         // perform operations on popup
+			
+			if(status.contains("Cancelled By Doctor"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCancelByDoctorSubmitBtn)).click();
+			}
+			else
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCancelByPatientSubmitBtn)).click();
+			}
+			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+			//Browser.CheckNotificationMessage(Notification);
+		}
+		}
+		else
+		{
+			System.out.println("Status change select box is not available");
+		}
+	} //End of cancel method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to complete
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToComplete(String status, String Notification) throws Exception
+	{
+		if (driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size() != 0) {
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			Thread.sleep(2000);
+			if (status.contains("Completed")) {
+				Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+				String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+				String subWindowHandler = null;
+				Set<String> handles = driver.getWindowHandles(); // get all window handles
+				Iterator<String> iterator = handles.iterator();
+				while (iterator.hasNext()) {
+					subWindowHandler = iterator.next();
+				}
+				driver.switchTo().window(subWindowHandler); // switch to popup window
+				Thread.sleep(2000); // perform operations on popup
+
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCompletedSubmitBtn)).click();
+				driver.switchTo().window(parentWindowHandler); // switch back to
+																// parent window
+				//Browser.CheckNotificationMessage(Notification);
+			}
+		} else {
+			System.out.println("Status change select box is not available");
+		}
 	}
 } //End of class
