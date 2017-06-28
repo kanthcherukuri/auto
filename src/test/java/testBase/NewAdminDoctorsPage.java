@@ -1200,6 +1200,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_tagDetails(String tagName, String tagDescription) throws Exception
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_Name);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(tagName+Browser.randomalphabets());
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(tagDescription);
@@ -1238,6 +1239,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_editTagSaveBtn()
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_updateTagSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateTagSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
 	}
