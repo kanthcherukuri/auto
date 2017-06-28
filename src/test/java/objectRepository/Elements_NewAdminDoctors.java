@@ -40,7 +40,8 @@ public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted
 public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
 public static String administratorTab;
 public static String administrator_LanguageTab, administrator_LanguageHeader, administrator_LanguageAddHeader, administrator_LanguageSaveBtn, administrator_LanguageEditHeader, administrator_LanguageEditSave;
-public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_countryCode, administrator_countrySaveBtn, administrator_countryEditHeader;
+public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_Code, administrator_countrySaveBtn, administrator_countryEditHeader;
+public static String administrator_stateTab, administrator_stateHeader, administrator_stateCountryCode, administrator_stateSave;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -77,9 +78,13 @@ public static String administrator_countryTab, administrator_countryHeader, admi
 		administrator_countryTab="//a[@href='/admin/countryList']"; //XPATH
 		administrator_countryHeader="//h1[contains(., 'Countries')]"; //XPATH
 		administrator_countryAddHeader="//h1[contains(., 'Country - Add')]"; //XPATH
-		administrator_countryCode="code"; //ID
+		administrator_Code="code"; //ID
 		administrator_countrySaveBtn="saveCountry"; //ID
 		administrator_countryEditHeader="//h1[contains(., 'Country - Edit')]"; //XPATh
+		administrator_stateTab="//a[@href='/admin/stateList']"; //XPATH
+		administrator_stateHeader="//h1[contains(., 'States')]"; //XPATH
+		administrator_stateCountryCode="countryCode"; //ID
+		administrator_stateSave="saveState"; //ID
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID

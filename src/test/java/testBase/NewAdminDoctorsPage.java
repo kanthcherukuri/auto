@@ -1622,7 +1622,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void Enter_countryDetails(String countryCode, String countryName) throws Exception
 	{
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryAddHeader);
-		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countryCode)).sendKeys(countryCode);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_Code)).sendKeys(countryCode);
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(countryName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
@@ -1637,5 +1637,46 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void click_countrySaveBtn()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countrySaveBtn)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click state under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_stateTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_stateTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_stateTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_stateHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter state details under administrator tab on admin screen
+	 * @ Param			: stateCode, stateName
+	 * @ return			: NA
+	 */
+	public void Enter_stateDetails(String stateCode, String stateName) throws Exception
+	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.administrator_Code);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_Code)).sendKeys(stateCode);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(stateName);
+		Browser.selectbyID(Elements_NewAdminDoctors.administrator_stateCountryCode, "India");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of state details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_stateSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_stateSave)).click();
 	}
 } //End of class
