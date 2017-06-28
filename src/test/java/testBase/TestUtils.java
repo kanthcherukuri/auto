@@ -28,6 +28,7 @@ import objectRepository.Elements_Recipients;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -595,6 +596,12 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 
      }
 
+     public void maximizechromebrowser(){
+    		System.out.println(driver.manage().window().getSize());
+    		Dimension d= new Dimension(1920, 1080);
+    		driver.manage().window().setSize(d);
+    	 
+     }
 	
     
 }

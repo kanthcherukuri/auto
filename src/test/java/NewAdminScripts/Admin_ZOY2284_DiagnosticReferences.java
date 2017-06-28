@@ -1,14 +1,14 @@
+
+
+//@author:Ch.Lakshmi kanth
 package NewAdminScripts;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -42,9 +42,7 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		AdminDiagnostic.ClickOnDiagnosticMenu();
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_ClickReferencemenu)).click();
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_ClickOnTestsMenu)).click();
-		System.out.println(driver.manage().window().getSize());
-		Dimension d= new Dimension(1920, 1080);
-		driver.manage().window().setSize(d);
+		Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.References_ClickOnAddButton);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_ClickOnAddButton);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_EntityName, entityname);
@@ -70,7 +68,9 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_Description, Editentitydescchname);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_Save);
 		Browser.CheckNotificationMessage("Standard Test created successfully");
-		
+		Thread.sleep(3000);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenterStandardTest", "entityName", Editentityname);
 	}
-
+	
+	
 }

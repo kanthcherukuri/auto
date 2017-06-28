@@ -60,6 +60,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 		  Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
 		  Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox, packagename);
 		  Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.DiagnosticLogs_NewCost);
+		  Thread.sleep(2000);
 		  String newcost= driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticLogs_NewCost)).getText();
 		  System.out.println(newcost);
 		  if(newcost.equalsIgnoreCase(cost)){

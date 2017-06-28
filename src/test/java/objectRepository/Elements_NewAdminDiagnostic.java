@@ -73,6 +73,11 @@ public class Elements_NewAdminDiagnostic
 	References_EntityShortName,References_Description,References_Activate,References_AddSynonym, References_SynonymName,
 	References_SaveSynonym, References_Save,References_Edit,References_CheckSynonymName;
 	
+	public static String Hospital_ClickOnHospitalMenu,Hospital_ClickOnAdd,Hospital_HospitalName,Hospital_ShortName,Hospital_Address,
+	Hospital_Longitude,Hospital_Latitude,Hospital_Country,Hospital_State,Hospital_City,Hospital_Pincode,Hospital_CloseContacts,
+	Hospital_CloseGallery,Hospital_CloseAwards,Hospital_ClosePackages,Hospital_CloseServices,Hospital_Save,Hospital_ClickOnCountry,
+	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel;
+	
 	
 	
 	
@@ -314,6 +319,32 @@ public class Elements_NewAdminDiagnostic
 		 References_Save="addZyStandardTestSubmit";
 		 References_Edit="(//button[@class='btn btn-xs edit-btn'])[1]";
 		 References_CheckSynonymName="//*[@id='insertTestsData']/div/div[4]/div[2]/table/tbody/tr[2]/td[1]";
+		 
+		 
+		 Hospital_ClickOnHospitalMenu="//*[@id='tabs']/li[4]/a/div/div/a";
+		 Hospital_ClickOnAdd="add";
+		 Hospital_HospitalName="//input[@name='name']";
+		 Hospital_ShortName="//input[@name='shortName']";
+		 Hospital_Address="//input[@name='addressLine1']";
+		 Hospital_Country="html/body/span/span/span[1]/input";
+		 Hospital_State="html/body/span/span/span[1]/input";
+		 Hospital_City="html/body/span/span/span[1]/input";
+		 Hospital_Pincode="//input[@name='pincode']";
+		 Hospital_Longitude="//input[@name='gpsLongitude']";
+		 Hospital_Latitude="//input[@name='gpslatitude']";
+		 Hospital_CloseContacts="(//button[@class='btn btn-primary autoform-remove-item'])[1]";
+		 Hospital_CloseGallery="(//button[@type='button'])[161]";
+		 Hospital_CloseAwards="(//button[@type='button'])[162]";
+		 Hospital_ClosePackages="(//button[@type='button'])[163]";
+		 Hospital_CloseServices="(//button[@type='button'])[164]";
+		 Hospital_Save="//*[@id='insertHospital']/div/div/div/div/div/button[2]";
+		 Hospital_ClickOnCountry="select2-companyCountryOptions-container";
+		 Hospital_ClickOnState="select2-companyStateOptions-container";
+		 Hospital_ClickOnCity="select2-companyCityOptions-container";
+		 Hospital_Cancel="submitCancel";
+		 
+		 
+		 
 		
 		return driver;
 	}
