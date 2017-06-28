@@ -31,7 +31,6 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.click_doctorReferences();
 		admin.click_doctorReferenceSpecialitionTab();
 		admin.click_doctorReference_AddBtn();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
 		admin.Enter_specialisationDetails(specialisationName, specialisationDescription);
 		admin.click_specialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization created successfully");
@@ -51,7 +50,6 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.searchDoctorspecialisationByName(specialisationName);
 		Thread.sleep(1500);
 		admin.clickEditbutton();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationEditHeader);
 		admin.click_editSpecialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization updated successfully");
 	}

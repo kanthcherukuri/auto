@@ -71,11 +71,12 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
 
 			//Re Scheduling the Apppointment
-			Browser.openUrl(loginPage_Url);
+		/*	Browser.openUrl(loginPage_Url);
 			driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 			Browser.waitTill(60);
 			driver.findElement(By.xpath("//li[@id='myAppointment']/a/span/i")).click();
-			Browser.waitTill(60);
+			Browser.waitTill(60);*/
+			RecipientPage.openMyAccounts("Appointments");
 			Thread.sleep(5000);// Added for view
 			driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]")).click();  // Change		
             Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[2]");			

@@ -66,8 +66,6 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 			 driver.findElement(By.id("emailAddress")).sendKeys(Email);
 			 driver.findElement(By.id("mobileNumber")).sendKeys(Mobile);
 			 driver.findElement(By.id("password")).sendKeys(Password);
-			// driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
-			// driver.findElement(By.id("referralCode")).sendKeys(RefCode);
 			 driver.findElement(By.xpath("//button[text()='Sign Up']")).click();
 			 Thread.sleep(5000);
 			 
