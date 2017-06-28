@@ -135,7 +135,7 @@ public class LoadPropMac   {
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
-			driver.manage().window().setSize(new Dimension(1080, 1080));
+			driver.manage().window().setSize(new Dimension(1280, 800));
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
