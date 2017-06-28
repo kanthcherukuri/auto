@@ -1,14 +1,12 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
@@ -42,7 +40,7 @@ public class Admin_ZOY2220_addHospitalDoctor extends LoadPropMac
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
 			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
-			Assert.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
+			AssertJUnit.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
 		}
 		admin.Enter_practiceDetails_GalleryInfo(imageURL);
 		admin.Enter_hospitalDoctor_workDaysInfo(mondayStatus, mondayHospitalName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayHospitalName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayHospitalName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayHospitalName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayHospitalName, fridayStartTime, fridayEndTime);

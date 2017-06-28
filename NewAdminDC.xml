@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="newAdminDCSuite">
+  <test name="newAdminDC">
+    <classes>
+      <class name="NewAdminScripts.Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCenterAndPatient"/>
+      <class name="NewAdminScripts.Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiagnostic"/>
+      <class name="NewAdminScripts.NewAdminDiagnostic_AddDiagnostic"/>
+      <class name="NewAdminScripts.Admin_ZOY2281_CheckDiagnosticLogs"/>
+      <class name="NewAdminScripts.Admin_AddDiagnostic"/>
+      <class name="NewAdminScripts.Admin_ZOY2268_DiagnosticCheckStatusChangeCompleted"/>
+    </classes>
+  </test> <!-- newAdminDC -->
+</suite> <!-- newAdminDCSuite -->

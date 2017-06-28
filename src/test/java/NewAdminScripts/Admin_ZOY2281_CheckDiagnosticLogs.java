@@ -1,13 +1,11 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_Diagnostics;
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.DiagnosticPage;
