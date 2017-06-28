@@ -1,10 +1,11 @@
 package NewAdminScripts;
 
-import org.testng.AssertJUnit;
+
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -75,27 +76,27 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		
 		Browser.clickOnTheElementByID("monday");
 		String Mstarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_MondayAssert)).getText();
-		AssertJUnit.assertEquals(Mstarttime, starttime);
+		Assert.assertEquals(Mstarttime, starttime);
 		
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HomeVisit_Tuesday);
 		String TuesStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_TuesdayAssert)).getText();
-		AssertJUnit.assertEquals(TuesStarttime, tstarttime);
+		Assert.assertEquals(TuesStarttime, tstarttime);
 		
 		Browser.clickOnTheElementByID("wednesday");
 		String WebStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_WednesdayAssert)).getText();
-		AssertJUnit.assertEquals(WebStarttime, Wstarttime);
+		Assert.assertEquals(WebStarttime, Wstarttime);
 		
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HomeVisit_Thursday);
 		String ThusStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_ThusdayAssert)).getText();
-		AssertJUnit.assertEquals(ThusStarttime, thstarttime);
+		Assert.assertEquals(ThusStarttime, thstarttime);
 		
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HomeVisit_Friday);
 		String FridStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_FridayAssert)).getText();
-		AssertJUnit.assertEquals(FridStarttime, fstarttime);
+		Assert.assertEquals(FridStarttime, fstarttime);
 		
 		Browser.clickOnTheElementByID("saturday");
 		String SatStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_SaturdayAssert)).getText();
-		AssertJUnit.assertEquals(SatStarttime, Sstarttime);
+		Assert.assertEquals(SatStarttime, Sstarttime);
 	}
 	
 	
@@ -119,28 +120,28 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Monday);
 		String labMonStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_MondayAssert)).getText();
-		AssertJUnit.assertEquals(labMonStart, Lmstarttime);
+		Assert.assertEquals(labMonStart, Lmstarttime);
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Tuesday);
 		String labTueStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_TuesdayAssert)).getText();
-		AssertJUnit.assertEquals(labTueStart, Ltstarttime);
+		Assert.assertEquals(labTueStart, Ltstarttime);
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Wednesday); 
 		String labWedStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_WednesdayAssert)).getText();
-		AssertJUnit.assertEquals(labWedStart, LWstarttime);
+		Assert.assertEquals(labWedStart, LWstarttime);
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Thursday);
 		String labThusStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_ThursdayAssert)).getText();
-		AssertJUnit.assertEquals(labThusStart, LThstarttime);
+		Assert.assertEquals(labThusStart, LThstarttime);
 		
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Friday);
 		String labFriStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_FridayAssert)).getText();
-		AssertJUnit.assertEquals(labFriStart, Lfstarttime);
+		Assert.assertEquals(labFriStart, Lfstarttime);
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Saturday);
 		String labSatStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_SaturdayAssert)).getText();
-		AssertJUnit.assertEquals(labSatStart, LSstarttime);
+		Assert.assertEquals(labSatStart, LSstarttime);
 
 		
 	}
@@ -176,7 +177,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		
 		AdminDiagnostic.AddTestsInHealthPackage(testname, testdesc);
 		String healthtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HealthPackage_TestAssert)).getText();
-		AssertJUnit.assertEquals(healthtestname, testname);
+		Assert.assertEquals(healthtestname, testname);
 		AdminDiagnostic.SaveAddHealthPackages();
 		
 		
@@ -197,7 +198,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 				diagZoyloper, diagduration, diagNumofSlots);
 		
 		String diagTests=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_Assert)).getText();
-		AssertJUnit.assertEquals(diagTests,diagTestname);
+		Assert.assertEquals(diagTests,diagTestname);
 	}
 	
 	
@@ -214,11 +215,11 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		
 		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
 		String person=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.ContactPerson_Assert)).getText();
-		AssertJUnit.assertEquals(person,Personname);
+		Assert.assertEquals(person,Personname);
 		AdminDiagnostic.AddDiagnosticImage(imageURL);		
 		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
 		String close=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.MarkedasClosed_Assert)).getText();
-		AssertJUnit.assertEquals(close,startdate);
+		Assert.assertEquals(close,startdate);
 		
 		AdminDiagnostic.EnterOtherInformationdetails(discountoffered, websiteURL, accreditations, ngo, reportonline);
 		AdminDiagnostic.EnterSocialInformation(facebookurl, googleurl, linkedinurl, twiterurl);
