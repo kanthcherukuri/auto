@@ -203,7 +203,7 @@ public class TestUtils {
 			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
-		
+
 		}
 		
 		//Wait for text to be present by ID
@@ -438,7 +438,7 @@ public String getAppointmentID(){
 		
 	}
 	
-public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue) throws UnknownHostException{
+public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey,String QueryValue) throws UnknownHostException{
 		
 		
 		MongoClient mongoClient = null;
@@ -455,7 +455,7 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 		//System.out.println(db.getStats());
         System.out.println(db.getCollectionNames());
         
-        DBCollection coll = db.getCollection("users");
+        DBCollection coll = db.getCollection(collectionName);
         System.out.println("Collection mycol selected successfully");
         
         BasicDBObject searchQuery = new BasicDBObject();

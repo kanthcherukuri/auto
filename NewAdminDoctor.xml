@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NewAdminDoctorSuite">
+  <test name="newAdminDoctor">
+    <classes>
+    	<class name="NewAdminScripts.Admin_ZOY2194_addClinicDoctor"/>
+      	<class name="NewAdminScripts.Admin_ZOY2220_addHospitalDoctor"/>
+      	<class name="NewAdminScripts.Admin_ZOY2234_editClinicDoctor"/>
+      	<class name="NewAdminScripts.Admin_ZOY2238_editHospitalDoctor"/>
+      	<class name="NewAdminScripts.Admin_ZOY2282_requestedDoctorMoveToQue"/>
+      	<class name="NewAdminScripts.Admin_ZOY2270_doctorAppointmentStatusChange"/>
+      	<class name="NewAdminScripts.Admin_ZOY2264_AddEditDoctorReference_Specialisation"/>
+      	<class name="NewAdminScripts.Admin_ZOY2247_AddEditDoctorReference_Qualification"/>
+      	<class name="NewAdminScripts.Admin_ZOY2239_AddEditDoctorReference_Practice"/>
+      	<class name="NewAdminScripts.Admin_ZOY2267_AddEditDoctorReferenceTag"/>
+    </classes>
+  </test> <!-- newAdminDoctor -->
+</suite> <!-- NewAdminDoctorSuite -->

@@ -1,13 +1,12 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
 //import objectRepository.Elements_Recipients;
 import testBase.LoadPropMac;
@@ -41,7 +40,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		if(ifOtherClinicAvailable.equalsIgnoreCase("true"))
 		{
 			String verifyClinicName=driver.findElement(By.xpath(Elements_NewAdminDoctors.otherClinicTable_ClinicName)).getText();
-			Assert.assertEquals(verifyClinicName, othrClinicName, "Other clinic add verification");
+			AssertJUnit.assertEquals(verifyClinicName, othrClinicName, "Other clinic add verification");
 		}
 		admin.Enter_practiceDetails_DefaultClinic(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
 		admin.Enter_practiceDetails_Vacation(vacationStatus, vacationStartDate, vacationEndDate);
@@ -50,7 +49,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
 			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
-			Assert.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
+			AssertJUnit.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
 		}
 		admin.Enter_practiceDetails_GalleryInfo(imageURL);
 		admin.Enter_workDaysInfo(mondayStatus, MondayworkType, isMondayHospitalTrue, mondayHospitalName, isMondayClinicTrue, mondayClinicName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayworkType, istuesdayHospitalTrue, tuesdayHospitalName, istuesdayClinicTrue, tuesdayClinicName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayworkType, iswednesdayHospitalTrue, wednesdayHospitalName, iswednesdayClinicTrue, wednesdayClinicName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayworkType, isthursdayHospitalTrue, thursdayHospitalName, isthursdayClinicTrue, thursdayClinicName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayworkType, isfridayHospitalTrue, fridayHospitalName, isfridayClinicTrue, fridayClinicName, fridayStartTime, fridayEndTime);
