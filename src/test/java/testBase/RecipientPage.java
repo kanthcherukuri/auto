@@ -797,6 +797,7 @@ public class RecipientPage  {
 		Thread.sleep(5000);
 		System.out.println("Cliked on Map Listing / Icon");
 	}
+	
 	public String getNotificationMesssage() throws InterruptedException{
 		Thread.sleep(2000);
 		String Notification= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
@@ -806,6 +807,13 @@ public class RecipientPage  {
 		return Notification;
 	}
 
+	public void openMyAccounts(String TabName) throws InterruptedException{
+		driver.get(LoadPropMac.base_url+"myaccount");
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
+		Thread.sleep(2000);
+		System.out.println("Cliked on Tab Name"+TabName);
+	}
 
 	public void goToMyAccounts(String TabName) throws InterruptedException{
 		Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
