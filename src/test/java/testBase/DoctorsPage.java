@@ -219,7 +219,6 @@ public class DoctorsPage  {
 
 
 		public void ClickView() throws Exception{
-			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_Doctors.appointment_clickonview)).click();
 			Browser.waitFortheID("about");
 		}
@@ -634,10 +633,15 @@ public class DoctorsPage  {
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_fromdate);
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromdate)).sendKeys(date);
+		//Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_todate);
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_todate)).sendKeys(enddate);
+		//Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//div[@class='pop-hdg'])[2]")).click();
+		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
 		Thread.sleep(3000);
 	  
@@ -690,22 +694,23 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 }
 }
 
- public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-	 
-	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
+ public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception
+ {	 
+	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
-     Browser.clickOnTheElementByID(Elements_Doctors.appointment_noon);
+     Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
 	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
+	 Thread.sleep(1000);
 	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
 	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
 	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
-	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
+	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
 	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
  }
