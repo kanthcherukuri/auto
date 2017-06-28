@@ -1,19 +1,17 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
 import testBase.TestUtils;
 
-public class Admin_ZOY2268_DiagnosticCheckStatusChange extends LoadPropMac{
+public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiagnostic extends LoadPropMac{
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
@@ -37,7 +35,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChange extends LoadPropMac{
     }
 	
 	@Test(dataProvider="SatuscheckReschedule")
-	public void DiagnosticCheckStatusChange(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	public void DiagnosticCheckStatusChangeReschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl(doctors_Url);

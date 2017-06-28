@@ -30,11 +30,14 @@ public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoA
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
-public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable;
+public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable, searchResultonTableforReqDoc;
 public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
 public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
+public static String doctor_reference_tag, doctor_reference_tagHeader, doctor_reference_tagAddHeader, doctor_reference_tagSave, doctor_reference_tagEditHeader, doctor_reference_updateTagSave;
+public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted, doctor_appointmentHeader, doctor_appointmentStatusDropDown, doctor_appointmentResendBtn, doctor_appointmentTodayTabID, doctor_appointmentReschedule_MorningTab, doctor_appointmentReschedule_MorningMsg, doctor_appointmentReschedule_NoonTab, doctor_appointmentReschedule_NoonMsg, doctor_appointmentReschedule_EveTab, doctor_appointmentReschedule_EveMsg, doctor_appointmentReschedule_NightTab, doctor_appointmentReschedule_NightMsg, doctor_appointmentReschedule_availableSlot, doctor_appointmentCancelByDoctorSubmitBtn, doctor_appointmentCancelByPatientSubmitBtn, doctor_appointmentCompletedSubmitBtn;
+public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -47,7 +50,18 @@ public static String doctor_reference_specialisation, doctor_reference_specialis
 		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
 		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
 		EditButton="//button[contains(., 'EDIT')]"; //XPATH
-		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
+		searchResultOnTable="//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
+		searchResultonTableforReqDoc=".//*[@id='DataTables_Table_0']/tbody/tr/td[5]"; //XPATh
+		
+		//REQUESTED DOCTOR
+		requestedDocTab="//a[@href='/admin/requestedProvidersList']"; //XPATH
+		requestedDoctorHeader="//h1[contains(., 'Requested Doctors')]"; //XPATh
+		detailsBtn="//button[@class='btn btn-xs details-btn']"; //XPATH
+		requestedDoctorEditHeader="//h1[contains(., 'Requested Doctor - Edit')]"; //XPATH
+		requestedDoctorValidateBtn="//button[@id='zoyDocAddProviderBtn' and @value='validate-Move']"; //XPATH
+		requestedDoctorCountry="zoyDocdefaultCountry"; //ID
+		requestedDoctorState="zoyDocdefaultState"; //ID
+		requestedDoctorCity="zoyDocdefaultCity"; //ID
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
@@ -303,6 +317,34 @@ public static String doctor_reference_specialisation, doctor_reference_specialis
 		doctor_reference_specialisation_metaTitle="seoTitle"; //ID
 		doctor_reference_specialisation_metaDescription="seoDescription"; //ID
 		doctor_reference_specialisation_keyword="seoKeywords"; //ID
+		
+		//REFERENCE TAGS
+		doctor_reference_tag="//a[@href='/admin/providerTagList']"; //XPATH
+		doctor_reference_tagHeader="//h1[contains(., 'Doctor - Professional Tags')]"; //XPATh
+		doctor_reference_tagAddHeader="//h1[contains(., 'Professional Tag - Add')]"; //XPATh
+		doctor_reference_tagSave="saveProfessionalTags"; //ID
+		doctor_reference_tagEditHeader="//h1[contains(., 'Professional Tag - Edit')]"; //XPATH
+		doctor_reference_updateTagSave="updateProviderTag"; //ID
+		
+		//DOCTOR APPOINTMENTS
+		doctor_AppointmentTabAssertion="//a[@href='#collapseDocApmts']"; //XPATH
+		doctor_appointmentCompleted="//a[@href='/admin/appointmentsView']"; //XPATH
+		doctor_appointmentHeader="//h1[contains(., 'Appointments')]"; //XPATH
+		doctor_appointmentStatusDropDown="(//select[@class='appointmentsStatusChangeId'])[1]"; //XPATH
+		doctor_appointmentResendBtn="//button[@class='btn btn-xs edit-btn resend-notification']"; //XPATH
+		doctor_appointmentTodayTabID="cd-0"; //ID
+		doctor_appointmentReschedule_MorningTab="session1"; //ID
+		doctor_appointmentReschedule_MorningMsg="//span[@id='session1-0' and contains(., 'No slots available')]"; //XPATH
+		doctor_appointmentReschedule_NoonTab="session2"; //ID
+		doctor_appointmentReschedule_NoonMsg="//span[@id='session2-0' and contains(., 'No slots available')]"; //XPATH
+		doctor_appointmentReschedule_EveTab="session3"; //ID
+		doctor_appointmentReschedule_EveMsg="//span[@id='session3-0' and contains(., 'No slots available')]"; //XPATH
+		doctor_appointmentReschedule_NightTab="session4"; //ID
+		doctor_appointmentReschedule_NightMsg="//span[@id='session4-0' and contains(., 'No slots available')]"; //XPATH
+		doctor_appointmentReschedule_availableSlot="(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]"; //XPATH
+		doctor_appointmentCancelByDoctorSubmitBtn="submitCancelledByDoctor"; //ID
+		doctor_appointmentCancelByPatientSubmitBtn="submitCancelledByPatient"; //ID
+		doctor_appointmentCompletedSubmitBtn="submitCompleted"; //ID
 		
 		return driver;
 	}

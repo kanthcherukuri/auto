@@ -63,6 +63,7 @@ public class Elements_Doctors  {
 				public static String patient_alltabschedule;
 				public static String patient_todaytabname;
 				public static String patient_todaytabschedule,patient_getfullname,patient_getstatus;
+				public static String patient_getAptID;
 				
 				//Checkin variables
 				public static String patient_clickoncheckinbutton;
@@ -154,7 +155,7 @@ public class Elements_Doctors  {
 	public static  WebDriver Doc_PageProperties()throws Exception{
 		
 		//Schedule Hospital Tab
-		
+		patient_getAptID="(//div[@class='zy-rec-tab-cell zy-rec-dtls'])[1]"; //XPATH
 		Schedule_Hospital_ClickOnHospitalTab="//*[@id='cd-12']";
 		Schedule_Hospital_ClickAddWorkTimingsButton="//i[@class='fa fa-plus-circle slot_hospital_add']";
 		Schedule_Hospital_ClickOnToggle="//span[@class='sp-doc-clinic-workday-switch-switch']";

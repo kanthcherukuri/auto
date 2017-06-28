@@ -1,13 +1,11 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -40,13 +38,14 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 	public void EditDiagnostic(String DiagnosticEmail,String EditPackageName,String EditDiscountPercentage,String EditZoyloPercentage,String EditDiscountPercentageOne,
 	String EditZoyloPercentageOne,String EditdiagTestname,String Editdiagdiscountper,String EditdiagZoyloper) throws Exception{
 		AdminDiagnostic.ClickOnDiagnosticMenu();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(DiagnosticEmail);
 		Browser.waitforTextbyxpath("//*[@id='DataTables_Table_0']/tbody/tr/td[3]", DiagnosticEmail);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnEdit)).click();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnEdit);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticCenter_Name);
 		AdminDiagnostic.ClickOnPackageAndTestsMenu();
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HealthPackage_ClickOnEditButton)).click();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.HealthPackage_ClickOnEditButton);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.HealthPackage_packageName);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_packageName)).clear();
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_packageName)).sendKeys(EditPackageName);
@@ -60,12 +59,13 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		Thread.sleep(2000);
 		String discountper=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HealthPackage_CheckPackageName)).getText();
 		System.out.println(discountper);
-		Assert.assertEquals(discountper, EditPackageName);
+		AssertJUnit.assertEquals(discountper, EditPackageName);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditDiscount)).clear();
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditDiscount)).sendKeys(EditDiscountPercentageOne);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditFacilitationCharge)).clear();
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditFacilitationCharge)).sendKeys(EditZoyloPercentageOne);
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_Menu);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_Menu)).click();
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_ClickOnEdit)).click();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_EditTestName);
@@ -79,7 +79,7 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_EditCancel)).click();
 		Thread.sleep(2000);
 		String diagtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_CheckTestName)).getText();
-		Assert.assertEquals(diagtestname, EditdiagTestname);
+		AssertJUnit.assertEquals(diagtestname, EditdiagTestname);
 		AdminDiagnostic.SaveDiagnosticDetails();
 		
 	}

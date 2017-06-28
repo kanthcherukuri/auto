@@ -1,11 +1,9 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.DataProvider;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
 import testBase.TestUtils;
@@ -70,7 +68,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterAddressDetails(address, country, state, city, pincode, locality, landmark, longitude, latitude);
 		AdminDiagnostic.EnterTheFacilities();
 		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
-		//AdminDiagnostic.SaveDiagnosticDetails();
+		AdminDiagnostic.SaveDiagnosticDetails();
 		//Browser.CheckNotificationMessage("Diagnostic Center created successfully");	
 	}
 	

@@ -78,7 +78,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Please login to your email and proceed for verification to confirm your enrollment with us.");
 			//*Removing Created User from the data Base Mongo 
-			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "username", "doctorzoylo@gmail.com");
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", "username", "doctorzoylo@gmail.com");
 
 
 		}else{

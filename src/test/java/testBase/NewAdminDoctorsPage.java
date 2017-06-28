@@ -1,5 +1,8 @@
 package testBase;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -1153,7 +1156,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to enter specialisation in search bar on admin doctor's practice screen
+	 * @ Description	: This method is used to enter specialisation in search bar on admin doctor's specilisation screen
 	 * @ Param			: specialisationName
 	 * @ return			: NA
 	 */
@@ -1173,5 +1176,344 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateSpecialisationSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click tag option of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReferenceTagTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_tag)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add tag details of doctor references on admin screen
+	 * @ Param			: practiceName, practiceDescription
+	 * @ return			: NA
+	 */
+	public void Enter_tagDetails(String tagName, String tagDescription) throws Exception
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(tagName+Browser.randomalphabets());
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(tagDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for tag add of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_tagSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_tagSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter tag in search bar on admin doctor's tag screen
+	 * @ Param			: specialisationName
+	 * @ return			: NA
+	 */
+	public void searchDoctorTagByName(String tagName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(tagName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, tagName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click save button for edit tag of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_editTagSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateTagSave)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click appointments tab and completed appointments
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_aptTabToCompletedApt()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_AppointmentTabAssertion)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_appointmentCompleted);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentCompleted)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_appointmentHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to search appointments by ID
+	 * @ Param			: APTID
+	 * @ return			: NA
+	 */
+	public void search_aptTbyAPTID(String APTID) throws InterruptedException
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(APTID);
+		Thread.sleep(2000);
+		//Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, APTID);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to reschedule
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToReschedule(String status, String Notification) throws Exception
+	{
+		if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size()!=0)
+		{
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			//driver.findElement(By.xpath("(//select[@class='appointmentsStatusChangeId'])[1]")).click();
+			Thread.sleep(2000);
+			Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+			if(status.contains("Reschedule By Patient") || status.contains("Reschedule By Doctor"))
+			{
+				Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+				//Pop up handler
+				String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+				String subWindowHandler = null;
+
+				Set<String> handles = driver.getWindowHandles(); // get all window handles
+				Iterator<String> iterator = handles.iterator();
+				while (iterator.hasNext())
+				{
+				    subWindowHandler = iterator.next();
+				}
+				driver.switchTo().window(subWindowHandler); // switch to popup window
+				Thread.sleep(2000);                         // perform operations on popup
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentTodayTabID)).click(); //Click today
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningTab)).click();
+				//Morning
+				if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningMsg)).size()!=0)
+				{
+					Thread.sleep(1000);
+					driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_MorningTab)).click();
+					Thread.sleep(1500);
+					driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonTab)).click(); //Choose afternoon
+					//Afternoon
+					if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonMsg)).size()!=0)
+					{
+						Thread.sleep(1000);
+						driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NoonTab)).click();
+						Thread.sleep(1500);
+						driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveTab)).click(); //Choose evening
+						//Evening
+						if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveMsg)).size()!=0)
+						{
+							Thread.sleep(1000);
+							driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_EveTab)).click();
+							Thread.sleep(1500);
+							driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentReschedule_NightTab)).click(); //Choose night
+							//night
+							if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_NightMsg)).size()!=0)
+							{
+								System.out.println("No slots available for current day");
+							}
+							else
+							{
+								driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+								Browser.CheckNotificationMessage(Notification);
+								System.out.println("Reschedule in night session");
+							}
+						}
+						else
+						{
+							driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+							Browser.CheckNotificationMessage(Notification);
+							System.out.println("Reschedule in evening session");
+						}
+					}
+					else
+					{
+						driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+						Browser.CheckNotificationMessage(Notification);
+						System.out.println("Reschedule in afternoon session");
+					}
+				}
+				else
+				{
+					driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_appointmentReschedule_availableSlot)).click(); //Choose time slot
+					Browser.CheckNotificationMessage(Notification);
+					System.out.println("Reschedule in morning session");
+				}
+				//(//div[@class='panel-collapse collapse in']//li[@class='sp-available-slots'])[1]
+				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+				
+			}
+		}
+		else
+		{
+			System.out.println("Status change select box is not available");
+		}
+	} //End of reschedule method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to cancel
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToCancel(String status, String Notification) throws Exception
+	{
+		if(driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size()!=0)
+		{
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			Thread.sleep(2000);
+		if(status.contains("Cancelled By Patient") || status.contains("Cancelled By Doctor"))
+		{
+			Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+			String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+			String subWindowHandler = null;
+			Set<String> handles = driver.getWindowHandles(); // get all window handles
+			Iterator<String> iterator = handles.iterator();
+			while (iterator.hasNext())
+			{
+			    subWindowHandler = iterator.next();
+			}
+			driver.switchTo().window(subWindowHandler); // switch to popup window
+			Thread.sleep(2000);                         // perform operations on popup
+			
+			if(status.contains("Cancelled By Doctor"))
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCancelByDoctorSubmitBtn)).click();
+			}
+			else
+			{
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCancelByPatientSubmitBtn)).click();
+			}
+			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+			//Browser.CheckNotificationMessage(Notification);
+		}
+		}
+		else
+		{
+			System.out.println("Status change select box is not available");
+		}
+	} //End of cancel method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change apt status to complete
+	 * @ Param			: status, notification
+	 * @ return			: NA
+	 */
+	public void doctorAptStatusChangeToComplete(String status, String Notification) throws Exception
+	{
+		if (driver.findElements(By.xpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown)).size() != 0) {
+			Browser.scrollbyxpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown);
+			Browser.horizontalScroll();
+			Thread.sleep(2000);
+			if (status.contains("Completed")) {
+				Browser.selectbyXpath(Elements_NewAdminDoctors.doctor_appointmentStatusDropDown, status);
+				String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
+				String subWindowHandler = null;
+				Set<String> handles = driver.getWindowHandles(); // get all window handles
+				Iterator<String> iterator = handles.iterator();
+				while (iterator.hasNext()) {
+					subWindowHandler = iterator.next();
+				}
+				driver.switchTo().window(subWindowHandler); // switch to popup window
+				Thread.sleep(2000); // perform operations on popup
+
+				driver.findElement(By.id(Elements_NewAdminDoctors.doctor_appointmentCompletedSubmitBtn)).click();
+				driver.switchTo().window(parentWindowHandler); // switch back to
+																// parent window
+				//Browser.CheckNotificationMessage(Notification);
+			}
+		} else {
+			System.out.println("Status change select box is not available");
+		}
+	} //End of complete method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click requested doctor tab
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_requestedDoctorTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDocTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.requestedDocTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDoctorHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter emailID in search bar on admin requested doctor's screen
+	 * @ Param			: Email
+	 * @ return			: NA
+	 */
+	public void searchRequestedDoctorbyEmailID(String Email) throws Exception
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(Email);
+		Thread.sleep(1500);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on details button requested doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_detailsBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.detailsBtn)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.requestedDoctorEditHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to edit details of requested doctor's screen
+	 * @ Param			: 
+	 * @ return			: NA
+	 */
+	public void edit_requestedDoctorDetails() throws Exception
+	{
+		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, "Sonologist");
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Skin");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.defaultClinicTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.defaultClinicName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.defaultClinicName)).sendKeys("XYZ Clinic");
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.requestedDoctorCountry);
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorCountry)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorCountry, "India");
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorState)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorState, "Telangana");
+		driver.findElement(By.id(Elements_NewAdminDoctors.requestedDoctorCity)).click();
+		Browser.selectbyID(Elements_NewAdminDoctors.requestedDoctorCity, "Hyderabad");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_locality)).sendKeys("Locality");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_pinCode)).sendKeys("500056");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_longitude)).sendKeys("77.983");
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys("17.839");
+	} //End of edit req doctor method
+	
+	
+	public void click_validateBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.requestedDoctorValidateBtn)).click();
+		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 } //End of class

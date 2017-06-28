@@ -67,7 +67,11 @@ public class Elements_NewAdminDiagnostic
 	
 	public static String  Diagnostic_AppointmentsUrl,Diagnostic_StatusChange,Reschedule_SelectTommorowMenu,Reschedule_SelectAvailableSlot,
 	Reschedule_ClosePopup,Reschedule_SelectNextDay,StatusChange_SubmitCancelledByPatient, StatusChange_SubmitCancelledByDoctor,
-	StatusChange_SubmitCompleted;
+	StatusChange_SubmitCompleted,Diagnostic_ClickOnLoginUser,Diagnostic_Logout,DiagnosticLogs_NewCost,DiagnosticLogs_url;
+	
+	public static String References_ClickReferencemenu,References_ClickOnTestsMenu,References_ClickOnAddButton,References_EntityName,
+	References_EntityShortName,References_Description,References_Activate,References_AddSynonym, References_SynonymName,
+	References_SaveSynonym, References_Save,References_Edit,References_CheckSynonymName;
 	
 	
 	
@@ -292,6 +296,24 @@ public class Elements_NewAdminDiagnostic
 		 StatusChange_SubmitCancelledByPatient="submitCancelledByPatient";
 		 StatusChange_SubmitCancelledByDoctor="submitCancelledByDoctor";
 		 StatusChange_SubmitCompleted="submitCompleted";
+		 Diagnostic_ClickOnLoginUser="html/body/div[6]/header/div[2]/ul/li/div/button";
+		 Diagnostic_Logout="logout";
+		 DiagnosticLogs_NewCost="//*[@id='DataTables_Table_0']/tbody/tr/td[5]";
+		 DiagnosticLogs_url="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestsLogList";
+		 
+		 References_ClickReferencemenu=".//*[@id='accordionDiagnostic']/div[6]/a/div/h4/span/i";
+		 References_ClickOnTestsMenu="//*[@id='collapseReference']/div/ul/li/a";
+		 References_ClickOnAddButton="add";
+		 References_EntityName="entityName";
+		 References_EntityShortName="entityShortName";
+		 References_Description="entityBriefDescription";
+		 References_Activate="activeFlag";
+		 References_AddSynonym="//button[@class='zoyCommonGreenBtn']";
+		 References_SynonymName="synonymName";
+		 References_SaveSynonym="zoySynonymSave";
+		 References_Save="addZyStandardTestSubmit";
+		 References_Edit="(//button[@class='btn btn-xs edit-btn'])[1]";
+		 References_CheckSynonymName="//*[@id='insertTestsData']/div/div[4]/div[2]/table/tbody/tr[2]/td[1]";
 		
 		return driver;
 	}
