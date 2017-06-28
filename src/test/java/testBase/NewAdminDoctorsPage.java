@@ -1510,10 +1510,89 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys("17.839");
 	} //End of edit req doctor method
 	
-	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click validate and move button on requested doctor's screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
 	public void click_validateBtn()
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.requestedDoctorValidateBtn)).click();
 		Browser.CheckNotificationMessage("Doctor Updated Successfully");
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_AdministratorTab()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administratorTab)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click languages under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_languagesTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_LanguageTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_LanguageTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_LanguageHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter languages details under administrator tab on admin screen
+	 * @ Param			: languageName, languageDescription
+	 * @ return			: NA
+	 */
+	public void Enter_LanguageDetails(String languageName, String languageDescription) throws Exception
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_LanguageAddHeader);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(languageName);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(languageDescription);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of languages details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_languageSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_LanguageSaveBtn)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of edit languages details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_languageEditSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_LanguageEditSave)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter reference name in search bar on admin doctor's administrators screen
+	 * @ Param			: practiceName
+	 * @ return			: NA
+	 */
+	public void searchAdministratorReferenceByName(String name) throws Exception
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(name);
+		Thread.sleep(1500);
+		//Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, name);
 	}
 } //End of class
