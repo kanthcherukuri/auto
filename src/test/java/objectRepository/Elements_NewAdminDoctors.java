@@ -38,6 +38,9 @@ public static String doctor_reference_specialisation, doctor_reference_specialis
 public static String doctor_reference_tag, doctor_reference_tagHeader, doctor_reference_tagAddHeader, doctor_reference_tagSave, doctor_reference_tagEditHeader, doctor_reference_updateTagSave;
 public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted, doctor_appointmentHeader, doctor_appointmentStatusDropDown, doctor_appointmentResendBtn, doctor_appointmentTodayTabID, doctor_appointmentReschedule_MorningTab, doctor_appointmentReschedule_MorningMsg, doctor_appointmentReschedule_NoonTab, doctor_appointmentReschedule_NoonMsg, doctor_appointmentReschedule_EveTab, doctor_appointmentReschedule_EveMsg, doctor_appointmentReschedule_NightTab, doctor_appointmentReschedule_NightMsg, doctor_appointmentReschedule_availableSlot, doctor_appointmentCancelByDoctorSubmitBtn, doctor_appointmentCancelByPatientSubmitBtn, doctor_appointmentCompletedSubmitBtn;
 public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
+public static String administratorTab;
+public static String administrator_LanguageTab, administrator_LanguageHeader, administrator_LanguageAddHeader, administrator_LanguageSaveBtn, administrator_LanguageEditHeader, administrator_LanguageEditSave;
+public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_countryCode, administrator_countrySaveBtn, administrator_countryEditHeader;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -50,7 +53,7 @@ public static String requestedDocTab, requestedDoctorHeader, detailsBtn, request
 		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
 		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
 		EditButton="//button[contains(., 'EDIT')]"; //XPATH
-		searchResultOnTable="//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
+		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
 		searchResultonTableforReqDoc=".//*[@id='DataTables_Table_0']/tbody/tr/td[5]"; //XPATh
 		
 		//REQUESTED DOCTOR
@@ -62,6 +65,21 @@ public static String requestedDocTab, requestedDoctorHeader, detailsBtn, request
 		requestedDoctorCountry="zoyDocdefaultCountry"; //ID
 		requestedDoctorState="zoyDocdefaultState"; //ID
 		requestedDoctorCity="zoyDocdefaultCity"; //ID
+		
+		//ADMINISTRTOR TAB
+		administratorTab="(//a[@href='/admin/approveUser'])[1]"; //XPATH
+		administrator_LanguageTab="//a[@href='/admin/languageList']"; //XpATH
+		administrator_LanguageHeader="//h1[contains(., 'Languages')]"; //XPATH
+		administrator_LanguageAddHeader="//h1[contains(., 'Add Language')]"; //XPATH
+		administrator_LanguageSaveBtn="saveLanguageBtn"; //ID
+		administrator_LanguageEditHeader="//h1[contains(., 'Language - Edit')]"; //XPATH
+		administrator_LanguageEditSave="editLanguageBtn"; //ID
+		administrator_countryTab="//a[@href='/admin/countryList']"; //XPATH
+		administrator_countryHeader="//h1[contains(., 'Countries')]"; //XPATH
+		administrator_countryAddHeader="//h1[contains(., 'Country - Add')]"; //XPATH
+		administrator_countryCode="code"; //ID
+		administrator_countrySaveBtn="saveCountry"; //ID
+		administrator_countryEditHeader="//h1[contains(., 'Country - Edit')]"; //XPATh
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
