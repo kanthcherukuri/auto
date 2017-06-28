@@ -47,9 +47,7 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);
 		Thread.sleep(2000);
-		System.out.println(driver.manage().window().getSize());
-		Dimension d= new Dimension(1920, 1080);
-		driver.manage().window().setSize(d);
+		Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_HospitalName, HospitalName+Browser.randomalphabets());
@@ -57,15 +55,15 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_Address, Address);
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnCountry);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_Country)).sendKeys(Country);
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_Country, Country);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_Country)).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Hospital_ClickOnState)).click();
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_State)).sendKeys(State);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnState);
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_State, State);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_State)).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Hospital_ClickOnCity)).click();
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_City)).sendKeys(City);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnCity);
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_City, City);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Hospital_City)).sendKeys(Keys.ENTER);
 		Thread.sleep(1000);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_Pincode, pincode);
