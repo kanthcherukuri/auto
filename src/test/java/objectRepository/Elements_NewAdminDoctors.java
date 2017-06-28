@@ -40,6 +40,7 @@ public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted
 public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
 public static String administratorTab;
 public static String administrator_LanguageTab, administrator_LanguageHeader, administrator_LanguageAddHeader, administrator_LanguageSaveBtn, administrator_LanguageEditHeader, administrator_LanguageEditSave;
+public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_countryCode, administrator_countrySaveBtn, administrator_countryEditHeader;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -52,7 +53,7 @@ public static String administrator_LanguageTab, administrator_LanguageHeader, ad
 		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
 		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
 		EditButton="//button[contains(., 'EDIT')]"; //XPATH
-		searchResultOnTable="//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
+		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
 		searchResultonTableforReqDoc=".//*[@id='DataTables_Table_0']/tbody/tr/td[5]"; //XPATh
 		
 		//REQUESTED DOCTOR
@@ -73,6 +74,12 @@ public static String administrator_LanguageTab, administrator_LanguageHeader, ad
 		administrator_LanguageSaveBtn="saveLanguageBtn"; //ID
 		administrator_LanguageEditHeader="//h1[contains(., 'Language - Edit')]"; //XPATH
 		administrator_LanguageEditSave="editLanguageBtn"; //ID
+		administrator_countryTab="//a[@href='/admin/countryList']"; //XPATH
+		administrator_countryHeader="//h1[contains(., 'Countries')]"; //XPATH
+		administrator_countryAddHeader="//h1[contains(., 'Country - Add')]"; //XPATH
+		administrator_countryCode="code"; //ID
+		administrator_countrySaveBtn="saveCountry"; //ID
+		administrator_countryEditHeader="//h1[contains(., 'Country - Edit')]"; //XPATh
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID

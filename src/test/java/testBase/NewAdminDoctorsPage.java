@@ -1136,6 +1136,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_specialisationDetails(String specialisationName, String specialisationDescription) throws Exception
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_Name);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(specialisationName+Browser.randomalphabets());
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(specialisationDescription);
@@ -1174,6 +1175,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_editSpecialisationSaveBtn()
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_updateSpecialisationSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateSpecialisationSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_specialisationHeader);
 	}
@@ -1592,7 +1594,46 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void searchAdministratorReferenceByName(String name) throws Exception
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(name);
-		Thread.sleep(1500);
-		//Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, name);
+		//Thread.sleep(1500);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, name);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click country under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_countryTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_countryTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter country details under administrator tab on admin screen
+	 * @ Param			: countryCode, countryName
+	 * @ return			: NA
+	 */
+	public void Enter_countryDetails(String countryCode, String countryName) throws Exception
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryAddHeader);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countryCode)).sendKeys(countryCode);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(countryName);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of country details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_countrySaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countrySaveBtn)).click();
 	}
 } //End of class
