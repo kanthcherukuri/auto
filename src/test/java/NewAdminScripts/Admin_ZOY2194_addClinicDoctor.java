@@ -38,12 +38,12 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		admin.Enter_primaryInfoDetails(isActiveValue, houseCallStatus, houseCallFee, genderValue, DOB, regNum, qualification, tag, specialization, practiceLine, aboutDoc);
 		
 		admin.Enter_practiceDetails_otherClinic(ifOtherClinicAvailable, othrClinicName, othrClinicPhoneNumber, othrClinicFee, othrClinicState, othrClinicCity, othrClinicAddressLineOne, othrClinicPinCode, othrClinicLongitude, othrClinicLatitude, othrClinicFacilityStatus, othrClinicAmbulanceStatus, othrClinicEmergencyStatus, othrClinicBikeParkStatus, othrClinicCarParkStatus, othrClincPayCreditStatus, othrClincPayDebitStatus, othrClincPayCashStatus, othrClincPayOnlineStatus, othrClincPayChecqueStatus, othrClinicPremiumServiceStatus);
-		//Assert check point for other clinic data table
-		if(ifOtherClinicAvailable.equalsIgnoreCase("true"))
-		{
-			String verifyClinicName=driver.findElement(By.xpath(Elements_NewAdminDoctors.otherClinicTable_ClinicName)).getText();
-			AssertJUnit.assertEquals(verifyClinicName, othrClinicName, "Other clinic add verification");
-		}
+//		//Assert check point for other clinic data table
+//		if(ifOtherClinicAvailable.equalsIgnoreCase("true"))
+//		{
+//			String verifyClinicName=driver.findElement(By.xpath(Elements_NewAdminDoctors.otherClinicTable_ClinicName)).getText();
+//			AssertJUnit.assertEquals(verifyClinicName, othrClinicName, "Other clinic add verification");
+//		}
 		admin.Enter_practiceDetails_DefaultClinic(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
 		admin.Enter_practiceDetails_Vacation(vacationStatus, vacationStartDate, vacationEndDate);
 		admin.Enter_practiceDetails_HospitalInfo(hospitalWorkTypeStatus, hospitalName, hospitalFee, zfcForHospital);

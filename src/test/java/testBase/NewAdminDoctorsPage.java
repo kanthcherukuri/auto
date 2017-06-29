@@ -902,7 +902,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: Country, State, City, completeAddress, Locality, pin, longitude, latitude
 	 * @ return			: NA
 	 */
-	public void Enter_addressInfo(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude)
+	public void Enter_addressInfo(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addressTab_Country);
@@ -917,6 +917,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_pinCode)).sendKeys(pin);
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_longitude)).sendKeys(longitude);
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys(latitude);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).click();
+		Thread.sleep(1000);
 	} //Address info method end ***
 	
 	/*
@@ -927,6 +929,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void clickSubmitDoctor()
 	{
+		Browser.scrollbyID(Elements_NewAdminDoctors.doctorSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
 	}
 	
@@ -1721,7 +1724,96 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_citySave()
 	{
-		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_citySave);
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_citySave)).click();
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click promo under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_ProviderPromoTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_providerPromo);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_providerPromo)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_providerPromoHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter provider promotion details under administrator tab on admin screen
+	 * @ Param			: promoCodeType	promoName	promoDescription	referraldiscountType	referalValue	refereediscountType	refreeValue	discountType	discountValue	minimumPurchase	applyType
+	 * @ return			: NA
+	 */
+	public void Enter_ProviderPromoDetails(String promoCodeType, String promoName, String promoDescription, String referraldiscountType, String referalValue, String refereediscountType, String refreeValue, String discountType, String discountValue, String minimumPurchase, String applyType) throws Exception
+	{
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_promoName);
+		if(promoCodeType.equalsIgnoreCase("referral"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_referealTypeRadioBtn)).click();
+		}
+		
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoName)).sendKeys(promoName);
+		
+		//Date time increment
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidFrom)).click();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidFrom)).clear();
+	    Browser.dateTimeIncrement(5, Elements_NewAdminDoctors.administrator_promoValidFrom);
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidTo)).click();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidTo)).clear();
+	    Browser.yearIncrement(5, Elements_NewAdminDoctors.administrator_promoValidTo);
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDescripiton)).click();
+	    driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDescripiton)).sendKeys(promoDescription);
+	    
+	    if(promoCodeType.equalsIgnoreCase("referral"))
+		{
+	    	Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_promoDescripiton);
+	    	if(referraldiscountType.equalsIgnoreCase("Amount"))
+	    	{
+	    		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_referalDiscountTypeAmount)).click();
+	    	}
+			driver.findElement(By.name(Elements_NewAdminDoctors.administrator_referalDisountValue)).sendKeys(referalValue);
+			if(refereediscountType.equalsIgnoreCase("Amount"))
+			{
+				driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_refereeDiscountTypeAmount)).click();
+			}
+			driver.findElement(By.name(Elements_NewAdminDoctors.administrator_refreeDiscountValue)).sendKeys(refreeValue);
+		} // FOR REFERAL
+	    else
+	    {
+	    	Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_promoDiscountTypePercentage);
+	    	if(discountType.equalsIgnoreCase("Amount"))
+	    	{
+	    		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDiscountTypeAmount)).click();
+	    	}
+		    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoDiscountValue)).sendKeys(discountValue);
+	    }
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoMinValue)).clear();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoMinValue)).sendKeys(minimumPurchase);
+	    
+	    Browser.scrollbyID(Elements_NewAdminDoctors.administrator_promoAllCheckBox);
+	    driver.findElement(By.id(Elements_NewAdminDoctors.administrator_promoAllCheckBox)).click();
+	    Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
+	    
+	    if(applyType.equalsIgnoreCase("Automatic"))
+	    {
+	    	driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoModeAutomatic)).click();
+	    }
+	    Thread.sleep(1000);
+	} //End of provider promo enter method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click promo save btn under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_promoSaveBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
 	}
 } //End of class
