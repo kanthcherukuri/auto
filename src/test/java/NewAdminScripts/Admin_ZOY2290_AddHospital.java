@@ -3,7 +3,6 @@ package NewAdminScripts;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 
 import org.openqa.selenium.Keys;
 
@@ -79,14 +78,7 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_CloseServices);
 		Browser.scrollbyID(Elements_NewAdminDiagnostic.Hospital_Cancel);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
-		Browser.CheckNotificationMessage("Hospital information saved successfully");
-		
-		
-		
-		
-		
-		
-		
+		Browser.CheckNotificationMessage("Hospital information saved successfully");	
 		
 	}
 

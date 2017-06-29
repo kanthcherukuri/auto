@@ -640,7 +640,8 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("(//div[@class='pop-hdg'])[2]")).click();
+		//driver.findElement(By.xpath("(//div[@class='pop-hdg'])[2]")).click();
+		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).click();
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
 		Thread.sleep(3000);

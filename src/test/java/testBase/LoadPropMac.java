@@ -1,5 +1,7 @@
 package testBase;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -135,7 +137,12 @@ public class LoadPropMac   {
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
-			driver.manage().window().setSize(new Dimension(1280, 800));
+			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+			int width = gd.getDisplayMode().getWidth();
+			System.out.println("width :" +width);
+			int height = gd.getDisplayMode().getHeight();
+			System.out.println("Height :"+height);
+			driver.manage().window().setSize(new Dimension(width, height));
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");

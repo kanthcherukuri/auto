@@ -52,7 +52,7 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		String fullname=firstname+" "+lastname;
-		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
 		Thread.sleep(2000);
 		DoctorsPage.ClickView();
 		String name=driver.findElement(By.xpath(Elements_Doctors.appointment_getfullnameonclickviewmenu)).getText();
@@ -65,7 +65,7 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		System.out.println(Alert);
 		AssertJUnit.assertTrue(Alert.contains(AppointmentId));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(Alert.contains("has been booked"));
+		AssertJUnit.assertTrue(Alert.contains("You have booked an appointment for"));
 	}
 	
 	@AfterMethod
