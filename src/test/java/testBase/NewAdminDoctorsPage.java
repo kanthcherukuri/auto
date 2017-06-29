@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import objectRepository.Elements_NewAdminDoctors;
@@ -1678,5 +1679,49 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void click_stateSaveBtn()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_stateSave)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click city under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_cityTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_cityTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_cityTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_cityHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter city details under administrator tab on admin screen
+	 * @ Param			: cityName, stateName
+	 * @ return			: NA
+	 */
+	public void Enter_cityDetails(String cityName, String stateName) throws Exception
+	{
+		Thread.sleep(1000);
+		driver.navigate().refresh();
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_cityName);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_cityName)).sendKeys(cityName);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_city_StateField)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_dropdownTextInput)).sendKeys(stateName);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_dropdownTextInput)).sendKeys(Keys.ENTER);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of city details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_citySave()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_citySave);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_citySave)).click();
 	}
 } //End of class

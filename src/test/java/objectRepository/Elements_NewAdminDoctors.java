@@ -42,6 +42,7 @@ public static String administratorTab;
 public static String administrator_LanguageTab, administrator_LanguageHeader, administrator_LanguageAddHeader, administrator_LanguageSaveBtn, administrator_LanguageEditHeader, administrator_LanguageEditSave;
 public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_Code, administrator_countrySaveBtn, administrator_countryEditHeader;
 public static String administrator_stateTab, administrator_stateHeader, administrator_stateCountryCode, administrator_stateSave;
+public static String administrator_cityTab, administrator_cityHeader, administrator_cityName, administrator_city_StateField, administrator_city_StateSelectID, administrator_dropdownTextInput, admininstrator_citySave;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -85,6 +86,13 @@ public static String administrator_stateTab, administrator_stateHeader, administ
 		administrator_stateHeader="//h1[contains(., 'States')]"; //XPATH
 		administrator_stateCountryCode="countryCode"; //ID
 		administrator_stateSave="saveState"; //ID
+		administrator_cityTab="//a[@href='/admin/cityList']"; //XPATH
+		administrator_cityHeader="//h1[contains(., 'Cities')]"; //XPATH
+		administrator_cityName="name"; //name
+		administrator_city_StateField="//span[@aria-labelledby='select2-newCityForState-container']"; //XPATH
+		administrator_city_StateSelectID="newCityForState"; //ID
+		administrator_dropdownTextInput="html/body/span/span/span[1]/input"; //XPATH
+		admininstrator_citySave="//button[@type='submit']"; //XPATH
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
