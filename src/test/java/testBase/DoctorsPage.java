@@ -633,16 +633,11 @@ public class DoctorsPage  {
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_fromdate);
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromdate)).sendKeys(date);
-		//Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_todate);
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_todate)).sendKeys(enddate);
-		//Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).click();
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
-		Thread.sleep(1000);
-		//driver.findElement(By.xpath("(//div[@class='pop-hdg'])[2]")).click();
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).click();
-		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
 		Thread.sleep(3000);
 	  
@@ -651,19 +646,20 @@ public class DoctorsPage  {
 		
  public void DoctorsAppointmentforTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
-	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_noon)).click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
-	 driver.findElement(By.xpath("//*[@id='tab-3']/ul/li[1]/div[2]")).click();
+	 
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_tommorrowmenu);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
+	 Browser.clickOnTheElementByXpath("//*[@id='tab-3']/ul/li[1]/div[2]");
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_firstname);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
-	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
-	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
-	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
-	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
-	 driver.findElement(By.id(Elements_Doctors.appointment_save)).click();	
+	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname,firstname );
+	 Browser.enterTextByID(Elements_Doctors.appointment_lsatname, lastname); 
+	 Browser.enterTextByID(Elements_Doctors.appointment_mobile, mobile); 
+	 Browser.enterTextByID(Elements_Doctors.appointment_email, email); 
+	 Browser.enterTextByID(Elements_Doctors.appointment_problem, problem); 
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save); 
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 }
 
