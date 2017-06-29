@@ -76,7 +76,8 @@ public class Elements_NewAdminDiagnostic
 	public static String Hospital_ClickOnHospitalMenu,Hospital_ClickOnAdd,Hospital_HospitalName,Hospital_ShortName,Hospital_Address,
 	Hospital_Longitude,Hospital_Latitude,Hospital_Country,Hospital_State,Hospital_City,Hospital_Pincode,Hospital_CloseContacts,
 	Hospital_CloseGallery,Hospital_CloseAwards,Hospital_ClosePackages,Hospital_CloseServices,Hospital_Save,Hospital_ClickOnCountry,
-	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel;
+	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel,Hospital_NameField,Hospital_ClickOnEdit,Hospital_SelectBikeParking,
+	Hospital_SelectCarParking,Hospital_SelectAmbulance,Hospital_SelectPremiumServices,Hospital_SelectICU;
 	
 	
 	
@@ -337,14 +338,18 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_CloseAwards="(//button[@type='button'])[162]";
 		 Hospital_ClosePackages="(//button[@type='button'])[163]";
 		 Hospital_CloseServices="(//button[@type='button'])[164]";
-		 Hospital_Save="//*[@id='insertHospital']/div/div/div/div/div/button[2]";
+		 Hospital_Save="//button[@type='submit']";
 		 Hospital_ClickOnCountry="select2-companyCountryOptions-container";
 		 Hospital_ClickOnState="select2-companyStateOptions-container";
 		 Hospital_ClickOnCity="select2-companyCityOptions-container";
 		 Hospital_Cancel="submitCancel";
-		 
-		 
-		 
+		 Hospital_NameField="//*[@id='DataTables_Table_0']/tbody/tr[1]/td[1]";
+		 Hospital_ClickOnEdit="//*[@id='DataTables_Table_0']/tbody/tr[1]/td[6]/button";
+		 Hospital_SelectBikeParking="//input[@name='facilities.isBikeParkingAvailableAtTheHospital']";
+		 Hospital_SelectCarParking="//input[@name='facilities.isCarParkingAvailableAtTheHospital']";
+		 Hospital_SelectAmbulance="//input[@name='facilities.hasAmbulance']";
+		 Hospital_SelectPremiumServices="//input[@name='facilities.hasPremiumServicesAtHospital']";
+		 Hospital_SelectICU="//input[@name='facilities.hasIcuAtHospital']";
 		
 		return driver;
 	}

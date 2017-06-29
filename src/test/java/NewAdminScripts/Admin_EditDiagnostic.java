@@ -1,8 +1,12 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+
+
+
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
@@ -59,7 +63,7 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		Thread.sleep(2000);
 		String discountper=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HealthPackage_CheckPackageName)).getText();
 		System.out.println(discountper);
-		AssertJUnit.assertEquals(discountper, EditPackageName);
+		Assert.assertEquals(discountper, EditPackageName);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditDiscount)).clear();
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditDiscount)).sendKeys(EditDiscountPercentageOne);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_EditFacilitationCharge)).clear();
@@ -79,7 +83,7 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_EditCancel)).click();
 		Thread.sleep(2000);
 		String diagtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_CheckTestName)).getText();
-		AssertJUnit.assertEquals(diagtestname, EditdiagTestname);
+		Assert.assertEquals(diagtestname, EditdiagTestname);
 		AdminDiagnostic.SaveDiagnosticDetails();
 		
 	}

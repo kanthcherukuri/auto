@@ -1,11 +1,10 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
-
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import java.util.concurrent.TimeUnit;
+import org.testng.annotations.DataProvider;
+
 
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
@@ -27,6 +26,8 @@ public class Admin_EditHospital extends LoadPropMac {
 	 Browser= new TestUtils(driver);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}
+	
+	
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
@@ -41,16 +42,16 @@ public class Admin_EditHospital extends LoadPropMac {
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);
 		Thread.sleep(2000);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox, HospitalName);
-		Browser.waitforTextbyxpath("//*[@id='DataTables_Table_0']/tbody/tr[1]/td[1]", HospitalName);
-		Browser.clickOnTheElementByXpath("//*[@id='DataTables_Table_0']/tbody/tr[1]/td[6]/button");
+		Browser.waitforTextbyxpath(Elements_NewAdminDiagnostic.Hospital_NameField, HospitalName);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnEdit);
 		Browser.waitTill(1000);
-		Browser.clickOnTheElementByXpath("//input[@name='facilities.isBikeParkingAvailableAtTheHospital']");
-		Browser.clickOnTheElementByXpath("//input[@name='facilities.isCarParkingAvailableAtTheHospital']");
-		Browser.clickOnTheElementByXpath("//input[@name='facilities.hasAmbulance']");
-		Browser.clickOnTheElementByXpath("//input[@name='facilities.hasPremiumServicesAtHospital']");
-		Browser.clickOnTheElementByXpath("//input[@name='facilities.hasIcuAtHospital']");
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectBikeParking);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectCarParking);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectAmbulance);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectPremiumServices);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectICU);
 		Browser.scrollbyID(Elements_NewAdminDiagnostic.Hospital_Cancel);
-		Browser.clickOnTheElementByXpath("//button[@type='submit']");
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");
 		
 		

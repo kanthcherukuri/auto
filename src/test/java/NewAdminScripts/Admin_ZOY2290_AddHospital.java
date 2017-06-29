@@ -1,14 +1,16 @@
 package NewAdminScripts;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.Keys;
 
-import org.testng.annotations.BeforeClass;
+
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+
 
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
