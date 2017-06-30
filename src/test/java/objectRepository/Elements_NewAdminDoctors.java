@@ -30,7 +30,7 @@ public static String additionalInfo_OtherInfo, additionalInfo_OtherInfo_ProBonoA
 public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assistedOptions, facilitiesTab_emergency, facilitiesTab_bikePark, facilitiesTab_carPark, facilitiesTab_paymentCredit, facilitiesTab_paymentDebit, facilitiesTab_paymentCash, facilitiesTab_paymentOnline, facilitiesTab_paymentChecque, facilitiesTab_paymentPremiumService, facilitiesTab_paymentCleanScore;
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
-public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable, searchResultonTableforReqDoc;
+public static String doctorSave, doctorCancel, SearchTab, EditButton, searchResultOnTable, searchResultonTableforReqDoc, searchResultonTableTwo;
 public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
@@ -38,11 +38,12 @@ public static String doctor_reference_specialisation, doctor_reference_specialis
 public static String doctor_reference_tag, doctor_reference_tagHeader, doctor_reference_tagAddHeader, doctor_reference_tagSave, doctor_reference_tagEditHeader, doctor_reference_updateTagSave;
 public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted, doctor_appointmentHeader, doctor_appointmentStatusDropDown, doctor_appointmentResendBtn, doctor_appointmentTodayTabID, doctor_appointmentReschedule_MorningTab, doctor_appointmentReschedule_MorningMsg, doctor_appointmentReschedule_NoonTab, doctor_appointmentReschedule_NoonMsg, doctor_appointmentReschedule_EveTab, doctor_appointmentReschedule_EveMsg, doctor_appointmentReschedule_NightTab, doctor_appointmentReschedule_NightMsg, doctor_appointmentReschedule_availableSlot, doctor_appointmentCancelByDoctorSubmitBtn, doctor_appointmentCancelByPatientSubmitBtn, doctor_appointmentCompletedSubmitBtn;
 public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
-public static String administratorTab;
+public static String administratorTab, admininstrator_Save;
 public static String administrator_LanguageTab, administrator_LanguageHeader, administrator_LanguageAddHeader, administrator_LanguageSaveBtn, administrator_LanguageEditHeader, administrator_LanguageEditSave;
 public static String administrator_countryTab, administrator_countryHeader, administrator_countryAddHeader, administrator_Code, administrator_countrySaveBtn, administrator_countryEditHeader;
 public static String administrator_stateTab, administrator_stateHeader, administrator_stateCountryCode, administrator_stateSave;
-public static String administrator_cityTab, administrator_cityHeader, administrator_cityName, administrator_city_StateField, administrator_city_StateSelectID, administrator_dropdownTextInput, admininstrator_citySave;
+public static String administrator_cityTab, administrator_cityHeader, administrator_cityName, administrator_city_StateField, administrator_city_StateSelectID, administrator_dropdownTextInput;
+public static String administrator_providerPromo, administrator_providerPromoHeader, administrator_promotionTypeRadioBtn, administrator_referealTypeRadioBtn, administrator_promoName, administrator_promoValidFrom, administrator_promoValidTo, administrator_promoDescripiton, administrator_referalDiscountTypePercentage, administrator_referalDiscountTypeAmount, administrator_referalDisountValue, administrator_refereeDiscountTypePercentage, administrator_refereeDiscountTypeAmount, administrator_refreeDiscountValue, administrator_promoDiscountTypePercentage, administrator_promoDiscountTypeAmount, administrator_promoDiscountValue, administrator_promoMinValue, admininstrator_promoMaxValue, administrator_promoMaxDiscountValue, administrator_promoUserUsageOnce, administrator_promoUserUsageTwice, administrator_promoUserUsageUnlimited, administrator_promoProviderUsageOnce, administrator_promoProviderUsageMultiple, administrator_promoUserCount, administrator_promoAllCheckBox, administrator_promoModeAutomatic, administrator_promoModeManual;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -57,6 +58,7 @@ public static String administrator_cityTab, administrator_cityHeader, administra
 		EditButton="//button[contains(., 'EDIT')]"; //XPATH
 		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
 		searchResultonTableforReqDoc=".//*[@id='DataTables_Table_0']/tbody/tr/td[5]"; //XPATh
+		searchResultonTableTwo=".//*[@id='DataTables_Table_0']/tbody/tr/td[2]"; //XPATH
 		
 		//REQUESTED DOCTOR
 		requestedDocTab="//a[@href='/admin/requestedProvidersList']"; //XPATH
@@ -92,7 +94,37 @@ public static String administrator_cityTab, administrator_cityHeader, administra
 		administrator_city_StateField="//span[@aria-labelledby='select2-newCityForState-container']"; //XPATH
 		administrator_city_StateSelectID="newCityForState"; //ID
 		administrator_dropdownTextInput="html/body/span/span/span[1]/input"; //XPATH
-		admininstrator_citySave="//button[@type='submit']"; //XPATH
+		admininstrator_Save="//button[@type='submit']"; //XPATH
+		//PROVIDER PROMOTIONS
+		administrator_providerPromo="//a[@href='/admin/zyProviderPromoCodes']"; //XPATH
+		administrator_providerPromoHeader="//h1[contains(., 'Provider Promotions')]"; //XPATH
+		administrator_promotionTypeRadioBtn="//input[@value='promotion']"; //XPATH
+		administrator_referealTypeRadioBtn="//input[@value='referral']"; //XPATH
+		administrator_promoName="code"; //NAME
+		administrator_promoValidFrom="validity.from"; //NAME
+		administrator_promoValidTo="validity.to"; //NAME
+		administrator_promoDescripiton="//textarea[@name='description']"; //XPATH
+		administrator_referalDiscountTypePercentage="//div[@data-schema-key='referral.discountType']//input[@value='percentage']"; //XPATH
+		administrator_referalDiscountTypeAmount="//div[@data-schema-key='referral.discountType']//input[@value='amount']"; //XPATH
+		administrator_referalDisountValue="referral.discountValue"; //NAME
+		administrator_refereeDiscountTypePercentage="//div[@data-schema-key='referee.discountType']//input[@value='percentage']"; //XPATH
+		administrator_refereeDiscountTypeAmount="//div[@data-schema-key='referee.discountType']//input[@value='amount']"; //XPATH
+		administrator_refreeDiscountValue="referee.discountValue"; //NAME
+		administrator_promoDiscountTypePercentage="//div[@data-schema-key='discountType']//input[@value='percentage']"; //XPATH
+		administrator_promoDiscountTypeAmount="//div[@data-schema-key='discountType']//input[@value='amount']"; //XPATH
+		administrator_promoDiscountValue="discountValue"; //NAME
+		administrator_promoMinValue="minimumPurchase"; //NAME
+		admininstrator_promoMaxValue="upperLimit"; //NAME
+		administrator_promoMaxDiscountValue="upperLimitPromotionAmount"; //NAME
+		administrator_promoUserUsageOnce="//div[@data-schema-key='usagePerUser']//input[@value='once']"; //XPATH
+		administrator_promoUserUsageTwice="//div[@data-schema-key='usagePerUser']//input[@value='twice']"; //XPATH
+		administrator_promoUserUsageUnlimited="//div[@data-schema-key='usagePerUser']//input[@value='unlimited']"; //XPATH
+		administrator_promoProviderUsageOnce="//div[@data-schema-key='usagePerProvider']//input[@value='once']"; //XPATH
+		administrator_promoProviderUsageMultiple="//div[@data-schema-key='usagePerProvider']//input[@value='multiple']"; //XPATH
+		administrator_promoUserCount="userCount"; //NAME
+		administrator_promoAllCheckBox="checkAll"; //ID
+		administrator_promoModeAutomatic="//input[@value='automatic']"; //XPATH
+		administrator_promoModeManual="//input[@value='manual']"; //XPATH
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID

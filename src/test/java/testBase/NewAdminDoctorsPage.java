@@ -1816,4 +1816,16 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter promo name in search bar on admin doctor's screen
+	 * @ Param			: emailID
+	 * @ return			: NA
+	 */
+	public void searchPromoCodeByName(String promoName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(promoName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultonTableTwo, promoName);
+	}
 } //End of class
