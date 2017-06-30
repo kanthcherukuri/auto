@@ -35,6 +35,7 @@ public class Admin_ZOY2239_AddEditDoctorReference_Practice extends LoadPropMac
 		admin.Enter_practiceDetails(practiceName, practiceDescription);
 		admin.click_practiceSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Line Of Practice created successfully");
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "linePractices", "name", practiceName);
 	}
 	
 	@DataProvider(name="DoctorPracticeDetailsEDIT")

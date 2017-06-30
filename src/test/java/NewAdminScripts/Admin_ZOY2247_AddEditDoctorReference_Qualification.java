@@ -35,6 +35,7 @@ public class Admin_ZOY2247_AddEditDoctorReference_Qualification extends LoadProp
 		admin.Enter_QualificationDetails(qualificationName, qualificationDescription);
 		admin.click_qualificationSaveBtn();
 		Browser.CheckNotificationMessage("Qualification created successfully");
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providerQualification", "name", qualificationName);
 	}
 	
 	@DataProvider(name="DoctorQualificationDetailsEDIT")

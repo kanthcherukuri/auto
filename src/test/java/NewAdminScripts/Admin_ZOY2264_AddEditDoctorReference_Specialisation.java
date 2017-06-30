@@ -35,6 +35,7 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.Enter_specialisationDetails(specialisationName, specialisationDescription);
 		admin.click_specialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization created successfully");
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
 	}
 	
 	@DataProvider(name="DoctorSpecialisationDetailsEDIT")

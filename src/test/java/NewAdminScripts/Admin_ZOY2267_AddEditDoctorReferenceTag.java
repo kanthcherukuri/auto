@@ -35,6 +35,7 @@ public class Admin_ZOY2267_AddEditDoctorReferenceTag extends LoadPropMac
 		admin.Enter_tagDetails(tagName, tagDescription);
 		admin.click_tagSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Professional Tags created successfully");
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providerTag", "name", tagName);
 	}
 	
 	@DataProvider(name="DoctorTagDetailsEDIT")
