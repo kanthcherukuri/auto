@@ -1828,4 +1828,25 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(promoName);
 		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultonTableTwo, promoName);
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change password for doctor from admin doctor's screen
+	 * @ Param			: changedPassword
+	 * @ return			: NA
+	 */
+	public void doctorChangePassword(String changedPassword) throws Exception
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.doctorChangePassword);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorChangePassword)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctorChangeNewPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangeNewPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangeNewConfirmPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorChangePasswordHeader)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangePasswordSave)).click();
+		Browser.CheckNotificationMessage("Password changed successfully");
+	}
 } //End of class
