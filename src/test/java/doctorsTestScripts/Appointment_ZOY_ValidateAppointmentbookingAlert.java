@@ -3,20 +3,19 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+
+
+
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
+
 
 import objectRepository.Elements_Doctors;
 
-import org.testng.annotations.BeforeClass;
+
 import org.testng.annotations.DataProvider;
 import java.util.concurrent.TimeUnit;
 import testBase.DoctorsPage;
@@ -52,7 +51,7 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		String fullname=firstname+" "+lastname;
-		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname); 
+		Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
 		Thread.sleep(2000);
 		DoctorsPage.ClickView();
 		String name=driver.findElement(By.xpath(Elements_Doctors.appointment_getfullnameonclickviewmenu)).getText();
@@ -63,9 +62,9 @@ public class Appointment_ZOY_ValidateAppointmentbookingAlert extends LoadPropMac
 		Thread.sleep(10000);
 		String Alert=driver.findElement(By.xpath("//*[@id='message' and contains(.,'"+name+"')]")).getText();
 		System.out.println(Alert);
-		AssertJUnit.assertTrue(Alert.contains(AppointmentId));
+		Assert.assertTrue(Alert.contains(AppointmentId));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(Alert.contains("has been booked"));
+		Assert.assertTrue(Alert.contains("You have booked an appointment for"));
 	}
 	
 	@AfterMethod

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import objectRepository.Elements_NewAdminDoctors;
@@ -901,7 +902,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: Country, State, City, completeAddress, Locality, pin, longitude, latitude
 	 * @ return			: NA
 	 */
-	public void Enter_addressInfo(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude)
+	public void Enter_addressInfo(String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude) throws Exception
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addressTab_Country);
@@ -916,6 +917,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_pinCode)).sendKeys(pin);
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_longitude)).sendKeys(longitude);
 		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).sendKeys(latitude);
+		driver.findElement(By.id(Elements_NewAdminDoctors.addressTab_latitude)).click();
+		Thread.sleep(1000);
 	} //Address info method end ***
 	
 	/*
@@ -926,6 +929,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void clickSubmitDoctor()
 	{
+		Browser.scrollbyID(Elements_NewAdminDoctors.doctorSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
 	}
 	
@@ -1200,6 +1204,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_tagDetails(String tagName, String tagDescription) throws Exception
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_Name);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(tagName+Browser.randomalphabets());
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Description)).sendKeys(tagDescription);
@@ -1238,6 +1243,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_editTagSaveBtn()
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctor_reference_updateTagSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_updateTagSave)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.doctor_reference_tagHeader);
 	}
@@ -1620,7 +1626,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void Enter_countryDetails(String countryCode, String countryName) throws Exception
 	{
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryAddHeader);
-		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countryCode)).sendKeys(countryCode);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_Code)).sendKeys(countryCode);
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(countryName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
@@ -1635,5 +1641,244 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void click_countrySaveBtn()
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_countrySaveBtn)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click state under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_stateTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_stateTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_stateTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_stateHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter state details under administrator tab on admin screen
+	 * @ Param			: stateCode, stateName
+	 * @ return			: NA
+	 */
+	public void Enter_stateDetails(String stateCode, String stateName) throws Exception
+	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.administrator_Code);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_Code)).sendKeys(stateCode);
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_Name)).sendKeys(stateName);
+		Browser.selectbyID(Elements_NewAdminDoctors.administrator_stateCountryCode, "India");
+		Thread.sleep(1000);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of state details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_stateSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_stateSave)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click city under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_cityTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_cityTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_cityTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_cityHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter city details under administrator tab on admin screen
+	 * @ Param			: cityName, stateName
+	 * @ return			: NA
+	 */
+	public void Enter_cityDetails(String cityName, String stateName) throws Exception
+	{
+		Thread.sleep(1000);
+		driver.navigate().refresh();
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_cityName);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_cityName)).sendKeys(cityName);
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_city_StateField)).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_dropdownTextInput)).sendKeys(stateName);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_dropdownTextInput)).sendKeys(Keys.ENTER);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click submit button of city details under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_administratorSave()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click promo under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_ProviderPromoTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_providerPromo);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_providerPromo)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_providerPromoHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter provider promotion details under administrator tab on admin screen
+	 * @ Param			: promoCodeType	promoName	promoDescription	referraldiscountType	referalValue	refereediscountType	refreeValue	discountType	discountValue	minimumPurchase	applyType
+	 * @ return			: NA
+	 */
+	public void Enter_ProviderPromoDetails(String promoCodeType, String promoName, String promoDescription, String referraldiscountType, String referalValue, String refereediscountType, String refreeValue, String discountType, String discountValue, String minimumPurchase, String applyType) throws Exception
+	{
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_promoName);
+		if(promoCodeType.equalsIgnoreCase("referral"))
+		{
+			driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_referealTypeRadioBtn)).click();
+		}
+		
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoName)).sendKeys(promoName);
+		
+		//Date time increment
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidFrom)).click();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidFrom)).clear();
+	    Browser.dateTimeIncrement(5, Elements_NewAdminDoctors.administrator_promoValidFrom);
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidTo)).click();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoValidTo)).clear();
+	    Browser.yearIncrement(5, Elements_NewAdminDoctors.administrator_promoValidTo);
+	    Thread.sleep(1000);
+	    driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDescripiton)).click();
+	    driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDescripiton)).sendKeys(promoDescription);
+	    
+	    if(promoCodeType.equalsIgnoreCase("referral"))
+		{
+	    	Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_promoDescripiton);
+	    	if(referraldiscountType.equalsIgnoreCase("Amount"))
+	    	{
+	    		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_referalDiscountTypeAmount)).click();
+	    	}
+			driver.findElement(By.name(Elements_NewAdminDoctors.administrator_referalDisountValue)).sendKeys(referalValue);
+			if(refereediscountType.equalsIgnoreCase("Amount"))
+			{
+				driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_refereeDiscountTypeAmount)).click();
+			}
+			driver.findElement(By.name(Elements_NewAdminDoctors.administrator_refreeDiscountValue)).sendKeys(refreeValue);
+		} // FOR REFERAL
+	    else
+	    {
+	    	Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_promoDiscountTypePercentage);
+	    	if(discountType.equalsIgnoreCase("Amount"))
+	    	{
+	    		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoDiscountTypeAmount)).click();
+	    	}
+		    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoDiscountValue)).sendKeys(discountValue);
+	    }
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoMinValue)).clear();
+	    driver.findElement(By.name(Elements_NewAdminDoctors.administrator_promoMinValue)).sendKeys(minimumPurchase);
+	    
+	    Browser.scrollbyID(Elements_NewAdminDoctors.administrator_promoAllCheckBox);
+	    driver.findElement(By.id(Elements_NewAdminDoctors.administrator_promoAllCheckBox)).click();
+	    Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
+	    
+	    if(applyType.equalsIgnoreCase("Automatic"))
+	    {
+	    	driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_promoModeAutomatic)).click();
+	    }
+	    Thread.sleep(1000);
+	} //End of provider promo enter method
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click promo save btn under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_promoSaveBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter promo name in search bar on admin screen
+	 * @ Param			: emailID
+	 * @ return			: NA
+	 */
+	public void searchPromoCodeByName(String promoName)
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(promoName);
+		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultonTableTwo, promoName);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to change password for doctor from admin doctor's screen
+	 * @ Param			: changedPassword
+	 * @ return			: NA
+	 */
+	public void doctorChangePassword(String changedPassword) throws Exception
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.doctorChangePassword);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorChangePassword)).click();
+		Browser.waitFortheID(Elements_NewAdminDoctors.doctorChangeNewPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangeNewPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangeNewConfirmPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorChangePasswordHeader)).click();
+		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangePasswordSave)).click();
+		Browser.CheckNotificationMessage("Password changed successfully");
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to scroll and click on modules tab under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_modulesTab()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_moduleTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_moduleTab)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to check module config working functionality in index page
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void checkModuleConfiginIndex()
+	{
+		driver.get(index_url);
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
+		if(driver.findElement(By.id(Elements_NewAdminDoctors.recipient_HospitalIcon)).isDisplayed())
+		{
+			System.out.println("Hospitals is visible as it is activated in module config");
+		}
+		else
+		{
+			System.out.println("Hospitals is not visible as it is not activated in module config");
+		}
 	}
 } //End of class

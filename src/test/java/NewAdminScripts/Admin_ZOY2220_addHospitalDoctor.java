@@ -3,7 +3,12 @@ package NewAdminScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
+
+
+
+
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
@@ -27,7 +32,7 @@ public class Admin_ZOY2220_addHospitalDoctor extends LoadPropMac
 	}
 	
 	@Test(dataProvider="clinicDoctorDetails")
-	public void addHospitalDoctor(String firstName, String MiddleName, String	LastName, String ShortName, String emailID, String mobileNumber, String	password, String isActiveValue,	String genderValue, String	DOB, String	regNum, String	qualification, String tag, String specialization, String practiceLine, String aboutDoc, String practiceStartDate, String vacationStatus, String	vacationStartDate, String vacationEndDate, String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital, String imageURL, String mondayStatus, String	mondayHospitalName, String	mondayStartTime, String	mondayEndTime, String tuesdayStatus, String	tuesdayHospitalName, String	tuesdayStartTime, String tuesdayEndTime, String	wednesdayStatus, String	wednesdayHospitalName, String	wednesdayStartTime, String	wednesdayEndTime, String thursdayStatus, String	thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String	fridayStatus, String fridayHospitalName, String	fridayStartTime, String	fridayEndTime) throws Exception
+	public void addHospitalDoctor(String firstName, String MiddleName, String	LastName, String ShortName, String emailID, String mobileNumber, String	password, String isActiveValue,	String genderValue, String	DOB, String	regNum, String	qualification, String tag, String specialization, String practiceLine, String aboutDoc, String practiceStartDate, String vacationStatus, String	vacationStartDate, String vacationEndDate, String hospitalWorkTypeStatus, String hospitalName, String hospitalFee, String zfcForHospital, String imageURL, String mondayStatus, String	mondayHospitalName, String	mondayStartTime, String	mondayEndTime, String tuesdayStatus, String	tuesdayHospitalName, String	tuesdayStartTime, String tuesdayEndTime, String	wednesdayStatus, String	wednesdayHospitalName, String	wednesdayStartTime, String	wednesdayEndTime, String thursdayStatus, String	thursdayHospitalName, String thursdayStartTime, String thursdayEndTime, String	fridayStatus, String fridayHospitalName, String	fridayStartTime, String	fridayEndTime, String removeFromDB) throws Exception
 	{
 		admin.click_doctorsTab();
 		admin.click_addDoctor();
@@ -40,13 +45,20 @@ public class Admin_ZOY2220_addHospitalDoctor extends LoadPropMac
 		if(hospitalWorkTypeStatus.equalsIgnoreCase("true"))
 		{
 			String verifyHospitalName=driver.findElement(By.xpath(Elements_NewAdminDoctors.hospitalTable_hospitalName)).getText();
-			AssertJUnit.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
+			Assert.assertEquals(verifyHospitalName, hospitalName, "Hospital add verification");
 		}
 		admin.Enter_practiceDetails_GalleryInfo(imageURL);
 		admin.Enter_hospitalDoctor_workDaysInfo(mondayStatus, mondayHospitalName, mondayStartTime, mondayEndTime, tuesdayStatus, tuesdayHospitalName, tuesdayStartTime, tuesdayEndTime, wednesdayStatus, wednesdayHospitalName, wednesdayStartTime, wednesdayEndTime, thursdayStatus, thursdayHospitalName, thursdayStartTime, thursdayEndTime, fridayStatus, fridayHospitalName, fridayStartTime, fridayEndTime);
 		admin.clickSubmitDoctor();
 		Browser.CheckNotificationMessage("Doctor created successfully");
 		Thread.sleep(5000);
+		
+		if(removeFromDB.equalsIgnoreCase("true"))
+		{
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
+			System.out.println(emailID+" removed from providers and users collections.");
+		}
 	}
 	
 	@BeforeClass

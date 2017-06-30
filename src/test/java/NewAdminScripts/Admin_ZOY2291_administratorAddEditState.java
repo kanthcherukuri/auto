@@ -5,42 +5,41 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
-
-
 import objectRepository.Elements_NewAdminDoctors;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
 import testBase.TestUtils;
 
-//Author: Sagar Sen
+//@Author: Sagar Sen
 
-public class Admin_ZOY2288_administratorAddEditCountry extends LoadPropMac
+public class Admin_ZOY2291_administratorAddEditState extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
-	public String countryName="Xyzname";
-	public String countryCode="XYZ";
+	public String stateName="Xyzname";
+	public String stateCode="XYZ";
 	
 	@Test(priority=1)
-	public void addCountry() throws Exception
+	public void addState() throws Exception
 	{
 		admin.click_AdministratorTab();
-		admin.click_countryTab();
+		admin.click_stateTab();
 		admin.click_doctorReference_AddBtn();
-		admin.Enter_countryDetails(countryCode, countryName);
-		admin.click_countrySaveBtn();
-		Browser.CheckNotificationMessage("Country created successfully");
+		admin.Enter_stateDetails(stateCode, stateName);
+		admin.click_stateSaveBtn();
+		Browser.CheckNotificationMessage("State created successfully");
+		Thread.sleep(5000);
 	}
 	
 	@Test(priority=2)
-	public void editCountry() throws Exception
+	public void editState() throws Exception
 	{
 		driver.navigate().refresh();
-		admin.searchAdministratorReferenceByName(countryCode);
+		admin.searchAdministratorReferenceByName(stateCode);
 		admin.clickEditbutton();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_countryEditHeader);
-		admin.click_countrySaveBtn();
-		Browser.CheckNotificationMessage("Country updated successfully");
+		Browser.waitFortheID(Elements_NewAdminDoctors.administrator_stateSave);
+		admin.click_stateSaveBtn();
+		Browser.CheckNotificationMessage("State updated successfully");
 	}
 	
 	@BeforeClass
@@ -58,7 +57,7 @@ public class Admin_ZOY2288_administratorAddEditCountry extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "country", "code", countryCode);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "state", "code", stateCode);
 		driver.quit();
 	}
 }

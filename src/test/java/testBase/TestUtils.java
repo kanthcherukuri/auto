@@ -28,6 +28,7 @@ import objectRepository.Elements_Recipients;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -364,12 +365,12 @@ public class TestUtils {
 	
 	public void CheckNotificationMessage(String ExpectedNotificationMesg ){
 		
-		WebDriverWait wait = (new WebDriverWait(driver, 2000));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='zy-status-wrapper']")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
 	    Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
-		
+	    //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='zy-status-wrapper']"))); 
 	}
 	
 	
@@ -596,6 +597,12 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 
      }
 
+     public void maximizechromebrowser(){
+    		System.out.println(driver.manage().window().getSize());
+    		Dimension d= new Dimension(1920, 1080);
+    		driver.manage().window().setSize(d);
+    	 
+     }
 	
     
 }
