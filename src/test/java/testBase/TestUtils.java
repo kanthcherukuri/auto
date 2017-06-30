@@ -300,8 +300,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+ID);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
 					driver.findElement(By.id(ID)).click();
 					System.out.println("Clicked on "+ID);
 				}
@@ -311,8 +310,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+xpath);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
 					String text =driver.findElement(By.xpath(xpath)).getText();
 					System.out.println("Text = "+text);
 					return text;
@@ -323,8 +321,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+ID);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
 					String text =driver.findElement(By.id(ID)).getText();
 					System.out.println("Text = "+text);
 					return text;
@@ -335,7 +332,7 @@ public class TestUtils {
 				{
 					System.out.println("Waiting for "+Xpath);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Xpath)));
 					driver.findElement(By.xpath(Xpath)).click();
 					System.out.println("Clicked on "+Xpath);
 				}
@@ -344,7 +341,8 @@ public class TestUtils {
 				public void enterTextByID(String ID,String data)
 				{
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					driver.findElement(By.id(ID)).clear();
 					driver.findElement(By.id(ID)).sendKeys(data);
 					System.out.println("Texted = "+data);
 				}
@@ -353,7 +351,7 @@ public class TestUtils {
 				public void enterTextByXpath(String Xpath,String data)
 				{
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Xpath)));
 					driver.findElement(By.xpath(Xpath)).sendKeys(data);
 					System.out.println("Texted = "+data);
 				}
@@ -565,6 +563,7 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 
 		        endRow=tableEnd.getRow();
 		        endCol=tableEnd.getColumn();
+		        
 		        System.out.println("startRow="+startRow+", endRow="+endRow+", " +
 		                "startCol="+startCol+", endCol="+endCol);
 		        tabArray=new String[endRow-startRow-1][endCol-startCol-1];
@@ -574,6 +573,8 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
 		            cj=0;
 		            for (int j=startCol+1;j<endCol;j++,cj++){
 		                tabArray[ci][cj]=sheet.getCell(j,i).getContents();
+		                
+		                
 		            }
 		        }
 		    

@@ -148,9 +148,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 
 	public void Exit() {
 
-
-		driver.close();
-
+		driver.quit();
 
 	}
 

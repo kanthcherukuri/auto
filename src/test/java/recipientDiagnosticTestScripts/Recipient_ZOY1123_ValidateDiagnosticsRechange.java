@@ -43,12 +43,10 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 			};
 		}
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
+	 public void ValidateDiagnosticsRechange(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 		 
-			// 
-			
+
 			    //Test Starts-Here
 				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
@@ -73,7 +71,6 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 				RecipientPage.UpcomingAppointment(APID, "Reschedule");
 				Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[4]");							 
 				Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
-				RecipientPage.recipientLogout();
 				
 				
 	
@@ -90,9 +87,7 @@ public class Recipient_ZOY1123_ValidateDiagnosticsRechange extends LoadPropMac {
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+		 driver.quit();
 	      
 	    }
     

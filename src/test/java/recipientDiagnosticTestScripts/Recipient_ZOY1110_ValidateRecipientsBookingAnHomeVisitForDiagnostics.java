@@ -103,11 +103,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() {
-
-
-		driver.close();
-
-
+		driver.quit();
 	}
 
 

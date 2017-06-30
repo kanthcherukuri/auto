@@ -57,7 +57,6 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-			RecipientPage.recipientLogout();
 
 		}else{
 

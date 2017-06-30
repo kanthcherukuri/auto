@@ -4,6 +4,7 @@ package testBase;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -135,6 +136,33 @@ public class DoctorsPage  {
 		}
 
 	}
+	// Click on recent Patient from dashboard
+		public  void clickOnThePatientFromDashBoard(String slotTime) throws IOException, InterruptedException, ParseException{
+			Thread.sleep(2000);
+			DateFormat ModTime = new SimpleDateFormat("h:mm a");
+			String PslotTime=ModTime.format(ModTime.parse(slotTime)).toLowerCase();
+            System.out.println("Slot Time after modification"+PslotTime);
+            
+			if(driver.findElements(By.id("show-all-btn")).isEmpty()){
+				System.out.println("is empty");
+				Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+				driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
+				Browser.waitTill(60);
+			}else{
+				System.out.println("show all btn exisit");
+				driver.findElement(By.id("show-all-btn")).click();
+				Thread.sleep(2000);
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
+				Thread.sleep(5000);
+				//Browser.scrollbyxpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]");
+				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+				driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
+				Browser.waitTill(60);
+
+			}
+
+		}
 
 	// Doctors Checkin and check the recipient
 		public  void doctorCheckinCheckOut() throws IOException, InterruptedException{

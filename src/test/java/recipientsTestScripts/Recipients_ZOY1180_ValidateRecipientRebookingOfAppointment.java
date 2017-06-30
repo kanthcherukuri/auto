@@ -57,8 +57,6 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
-			 Browser.openUrl(loginPage_Url);
-		     RecipientPage.recipientLogout();
 
 			
 	    }

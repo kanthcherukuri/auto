@@ -81,11 +81,7 @@ public class Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment extends Lo
 	 @AfterClass(groups = { "Regression","High" })
 	 
 	 public void Exit() {
-
-	       
-	       driver.close();
-	       
-	      
+		 driver.quit();
 	    }
     
 	

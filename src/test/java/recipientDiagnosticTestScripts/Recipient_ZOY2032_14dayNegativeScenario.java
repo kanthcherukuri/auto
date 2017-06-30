@@ -64,7 +64,6 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 	@AfterClass
 	public void closeBrowser() {
 
-	       driver.close();
-
+		driver.quit();
 	    }
 }

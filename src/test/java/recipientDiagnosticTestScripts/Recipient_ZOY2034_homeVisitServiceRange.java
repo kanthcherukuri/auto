@@ -46,7 +46,6 @@ public class Recipient_ZOY2034_homeVisitServiceRange extends LoadPropMac
 	@AfterClass
 	public void closebrowser() throws InterruptedException
 	{
-		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

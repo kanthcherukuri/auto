@@ -77,9 +77,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+		 driver.quit();
 	      
 	    }
     

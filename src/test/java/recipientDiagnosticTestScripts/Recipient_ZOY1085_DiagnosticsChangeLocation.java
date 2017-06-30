@@ -71,7 +71,7 @@ public class Recipient_ZOY1085_DiagnosticsChangeLocation extends LoadPropMac {
 	public void Exit() {
 
 
-		driver.close();
+		driver.quit();
 
 
 	}

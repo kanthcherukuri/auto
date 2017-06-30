@@ -445,7 +445,7 @@ public class RecipientPage  {
 	 *  @Parameters  : Tests and packages
 	 *  @Return      : 
 	 */
-	public void selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
+	public String[] selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
 		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
 
 		if(pkg.isEmpty()){
@@ -486,6 +486,7 @@ public class RecipientPage  {
 		String SlotStatus=driver.findElement(By.xpath("//div[@class='panel-collapse collapse in']/ul/li[last()]")).getAttribute("class");
 		
 		
+		
 		if(SlotStatus.equals("timeSlot sp-available-slots")){
 			System.out.println("Default Slot Tab");
 			
@@ -513,6 +514,7 @@ public class RecipientPage  {
 		
 		}
 		
+		return Appointmentdetails;
 
 	}
 	
@@ -624,7 +626,7 @@ public class RecipientPage  {
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		//Browser.waitTill(60);
-		//Thread.sleep(15000);
+		Thread.sleep(5000);
 		System.out.println("Payment done");
 	}
 	
@@ -755,16 +757,19 @@ public class RecipientPage  {
 
 		driver.findElement(By.xpath("//span[contains(.,'"+FilterCatagory+"')]")).click();
 		System.out.println("Clicked on the"+FilterCatagory);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		if(Search.equals("")){
 			System.out.println("No Serach in filters");
 		}else{
 			driver.findElement(By.xpath("//*[@id='"+Search+"']")).sendKeys(Value);
-			Thread.sleep(2000);	
+			Thread.sleep(5000);
+			
 		}
 
-		driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']")).click();
+		WebElement invisibleelement= driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']"));
+		JavascriptExecutor js = (JavascriptExecutor)driver; 
+		js.executeScript("arguments[0].click();", invisibleelement); 
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	

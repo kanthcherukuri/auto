@@ -49,7 +49,6 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 	@AfterClass
 	public void closeBrowser() {
 
-	       driver.close();
-
+		driver.quit();
 	    }
 }

@@ -62,7 +62,9 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
-				RecipientPage.selectDefaultSlot();
+				String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
+				System.out.println("Clinic Name details"+Appointmentdetails[0]);
+				System.out.println("Time Slot"+Appointmentdetails[1]);
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
@@ -72,8 +74,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				
 				Browser.openUrl(loginPage_Url);			
 				DoctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
-				//Browser.waitTill(60);
-				DoctorsPage.clickOnTheRecentPatientFromDashBoard();
+				DoctorsPage.clickOnThePatientFromDashBoard(Appointmentdetails[1]);
 				DoctorsPage.doctorCheckinCheckOut();
 				DoctorsPage.doctorlogout();
 				
@@ -99,6 +100,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				 Browser.waitFortheID("followUpBookAppointment");
 				 driver.findElement(By.id("problem")).sendKeys("Health details");
 				 driver.findElement(By.id("followUpBookAppointment")).click();  // FollowUp Book
+				 
 				 WebDriverWait wait = (new WebDriverWait(driver, 60));
 				 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 				 String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();

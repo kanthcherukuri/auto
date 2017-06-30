@@ -55,7 +55,7 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 
 
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateBookingAnAppointment(String runmode,String Username, String Password,String Tests,String Pkg,String Diagonostics ) throws Exception {
+	public void ValidateDianosticsBookingAnAppointmentWithoutLogin(String runmode,String Username, String Password,String Tests,String Pkg,String Diagonostics ) throws Exception {
 
 		if(runmode.equals("yes")){
 
@@ -97,7 +97,7 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 	public void Exit() {
 
 
-		driver.close();
+		driver.quit();
 
 
 	}

@@ -79,9 +79,7 @@ public class Recipient_ZOY2043_DiagnosticsChangeLocation extends LoadPropMac {
 
 	public void Exit() {
 
-
-		driver.close();
-
+		driver.quit();
 
 	}
 

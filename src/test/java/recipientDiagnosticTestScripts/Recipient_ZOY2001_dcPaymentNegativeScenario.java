@@ -54,7 +54,6 @@ public class Recipient_ZOY2001_dcPaymentNegativeScenario extends LoadPropMac
 	@AfterClass
 	public void closeBrowser() {
 
-	       driver.close();
-
+		driver.quit();
 	    }
 }

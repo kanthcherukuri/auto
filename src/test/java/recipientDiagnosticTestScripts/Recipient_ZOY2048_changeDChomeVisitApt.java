@@ -89,6 +89,6 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 	public void closebrowser() throws InterruptedException
 	{
 		Thread.sleep(3000);
-		driver.close();
+		driver.quit();
 	}
 }

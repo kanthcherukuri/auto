@@ -6,6 +6,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -48,7 +52,8 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 	 public void DiagnosticsBookingAndFallowUp(String runmode,String Tests,String Pkg,String DiagnosticName ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
-			 		 
+
+			 
 			    //Test Starts-Here
 				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
@@ -58,7 +63,11 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 				System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 				RecipientPage.bookAppointmentOnDiagnostics();
-				RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
+				String[] Appointmentdetails = RecipientPage.selectAvailableSlotInDiagnostics(Tests, Pkg);
+				
+				System.out.println("Clinic Name details"+Appointmentdetails[0]);
+				System.out.println("Time Slot"+Appointmentdetails[1]);
+				
 				RecipientPage.confirmAppointmentOnDiagnostics();
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
@@ -69,7 +78,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 			
 				//Verify Doctor Login with valid details
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
-				DiagnosticPage.clickOnTheRecentPatientFromDashBoardInDiagnostics();
+				DiagnosticPage.clickOnThePatientFromDashBoardInDiagnostics(Appointmentdetails[1]);
 				DiagnosticPage.diagnosticsCheckinCheckOut();
 				DiagnosticPage.diagnosticslogout();
 				
@@ -100,7 +109,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 	 @AfterClass(groups = { "Regression","High" })	 
 	 public void closeBrowser() {
 
-	       driver.close();
+	       driver.quit();
   
 	    }
     

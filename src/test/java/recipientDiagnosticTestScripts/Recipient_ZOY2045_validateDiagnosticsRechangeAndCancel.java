@@ -109,9 +109,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+		 driver.quit();
 	      
 	    }
     

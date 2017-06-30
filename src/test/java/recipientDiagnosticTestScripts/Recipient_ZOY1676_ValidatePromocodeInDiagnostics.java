@@ -128,9 +128,7 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+		 driver.quit();
 	      
 	    }
     

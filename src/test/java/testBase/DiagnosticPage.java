@@ -2,6 +2,7 @@ package testBase;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -824,6 +825,36 @@ public class DiagnosticPage {
 			}
 
 		}
+		
+		// Click on the Patient from dashboard
+				public  void clickOnThePatientFromDashBoardInDiagnostics(String slotTime) throws IOException, InterruptedException, ParseException{
+					Thread.sleep(2000);
+					DateFormat ModTime = new SimpleDateFormat("h:mm");
+					String PslotTime=ModTime.format(ModTime.parse(slotTime));
+                    System.out.println("Slot Time after modification"+PslotTime);
+					
+					if(driver.findElements(By.xpath("//button[@class='sp-diagno-dash-showall sp-diagno-dash-showall-btn']")).size()!=0){
+						System.out.println("show all btn exisit");
+						driver.findElement(By.xpath("//button[@class='sp-diagno-dash-showall sp-diagno-dash-showall-btn']")).click();
+						Thread.sleep(2000);
+
+						Browser.scrollbyxpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]");
+		/*				JavascriptExecutor jse = (JavascriptExecutor)driver;
+						jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
+						Thread.sleep(5000);*/
+						driver.findElement(By.xpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]")).click();  // Recent Appointment
+						Browser.waitTill(60);
+						
+					}else{
+						System.out.println("is empty");
+						Browser.waitFortheElementXpath("//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span");
+						driver.findElement(By.xpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]")).click();  // Recent Appointment
+						Browser.waitTill(60);
+
+					}
+
+				}
+		
 		// Doctors Checkin and check the recipient
 		public  void diagnosticsCheckinCheckOut() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.checkinbutton);

@@ -2,9 +2,6 @@ package recipientDiagnosticTestScripts;
 
 
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -44,14 +41,18 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(loginPage_Url);			
-	      //Verify Recipient Login with valid details
-		  RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-		  Thread.sleep(2000);
+		  Browser.openUrl(index_url);			
 		  RecipientPage.goToDiagnostics();
+		  RecipientPage.searchInZoyloMAPArea("Miyapur");
 		  	 
  } 
 
+	 @AfterMethod
+	 public void AfterFiters() throws Exception {
+
+			driver.navigate().refresh();
+			
+	    }
  
 
 	 @Test(groups = { "Regression","High" },priority=1)
@@ -64,38 +65,31 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			driver.findElement(By.linkText("Home PickUp Sample(0)")).click();
 			driver.findElement(By.linkText("Price(0)")).click();
 			driver.findElement(By.linkText("Distance(0)")).click();
-			driver.findElement(By.linkText("Ratings(0)")).click();
+			//driver.findElement(By.linkText("Ratings(0)")).click();
 			
 	    }
-    
-	 //
-	 
+
 	 @Test(groups = { "Regression","High" },priority=2)
 	 public void validateApplyFiltersByTests() throws Exception {
-	
-			//Searching Locality/Area
-			RecipientPage.searchInZoyloMAPArea("Miyapur");
+
 			//Verify Specialization Filter Option
-			RecipientPage.ApplyFilterInDiagnostics("Test","test", "All Routine Blood Test","searchDiagnosticTest");
+		    RecipientPage.clickOnFilterImg();
+			RecipientPage.ApplyFilterInDiagnostics("Test","test", "Vitamins D3","searchDiagnosticTest");
 			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
 			RecipientPage.bookAppointmentOnDiagnostics();
 			Browser.waitFortheElementXpath("//*[@id='test-li']/a");
-			driver.findElement(By.id("tests_search")).sendKeys("All Routine Blood Test");
+			driver.findElement(By.id("tests_search")).sendKeys("Vitamins D3");
 			Thread.sleep(2000);
 			String TestName=driver.findElement(By.xpath("(//div[contains(@class,'zy-rec-diag-s-apt-g-table-col')])[1]")).getText();
-			Assert.assertEquals(TestName, "All Routine Blood Test");
+			Assert.assertEquals(TestName, "Vitamins D3");
+			Browser.clickOnTheElementByID("backArrow");
 	
 	    }
 	 
 	 @Test(groups = { "Regression","High" },priority=3)
 	 public void validateApplyFiltersByPackages() throws Exception {
-		    RecipientPage.goToDiagnostics();
-			//verifying Line of Practice
-		    RecipientPage.clickOnFilterImg();
-			//Reset
-		    RecipientPage.ClearFilters();
-			//SET Filter
+		    
 			RecipientPage.clickOnFilterImg();
             RecipientPage.ApplyFilterInDiagnostics("Package","package","Zoylo Health Pkg","searchDiagnosticPackage");
             Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
@@ -106,17 +100,15 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			Thread.sleep(2000);
 			String PkgName=driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'Zoylo Health Pkg')]")).getText();
 			Assert.assertEquals(PkgName, "Zoylo Health Pkg");
+			Browser.clickOnTheElementByID("backArrow");
 	
 	    }
 	 //
 	 @Test(groups = { "Regression","High" },priority=6)
 	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
-		    RecipientPage.goToDiagnostics();
-		    RecipientPage.clickOnFilterImg();
-		    RecipientPage.ClearFilters();
-			RecipientPage.clickOnFilterImg();
-			
+
 			//Verify Specialization Filter Option
+		    RecipientPage.clickOnFilterImg();
 			RecipientPage.ApplyFilterInDiagnostics("Package","package","Zoylo Health Pkg","searchDiagnosticPackage");
 			Thread.sleep(5000);
 			//Verify with Invalid data
@@ -135,9 +127,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	 
 	 public void Exit() {
 
-	       
-	       driver.close();
-	       
+		 driver.quit();
 	      
 	    }
     

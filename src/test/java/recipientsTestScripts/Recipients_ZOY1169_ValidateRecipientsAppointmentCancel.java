@@ -67,16 +67,21 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		String AppointmentId = Browser.getAppointmentID();
 		System.out.println(AppointmentId);
 		driver.get(""+base_url+"myAppointments");
-
-		Browser.clickOnTheElementByXpath("(//*[@id='myAppointment']//h2[contains(.,'"+Doctor_Name+"')])[1]");
-		driver.findElement(By.id("cancel")).click();
+		Thread.sleep(10000);
+		Browser.waitFortheElementXpath("//div[@class='patientApmtStatus']");
+		driver.findElement(By.id("aptSearch")).click();
+		driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
 		Thread.sleep(5000);
-		driver.findElement(By.id("confirmYes")).click();
+		//Browser.scrollbyxpath("//div[@class='patientApmtStatus' and contains(.,'"+AppointmentId+"')]/following-sibling::*/div[2]");
+		Browser.clickOnTheElementByXpath("//div[@class='patientApmtStatus' and contains(.,'"+AppointmentId+"')]/following-sibling::*/div[2]");
+		//driver.findElement(By.id("cancel")).click();
+		Browser.clickOnTheElementByID("cancelYes");
+		//Thread.sleep(2000);
+		//driver.findElement(By.id("confirmYes")).click();
 		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 
 		Assert.assertEquals(cancel_mesg, "Appointment has been CANCELLED");
-		RecipientPage.recipientLogout();
-
+		
 		
 		/*
 		
