@@ -44,6 +44,7 @@ public static String administrator_countryTab, administrator_countryHeader, admi
 public static String administrator_stateTab, administrator_stateHeader, administrator_stateCountryCode, administrator_stateSave;
 public static String administrator_cityTab, administrator_cityHeader, administrator_cityName, administrator_city_StateField, administrator_city_StateSelectID, administrator_dropdownTextInput;
 public static String administrator_providerPromo, administrator_providerPromoHeader, administrator_promotionTypeRadioBtn, administrator_referealTypeRadioBtn, administrator_promoName, administrator_promoValidFrom, administrator_promoValidTo, administrator_promoDescripiton, administrator_referalDiscountTypePercentage, administrator_referalDiscountTypeAmount, administrator_referalDisountValue, administrator_refereeDiscountTypePercentage, administrator_refereeDiscountTypeAmount, administrator_refreeDiscountValue, administrator_promoDiscountTypePercentage, administrator_promoDiscountTypeAmount, administrator_promoDiscountValue, administrator_promoMinValue, admininstrator_promoMaxValue, administrator_promoMaxDiscountValue, administrator_promoUserUsageOnce, administrator_promoUserUsageTwice, administrator_promoUserUsageUnlimited, administrator_promoProviderUsageOnce, administrator_promoProviderUsageMultiple, administrator_promoUserCount, administrator_promoAllCheckBox, administrator_promoModeAutomatic, administrator_promoModeManual;
+public static String administrator_moduleTab, administrator_moduleHospitalActiveCheckBox, recipient_IndexAccountIcon, recipient_HospitalIcon;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -125,6 +126,11 @@ public static String administrator_providerPromo, administrator_providerPromoHea
 		administrator_promoAllCheckBox="checkAll"; //ID
 		administrator_promoModeAutomatic="//input[@value='automatic']"; //XPATH
 		administrator_promoModeManual="//input[@value='manual']"; //XPATH
+		//MODULE
+		administrator_moduleTab="//a[@href='/admin/moduleList']"; //XPATH
+		administrator_moduleHospitalActiveCheckBox="modules.2.isActive"; //NAME
+		recipient_IndexAccountIcon="//img[@class='indexProfileImg']"; //XPATH
+		recipient_HospitalIcon="hospitals"; //ID
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID

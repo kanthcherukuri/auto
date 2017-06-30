@@ -1722,7 +1722,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_citySave()
+	public void click_administratorSave()
 	{
 		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
@@ -1819,7 +1819,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to enter promo name in search bar on admin doctor's screen
+	 * @ Description	: This method is used to enter promo name in search bar on admin screen
 	 * @ Param			: emailID
 	 * @ return			: NA
 	 */
@@ -1848,5 +1848,37 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorChangePasswordHeader)).click();
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorChangePasswordSave)).click();
 		Browser.CheckNotificationMessage("Password changed successfully");
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to scroll and click on modules tab under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_modulesTab()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_moduleTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_moduleTab)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to check module config working functionality in index page
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void checkModuleConfiginIndex()
+	{
+		driver.get(index_url);
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
+		if(driver.findElement(By.id(Elements_NewAdminDoctors.recipient_HospitalIcon)).isDisplayed())
+		{
+			System.out.println("Hospitals is visible as it is activated in module config");
+		}
+		else
+		{
+			System.out.println("Hospitals is not visible as it is not activated in module config");
+		}
 	}
 } //End of class

@@ -28,7 +28,7 @@ public class Admin_ZOY2293_administratorAddEditCity extends LoadPropMac
 		admin.click_cityTab();
 		admin.click_doctorReference_AddBtn();
 		admin.Enter_cityDetails(cityName, stateName);
-		admin.click_citySave();
+		admin.click_administratorSave();
 		Browser.CheckNotificationMessage("City information saved successfully");
 		Thread.sleep(5000);
 	}
@@ -40,7 +40,7 @@ public class Admin_ZOY2293_administratorAddEditCity extends LoadPropMac
 		admin.searchAdministratorReferenceByName(cityName);
 		admin.clickEditbutton();
 		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_cityName);
-		admin.click_citySave();
+		admin.click_administratorSave();
 		Browser.CheckNotificationMessage("City information saved successfully");
 	}
 	
