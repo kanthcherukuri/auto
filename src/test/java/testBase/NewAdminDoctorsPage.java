@@ -1881,4 +1881,30 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			System.out.println("Hospitals is not visible as it is not activated in module config");
 		}
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to scroll and click on marketing elements tab under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_marketingElementsTab()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_marketingElementsTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_marketingElementsTab)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter marketing details under administrator tab on admin screen
+	 * @ Param			: marketingName, marketingDescription
+	 * @ return			: NA
+	 */
+	public void Enter_marketingElementDetails(String marketingName, String marketingDescription) throws Exception
+	{
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_marketingName);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_marketingName)).sendKeys(marketingName);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_descriptionXpath)).sendKeys(marketingDescription);
+		driver.findElement(By.name(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
 } //End of class

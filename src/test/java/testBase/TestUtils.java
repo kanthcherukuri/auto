@@ -471,7 +471,7 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
         System.out.println(db.getCollectionNames());
         
         DBCollection coll = db.getCollection(collectionName);
-        System.out.println("Collection mycol selected successfully");
+        System.out.println(collectionName+" Collection selected successfully");
         
         BasicDBObject searchQuery = new BasicDBObject();
     	searchQuery.put(QueryKey, QueryValue);
