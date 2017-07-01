@@ -356,6 +356,22 @@ public class TestUtils {
 					driver.findElement(By.xpath(Xpath)).sendKeys(data);
 					System.out.println("Texted = "+data);
 				}
+				
+				// select text by id
+				public void selectByVisibleTextByID(String ID,String data)
+				{
+					Select drpCountry = new Select(driver.findElement(By.id(ID)));
+					drpCountry.selectByVisibleText(data);
+					System.out.println("Selected = "+data);
+				}
+				
+				// select text by id
+				public void selectByVisibleTextByXpath(String xpath,String data)
+				{
+					Select drpCountry = new Select(driver.findElement(By.xpath(xpath)));
+					drpCountry.selectByVisibleText(data);
+					System.out.println("Selected = "+data);
+				}
 		
 	//Wait Till int
 	public void waitTill(int time) {

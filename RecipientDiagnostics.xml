@@ -3,21 +3,22 @@
 <suite name="Suite">
   <test name="Recipients Diagnostics">
     <classes>
+          <class name="recipientDiagnosticTestScripts.Recipient_ZOY_DiagnosticsBookingAndFallowUp"/>
+          <class name="recipientDiagnosticTestScripts.Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2041_bookDChomeVisitAppointment"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1399_ValidateDianosticsRebook"/>
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY_DiagnosticsBookingAndFallowUp"/>
+
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2001_dcPaymentNegativeScenario"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogin"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2048_changeDChomeVisitApt"/>
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1094_ValidateDiagnosticsMapFilters"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2032_14dayNegativeScenario"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2034_homeVisitServiceRange"/>
+
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1085_DiagnosticsChangeLocation"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1676_ValidatePromocodeInDiagnostics"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2014_dcPaymentCancelNegativeScenario"/>
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY1123_ValidateDiagnosticsRechange"/>
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY2045_ValidateDiagnosticsRechange"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostics"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2043_DiagnosticsChangeLocation"/>
