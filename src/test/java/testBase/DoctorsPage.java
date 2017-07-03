@@ -669,7 +669,7 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
-		Thread.sleep(4000);
+		//Thread.sleep(2000);
 	  
 			}
 

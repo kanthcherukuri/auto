@@ -379,14 +379,13 @@ public class TestUtils {
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 	
-	public void CheckNotificationMessage(String ExpectedNotificationMesg ) throws Exception{
+	public void CheckNotificationMessage(String ExpectedNotificationMesg ){
 		
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='zy-status-wrapper']")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
 	    Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
-	    Thread.sleep(4000);
 	    //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='zy-status-wrapper']"))); 
 	}
 	
