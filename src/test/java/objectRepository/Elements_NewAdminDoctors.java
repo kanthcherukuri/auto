@@ -46,6 +46,7 @@ public static String administrator_cityTab, administrator_cityHeader, administra
 public static String administrator_providerPromo, administrator_providerPromoHeader, administrator_promotionTypeRadioBtn, administrator_referealTypeRadioBtn, administrator_promoName, administrator_promoValidFrom, administrator_promoValidTo, administrator_promoDescripiton, administrator_referalDiscountTypePercentage, administrator_referalDiscountTypeAmount, administrator_referalDisountValue, administrator_refereeDiscountTypePercentage, administrator_refereeDiscountTypeAmount, administrator_refreeDiscountValue, administrator_promoDiscountTypePercentage, administrator_promoDiscountTypeAmount, administrator_promoDiscountValue, administrator_promoMinValue, admininstrator_promoMaxValue, administrator_promoMaxDiscountValue, administrator_promoUserUsageOnce, administrator_promoUserUsageTwice, administrator_promoUserUsageUnlimited, administrator_promoProviderUsageOnce, administrator_promoProviderUsageMultiple, administrator_promoUserCount, administrator_promoAllCheckBox, administrator_promoModeAutomatic, administrator_promoModeManual;
 public static String administrator_moduleTab, administrator_moduleHospitalActiveCheckBox, recipient_IndexAccountIcon, recipient_HospitalIcon;
 public static String administrator_marketingElementsTab, administrator_marketingHeader, administrator_marketingName;
+public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -136,6 +137,18 @@ public static String administrator_marketingElementsTab, administrator_marketing
 		administrator_marketingElementsTab="//a[@href='/admin/marketingElements']"; //XPATH
 		administrator_marketingHeader="//h1[contains(., 'Marketing Elements')]"; //XPATH
 		administrator_marketingName="marketingHtml"; //NAME
+		//APPLICATION PROPERTY
+		administrator_appPropertyTab="//a[@href='/admin/applicationProperties']"; //XPATH
+		administrator_appPropertyHeader="//h1[contains(., 'Application Properties')]"; //XPATH
+		administrator_appPropertyAddHeader="//h4[@class='modal-title' and contains(., 'Add Application Properties')]"; //XPATH
+		administrator_appPropertyEditHeader="//h4[contains(., 'Edit Application Properties')]"; //XPATH
+		administrator_appPropertyKey="applicationPropertiesKeys"; //ID
+		administrator_appPropertyValue="applicationPropertiesValue"; //ID
+		administrator_appPropertySave="applicationPropertiesSubmit"; //ID
+		administrator_appPropertyEditSave="applicationPropertiesEditSubmit"; //ID
+		administrator_appPropertyDeleteBtn="//button[@data-title='Delete']"; //XPATH
+		administrator_appPropertyDeleteHeader="//h4[contains(., 'Delete Application Properties')]"; //XPATH
+		administrator_appPropertyDeleteSubmitBtn="applicationPropertiesDeleteSubmit"; //ID
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
