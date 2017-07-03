@@ -742,6 +742,25 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
  }
  
+ public void DoctorAppointmentBookingForTodayEveSecondCell(String firstname,String lastname,String mobile,String email,String problem) throws Exception
+ {	 
+	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
+	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
+     Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningSecondCell);
+	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
+	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
+	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
+	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
+	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
+	 String fullname=firstname+" "+lastname;
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
+ }
+ 
  /*
   * @ Author: Sagar Sen
   * @ Description: This method will book appointment for sunday based on test case ZOY-811

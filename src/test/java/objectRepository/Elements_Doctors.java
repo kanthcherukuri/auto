@@ -34,7 +34,7 @@ public class Elements_Doctors  {
 				public static String appointment_morning;
 				public static String appointment_noon;
 				public static String appointment_eveningtab;
-				public static String appointment_afternoonfirstcell, appointment_eveningfirstcell;
+				public static String appointment_afternoonfirstcell, appointment_eveningfirstcell, appointment_eveningSecondCell;
 				public static String appointment_firstname;
 				public static String appointment_lsatname;
 				public static String appointment_mobile;
@@ -261,6 +261,7 @@ public class Elements_Doctors  {
 			 appointment_eveningtab="//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]";
 			 appointment_afternoonfirstcell="//div[@id='tab-2']/ul/li[1]/div[2]";
 			 appointment_eveningfirstcell="//div[@id='tab-3']/ul/li[1]/div[2]";
+			 appointment_eveningSecondCell="//div[@id='tab-3']/ul/li[2]/div[2]";
 			 appointment_eveningfirstcellsize="//*[@id='tab-3']/ul/li";
 			 appointment_firstname="//*[@id='firstName']";
 			 appointment_lsatname="lastName";
