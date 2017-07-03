@@ -27,13 +27,13 @@ public class Schedule_ZOY807_Doctor_UpdateTimings extends LoadPropMac
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.BulkCancel();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
 		driver.navigate().refresh();
 		doctorsPage.updateClinicWorkTimings(updateStrtTime, updateEndTime);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	@BeforeClass

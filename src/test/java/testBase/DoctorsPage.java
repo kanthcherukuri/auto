@@ -476,7 +476,7 @@ public class DoctorsPage  {
 				driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
 				driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
 				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-				Browser.CheckNotificationMessage("Your vacation successfully updated");
+				Browser.CheckNotificationMessage("Your vacation updated successfully");
 			
 		}
 		
@@ -489,6 +489,7 @@ public class DoctorsPage  {
 		public void checkAddBreakTimes(String strtTime, String endTime)
 		{
 			//Click Sunday break time
+			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
 			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
@@ -505,7 +506,8 @@ public class DoctorsPage  {
 		 */
 		public void checkremoveBreakTimes()
 		{
-			//Click saturday break time
+			//Click sunday break time
+			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
 			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
@@ -612,7 +614,7 @@ public class DoctorsPage  {
 			driver.findElement(By.xpath(Elements_Doctors.removeVacationSlot)).click();
 			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-			Browser.CheckNotificationMessage("Your vacation successfully updated");
+			Browser.CheckNotificationMessage("Your vacation updated successfully");
 			Thread.sleep(3000);
 		}
 		

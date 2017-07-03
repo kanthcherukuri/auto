@@ -33,15 +33,16 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 	@Test(dataProvider="addAptdetail")
   public void testEditTimeSlotForClinicsDecreaseTime(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
   {
-	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
-	  	//docpage.BulkCancel();
-		Thread.sleep(2000);
+		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+	  	doctorsPage.BulkCancel();
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		Thread.sleep(6000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();

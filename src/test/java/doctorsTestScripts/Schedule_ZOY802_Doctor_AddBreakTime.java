@@ -26,9 +26,9 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.BulkCancel();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.checkAddBreakTimes("13:00", "14:00");
 		Browser.CheckNotificationMessage("Schedule Updated Successfully");
 		Thread.sleep(5000);
