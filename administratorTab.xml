@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="administratorTab">
+  <test name="administratorTab">
+    <classes>
+      <class name="NewAdminScripts.Admin_ZOY2288_administratorAddEditCountry"/>
+      <class name="NewAdminScripts.Admin_ZOY2291_administratorAddEditState"/>
+      <class name="NewAdminScripts.Admin_ZOY2293_administratorAddEditCity"/>
+      <class name="NewAdminScripts.Admin_ZOY2285_administratorAddEditLanguages"/>
+      <class name="NewAdminScripts.Admin_ZOY2298_administratorAddEditProviderPromo"/>
+      <class name="NewAdminScripts.Admin_ZOY2329_administratorAddEditRemoveAppProperty"/>
+      <class name="NewAdminScripts.Admin_ZOY2325_administratorAddEditMaerketingElements"/>
+      <class name="NewAdminScripts.Admin_ZOY2318_administratorModuleConfig"/>
+    </classes>
+  </test> <!-- administratorTab -->
+</suite> <!-- administratorTab -->

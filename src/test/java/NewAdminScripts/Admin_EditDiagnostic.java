@@ -1,12 +1,8 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-
-
-
-
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;

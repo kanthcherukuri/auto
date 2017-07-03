@@ -4,8 +4,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
-
-
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -16,7 +14,6 @@ public class Admin_EditHospital extends LoadPropMac {
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
 	
-	
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {		
 	 LoadBrowserProperties();
@@ -26,7 +23,6 @@ public class Admin_EditHospital extends LoadPropMac {
 	 Browser= new TestUtils(driver);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}
-	
 	
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
@@ -53,8 +49,5 @@ public class Admin_EditHospital extends LoadPropMac {
 		Browser.scrollbyID(Elements_NewAdminDiagnostic.Hospital_Cancel);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");
-		
-		
 	}
-
 }

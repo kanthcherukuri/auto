@@ -11,30 +11,38 @@ import testBase.TestUtils;
 
 //@Authour: Sagar Sen
 
-public class Admin_ZOY2325_administratorAddEditMaerketingElements extends LoadPropMac
+public class Admin_ZOY2329_administratorAddEditRemoveAppProperty extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
-	public String marketingName="Newmarket";
-	public String marketingDescription="Newmarket description";
+	public String propertyKey="BHP";
+	public String propertyValue="YZX";
 	
-	@Test()
-	public void addEditMarketingElement() throws Exception
+	@Test(priority=1)
+	public void addAppProperty() throws Exception
 	{
 		admin.click_AdministratorTab();
-		admin.click_marketingElementsTab();
+		admin.click_appPropertyTab();
 		admin.click_doctorReference_AddBtn();
-		Thread.sleep(1000);
+		admin.Enter_appPropertyDetails(propertyKey, propertyValue);
+		admin.click_appPropertySaveBtn();
+	}
+	
+	@Test(priority=2)
+	public void editAppProperty() throws Exception
+	{
 		driver.navigate().refresh();
-		admin.Enter_marketingElementDetails(marketingName, marketingDescription);
-		admin.click_administratorSave();
-		Browser.CheckNotificationMessage("Marketing Element Created Sucessfully");
-		driver.navigate().refresh();
-		admin.searchPromoCodeByName(marketingName);
+		admin.searchAdministratorReferenceByName(propertyKey);
 		admin.clickEditbutton();
-		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_marketingName);
-		admin.click_administratorSave();
-		Browser.CheckNotificationMessage("Marketing Element updated successfully");
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_appPropertyEditHeader);
+		admin.click_appPropertyEditSaveBtn();
+	}
+	
+	@Test(priority=3)
+	public void deleteAppProperty() throws Exception
+	{
+		Thread.sleep(5000);
+		admin.click_appPropertyDeleteBtn();
 	}
 	
 	@BeforeClass
@@ -52,7 +60,6 @@ public class Admin_ZOY2325_administratorAddEditMaerketingElements extends LoadPr
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "marketingElement", "marketingHtml", marketingName);
 		driver.quit();
 	}
 }
