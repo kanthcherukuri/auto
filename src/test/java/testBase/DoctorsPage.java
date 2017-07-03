@@ -246,8 +246,10 @@ public class DoctorsPage  {
 		}
 
 
-		public void ClickView() throws Exception{
-			driver.findElement(By.id(Elements_Doctors.appointment_clickonview)).click();
+		public void ClickView() throws Exception
+		{
+			Thread.sleep(6000);
+			driver.findElement(By.xpath(Elements_Doctors.appointment_clickonview)).click();
 			Browser.waitFortheID("about");
 		}
 		
@@ -667,7 +669,7 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
-		Thread.sleep(3000);
+		//Thread.sleep(2000);
 	  
 			}
 
@@ -737,7 +739,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
 	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
-	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
  }
  
  /*

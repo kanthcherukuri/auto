@@ -34,7 +34,7 @@ public class Elements_Doctors  {
 				public static String appointment_morning;
 				public static String appointment_noon;
 				public static String appointment_eveningtab;
-				public static String appointment_eveningfirstcell;
+				public static String appointment_afternoonfirstcell, appointment_eveningfirstcell;
 				public static String appointment_firstname;
 				public static String appointment_lsatname;
 				public static String appointment_mobile;
@@ -259,6 +259,7 @@ public class Elements_Doctors  {
 			 appointment_morning="//*[@id='patient-apmt-tabs']/li[1]/div/center/span[1]";
 			 appointment_noon="//*[@id='patient-apmt-tabs']/li[2]/div/center/span[1]";
 			 appointment_eveningtab="//*[@id='patient-apmt-tabs']/li[3]/div/center/span[1]";
+			 appointment_afternoonfirstcell="//div[@id='tab-2']/ul/li[1]/div[2]";
 			 appointment_eveningfirstcell="//div[@id='tab-3']/ul/li[1]/div[2]";
 			 appointment_eveningfirstcellsize="//*[@id='tab-3']/ul/li";
 			 appointment_firstname="//*[@id='firstName']";
@@ -357,7 +358,7 @@ public class Elements_Doctors  {
 			 
 			 //Alert Variables
 			 
-			 appointment_clickonview ="view";
+			 appointment_clickonview ="//div[@class='view-opts menu_links' and contains(., 'View')]";
 			 appointment_getfullnameonclickviewmenu="html/body/div[7]/div[3]/div/div[1]/div[2]/div/h1/span";
 			 appointment_getappointmentid="html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span";
 			 alert_clickonalertmenu="alerts";

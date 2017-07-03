@@ -155,7 +155,7 @@ public class TestUtils {
 	//Wait for the ID
 	public void waitFortheID(String ID){
 		System.out.println("waiting for "+ID);
-		WebDriverWait wait = (new WebDriverWait(driver, 1000));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		 
 	}
@@ -163,7 +163,7 @@ public class TestUtils {
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
 			System.out.println("waiting for "+xpath);
-			WebDriverWait wait = (new WebDriverWait(driver, 1000));
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
