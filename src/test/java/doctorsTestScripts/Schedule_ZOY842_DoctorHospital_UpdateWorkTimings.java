@@ -1,19 +1,5 @@
 package doctorsTestScripts;
 
-/*
- * @author-Manraj Bharaj
-
- * 
- * Description- Test case for "Updating time slots" under HOSPITAL tab for DOCTORS module. 
- * Follow ZOY842 JIRA for understanding the manual test case
- */
-
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;

@@ -1,24 +1,9 @@
 package doctorsTestScripts;
 
-/*author - manraj bharaj
-
-Description: Schedule Doctor under Hospitals tab , delete the time slot where no 
-appointments are booked 
-Check that no appointments whould be booked 
-Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp
- */
-
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import objectRepository.Elements_Doctors;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;

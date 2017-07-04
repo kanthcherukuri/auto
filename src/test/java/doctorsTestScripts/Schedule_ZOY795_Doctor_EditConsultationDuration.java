@@ -1,18 +1,7 @@
 package doctorsTestScripts;
 
-/*
- * @author-Manraj Bharaj
- * 
- * Description- Test case for "Schedule_Consultation" edit consultation duration. 
- * Follow ZOY795 JIRA for understanding the manual test case
- */
+//@Author: Sagar Sen
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +12,6 @@ import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import org.openqa.selenium.By;
-
 
 public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 {

@@ -3,19 +3,13 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-
-import testBase.AdminPage;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
 import testBase.TestUtils;
+
+//@Author: Sagar Sen
 
 public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 {

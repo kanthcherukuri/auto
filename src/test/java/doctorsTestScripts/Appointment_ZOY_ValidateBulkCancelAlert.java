@@ -4,14 +4,6 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -44,7 +36,7 @@ public class Appointment_ZOY_ValidateBulkCancelAlert extends LoadPropMac{
 		DoctorsPage.ClickonAlertmenu();
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("Bulk Cancellation by the Doctor"));
+		Assert.assertTrue(alert.contains("Bulk Cancellation by the Doctor"));
 
 		
 	}

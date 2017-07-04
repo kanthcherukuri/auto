@@ -4,18 +4,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
-
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
