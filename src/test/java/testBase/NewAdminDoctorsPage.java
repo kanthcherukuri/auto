@@ -49,6 +49,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.loginemail)).sendKeys(adminUserName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.loginpassword)).sendKeys(adminUserPassword);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.loginbutton)).click();
+		Browser.waitFortheID("tabs");
 	} //Admin user sign in method end ***
 	
 	/*
@@ -60,7 +61,6 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void click_doctorsTab()
 	{
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorLabel)).click();
-		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
 	} //Doctors tab click method end ***
 	
 	/*
@@ -71,8 +71,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_addDoctor()
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
 		driver.findElement(By.id(Elements_NewAdminDoctors.addDoctorButton)).click();
-		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
 	} //Add doctor method end ***
 	
 	/*
@@ -95,6 +95,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_doctorGenericDetails(String firstName, String MiddleName, String LastName, String ShortName, String emailID, String mobileNumber, String password)
 	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.firstName)).sendKeys(firstName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.middleName)).sendKeys(MiddleName);
 		driver.findElement(By.id(Elements_NewAdminDoctors.lastName)).sendKeys(LastName);
