@@ -59,6 +59,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_doctorsTab()
 	{
+		
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorLabel)).click();
 		Browser.waitFortheID(Elements_NewAdminDoctors.addDoctorButton);
 	} //Doctors tab click method end ***

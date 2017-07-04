@@ -71,12 +71,12 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
 			RecipientPage.openMyAccounts("Appointments");
 			Browser.clickOnTheElementByXpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]");
-			//driver.findElement(By.xpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]")).click();  // Change	
-            Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[2]");			
-			Thread.sleep(2000);
-			String RescheduleMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			System.out.println("RescheduleMesg"+RescheduleMesg);
-			Assert.assertEquals(RescheduleMesg, SlotChangeMesg);
+			Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
+			driver.findElement(By.xpath("//li[@id='cd-1']/div")).click();
+			
+            Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
+            Browser.CheckNotificationMessage(SlotChangeMesg);
+			
 
 
 		}else{

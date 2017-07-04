@@ -88,7 +88,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	 @Test(groups = { "Regression","High" },priority=3)
+	 @Test(groups = { "Regression","High" },priority=0)
 	 public void validateApplylineOfPractice() throws Exception {
 
 			//verifying Line of Practice
@@ -100,7 +100,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	
 	    }
 	 
-	 @Test(groups = { "Regression","High" },priority=0)
+	 @Test(groups = { "Regression","High" },priority=6)
 	 public void validateHomeVisitFilter() throws Exception {
 
 		    //verifying Home Visit Filter
@@ -120,15 +120,9 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			RecipientPage.clickOnFilterImg();
 			driver.findElement(By.xpath("//span[contains(.,'Fee')]")).click();
 			// Between 300 to 500
-			//driver.findElement(By.id("filterFields500")).click();
-			WebElement invisibleelement= driver.findElement(By.id("filterFields500"));  
-			JavascriptExecutor js = (JavascriptExecutor)driver; 
-			js.executeScript("arguments[0].click();", invisibleelement); 
+			Browser.clickOnTheElementByID("500");
 			driver.findElement(By.id("applyFilter")).click();
-			//Thread.sleep(5000);		
-        	Browser.waitFortheElementXpath("//div[@class='consultFee']");
-        	
-			String Fee_Value=driver.findElement(By.xpath("//div[@class='consultFee']")).getText();
+			String Fee_Value=Browser.getTextByXpath("//div[@class='consultFee']");			
 			System.out.println("String Fee value is"+Fee_Value);
 			int FinalFeeValue = Integer.parseInt(Fee_Value.replaceAll(" ",""));
 			System.out.println("FinalFeeValue="+FinalFeeValue);
