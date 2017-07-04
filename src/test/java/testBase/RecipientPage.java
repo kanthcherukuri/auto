@@ -109,13 +109,15 @@ public class RecipientPage  {
 	 *  @Author      : Sagar Sen
 	 *  @Description : This method is used to view get directions pop up under address assertion on doctor profile page
 	 *  @Parameters  :
-	 *  @Return      : 
+	 *  @Return      : distance
 	 */
-	public void addressAssertion()
+	public String addressAssertion()
 	{
-		driver.findElement(By.xpath("//h4[@class='accordion-toggle']")).click();
-		Browser.waitforTextbyID("default_clini_get", "Get Directions");
-		driver.findElement(By.id("default_clini_get")).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
+		Browser.clickOnTheElementByXpath(Elements_Recipients.addressAssertion);
+		Browser.waitFortheID(Elements_Recipients.getDirectionLink);
+		String distance=Browser.getTextByXpath(Elements_Recipients.distanceValue);
+		Browser.clickOnTheElementByID(Elements_Recipients.getDirectionLink);
 		//Pop up handler
 		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
 		String subWindowHandler = null;
@@ -137,6 +139,7 @@ public class RecipientPage  {
 		}
 		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
 		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+		return distance;
 	}
 	
 	/*  

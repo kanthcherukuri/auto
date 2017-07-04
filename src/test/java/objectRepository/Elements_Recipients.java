@@ -17,7 +17,8 @@ public class Elements_Recipients  {
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
-		
+	public static String selectFirstDoctorFromListingPage, selectFirstDoctorBookBtnFromListingPage, mapListingIcon;
+	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor;
 		
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -28,7 +29,14 @@ public class Elements_Recipients  {
          prop.load(inStream);
         */
 	    //Recipient Login Page
-         
+		mapListingIcon="mapIconMenu"; //ID
+		getDistanceFromListingForFirstDoctor="(//div[@class='dctr-exprnce']//span[2])[1]"; //XPATH
+		backBtn="backArrow"; //ID
+		distanceValue="(//span[@class='zy-ad-leftContent'])[1]"; //XPATH
+		getDirectionLink="default_clini_get"; //ID
+		addressAssertion="//h4[@class='accordion-toggle']"; //XPATH
+         selectFirstDoctorFromListingPage="(.//*[@id='serviceProvider']//h1)[1]"; //XPATH
+         selectFirstDoctorBookBtnFromListingPage="(//button[contains(., 'Book')])[1]"; //XPATH
          Recipient_UserName="emailAddress";
          Recipient_Password="password";
          Recipient_Button_Login="//button[text()='Login']";
