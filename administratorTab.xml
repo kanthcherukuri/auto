@@ -11,6 +11,7 @@
       <class name="NewAdminScripts.Admin_ZOY2329_administratorAddEditRemoveAppProperty"/>
       <class name="NewAdminScripts.Admin_ZOY2325_administratorAddEditMaerketingElements"/>
       <class name="NewAdminScripts.Admin_ZOY2318_administratorModuleConfig"/>
+      <class name="NewAdminScripts.Admin_ZOY2336_adminChangePassword"/>
     </classes>
   </test> <!-- administratorTab -->
 </suite> <!-- administratorTab -->
