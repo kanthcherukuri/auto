@@ -34,7 +34,7 @@ public class Elements_Recipients  {
 		backBtn="backArrow"; //ID
 		distanceValue="(//span[@class='zy-ad-leftContent'])[1]"; //XPATH
 		getDirectionLink="default_clini_get"; //ID
-		addressAssertion="//h4[@class='accordion-toggle']"; //XPATH
+		addressAssertion="//span[@class='docinfo-address-label']"; //XPATH
          selectFirstDoctorFromListingPage="(.//*[@id='serviceProvider']//h1)[1]"; //XPATH
          selectFirstDoctorBookBtnFromListingPage="(//button[contains(., 'Book')])[1]"; //XPATH
          Recipient_UserName="emailAddress";

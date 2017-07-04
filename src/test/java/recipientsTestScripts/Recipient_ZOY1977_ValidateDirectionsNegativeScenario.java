@@ -2,6 +2,9 @@ package recipientsTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import junit.framework.Assert;
+
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Admin;
@@ -21,17 +24,21 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.searchInZoyloMAP(Doctor_Name);
-		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
-		RecipientPage.addressAssertion();
+		RecipientPage.bookAppointment();
+		String distance = RecipientPage.addressAssertion();
 		Thread.sleep(1000);
+		Browser.clickOnTheElementByID(Elements_Recipients.backBtn);
+		Browser.waitforTextbyxpath(Elements_Recipients.selectFirstDoctorFromListingPage, "Doctorzoylo");
+		String distanceListing=Browser.getTextByXpath(Elements_Recipients.getDistanceFromListingForFirstDoctor);
+		Assert.assertEquals(distance.replaceAll(" ", "").toLowerCase(), distanceListing.replaceAll(" ", "").toLowerCase());
+		RecipientPage.bookAppointment();
 		//driver.findElement(By.id("session4")).click();
 		//Thread.sleep(1000);
 		RecipientPage.selectDefaultSlot();
 		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
 		driver.navigate().refresh();
 		driver.findElement(By.xpath("//a[@class='cancel']")).click();
-		RecipientPage.addressAssertion();	
+		RecipientPage.addressAssertion();
 	}
 	
 	@BeforeClass

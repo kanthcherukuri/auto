@@ -114,7 +114,7 @@ public class RecipientPage  {
 	public String addressAssertion()
 	{
 		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
-		Browser.clickOnTheElementByXpath(Elements_Recipients.addressAssertion);
+		driver.findElement(By.xpath(Elements_Recipients.addressAssertion)).click();
 		Browser.waitFortheID(Elements_Recipients.getDirectionLink);
 		String distance=Browser.getTextByXpath(Elements_Recipients.distanceValue);
 		Browser.clickOnTheElementByID(Elements_Recipients.getDirectionLink);
