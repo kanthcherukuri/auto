@@ -42,12 +42,12 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","","Full name is mandatory","","Email address is mandatory","","Password is mandatory","","Confirm password is mandatory","","Mobile number is mandatory","123","no",""},
+					{ "yes","","Full name is mandatory","","Email address is mandatory","","Password is mandatory","","Confirm password is mandatory","","Number is mandatory","123","no",""},
 					{ "yes","test","Enter only alphabets of minimum 5 characters","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","no",""},
 					{ "yes","testName","","zyz@gmail","Invalid email id","Zoylo@123","","Zoylo@123","","9912345070","","123","no",""},
 					{ "yes","testName","","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","ab123","Phone number should only have numeric value","123","no",""},
 					{ "yes","testName","","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","99123","Mobile number should contains 10 digits","123","no",""},
-					{ "yes","testName","","zyz@gmail.com","","12345","Min 8 chars, uppercase, lowercase, number, and special char mandatory","9912345070","Confirm Password is not matching the password","9912345070","","123","no",""},
+					//{ "yes","testName","","zyz@gmail.com","","12345","Min 8 chars, uppercase, lowercase, number, and special char mandatory","9912345070","Confirm Password is not matching the password","9912345070","","123","no",""},
 					{ "yes","testName","","ganeshmandala@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","yes","This email id is already registered"},
 					{ "yes","testName","","zyz@gmail.com","","Zoylo@123","","Zoylo@123","","9912345070","","123","yes","Mobile Number +919912345070 is already in use with Zoylo App"},
 			};

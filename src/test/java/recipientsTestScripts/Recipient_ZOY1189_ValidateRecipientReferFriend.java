@@ -39,9 +39,7 @@ public class Recipient_ZOY1189_ValidateRecipientReferFriend extends LoadPropMac 
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
-		RecipientPage.goToMyAccount();
-		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'Refer')]")).click();
-		Thread.sleep(2000);
+		RecipientPage.openMyAccounts("Refer");
 		//verify field validations
 		driver.findElement(By.id("btnRefer")).click();
 		driver.findElement(By.id("refereeMobileNumber")).sendKeys("");

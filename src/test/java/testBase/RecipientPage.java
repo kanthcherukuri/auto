@@ -193,12 +193,17 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
-        Browser.waitFortheID("search2");
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		driver.findElement(By.id("search2")).click();
-		driver.findElement(By.id("indexSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(6000);
+	    for(int i=0;i<=keyword.length()-1; i++)
+	    {
+	    	char Doc = keyword.charAt(i);	    	
+	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
+	    	Thread.sleep(500);
+	    }
+		
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
-		Thread.sleep(2000);	
+		Thread.sleep(2000);
 
 	}
 	/*   
@@ -742,10 +747,11 @@ public class RecipientPage  {
 		}
 		//Browser.waitFortheElementXpath("//input[@name='"+name+"' and @value='"+Value+"']");
 		
-		WebElement invisibleelement= driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']"));  
+	/*	WebElement invisibleelement= driver.findElement(By.xpath("//input[@name='"+name+"' and @value='"+Value+"']"));  
 		JavascriptExecutor js = (JavascriptExecutor)driver; 
-		js.executeScript("arguments[0].click();", invisibleelement); 
-		 
+		js.executeScript("arguments[0].click();", invisibleelement); */
+		//Browser.clickOnTheElementByID(""+Value+""+name+"");
+		Browser.clickOnTheElementByXpath("//li[@name='"+Value+""+name+"']");
 		System.out.println("Clicked on the"+Value);
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	
