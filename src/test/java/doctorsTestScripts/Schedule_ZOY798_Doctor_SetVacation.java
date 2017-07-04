@@ -2,18 +2,13 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import org.openqa.selenium.By;
 
+//@Author: Sagar Sen
 
 public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
 {
@@ -25,10 +20,12 @@ public class Schedule_ZOY798_Doctor_SetVacation extends LoadPropMac
   {
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  doctorsPage.BulkCancel();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		Thread.sleep(6000);
 		doctorsPage.setVacation();
+		Thread.sleep(5000);
   }
   
   @BeforeClass

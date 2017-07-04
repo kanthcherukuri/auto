@@ -3,17 +3,12 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
+
+//@Author: Sagar Sen
 
 public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 {

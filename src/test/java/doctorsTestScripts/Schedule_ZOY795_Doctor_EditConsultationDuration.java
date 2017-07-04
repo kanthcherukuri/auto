@@ -1,18 +1,7 @@
 package doctorsTestScripts;
 
-/*
- * @author-Manraj Bharaj
- * 
- * Description- Test case for "Schedule_Consultation" edit consultation duration. 
- * Follow ZOY795 JIRA for understanding the manual test case
- */
+//@Author: Sagar Sen
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +12,6 @@ import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import org.openqa.selenium.By;
-
 
 public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 {
@@ -36,9 +24,10 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.BulkCancel();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		Thread.sleep(6000);
 		driver.findElement(By.id("consultation-min")).clear();
 		Thread.sleep(3000);
 		driver.findElement(By.id("consultation-min")).sendKeys(duration);
@@ -46,7 +35,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 		Browser.scrollbyxpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']");
 		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
 		Thread.sleep(3000);
-		Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		Browser.CheckNotificationMessage("Schedule Updated successfully");
 		Thread.sleep(3000);
 	}
   

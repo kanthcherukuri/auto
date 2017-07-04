@@ -156,7 +156,7 @@ public class TestUtils {
 	//Wait for the ID
 	public void waitFortheID(String ID){
 		System.out.println("waiting for "+ID);
-		WebDriverWait wait = (new WebDriverWait(driver, 1000));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		 
 	}
@@ -164,7 +164,7 @@ public class TestUtils {
 	//Wait for the Xpath Element
 		public void waitFortheElementXpath(String xpath){
 			System.out.println("waiting for "+xpath);
-			WebDriverWait wait = (new WebDriverWait(driver, 1000));
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 					 
@@ -472,7 +472,7 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
         System.out.println(db.getCollectionNames());
         
         DBCollection coll = db.getCollection(collectionName);
-        System.out.println("Collection mycol selected successfully");
+        System.out.println(collectionName+" Collection selected successfully");
         
         BasicDBObject searchQuery = new BasicDBObject();
     	searchQuery.put(QueryKey, QueryValue);

@@ -3,21 +3,11 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Doctors;
-
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -66,14 +56,14 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickonnextmonth)).click();
 			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickondateone)).click();
 			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
-			AssertJUnit.assertEquals(name, fullname);
+			Assert.assertEquals(name, fullname);
 			System.out.println("Created Appointment is Available");
 		}
 		else{
 			driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
 			Thread.sleep(3000);
 			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
-			AssertJUnit.assertEquals(name, fullname);
+			Assert.assertEquals(name, fullname);
 			driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).click();
 			System.out.println("Created Appointment is Available");
 		}

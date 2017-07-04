@@ -13,7 +13,6 @@
       	<class name="NewAdminScripts.Admin_ZOY2247_AddEditDoctorReference_Qualification"/>
       	<class name="NewAdminScripts.Admin_ZOY2239_AddEditDoctorReference_Practice"/>
       	<class name="NewAdminScripts.Admin_ZOY2267_AddEditDoctorReferenceTag"/>
-      	<class name="NewAdminScripts.Admin_ZOY2282_requestedDoctorMoveToQue"/>
       	<class name="NewAdminScripts.Admin_ZOY2312_doctorChangePassword"/>
     </classes>
   </test> <!-- newAdminDoctor -->

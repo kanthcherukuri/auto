@@ -1881,4 +1881,94 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			System.out.println("Hospitals is not visible as it is not activated in module config");
 		}
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to scroll and click on marketing elements tab under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_marketingElementsTab()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_marketingElementsTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_marketingElementsTab)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter marketing details under administrator tab on admin screen
+	 * @ Param			: marketingName, marketingDescription
+	 * @ return			: NA
+	 */
+	public void Enter_marketingElementDetails(String marketingName, String marketingDescription) throws Exception
+	{
+		Browser.waitforElementName(Elements_NewAdminDoctors.administrator_marketingName);
+		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_marketingName)).sendKeys(marketingName);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.doctor_reference_descriptionXpath)).sendKeys(marketingDescription);
+		driver.findElement(By.name(Elements_NewAdminDoctors.doctor_reference_ActiveCheckBox)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to scroll and click on app property tab under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_appPropertyTab()
+	{
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_appPropertyTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_appPropertyTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_appPropertyHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter app property details under administrator tab on admin screen
+	 * @ Param			: propertyKey, propertyValue
+	 * @ return			: NA
+	 */
+	public void Enter_appPropertyDetails(String propertyKey, String propertyValue) throws Exception
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_appPropertyAddHeader);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertyKey)).sendKeys(propertyKey);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertyValue)).sendKeys(propertyValue);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on app property save button under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_appPropertySaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertySave)).click();
+		Browser.CheckNotificationMessage("Added Successfully");
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on app property edit save button under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_appPropertyEditSaveBtn()
+	{
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertyEditSave)).click();
+		Browser.CheckNotificationMessage("Updated Successfully");
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on app property delete button under admininstrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_appPropertyDeleteBtn()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_appPropertyDeleteBtn)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_appPropertyDeleteHeader);
+		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertyDeleteSubmitBtn)).click();
+		Browser.CheckNotificationMessage("Deleted Successfully");
+	}
 } //End of class

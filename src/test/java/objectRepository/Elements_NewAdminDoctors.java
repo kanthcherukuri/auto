@@ -31,7 +31,7 @@ public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assis
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
 public static String doctorSave, doctorCancel, doctorChangePassword, doctorChangeNewPassword, doctorChangeNewConfirmPassword, doctorChangePasswordSave, doctorChangePasswordHeader, SearchTab, EditButton, searchResultOnTable, searchResultonTableforReqDoc, searchResultonTableTwo;
-public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_ActiveCheckBox;
+public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_descriptionXpath, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
 public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
@@ -45,6 +45,8 @@ public static String administrator_stateTab, administrator_stateHeader, administ
 public static String administrator_cityTab, administrator_cityHeader, administrator_cityName, administrator_city_StateField, administrator_city_StateSelectID, administrator_dropdownTextInput;
 public static String administrator_providerPromo, administrator_providerPromoHeader, administrator_promotionTypeRadioBtn, administrator_referealTypeRadioBtn, administrator_promoName, administrator_promoValidFrom, administrator_promoValidTo, administrator_promoDescripiton, administrator_referalDiscountTypePercentage, administrator_referalDiscountTypeAmount, administrator_referalDisountValue, administrator_refereeDiscountTypePercentage, administrator_refereeDiscountTypeAmount, administrator_refreeDiscountValue, administrator_promoDiscountTypePercentage, administrator_promoDiscountTypeAmount, administrator_promoDiscountValue, administrator_promoMinValue, admininstrator_promoMaxValue, administrator_promoMaxDiscountValue, administrator_promoUserUsageOnce, administrator_promoUserUsageTwice, administrator_promoUserUsageUnlimited, administrator_promoProviderUsageOnce, administrator_promoProviderUsageMultiple, administrator_promoUserCount, administrator_promoAllCheckBox, administrator_promoModeAutomatic, administrator_promoModeManual;
 public static String administrator_moduleTab, administrator_moduleHospitalActiveCheckBox, recipient_IndexAccountIcon, recipient_HospitalIcon;
+public static String administrator_marketingElementsTab, administrator_marketingHeader, administrator_marketingName;
+public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -131,6 +133,22 @@ public static String administrator_moduleTab, administrator_moduleHospitalActive
 		administrator_moduleHospitalActiveCheckBox="modules.2.isActive"; //NAME
 		recipient_IndexAccountIcon="//img[@class='indexProfileImg']"; //XPATH
 		recipient_HospitalIcon="hospitals"; //ID
+		//MARKETING
+		administrator_marketingElementsTab="//a[@href='/admin/marketingElements']"; //XPATH
+		administrator_marketingHeader="//h1[contains(., 'Marketing Elements')]"; //XPATH
+		administrator_marketingName="marketingHtml"; //NAME
+		//APPLICATION PROPERTY
+		administrator_appPropertyTab="//a[@href='/admin/applicationProperties']"; //XPATH
+		administrator_appPropertyHeader="//h1[contains(., 'Application Properties')]"; //XPATH
+		administrator_appPropertyAddHeader="//h4[@class='modal-title' and contains(., 'Add Application Properties')]"; //XPATH
+		administrator_appPropertyEditHeader="//h4[contains(., 'Edit Application Properties')]"; //XPATH
+		administrator_appPropertyKey="applicationPropertiesKeys"; //ID
+		administrator_appPropertyValue="applicationPropertiesValue"; //ID
+		administrator_appPropertySave="applicationPropertiesSubmit"; //ID
+		administrator_appPropertyEditSave="applicationPropertiesEditSubmit"; //ID
+		administrator_appPropertyDeleteBtn="//button[@data-title='Delete']"; //XPATH
+		administrator_appPropertyDeleteHeader="//h4[contains(., 'Delete Application Properties')]"; //XPATH
+		administrator_appPropertyDeleteSubmitBtn="applicationPropertiesDeleteSubmit"; //ID
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
@@ -363,6 +381,7 @@ public static String administrator_moduleTab, administrator_moduleHospitalActive
 		Add_doctor_reference="add"; //ID
 		doctor_reference_Name="name"; //ID
 		doctor_reference_Description="description"; //ID
+		doctor_reference_descriptionXpath="//input[@data-schema-key='description']";
 		doctor_reference_ActiveCheckBox="isActive"; //ID
 		
 		//REFERENCE PRACTICE

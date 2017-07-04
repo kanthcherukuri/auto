@@ -35,7 +35,9 @@ public class Admin_ZOY2270_doctorAppointmentStatusChange extends LoadPropMac
 		DoctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		DoctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
-		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
+		Thread.sleep(5000);
+		DoctorsPage.DoctorAppointmentBookingForTodayEveSecondCell(firstname, lastname, mobile, email, problem);
+		Thread.sleep(5000);
 		DoctorsPage.ClickView();
 		String APTID=driver.findElement(By.xpath(Elements_Doctors.patient_getAptID)).getText();
 		closeapp();

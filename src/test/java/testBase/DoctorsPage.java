@@ -246,8 +246,10 @@ public class DoctorsPage  {
 		}
 
 
-		public void ClickView() throws Exception{
-			driver.findElement(By.id(Elements_Doctors.appointment_clickonview)).click();
+		public void ClickView() throws Exception
+		{
+			Thread.sleep(6000);
+			driver.findElement(By.xpath(Elements_Doctors.appointment_clickonview)).click();
 			Browser.waitFortheID("about");
 		}
 		
@@ -474,7 +476,7 @@ public class DoctorsPage  {
 				driver.findElement(By.id(Elements_Doctors.vacationActive)).click();
 				driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
 				driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-				Browser.CheckNotificationMessage("Your vacation successfully updated");
+				Browser.CheckNotificationMessage("Your vacation updated successfully");
 			
 		}
 		
@@ -487,6 +489,7 @@ public class DoctorsPage  {
 		public void checkAddBreakTimes(String strtTime, String endTime)
 		{
 			//Click Sunday break time
+			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
 			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
@@ -503,7 +506,8 @@ public class DoctorsPage  {
 		 */
 		public void checkremoveBreakTimes()
 		{
-			//Click saturday break time
+			//Click sunday break time
+			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
 			driver.findElement(By.id(Elements_Doctors.sunStrtTime)).clear();
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
@@ -610,7 +614,7 @@ public class DoctorsPage  {
 			driver.findElement(By.xpath(Elements_Doctors.removeVacationSlot)).click();
 			driver.findElement(By.id(Elements_Doctors.vacationSave)).click();
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-			Browser.CheckNotificationMessage("Your vacation successfully updated");
+			Browser.CheckNotificationMessage("Your vacation updated successfully");
 			Thread.sleep(3000);
 		}
 		
@@ -667,7 +671,7 @@ public class DoctorsPage  {
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
 		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
-		Thread.sleep(3000);
+		//Thread.sleep(2000);
 	  
 			}
 
@@ -737,7 +741,26 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
 	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
-	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname); 
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
+ }
+ 
+ public void DoctorAppointmentBookingForTodayEveSecondCell(String firstname,String lastname,String mobile,String email,String problem) throws Exception
+ {	 
+	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
+	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
+     Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningSecondCell);
+	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
+	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
+	 Thread.sleep(1000);
+	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
+	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
+	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
+	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
+	 String fullname=firstname+" "+lastname;
+	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
  }
  
  /*

@@ -3,18 +3,14 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
+
+//@Author: Sagar Sen
 
 public class Schedule_ZOY811_Doctor_DeleteCorrectTimings extends LoadPropMac
 {
@@ -41,6 +37,7 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings extends LoadPropMac
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
 		Thread.sleep(1000);
 		doctorsPage.checkWorkDeletionConflict(); //check delete conflicts
+		Thread.sleep(5000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();

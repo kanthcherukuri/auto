@@ -3,18 +3,14 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Doctors;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
+
+//@Author: Sagar Sen
 
 public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends LoadPropMac
 {
@@ -36,13 +32,14 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
   {
 	  doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	//docpage.BulkCancel();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		Thread.sleep(6000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
@@ -53,7 +50,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(4000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
