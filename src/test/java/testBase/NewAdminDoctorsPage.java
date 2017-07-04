@@ -1971,4 +1971,77 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		driver.findElement(By.id(Elements_NewAdminDoctors.administrator_appPropertyDeleteSubmitBtn)).click();
 		Browser.CheckNotificationMessage("Deleted Successfully");
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click on user dropdown button on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_UserDropDownBtn()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.adminUserDropDownBtn);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.adminUserDropDownBtn)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click change password from dropdown options of users on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_UserChangePasswordBtn()
+	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.adminUserChangePassword);
+		driver.findElement(By.id(Elements_NewAdminDoctors.adminUserChangePassword)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to enter change password details from dropdown options of users on admin screen
+	 * @ Param			: changedPassword
+	 * @ return			: NA
+	 */
+	public void Enter_UserChangePasswordDetails(String changedPassword) throws Exception
+	{
+		Browser.waitforElementName(Elements_NewAdminDoctors.adminUserOldPassword);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserOldPassword)).sendKeys(adminuser_password);
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserNewPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserConfirmPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click change password save button of users on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_UserChangePassworSavedBtn()
+	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.adminUserPasswordSave);
+		driver.findElement(By.id(Elements_NewAdminDoctors.adminUserPasswordSave)).click();
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to reset enter change password details from dropdown options of users on admin screen
+	 * @ Param			: changedPassword
+	 * @ return			: NA
+	 */
+	public void Enter_ResetAdminUserPassword(String changedPassword) throws Exception
+	{
+		click_UserDropDownBtn();
+		click_UserChangePasswordBtn();
+		Browser.waitforElementName(Elements_NewAdminDoctors.adminUserOldPassword);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserOldPassword)).sendKeys(changedPassword);
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserNewPassword)).sendKeys(adminuser_password);
+		Thread.sleep(1500);
+		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserConfirmPassword)).sendKeys(adminuser_password);
+		Thread.sleep(1500);
+		click_UserChangePassworSavedBtn();
+	}
 } //End of class

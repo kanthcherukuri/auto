@@ -47,9 +47,17 @@ public static String administrator_providerPromo, administrator_providerPromoHea
 public static String administrator_moduleTab, administrator_moduleHospitalActiveCheckBox, recipient_IndexAccountIcon, recipient_HospitalIcon;
 public static String administrator_marketingElementsTab, administrator_marketingHeader, administrator_marketingName;
 public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
+public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOldPassword, adminUserNewPassword, adminUserConfirmPassword, adminUserPasswordSave;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
+		adminUserDropDownBtn="//button[@class='btn btn-default dropdown-toggle']"; //XPATH
+		adminUserChangePassword="adminChangePasswordLink"; //ID
+		adminUserOldPassword="oldpassword"; //NAME
+		adminUserNewPassword="newpassword"; //NAME
+		adminUserConfirmPassword="confirmpassword"; //NAME
+		adminUserPasswordSave="adminChangePasswordButton"; //ID
+		
 		//LOGIN PAGE
 		loginemail="emailAddress"; //ID
 		loginpassword="password"; //ID
