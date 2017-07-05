@@ -21,15 +21,14 @@ public class Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario extends L
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.searchInZoyloMAP(Doctor_Name);
-		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
-		String docName = driver.findElement(By.xpath("//h1[@class='tr-override-dctr-content-h1']")).getText();
-		RecipientPage.selectDefaultSlot();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
 		RecipientPage.bookAppointment();
-		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
-		driver.findElement(By.id("cancel")).click();
-		Browser.waitforTextbyxpath("//h1[@class='tr-override-dctr-content-h1']", docName);
+		String docName = Browser.getTextByXpath(Elements_Recipients.doctorNameOnProfile);
+		RecipientPage.selectDefaultSlot();
+		Browser.waitFortheElementXpath(Elements_Recipients.bookAptHeader);
+		RecipientPage.bookAppointment();
+		Browser.waitFortheElementXpath(Elements_Recipients.paymentPageHeader);
+		driver.findElement(By.id(Elements_Recipients.cancelPaymentPage)).click();
+		Browser.waitforTextbyxpath(Elements_Recipients.doctorNameOnProfile, docName);
 	}
 	
 	@BeforeClass

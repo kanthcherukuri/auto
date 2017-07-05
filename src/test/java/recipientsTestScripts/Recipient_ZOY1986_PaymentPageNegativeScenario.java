@@ -21,26 +21,26 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.searchInZoyloMAP(Doctor_Name);
-		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
-		RecipientPage.selectDefaultSlot();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
-		String verifyDT=driver.findElement(By.xpath("//div[@class='d-y-t']")).getText();
-		String verifyFee=driver.findElement(By.id("providerFees")).getText();
 		RecipientPage.bookAppointment();
-		RecipientPage.paymentOptions(3);
+		RecipientPage.selectDefaultSlot();
+		Browser.waitFortheElementXpath(Elements_Recipients.bookAptHeader);
+		String verifyDT= Browser.getTextByXpath(Elements_Recipients.bookAptPageDate);
+		String verifyFee=Browser.getTextByID(Elements_Recipients.bookAptPageFee);
+		RecipientPage.bookAppointment();
+		Browser.waitFortheID(Elements_Recipients.makePaymentBtn);
+		driver.findElement(By.id(Elements_Recipients.makePaymentBtn)).click();     //Make payment
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
-		Browser.waitFortheElementXpath("//h4[contains(.,'Review Your Appointment Details')]");
+		Browser.waitFortheElementXpath(Elements_Recipients.paymentPageHeader);
 		//Browser.waitforTextbyxpath("//div[@class='zy-sp-payment-values'])[6]", verifyTobePaid);
 		driver.navigate().back();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Book Appointment')]", "Book Appointment");
-		Browser.waitforTextbyxpath("//div[@class='d-y-t']", verifyDT);
-		Browser.waitforTextbyID("providerFees", verifyFee);
+		Browser.waitFortheElementXpath(Elements_Recipients.bookAptHeader);
+		Browser.waitforTextbyxpath(Elements_Recipients.bookAptPageDate, verifyDT);
+		Browser.waitforTextbyID(Elements_Recipients.bookAptPageFee, verifyFee);
 		driver.navigate().back();
-		Browser.waitforTextbyxpath("//h1[contains(., 'Doctorzoylo')]", "Doctorzoylo");
+		Browser.waitforTextbyxpath(Elements_Recipients.doctorNameOnProfile, Doctor_Name);
 		driver.navigate().back();
-		Browser.waitFortheElementXpath("//img[@class='indexProfileImg userImgBackground']");
+		Browser.waitFortheElementXpath(Elements_Recipients.indexHeaderUserIcon);
 	}
 	
 	@BeforeClass

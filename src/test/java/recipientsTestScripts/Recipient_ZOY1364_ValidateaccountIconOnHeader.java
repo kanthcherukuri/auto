@@ -20,44 +20,39 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 	{
 		reloadtohomePge();
 		
-		driver.findElement(By.id(Elements_Recipients.link_aboutHeaderIndex)).click();
-		Browser.waitFortheElementXpath("//h2[@class='page-head']");
-		String actual2 = driver.findElement(By.xpath("//h2[@class='page-head']")).getText();
-		Assert.assertEquals("About Us", actual2);
+		driver.findElement(By.xpath(Elements_Recipients.link_aboutHeaderIndex)).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
+		String actual1 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
+		Assert.assertEquals("About Us", actual1);
 		
 		reloadtohomePge();
 		
-		driver.findElement(By.id(Elements_Recipients.link_contactUsIndex)).click();
-		Browser.waitFortheElementXpath("//h2[contains(., 'Our Location')]");
-		String actual1 = driver.findElement(By.xpath("//h2[contains(., 'Our Location')]")).getText();
-		Assert.assertEquals("Our Location", actual1);
+		driver.findElement(By.xpath(Elements_Recipients.link_contactUsIndex)).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.link_header);
+		String actual2 = Browser.getTextByXpath(Elements_Recipients.link_header);
+		Assert.assertEquals("Our Location", actual2);
 		
 		reloadtohomePge();
 		
-		driver.findElement(By.id(Elements_Recipients.link_termsIndex)).click();
-		Browser.waitFortheElementXpath("//h3[@class='page-head']");
-		String actual3 = driver.findElement(By.xpath("//h3[@class='page-head']")).getText();
-		Assert.assertEquals("TERMS AND CONDITIONS", actual3);
+		driver.findElement(By.xpath(Elements_Recipients.link_termsIndex)).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
+		String actual3 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
+		Assert.assertEquals("Terms of Use", actual3);
 		
 		reloadtohomePge();
 		
-		driver.findElement(By.id(Elements_Recipients.link_privacyIndex)).click();
-		Browser.waitFortheElementXpath("//h3[contains(., 'PRIVACY POLICY')]");
-		String actual4 = driver.findElement(By.xpath("//h3[contains(., 'PRIVACY POLICY')]")).getText();
-		Assert.assertEquals("PRIVACY POLICY", actual4);
+		driver.findElement(By.xpath(Elements_Recipients.link_privacyIndex)).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
+		String actual4 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
+		Assert.assertEquals("Privacy Policy", actual4);
 		
 		reloadtohomePge();
 		
-		driver.findElement(By.id(Elements_Recipients.link_cancellationIndex)).click();
-		Browser.waitFortheElementXpath("//h3[contains(., 'Cancellation & Refund')]");
-		String actual5 = driver.findElement(By.xpath("//h3[contains(., 'Cancellation & Refund')]")).getText();
-		Assert.assertEquals("Cancellation & Refund", actual5);
+		driver.findElement(By.xpath(Elements_Recipients.link_cancellationIndex)).click();
+		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
+		String actual5 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
+		Assert.assertEquals("Cancellation / Refund Policy", actual5);
 		
-		reloadtohomePge();
-		
-		driver.findElement(By.id(Elements_Recipients.link_signinIndex)).click();
-		Browser.waitFortheID("forgotPassword");
-		driver.findElement(By.id("forgotPassword")).isDisplayed();
 	}
 	
 	@BeforeClass
@@ -79,7 +74,7 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 	public void reloadtohomePge() //method to reload and wait until page is loaded
 	{
 		driver.get(index_url);
-		Browser.waitFortheElementXpath("//img[@class='indexProfileImg']");
+		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);
 		driver.findElement(By.xpath(Elements_Recipients.link_myAccountheaderIcon)).click();
 	}
 }
