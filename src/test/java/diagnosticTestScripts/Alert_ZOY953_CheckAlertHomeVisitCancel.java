@@ -42,16 +42,12 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit(firstname, lastname, mobile, email, address, problem);
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
-		Thread.sleep(2000);
 		String Id=DiagnosticPageZoylo.GetDiagnosticAppointmentId();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.CancelAppointmentOfHomeVisit();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		Assert.assertTrue(alert.contains("You have cancelled Diagnostic Home visit Appointment:"));
-		Thread.sleep(1000);
+		Assert.assertTrue(alert.contains("You have CANCELLED the home visit appointment of "+firstname));
 		Assert.assertTrue(alert.contains(Id));
 		
 	
@@ -61,11 +57,8 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 	@AfterMethod()
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	

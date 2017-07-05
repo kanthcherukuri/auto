@@ -198,7 +198,7 @@ public class Elements_Diagnostics  {
        //doctors Login Page Locators         
     	 username="emailAddress";
 		 password="password";
-		 loginbutton="//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div[1]/button";
+		 loginbutton="//button[text()='Login']";
 		 
 		 //Diagnostic Home visit appointment locators	 
 		 

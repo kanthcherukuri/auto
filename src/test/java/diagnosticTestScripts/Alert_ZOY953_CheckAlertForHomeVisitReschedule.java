@@ -3,10 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -46,17 +42,17 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit(firstname, lastname, mobile, email, address, problem);
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
-		Thread.sleep(1000);
 		String Id=DiagnosticPageZoylo.GetDiagnosticAppointmentId();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
+		Browser.CheckNotificationMessage("Appointment rescheduled successfully");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("You've rescheduled the Diagnostic Home Visit appointment:"));
+		Assert.assertTrue(alert.contains("You have RESCHEDULED the home visit appointment of "+firstname));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(Id));
+		Assert.assertTrue(alert.contains(Id));
 		
 		
 		
@@ -65,11 +61,8 @@ public class Alert_ZOY953_CheckAlertForHomeVisitReschedule extends LoadPropMac{
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();	
 		}
 	

@@ -30,7 +30,7 @@ public class NewAdminDiagnosticPage
 		Browser.waitFortheID("emailAddress");	
 		driver.findElement(By.id("emailAddress")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(password);	
-		driver.findElement(By.xpath("//*[@id='zoyloCustLogin-form']/div/div[2]/div/div/div/div/button")).click();			
+		driver.findElement(By.xpath("//button[text()='Login']")).click();			
 		Browser.waitFortheID("tabs");
 		
 	}

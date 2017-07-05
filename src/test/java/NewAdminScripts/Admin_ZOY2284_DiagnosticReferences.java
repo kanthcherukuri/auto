@@ -56,20 +56,27 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_SaveSynonym);
 		String name=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_CheckSynonymName)).getText();
 		Assert.assertEquals(name, synonymname);
+		Thread.sleep(2000);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_Save);
 		Browser.CheckNotificationMessage("Standard Test created successfully");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(entityname);
+		Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.References_Edit);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.References_Edit);
+		Thread.sleep(2000);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.References_EntityName);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.References_EntityName)).clear();
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_EntityName, Editentityname);
+		System.out.println("EntityName="+Editentityname);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.References_EntityShortName);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.References_EntityShortName)).clear();
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_EntityShortName, Editentityshortchname);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.References_Description)).clear();
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_Description, Editentitydescchname);
+		Thread.sleep(2000);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_Save);
-		Browser.CheckNotificationMessage("Standard Test created successfully");
+		Browser.CheckNotificationMessage("Standard Test Updated successfully");
 		Thread.sleep(3000);
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenterStandardTest", "entityName", Editentityname);
 	}
