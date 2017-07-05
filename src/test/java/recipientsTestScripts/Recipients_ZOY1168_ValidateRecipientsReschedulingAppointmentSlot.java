@@ -71,8 +71,10 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 
 			RecipientPage.openMyAccounts("Appointments");
 			Browser.clickOnTheElementByXpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]");
-			Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
-			driver.findElement(By.xpath("//li[@id='cd-1']/div")).click();
+			//Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
+			//driver.findElement(By.xpath("//li[@id='cd-1']/div")).click();
+			
+			Browser.clickOnTheElementByXpath("//li[@id='cd-1']/div");
 			
             Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
             Browser.CheckNotificationMessage(SlotChangeMesg);

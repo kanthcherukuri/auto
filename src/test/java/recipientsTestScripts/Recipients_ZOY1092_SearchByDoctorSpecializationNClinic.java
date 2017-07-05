@@ -37,7 +37,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		//Searching Locality/Area
-		RecipientPage.searchInZoyloMAPArea("Hyderabad");
+		//RecipientPage.searchInZoyloMAPArea("Hyderabad");
 
 	} 
 

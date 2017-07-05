@@ -296,7 +296,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+ID);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 					driver.findElement(By.id(ID)).click();
 					System.out.println("Clicked on "+ID);
 				}
@@ -306,7 +306,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+xpath);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 					String text =driver.findElement(By.xpath(xpath)).getText();
 					System.out.println("Text = "+text);
 					return text;
@@ -317,7 +317,7 @@ public class TestUtils {
 				{
 					System.out.println("waiting  for "+ID);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 					String text =driver.findElement(By.id(ID)).getText();
 					System.out.println("Text = "+text);
 					return text;
@@ -328,7 +328,7 @@ public class TestUtils {
 				{
 					System.out.println("Waiting for "+Xpath);
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Xpath)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 					driver.findElement(By.xpath(Xpath)).click();
 					System.out.println("Clicked on "+Xpath);
 				}
@@ -337,7 +337,7 @@ public class TestUtils {
 				public void enterTextByID(String ID,String data)
 				{
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(ID)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 					driver.findElement(By.id(ID)).clear();
 					driver.findElement(By.id(ID)).sendKeys(data);
 					System.out.println("Texted = "+data);
@@ -347,7 +347,7 @@ public class TestUtils {
 				public void enterTextByXpath(String Xpath,String data)
 				{
 					WebDriverWait wait = (new WebDriverWait(driver, 90));
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Xpath)));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 					driver.findElement(By.xpath(Xpath)).sendKeys(data);
 					System.out.println("Texted = "+data);
 				}
@@ -475,6 +475,33 @@ public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, Stri
     	System.out.println("Removed successfully");
 		
 	}
+
+
+public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, boolean isWhiteListHonouredValue) throws UnknownHostException{
+	
+	
+	//Connecting to the mongoDB instance
+	MongoClient mongoClient = null;
+	MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
+
+	mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
+	System.out.println("Connect to server successfully");   
+	//Selecting the database
+	DB db = mongoClient.getDB("zoylo_zqa");
+	System.out.println("Connect to database successfully");   
+
+	DBCollection dbCollection = db.getCollection("applicationProperties");
+
+	BasicDBObject newDocument = new BasicDBObject();
+	newDocument.append("$set", new BasicDBObject().append("propertyValue", isWhiteListHonouredValue));
+	BasicDBObject searchQuery = new BasicDBObject().append("propertyName", "isWhiteListHonoured");
+
+	dbCollection.update(searchQuery, newDocument);
+	
+	System.out.println("Updated successfully");
+	mongoClient.close();
+	
+}
 	
 /* 
  * This function is used to read the emails from gmail with the subject name

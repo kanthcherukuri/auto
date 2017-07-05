@@ -5,6 +5,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
+import java.net.UnknownHostException;
+
 import org.openqa.selenium.*;
 
 import org.testng.SkipException;
@@ -32,6 +35,8 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);        
+       // Email trigger ON
+		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", false);
 
 	} 
 
@@ -58,8 +63,6 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			int Phno = (int )(Math.random() *1000000000);
 			driver.findElement(By.id("mobileNumber")).sendKeys(String.valueOf("9"+Phno));
 			driver.findElement(By.id("password")).sendKeys(Password);
-			//driver.findElement(By.id("confirm_password")).sendKeys(ConfirmPassword);
-			//driver.findElement(By.id("referralCode")).sendKeys(RefCode);
 			driver.findElement(By.xpath("//button[text()='Sign Up']")).click();
 			Thread.sleep(10000);
 			//*Getting the OTP password from Gmail
@@ -96,8 +99,10 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 
 	@AfterClass(groups = { "Regression","High" })
 
-	public void Exit() {
+	public void Exit() throws UnknownHostException {
 
+		// Email trigger Off
+		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", true);
 
 		driver.quit();
 
