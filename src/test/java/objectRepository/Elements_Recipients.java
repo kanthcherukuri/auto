@@ -12,14 +12,15 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_privacyIndex,link_cancellationIndex,link_signinIndex;
+	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
 	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 	public static String selectFirstDoctorFromListingPage, selectFirstDoctorBookBtnFromListingPage, mapListingIcon;
-	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor;
-		
+	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor, doctorNameOnProfile;
+	public static String bookAptHeader,paymentPageHeader,cancelPaymentPage, bookAptPageDate, bookAptPageFee, makePaymentBtn, indexHeaderUserIcon;
+	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
 		/*
@@ -29,6 +30,14 @@ public class Elements_Recipients  {
          prop.load(inStream);
         */
 	    //Recipient Login Page
+		indexHeaderUserIcon="//img[@class='indexProfileImg userImgBackground']"; //XPATH
+		makePaymentBtn="proceed"; //ID
+		bookAptPageFee="providerFees"; //ID
+		bookAptPageDate="//div[@class='d-y-t']"; //XPATH
+		cancelPaymentPage="cancel"; //ID
+		paymentPageHeader="//h4[contains(.,'Review Your Appointment Details')]"; //XPATH
+		bookAptHeader="//h1[contains(., 'Book Appointment')]"; //XPATH
+		doctorNameOnProfile="//h1[@class='tr-override-dctr-content-h1']"; //XPATH
 		mapListingIcon="mapIconMenu"; //ID
 		getDistanceFromListingForFirstDoctor="(//div[@class='dctr-exprnce']//span[2])[1]"; //XPATH
 		backBtn="backArrow"; //ID
@@ -43,11 +52,13 @@ public class Elements_Recipients  {
          Recipient_Wrapper="div.zy-status-wrapper";
          Default_Slot="(//*[@id='apponitmentTime' and @class='sp-available-slots'])[1]";
          link_myAccountheaderIcon="//img[@class='indexProfileImg']";
-         link_aboutHeaderIndex="aboutOption_Index";
-         link_contactUsIndex="contactOption_Index";
-         link_termsIndex="termsOption_Index";
-         link_privacyIndex="privacy_Index";
-         link_cancellationIndex="cancellationOption_Index";
+         link_aboutHeaderIndex="//a[@href='/zyAboutUs']";
+         link_contactUsIndex="//a[@href='/zyContactUs']";
+         link_termsIndex="//a[@href='/zyTermsConditions']";
+         link_h2Header="//h2[@class='page-head']";
+         link_header="//h2";
+         link_privacyIndex="//a[@href='/zyPrivacyPolicy']";
+         link_cancellationIndex="//a[@href='/zyRefundPolicy']";
          link_signinIndex="myAccountLink";
          dcNameHolder="//span[@class='zy-rec-diag-m-d-name']";
          dcHomePickUp="home_pickup";
