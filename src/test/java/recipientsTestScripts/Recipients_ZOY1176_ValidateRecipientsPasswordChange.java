@@ -37,7 +37,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","1234","Zoylo@124","Zoylo@124","Incorrect password","","" },
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@123","New password and old password should not be same","","" },
 
-					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","ssdss","","","Min 8 chars, uppercase, lowercase, number, and special char mandatory","Confirm Password is required" },
+					{ "yes","ganeshmandala@gmail.com","Zoylo@123","","ssdss","","","Password is too short","Confirm Password is required" },
 					{ "yes","ganeshmandala@gmail.com","Zoylo@123","Zoylo@123","Zoylo@123","Zoylo@12345","","","Confirm Password not matched" },
 
 					

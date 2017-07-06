@@ -69,6 +69,8 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+				String AppointmentId = Browser.getAppointmentID();
+				System.out.println(AppointmentId);
 				RecipientPage.recipientLogout();				
 				//Login as Doctor
 				
@@ -90,9 +92,12 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 				Thread.sleep(5000);
 				 //FallowUp the Appointment
 				 RecipientPage.goToMyAccounts("Appointment");
-				 Thread.sleep(2000);// Added for view
-				 driver.findElement(By.id("hist")).click();  // my History
+				 Browser.clickOnTheElementByID("hist"); // my History
+				 driver.findElement(By.id("aptSearch")).click();
+				 driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
 				 Thread.sleep(5000);
+				 Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Completed')]/div[contains(.,'"+AppointmentId+"')]");
+				 
 				 driver.findElement(By.xpath("(//img[@class='followup'])[1]")).click();
 				 Browser.waitTill(60);
 				 //Book FallowUp Slot
