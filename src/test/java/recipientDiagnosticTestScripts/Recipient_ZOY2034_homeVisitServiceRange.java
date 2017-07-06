@@ -25,7 +25,7 @@ public class Recipient_ZOY2034_homeVisitServiceRange extends LoadPropMac
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
-		RecipientPage.searchInZoyloMAP(Diagnostic_Name);
+		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		Browser.waitFortheElementXpath("//span[@class='zy-rec-diag-m-d-name']");
 		driver.findElement(By.id("home_pickup")).click();

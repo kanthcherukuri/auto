@@ -27,7 +27,7 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
-		RecipientPage.searchInZoyloMAP(Diagnostic_Name);
+		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		Browser.waitFortheElementXpath(Elements_Recipients.dcNameHolder);
 		String dcName=driver.findElement(By.xpath(Elements_Recipients.dcNameHolder)).getText();

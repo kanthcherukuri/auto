@@ -64,7 +64,7 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 			HomePage.searchZoylo("Hyderabad","","");
 			Browser.waitFortheID(Elements_Home.map_AreaName);
 			RecipientPage.goToDiagnostics();
-			RecipientPage.searchInZoyloMAP(Diagonostics);
+			RecipientPage.searchDCInZoyloMAP(Diagonostics);
 			Browser.waitFortheElementXpath("//*[@id='diagnosticDetails']");
 			String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 			System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
