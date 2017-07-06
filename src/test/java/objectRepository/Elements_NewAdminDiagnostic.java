@@ -9,7 +9,7 @@ public class Elements_NewAdminDiagnostic
 	public static String MandatoryFields_dateofbirth, MandatoryFields_desc, MandatoryFields_regno, MandatoryFields_dateofreg;
 	public static String MandatoryFields_StatusCode,MandatoryFields_languagesSpoken,MandatoryFields_rating,MandatoryFields_startedyear;
 	
-	public static String Diagnostic_Menu;
+	public static String Diagnostic_Menu,Diagnostic_AppointmentMenu, Diagnostic_AppointmentMenu_Complete;
 	
 	public static String HomeVisit_Menu,HomeVisit_Active,HomeVisit_Charge,HomeVisit_ServiceRange,HomeVisit_SlotDuration;
 	public static String HomeVisit_AppointmentsPerSlot, HomeVisit_Monday,HomeVisit_AddHomeVisitHoursMonday,HomeVisit_AddHoursActive,
@@ -350,6 +350,10 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_SelectAmbulance="//input[@name='facilities.hasAmbulance']";
 		 Hospital_SelectPremiumServices="//input[@name='facilities.hasPremiumServicesAtHospital']";
 		 Hospital_SelectICU="//input[@name='facilities.hasIcuAtHospital']";
+		 
+		 
+		 Diagnostic_AppointmentMenu="//div[@id='accordionDiagnostic']/div[2]/a/div/h4";
+		 Diagnostic_AppointmentMenu_Complete="//*[@id='collapseDiagnoApmts']/div/ul/li[2]/a";
 		
 		return driver;
 	}
