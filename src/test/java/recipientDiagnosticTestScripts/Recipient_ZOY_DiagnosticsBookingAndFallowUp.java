@@ -59,7 +59,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
-				RecipientPage.searchInZoyloMAP(DiagnosticName);
+				RecipientPage.searchDCInZoyloMAP(DiagnosticName);
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 				System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 				RecipientPage.bookAppointmentOnDiagnostics();
