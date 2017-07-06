@@ -24,6 +24,7 @@ public class RecipientPage  {
 		this.driver=driver;
 
 		Elements_Recipients.Recipients_PageProperties();
+		Elements_Home.Home_PageProperties();
 		Browser= new TestUtils(driver);  
 		// LoadProp Prop= new LoadProp(driver);
 	}
@@ -722,7 +723,7 @@ public class RecipientPage  {
 	{
 		Browser.waitFortheID("diag-search-icon");
 		driver.findElement(By.id("diag-search-icon")).click();
-		Browser.waitFortheElementXpath("//i[@class='fa fa-map-marker']");
+		//Browser.waitFortheElementXpath("//i[@class='fa fa-map-marker']");
 	}
 
 	public void goToMyAccount() throws InterruptedException{

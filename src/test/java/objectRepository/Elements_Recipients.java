@@ -25,6 +25,7 @@ public class Elements_Recipients  {
 	public static String home_PracticeLogin, home_PracticeLogin_PagePlaceHolder, home_customerLogin, home_customerLogin_PagePlaceHolder, home_AppStoreLink, home_AppStore_Page, home_androidLink, home_androidLink_Page;
 	public static String home_aboutUs, home_contactUs, home_terms, home_privacy, home_cancelRefund;
 	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
+	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo;
 	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -34,6 +35,10 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
+		thankYouPageLogo="//a[@class='desktop-logo']"; //XPATH
+		dcNameOnThankYouPage="(//div[@class='book-dtbox']//h3)[2]"; //XPATH
+		dcNameOnProfilePage="//span[@class='zy-rec-diag-m-d-name']"; //XPATH
+		dcBookAptPageHeader="//h1[contains(., 'Book Diagnostic Lab Test')]"; //XPATH
 		//Index
 		indexLocationName="zy-location-right"; //ID
 		indexLocationDropDown="(.//*[@id='zy-location-right']/span)[2]"; //XPATH

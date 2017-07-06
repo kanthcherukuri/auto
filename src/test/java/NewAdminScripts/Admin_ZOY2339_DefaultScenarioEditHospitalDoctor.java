@@ -24,9 +24,9 @@ public class Admin_ZOY2339_DefaultScenarioEditHospitalDoctor extends LoadPropMac
 	public void DefaultCheckBoxEditHospitalDoctor() throws Exception
 	{
 		admin.click_doctorsTab();
-		driver.get("https://zoyloqa.zoylo.com/admin/serviceProvidersEdit/abtqiELRhNQetTHDQ");
-		//admin.searchDoctorbyEmailID(emailID);
-		//admin.clickEditbutton();
+		//driver.get("https://zoyloqa.zoylo.com/admin/serviceProvidersEdit/abtqiELRhNQetTHDQ");
+		admin.searchDoctorbyEmailID(emailID);
+		admin.clickEditbutton();
 		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.practiceTab);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.HospitalTab);
 		if(driver.findElements(By.xpath(hospitalEditBtns)).size()>0)
