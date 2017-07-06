@@ -201,7 +201,7 @@ public class RecipientPage  {
 	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
 	    	Thread.sleep(500);
 	    }
-		
+	    Thread.sleep(500);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(2000);
 
@@ -233,8 +233,15 @@ public class RecipientPage  {
 		Browser.waitFortheID("searchFilter");
 		driver.findElement(By.id("searchFilter")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id("listingSearchTextbox")).sendKeys(keyword);
-		Thread.sleep(10000);
+		
+		for(int i=0;i<=keyword.length()-1; i++)
+	    {
+	    	char Doc = keyword.charAt(i);	    	
+	    	driver.findElement(By.id("listingSearchTextbox")).sendKeys(Character.toString(Doc));
+	    	Thread.sleep(500);
+	    }
+
+		Thread.sleep(500);
 		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
 		System.out.println("Cliked on span");
 		Thread.sleep(5000);	
