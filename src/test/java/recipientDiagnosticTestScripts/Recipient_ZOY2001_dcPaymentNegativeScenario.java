@@ -25,7 +25,7 @@ public class Recipient_ZOY2001_dcPaymentNegativeScenario extends LoadPropMac
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
-		RecipientPage.searchInZoyloMAP(Diagnostic_Name);
+		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		String dcName=driver.findElement(By.xpath("//span[@class='zy-rec-diag-m-d-name']")).getText();
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");

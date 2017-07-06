@@ -214,7 +214,7 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */
 	public void searchDCInZoyloMAP(String keyword) throws InterruptedException{
-		//Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 		Thread.sleep(1000);
 		driver.findElement(By.id("search2")).click();
 	    for(int i=0;i<=keyword.length()-1; i++)

@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -32,7 +29,6 @@ public class Schedule_ZOY982_InManageEditPackage extends LoadPropMac{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleInManageAddPackage("SnehaUllalPackage", "30000", "2", "Full Body Test For Diabetic", "SnehaUllalTest", "Full Body Test For Diseases");	
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.SchecduleEditPackageInManage("PrabhasHealthCard", "25000", "2", "Full Body Test For Diabetic", "Prabhastest", "Full Body Test For Diseases");
 	}
 

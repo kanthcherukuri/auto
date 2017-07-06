@@ -3,12 +3,8 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
-
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -49,7 +45,6 @@ public class Schedule_ZOY984_InManageEditContactDetails extends LoadPropMac{
 	@AfterMethod
 	public void deletecontactandlogout() throws Exception{
 		DiagnosticPageZoylo.DeleteContactInSchedule();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	

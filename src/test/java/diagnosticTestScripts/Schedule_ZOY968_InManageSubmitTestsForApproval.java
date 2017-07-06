@@ -1,14 +1,9 @@
 package diagnosticTestScripts;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import java.util.concurrent.TimeUnit;
@@ -36,17 +31,13 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 	public void ScheduleSubmitTestsForApproval() throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
-		Thread.sleep(2000);
 	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("Sulochanaytest","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
-		Thread.sleep(8000);
 		String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
-		AssertJUnit.assertEquals(ActualNotification,"Approval is pending");
+		Assert.assertEquals(ActualNotification,"Approval is pending");
 
 		DiagnosticPageZoylo.diagnosticlogout();
 	}

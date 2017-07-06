@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -29,7 +26,6 @@ public class Schedule_ZOY995_HomePickupSubmitTestForApproval extends LoadPropMac
 	@Test
 	public void ScheduleHomePickupTestSubmitForApproval() throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("RajiniTest", "Person Has Robotic sense", "36000", "2");
 		Thread.sleep(1000);

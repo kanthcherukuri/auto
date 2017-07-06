@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeClass;
 
 
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -32,22 +31,13 @@ public class Schedule_ZOY960_InManageUpdateAmenities extends LoadPropMac {
 	public void DiagnisticManageUpdateAmenities() throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiesbikeparking)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiescarparking)).click();
-		Thread.sleep(1000);
-		//driver.findElement(By.id(Elements_Diagnostics.amenitiescardswipe)).click();
-		//Thread.sleep(1000);
-		//driver.findElement(By.id(Elements_Diagnostics.amenitieswashroom)).click();
-		//Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiespremiunservice)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiesemergencyservices)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.amenitiessave)).click();
+		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiesbikeparking);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiescarparking);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiespremiunservice);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiesemergencyservices);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiessave);
 		Browser.CheckNotificationMessage("Amenities updated successfully");
 	}
 	

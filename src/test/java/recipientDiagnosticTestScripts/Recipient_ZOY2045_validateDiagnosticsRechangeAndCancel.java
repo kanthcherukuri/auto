@@ -65,7 +65,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 				//Verify Recipient Login with valid details
          		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
-				RecipientPage.searchInZoyloMAP(DiagnosticName);
+				RecipientPage.searchDCInZoyloMAP(DiagnosticName);
 				String DiagonosticsFullName = driver.findElement(By.xpath("//h1")).getText();
 				System.out.println("DiagonosticsFullName"+DiagonosticsFullName);
 				RecipientPage.bookAppointmentOnDiagnostics();

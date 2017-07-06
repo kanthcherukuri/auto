@@ -3,10 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -81,7 +77,7 @@ public class Schedule_ZOY985_ConsultationToggleAppointmentScheduled extends Load
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.zy-status-wrapper")));
 			String Notification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
-			AssertJUnit.assertTrue(Notification.contains("Lab Visit: You can't inactive"));
+			Assert.assertTrue(Notification.contains("Lab Visit: You can't inactive"));
 	    }
 	
 	@AfterClass
