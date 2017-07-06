@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.AfterMethod;
@@ -39,9 +36,8 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	@Test(dataProvider="DP1")
 	public void CheckSendNotificationInTodayTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
-		Thread.sleep(5000);
 		DiagnosticPageZoylo.CheckSendNofiticationFunctionality(firstname, lastname, email);
-		Thread.sleep(2000);
+		
 		
 	    }
 	
@@ -49,7 +45,6 @@ public class Appointment_ZOY971_DiagnosticSendNotification extends LoadPropMac{
 	@AfterMethod	
 	public void DiagnosticBulkCancellation() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

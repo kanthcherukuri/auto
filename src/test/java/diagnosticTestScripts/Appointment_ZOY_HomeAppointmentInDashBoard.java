@@ -37,7 +37,7 @@ public class Appointment_ZOY_HomeAppointmentInDashBoard extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Ratna","S","9922222456","ratna@gmail.com","Kakatiya Residency","Diabetic" }
+					{ "yes","Kiran","S","9922222456","kiran@gmail.com","Kakatiya Residency","Diabetic" }
 	
 			};
 		}
@@ -47,7 +47,8 @@ public class Appointment_ZOY_HomeAppointmentInDashBoard extends LoadPropMac{
 		
 		DiagnosticPageZoylo.DiagnosticHomeVisitAppointmentForToday(firstname, lastname, mobile, email, address, problem);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Diagnostics.clickondashboardmenu)).click();
+		Browser.waitFortheID(Elements_Diagnostics.clickondashboardmenu);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickondashboardmenu);
 		WebDriverWait wait=new WebDriverWait(driver,1000);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.todayhighliteddate)));
 		Thread.sleep(1000);
@@ -71,11 +72,8 @@ public class Appointment_ZOY_HomeAppointmentInDashBoard extends LoadPropMac{
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	

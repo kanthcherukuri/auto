@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 
@@ -33,7 +30,6 @@ public class Appointment_ZOY1045_DiagnosticAppointmentBulkCancel extends LoadPro
 	@Test
 	public void appointmentbulkcancel() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

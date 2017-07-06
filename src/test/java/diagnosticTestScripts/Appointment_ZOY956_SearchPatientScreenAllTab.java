@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -40,10 +37,9 @@ public class Appointment_ZOY956_SearchPatientScreenAllTab extends LoadPropMac {
 		}
 
 	 
-	 @Test(dataProvider="DP1", priority=2,groups = { "Regression","High" })
+	 @Test(dataProvider="DP1")
 	 public void searchpatientscreenalltab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow(firstname, lastname, mobile, email, problem); 
-		 Thread.sleep(3000);
 		 DiagnosticPageZoylo.CheckPatientSearchfunctionalityInAllTab(firstname, lastname, mobile, email);
 		 Thread.sleep(2000);
 		 
@@ -51,7 +47,6 @@ public class Appointment_ZOY956_SearchPatientScreenAllTab extends LoadPropMac {
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	

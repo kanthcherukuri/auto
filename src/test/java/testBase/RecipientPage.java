@@ -206,6 +206,29 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 
 	}
+	
+	/*  
+	 *  @Author      : Sagar Sen
+	 *  @Description : This method is used to Enter the search details of diagnostics in Zoylo Map
+	 *  @Parameters  : DCName
+	 *  @Return      : 
+	 */
+	public void searchDCInZoyloMAP(String keyword) throws InterruptedException{
+		//Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		Thread.sleep(1000);
+		driver.findElement(By.id("search2")).click();
+	    for(int i=0;i<=keyword.length()-1; i++)
+	    {
+	    	char Doc = keyword.charAt(i);	    	
+	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
+	    	Thread.sleep(500);
+	    }
+		
+		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
+		Thread.sleep(2000);
+
+	}
+	
 	/*   
 	 *  @Author      : Ganesh kumar.M
 	 *  @Description : This method is used to Enter the search details in Zoylo Map

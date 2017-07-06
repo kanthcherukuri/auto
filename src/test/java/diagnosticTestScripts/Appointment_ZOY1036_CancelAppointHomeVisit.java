@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 
@@ -15,7 +12,7 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 	
 	@BeforeClass	 
@@ -25,7 +22,8 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	 driver.manage().window().maximize();
 	 driver.get(doctors_Url);
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DiagnosticPageZoylo=new DiagnosticPage(driver);	
+	 DiagnosticPageZoylo=new DiagnosticPage(driver);
+	 Browser=new TestUtils(driver);
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		
 	  }
@@ -36,9 +34,8 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Samsung","M","9922116622","samsung@gmail.com","Kakatiya Residency","Diabetic");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.clickingonappointmentmodification();
-		Thread.sleep(5000);
 		DiagnosticPageZoylo.CancelAppointmentOfHomeVisit();
-		Thread.sleep(4000);
+		Browser.CheckNotificationMessage("Appointment has been Cancelled");
 		DiagnosticPageZoylo.diagnosticlogout();
 		
 	}

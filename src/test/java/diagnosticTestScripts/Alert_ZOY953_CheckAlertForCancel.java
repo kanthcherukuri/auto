@@ -3,10 +3,10 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
+
+
+
+
 import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -55,9 +55,9 @@ public class Alert_ZOY953_CheckAlertForCancel extends LoadPropMac{
 		DiagnosticPage.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		AssertJUnit.assertTrue(alert.contains("You have cancelled Appointment:"));
+		Assert.assertTrue(alert.contains("You have CANCELLED the lab visit appointment of "+firstname));
 		Thread.sleep(1000);
-		AssertJUnit.assertTrue(alert.contains(Id));
+		Assert.assertTrue(alert.contains(Id));
 		
 		
 		
@@ -67,7 +67,6 @@ public class Alert_ZOY953_CheckAlertForCancel extends LoadPropMac{
 	@AfterMethod()
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPage.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(5000);
 		DiagnosticPage.diagnosticlogout();
 		}
 	

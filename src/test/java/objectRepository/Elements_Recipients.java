@@ -21,6 +21,11 @@ public class Elements_Recipients  {
 	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor, doctorNameOnProfile;
 	public static String bookAptHeader,paymentPageHeader,cancelPaymentPage, bookAptPageDate, bookAptPageFee, makePaymentBtn, indexHeaderUserIcon;
 	
+	//Home page elements
+	public static String home_PracticeLogin, home_PracticeLogin_PagePlaceHolder, home_customerLogin, home_customerLogin_PagePlaceHolder, home_AppStoreLink, home_AppStore_Page, home_androidLink, home_androidLink_Page;
+	public static String home_aboutUs, home_contactUs, home_terms, home_privacy, home_cancelRefund;
+	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
+	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
 		/*
@@ -29,6 +34,27 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
+		//Index
+		indexLocationName="zy-location-right"; //ID
+		indexLocationDropDown="(.//*[@id='zy-location-right']/span)[2]"; //XPATH
+		indexLocationContainer="//span[@class='autodetcarea']"; //XPATH
+		indexCurrentLocator="//span[@class='autodetc-location']"; //XPATH
+		
+		//HOME PAGE
+		home_PracticeLogin="//a[@href='/doctorsignin']"; //XPATH
+		home_PracticeLogin_PagePlaceHolder="//input[@placeholder='Zoylo Id']"; //XPATH
+		home_customerLogin="//a[@href='/login']"; //XPATH
+		home_customerLogin_PagePlaceHolder="//input[@placeholder='Email']"; //XPATH
+		home_AppStoreLink="//a[@href='http://m.onelink.me/34dfbfec']"; //XPATH
+		home_AppStore_Page="//img[@alt='iTunes']"; //XPATH
+		home_androidLink="//a[@href='http://m.onelink.me/7a85373']"; //XPATH
+		home_androidLink_Page="//span[@class='gb_Za gb_Xa']"; //XPATH
+		home_aboutUs="//a[@href='/aboutus']"; //XPATH
+		home_contactUs="//a[@href='contactus']"; //XPATH
+		home_terms="//a[@href='/terms']"; //XPATH
+		home_privacy="//a[@href='/privacy']"; //XPATH
+		home_cancelRefund="//a[@href='/cancellationRefundPolicy']"; //XPATH
+		
 	    //Recipient Login Page
 		indexHeaderUserIcon="//img[@class='indexProfileImg userImgBackground']"; //XPATH
 		makePaymentBtn="proceed"; //ID

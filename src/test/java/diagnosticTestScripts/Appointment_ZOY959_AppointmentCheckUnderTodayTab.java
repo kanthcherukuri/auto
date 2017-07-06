@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -44,7 +41,6 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	public void appointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.patientserachforintoday(firstname, lastname, email);
 		}
 	

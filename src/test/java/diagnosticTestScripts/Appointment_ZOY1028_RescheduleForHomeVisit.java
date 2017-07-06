@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 
@@ -36,21 +33,20 @@ public class Appointment_ZOY1028_RescheduleForHomeVisit extends LoadPropMac{
 	@Test
   public void HomeVistReschedule() throws Exception {
 		
-		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Ranjith", "N", "9988660022", "ranjith@gmail.com", "kakatiya residency", "Diabetic");
-		Thread.sleep(3000);
+		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Roshan", "N", "9988661122", "roshan@gmail.com", "kakatiya residency", "Diabetic");
 		DiagnosticPageZoylo.clickingonappointmentmodification();
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticrescheduleappointment();
+		Browser.CheckNotificationMessage("Appointment rescheduled successfully");
+		
 		Thread.sleep(3000);
 		
 	}
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();	
 		}
 	
