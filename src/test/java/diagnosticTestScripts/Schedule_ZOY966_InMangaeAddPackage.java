@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import testBase.DiagnosticPage;
@@ -41,7 +38,6 @@ public class Schedule_ZOY966_InMangaeAddPackage extends LoadPropMac{
 	public void ScheduleAddPackage(String RunMode,String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 

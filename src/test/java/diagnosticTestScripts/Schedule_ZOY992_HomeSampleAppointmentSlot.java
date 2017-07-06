@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import objectRepository.Elements_Diagnostics;
 
 import java.util.concurrent.TimeUnit;
@@ -36,7 +33,6 @@ public class Schedule_ZOY992_HomeSampleAppointmentSlot extends LoadPropMac{
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("kiran", "K", "9922006666","kiran@gmail.com", "Kakatiya Residency", "Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();

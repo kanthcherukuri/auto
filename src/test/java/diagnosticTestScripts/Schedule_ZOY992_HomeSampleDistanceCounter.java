@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import objectRepository.Elements_Diagnostics;
 
 import java.util.concurrent.TimeUnit;
@@ -35,13 +32,9 @@ public class Schedule_ZOY992_HomeSampleDistanceCounter extends LoadPropMac{
 		
 
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();

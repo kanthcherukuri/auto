@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import testBase.DiagnosticPage;
@@ -32,7 +29,6 @@ public class Schedule_ZOY991_HomePickUpAddTests extends LoadPropMac{
 	public void ScheduleHomeVisitAddTests() throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddTest("JosnaTest", "Full Body Test For Pancreas","26000", "2");
 		

@@ -32,7 +32,7 @@ public class Schedule_ZOY1000_InMangaeSubimtPackageforApproval extends LoadPropM
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-			{ "yes","Medwinpackage","9000","10","Check to test how your body parts are working","FullBodyTest", "Check to test how your body parts are working"}
+			{ "yes","TeezaPackage","9000","10","Check to test how your body parts are working","FullBodyTest", "Check to test how your body parts are working"}
 
 			};
 		}
@@ -41,7 +41,6 @@ public class Schedule_ZOY1000_InMangaeSubimtPackageforApproval extends LoadPropM
 	public void SubitForApproval(String RunMode,String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
-		
 		DiagnosticPageZoylo.ScheduleInManageSubmitPackageforApproval();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();

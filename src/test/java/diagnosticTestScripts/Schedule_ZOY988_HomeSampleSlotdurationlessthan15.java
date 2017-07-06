@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,16 +30,12 @@ public class Schedule_ZOY988_HomeSampleSlotdurationlessthan15  extends LoadPropM
 	@Test
 	public void HomeSampleCollectionSlotdurationlessthan15() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00","23:00");
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();
 		Thread.sleep(2000);
-		
 		driver.findElement(By.id("homeVisitSlotDuration")).clear();
 		driver.findElement(By.id("homeVisitSlotDuration")).sendKeys("10");
 		Thread.sleep(2000);

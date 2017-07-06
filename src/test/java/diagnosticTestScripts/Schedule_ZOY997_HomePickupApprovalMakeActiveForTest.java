@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
@@ -42,7 +39,6 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	public void ScheduleHomePickupTestMakeActiveInActive(String RunMode, String testname,String description,String cost,String discount) throws Exception{
 		//After login Clicking on ScheduleMenu
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		//In Schedule Menu clicking on HomePickup menu
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		//In Schedule Adding New Test in Test menu

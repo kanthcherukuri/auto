@@ -3,13 +3,7 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -46,26 +40,20 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 	public void ScheduleManageMakeTestActive(String RunMode,String testname,String description,String cost,String discount) throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests(testname, description, cost, discount);
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
 		Thread.sleep(3000);
 		driver.close();
 		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
 		Thread.sleep(2000);
 		launchbrowser();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
 		Thread.sleep(2000);
 		WebElement sc=driver.findElement(By.xpath("(//span[@class='sp-diag-dcenter-packactive-hours-switch-switch'])[last()]"));

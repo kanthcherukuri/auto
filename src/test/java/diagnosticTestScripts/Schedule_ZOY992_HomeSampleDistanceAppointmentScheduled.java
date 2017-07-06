@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
@@ -33,7 +30,6 @@ public class Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled  extends Loa
 		DiagnosticPageZoylo.DiagnosticAppointmentForHomeVisit("Kumaran", "K", "9900442266", "kumaran@gmail.com", "Kakatiya Residency", "Diabetic");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath(Elements_Diagnostics.HomeSampleCollectionMenu)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Diagnostics.HomeSampleDistance)).clear();

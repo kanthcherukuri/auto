@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import testBase.DiagnosticPage;
@@ -31,11 +28,8 @@ public class Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule extends Load
 	@Test
 	public void HomeSampleClickToggleAppointmentNotSchedule() throws Exception{
 		DiagnosticPageZoylo.ClickonAppointmentMenu();
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.ClickonToggleButtonForHomeVisit();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.BulkCancellationForHomeVisit("07:00", "23:00");
-		Thread.sleep(1000);
 		driver.findElement(By.id("schedule")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id='cd-11']/div")).click();

@@ -3,9 +3,6 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -47,12 +44,11 @@ public class Appointment_ZOY971_SendNotificationInAllTab extends LoadPropMac{
 	@Test(dataProvider="DP1")
 	public void SendNotificationInAllTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentbookingForTomorrow(firstname, lastname, mobile, email, problem);
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Diagnostics.clickonpatientmenu)).click();
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
 		Thread.sleep(5000);
-		driver.findElement(By.id(Elements_Diagnostics.clickonserachbarid)).click();
-		driver.findElement(By.id(Elements_Diagnostics.clickonalltab)).click();
-		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(email);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonserachbarid);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonalltab);
+		Browser.enterTextByID(Elements_Diagnostics.serachtextbox, email);
 		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(Keys.ENTER);
 		Thread.sleep(2000);
 	int alltabsize=driver.findElements(By.xpath(Elements_Diagnostics.alltabsize)).size();
@@ -70,7 +66,6 @@ public class Appointment_ZOY971_SendNotificationInAllTab extends LoadPropMac{
 	@AfterMethod	
 	public void DiagnosticBulkCancellation() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	
