@@ -703,7 +703,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
-			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			//Thread.sleep(10000);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_hospitalType);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(mondayStartTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(mondayEndTime);
