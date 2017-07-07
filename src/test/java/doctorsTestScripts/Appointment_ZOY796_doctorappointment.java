@@ -67,7 +67,7 @@ public void doctorappointmentcreation(String RunMode,String timeslot,String firs
 		 WebDriverWait wait = (new WebDriverWait(driver, 2000));
 		 wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Elements_Doctors.appointment_backgoundcolor)));
 		 String fullname=firstname+" "+lastname;
-		 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+fullname);	
+		 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);	
 	}
 	
 	

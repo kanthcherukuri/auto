@@ -1,6 +1,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -27,7 +28,7 @@ public class Admin_EditHospital extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{"Lucidhospitallfe" }
+					{"KanthHospital" }
 
 			};
 		}
@@ -38,7 +39,7 @@ public class Admin_EditHospital extends LoadPropMac {
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);
 		Thread.sleep(2000);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox, HospitalName);
-		Browser.waitforTextbyxpath(Elements_NewAdminDiagnostic.Hospital_NameField, HospitalName);
+		Thread.sleep(2000);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnEdit);
 		Browser.waitTill(1000);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_SelectBikeParking);
@@ -49,5 +50,12 @@ public class Admin_EditHospital extends LoadPropMac {
 		Browser.scrollbyID(Elements_NewAdminDiagnostic.Hospital_Cancel);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");
+		Thread.sleep(1000);
+		
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
 	}
 }

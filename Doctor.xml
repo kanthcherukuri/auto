@@ -8,7 +8,6 @@
       <class name="doctorsTestScripts.Appointment_ZOY2140_checkOutScenraio"/>
       <class name="doctorsTestScripts.Appointment_ZOY_ValidateBulkCancelAlert"/>
       <class name="doctorsTestScripts.Appointment_ZOY796_doctorappointment"/>
-      <class name="doctorsTestScripts.Appointment_ZOY2030_ValidateDoctorEnrollment"/>
       <class name="doctorsTestScripts.Appointment_ZOY806_Cancel"/>
       <class name="doctorsTestScripts.Appointment_ZOY801_Reschedule"/>
       <class name="doctorsTestScripts.Appointment_ZOY808_SendNoficationOfTodayTab"/>

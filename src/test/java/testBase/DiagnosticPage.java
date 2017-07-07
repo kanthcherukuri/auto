@@ -658,7 +658,7 @@ public class DiagnosticPage {
 			driver.findElement(By.id("consultationNotesShare")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.id("Email-share")).click();
-			Browser.CheckNotificationMessage("your email has been sent successfully");
+			Browser.CheckNotificationMessage("E-mail sent successfully");
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
@@ -667,8 +667,8 @@ public class DiagnosticPage {
 			driver.findElement(By.id("all_reports_upload")).click();
 			Thread.sleep(6000);
 			driver.findElement(By.id("appt-reports-btn")).click();
-			Thread.sleep(3000);
-			Browser.CheckNotificationMessage("Reports status changed successful");
+			Thread.sleep(6000);
+			Browser.CheckNotificationMessage("All reports uploaded successfully");
 			}
 		}
 	

@@ -51,8 +51,8 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
-		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_HospitalName, HospitalName+Browser.randomalphabets());
-		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_ShortName, ShortName+Browser.randomalphabets());
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_HospitalName, HospitalName);
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_ShortName, ShortName);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_Address, Address);
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnCountry);

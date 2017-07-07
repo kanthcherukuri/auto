@@ -4,6 +4,8 @@ package doctorsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -14,23 +16,32 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY_ValidateBulkCancelAlert extends LoadPropMac{
 	public DoctorsPage DoctorsPage;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 	@BeforeClass
-	public void beforeClass() throws Exception {
-	LoadBrowserProperties();
-	
-	 driver.manage().window().maximize();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DoctorsPage= new DoctorsPage(driver);			
-	 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+	public void LaunchBrowser() throws Exception {
+		
+		LoadBrowserProperties(); 
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DoctorsPage= new DoctorsPage(driver);
+		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().window().maximize();	
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  } 
 	
 	
-	@Test()
-	public void CheckAlertforBulkCancel() throws Exception{
-		DoctorsPage.DoctorAppointmentBookingForToday("Koneru", "K", "9900664422", "koneru@gmail.com", "Diabetic");
+	@DataProvider(name ="AlertAppBulkCancel")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Alert", "ZOYAlertAppBulkCancel");
+        return(retObjArr);
+    }
+	
+	
+	
+	@Test(dataProvider="AlertAppBulkCancel")
+	public void CheckAlertforBulkCancel(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
 		DoctorsPage.BulkCancel();
 		DoctorsPage.ClickonAlertmenu();

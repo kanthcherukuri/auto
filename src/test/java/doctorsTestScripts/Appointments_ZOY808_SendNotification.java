@@ -57,7 +57,7 @@ public DoctorsPage DoctorsPage;
 			if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
 			driver.findElement(By.xpath(Elements_Doctors.patient_sendnotification)).click();
 			System.out.println("Sucessfully clicked on Send Notification button");
-			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
+			Browser.CheckNotificationMessage("Email/SMS Notification has been sent to the patient");
 
 			}
 		 // DoctorsPage.CheckPatientScreenSendNotificationOfAllTab(firstname, lastname, email);

@@ -281,16 +281,16 @@ public class Elements_NewAdminDiagnostic
 		Diagnostic_SearchBox="//input[@class='form-control input-sm']";
 		Diagnostic_ClickOnEdit="//button[@class='btn btn-xs edit-btn']";
 		HealthPackage_ClickOnEditButton="(//*[@id='0'])[1]";
-		HealthPackage_CheckPackageName="//*[@id='zoyDiagPackHealth']/div/div[2]/table/tbody/tr[2]/td[1]";
+		HealthPackage_CheckPackageName="//table[@class='table table-bordered text-center']//td[1]";
 		HealthPackage_EditDiscount="dp-0";
 		HealthPackage_EditFacilitationCharge="zcp-0";
-		DiagnosticTests_ClickOnEdit="(//*[@id='0'])[2]";
+		DiagnosticTests_ClickOnEdit="//i[@class='fa fa-pencil zoyEditTestsBtn']";
 		DiagnosticTests_EditTestName="diagEditTestName";
 		DiagnosticTests_EditDiscountPercentage="diagEditDiscountPercentage";
 		DiagnosticTests_EditZoyloCharge="diagEditZoyloChargePercentage";
 		DiagnosticTests_EditTestSave="zyDiagnosticEditTestSave";
 		DiagnosticTests_EditCancel="testEditCancel";
-		DiagnosticTests_CheckTestName="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
+		DiagnosticTests_CheckTestName="(//table[@class='table table-bordered text-center'])[17]//td[1]";
 		
 		
 		 Diagnostic_AppointmentsUrl="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterAppointmentsView";
