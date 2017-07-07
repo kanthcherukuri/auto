@@ -965,13 +965,15 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: isSEOInfoTrue
 	 * @ return			: NA
 	 */
-	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle)
+	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle) throws Exception
 	{
 		if(isSEOInfoTrue.equalsIgnoreCase("true"))
 		{
+			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab_metaTitle);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).clear();
+			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).sendKeys(metaTitle);
 		}
 	}
