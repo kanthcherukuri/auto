@@ -79,7 +79,8 @@ public class Elements_NewAdminDiagnostic
 	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel,Hospital_NameField,Hospital_ClickOnEdit,Hospital_SelectBikeParking,
 	Hospital_SelectCarParking,Hospital_SelectAmbulance,Hospital_SelectPremiumServices,Hospital_SelectICU;
 	
-	
+	public static String Admin_ClickOnAdministrationMenu,Administration_MergeNamesMenu,MergeName_SelectType,
+	MergeName_FromValue,MergeName_ToValue,MergeName_Submit,Admin_ClickOnDoctorMenu, Admin_Serachbox,Doctor_GetSpecialisation;
 	
 	
 	
@@ -354,6 +355,17 @@ public class Elements_NewAdminDiagnostic
 		 
 		 Diagnostic_AppointmentMenu="//div[@id='accordionDiagnostic']/div[2]/a/div/h4";
 		 Diagnostic_AppointmentMenu_Complete="//*[@id='collapseDiagnoApmts']/div/ul/li[2]/a";
+		 
+		 
+		 Admin_ClickOnAdministrationMenu="//div[@class='tabLabels']//a[@href='/admin/approveUser']";
+		 Administration_MergeNamesMenu="//a[@href='/admin/mergeNames']";
+		 MergeName_SelectType="type";
+		 MergeName_FromValue="from-value";
+		 MergeName_ToValue="to-value";
+		 MergeName_Submit="changeNames";
+		 Admin_ClickOnDoctorMenu="//div[@class='tabLabels']//a[@href='/admin/serviceProvidersList']";
+		 Admin_Serachbox="//input[@type='search']";
+		 Doctor_GetSpecialisation="//*[@id='DataTables_Table_0']/tbody/tr/td[7]";
 		
 		return driver;
 	}

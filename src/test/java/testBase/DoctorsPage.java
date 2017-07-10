@@ -226,11 +226,11 @@ public class DoctorsPage  {
 	
 	
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
-
-		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
+		
+		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 		WebDriverWait wait = new WebDriverWait(driver, 8000);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
-		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+		Browser.enterTextByID(Elements_Doctors.patient_searchbox, email);
 		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
@@ -254,7 +254,7 @@ public class DoctorsPage  {
 		}
 		
 		public void ClickonAlertmenu(){
-			driver.findElement(By.id("alerts")).click();
+			Browser.clickOnTheElementByID("alerts");
 			WebDriverWait wait=new WebDriverWait(driver,100);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
@@ -424,7 +424,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id("website")).sendKeys("www.zoylo.com");
 		Thread.sleep(1000);
 		driver.findElement(By.id("journals")).clear();
-		driver.findElement(By.id("journals")).sendKeys("https://www.omicsonline.org/open-access-journals-list.php");
+		driver.findElement(By.id("journals")).sendKeys("http://www.omicsonline.org/open-access-journals-list.php");
 		Thread.sleep(1000);
 		driver.findElement(By.id("books")).clear();
 		driver.findElement(By.id("books")).sendKeys("APJ Adbul Kalam");

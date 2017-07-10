@@ -14,7 +14,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 	public TestUtils Browser;
 	
 	@BeforeClass	 
-	 public void beforeClass() throws Exception {		
+	 public void LaunchBrowser() throws Exception {		
 	 LoadBrowserProperties();
 	 driver.get(doctors_Url);		 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
