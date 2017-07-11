@@ -34,7 +34,7 @@ public class HomePage  {
 		
 		Browser.waitFortheID(Elements_Home.home_city);
 		driver.findElement(By.id(Elements_Home.home_city)).sendKeys(City);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//div[@class='pac-item'])[1]")).click();
 		Thread.sleep(2000);
 		// In case of Null Area
@@ -85,7 +85,7 @@ public  void searchDiagnosticsZoylo(String City, String Locality,String Speciali
 		// In case of Null Specialization
 		try{
 		driver.findElement(By.id("search-test-pkg")).sendKeys(Specialization);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[@id='two']/div/div[3]/div/div[1]/div/div[1]")).click();
 		Thread.sleep(2000);
         } catch(Exception e) {

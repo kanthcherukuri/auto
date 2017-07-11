@@ -50,7 +50,8 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	 @AfterMethod
 	 public void AfterFiters() throws Exception {
 
-			driver.navigate().refresh();
+		  Browser.openUrl(index_url);			
+		  RecipientPage.goToDiagnostics();	
 			
 	    }
  
@@ -113,9 +114,8 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			Thread.sleep(5000);
 			//Verify with Invalid data
 			driver.findElement(By.id("searchFilter")).click();
-			driver.findElement(By.id("listingSearchTextbox")).sendKeys("sdf12345");
-			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
-			driver.findElement(By.xpath("(//*[@id='clearFilter'])[2]")).click();
+			driver.findElement(By.id("listingSearchTextbox")).sendKeys("sdf12345df");
+			Browser.clickOnTheElementByXpath("(//*[@id='clearFilter'])[3]");
 			//get filter count and make sure filter count is 0 after clearing the filter
 			String FilterCount=driver.findElement(By.xpath("//span[@class='zy-filtercount']")).getText();
 			Assert.assertEquals(FilterCount, "0");

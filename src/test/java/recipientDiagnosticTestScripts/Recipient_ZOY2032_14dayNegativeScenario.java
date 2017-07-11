@@ -36,10 +36,9 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 		{
 			System.out.println("DC appointment thank you page rendered");
 		}
-		//Browser.scrollbyxpath("//a[@class='desktop-logo']");
 		Browser.waitFortheElementXpath("//a[@class='desktop-logo']");
-		driver.findElement(By.xpath("//a[@class='desktop-logo']")).click();
-		RecipientPage.goToDCIndexPageFromHome();
+		driver.findElement(By.xpath("//a[@class='desktop-logo']")).click();		
+		Browser.clickOnTheElementByID("diag-search-icon");
 		RecipientPage.searchInZoylodetailMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		Browser.waitFortheID("schedule-li");

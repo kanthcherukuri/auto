@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.SkipException;
 
@@ -24,6 +26,7 @@ public class RecipientPage  {
 		this.driver=driver;
 
 		Elements_Recipients.Recipients_PageProperties();
+		Elements_Home.Home_PageProperties();
 		Browser= new TestUtils(driver);  
 		// LoadProp Prop= new LoadProp(driver);
 	}
@@ -77,7 +80,6 @@ public class RecipientPage  {
 		Browser.waitFortheID("emailAddress");		
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).clear();
 		driver.findElement(By.id(Elements_Recipients.Recipient_UserName)).sendKeys(email);
-		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).clear();
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
@@ -193,7 +195,10 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
+
 		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		Thread.sleep(5000);
+		
 		driver.findElement(By.id("search2")).click();
 	    for(int i=0;i<=keyword.length()-1; i++)
 	    {
@@ -223,7 +228,7 @@ public class RecipientPage  {
 	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
 	    	Thread.sleep(500);
 	    }
-		
+	    Thread.sleep(500);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(2000);
 
@@ -239,10 +244,15 @@ public class RecipientPage  {
 
         Browser.waitFortheElementXpath("//span[@id='zy-location-right']/span[2]");
 		driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
-		driver.findElement(By.id("location")).sendKeys(Area);
-		Thread.sleep(5000);
+		for(int i=0;i<=Area.length()-1; i++)
+	    {
+	    	char Doc = Area.charAt(i);	    	
+	    	driver.findElement(By.id("location")).sendKeys(Character.toString(Doc));
+	    	Thread.sleep(500);
+	    }
+	
 		driver.findElement(By.xpath("//li[@id='locationName']")).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		System.out.println("Searched with location"+Area);
 
 	}
@@ -292,7 +302,7 @@ public class RecipientPage  {
 	 */	
 	public void bookAppointmentOnDiagnostics() throws InterruptedException{
 
-		driver.findElement(By.xpath("//*[@id='diagnosticDetails']")).click();  // book
+		Browser.clickOnTheElementByXpath("//*[@id='diagnosticDetails']");
 		Browser.waitTill(60);
 		System.out.println("Cliked on Book Button");
 	}
@@ -722,7 +732,7 @@ public class RecipientPage  {
 	{
 		Browser.waitFortheID("diag-search-icon");
 		driver.findElement(By.id("diag-search-icon")).click();
-		Browser.waitFortheElementXpath("//i[@class='fa fa-map-marker']");
+		//Browser.waitFortheElementXpath("//i[@class='fa fa-map-marker']");
 	}
 
 	public void goToMyAccount() throws InterruptedException{
@@ -744,8 +754,8 @@ public class RecipientPage  {
 	public void goToDiagnostics() throws InterruptedException{
 		Browser.waitFortheElementXpath("//*[@id='diagnostics']/span[1]/img");
 		driver.findElement(By.xpath("//*[@id='diagnostics']/span[1]/img")).click();  // book
-		Browser.waitTill(60);
-		Thread.sleep(2000);
+		//Browser.waitTill(60);
+		Thread.sleep(3000);
 		System.out.println("Cliked on Diagnostics Icon");
 	}
 
@@ -860,8 +870,8 @@ public class RecipientPage  {
 	}
 
 	public void goToMyAccounts(String TabName) throws InterruptedException{
-		Browser.waitFortheElementXpath("//li[@id='myaccount']/span/img");
-		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
+
+		Browser.clickOnTheElementByXpath("//li[@id='myaccount']/span/img");
 		Browser.waitTill(60);
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);

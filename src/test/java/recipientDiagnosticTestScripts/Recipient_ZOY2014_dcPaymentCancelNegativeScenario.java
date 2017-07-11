@@ -23,7 +23,6 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 	public void DCpaymentCancel() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
@@ -31,6 +30,7 @@ public class Recipient_ZOY2014_dcPaymentCancelNegativeScenario extends LoadPropM
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
 		Browser.waitFortheElementXpath("//*[@id='proceed']");
+		Browser.scrollbyID("cancel");
 		driver.findElement(By.id("cancel")).click();
 		Browser.waitforTextbyxpath("//span[@class='zy-rec-diag-m-d-name']", dcName);
 	}

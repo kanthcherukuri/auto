@@ -58,7 +58,6 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		 if(runmode.equals("yes")){
 			 //Test Starts - Here
 			 Browser.openUrl(base_url);
-			 Thread.sleep(2000);
 			 HomePage.searchZoylo(City, Locality, Specialization);
 			 Browser.waitFortheElementXpath(Elements_Home.Map_Doctors);
 			 String ActualResult = driver.findElement(By.id(Elements_Home.map_AreaName)).getText();

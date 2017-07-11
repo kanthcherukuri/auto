@@ -90,7 +90,7 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 			  //verifying Consultation Fee
 			    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Amount Payable')]/div[2]")).getText();
 		       // System.out.println("PaymentConsultationFee="+PaymentConsultationFee.replace(".00", ""));
-		        Assert.assertEquals(PaymentConsultationFee, "105.00");
+		        Assert.assertEquals(PaymentConsultationFee, "100.00");
 
 		        //verifying Promotion amount
 			    String PromotionAmount=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Promotion Applied ')]/div[2]")).getText();
@@ -101,7 +101,7 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 		        System.out.println("TotalFee="+TotalFee);
 		       // String TotalAmountString = TotalAmount.replace(". ", "");
 		        System.out.println("TotalFee="+TotalFee);
-		        Assert.assertEquals(TotalFee, "100.00");
+		        Assert.assertEquals(TotalFee, "95.00");
 		        //verifying Advance Confirmation Fee
 			    String AdvanceFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Advance Confirmation Fee')]/div[2]")).getText();
 		        System.out.println("PromotionAmount="+AdvanceFee);
@@ -111,7 +111,7 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 		        System.out.println("BalanceAmount="+BalanceAmount);
 		       // String BalanceAmountString = BalanceAmount.replace(". ", "");
 		        System.out.println("BalanceAmountString="+BalanceAmount);
-		        Assert.assertEquals(BalanceAmount, "100.00");
+		        Assert.assertEquals(BalanceAmount, "95.00");
 		        
 		
 	 

@@ -160,8 +160,8 @@ public class TestUtils {
 			System.out.println("waiting for "+xpath);
 			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-			//wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-					 
+			
+			System.out.println("waited for "+xpath);	 
 		}
 		
 	//Wait for the name Element
@@ -640,6 +640,9 @@ public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String U
     		driver.manage().window().setSize(d);
     	 
      }
+
+
+	
 	
     
 }

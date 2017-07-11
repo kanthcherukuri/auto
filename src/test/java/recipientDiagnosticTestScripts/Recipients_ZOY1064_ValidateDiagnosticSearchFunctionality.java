@@ -34,7 +34,6 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		Browser.openUrl(loginPage_Url);			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-		Thread.sleep(2000);
 		//Searching Locality/Area
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");
 
@@ -43,17 +42,17 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Diagnostic Centre & Rajesh Clinic","All Routine Blood Test","Zoylo Health Pkg","sdf12345" }
+					{ "yes","Diagnosticszoylo","Sugar Test","Zoylo Health Pkg","sdf12345" }
 
 			};
 		}
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
+	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	public void mapSearchByDiagnostics(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
 
 			//Verify search with Doctors name
-			RecipientPage.searchInZoyloMAP(Diagnostics);
+			RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 			String Search_Diagnostics = driver.findElement(By.xpath("//h1")).getText();
 			Assert.assertEquals(Search_Diagnostics, Diagnostics);
 
@@ -65,11 +64,11 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 
 	}
 
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
+	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
 	public void ValidateMapSearchByTests(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
-			RecipientPage.searchInZoyloMAP(Tests);
+			RecipientPage.searchDCInZoyloMAP(Tests);
 			driver.findElement(By.id("diagnosticDetails")).click();
 			Browser.waitTill(60);
 			driver.findElement(By.id("tests_search")).sendKeys(Tests);
@@ -86,12 +85,12 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		}	
 	}
 
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
+	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
 	public void ValidateMapsearchByPackages(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
-			RecipientPage.searchInZoyloMAP(Packages);
+			RecipientPage.searchDCInZoyloMAP(Packages);
 			driver.findElement(By.id("diagnosticDetails")).click();
 			Browser.waitTill(80);
 			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
@@ -118,10 +117,10 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 			//Verify with Invalid data
 			driver.findElement(By.id("search2")).click();
 			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
-			Thread.sleep(10000);
-			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w > span")).getText();
-		
-			Assert.assertTrue(OppsContent.contains("Oops! your search"));
+			Thread.sleep(5000);
+			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w")).getText();
+		System.out.println("content"+OppsContent);
+			Assert.assertTrue(OppsContent.contains("Oops your Search"));
             
 
 		}else{
@@ -134,15 +133,12 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	@BeforeMethod(groups = { "Regression","Medium" })
 	public void Inti( ) throws Exception {
 
-		RecipientPage.goToDiagnostics();		
+		  Browser.openUrl(index_url);			
+		  RecipientPage.goToDiagnostics();
+		  Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 	}
 
-	@AfterMethod(groups = { "Regression","Medium" })
-	public void refresh( ) throws Exception {
-
-		driver.navigate().refresh();
-		Thread.sleep(5000);		
-	}
+	
 
 	@AfterClass(groups = { "Regression","Medium" })
 

@@ -57,7 +57,7 @@ public class Recipient_ZOY1085_DiagnosticsChangeLocation extends LoadPropMac {
 	@Test(priority=2)
 	public void validateDoctorChangeLocation() throws Exception {
 	
-		RecipientPage.goToDiagnostics();
+		RecipientPage.goToDoctors();
 		RecipientPage.searchInZoyloMAPArea("Bangalore");
 		Assert.assertEquals(driver.findElement(By.id(Elements_Home.map_AreaName)).getText(), "Bangalore");
 

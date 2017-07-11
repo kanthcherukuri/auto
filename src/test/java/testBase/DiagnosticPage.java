@@ -840,17 +840,17 @@ public class DiagnosticPage {
 						driver.findElement(By.xpath("//button[@class='sp-diagno-dash-showall sp-diagno-dash-showall-btn']")).click();
 						Thread.sleep(2000);
 
-						Browser.scrollbyxpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]");
+						Browser.scrollbyxpath("(//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2])[last()]");
 		/*				JavascriptExecutor jse = (JavascriptExecutor)driver;
 						jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
 						Thread.sleep(5000);*/
-						driver.findElement(By.xpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]")).click();  // Recent Appointment
+						driver.findElement(By.xpath("(//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2])[last()]")).click();  // Recent Appointment
 						Browser.waitTill(60);
 						
 					}else{
 						System.out.println("is empty");
 						Browser.waitFortheElementXpath("//div[@class='sp-diagno-aptusername sp-diagno-dash-healthproblem']/span");
-						driver.findElement(By.xpath("//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2]")).click();  // Recent Appointment
+						driver.findElement(By.xpath("(//div[@class='sp-diagno-dash-timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[2])[last()]")).click();  // Recent Appointment
 						Browser.waitTill(60);
 
 					}

@@ -11,7 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
+
+import com.gargoylesoftware.htmlunit.WebClient;
 
 public class LoadPropMac   {
 	public static Properties prop = new Properties();
@@ -36,6 +40,7 @@ public class LoadPropMac   {
     public static String Admin_Username, Admin_Password, Diagnostic_usernamesix,Diagnostic_passwordsix;
     
 	public static WebDriver driver;
+
 
 	public static WebDriver LoadBrowserProperties()throws Exception{
 	    FileInputStream inStream;
@@ -133,9 +138,9 @@ public class LoadPropMac   {
        if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
-			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
+			ChromeOptions options = new ChromeOptions(); 
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
@@ -145,10 +150,11 @@ public class LoadPropMac   {
 			driver.manage().window().setSize(new Dimension(width, height));
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
+
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();
-			//driver = new FirefoxDriver();	
+		
 		}else if(browser_name.equals("safari")){
 			System.out.println("launching Safari browser");
 			driver=new SafariDriver();
