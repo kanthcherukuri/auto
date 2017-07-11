@@ -39,23 +39,15 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 		  }
 	 
 	 
-	 @DataProvider(name = "DP1")
-//	    public Object[][] createData_DP1() throws Exception{
-//	  Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Kanth","ZOY801");
-//	        return(retObjArr);
-//	    }
+	 @DataProvider(name = "Reschedule")
+	    public Object[][] createData_DP1() throws Exception{
+	  Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY801");
+	        return(retObjArr);
+	    }
 	 
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Kanthcherukuri","Y","91912192200","kanthch@gmail.com","Diabetic" }
-
-			};
-		}
-
-	 
-	
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void AppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+ 	
+	 @Test(dataProvider="Reschedule")
+	public void AppointmentReschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
 		 
 			 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);

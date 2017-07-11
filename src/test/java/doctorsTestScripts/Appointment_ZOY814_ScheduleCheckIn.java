@@ -14,32 +14,29 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	
 	public DoctorsPage DoctorsPage;
 	 
-	 public TestUtils exceldata;
+	 public TestUtils Browser;
 	
 	
  
   @BeforeClass
   public void LaunchBrowser() throws Exception {
-	  	
-	  	LoadBrowserProperties();
-	  	driver.get(doctors_Url);		 
-	  	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	  	DoctorsPage= new DoctorsPage(driver);			
-		DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+	  	LoadBrowserProperties();	 
+		 DoctorsPage= new DoctorsPage(driver);	
+		 Browser= new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }
-	  
-  
-  @DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Murari","A","9966395522","murari@gmail.com","Diabetic" }
-
-			};
-		}
+	 
+  @DataProvider(name = "CheckIn")
+  public Object[][] createData_DP1() throws Exception{
+      Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY814");
+      return(retObjArr);
+  }
   
   
-  @Test(dataProvider="DP1",priority=2)
-  public void CheckingCheckInFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+  @Test(dataProvider="CheckIn")
+  public void CheckingCheckInFunctionality(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	  	
 	  					
 		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
@@ -54,7 +51,6 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	  @AfterMethod
 	  public void bulkcancelandlogout() throws Exception{
 		  DoctorsPage.BulkCancel();
-		  Thread.sleep(2000);
 		  DoctorsPage.doctorlogout();
 	  }
 	  

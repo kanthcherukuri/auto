@@ -22,26 +22,24 @@ public class Appointment_ZOY773_AppointmentListing extends LoadPropMac {
 	 public TestUtils Browser;
 	 
 	@BeforeClass	 
-	 public void beforeClass() throws Exception {		
-	 LoadBrowserProperties();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 public void LaunchBrowser() throws Exception {		
+	 LoadBrowserProperties();	 
 	 DoctorsPage= new DoctorsPage(driver);	
 	 Browser= new TestUtils(driver);
+	 Browser.openUrl(loginPage_Url);
+	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  }
 	
-	 @DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Jhansirani","K","9966995511","jhansirani@gmail.com","Diabetic" }
+	@DataProvider(name = "AppointmentListing")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY773");
+        return(retObjArr);
+    }
 	
-			};
-		}
- 
   
-@Test(dataProvider="DP1",priority=1)
-public void appListing(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+@Test(dataProvider="AppointmentListing")
+public void appListing(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
 		 DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		 DoctorsPage.ClickingOnDashboard();
@@ -82,7 +80,7 @@ public void appListing(String RunMode,String firstname,String lastname,String mo
 	
 	@AfterClass
 	public void closebrowser(){
-		driver.close();
+		driver.quit();
 	}
 
 }//main Class

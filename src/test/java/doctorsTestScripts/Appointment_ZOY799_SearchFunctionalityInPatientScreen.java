@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import objectRepository.Elements_Doctors;
 import org.testng.annotations.AfterMethod;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
@@ -22,24 +21,24 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreen extends LoadP
 	@BeforeClass
 	public void LaunchBrowser() throws Exception {  
 		  	LoadBrowserProperties();
-		  	driver.get(doctors_Url);		 
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  			 
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			DoctorsPage= new DoctorsPage(driver);
 			Browser=new TestUtils(driver);
+			Browser.openUrl(loginPage_Url);
 			DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		
-			  }		     
+			  }	
 	
-	@DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Tvsapache","L","9966665522","tvsapache@gmail.com","Diabetic" }
-
-			};
-		}
+	@DataProvider(name = "PatientScreen")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY799");
+        return(retObjArr);
+    }
 	
-	@Test(dataProvider="DP1")
-	public void CheckSearchFunctionalityAllTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	
+	@Test(dataProvider="PatientScreen")
+	public void CheckSearchFunctionalityAllTab(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Doctors.patient_id)).click();

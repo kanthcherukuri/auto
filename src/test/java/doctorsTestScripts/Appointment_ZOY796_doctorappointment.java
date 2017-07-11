@@ -21,30 +21,26 @@ public class Appointment_ZOY796_doctorappointment extends LoadPropMac {
 		
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void beforeClass() throws Exception {
-		 LoadBrowserProperties();
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 
+		 LoadBrowserProperties();		 
 		 DoctorsPage= new DoctorsPage(driver);	
 		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
 		  }
 
 
 
-	@DataProvider(name = "DP1")
-	//public Object[][] createData_DP1() throws Exception{
-	//Object[][] retObjArr=TestUtils.getTableArray("TestData\\Doctors_TestData.xls", "Doctor", "ZOY796");
-	  //  return(retObjArr);
-	//}
-	public String[][] createData1() {
-		return new String[][] {
-		{ "yes","09:00","Skoda","Kanth","9491219191","skoda@gmail.com","Diabetic"}
-
-		};
+	@DataProvider(name = "doctorappointment")
+	public Object[][] createData_DP1() throws Exception{
+	Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY796");
+	    return(retObjArr);
 	}
 	
-	@Test(dataProvider="DP1",groups = { "Regression","High" })
-public void doctorappointmentcreation(String RunMode,String timeslot,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	
+	@Test(dataProvider="doctorappointment")
+public void doctorappointmentcreation(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 
 		 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();	
 		 driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();

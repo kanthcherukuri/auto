@@ -20,27 +20,25 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 	 
 		 @BeforeClass
 		 public void LaunchBrowser() throws Exception {  	 
-		 LoadBrowserProperties();
-		 driver.manage().window().maximize();
-	 		driver.get(doctors_Url);		 
-	 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 LoadBrowserProperties();	 
 	 		DoctorsPage= new DoctorsPage(driver);	
 	 		Browser=new TestUtils(driver);
+	 		Browser.openUrl(loginPage_Url);
+	 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 	DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	
-		   }       
+		   }     
+		 
+		 
+		 @DataProvider(name = "SendNotification")
+		    public Object[][] createData_DP1() throws Exception{
+		        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY808");
+		        return(retObjArr);
+		    }
+	  	
 	  		
-  		@DataProvider(name = "DP1")
- 		 public String[][] createData1() {
- 				return new String[][] {
- 						{ "yes","Raviashwin","R","99666623322","raviashwin@gmail.com","Diabetic" }
-
- 				};
- 			}
-	  		
-	  		
-	 	  @Test(dataProvider="DP1")
-	 	  public void SendNoficationForTodayTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{	
+	 	  @Test(dataProvider="SendNotification")
+	 	  public void SendNoficationForTodayTab(String firstname,String lastname,String mobile,String email,String problem) throws Exception{	
 	 		
 	 		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 	 		Thread.sleep(1000);
@@ -58,14 +56,12 @@ public class Appointment_ZOY808_SendNoficationOfTodayTab extends LoadPropMac {
 		 		Browser.CheckNotificationMessage("Email/SMS Notification has been sent to the patient");
 		 		Thread.sleep(2000);
 		 	}
-	 		//DoctorsPage.CheckPatientScreenSendNotificationOfTodayTab(firstname, lastname, email);
 	 		
 	 	  	}
 	 		  
 	 		@AfterMethod
 	 		public void AppointmentBulkCancellationAndLogout() throws Exception{
 	 			DoctorsPage.BulkCancel();
-	 			Thread.sleep(2000);
 	 			DoctorsPage.doctorlogout();
 	 			
 	 		}

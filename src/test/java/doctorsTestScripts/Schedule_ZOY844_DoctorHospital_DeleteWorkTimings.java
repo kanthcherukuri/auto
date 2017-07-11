@@ -38,7 +38,7 @@ public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings extends LoadPropMa
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
-		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		 Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 	 }

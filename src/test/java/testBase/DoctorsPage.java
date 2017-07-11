@@ -772,6 +772,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 public void DoctorAppointmentBookingForSunday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
 	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	 Browser.waitTill(1000);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
@@ -878,6 +879,7 @@ public void checkWorkDeletionConflict()
 public void cancelSundayAppt() throws InterruptedException
 {
 	driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	Thread.sleep(1000);
 	Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();
 	driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
