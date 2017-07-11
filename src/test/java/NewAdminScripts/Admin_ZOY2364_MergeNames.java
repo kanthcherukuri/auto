@@ -18,6 +18,7 @@ public class Admin_ZOY2364_MergeNames extends LoadPropMac{
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
+	
 	@BeforeClass	 
 	 public void LaunchBrowser() throws Exception {		
 	 LoadBrowserProperties(); 

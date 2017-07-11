@@ -35,7 +35,7 @@ public class Appointment_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","SonyPriya","K","9900011222","sonypriya@gmail.com","Diabetic" }
+					{ "yes","VedhaPriya","K","9900000222","vedhapriya@gmail.com","Diabetic" }
 
 			};
 		}

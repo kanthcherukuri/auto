@@ -37,7 +37,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	  @DataProvider(name = "DP1")
 		 public String[][] createData1() {
 				return new String[][] {
-						{ "yes","Suryanaryana","V","9933332222","suryanarayana@gmail.com","Diabetic" }
+						{ "yes","Satisha","V","9933662222","satish@gmail.com","Diabetic" }
 
 				};
 			}
@@ -70,7 +70,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 			driver.findElement(By.id(Elements_Doctors.patient_savefollowupappointment)).click();
 			Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 			String fullname=firstname+" "+lastname;
-			Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name:"+fullname);
+			Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name: "+fullname);
 			Thread.sleep(2000);
 	  		}
 	  
