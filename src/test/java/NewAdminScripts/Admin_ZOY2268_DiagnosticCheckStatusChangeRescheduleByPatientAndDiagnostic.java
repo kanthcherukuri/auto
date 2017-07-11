@@ -1,6 +1,9 @@
+//@author:Ch.Lakshmi kanth
+
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
@@ -21,11 +24,11 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 	@BeforeClass	 
 	 public void launchbrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
+	 Browser.openUrl(loginPage_Url);	 
+	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
 	
@@ -39,10 +42,12 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 	public void DiagnosticCheckStatusChangeReschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPage.diagnosticlogout();
-		Browser.openUrl(doctors_Url);
+		Browser.openUrl(loginPage_Url);
 		DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
-		driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
+		//driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(firstname);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
@@ -59,6 +64,11 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_SelectAvailableSlot);
 		Browser.CheckNotificationMessage("Appointment is rescheduled successfully");
 		
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
 	}
 
 }

@@ -58,19 +58,19 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_terms);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual3 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
-		Assert.assertEquals("TERMS AND CONDITIONS", actual3);
+		Assert.assertEquals("Terms of Use", actual3);
 		//Privacy
 		Browser.scrollbyxpath(Elements_Recipients.home_privacy);
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_privacy);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual4 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
-		Assert.assertEquals("PRIVACY POLICY", actual4);
+		Assert.assertEquals("Privacy Policy", actual4);
 		//Cancellation Refund
 		Browser.scrollbyxpath(Elements_Recipients.home_cancelRefund);
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_cancelRefund);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual5 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
-		Assert.assertEquals("Cancellation & Refund", actual5);
+		Assert.assertEquals("Cancellation / Refund Policy", actual5);
 	}
 	
 	@DataProvider(name="placeInfo")

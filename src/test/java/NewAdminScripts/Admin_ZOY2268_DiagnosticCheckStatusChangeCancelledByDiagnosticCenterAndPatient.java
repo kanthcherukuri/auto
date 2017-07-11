@@ -1,3 +1,5 @@
+//@author:Ch.Lakshmi kanth
+
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
@@ -21,7 +23,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 	 public void launchbrowser() throws Exception {		
 	 LoadBrowserProperties();
 	 		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
@@ -40,18 +42,22 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 			String status) throws Exception{
 		
 		Browser.openUrl( loginPage_Url);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl( loginPage_Url);
 		AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
-		driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
+		//driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
+		Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(firstname);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
 		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, status);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		if(status.equalsIgnoreCase("Cancelled By Diagnostic Center")){
 			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.StatusChange_SubmitCancelledByDoctor);
 		}else{
@@ -62,9 +68,12 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Diagnostic_Logout);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 	}
+	
+	
+	
 	}
 
 

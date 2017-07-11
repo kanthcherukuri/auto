@@ -34,8 +34,8 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 		 driver.findElement(By.id("schedule")).click();
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("10:00", "10:00");
-		 Browser.CheckNotificationMessage("Error in form: Monday: Slot begin should be less than slot end");
-		 Thread.sleep(2000);
+		 Browser.CheckNotificationMessage("Hospital Time Slot overlaps with Other Working Time Slot");
+		 Thread.sleep(3000);
 	 }
 	 
 	 @AfterMethod

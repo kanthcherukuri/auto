@@ -9,7 +9,7 @@ public class Elements_NewAdminDiagnostic
 	public static String MandatoryFields_dateofbirth, MandatoryFields_desc, MandatoryFields_regno, MandatoryFields_dateofreg;
 	public static String MandatoryFields_StatusCode,MandatoryFields_languagesSpoken,MandatoryFields_rating,MandatoryFields_startedyear;
 	
-	public static String Diagnostic_Menu;
+	public static String Diagnostic_Menu,Diagnostic_AppointmentMenu, Diagnostic_AppointmentMenu_Complete;
 	
 	public static String HomeVisit_Menu,HomeVisit_Active,HomeVisit_Charge,HomeVisit_ServiceRange,HomeVisit_SlotDuration;
 	public static String HomeVisit_AppointmentsPerSlot, HomeVisit_Monday,HomeVisit_AddHomeVisitHoursMonday,HomeVisit_AddHoursActive,
@@ -79,7 +79,8 @@ public class Elements_NewAdminDiagnostic
 	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel,Hospital_NameField,Hospital_ClickOnEdit,Hospital_SelectBikeParking,
 	Hospital_SelectCarParking,Hospital_SelectAmbulance,Hospital_SelectPremiumServices,Hospital_SelectICU;
 	
-	
+	public static String Admin_ClickOnAdministrationMenu,Administration_MergeNamesMenu,MergeName_SelectType,
+	MergeName_FromValue,MergeName_ToValue,MergeName_Submit,Admin_ClickOnDoctorMenu, Admin_Serachbox,Doctor_GetSpecialisation;
 	
 	
 	
@@ -281,16 +282,16 @@ public class Elements_NewAdminDiagnostic
 		Diagnostic_SearchBox="//input[@class='form-control input-sm']";
 		Diagnostic_ClickOnEdit="//button[@class='btn btn-xs edit-btn']";
 		HealthPackage_ClickOnEditButton="(//*[@id='0'])[1]";
-		HealthPackage_CheckPackageName="//*[@id='zoyDiagPackHealth']/div/div[2]/table/tbody/tr[2]/td[1]";
+		HealthPackage_CheckPackageName="//table[@class='table table-bordered text-center']//td[1]";
 		HealthPackage_EditDiscount="dp-0";
 		HealthPackage_EditFacilitationCharge="zcp-0";
-		DiagnosticTests_ClickOnEdit="(//*[@id='0'])[2]";
+		DiagnosticTests_ClickOnEdit="//i[@class='fa fa-pencil zoyEditTestsBtn']";
 		DiagnosticTests_EditTestName="diagEditTestName";
 		DiagnosticTests_EditDiscountPercentage="diagEditDiscountPercentage";
 		DiagnosticTests_EditZoyloCharge="diagEditZoyloChargePercentage";
 		DiagnosticTests_EditTestSave="zyDiagnosticEditTestSave";
 		DiagnosticTests_EditCancel="testEditCancel";
-		DiagnosticTests_CheckTestName="//*[@id='zoyDiagPackTest']/div/div[2]/table/tbody/tr[2]/td[1]";
+		DiagnosticTests_CheckTestName="(//table[@class='table table-bordered text-center'])[17]//td[1]";
 		
 		
 		 Diagnostic_AppointmentsUrl="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterAppointmentsView";
@@ -350,6 +351,21 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_SelectAmbulance="//input[@name='facilities.hasAmbulance']";
 		 Hospital_SelectPremiumServices="//input[@name='facilities.hasPremiumServicesAtHospital']";
 		 Hospital_SelectICU="//input[@name='facilities.hasIcuAtHospital']";
+		 
+		 
+		 Diagnostic_AppointmentMenu="//div[@id='accordionDiagnostic']/div[2]/a/div/h4";
+		 Diagnostic_AppointmentMenu_Complete="//*[@id='collapseDiagnoApmts']/div/ul/li[2]/a";
+		 
+		 
+		 Admin_ClickOnAdministrationMenu="//div[@class='tabLabels']//a[@href='/admin/approveUser']";
+		 Administration_MergeNamesMenu="//a[@href='/admin/mergeNames']";
+		 MergeName_SelectType="type";
+		 MergeName_FromValue="from-value";
+		 MergeName_ToValue="to-value";
+		 MergeName_Submit="changeNames";
+		 Admin_ClickOnDoctorMenu="//div[@class='tabLabels']//a[@href='/admin/serviceProvidersList']";
+		 Admin_Serachbox="//input[@type='search']";
+		 Doctor_GetSpecialisation="//*[@id='DataTables_Table_0']/tbody/tr/td[7]";
 		
 		return driver;
 	}

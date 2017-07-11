@@ -14,6 +14,7 @@
       	<class name="NewAdminScripts.Admin_ZOY2239_AddEditDoctorReference_Practice"/>
       	<class name="NewAdminScripts.Admin_ZOY2267_AddEditDoctorReferenceTag"/>
       	<class name="NewAdminScripts.Admin_ZOY2312_doctorChangePassword"/>
+      	<class name="NewAdminScripts.Admin_ZOY2339_DefaultScenarioEditHospitalDoctor"/>
     </classes>
   </test> <!-- newAdminDoctor -->
 </suite> <!-- NewAdminDoctorSuite -->

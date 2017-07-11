@@ -63,7 +63,7 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("22:00");
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
-		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
 		 Thread.sleep(4000);
 	 }
 	 

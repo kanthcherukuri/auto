@@ -22,25 +22,24 @@ public DoctorsPage DoctorsPage;
 	 
 		 @BeforeClass 
 		public void beforeClass() throws Exception {  	 
-			 LoadBrowserProperties();
-			driver.get(doctors_Url);		 
+			 LoadBrowserProperties();		 
 		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  DoctorsPage= new DoctorsPage(driver);	
 		  Browser=new TestUtils(driver);
+		  Browser.openUrl(loginPage_Url);
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }
-  
- 		@DataProvider(name = "DP1")
-		 public String[][] createData1() {
-				return new String[][] {
-						{ "yes","Dharmaraju","Sameera","9999393322","dharma@gmail.com","Diabetic" }
-
-				};
-			}
+		 
+		 @DataProvider(name = "Notification")
+		    public Object[][] createData_DP1() throws Exception{
+		        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY808Notification");
+		        return(retObjArr);
+		    }
+  		
  		
- 		
-	  @Test(dataProvider="DP1")
-	  public void SendNoficationForAllTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{	
+	  @Test(dataProvider="Notification")
+	  public void SendNoficationForAllTab(String firstname,String lastname,String mobile,String email,String problem) throws Exception{	
 		  
 		  DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem); 
 		  Thread.sleep(2000);
@@ -57,11 +56,10 @@ public DoctorsPage DoctorsPage;
 			if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
 			driver.findElement(By.xpath(Elements_Doctors.patient_sendnotification)).click();
 			System.out.println("Sucessfully clicked on Send Notification button");
-			Browser.CheckNotificationMessage("Email/SMS Notification sent to the Patient");
+			Browser.CheckNotificationMessage("Email/SMS Notification has been sent to the patient");
 
 			}
-		 // DoctorsPage.CheckPatientScreenSendNotificationOfAllTab(firstname, lastname, email);
-		  Thread.sleep(3000);
+		
 	  	}
 		  
 		@AfterMethod

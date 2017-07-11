@@ -209,9 +209,9 @@ public class DoctorsPage  {
 	public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeicon);
-		
-		WebDriverWait wait = new WebDriverWait(driver,1500);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.zy-status-wrapper")));
+//		WebDriverWait wait = new WebDriverWait(driver,1000);
+//		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.zy-status-wrapper")));
+		Thread.sleep(5000);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_nextmenu);
 		Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
@@ -219,18 +219,18 @@ public class DoctorsPage  {
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morningfirstcell);
 		Browser.waitFortheElementXpath(Elements_Doctors.appointment_changeslot);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeslot);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		//Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
 		
 		}
 	
 	
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
-
-		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
+		
+		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 		WebDriverWait wait = new WebDriverWait(driver, 8000);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
-		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
+		Browser.enterTextByID(Elements_Doctors.patient_searchbox, email);
 		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();	
@@ -248,13 +248,13 @@ public class DoctorsPage  {
 
 		public void ClickView() throws Exception
 		{
-			Thread.sleep(6000);
+			Thread.sleep(3000);
 			driver.findElement(By.xpath(Elements_Doctors.appointment_clickonview)).click();
 			Browser.waitFortheID("about");
 		}
 		
 		public void ClickonAlertmenu(){
-			driver.findElement(By.id("alerts")).click();
+			Browser.clickOnTheElementByID("alerts");
 			WebDriverWait wait=new WebDriverWait(driver,100);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
@@ -424,7 +424,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id("website")).sendKeys("www.zoylo.com");
 		Thread.sleep(1000);
 		driver.findElement(By.id("journals")).clear();
-		driver.findElement(By.id("journals")).sendKeys("https://www.omicsonline.org/open-access-journals-list.php");
+		driver.findElement(By.id("journals")).sendKeys("http://www.omicsonline.org/open-access-journals-list.php");
 		Thread.sleep(1000);
 		driver.findElement(By.id("books")).clear();
 		driver.findElement(By.id("books")).sendKeys("APJ Adbul Kalam");
@@ -512,7 +512,7 @@ public class DoctorsPage  {
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
 			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Schedule updated successfully");
 		}
 		
 		/*
@@ -664,14 +664,14 @@ public class DoctorsPage  {
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_fromdate);
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromdate)).sendKeys(date);
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromdate, date);
 		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_todate);
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_todate)).sendKeys(enddate);
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).click();
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_fromtime)).sendKeys("07:00");
-		driver.findElement(By.xpath(Elements_Doctors.bulkcancel_totime)).sendKeys("23:00");
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_todate, enddate);
+		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_fromtime);
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "07:00");
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_totime, "23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
-		//Thread.sleep(2000);
+		Thread.sleep(2000);
 	  
 			}
 
@@ -739,7 +739,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
 	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
-	 //Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
 	 Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name: "+fullname);
  }
@@ -772,6 +772,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 public void DoctorAppointmentBookingForSunday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
 	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	 Browser.waitTill(1000);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
@@ -878,6 +879,7 @@ public void checkWorkDeletionConflict()
 public void cancelSundayAppt() throws InterruptedException
 {
 	driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	Thread.sleep(1000);
 	Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();
 	driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();

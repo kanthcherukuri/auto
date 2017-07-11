@@ -25,7 +25,7 @@ public class Admin_ZOY2238_editHospitalDoctor extends LoadPropMac
 	}
 	
 	@Test(dataProvider="clinicDoctorDetails")
-	public void editHospitalDoctor(String emailID, String isSEOInfoTrue, String metaTitle)
+	public void editHospitalDoctor(String emailID, String isSEOInfoTrue, String metaTitle) throws Exception
 	{
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);

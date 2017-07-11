@@ -15,28 +15,29 @@ import testBase.TestUtils;
 public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPage;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 	@BeforeClass
 	public void beforeClass() throws Exception {
-	LoadBrowserProperties();
-	 driver.manage().window().maximize();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DoctorsPage= new DoctorsPage(driver);			
-	 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		LoadBrowserProperties(); 
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DoctorsPage= new DoctorsPage(driver);
+		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().window().maximize();	
+		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	  } 
 	
-	@DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Southkorea","S","9655559923","southko@gmail.com","Diabetic" }
+	@DataProvider(name ="AlertAppReSchedule")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Alert", "ZOYAlertAppReSchedule");
+        return(retObjArr);
+    }
 	
-			};
-		}
+
 
 	
-	@Test(dataProvider="DP1")
+	@Test(dataProvider="AlertAppReSchedule")
 	public void CheckAlertforAppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
@@ -47,7 +48,7 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 		System.out.println("value:"+id);
 		String alert=driver.findElement(By.xpath("(//span[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		Assert.assertTrue(alert.contains("has been rescheduled"));
+		Assert.assertTrue(alert.contains("You have RESCHEDULED the appointment"));
 		Thread.sleep(1000);
 		Assert.assertTrue(alert.contains(id));
 		
@@ -56,7 +57,6 @@ public class Appointment_ZOY_ValidateRescheduleAlert extends LoadPropMac{
 	@AfterMethod
 	public void bulkCancelandlogout() throws Exception{
 		DoctorsPage.BulkCancel();
-		Thread.sleep(3000);
 		DoctorsPage.doctorlogout();
 	}
 	

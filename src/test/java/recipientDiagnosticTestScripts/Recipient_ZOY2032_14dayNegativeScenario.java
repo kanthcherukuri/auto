@@ -23,22 +23,23 @@ public class Recipient_ZOY2032_14dayNegativeScenario extends LoadPropMac
 	public void daysNegativeScenraio() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
-		String dcName=driver.findElement(By.xpath("//span[@class='zy-rec-diag-m-d-name']")).getText();
+		String dcName=Browser.getTextByXpath(Elements_Recipients.dcNameOnProfilePage);
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
 		RecipientPage.makePayment();
-		String checkdcName=driver.findElement(By.xpath("(//div[@class='book-dtbox']//h3)[2]")).getText();
+		String checkdcName=Browser.getTextByXpath(Elements_Recipients.dcNameOnThankYouPage);
 		if(checkdcName.contains(dcName))
 		{
 			System.out.println("DC appointment thank you page rendered");
 		}
+
 		Browser.waitFortheElementXpath("//a[@class='desktop-logo']");
 		driver.findElement(By.xpath("//a[@class='desktop-logo']")).click();		
 		Browser.clickOnTheElementByID("diag-search-icon");
+
 		RecipientPage.searchInZoylodetailMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		Browser.waitFortheID("schedule-li");

@@ -97,7 +97,6 @@ public class DiagnosticPage {
 		
 	public void diagnosticlogout() throws Exception{
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
-		//Thread.sleep(5000);
 		Browser.waitFortheID(Elements_Diagnostics.clickonmyaccountmenu);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
 		//Thread.sleep(5000);
@@ -346,8 +345,10 @@ public class DiagnosticPage {
 		Thread.sleep(2000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Diagnostics.windowsavebutton)).click();
 		//Browser.CheckNotificationMessage("Appointment is confirmed. Patient Name:"+firstname);
+		Thread.sleep(2000);
 	    }
 		
 	
@@ -658,7 +659,7 @@ public class DiagnosticPage {
 			driver.findElement(By.id("consultationNotesShare")).click();
 			Thread.sleep(2000);
 			driver.findElement(By.id("Email-share")).click();
-			Browser.CheckNotificationMessage("your email has been sent successfully");
+			Browser.CheckNotificationMessage("E-mail sent successfully");
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
@@ -667,8 +668,8 @@ public class DiagnosticPage {
 			driver.findElement(By.id("all_reports_upload")).click();
 			Thread.sleep(6000);
 			driver.findElement(By.id("appt-reports-btn")).click();
-			Thread.sleep(3000);
-			Browser.CheckNotificationMessage("Reports status changed successful");
+			Thread.sleep(6000);
+			Browser.CheckNotificationMessage("All reports uploaded successfully");
 			}
 		}
 	

@@ -39,38 +39,34 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 		  }
 	 
 	 
-	 @DataProvider(name = "DP1")
-//	    public Object[][] createData_DP1() throws Exception{
-//	  Object[][] retObjArr=TestUtils.getTableArray("TestData/Data.xls","Kanth","ZOY801");
-//	        return(retObjArr);
-//	    }
+	 @DataProvider(name = "Reschedule")
+	    public Object[][] createData_DP1() throws Exception{
+	  Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY801");
+	        return(retObjArr);
+	    }
 	 
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Yamahaeight","Y","9191219222","yamahaeight@gmail.com","Diabetic" }
-
-			};
-		}
-
-	 
-	
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void AppointmentReschedule(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+ 	
+	 @Test(dataProvider="Reschedule")
+	public void AppointmentReschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		 
 		 
 			 DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 			 Thread.sleep(5000);
 			 DoctorsPage.reschedule(firstname, lastname, mobile, email, problem); 
-			 Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
-			 Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
+			 //Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
+			 	Browser.waitFortheID(Elements_Doctors.patient_id);
+			 	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 				WebDriverWait wait = new WebDriverWait(driver, 5000);
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
 				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);
 				driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 				Browser.clickOnTheElementByXpath(Elements_Doctors.patient_alltab);
+				Thread.sleep(1000);
 				Browser.waitFortheElementXpath(Elements_Doctors.patient_alltabfullname);
 				String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
+				System.out.println("Name : "+name);
 				String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
+				System.out.println("Schedule is : "+schedule);
 				String fullname=firstname+" "+lastname;
 				if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Rescheduled")){
 					System.out.println("Appointment Rescheduled Is Sucessfully Verified");

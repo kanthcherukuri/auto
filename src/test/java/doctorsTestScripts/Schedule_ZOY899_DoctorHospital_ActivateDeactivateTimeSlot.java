@@ -54,15 +54,14 @@ public class Schedule_ZOY899_DoctorHospital_ActivateDeactivateTimeSlot extends L
 		 driver.findElement(By.id(Elements_Doctors.Schedule_Hospital_SundayMenu)).click();
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle)).click();
-		 Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
-		 Thread.sleep(3000);
+		// Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflicts");
+		//Thread.sleep(3000);
          
 		
 	 }
 	 
 	 @AfterMethod
 	 public void DeleteWorktimeandAppointment() throws Exception{
-		 Thread.sleep(3000);
 		 DoctorsPage.cancelSundayAppt(); 
 		 Thread.sleep(3000);
 		 driver.findElement(By.id(Elements_Doctors.schedule)).click();

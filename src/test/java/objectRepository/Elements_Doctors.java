@@ -280,12 +280,12 @@ public class Elements_Doctors  {
 			 patientallmenuname="all";
 			 appointment_clickoncancelmenu="cancel";
 			 appointment_cancelconfirmation="confirmYes";
-			 appointment_selectcancelreason="//*[@id='cancel-appointment-popup']/div/div/div[3]/select";
+			 appointment_selectcancelreason="//div[@class='res-slec']/select";
 			 
 			 //Patient screen send notification
 		 
 			 patient_id="patients";
-			 patient_alltab="html/body/div[9]/div[3]/div[2]/div/ul/li[2]";
+			 patient_alltab="//li[@name='all']";
 			 patient_alltabdivsize="//*[@id='all']/div";
 			 patient_sendnotficationbutton="//button[text()='Send Notification']";
 			patient_sendnotification="//*[@id='resendNotification']/button";

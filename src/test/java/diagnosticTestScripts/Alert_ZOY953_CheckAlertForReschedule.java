@@ -19,8 +19,7 @@ public class Alert_ZOY953_CheckAlertForReschedule extends LoadPropMac{
 	
 	@BeforeClass
 	  public void LaunchBrowser() throws Exception {
-		LoadBrowserProperties();
-		 driver.manage().window().maximize();
+			LoadBrowserProperties();
 		 driver.get(doctors_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
@@ -49,7 +48,7 @@ public class Alert_ZOY953_CheckAlertForReschedule extends LoadPropMac{
 		DiagnosticPageZoylo.clickOnAlertMenu();
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
-		Assert.assertTrue(alert.contains("You have RESCHEDULED the lab visit appointment of "+firstname));
+		Assert.assertTrue(alert.contains("You have RESCHEDULED the lab visit appointment for "+firstname));
 		Thread.sleep(1000);
 		Assert.assertTrue(alert.contains(Id));
 		

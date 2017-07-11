@@ -703,7 +703,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_MondayLunchStart);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_MondayActiveCheckBox)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDoctors.workDays_MondayAddSlotsBtn)).click();
-			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_ActiveCheckBox);
+			//Thread.sleep(10000);
+			Browser.waitFortheID(Elements_NewAdminDoctors.workDays_hospitalType);
 			Browser.selectbyID(Elements_NewAdminDoctors.workDays_hospitalType, mondayHospitalName);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workStartTime)).sendKeys(mondayStartTime);
 			driver.findElement(By.id(Elements_NewAdminDoctors.workDays_workEndTime)).sendKeys(mondayEndTime);
@@ -964,13 +965,15 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: isSEOInfoTrue
 	 * @ return			: NA
 	 */
-	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle)
+	public void seoInfoEdit(String isSEOInfoTrue, String metaTitle) throws Exception
 	{
 		if(isSEOInfoTrue.equalsIgnoreCase("true"))
 		{
+			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab)).click();
 			Browser.waitFortheID(Elements_NewAdminDoctors.seoInfoTab_metaTitle);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).clear();
+			Thread.sleep(1000);
 			driver.findElement(By.id(Elements_NewAdminDoctors.seoInfoTab_metaTitle)).sendKeys(metaTitle);
 		}
 	}
