@@ -53,10 +53,11 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 			 			 
 			  //Test Starts-Here
 			  Browser.openUrl(loginPage_Url);			
-		      //Verify Recipient Login with valid details
 			  RecipientPage.recipientLogin(Username, Password);
-			  Thread.sleep(2000);
+			  Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+			  Thread.sleep(5000);
 			  RecipientPage.goToMyAccounts("My Favourites");
+			  Thread.sleep(5000);
 			  driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click(); 
 			  String Notification = RecipientPage.getNotificationMesssage();
 			  Assert.assertEquals(Notification, "Doctor is not working");

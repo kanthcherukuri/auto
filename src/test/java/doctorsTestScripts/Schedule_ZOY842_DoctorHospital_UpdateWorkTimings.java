@@ -41,7 +41,7 @@ public class Schedule_ZOY842_DoctorHospital_UpdateWorkTimings extends LoadPropMa
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("14:00");
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
-		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
 		 Thread.sleep(3000);
 	 }
 	 

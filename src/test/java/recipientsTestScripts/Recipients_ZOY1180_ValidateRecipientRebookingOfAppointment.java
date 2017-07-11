@@ -45,13 +45,11 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 Browser.openUrl(loginPage_Url);			
 			 //Verify Recipient Login with valid details
 			 RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-			 Thread.sleep(2000);
+			 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+			 Thread.sleep(5000);
 			 RecipientPage.goToMyAccounts("Appointments");
-			 Thread.sleep(5000);// Added for view
-			 driver.findElement(By.id("hist")).click();  // my History
-			 Thread.sleep(5000);
-			 driver.findElement(By.cssSelector("a.callLink > div.call-btn")).click();
-			 Thread.sleep(5000);
+			 Browser.clickOnTheElementByID("hist");
+			 Browser.clickOnTheElementByXpath("//div[@class='call-btn' and contains(.,'Re-Book')]");
 			 RecipientPage.selectDefaultSlot();
 			 RecipientPage.confirmAppointment("Fever");
 			 RecipientPage.makePayment(); 

@@ -63,8 +63,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	public void HomePageDiagnosticsSearch(String runmode ,String City, String Locality,String Specialization,String Expected) throws Exception {
 
 		if(runmode.equals("yes")){
-			//Test Starts - Here
-			// Browser.openUrl(base_url);
+
 			driver.findElement(By.xpath("//*[@id='onlyDiagnostics']/a")).click();			 
 			HomePage.searchDiagnosticsZoylo(City, Locality, Specialization);
 			Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
@@ -99,7 +98,6 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 		 	Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 			Thread.sleep(10000);
 			RecipientPage.clickOnMapICon();
-			Thread.sleep(10000);
 			RecipientPage.bookAppointmentOnDiagnostics();
 			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
 			driver.findElement(By.id("packages_search")).sendKeys(pkg);

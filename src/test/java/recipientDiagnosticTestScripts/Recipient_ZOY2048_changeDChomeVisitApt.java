@@ -22,7 +22,7 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 	public RecipientPage RecipientPage;
 	
 	@Test()
-	public void bookDChomeVisitapt() throws InterruptedException
+	public void changeDChomeVisitApt() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);

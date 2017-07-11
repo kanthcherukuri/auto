@@ -24,28 +24,34 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	
 	
 	 @BeforeClass
-	  public void beforeClass() throws Exception { 
+	  public void LaunchBrowser() throws Exception { 
 		  LoadBrowserProperties();
-		  driver.get(doctors_Url);		 
-		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  DoctorsPage= new DoctorsPage(driver);		
 		  Browser=new TestUtils(driver);
+		  Browser.openUrl(loginPage_Url);
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  }
-		       
+		
+	 
+	 @DataProvider(name = "FollowUp")
+	    public Object[][] createData_DP1() throws Exception{
+	        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY819");
+	        return(retObjArr);
+	    }
 	  
-	  @DataProvider(name = "DP1")
-		 public String[][] createData1() {
-				return new String[][] {
-						{ "yes","Satisha","V","9933662222","satish@gmail.com","Diabetic" }
-
-				};
-			}
+//	  @DataProvider(name = "DP1")
+//		 public String[][] createData1() {
+//				return new String[][] {
+//						{ "yes","Satisha","V","9933662222","satish@gmail.com","Diabetic" }
+//
+//				};
+//			}
 	  
 	 
 	  
-	  @Test(dataProvider="DP1")
-	  public void CheckingFollowupFunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	  @Test(dataProvider="FollowUp")
+	  public void CheckingFollowupFunctionality(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		  
 		  DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
@@ -70,7 +76,7 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 			driver.findElement(By.id(Elements_Doctors.patient_savefollowupappointment)).click();
 			Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 			String fullname=firstname+" "+lastname;
-			Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name: "+fullname);
+			Browser.CheckNotificationMessage("Follow-up appointment is confirmed. Patient name: "+fullname);
 			Thread.sleep(2000);
 	  		}
 	  

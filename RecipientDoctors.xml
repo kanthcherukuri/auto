@@ -7,7 +7,7 @@
   </listeners>
   <test name="Test">
     <classes>
-      <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
+<!--       <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
       <class name="recipientsTestScripts.Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot"/>
       <class name="recipientsTestScripts.Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment"/>
           
@@ -26,7 +26,9 @@
       <class name="recipientsTestScripts.Recipients_ZOY1067_ValidateRecipientAccountCreationValidations"/>
       <class name="recipientsTestScripts.Recipient_ZOY1063_ValidateBookAnAppointment"/>
       <class name="recipientsTestScripts.Recipients_ZOY1192_ValidateRecipientLogout"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1176_ValidateRecipientsPasswordChange"/>
+      <class name="recipientsTestScripts.Recipients_ZOY1176_ValidateRecipientsPasswordChange"/> -->
+      
+      
       <class name="recipientsTestScripts.Recipient_ZOY1189_ValidateRecipientReferFriend"/>
       <class name="recipientsTestScripts.Recipient_ZOY1332_ValidateHomePageElements"/>  
       <class name="recipientsTestScripts.Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors"/>

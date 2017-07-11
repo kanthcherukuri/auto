@@ -18,30 +18,32 @@ import testBase.TestUtils;
 public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 	
 	public DoctorsPage DoctorsPage;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 
 
 
 	@BeforeClass
-	public void beforeClass() throws Exception { 
-		  LoadBrowserProperties();
-		  driver.get(doctors_Url);		 
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			DoctorsPage= new DoctorsPage(driver);			
-			DoctorsPage.SignIn(DoctorsLogin_usernameone,DoctorsLogin_passwordone);
-			  }
+		public void LaunchBrowser() throws Exception {		
+			 LoadBrowserProperties();	 
+			 DoctorsPage= new DoctorsPage(driver);	
+			 Browser= new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+	}
+	
+	
+	
+	@DataProvider(name = "CalendarDate")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY774");
+        return(retObjArr);
+    }
 		  
 		
-		@DataProvider(name = "DP1")
-		 public String[][] createData1() {
-				return new String[][] {
-						{ "yes","Joshjacab","G","9999116622","joshjacab@gmail.com","Diabetic" }
-
-				};
-			}
 		
-	@Test(dataProvider="DP1")
-	public void CheckingDashBoradCalendarDatefunctionality(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	@Test(dataProvider="CalendarDate")
+	public void CheckingDashBoradCalendarDatefunctionality(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);

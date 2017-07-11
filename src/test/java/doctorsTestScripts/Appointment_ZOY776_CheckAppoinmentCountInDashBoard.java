@@ -16,27 +16,30 @@ import testBase.TestUtils;
 public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadPropMac{
 	
 	public DoctorsPage DoctorsPage;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 		@BeforeClass
-		public void beforeClass() throws Exception {
-			LoadBrowserProperties();
-			 driver.get(doctors_Url);		 
+		public void LaunchBrowser() throws Exception {
+			
+			LoadBrowserProperties();	 
+			 DoctorsPage= new DoctorsPage(driver);	
+			 Browser= new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			 DoctorsPage= new DoctorsPage(driver);			
-			 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+			 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  } 
 		
-		@DataProvider(name = "DP1")
-		 public String[][] createData1() {
-				return new String[][] {
-						{ "yes","Haritha","H","9999999922","Haritha@gmail.com","Diabetic" }
-
-				};
-			}
 		
-		@Test(dataProvider="DP1")
-		public void AppointmentCountInDashBoard(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		@DataProvider(name = "CountInDashBoard")
+	    public Object[][] createData_DP1() throws Exception{
+	        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY776");
+	        return(retObjArr);
+	    }
+		
+
+		
+		@Test(dataProvider="CountInDashBoard")
+		public void AppointmentCountInDashBoard(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 			DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 			Thread.sleep(3000);
 			driver.findElement(By.id(Elements_Doctors.dashboard_clickondashboardmenu)).click();

@@ -19,42 +19,35 @@ import testBase.TestUtils;
 public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 
 	public DoctorsPage DoctorsPage;
-	 public TestUtils exceldata;
+	 public TestUtils Browser;
 	
 
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void LaunchBrowser() throws Exception {
-		 LoadBrowserProperties();
-		 driver.get(doctors_Url);		 
+		 LoadBrowserProperties();	 
+		 DoctorsPage= new DoctorsPage(driver);	
+		 Browser= new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPage= new DoctorsPage(driver);			
-		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);	
+		 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }
 	 
-	 @DataProvider(name = "DP1")
-	   // public Object[][] createData_DP1() throws Exception{
-	  //Object[][] retObjArr=TestUtils.getTableArray("TestData\\DoctorAppointment1.xls", "doc", "TC1");
-	    //    return(retObjArr);
-	    //}
+	 @DataProvider(name = "AppointmentCancel")
+	   public Object[][] createData_DP1() throws Exception{
+	  Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY806");
+	    return(retObjArr);
+	    }
 	 
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","konylabs","K","9999929191","konylabs@gmail.com","Diabetic" }
 
-			};
-		}
+@Test(dataProvider="AppointmentCancel")
 
-
-
-@Test(dataProvider="DP1",groups = { "Regression","High" })
-
-public void doctorappointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+public void doctorappointment(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DoctorsPage.DoctorsAppointmentforTomorrow(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
 		DoctorsPage.Cancel(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
+		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 		Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver, 100);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(Elements_Doctors.patient_searchbox)));

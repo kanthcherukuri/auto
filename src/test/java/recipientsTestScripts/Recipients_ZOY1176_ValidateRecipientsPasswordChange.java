@@ -52,6 +52,8 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 		  Browser.openUrl(loginPage_Url);			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(username, password);
+		  Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		  Thread.sleep(5000);			
 		  RecipientPage.goToMyAccounts("Change Password");
 		  Thread.sleep(2000);
 		  driver.findElement(By.id("currentPassword")).sendKeys(currentPassword);

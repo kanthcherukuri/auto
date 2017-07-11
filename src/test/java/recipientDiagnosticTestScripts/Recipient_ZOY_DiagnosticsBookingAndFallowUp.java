@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.SkipException;
 import org.testng.annotations.*;
 /*
@@ -86,12 +88,12 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				//Login as Recipient
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-				Thread.sleep(2000);
-				
+                Thread.sleep(20000);				
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
-				Browser.scrollbyID("submitReview");
+				Browser.scrollbyID("submitReview");				
 				driver.findElement(By.id("skipForLater")).click();
-				RecipientPage.goToAppointments();
+				Thread.sleep(5000);
+				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
 				Thread.sleep(2000);
 				String Appointment_Status_Completed=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();

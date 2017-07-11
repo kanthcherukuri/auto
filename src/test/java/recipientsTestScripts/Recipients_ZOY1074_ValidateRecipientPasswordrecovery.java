@@ -48,16 +48,12 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 			 			 
 			 //Test Starts-Here
 			 Browser.openUrl(loginPage_Url);
-			 
-		
-		
 			 //verifing email validation
 			 driver.findElement(By.id("forgotPassword")).click();
 			 Browser.waitTill(10);
 			 driver.findElement(By.id("resetPassword")).click();
-			 String emialMandatory=driver.findElement(By.id("email-err")).getText();
-			 Assert.assertEquals(emialMandatory, "Email or Mobile field is mandatory");
-			 
+			 String emialMandatory=driver.findElement(By.xpath("//div[@class='err-msg-mob-email']")).getText();
+			 Assert.assertEquals(emialMandatory, "Email or Mobile field is mandatory");			 
 			 //verifying Email with valid data
 			 driver.findElement(By.id("mobileOrEmail")).sendKeys("ganeshmandala@gmail.com");
 			 driver.findElement(By.id("resetPassword")).click();

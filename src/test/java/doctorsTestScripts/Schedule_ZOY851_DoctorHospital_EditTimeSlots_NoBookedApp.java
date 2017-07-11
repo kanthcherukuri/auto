@@ -37,7 +37,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("16:00");
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
-		 Browser.CheckNotificationMessage("Schedule Updated Successfully");
+		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
 		 Thread.sleep(2000);
 	 }
 	 @AfterMethod

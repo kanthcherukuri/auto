@@ -30,14 +30,13 @@ public class Recipient_ZOY2001_dcPaymentNegativeScenario extends LoadPropMac
 		String dcName=Browser.getTextByXpath(Elements_Recipients.dcNameOnProfilePage);
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
-		Browser.clickOnTheElementByID(Elements_Recipients.makePaymentBtn);     //Make payment
+		Browser.clickOnTheElementByID("proceed");
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();
-		Browser.waitFortheID(Elements_Recipients.makePaymentBtn);
+		Browser.waitFortheID("proceed");
 		driver.navigate().back();
-		Browser.waitFortheElementXpath(Elements_Recipients.dcBookAptPageHeader);
-		driver.navigate().back();
-		Browser.waitforTextbyxpath(Elements_Recipients.dcNameOnProfilePage, dcName);
+		Browser.waitforTextbyxpath("//h2[contains(., '"+Diagnostic_Name+"')]", Diagnostic_Name);
+
 	}
 	
 	@BeforeClass

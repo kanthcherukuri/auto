@@ -27,25 +27,24 @@ public class Appointment_ZOY799_SearchFunctionalityInPatientScreenTodayTab exten
 	
 	@BeforeClass
 	public void LaunchBrowser() throws Exception {  
-		  	LoadBrowserProperties();
-		  	driver.get(doctors_Url);		 
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  	LoadBrowserProperties();		 
 			DoctorsPage= new DoctorsPage(driver);
 			Browser=new TestUtils(driver);
+			Browser.openUrl(loginPage_Url);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		
 			  }	
 	
-	@DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Elurubusstop","N","9966226611","elurubus@gmail.com","Diabetic" }
-
-			};
-		}
+	@DataProvider(name = "PatientScreenTodayTab")
+    public Object[][] createData_DP1() throws Exception{
+        Object[][] retObjArr=TestUtils.getTableArray("TestData/DoctorProvider.xls","Doctor", "ZOY799Today");
+        return(retObjArr);
+    }
 	
-	@Test(dataProvider="DP1")
-	public void SearchFunctionalityInPatientScreenTodayTab(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	
+	@Test(dataProvider="PatientScreenTodayTab")
+	public void SearchFunctionalityInPatientScreenTodayTab(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);

@@ -77,11 +77,7 @@ public class Recipient_ZOY1170_ValidateRecipientsMyAccountReviews extends LoadPr
 			Browser.scrollbyID("comment");
 			driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 			driver.findElement(By.id("submitReview")).click();
-			Browser.waitTill(60);
-			Thread.sleep(2000);
-			String ReviewMesg= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			System.out.println("Review mesg"+ReviewMesg);
-			Assert.assertEquals(ReviewMesg, "Review submitted successfully.");
+			Browser.CheckNotificationMessage("Review submitted successfully.");
 			
 
 
