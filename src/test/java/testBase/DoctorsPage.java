@@ -512,7 +512,7 @@ public class DoctorsPage  {
 			driver.findElement(By.id(Elements_Doctors.sunEndTime)).clear();
 			driver.findElement(By.xpath(Elements_Doctors.sunToggle)).click(); //toggle
 			driver.findElement(By.xpath(Elements_Doctors.submitSchedule)).click();
-			Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			Browser.CheckNotificationMessage("Schedule updated successfully");
 		}
 		
 		/*
