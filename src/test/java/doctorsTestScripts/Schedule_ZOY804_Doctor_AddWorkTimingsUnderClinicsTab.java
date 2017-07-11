@@ -21,8 +21,10 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab extends LoadPr
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.BulkCancel();
-		Thread.sleep(5000);
+		Browser.CheckNotificationMessage("Appointments cancelled successfully");
+		//Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		Thread.sleep(6000);
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.addClinicWorkTimings("10:00", "12:00");
 		Thread.sleep(6000);

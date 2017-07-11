@@ -381,6 +381,7 @@ public class TestUtils {
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
 	    Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
+	    //driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 	    //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='zy-status-wrapper']"))); 
 	}
 	
