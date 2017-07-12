@@ -43,6 +43,15 @@ public class Admin_ZOY2312_doctorChangePassword extends LoadPropMac
 		doctorPage.SignIn(emailID, changedPassword);
 		Browser.waitFortheID("dashBoard");
 		System.out.println(emailID+" has been logged in with new changed password "+changedPassword);
+		closeapp();
+		launchapp();
+		admin.adminSignIn(admin_user, admin_password);
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID(emailID);
+		admin.clickEditbutton();
+		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
+		admin.doctorChangePassword("Zoylo@123");
+		System.out.println(emailID+" password has been changed to Zoylo@123");
 	}
 	
 	@BeforeClass
