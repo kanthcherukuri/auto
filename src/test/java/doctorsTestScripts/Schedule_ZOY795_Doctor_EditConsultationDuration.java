@@ -35,7 +35,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 		Browser.scrollbyxpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']");
 		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
 		Thread.sleep(3000);
-		Browser.CheckNotificationMessage("Schedule Updated successfully");
+		Browser.CheckNotificationMessage("Schedule updated successfully");
 		Thread.sleep(3000);
 	}
   
