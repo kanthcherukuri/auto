@@ -748,6 +748,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_firstname);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
 	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
 	 Thread.sleep(1000);
@@ -787,7 +788,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
   */
 public void DoctorAppointmentBookingForSunday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 	 
-	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
 	 Browser.waitTill(1000);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();
@@ -837,7 +838,7 @@ public void editScheduleDefaultClinicAddress(String addLineOne, String Locality,
 	driver.findElement(By.id(Elements_Doctors.pincode)).sendKeys(pinCode);
 	Browser.scrollbyID(Elements_Doctors.addSave); //Scroll to save
 	driver.findElement(By.id(Elements_Doctors.addSave)).click();
-	Browser.CheckNotificationMessage("Address Updated Successfully");
+	Browser.CheckNotificationMessage("Clinic details updated successfully");
 }
 
 /*
@@ -855,18 +856,18 @@ public void editScheduleaminitiesServices(String serviceName) throws Exception
 	driver.findElement(By.xpath(Elements_Doctors.aminitiesTab)).click();
 	driver.findElement(By.id(Elements_Doctors.aminitiesAmbulance)).click();
 	driver.findElement(By.id(Elements_Doctors.aminitiesSave)).click();
-	Browser.CheckNotificationMessage("Amenities Updated Successfully");
+	Browser.CheckNotificationMessage("Clinic details updated successfully");
 	Thread.sleep(5000);
 	driver.findElement(By.xpath(Elements_Doctors.servicesTab)).click();
 	driver.findElement(By.id(Elements_Doctors.addServices)).click();
 	driver.findElement(By.xpath(Elements_Doctors.servicesText)).sendKeys(serviceName);
 	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
-	Browser.CheckNotificationMessage("Services Updated Successfully");
+	Browser.CheckNotificationMessage("Clinic details updated successfully");
 	Thread.sleep(5000);
 	driver.findElement(By.id(Elements_Doctors.removeService)).click();
 	Thread.sleep(1000);
 	driver.findElement(By.id(Elements_Doctors.serviceSave)).click();
-	Browser.CheckNotificationMessage("Services Updated Successfully");
+	Browser.CheckNotificationMessage("Clinic details updated successfully");
 }
 
 /*
@@ -894,7 +895,8 @@ public void checkWorkDeletionConflict()
  */
 public void cancelSundayAppt() throws InterruptedException
 {
-	driver.findElement(By.id(Elements_Doctors.appointments_doctortab)) .click();
+	System.out.println("Entered cancelSunday method");
+	driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
 	Thread.sleep(1000);
 	Browser.waitFortheElementXpath(Elements_Doctors.appointment_sundayMenu);
 	driver.findElement(By.xpath(Elements_Doctors.appointment_sundayMenu)).click();

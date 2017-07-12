@@ -105,7 +105,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	
 	    }
 	 //
-	 @Test(groups = { "Regression","High" },priority=6)
+	 @Test(groups = { "Regression","High" },priority=4)
 	 public void validateClearFiltersHyperLinkInMapSearch() throws Exception {
 
 			//Verify Specialization Filter Option
@@ -121,7 +121,20 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			Assert.assertEquals(FilterCount, "0");
 			
 	    }
-	
+	 //
+	 @Test(groups = { "Regression","High" },priority=5)
+	 public void validateDiagnosticsFilterHomePickupSamples() throws Exception {
+
+			//Verify Specialization Filter Option
+		    RecipientPage.clickOnFilterImg();
+		    Browser.clickOnTheElementByXpath("//span[contains(.,'Home PickUp Sample')]");
+		    Browser.clickOnTheElementByXpath("//div[@id='doesHomeVisit']/span");
+		    driver.findElement(By.id("applyFilter")).click();
+			Browser.clickOnTheElementByXpath("//h1[@class='zy-diagnostic-name']/span");
+		    //Verify Home Pickup
+			
+			Browser.clickOnTheElementByXpath("//*[@id='home_pickup']");
+	    }
 	 
 	 @AfterClass(groups = { "Regression","High" })
 	 
