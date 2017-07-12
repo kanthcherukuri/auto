@@ -29,39 +29,41 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
   {
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	doctorsPage.BulkCancel();
-		Thread.sleep(5000);
+	  	Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		Thread.sleep(6000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		activateDeactivate();
-		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
-		Thread.sleep(5000);
+		Browser.CheckNotificationMessage("Conflict with existing appointments. To deactivate the clinic, please cancel the scheduled appointments");
+		Thread.sleep(6000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		activateDeactivate();
-		Browser.CheckNotificationMessage("Schedule Updated Successfully");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
+		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
+		Thread.sleep(6000);
   }
   
   public void activateDeactivate() throws Exception
   {
 	  	Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
-		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+		//driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
   }
 	  
   @BeforeClass

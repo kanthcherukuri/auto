@@ -30,14 +30,14 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
   {
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	doctorsPage.BulkCancel();
-		Thread.sleep(5000);
+	  	Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		Thread.sleep(6000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();

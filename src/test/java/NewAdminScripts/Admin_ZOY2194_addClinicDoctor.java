@@ -59,14 +59,14 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 
 		Browser.CheckNotificationMessage("Doctor created successfully");
 		
-		if(removeFromDB.equalsIgnoreCase("true"))
+		if(removeFromDB.equalsIgnoreCase("false"))
 		{
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
 			System.out.println(emailID+" removed from providers and users collections.");
 		}
 
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 	}
 	
 	@BeforeClass

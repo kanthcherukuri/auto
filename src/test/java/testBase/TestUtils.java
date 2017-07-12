@@ -197,9 +197,7 @@ public class TestUtils {
 		public void waitforTextbyxpath(String xpath, String value)
 		{
 			WebDriverWait wait = (new WebDriverWait(driver, 60));
-			
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
-
 		}
 		
 		//Wait for text to be present by ID
@@ -381,6 +379,7 @@ public class TestUtils {
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
 	    Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
+	    //driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 	    //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='zy-status-wrapper']"))); 
 	}
 	

@@ -22,7 +22,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	 public TestUtils Browser;
 	
 
-	 @BeforeClass(groups = { "Regression","High" })	
+	 @BeforeClass
 	 public void LaunchBrowser() throws Exception {
 		 LoadBrowserProperties();	 
 		 DoctorsPage= new DoctorsPage(driver);	
@@ -39,7 +39,7 @@ public class Appointment_ZOY806_Cancel extends LoadPropMac  {
 	    }
 	 
 
-@Test(dataProvider="AppointmentCancel")
+	 @Test(dataProvider="AppointmentCancel")
 
 public void doctorappointment(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
