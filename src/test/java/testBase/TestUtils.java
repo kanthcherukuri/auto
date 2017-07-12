@@ -531,7 +531,7 @@ public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String U
 	           //Search for mail from Zoylo
 	           for (int i = 0; i<=5; i++) {
 	               messages = folder.search(new SubjectTerm(Subject),folder.getMessages());
-	               //System.out.println("mail has found");
+	               System.out.println(messages);
 	               //Wait for 10 seconds
 	               if (messages.length == 0) {
 	               	System.out.println("mail not found");
@@ -568,12 +568,7 @@ public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String U
 	               }
 	               System.out.println(buffer);
 	              
-	               /*
-	               //Your logic to split the message and get the Registration URL goes here
-	               String registrationURL = buffer.toString().split("&amp;gt;http://www.god.de/members/?")[0]
-	                       .split("href=")[1];
-	               System.out.println(registrationURL);  
-	               */                          
+	                                   
 	           }
 	        
 	        	  String  Email_response=null;
