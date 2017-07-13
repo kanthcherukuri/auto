@@ -68,7 +68,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterAddressDetails(address, country, state, city, pincode, locality, landmark, longitude, latitude);
 		AdminDiagnostic.EnterTheFacilities();
 		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
-		AdminDiagnostic.SaveDiagnosticDetails();
+		//AdminDiagnostic.SaveDiagnosticDetails();
 		//Browser.CheckNotificationMessage("Diagnostic Center created successfully");	
 	}
 	

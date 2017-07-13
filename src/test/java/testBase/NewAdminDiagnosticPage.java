@@ -113,24 +113,18 @@ public class NewAdminDiagnosticPage
 			throws Exception{
 		
 		if(homevisitvalue.equalsIgnoreCase("true")){
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Menu)).click();	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Active)).click();
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Charge)).sendKeys(charge);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_ServiceRange)).sendKeys(range);	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_SlotDuration)).sendKeys("15");	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AppointmentsPerSlot)).sendKeys(appperslot);	
-		Thread.sleep(1000);
-		if(mvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Monday)).click();
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Menu)).click();	
+			if(mvalue.equalsIgnoreCase("true")){
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HomeVisit_Monday);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursMonday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(starttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(endtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			Thread.sleep(2000);
-			
-			
+			Thread.sleep(1000);
 		}//mvalue
 		else{
 		System.out.println("Monday slots are not provided");
@@ -140,71 +134,78 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Tuesday)).click();		
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursTuesday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(tstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(tendtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			Thread.sleep(3000);
-			
+			Thread.sleep(1000);	
 		}//tvalue
 		else{
 		System.out.println("Tuesday slots are not provided");
 		}
+		
 		if(Wvalue.equalsIgnoreCase("true")){
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_Wednesday)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursWednesday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Wstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Wendtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			Thread.sleep(3000);
-			
+			Thread.sleep(1000);
 		}//Wvalue
 		else{
 		System.out.println("Wednesday slots are not provided");
 		}
+		
 		if(thvalue.equalsIgnoreCase("true")){
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Thursday)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursThursday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(thstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(thendtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			Thread.sleep(3000);
-			
-		
+			Thread.sleep(1000);
 		}//thvalue
 		else{
 		System.out.println("Thursday slots are not provided");
 		}
+		
 		if(fvalue.equalsIgnoreCase("true")){
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Friday)).click();
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVistHoursFriday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(fstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(fendtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			Thread.sleep(3000);
-			
-			
+			Thread.sleep(1000);
 		}//fvalue
 		else{
 		System.out.println("Friday slots are not provided");
 		}
+		
 		if(Svalue.equalsIgnoreCase("true")){
 			driver.findElement(By.id("saturday")).click();
 			driver.findElement(By.xpath("//*[@id='dcHomeVisitSat']/div[1]/div[4]/button")).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Sstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Sendtime);
+			Thread.sleep(500);
+			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
-			
-			Thread.sleep(2000);
-		}//mvalue
+			Thread.sleep(1000);
+		}//satvalue
 		else{
 		System.out.println("Saturday slots are not provided");
 		}
@@ -213,7 +214,14 @@ public class NewAdminDiagnosticPage
 		else{
 			System.out.println("HomeVisit Appointment is Not Available");
 		}
+		Thread.sleep(2000);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Active)).click();
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Charge)).sendKeys(charge);
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_ServiceRange)).sendKeys(range);	
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_SlotDuration)).sendKeys("15");	
+		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AppointmentsPerSlot)).sendKeys(appperslot);	
 	}
+	
 	/*
 	 * Author: Ch.Lakshmi Kanth
 	 * @ Description: This method will Enter Lab Visit Details While Creating Diagnostic Center 
