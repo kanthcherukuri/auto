@@ -205,7 +205,12 @@ public class DoctorsPage  {
 		Browser.verifyNotificationMessage("Appointment checked out successfully");
 	}
 
-	//DoctorAppointment  Reschedule
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to reschedule appointment
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeicon);
@@ -222,7 +227,12 @@ public class DoctorsPage  {
 		
 		}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to reschedule appointment and Check In Patient Screen
+	 * @ Params:
+	 * @ Returns:
+	 */
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
@@ -244,6 +254,12 @@ public class DoctorsPage  {
 		}
 
 
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on View menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickView() throws Exception
 		{
 			Thread.sleep(3000);
@@ -251,12 +267,25 @@ public class DoctorsPage  {
 			Browser.waitFortheID("about");
 		}
 		
+		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Alert menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickonAlertmenu(){
 			Browser.clickOnTheElementByID("alerts");
 			WebDriverWait wait=new WebDriverWait(driver,100);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
 		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to get Appointment Id
+		 * @ Params:
+		 * @ Returns:AppointmentId
+		 */
 		public String  getappointmentid() throws Exception{
 			
 			String AppointmentId=driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span")).getText();
@@ -279,6 +308,12 @@ public class DoctorsPage  {
 			return AppointmentId;
 		}
 		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Check the Alert Messages
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void CheckAlerts() throws Exception {
 			
 		String name=driver.findElement(By.xpath(Elements_Doctors.appointment_getfullnameonclickviewmenu)).getText();
@@ -297,7 +332,12 @@ public class DoctorsPage  {
 			
 		}
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Cancel menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 	public void Cancel(String firstname,String lastname,String mobile,String email,String problem) throws Exception {
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.appointment_clickoncancelmenu);
@@ -309,6 +349,13 @@ public class DoctorsPage  {
 		
 		
 	}
+	
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Check the Cancel appoinrmnet In Patient Screen 
+	 * @ Params:
+	 * @ Returns:
+	 */
 		
 	public void CheckCancelAppointmentInPatientScreen(String firstname,String lastname,String email) throws Exception	{
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
@@ -332,7 +379,12 @@ public class DoctorsPage  {
 		}
 		}
 
-
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Click on Send Notication in Patient Screen All Tab
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void CheckPatientScreenSendNotificationOfAllTab(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
@@ -364,15 +416,23 @@ public class DoctorsPage  {
 		}
 
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Ellipse to select the hide menu in ribbon Panel
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickingOnEllipse(){
-			
 		Browser.clickOnTheElementByXpath(Elements_Doctors.clickonellipse);	
 		}
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on DashBoard menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 	public void ClickingOnDashboard(){
-		
 	Browser.clickOnTheElementByID(Elements_Doctors.dashboard_clickondashboardmenu);	
 	WebDriverWait wait=new WebDriverWait(driver,100);
 	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.dashboard_getappointlistingtext)));
@@ -659,7 +719,12 @@ public class DoctorsPage  {
 			
 		}
 		
-		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Cancel All Existing Appointments at Once
+		 * @ Params:
+		 * @ Returns:
+		 */
 
 		public void BulkCancel() throws Exception{
 			
@@ -691,10 +756,13 @@ public class DoctorsPage  {
 	  
 			}
 
-		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Create Appointment For Tommorow(Next Day)
+		 * @ Params:
+		 * @ Returns:
+		 */
  public void DoctorsAppointmentforTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-	 
-	 
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_tommorrowmenu);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
@@ -712,8 +780,13 @@ public class DoctorsPage  {
 	 }
 
 
+ /*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Search The Appointment Details in Patient screen
+	 * @ Params:
+	 * @ Returns:
+	 */
 public void CheckPatientScreenSearchFunctionality(String firstname,String lastname,String mobile,String email) throws Exception{
-	
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 	Browser.waitTill(5000);
 	driver.findElement(By.name("all")).click();
@@ -739,6 +812,13 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 }
 }
 
+
+/*
+ * Author: Ch.Lakshmi kanth
+ * @ Description: This method to Create Appointment For Today
+ * @ Params:
+ * @ Returns:
+ */
  public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception
  {	 
 	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
