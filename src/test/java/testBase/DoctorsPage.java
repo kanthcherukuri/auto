@@ -205,12 +205,15 @@ public class DoctorsPage  {
 		Browser.verifyNotificationMessage("Appointment checked out successfully");
 	}
 
-	//DoctorAppointment  Reschedule
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to reschedule appointment
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void reschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeicon);
-//		WebDriverWait wait = new WebDriverWait(driver,1000);
-//		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.zy-status-wrapper")));
 		Thread.sleep(5000);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_nextmenu);
 		Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
@@ -224,7 +227,12 @@ public class DoctorsPage  {
 		
 		}
 	
-	
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to reschedule appointment and Check In Patient Screen
+	 * @ Params:
+	 * @ Returns:
+	 */
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
@@ -246,19 +254,38 @@ public class DoctorsPage  {
 		}
 
 
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on View menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickView() throws Exception
 		{
 			Thread.sleep(3000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_clickonview)).click();
+			Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_clickonview);
 			Browser.waitFortheID("about");
 		}
 		
+		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Alert menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickonAlertmenu(){
 			Browser.clickOnTheElementByID("alerts");
 			WebDriverWait wait=new WebDriverWait(driver,100);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
 		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to get Appointment Id
+		 * @ Params:
+		 * @ Returns:AppointmentId
+		 */
 		public String  getappointmentid() throws Exception{
 			
 			String AppointmentId=driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span")).getText();
@@ -281,6 +308,12 @@ public class DoctorsPage  {
 			return AppointmentId;
 		}
 		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Check the Alert Messages
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void CheckAlerts() throws Exception {
 			
 		String name=driver.findElement(By.xpath(Elements_Doctors.appointment_getfullnameonclickviewmenu)).getText();
@@ -299,7 +332,12 @@ public class DoctorsPage  {
 			
 		}
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Cancel menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 	public void Cancel(String firstname,String lastname,String mobile,String email,String problem) throws Exception {
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.appointment_clickoncancelmenu);
@@ -311,6 +349,13 @@ public class DoctorsPage  {
 		
 		
 	}
+	
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Check the Cancel appoinrmnet In Patient Screen 
+	 * @ Params:
+	 * @ Returns:
+	 */
 		
 	public void CheckCancelAppointmentInPatientScreen(String firstname,String lastname,String email) throws Exception	{
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
@@ -321,8 +366,7 @@ public class DoctorsPage  {
 		Browser.enterTextByID(Elements_Doctors.patient_searchbox, email);
 		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 		driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
-		//Thread.sleep(5000);
-		Browser.waitTill(5000);
+		Browser.waitFortheElementXpath(Elements_Doctors.patient_alltabfullname);
 		String name=driver.findElement(By.xpath(Elements_Doctors.patient_alltabfullname)).getText();
 		String status=driver.findElement(By.xpath(Elements_Doctors.patient_alltabschedule)).getText();
 		String fullname=firstname+" "+lastname;
@@ -335,9 +379,15 @@ public class DoctorsPage  {
 		}
 		}
 
-
+	/*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Click on Send Notication in Patient Screen All Tab
+	 * @ Params:
+	 * @ Returns:
+	 */
 	public void CheckPatientScreenSendNotificationOfAllTab(String firstname,String lastname,String email) throws Exception{
-		driver.findElement(By.id(Elements_Doctors.patient_id)).click();
+		
+		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
 		//Thread.sleep(5000);
 		Browser.waitTill(5000);
 		// Clicking on all Tab in Patient Screen  
@@ -366,14 +416,24 @@ public class DoctorsPage  {
 		}
 
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on Ellipse to select the hide menu in ribbon Panel
+		 * @ Params:
+		 * @ Returns:
+		 */
 		public void ClickingOnEllipse(){
-		driver.findElement(By.xpath(Elements_Doctors.clickonellipse)).click();
+		Browser.clickOnTheElementByXpath(Elements_Doctors.clickonellipse);	
 		}
 
-
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Click on DashBoard menu
+		 * @ Params:
+		 * @ Returns:
+		 */
 	public void ClickingOnDashboard(){
-	driver.findElement(By.id(Elements_Doctors.dashboard_clickondashboardmenu)).click();	
+	Browser.clickOnTheElementByID(Elements_Doctors.dashboard_clickondashboardmenu);	
 	WebDriverWait wait=new WebDriverWait(driver,100);
 	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Doctors.dashboard_getappointlistingtext)));
 	}
@@ -659,7 +719,12 @@ public class DoctorsPage  {
 			
 		}
 		
-		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Cancel All Existing Appointments at Once
+		 * @ Params:
+		 * @ Returns:
+		 */
 
 		public void BulkCancel() throws Exception{
 			
@@ -691,10 +756,13 @@ public class DoctorsPage  {
 	  
 			}
 
-		
+		/*
+		 * Author: Ch.Lakshmi kanth
+		 * @ Description: This method to Create Appointment For Tommorow(Next Day)
+		 * @ Params:
+		 * @ Returns:
+		 */
  public void DoctorsAppointmentforTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-	 
-	 
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_tommorrowmenu);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
@@ -712,10 +780,15 @@ public class DoctorsPage  {
 	 }
 
 
+ /*
+	 * Author: Ch.Lakshmi kanth
+	 * @ Description: This method to Search The Appointment Details in Patient screen
+	 * @ Params:
+	 * @ Returns:
+	 */
 public void CheckPatientScreenSearchFunctionality(String firstname,String lastname,String mobile,String email) throws Exception{
-	
-	driver.findElement(By.id(Elements_Doctors.patient_id)).click();
-	Thread.sleep(10000);
+	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
+	Browser.waitTill(5000);
 	driver.findElement(By.name("all")).click();
 	Thread.sleep(2000);
 	String fullname=firstname+" "+lastname;
@@ -739,22 +812,30 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 }
 }
 
+
+/*
+ * Author: Ch.Lakshmi kanth
+ * @ Description: This method to Create Appointment For Today
+ * @ Params:
+ * @ Returns:
+ */
  public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception
  {	 
-	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_todaymenu);
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_firstname);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
-	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
-	 Thread.sleep(1000);
-	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
-	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
-	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
+	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname, firstname);
+	 Browser.enterTextByID(Elements_Doctors.appointment_lsatname, lastname);
+	 Browser.waitFortheID(Elements_Doctors.appointment_mobile);
+	 Browser.enterTextByID(Elements_Doctors.appointment_mobile, mobile);
+	 Browser.enterTextByID(Elements_Doctors.appointment_email, email);
+	 Browser.enterTextByID(Elements_Doctors.appointment_problem, problem);
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
@@ -922,18 +1003,20 @@ public void cancelSundayAppt() throws InterruptedException
 }
 
 public void CheckPateintScreenForCheckInFunctionality(String firstname,String lastname,String email) throws InterruptedException{
-	driver.findElement(By.id(Elements_Doctors.patient_id)).click();
-	Thread.sleep(10000);
+	
+	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
+	Browser.waitTill(5000);
 	driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
-	Thread.sleep(2000);
-	 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(email);	 
-	 driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
+	//Thread.sleep(2000);
+	Browser.waitFortheID(Elements_Doctors.patient_searchbox);
+	Browser.enterTextByID(Elements_Doctors.patient_searchbox, email); 
+	driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 	 String fullname=firstname+" "+lastname;
 	 Thread.sleep(3000);
 	 String name= driver.findElement(By.xpath(Elements_Doctors.patient_getfullname)).getText();
 	 String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).getText();
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-			driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).click();
+			Browser.clickOnTheElementByXpath(Elements_Doctors.patient_getstatus);
 			Thread.sleep(5000);
 		}
 		}
@@ -993,21 +1076,28 @@ public void VerifyCheckINFunctionality() throws Exception{
 }
 
 	public void CheckingFollowUpFunctionality(String firstname,String lastname) throws Exception{
-	driver.findElement(By.xpath(Elements_Doctors.patient_clickonfollowupbutton)).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(Elements_Doctors.appointment_noon)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(Elements_Doctors.appointment_eveningfirstcell)).click();
-	Thread.sleep(1000);
-	driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys("Diabetic");
-	Thread.sleep(1000);
-	driver.findElement(By.id(Elements_Doctors.patient_savefollowupappointment)).click();
+	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonfollowupbutton);
+	//Thread.sleep(2000);
+	Browser.waitFortheElementXpath(Elements_Doctors.appointment_tommorrowmenu);
+	Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_tommorrowmenu);
+	//Thread.sleep(1000);
+	Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
+	Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
+	//Thread.sleep(1000);
+	Browser.waitFortheElementXpath(Elements_Doctors.appointment_noon);
+	Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
+	//Thread.sleep(1000);
+	Browser.waitFortheElementXpath(Elements_Doctors.appointment_eveningtab);
+	Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
+	//Thread.sleep(1000);
+	Browser.waitFortheElementXpath(Elements_Doctors.appointment_eveningfirstcell);
+	Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
+	//Thread.sleep(1000);
+	Browser.waitFortheID(Elements_Doctors.appointment_problem);
+	Browser.enterTextByID(Elements_Doctors.appointment_problem, "Diabetic");
+	//Thread.sleep(1000);
+	Browser.waitFortheID(Elements_Doctors.patient_savefollowupappointment);
+	Browser.clickOnTheElementByID(Elements_Doctors.patient_savefollowupappointment);
 	Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	String fullname=firstname+" "+lastname;
 	Browser.CheckNotificationMessage("Follow Up Appointment is confirmed. Patient Name:"+fullname);

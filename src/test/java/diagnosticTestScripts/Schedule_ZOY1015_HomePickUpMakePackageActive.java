@@ -31,7 +31,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Alankruta","Full Body Test","10000","5","Suryanarayanatest","Full Body Test"}
+					{ "yes","Rahinires","Full Body Test","10000","5","Suryanarayanatest","Full Body Test"}
 
 			};
 		}
@@ -40,33 +40,33 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	public void HomePickupMakePackageActive(String RunMode,String packagename,String desc,String cost,String discount,String testname,String testdesc) throws Exception{
 		
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage(packagename, desc, cost, discount, testname, testdesc);
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
+		DiagnosticPageZoylo.diagnosticlogout();
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Thread.sleep(2000);
-		driver.close();
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com","Zoylo@123" );
-		Thread.sleep(2000);
+		driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
-		Thread.sleep(1000);
-		launchbrowser();
+		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
+		Browser.clickOnTheElementByID("logout");
+		Thread.sleep(3000);
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
-		Thread.sleep(4000);
 		WebElement sc=driver.findElement(By.xpath("(//*[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']/div[1]/div[2]/div/label/span[2])[last()]"));
 		Actions actions = new Actions(driver);
 		actions.moveToElement(sc).click().perform();
 		Thread.sleep(3000);
 		driver.findElement(By.id("homeVisitPackages")).click();
+		Thread.sleep(1000);
 		Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
 		DiagnosticPageZoylo.diagnosticslogout();
 		

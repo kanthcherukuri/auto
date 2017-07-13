@@ -1158,7 +1158,7 @@ public class DiagnosticPage {
 		public void ClickOnSchedulePackageHomePickUp() throws Exception{
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonpackagemenuinhomepickup);
-			 Thread.sleep(2000);
+			 Thread.sleep(3000);
 		}
 		
 		
@@ -1191,6 +1191,7 @@ public class DiagnosticPage {
 			 Thread.sleep(3000);
 			 driver.findElement(By.id(Elements_Diagnostics.clickonhomevisitpackagesavebutton)).click();
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
+			 Thread.sleep(1000);
 			
 		}
 		
@@ -1207,6 +1208,7 @@ public class DiagnosticPage {
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			 Assert.assertEquals(ActualNotification,"Approval is pending");
+			 Thread.sleep(1000);
 			 
 		}
 		
@@ -1351,7 +1353,6 @@ public class DiagnosticPage {
 			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			options.addArguments("disable-save-password-bubble");
-			
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 			driver.get("https:zoyloqa.zoylo.com/login");
@@ -1371,7 +1372,7 @@ public class DiagnosticPage {
 		 */
 	
       public void ApproveTestInAdmin(String testname) throws Exception{
-    	driver.get(Elements_Diagnostics.diagnosticapprovalsurl);
+    	//driver.get(Elements_Diagnostics.diagnosticapprovalsurl);
   		Thread.sleep(3000);
   		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).sendKeys(testname);
   		Thread.sleep(5000);
@@ -1383,7 +1384,7 @@ public class DiagnosticPage {
   		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).click();
   		Thread.sleep(6000);
   		driver.findElement(By.xpath(Elements_Diagnostics.adminapprovebutton)).click();
-  		Thread.sleep(8000);
+  		Thread.sleep(10000);
       }
       
       /*  Below is the  Method

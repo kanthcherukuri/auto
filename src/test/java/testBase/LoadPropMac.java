@@ -38,6 +38,7 @@ public class LoadPropMac   {
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
     public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour;
     public static String Admin_Username, Admin_Password, Diagnostic_usernamesix,Diagnostic_passwordsix;
+    public static String Diagnostic_ApprovedApptURL;
     
 	public static WebDriver driver;
 
@@ -66,7 +67,9 @@ public class LoadPropMac   {
         recipientDC_User=prop.getProperty("recipientDC.username");
         recipientDC_Password=prop.getProperty("recipientDC.password");
         
-        
+        //URL
+     
+        Diagnostic_ApprovedApptURL=prop.getProperty("Diagnostic.ApprovedApptURL");
         
         //Doctors -Login Credentails
         DoctorsLogin_username=prop.getProperty("DoctorsLogin.username");
