@@ -99,4 +99,7 @@ Diagnostic.Name=Diagnosticszoylo
 AdminLogin.username=kanthl@zoylo.com
 AdminLogin.password=Zoylo@123
 
+//----Diagnostic Appointment URL----//
+Diagnostic.ApprovedApptURL=https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList
+
 
