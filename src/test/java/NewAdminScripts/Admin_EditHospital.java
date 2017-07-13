@@ -28,7 +28,7 @@ public class Admin_EditHospital extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{"KanthHospital" }
+					{"Kimihospital" }
 
 			};
 		}
