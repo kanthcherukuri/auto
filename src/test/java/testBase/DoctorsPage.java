@@ -821,20 +821,21 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
  */
  public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception
  {	 
-	 driver.findElement(By.id(Elements_Doctors.appointments_doctortab)).click();
+	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_todaymenu);
+	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
+	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_firstname);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
-	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
-	 Thread.sleep(1000);
-	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
-	 driver.findElement(By.id(Elements_Doctors.appointment_email)).sendKeys(email);
-	 driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys(problem);
+	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname, firstname);
+	 Browser.enterTextByID(Elements_Doctors.appointment_lsatname, lastname);
+	 Browser.waitFortheID(Elements_Doctors.appointment_mobile);
+	 Browser.enterTextByID(Elements_Doctors.appointment_mobile, mobile);
+	 Browser.enterTextByID(Elements_Doctors.appointment_email, email);
+	 Browser.enterTextByID(Elements_Doctors.appointment_problem, problem);
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointment_save);	
 	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 	 String fullname=firstname+" "+lastname;
@@ -1015,7 +1016,7 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 	 String name= driver.findElement(By.xpath(Elements_Doctors.patient_getfullname)).getText();
 	 String schedule=driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).getText();
 		if(name.equalsIgnoreCase(fullname)&&schedule.equalsIgnoreCase("Scheduled")){
-			driver.findElement(By.xpath(Elements_Doctors.patient_getstatus)).click();
+			Browser.clickOnTheElementByXpath(Elements_Doctors.patient_getstatus);
 			Thread.sleep(5000);
 		}
 		}
