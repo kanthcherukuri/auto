@@ -130,6 +130,7 @@ public class NewAdminDiagnosticPage
 			//driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursMonday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(starttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(endtime);
@@ -148,6 +149,7 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursTuesday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(tstarttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(tendtime);
@@ -164,6 +166,7 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursWednesday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Wstarttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Wendtime);
@@ -180,6 +183,7 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursThursday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(thstarttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(thendtime);
@@ -197,6 +201,7 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVistHoursFriday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(fstarttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(fendtime);
@@ -214,6 +219,7 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.xpath("//*[@id='dcHomeVisitSat']/div[1]/div[4]/button")).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Sstarttime);
 			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Sendtime);
@@ -241,105 +247,105 @@ public class NewAdminDiagnosticPage
 		String Ltvalue,String Ltstarttime,String Ltendtime,String LWvalue,String LWstarttime,String LWendtime,String LThvalue,String LThstarttime,
 		String LThendtime,String Lfvalue,String Lfstarttime,String Lfendtime,String LSvalue,String LSstarttime,String LSendtime) throws Exception{
 		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_Menu)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_SlotDuration)).sendKeys(labslotduration);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AppointmentsPerSlot)).sendKeys(labapptperslot);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.LabVisit_Menu);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_SlotDuration, labslotduration);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AppointmentsPerSlot, labapptperslot);
 		Thread.sleep(1000);
 		if(Lmvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Monday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursMonday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Monday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursMonday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Lmstarttime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive);
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, Lmstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Lmendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, Lmendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
 			Thread.sleep(3000);
 		}else{
 			System.out.println("Monday Lab Slot are Unavilable");
 		}
 		if(Ltvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Tuesday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursTuesday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Tuesday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursTuesday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Ltstarttime);
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, Ltstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Ltendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, Ltendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
 			Thread.sleep(3000);
 		}else{
 			System.out.println("Tuesday Lab Slot are Unavilable");
 		}
 		if(LWvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Wednesday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursWednesday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Wednesday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursWednesday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LWstarttime);
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, LWstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LWendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, LWendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
 			Thread.sleep(3000);
 		}else{
 			System.out.println("Wednesday Lab Slot are Unavilable");
 		}
 		if(LThvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Thursday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursThursday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Thursday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursThursday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LThstarttime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, LThstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LThendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, LThendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
 			Thread.sleep(3000);
 		}else{
 			System.out.println("Thursday Lab Slot are Unavilable");
 		}
 		if(Lfvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Friday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursFriday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Friday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursFriday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Lfstarttime);
+			Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, Lfstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Lfendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, Lfendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
 			Thread.sleep(3000);
 		}else{
 			System.out.println("Friday Lab Slot are Unavilable");
 		}
 		
 		if(LSvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_Saturday)).click();
-			
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSaturday)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Saturday);
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSaturday);
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
-			
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LSstarttime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime, LSstarttime);
 			Thread.sleep(500);
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LSendtime);
+			Browser.waitFortheID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime);
+			Browser.enterTextByID(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime, LSendtime);
 			Thread.sleep(500);
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit);
+	
 		}else{
 			System.out.println("Saturday Lab Slot are Unavilable");
 		}
@@ -412,16 +418,19 @@ public class NewAdminDiagnosticPage
 	 */
 	
 	public void AddTestsInHealthPackage(String testname,String testdesc) throws Exception{
-		
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.PackageTests_Add)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.PackageTests_TestName)).sendKeys(testname);
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.PackageTests_TestDescription)).sendKeys(testdesc);
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.PackageTests_TestActive)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.PackageTests_TestSave)).click();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.PackageTests_Add);
+		//Thread.sleep(1000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.PackageTests_TestName);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.PackageTests_TestName, testname);
+		//Thread.sleep(1000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.PackageTests_TestDescription);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.PackageTests_TestDescription, testdesc);
+		//Thread.sleep(1000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.PackageTests_TestActive);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.PackageTests_TestActive);
+		//Thread.sleep(1000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.PackageTests_TestSave);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.PackageTests_TestSave);
 		Thread.sleep(2000);
 	}
 	
@@ -432,8 +441,7 @@ public class NewAdminDiagnosticPage
 	 * @ Returns:
 	 */
 	public void SaveAddHealthPackages() throws Exception{
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.HealthPackage_Save)).click();
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HealthPackage_Save);
 		Thread.sleep(2000);
 		
 	}
@@ -488,29 +496,35 @@ public class NewAdminDiagnosticPage
 	 * @ Returns:
 	 */
 	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.AdditionalInformation_Menu)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact)).click();
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.AdditionalInformation_Menu);
+		//Thread.sleep(1000);
+		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Name);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Name)).sendKeys(Personname);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Phone)).sendKeys(PersonPhone);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Name, Personname);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Phone);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Phone, PersonPhone);
+		//Thread.sleep(1000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Email);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Email, PersonEmail);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Email)).sendKeys(PersonEmail);
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Fax)).sendKeys(PersonFax);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.ContactPerson_Save)).click();
-		Thread.sleep(2000);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Fax);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Fax, PersonFax);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Save);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.ContactPerson_Save);
+		Thread.sleep(4000);
 	}
 	
 	
-	public void AddDiagnosticImage(String imageURL ){
+	public void AddDiagnosticImage(String imageURL ) throws Exception{
 		String current = System.getProperty("user.dir");
-		driver.findElement(By.id("zyDCInfoGallery")).click();
-		driver.findElement(By.id("isDiagnoDefault")).click();
-		
+		Browser.waitFortheID("zyDCInfoGallery");
+		Browser.clickOnTheElementByID("zyDCInfoGallery");
+		Browser.waitFortheID("isDiagnoDefault");
+		Browser.clickOnTheElementByID("isDiagnoDefault");
+		Thread.sleep(5000);
 		driver.findElement(By.id("diagnosDefaImagesList")).sendKeys(current+imageURL);
+		Thread.sleep(2000);
 	}
 	
 	
@@ -522,19 +536,18 @@ public class NewAdminDiagnosticPage
 	 */
 	public void EnterMarkedasClosedInformation(String startdate,String enddate) throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Menu)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Add)).click();
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.MarkedasClosed_Menu);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.MarkedasClosed_Menu);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.MarkedasClosed_Add);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.MarkedasClosed_Add);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.MarkedasClosed_startdate);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_startdate)).clear();
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_startdate)).sendKeys(startdate);
-	
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.MarkedasClosed_startdate, startdate);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.MarkedasClosed_enddate);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_enddate)).clear();
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_enddate)).sendKeys(enddate);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Active)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.MarkedasClosed_Save)).click();
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.MarkedasClosed_enddate, enddate);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.MarkedasClosed_Active);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.MarkedasClosed_Save);
 		Thread.sleep(2000);
 	}
 	/*
@@ -545,25 +558,26 @@ public class NewAdminDiagnosticPage
 	 */
 	public void EnterOtherInformationdetails(String discountoffered,String websiteURL,String accreditations,String ngo,String reportonline) throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_Menu)).click();
-		
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.OtherInformation_Discountoffered)).sendKeys(discountoffered);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_NABL)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_websiteURL)).sendKeys(websiteURL);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_accreditations)).sendKeys(accreditations);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_NGO)).sendKeys(ngo);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_reportOnlineduration)).sendKeys(reportonline);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_isOnline)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInformation_isSelfCheckIn)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.OtherInforamtion_isReportOnline)).click();
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_Menu);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.OtherInformation_Menu);
+		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.OtherInformation_Discountoffered);
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.OtherInformation_Discountoffered, discountoffered);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_NABL);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.OtherInformation_NABL);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_websiteURL);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.OtherInformation_websiteURL, websiteURL);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_accreditations);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.OtherInformation_accreditations, accreditations);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_NGO);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.OtherInformation_NGO, ngo);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_reportOnlineduration);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.OtherInformation_reportOnlineduration, reportonline);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_isOnline);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.OtherInformation_isOnline);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInformation_isSelfCheckIn);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.OtherInformation_isSelfCheckIn);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.OtherInforamtion_isReportOnline);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.OtherInforamtion_isReportOnline);
 		Thread.sleep(2000);
 	}
 	/*
@@ -574,23 +588,21 @@ public class NewAdminDiagnosticPage
 	 */
 	
 	public void EnterSocialInformation(String facebookurl,String googleurl,String linkedinurl,String twiterurl) throws Exception{
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Menu)).click();
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Facebook)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_FaceboolURL)).sendKeys(facebookurl);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_GooglePlus)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_GooglePlusURL)).sendKeys(googleurl);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_LinkedIn)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_LinkedInURL)).sendKeys(linkedinurl);
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_Twitter)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Social_TwitterURL)).sendKeys(twiterurl);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Social_Menu);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Social_Menu);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Social_Facebook);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Social_Facebook);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.Social_FaceboolURL, facebookurl);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Social_GooglePlus);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Social_GooglePlus);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.Social_GooglePlusURL, googleurl);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Social_LinkedIn);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Social_LinkedIn);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.Social_LinkedInURL, linkedinurl);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Social_Twitter);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Social_Twitter);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.Social_TwitterURL, twiterurl);
 		Thread.sleep(2000);
 	}
 	
@@ -636,27 +648,28 @@ public class NewAdminDiagnosticPage
 	 */
 	public void EnterTheFacilities() throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Menu)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_DebitCard)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Bike)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_CreditCard)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_CarParking)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_ambulance)).click();
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_proBono)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_onlinePayment)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Premium)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Cheque)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.Facilities_Emergency)).click();
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Menu);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Menu);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_DebitCard);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_DebitCard);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Bike);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Bike);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_CreditCard);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_CreditCard);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_CarParking);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_CarParking);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_ambulance);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_ambulance);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_proBono);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_proBono);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_onlinePayment);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_onlinePayment);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Premium);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Premium);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Cheque);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Cheque);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Emergency);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Emergency);
 		Thread.sleep(2000);
 	}
 	
@@ -667,16 +680,16 @@ public class NewAdminDiagnosticPage
 	 * @ Returns:
 	 */
 	public void EnterDetailsForSEO(String SEOtitle,String SEOdesc,String SEOkeywords,String SEOurl) throws Exception{
-		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Menu)).click();
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Title)).sendKeys(SEOtitle);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Desc)).sendKeys(SEOdesc);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_Keywords)).sendKeys(SEOkeywords);
-	
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.SEO_URL)).sendKeys(SEOurl);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_Menu);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.SEO_Menu);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_Title);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_Title, SEOtitle);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_Desc);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_Desc, SEOdesc);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_Keywords);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_Keywords, SEOkeywords);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_URL);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_URL, SEOurl);
 		Thread.sleep(2000);
 		
 	}

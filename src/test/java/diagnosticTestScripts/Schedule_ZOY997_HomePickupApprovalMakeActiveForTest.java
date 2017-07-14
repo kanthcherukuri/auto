@@ -1,7 +1,13 @@
 package diagnosticTestScripts;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import java.util.concurrent.TimeUnit;
@@ -30,7 +36,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Laxmikanthone","Full Body Test","10000","5"}
+					{ "yes","Laxmikanththree","Full Body Test","10000","5"}
 
 			};
 		}
@@ -57,10 +63,15 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);
 		Browser.openUrl(loginPage_Url);
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		DiagnosticPageZoylo.ScheduleHomePickupMakeTestsActive();
+		WebElement sc=driver.findElement(By.xpath("(//span[@class='sp-diag-homepick-packactive-hours-switch-switch'])[last()]"));
+		Actions actions = new Actions(driver);
+		actions.moveToElement(sc).click().perform();
+		Thread.sleep(3000);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickhomevisittestsavebutton);
+  		Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticslogout();
 	}

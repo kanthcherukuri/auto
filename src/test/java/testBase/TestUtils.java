@@ -150,7 +150,7 @@ public class TestUtils {
 	//Wait for the ID
 	public void waitFortheID(String ID){
 		System.out.println("waiting for "+ID);
-		WebDriverWait wait = (new WebDriverWait(driver, 60));
+		WebDriverWait wait = (new WebDriverWait(driver, 90));
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		 
 	}
