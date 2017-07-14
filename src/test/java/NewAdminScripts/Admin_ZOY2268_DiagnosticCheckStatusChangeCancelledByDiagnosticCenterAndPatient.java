@@ -3,6 +3,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -45,6 +46,11 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
+		Thread.sleep(1000);
+		Browser.clickOnTheElementByXpath("//a[@class='list-more']");
+		Browser.waitFortheElementXpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]");
+		String getId=driver.findElement(By.xpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]")).getText();
+		System.out.println("Appointment ID :"+getId);
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl( loginPage_Url);
 		AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
@@ -54,7 +60,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
 		Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(firstname);
+		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(getId);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
 		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, status);
 		Thread.sleep(5000);
@@ -68,10 +74,13 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_ClickOnLoginUser);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Diagnostic_Logout);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 	}
-	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
+	}
 	
 	
 	}

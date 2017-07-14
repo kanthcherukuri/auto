@@ -1,6 +1,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
@@ -70,7 +71,12 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
 		AdminDiagnostic.SaveDiagnosticDetails();
 		//Browser.CheckNotificationMessage("Diagnostic Center created successfully");	
+		Thread.sleep(2000);
 	}
 	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
+	}
 	
 }

@@ -44,6 +44,11 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCompleted extends LoadProp
 	public void CheckStatusChangeCompleted(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
+		Thread.sleep(1000);
+		Browser.clickOnTheElementByXpath("//a[@class='list-more']");
+		Browser.waitFortheElementXpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]");
+		String getId=driver.findElement(By.xpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]")).getText();
+		System.out.println("Appointment ID :"+getId);
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl(loginPage_Url);
 		DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
@@ -52,7 +57,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCompleted extends LoadProp
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(firstname);
+		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox)).sendKeys(getId);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
 		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, "Completed");
 		Thread.sleep(2000);                       

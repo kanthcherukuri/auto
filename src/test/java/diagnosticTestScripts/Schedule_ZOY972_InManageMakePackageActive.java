@@ -30,7 +30,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Pinkresort","30000","10","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
+					{ "yes","Heritage","30000","10","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
 
 			};
 		}
@@ -40,13 +40,20 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
 		DiagnosticPageZoylo.ScheduleInManageSubmitPackageforApproval();
 		Thread.sleep(2000);	
-		driver.close();
+		DiagnosticPageZoylo.diagnosticlogout();
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
-		Thread.sleep(2000);
+		driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
+		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
-		launchbrowser();
+		Browser.clickOnTheElementByID("logout");
+		Thread.sleep(3000);
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
 		Thread.sleep(3000);
@@ -56,6 +63,8 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		Thread.sleep(2000);
 		driver.findElement(By.id("saveClinicPackages")).click();
 		Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
+		Thread.sleep(1000);
+		DiagnosticPageZoylo.diagnosticslogout();
 	}
 	
 	@AfterClass

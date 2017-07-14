@@ -25,15 +25,16 @@ public class Admin_EditHospital extends LoadPropMac {
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}
 	
-	@DataProvider(name = "DP1")
-	 public String[][] createData1() {
-			return new String[][] {
-					{"KanthHospital" }
-
-			};
-		}
+	@DataProvider(name="EditHospital")
+	public Object[][] clinicDocInfo() throws Exception
+	{
+		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/NewAdmin.xls","Hospital", "EDITHOS");
+		return(clinicDocInformation);
+	}
 	
-	@Test(dataProvider="DP1")
+	
+	
+	@Test(dataProvider="EditHospital")
 	public void EditHospital(String HospitalName) throws Exception{
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);

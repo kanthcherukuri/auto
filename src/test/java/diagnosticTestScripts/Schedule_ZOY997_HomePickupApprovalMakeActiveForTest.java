@@ -30,43 +30,39 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Priyadarshani","Full Body Test","10000","5"}
+					{ "yes","Laxmikanthone","Full Body Test","10000","5"}
 
 			};
 		}
 
 	@Test(dataProvider="DP1")
 	public void ScheduleHomePickupTestMakeActiveInActive(String RunMode, String testname,String description,String cost,String discount) throws Exception{
-		//After login Clicking on ScheduleMenu
+	
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		//In Schedule Menu clicking on HomePickup menu
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		//In Schedule Adding New Test in Test menu
 		DiagnosticPageZoylo.ScheduleHomePickUpAddTest(testname, description, cost, discount);
-      
 		Thread.sleep(3000);
-		//Created Test will be Sending for Approval
 		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
 		Thread.sleep(2000);
-		driver.close();
-		Thread.sleep(1000);
-		//Launch New Browser To Login Into Admin Account
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
-		//Admin Account To Approve the Created Test
+		DiagnosticPageZoylo.diagnosticlogout();
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
+		Thread.sleep(2000);
+		driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
-		//driver.close();
-		//Launching Browser to Login into Diagnostic Provider Account
-		launchbrowser();
+		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
-		//After login Clicking on ScheduleMenu
+		Browser.clickOnTheElementByID("logout");
+		Thread.sleep(3000);
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		Thread.sleep(2000);
-		//In Schedule Menu clicking on HomePickup menu
 		DiagnosticPageZoylo.clickonhomevisitmenu();
-		Thread.sleep(3000);
-		//Make the Test Active which is Approved by Admin
 		DiagnosticPageZoylo.ScheduleHomePickupMakeTestsActive();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		DiagnosticPageZoylo.diagnosticslogout();
 	}
 	
 	@AfterClass

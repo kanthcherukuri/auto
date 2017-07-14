@@ -1397,6 +1397,7 @@ public class DiagnosticPage {
     	  
     	  WebElement sc=driver.findElement(By.xpath("(//span[@class='sp-diag-homepick-packactive-hours-switch-switch'])[last()]"));
   		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
+  		Thread.sleep(1000);
   		driver.findElement(By.xpath("(//span[@class='sp-diag-homepick-packactive-hours-switch-switch'])[last()]")).click();
   		Thread.sleep(2000);
   		driver.findElement(By.id(Elements_Diagnostics.clickhomevisittestsavebutton)).click();

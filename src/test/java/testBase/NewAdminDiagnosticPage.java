@@ -96,7 +96,7 @@ public class NewAdminDiagnosticPage
 		Browser.selectbyid(Elements_NewAdminDiagnostic.MandatoryFields_languagesSpoken, "ENGLISH");
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_rating)).sendKeys(rating);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_startedyear)).sendKeys(startedyear);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 		
 	}
@@ -121,12 +121,19 @@ public class NewAdminDiagnosticPage
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AppointmentsPerSlot)).sendKeys(appperslot);	
 		Thread.sleep(1000);
 		if(mvalue.equalsIgnoreCase("true")){
-			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_Monday)).click();
-			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursMonday)).click();
+			
+			//System.out.println("its in Monday");
+			driver.findElement(By.id("sunday")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.id("monday")).click();
+			Browser.clickOnTheElementByXpath("(//button[@data-target='#zoyDiagAddHomeVisitTimings'])[2]/i");
+			//driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursMonday)).click();
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(starttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(endtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			Thread.sleep(2000);
 			
@@ -142,7 +149,9 @@ public class NewAdminDiagnosticPage
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(tstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(tendtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 			
@@ -156,7 +165,9 @@ public class NewAdminDiagnosticPage
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Wstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Wendtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 			
@@ -170,7 +181,9 @@ public class NewAdminDiagnosticPage
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(thstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(thendtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 			
@@ -185,7 +198,9 @@ public class NewAdminDiagnosticPage
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(fstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(fendtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 			
@@ -200,7 +215,9 @@ public class NewAdminDiagnosticPage
 			Browser.waitFortheID(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHoursActive)).click();
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursStartTime)).sendKeys(Sstarttime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursEndTime)).sendKeys(Sendtime);
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.HomeVisit_AddHomeVisitHoursSubmit)).click();
 			
 			Thread.sleep(2000);
@@ -238,9 +255,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Lmstarttime);
-		
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Lmendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 		}else{
@@ -254,9 +271,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Ltstarttime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Ltendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 		}else{
@@ -270,9 +287,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LWstarttime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LWendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 		}else{
@@ -286,9 +303,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LThstarttime);
-		
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LThendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 		}else{
@@ -302,9 +319,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(Lfstarttime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(Lfendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 			Thread.sleep(3000);
 		}else{
@@ -319,9 +336,9 @@ public class NewAdminDiagnosticPage
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursActive)).click();
 			
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursStartTime)).sendKeys(LSstarttime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.id(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursEndTime)).sendKeys(LSendtime);
-			
+			Thread.sleep(500);
 			driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_AddLabVisitHoursSubmit)).click();
 		}else{
 			System.out.println("Saturday Lab Slot are Unavilable");
