@@ -31,7 +31,7 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Bhavaniisland","Full Body Blood Test for Malaria","10000","5"}
+					{ "yes","Virichifoods","Full Body Blood Test for Malaria","10000","5"}
 
 			};
 		}
@@ -45,13 +45,21 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests(testname, description, cost, discount);
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
-		Thread.sleep(3000);
-		driver.close();
-		DiagnosticPageZoylo.LaunchBrowserToLoginIntoAdminAccount("kanthl@zoylo.com", "Zoylo@123");
+		//Thread.sleep(3000);
+		DiagnosticPageZoylo.diagnosticlogout();
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
+		Thread.sleep(2000);
+		driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
+		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
-		launchbrowser();
-		Thread.sleep(2000);
+		Browser.clickOnTheElementByID("logout");
+		Thread.sleep(3000);
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();

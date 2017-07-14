@@ -1,3 +1,4 @@
+//@author:Ch.Lakshmi Kanth
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
@@ -17,11 +18,12 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 	 
 	 @BeforeClass
 		public void LaunchBrowser() throws Exception {
-			LoadBrowserProperties();
-			 driver.get(doctors_Url);		 
+			LoadBrowserProperties(); 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
@@ -29,22 +31,22 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp extends Lo
 	 public void HospitalIncreaseTimeSlotNoBookedApp() throws Exception{
 		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
-		 driver.findElement(By.id("schedule")).click();
+		 Browser.clickOnTheElementByID("schedule");
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "14:00");
 		 Thread.sleep(2000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("16:00");
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "16:00");
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
 		 Thread.sleep(2000);
 	 }
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings);
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 		 

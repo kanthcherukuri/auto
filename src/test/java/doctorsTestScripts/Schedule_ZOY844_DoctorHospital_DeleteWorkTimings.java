@@ -1,3 +1,4 @@
+//@author:Ch.Lakshmi Kanth
 package doctorsTestScripts;
 
 
@@ -6,7 +7,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import objectRepository.Elements_Doctors;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -31,13 +31,14 @@ public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings extends LoadPropMa
 		 
 		 DoctorsPage.BulkCancel();
 		 Thread.sleep(2000);
-		 driver.findElement(By.id("schedule")).click();
+		 Browser.clickOnTheElementByID("schedule");
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings);
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();

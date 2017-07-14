@@ -130,7 +130,7 @@ public class Elements_Doctors  {
 	 public static String Schedule_Hospital_SaveWorkTimings, Schedule_Hospital_DeleteWorkTimings, Schedule_Hospital_SundayMenu;
 
 	 public static String aminitiesTab;
-	 public static String aminitiesAmbulance;
+	 public static String aminitiesAmbulance, aminitiesBikePark, aminitiesCarPark;
 	 public static String aminitiesSave;
 	 public static String servicesTab;
 	 public static String addServices;
@@ -140,7 +140,7 @@ public class Elements_Doctors  {
 
 	 
 	 //Add clinic
-	 public static String clickPlusMore;
+	 public static String clickPlusMore, selectOtherClinic;
 	 public static String addClinic;
 	 public static String popUpHeading;
 	 public static String otherclinicName;
@@ -151,8 +151,22 @@ public class Elements_Doctors  {
 	 public static String otherLon;
 	 public static String otherLat;
 	 public static String otherClinicSave;
+	 
+	 //Doctor Profile
+	 public static String doctor_changePassword, doctor_profileEdit, doctor_ProfileFirstName, doctor_ProfileAbout;
+	 public static String doctor_profileRegistrationNum, doctor_profileSaveInfo, doctor_ProfilePaymentTab, doctor_Profile_PaymentCash, doctor_Profile_PaymentSave;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
+		//Doctor Profile
+		doctor_changePassword="//p[@data-target='#sp-doc_changepwd']"; //XPATH
+		doctor_profileEdit="editAboutInfo"; //ID
+		doctor_ProfileFirstName="firstName"; //ID
+		doctor_ProfileAbout="aboutField"; //ID
+		doctor_profileRegistrationNum="(//div[@class='amenities-title menu_links'])[8]"; //XPATH
+		doctor_profileSaveInfo="saveAboutInfo";
+		doctor_ProfilePaymentTab="//a[@href='#payment']"; //XPATH
+		doctor_Profile_PaymentCash="cash"; //ID
+		doctor_Profile_PaymentSave="doctor_edit_save";
 		
 		//Schedule Hospital Tab
 		patient_getAptID="(//div[@class='zy-rec-tab-cell zy-rec-dtls'])[1]"; //XPATH
@@ -167,6 +181,7 @@ public class Elements_Doctors  {
 	 
 		//Add clinic
 		clickPlusMore="profile-flip";
+		selectOtherClinic="//div[@class='sp-clinic-address sp-clinic-click']//h5"; //XPATH
 		addClinic="//span[contains(., 'Add Clinic')]";
 		popUpHeading="myModalLabel";
 		otherclinicName="aoc_clinicname";
@@ -189,6 +204,8 @@ public class Elements_Doctors  {
 		addSave="clinic_addr_save";
 		aminitiesSave="clinic_aminities_save";
 		aminitiesAmbulance="ambulance";
+		aminitiesBikePark="bikeparking";
+		aminitiesCarPark="carparking";
 		servicesTab="(//li[contains(., 'Services')])[1]";
 		addServices="clinic_add_service";
 		servicesText="//textarea[@class='serviceName']";

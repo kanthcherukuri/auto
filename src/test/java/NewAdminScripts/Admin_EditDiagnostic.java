@@ -1,6 +1,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
@@ -77,12 +78,17 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_EditZoyloCharge)).sendKeys(EditdiagZoyloper);
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_EditTestSave)).click();
 		//driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticTests_EditCancel)).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String diagtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_CheckTestName)).getText();
 		Assert.assertEquals(diagtestname, EditdiagTestname);
 		driver.findElement(By.id("editDiagnosticSubmit")).click();
 		Browser.CheckNotificationMessage("Diagnostic Center Updated Successfully");
 		
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
 	}
 
 }

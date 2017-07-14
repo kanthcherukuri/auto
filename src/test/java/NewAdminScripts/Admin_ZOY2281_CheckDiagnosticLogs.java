@@ -1,6 +1,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +28,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
-	 DiagnosticPage.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
+	 DiagnosticPage.SignIn(DiagnosticLogin_usernamefive, DiagnosticLogin_passwordfive);
 	}
 	
 	
@@ -39,8 +40,9 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
  		
  		
 	  @Test(dataProvider="DiagnosticLogs")
-	  public void CheckDiagnosticLogs(String packagename,String cost) throws Exception{
-		  
+	  public void CheckDiagnosticLogs(String packagename) throws Exception{
+		  int Phno = (int )(Math.random() *10000);
+		  String price=Integer.toString(Phno);
 		  DiagnosticPage.ClickOnScheduleMenu();
 		  DiagnosticPage.ScheduleClickOnDiagnosticManage();
 		  Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonpackagemenu);
@@ -50,7 +52,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 		  Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagename, packagename);
 		  Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagecost);
 		  driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagecost)).clear();
-		  Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagecost, cost);
+		  Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagecost, price);
 		  Browser.clickOnTheElementByID(Elements_Diagnostics.ManagePackageSavePackage);
 		  DiagnosticPage.diagnosticlogout();
 		  Browser.openUrl(doctors_Url);
@@ -63,11 +65,16 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 		  Thread.sleep(2000);
 		  String newcost= driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticLogs_NewCost)).getText();
 		  System.out.println(newcost);
-		  if(newcost.equalsIgnoreCase(cost)){
+		  if(newcost.equalsIgnoreCase(price)){
 			 System.out.println("Updated Package Cost Verified SuccessFully");
 		  }else{
 			  Assert.fail();
 		  } 
 	  }
 
+	  @AfterClass
+	  public void CloseBrowser(){
+		  driver.quit();
+	  }
+	  
 }

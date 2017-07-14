@@ -44,8 +44,8 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 		DiagnosticPage.diagnosticlogout();
 		Browser.openUrl(loginPage_Url);
 		DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
+		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
-		//driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
@@ -53,16 +53,18 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
 		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, "Reschedule By Patient");
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Reschedule_SelectTommorowMenu);
-		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Reschedule_SelectTommorowMenu)).click();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_SelectTommorowMenu);
+		//driver.findElement(By.xpath(Elements_NewAdminDiagnostic.Reschedule_SelectTommorowMenu)).click();
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_SelectAvailableSlot);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Reschedule_ClosePopup);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_ClosePopup);
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange);
 		Browser.selectbyXpath(Elements_NewAdminDiagnostic.Diagnostic_StatusChange, "Reschedule By Diagnostic Center");
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_SelectNextDay);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Reschedule_SelectAvailableSlot);
 		Browser.CheckNotificationMessage("Appointment is rescheduled successfully");
+		Thread.sleep(2000);
 		
 	}
 	

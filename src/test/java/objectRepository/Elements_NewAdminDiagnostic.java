@@ -117,7 +117,7 @@ public class Elements_NewAdminDiagnostic
 		HomeVisit_SlotDuration="homeVisitSlotDuration";
 		HomeVisit_AppointmentsPerSlot="homeVisitAppointmentsPerSlot";
 		HomeVisit_Monday="monday";
-		HomeVisit_AddHomeVisitHoursMonday="//*[@id='dcHomeVisitMon']/div[1]/div[4]/button";
+		HomeVisit_AddHomeVisitHoursMonday="(//button[@data-target='#zoyDiagAddHomeVisitTimings'])[2]";
 		HomeVisit_AddHoursActive="isHomeActive";
 		HomeVisit_AddHomeVisitHoursStartTime="workHomeStartTime";
 		HomeVisit_AddHomeVisitHoursEndTime="workHomeEndTime";

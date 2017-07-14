@@ -1,3 +1,4 @@
+//@author:Ch.Lakshmi Kanth
 package doctorsTestScripts;
 
 
@@ -11,7 +12,6 @@ import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 
 
 public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
@@ -22,28 +22,29 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 	 
 	 @BeforeClass
 		public void LaunchBrowser() throws Exception {
-			LoadBrowserProperties();
-			 driver.get(doctors_Url);		 
+			LoadBrowserProperties();		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void DoctorHospitalAddWorkTimings() throws Exception{
 		 DoctorsPage.BulkCancel();
-		 Thread.sleep(2000);
-		 driver.findElement(By.id("schedule")).click();
-		 Thread.sleep(3000);
+		 Browser.waitTill(2000);
+		 Browser.clickOnTheElementByID("schedule");
+		 Browser.waitTill(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
 	 }
 	 
 	 @AfterMethod
 	 public void DeleteAddedWorkTimingsandlogout() throws Exception{
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//span[@class='sp-doc-hosp-schd-save']")).click();
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings);
+		 Browser.waitFortheElementXpath("//span[@class='sp-doc-hosp-schd-save']");
+		 Browser.clickOnTheElementByXpath("//span[@class='sp-doc-hosp-schd-save']");
 		 Thread.sleep(2000);
 		 DoctorsPage.doctorlogout();
 		 
@@ -51,7 +52,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 	 
 	 @AfterClass
 		public void Closebrowser(){
-			driver.close();
+			driver.quit();
 		}
 	
 	

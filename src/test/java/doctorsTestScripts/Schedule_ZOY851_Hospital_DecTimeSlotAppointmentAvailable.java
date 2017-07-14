@@ -1,3 +1,4 @@
+//@author:Ch.Lakshmi Kanth
 package doctorsTestScripts;
 
 import org.testng.annotations.AfterClass;
@@ -17,69 +18,58 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 	 
 	 @BeforeClass
 		public void LaunchBrowser() throws Exception {
-			LoadBrowserProperties();
-			 driver.get(doctors_Url);		 
-			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			LoadBrowserProperties();	 
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 
 	 @Test
 	 public void HospitalDecreseTimeAppointmentBooked() throws Exception{
-		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.id(Elements_Doctors.Schedule_Hospital_SundayMenu)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle)).click();
-		 Thread.sleep(1000);
+		 
+		 Browser.clickOnTheElementByID(Elements_Doctors.schedule);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+		 Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).sendKeys("07:00");
-		 Thread.sleep(2000);
+		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, "07:00");
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("20:00");
-		 Thread.sleep(1000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
-		 Thread.sleep(4000);
+		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "20:00");
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Thread.sleep(2000);
 		 DoctorsPage.DoctorAppointmentBookingForSunday("Mohan", "M", "9900224466", "mohan@gmail.com", "liver");
-		 Thread.sleep(4000);
-		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		 Thread.sleep(6000);
+		 Browser.clickOnTheElementByID(Elements_Doctors.schedule);
 		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab)).click();
-		 Thread.sleep(1000);
-		 driver.findElement(By.id(Elements_Doctors.Schedule_Hospital_SundayMenu)).click();
-		 Thread.sleep(2000);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+		 Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("19:00");
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "19:00");
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.CheckNotificationMessage("Conflict with existing appointments, please cancel the appointments to change working start time.");
 		 Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 		 Thread.sleep(6000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).sendKeys("22:00");
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "22:00");
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
-		 Thread.sleep(4000);
+		 Thread.sleep(2000);
 	 }
 	 
 	 @AfterMethod
 	 public void DeleteWorktimeandAppointment() throws Exception{
 		 DoctorsPage.cancelSundayAppt(); 
-		 Thread.sleep(4000);
-		 driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		 Thread.sleep(3000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.id(Elements_Doctors.Schedule_Hospital_SundayMenu)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings)).click();
-		 Thread.sleep(2000);
-		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings)).click();
+		 Browser.clickOnTheElementByID(Elements_Doctors.schedule);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+		 Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings);
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Thread.sleep(3000);
 		 
 	 }

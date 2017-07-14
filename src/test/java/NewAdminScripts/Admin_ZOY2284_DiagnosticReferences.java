@@ -4,6 +4,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +56,7 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_SynonymName, synonymname);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_SaveSynonym);
 		String name=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_CheckSynonymName)).getText();
+		System.out.println(name);
 		Assert.assertEquals(name, synonymname);
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_Save);
@@ -79,6 +81,11 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		Browser.CheckNotificationMessage("Standard Test Updated successfully");
 		Thread.sleep(3000);
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenterStandardTest", "entityName", Editentityname);
+	}
+	
+	@AfterClass
+	public void CloseBrowser(){
+		driver.quit();
 	}
 	
 	

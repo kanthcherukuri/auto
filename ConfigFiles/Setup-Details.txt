@@ -61,6 +61,9 @@ DiagnosticLogin.password=Zoylo@123
 DiagnosticLogin.usernamethree=sajjadiagnostic@gmail.com
 DiagnosticLogin.passwordthree=Zoylo@123
 
+DiagnosticLogin.usernamefive=kanthdg@gmail.com
+DiagnosticLogin.passwordfive=Zoylo@666
+
 DiagnosticLogin.usernamesix=divya@gmail.com
 DiagnosticLogin.passwordsix=Zoylo@123
 
@@ -98,5 +101,8 @@ Diagnostic.Name=Diagnosticszoylo
 //---------Admin Login Details-------//
 AdminLogin.username=kanthl@zoylo.com
 AdminLogin.password=Zoylo@123
+
+//----Diagnostic Appointment URL----//
+Diagnostic.ApprovedApptURL=https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList
 
 
