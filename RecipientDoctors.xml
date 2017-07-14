@@ -30,7 +30,7 @@
       
       
       <class name="recipientsTestScripts.Recipient_ZOY1189_ValidateRecipientReferFriend"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1332_ValidateHomePageElements"/>  
+       
       <class name="recipientsTestScripts.Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors"/>
       <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics"/>
       <class name="recipientsTestScripts.Recipients_ZOY1074_ValidateRecipientPasswordrecovery"/>
