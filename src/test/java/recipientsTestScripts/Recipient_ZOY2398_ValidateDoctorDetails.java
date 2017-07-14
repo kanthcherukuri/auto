@@ -47,12 +47,7 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentSave);
 		Browser.CheckNotificationMessage("Information Updated Successfully");
 		Thread.sleep(5000);
-		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
-		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("logout")).click();
-		Thread.sleep(5000);
-		System.out.println("Doctor Logged Out");
+		doctorsPage.doctorlogout();
 		
 		//Recipient asserts
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
@@ -79,12 +74,7 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentSave);
 		Browser.CheckNotificationMessage("Information Updated Successfully");
 		Thread.sleep(5000);
-		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
-		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("logout")).click();
-		Thread.sleep(5000);
-		System.out.println("Doctor Logged Out");
+		doctorsPage.doctorlogout();
 	}
 	
 	@BeforeClass
