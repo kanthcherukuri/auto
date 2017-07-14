@@ -25,6 +25,7 @@ public class Admin_EditHospital extends LoadPropMac {
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}
 	
+
 	@DataProvider(name="EditHospital")
 	public Object[][] clinicDocInfo() throws Exception
 	{
@@ -33,6 +34,7 @@ public class Admin_EditHospital extends LoadPropMac {
 	}
 	
 	
+
 	
 	@Test(dataProvider="EditHospital")
 	public void EditHospital(String HospitalName) throws Exception{

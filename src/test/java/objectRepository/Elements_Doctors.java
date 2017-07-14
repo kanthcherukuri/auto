@@ -130,7 +130,7 @@ public class Elements_Doctors  {
 	 public static String Schedule_Hospital_SaveWorkTimings, Schedule_Hospital_DeleteWorkTimings, Schedule_Hospital_SundayMenu;
 
 	 public static String aminitiesTab;
-	 public static String aminitiesAmbulance;
+	 public static String aminitiesAmbulance, aminitiesBikePark, aminitiesCarPark;
 	 public static String aminitiesSave;
 	 public static String servicesTab;
 	 public static String addServices;
@@ -140,7 +140,7 @@ public class Elements_Doctors  {
 
 	 
 	 //Add clinic
-	 public static String clickPlusMore;
+	 public static String clickPlusMore, selectOtherClinic;
 	 public static String addClinic;
 	 public static String popUpHeading;
 	 public static String otherclinicName;
@@ -167,6 +167,7 @@ public class Elements_Doctors  {
 	 
 		//Add clinic
 		clickPlusMore="profile-flip";
+		selectOtherClinic="//div[@class='sp-clinic-address sp-clinic-click']//h5"; //XPATH
 		addClinic="//span[contains(., 'Add Clinic')]";
 		popUpHeading="myModalLabel";
 		otherclinicName="aoc_clinicname";
@@ -189,6 +190,8 @@ public class Elements_Doctors  {
 		addSave="clinic_addr_save";
 		aminitiesSave="clinic_aminities_save";
 		aminitiesAmbulance="ambulance";
+		aminitiesBikePark="bikeparking";
+		aminitiesCarPark="carparking";
 		servicesTab="(//li[contains(., 'Services')])[1]";
 		addServices="clinic_add_service";
 		servicesText="//textarea[@class='serviceName']";

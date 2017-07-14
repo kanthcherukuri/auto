@@ -18,7 +18,7 @@ public class Elements_Recipients  {
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 	public static String selectFirstDoctorFromListingPage, selectFirstDoctorBookBtnFromListingPage, mapListingIcon;
-	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor, doctorNameOnProfile;
+	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor, doctorNameOnProfile, doctor_ProfileAminities, doctor_ProfileSchedule, doctor_ProfilePlusMore, doctor_ProfileOtherClinicDropDown, doctor_ProfileClinicName;
 	public static String bookAptHeader,paymentPageHeader,cancelPaymentPage, bookAptPageDate, bookAptPageFee, makePaymentBtn, indexHeaderUserIcon;
 	
 	//Home page elements
@@ -69,6 +69,11 @@ public class Elements_Recipients  {
 		paymentPageHeader="//h4[contains(.,'Review Your Appointment Details')]"; //XPATH
 		bookAptHeader="//h1[contains(., 'Book Appointment')]"; //XPATH
 		doctorNameOnProfile="//h1[@class='tr-override-dctr-content-h1']"; //XPATH
+		doctor_ProfileAminities="amenities";
+		doctor_ProfileSchedule="bookapp";
+		doctor_ProfilePlusMore="manage-flip";
+		doctor_ProfileOtherClinicDropDown="(//a[@data-type='other-clinics'])[1]";
+		doctor_ProfileClinicName="//h2[@class='addr-ClinicName']";
 		mapListingIcon="mapIconMenu"; //ID
 		getDistanceFromListingForFirstDoctor="(//div[@class='dctr-exprnce']//span[2])[1]"; //XPATH
 		backBtn="backArrow"; //ID

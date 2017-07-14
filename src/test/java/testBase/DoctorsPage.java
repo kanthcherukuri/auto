@@ -106,7 +106,7 @@ public class DoctorsPage  {
 	// Doctors logout 
 	public  void doctorlogout() throws IOException, InterruptedException{			
 		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
-		Thread.sleep(5000);
+		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
 		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("logout")).click();
@@ -1161,6 +1161,34 @@ public void VerifyCheckINFunctionality() throws Exception{
 		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will edit aminity for a doctor to check in recipient application
+	 * @ Pram: aminity element
+	 * @ Return:
+	 */
+	public void editAminitiesStringPass(String aminity)
+	{
+		Browser.clickOnTheElementByID(aminity);
+		Browser.clickOnTheElementByID(Elements_Doctors.aminitiesSave);
+	}
+	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will switch between clinic practice locations
+	 * @ Pram:
+	 * @ Return:
+	 */
+	public void switchClinicPracticeLoactions()
+	{
+		Browser.clickOnTheElementByID(Elements_Doctors.clickPlusMore);
+		Browser.waitFortheElementXpath(Elements_Doctors.selectOtherClinic);
+		String clinicName= Browser.getTextByXpath(Elements_Doctors.selectOtherClinic);
+		Browser.clickOnTheElementByXpath(Elements_Doctors.selectOtherClinic);
+		System.out.println("Clicked on "+clinicName);
+		String clinicNameonPage=Browser.getTextByID(Elements_Doctors.clinicName);
+		Assert.assertEquals(clinicName, clinicNameonPage);
+	}
 	
 
 }//main class
