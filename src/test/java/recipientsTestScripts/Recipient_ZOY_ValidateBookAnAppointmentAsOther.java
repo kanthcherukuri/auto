@@ -3,6 +3,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
+import java.net.UnknownHostException;
+
 import org.openqa.selenium.*;
 
 /*
@@ -31,7 +34,10 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 		LoadBrowserProperties(); // Create driver instance and launch the browser
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		RecipientPage = new RecipientPage(driver); // Loading Pages
-		Browser= new TestUtils(driver);        
+		Browser= new TestUtils(driver);     
+		 // Email trigger ON
+		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", false);
+
 
 	} 
 
@@ -59,7 +65,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 			String AppointmentId = driver.findElement(By.xpath("(//div[@class='book-dtbox']/h3)[1]")).getText();
 			System.out.println(AppointmentId);
 			
-			/*
+			
 	           //Email Verification of recipient
 				String RecipientEmail= Browser.emailResponse(Recipient_Username, Recipient_Password, "Zoylo.com | Your appointment with "+DoctorFullName+" has been confirmed.");
 				Assert.assertTrue(RecipientEmail.contains("Your doctor appointment booked on Zoylo.com is CONFIRMED."));
@@ -67,7 +73,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 				//Email verification of Doctor
 				String DoctorEmail= Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | "+AppointmentId+".You have a new patient appointment.");
 				Assert.assertTrue(DoctorEmail.contains("You have a new patient appointment booked"));
-				*/
+				
             
 
 	}
@@ -79,8 +85,9 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 
 	@AfterClass(groups = { "Regression","High" })
 
-	public void Exit() {
-		
+	public void Exit() throws UnknownHostException {
+		// Email trigger Off
+		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", true);
 		driver.quit();
 	}
 

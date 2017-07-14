@@ -150,7 +150,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			RecipientPage.ApplyFilter("Specialization","specialization", "Trichology","searchSpecialization");
 			Thread.sleep(5000);
 			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
-			Assert.assertEquals(NoDataFound, "Oops your Search did not match any records. Why don't you try searching after clearing the filter. ... Clear Filter");
+			Assert.assertEquals(NoDataFound, "Oops your Search did not match any records. Why don't you try searching after clearing the filter. Clear Filter");
 	
 	    }
 	 
@@ -165,7 +165,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 			//Verify with Invalid data
 			driver.findElement(By.id("searchFilter")).click();
 			driver.findElement(By.id("listingSearchTextbox")).sendKeys("xx12345");
-			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[2]");
+			Browser.waitFortheElementXpath("(//*[@id='clearFilter'])[3]");
 			driver.findElement(By.xpath("(//*[@id='clearFilter'])[3]")).click();
 			//get filter count and make sure filter count is 0 after clearing the filter
 			String FilterCount=driver.findElement(By.xpath("//span[@class='zy-filtercount']")).getText();
