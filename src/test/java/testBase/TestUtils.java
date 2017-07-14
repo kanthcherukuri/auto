@@ -529,9 +529,11 @@ public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String U
 
 	           //Search for mail from Zoylo
 	           for (int i = 0; i<=5; i++) {
+	        	   Thread.sleep(500);
 	               messages = folder.search(new SubjectTerm(Subject),folder.getMessages());
-	               System.out.println(messages);
+	            
 	               //Wait for 10 seconds
+	           
 	               if (messages.length == 0) {
 	               	System.out.println("mail not found");
 	                   Thread.sleep(10000);

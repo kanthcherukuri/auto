@@ -54,8 +54,8 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 Browser.openUrl(loginPage_Url);			
 			 //Verify Recipient Login with valid details
 			 RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-			 Thread.sleep(2000);
-			 RecipientPage.goToMyAccounts("Appointments");
+			 Thread.sleep(5000);
+			 RecipientPage.openMyAccounts("Appointments");
 			 Thread.sleep(5000);// Added for view
 			 driver.findElement(By.id("hist")).click();  // my History
 			 Thread.sleep(2000);
@@ -66,9 +66,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 			 RecipientPage.makePayment(); 
 			 String SuccessfullMesg = driver.findElement(By.xpath("//h5")).getText();
 			 Assert.assertTrue(SuccessfullMesg.contains("Thank you for booking appointment"));
-			 Browser.openUrl(loginPage_Url);
-			 //driver.findElement(By.id("skipForLater")).click();
-		     RecipientPage.recipientLogout();
+			
 
 			
 	    }

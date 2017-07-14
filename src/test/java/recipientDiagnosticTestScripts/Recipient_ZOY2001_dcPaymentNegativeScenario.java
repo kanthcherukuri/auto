@@ -23,13 +23,13 @@ public class Recipient_ZOY2001_dcPaymentNegativeScenario extends LoadPropMac
 	public void dcpaymentNegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
 		String dcName=Browser.getTextByXpath(Elements_Recipients.dcNameOnProfilePage);
 		RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
 		RecipientPage.confirmAppointmentOnDiagnostics();
+		Browser.scrollbyID("proceed");
 		Browser.clickOnTheElementByID("proceed");
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();

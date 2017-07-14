@@ -25,7 +25,7 @@ public class Elements_Recipients  {
 	public static String home_PracticeLogin, home_PracticeLogin_PagePlaceHolder, home_customerLogin, home_customerLogin_PagePlaceHolder, home_AppStoreLink, home_AppStore_Page, home_androidLink, home_androidLink_Page;
 	public static String home_aboutUs, home_contactUs, home_terms, home_privacy, home_cancelRefund;
 	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
-	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo;
+	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo, recipient_DocProfile_About;
 	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -103,6 +103,9 @@ public class Elements_Recipients  {
          dcHometestTab="h_Test_li";
          dcHomePkgTab="h_Package_li";
          hWorkingTab="h_WorkTimings_li";
+         
+         //Doc profile page
+         recipient_DocProfile_About="about-doc";
         
 		return driver;	
         

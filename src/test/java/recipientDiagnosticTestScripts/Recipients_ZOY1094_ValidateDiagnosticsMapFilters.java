@@ -101,7 +101,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 			Thread.sleep(2000);
 			String PkgName=driver.findElement(By.xpath("//div[@class='zy-rec-diag-s-apt-g-table-col' and contains(.,'Zoylo Health Pkg')]")).getText();
 			Assert.assertEquals(PkgName, "Zoylo Health Pkg");
-			Browser.clickOnTheElementByID("backArrow");
+			
 	
 	    }
 	 //

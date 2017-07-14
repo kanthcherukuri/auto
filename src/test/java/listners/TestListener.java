@@ -65,6 +65,10 @@ public class TestListener extends LoadPropMac implements ITestListener {
 	 public void onTestStart(ITestResult result) { 
 	    	
 	    	System.out.println("Test Started");
+	    	String methodName=result.getName().toString().trim();
+	    	String className=result.getTestClass().toString().trim();
+	    	System.out.println("***********Testing Class Name ="+className+"*****************");
+	    	System.out.println("***********Testing Method Name ="+methodName+"***************");
 	    }
 
 	@Override

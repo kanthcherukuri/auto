@@ -113,11 +113,15 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	public void mapSearchByInvalidData(String runmode,String Doctor,String Specialization,String Clinic,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
-
+			
 			//Verify with Invalid data
 			driver.findElement(By.id("search2")).click();
-			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
-			Thread.sleep(5000);
+			for(int i=0;i<=invalidData.length()-1; i++)
+		    {
+		    	char Doc = invalidData.charAt(i);	    	
+		    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
+		    	Thread.sleep(500);
+		    }
 			String OppsContent = driver.findElement(By.cssSelector("div.a-s-w")).getText();
 		System.out.println("content"+OppsContent);
 			Assert.assertTrue(OppsContent.contains("Oops your Search"));

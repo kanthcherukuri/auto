@@ -33,7 +33,6 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		Browser= new TestUtils(driver);   
 		//Test Starts-Here
 		Browser.openUrl(loginPage_Url);			
-		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		//Searching Locality/Area
@@ -45,7 +44,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx","Apollo Hospitals" }
+			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx","Apollo Hospital" }
 
 		};
 	}
@@ -72,7 +71,9 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	public void refresh( ) throws Exception {
 
 		driver.navigate().refresh();
-		Thread.sleep(5000);		
+		Thread.sleep(5000);	
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
 	public void mapSearchBySpecialization(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
@@ -136,8 +137,15 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
 			//Verify with Invalid data
 			driver.findElement(By.id("search2")).click();
-			driver.findElement(By.id("indexSearchTextbox")).sendKeys(invalidData);
-			Browser.waitforTextbyxpath("//div[@class='a-s-w']/span", "Oops! your search for "+invalidData+" did not match any records");
+			
+			 for(int i=0;i<=invalidData.length()-1; i++)
+			    {
+			    	char invalidData2 = invalidData.charAt(i);	    	
+			    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(invalidData2));
+			    	Thread.sleep(500);
+			    }
+			    Thread.sleep(500);
+			Browser.waitforTextbyxpath("//div[@class='a-s-w']", "Oops your Search for "+invalidData+" did not match any records");
 			
 
 		}else{

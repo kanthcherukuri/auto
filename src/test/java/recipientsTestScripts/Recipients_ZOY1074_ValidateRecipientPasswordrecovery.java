@@ -41,7 +41,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 
 
 
-	@Test(groups = { "Regression","High" },priority=0)
+	//@Test(groups = { "Regression","High" },priority=0)
 	public void validateRecipientPasswordValidations() throws Exception {
 
 
@@ -76,7 +76,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		//Test Starts-Here
 		Browser.openUrl(loginPage_Url);
 		//verifing email validation
-		driver.findElement(By.id("forgotPassword")).click();
+		Browser.clickOnTheElementByID("forgotPassword");
 		Browser.waitTill(10);
 		driver.findElement(By.id("resetPassword")).click();
 		driver.findElement(By.id("mobileOrEmail")).sendKeys("zoylodoctor@gmail.com");

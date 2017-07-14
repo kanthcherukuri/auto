@@ -88,7 +88,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				//Login as Recipient
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-                Thread.sleep(20000);				
+                Thread.sleep(15000);				
 				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				Browser.scrollbyID("submitReview");				
 				driver.findElement(By.id("skipForLater")).click();
