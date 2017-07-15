@@ -36,7 +36,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Laxmikanththree","Full Body Test","10000","5"}
+					{ "yes","Laxmikanthfive","Full Body Test","10000","5"}
 
 			};
 		}
