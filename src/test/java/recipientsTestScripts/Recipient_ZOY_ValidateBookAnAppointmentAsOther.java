@@ -80,9 +80,6 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 
 
 
-
-
-
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() throws UnknownHostException {

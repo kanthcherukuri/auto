@@ -29,20 +29,10 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 
  
 
-	 @DataProvider(name = "DP1")
-		public String[][] createData1() {
-			return new String[][] {
-					{ "yes","Ganesh" }
 
-			};
-		}
-
-	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
-	  
-		 if(runmode.equals("yes")){
-			 		 
-			    //Test Starts-Here
+	 @Test(groups = { "Regression","High" })
+	 public void validateBookingAnAppointment() throws Exception {
+	  	    
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
@@ -64,12 +54,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 				//Verifying Consultation Fee in Thank you Page
 				Assert.assertTrue(Browser.getTextByXpath("//div[@class='book-dtbox']//p[2]").contains("Consultation:"+Fee.replace(" ", "")+""));
 	 
-		 }else{
-			 
-			throw new SkipException("RUNMODE IS OFF");
-			
-		 }
-			
+		
 			
 	    }
 	  
