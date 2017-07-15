@@ -884,7 +884,7 @@ public class DiagnosticPage {
 			Thread.sleep(2000);
 			driver.findElement(By.id("logout")).click();
 			Thread.sleep(5000);
-			System.out.println("Diagnostics Logged Out"+LoadPropMac.Environment_Name);
+			System.out.println("Diagnostics Logged Out "+LoadPropMac.Environment_Name);
 		}
 
 		

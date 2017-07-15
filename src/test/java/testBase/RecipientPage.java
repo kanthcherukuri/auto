@@ -224,8 +224,8 @@ public class RecipientPage  {
 		driver.findElement(By.id("search2")).click();
 	    for(int i=0;i<=keyword.length()-1; i++)
 	    {
-	    	char Doc = keyword.charAt(i);	    	
-	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Doc));
+	    	char Dc = keyword.charAt(i);	    	
+	    	driver.findElement(By.id("indexSearchTextbox")).sendKeys(Character.toString(Dc));
 	    	Thread.sleep(500);
 	    }
 	    Thread.sleep(500);
@@ -752,8 +752,8 @@ public class RecipientPage  {
 	}
 
 	public void goToDiagnostics() throws InterruptedException{
-		Browser.waitFortheElementXpath("//*[@id='diagnostics']/span[1]/img");
-		driver.findElement(By.xpath("//*[@id='diagnostics']/span[1]/img")).click();  // book
+		Thread.sleep(1000);
+		Browser.clickOnTheElementByID("diagnostics");
 		//Browser.waitTill(60);
 		Thread.sleep(3000);
 		System.out.println("Cliked on Diagnostics Icon");

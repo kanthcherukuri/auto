@@ -25,7 +25,9 @@ public class Elements_Recipients  {
 	public static String home_PracticeLogin, home_PracticeLogin_PagePlaceHolder, home_customerLogin, home_customerLogin_PagePlaceHolder, home_AppStoreLink, home_AppStore_Page, home_androidLink, home_androidLink_Page;
 	public static String home_aboutUs, home_contactUs, home_terms, home_privacy, home_cancelRefund;
 	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
-	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo, recipient_DocProfile_About;
+	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo, recipient_DocProfile_About, recipient_DCProfileAbout;
+	public static String recipient_DCProfileABoutText, recipient_DCProfileRegNum, recipient_DCEstablishedYear, recipient_DCLanguage, recipient_DCPayment;
+	public static String recipient_DCAwardsTab, recipient_DCAwardsContent;
 	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -106,6 +108,14 @@ public class Elements_Recipients  {
          
          //Doc profile page
          recipient_DocProfile_About="about-doc";
+         recipient_DCProfileAbout="//a[@href='#about']"; //XPATH
+         recipient_DCProfileABoutText="(//div[@class='zy-rec-hosp-lbl'])[2]"; //XPATH
+         recipient_DCProfileRegNum="(//div[@class='zy-rec-hosp-lbl'])[4]"; //XPATH
+         recipient_DCEstablishedYear="(//div[@class='zy-rec-hosp-lbl'])[6]"; //XPATH
+         recipient_DCLanguage="(//div[@class='zy-rec-hosp-lbl'])[8]"; //XPATH
+         recipient_DCPayment="//span[@class='zy-rec-diag-pay-options']"; //XPATH
+         recipient_DCAwardsTab="//a[@href='#awards']"; //XPATH
+         recipient_DCAwardsContent="//div[@class='zy-rec-diag-awards-right-info']"; //XPATH
         
 		return driver;	
         
