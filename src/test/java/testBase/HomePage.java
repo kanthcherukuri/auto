@@ -147,8 +147,9 @@ public  void searchQuery(String City, String Locality,String Specialization) thr
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("//li[contains(@id,'"+Qualification+"')]")).click();
 			driver.findElement(By.id(Elements_Doctors.enrollment_regname)).sendKeys(String.valueOf(Phno));
-			Thread.sleep(1000);
+			Thread.sleep(1500);
 			driver.findElement(By.id(Elements_Doctors.enrollment_mobile)).sendKeys(String.valueOf("9"+Phno));
+			Thread.sleep(1500);
 			driver.findElement(By.id(Elements_Doctors.enrollment_email)).sendKeys(Email);
 			driver.findElement(By.id(Elements_Doctors.enrollment_clinicaddress)).sendKeys(Address);
 			driver.findElement(By.id(Elements_Doctors.enrollment_consultationfee)).sendKeys(Fee);

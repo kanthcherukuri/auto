@@ -165,6 +165,8 @@ public class Elements_Diagnostics  {
 		//Homesample variables
 		public static String HomeSampleDistance, HomeSampleSave,  HomeSampleCollectionMenu;
 	 public static String adminusername, adminpassword, adminlogin;
+	 
+	 public static String dc_ProfileEditBtn, dc_ProfileAboutTxt, dc_ProfileLanguage, dc_ProfileEstablishedVaue, dc_ProfileRegNum, dc_ProfileAwardsTab, dc_ProfileAwardsDiv, dc_ProfileAwardsContent, dc_ProfilePaymentTab, dc_ProfilePaymentCash, dc_ProfilePaymentSave;
 		
 		
 	public static WebDriver Diag_PageProperties()throws Exception{
@@ -298,6 +300,17 @@ public class Elements_Diagnostics  {
 		 saveawards="zySaveAwards";
 		 clickonsignoutmenu="//*[@id='myTabs']/li[6]/a/span[2]";
 		 confirmlogout="logout";
+		 dc_ProfileEditBtn="zyEditAboutInfo"; //ID
+         dc_ProfileAboutTxt="zyaboutField"; //ID
+         dc_ProfileLanguage="languagesSpoken_def"; //ID
+         dc_ProfileEstablishedVaue="//div[@class='sp-diagno-abt-value']"; //XPATH
+         dc_ProfileRegNum="//p[@class='margin0']"; //XPATH
+         dc_ProfileAwardsTab="//a[@href='#awards']"; //XPATH
+         dc_ProfileAwardsDiv="awardsDefaultData"; //ID
+         dc_ProfileAwardsContent="(//div[@class='zy-spdoc-awardscontent menu_links']//p)[1]"; //XPATH
+         dc_ProfilePaymentTab="//a[@href='#payment']"; //XPATH
+         dc_ProfilePaymentCash="cash"; //ID
+         dc_ProfilePaymentSave="zyPayment_edit_save"; //ID
 		 
 		//Show More Diagnostic Dashboard locators
 		 showmorebutton="html/body/div[6]/div[3]/div[1]/div[5]/button[1]";
