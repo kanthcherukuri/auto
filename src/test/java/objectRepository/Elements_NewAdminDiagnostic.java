@@ -339,7 +339,7 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_CloseAwards="(//button[@type='button'])[162]";
 		 Hospital_ClosePackages="(//button[@type='button'])[163]";
 		 Hospital_CloseServices="(//button[@type='button'])[164]";
-		 Hospital_Save="//button[@type='submit']";
+		 Hospital_Save="//*[@id='insertHospital']/div/div/div/div/div/button[2]";
 		 Hospital_ClickOnCountry="select2-companyCountryOptions-container";
 		 Hospital_ClickOnState="select2-companyStateOptions-container";
 		 Hospital_ClickOnCity="select2-companyCityOptions-container";
