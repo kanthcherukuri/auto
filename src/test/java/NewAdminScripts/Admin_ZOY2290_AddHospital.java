@@ -7,8 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.Keys;
-
-
 import org.testng.annotations.DataProvider;
 
 
@@ -48,8 +46,9 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);
 		Thread.sleep(2000);
-		Browser.maximizechromebrowser();
+		//Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_HospitalName, HospitalName);
 		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Hospital_ShortName, ShortName);
@@ -79,6 +78,7 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		//Services
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_CloseServices);
 		Browser.scrollbyID(Elements_NewAdminDiagnostic.Hospital_Cancel);
+		Thread.sleep(1000);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");	
 		
