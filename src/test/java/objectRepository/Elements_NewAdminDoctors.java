@@ -48,6 +48,7 @@ public static String administrator_moduleTab, administrator_moduleHospitalActive
 public static String administrator_marketingElementsTab, administrator_marketingHeader, administrator_marketingName;
 public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOldPassword, adminUserNewPassword, adminUserConfirmPassword, adminUserPasswordSave;
+public static String administrator_lookupCodeTab, administrator_lookupCodeHeader, administrator_lookupCodeType, administrator_lookupCodeName, administrator_lookupCodeDescription, administrator_lookupCodeValue, administrator_lookupCodeValueName, administrator_lookupCodeValueDesription, administrator_lookupCodeValueSeuence, administrator_lookupCodeValueActiveCheckBox;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -157,6 +158,17 @@ public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOld
 		administrator_appPropertyDeleteBtn="//button[@data-title='Delete']"; //XPATH
 		administrator_appPropertyDeleteHeader="//h4[contains(., 'Delete Application Properties')]"; //XPATH
 		administrator_appPropertyDeleteSubmitBtn="applicationPropertiesDeleteSubmit"; //ID
+		//LookUp Code
+		administrator_lookupCodeTab="//a[@href='/admin/lookupCodesList']"; //XPATH
+		administrator_lookupCodeHeader="//h1[contains(., 'Lookup Codes')]"; //XPATH
+		administrator_lookupCodeType=".//*[@name='code']"; //XPATH
+		administrator_lookupCodeName=".//*[@name='name']"; //XPATH
+		administrator_lookupCodeDescription="//form[@id='insertLookupCode']//input[@name='description']"; //XPATH
+		administrator_lookupCodeValue=".//*[@name='values.0.code']"; //XPATH
+		administrator_lookupCodeValueName=".//*[@name='values.0.name']"; //XPATH
+		administrator_lookupCodeValueDesription=".//*[@name='values.0.description']"; //XPATH
+		administrator_lookupCodeValueSeuence=".//*[@name='values.0.sequence']"; //XPATH
+		administrator_lookupCodeValueActiveCheckBox=".//*[@name='values.0.isActive']"; //XPATH
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID
