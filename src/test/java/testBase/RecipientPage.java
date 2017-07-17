@@ -700,6 +700,32 @@ public class RecipientPage  {
 			
 			
 		}
+		
+		
+		//New Promo Page
+				public void UpcomingAppointmentForDoctors(String APID , String Action) throws InterruptedException{
+
+					//Browser.waitFortheID("upcmng");
+					Browser.waitFortheElementXpath("//div[@class='patientApmtStatus']");
+					driver.findElement(By.id("aptSearch")).click();
+					driver.findElement(By.id("aptSearch")).sendKeys(APID);
+					Thread.sleep(5000);
+					Browser.waitFortheElementXpath("//div[@class='patientApmtStatus' and contains(.,'"+APID+"')]");	
+				
+				if(Action.equals("Reschedule")){
+					
+					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[1]")).click();
+					System.out.println("Reshedule Action Is Executed");
+				}else if (Action.equals("Cancel")){
+					
+					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[2]")).click();
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
+					System.out.println("Cancelled Action Is Executed");
+				}
+					
+					
+				}
 	
 	/*   
 	 *  @Author      : Sagar Sen
