@@ -1,4 +1,4 @@
-package diagnosticTestScripts;
+ package diagnosticTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;

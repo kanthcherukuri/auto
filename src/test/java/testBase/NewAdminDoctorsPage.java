@@ -2049,4 +2049,35 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Thread.sleep(1500);
 		click_UserChangePassworSavedBtn();
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click lookup code under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_lookUpCodeTab()
+	{
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_lookupCodeTab);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_lookupCodeTab)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_lookupCodeHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to add lookup code details under administrator tab on admin screen
+	 * @ Param			: codeType, codeName, codeDescription, codeValue, codeValueName, codeValueDescription, codeValueSequence
+	 * @ return			: NA
+	 */
+	public void Enter_lookUpCodeDetails(String codeType, String codeName, String codeDescription, String codeValue, String codeValueName, String codeValueDescription, String codeValueSequence)
+	{
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeType, codeType);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeName, codeName);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeDescription, codeDescription);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValue, codeValue);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueName, codeValueName);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueDesription, codeValueDescription);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueSeuence, codeValueSequence);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueActiveCheckBox);
+	}
 } //End of class
