@@ -24,7 +24,7 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPageZoylo=new DiagnosticPage(driver);
 	 Browser=new TestUtils(driver);
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		
 	  }
 	

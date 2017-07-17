@@ -36,15 +36,17 @@ public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
   
   
   @Test(dataProvider="CheckIn")
-  public void CheckingCheckInFunctionality(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+  public void CheckingCheckInFunctionality(String firstname,String lastname,String mobile,String email,String problem,
+		  String prognosis,String diagnosis,String height,String inches, String weight,
+			String drug,String strenght,String notes) throws Exception{
 	  	
 	  					
 		DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(2000);
 		DoctorsPage.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
-		Thread.sleep(3000);
-		DoctorsPage.VerifyCheckINFunctionality();		
-		Thread.sleep(2000);				
+		DoctorsPage.VerifyCheckINFunctionality(prognosis, diagnosis, height, inches, weight, drug, strenght, notes);
+			
+						
 			
 	 }
   

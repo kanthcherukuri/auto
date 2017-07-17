@@ -4,7 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
-import org.openqa.selenium.By;
+
 
 
 import objectRepository.Elements_Doctors;
@@ -40,41 +40,36 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 	        return(retObjArr);
 	    }
 	  
-//	  @DataProvider(name = "DP1")
-//		 public String[][] createData1() {
-//				return new String[][] {
-//						{ "yes","Satisha","V","9933662222","satish@gmail.com","Diabetic" }
-//
-//				};
-//			}
-	  
 	 
 	  
 	  @Test(dataProvider="FollowUp")
-	  public void CheckingFollowupFunctionality(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	  public void CheckingFollowupFunctionality(String firstname,String lastname,String mobile,String email,String problem,
+			  String prognosis,String diagnosis,String height,String inches, String weight,
+				String drug,String strenght,String notes) throws Exception{
 		  
 		  DoctorsPage.DoctorAppointmentBookingForToday(firstname, lastname, mobile, email, problem);
 		  Thread.sleep(2000);
 		  DoctorsPage.CheckPateintScreenForCheckInFunctionality(firstname, lastname, email);
 		  Thread.sleep(1000);
-		  DoctorsPage.VerifyCheckINFunctionality();
+		  DoctorsPage.VerifyCheckINFunctionality(prognosis, diagnosis, height, inches, weight, drug, strenght, notes);
 		  Thread.sleep(2000);
-		  driver.findElement(By.xpath(Elements_Doctors.patient_clickonfollowupbutton)).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_tommorrowmenu)).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_morning)).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_noon)).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_eveningtab)).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath(Elements_Doctors.appointment_eveningfirstcell)).click();
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.appointment_problem)).sendKeys("Diabetic");
-			Thread.sleep(1000);
-			driver.findElement(By.id(Elements_Doctors.patient_savefollowupappointment)).click();
-			Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonfollowupbutton);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_tommorrowmenu);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_tommorrowmenu);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_noon);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_eveningtab);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_eveningfirstcell);
+		  Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
+		  Thread.sleep(1000);
+		  Browser.waitFortheID(Elements_Doctors.appointment_problem);
+		  Browser.enterTextByID(Elements_Doctors.appointment_problem, "Diabetic");
+		  Browser.waitFortheID(Elements_Doctors.patient_savefollowupappointment);
+		  Browser.clickOnTheElementByID(Elements_Doctors.patient_savefollowupappointment);
+		  Browser.waitFortheElementXpath(Elements_Doctors.appointment_backgoundcolor);
 			String fullname=firstname+" "+lastname;
 			Browser.CheckNotificationMessage("Follow-up appointment is confirmed. Patient name: "+fullname);
 			Thread.sleep(2000);
@@ -83,7 +78,6 @@ public class Appointment_ZOY819_FollowUP extends LoadPropMac {
 		  @AfterMethod
 		  public void bulkcancelandlogout() throws Exception{
 			  DoctorsPage.BulkCancel();
-			  Thread.sleep(2000);
 			  DoctorsPage.doctorlogout();
 		  }
 		  
