@@ -27,8 +27,8 @@ public class LoadPropMac   {
 	//To Run On Cloud - Sauce Labs
 	public static final String USERNAME = "ganeshmandala123";
 	public static final String ACCESS_KEY = "54f5beb0-8191-4184-9094-ec209f9b300c";
-	//public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
-	public static final String URL = "http://dev.zoylo.com:9515";
+	public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+
 
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
@@ -89,7 +89,7 @@ public class LoadPropMac   {
 		//Admin - Login Credentials
 		Admin_Username=prop.getProperty("AdminLogin.username");
 		Admin_Password=prop.getProperty("AdminLogin.password");
-		
+
 		//Recipients -Login Credentails
 		Recipient_Username=prop.getProperty("Recipient.Username");
 		Recipient_Password=prop.getProperty("Recipient.Password");
@@ -124,19 +124,18 @@ public class LoadPropMac   {
 
 		//Sauce Labs - Capabilities
 
-		  DesiredCapabilities caps = DesiredCapabilities.chrome();
-     /*   caps.setCapability("platform", "macOS 10.12");
-        caps.setCapability("version", "58.0");*/
-		  caps.setCapability("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");
-        driver = new RemoteWebDriver(new URL(URL), caps);
+		/* DesiredCapabilities caps = DesiredCapabilities.chrome();
+       caps.setCapability("platform", "macOS 10.12");
+        caps.setCapability("version", "58.0");
+        driver = new RemoteWebDriver(new URL(URL), caps);*/
 
-		/*if(browser_name.equals("chrome")){
-			
+		if(browser_name.equals("chrome")){
+
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			 options.addArguments("--use-fake-ui-for-media-stream=1");
+			options.addArguments("--use-fake-ui-for-media-stream=1");
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -159,7 +158,7 @@ public class LoadPropMac   {
 			driver.manage().window().maximize();
 
 		}
-*/
+
 
 		return driver;
 	}
