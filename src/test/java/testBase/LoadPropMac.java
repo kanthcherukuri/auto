@@ -11,11 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import java.net.URL;
 
-import com.gargoylesoftware.htmlunit.WebClient;
 
 public class LoadPropMac   {
 	public static Properties prop = new Properties();
@@ -27,7 +27,8 @@ public class LoadPropMac   {
 	//To Run On Cloud - Sauce Labs
 	public static final String USERNAME = "ganeshmandala123";
 	public static final String ACCESS_KEY = "54f5beb0-8191-4184-9094-ec209f9b300c";
-	public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+	//public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+	public static final String URL = "http://localhost:9515";
 
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
@@ -123,15 +124,15 @@ public class LoadPropMac   {
 
 		//Sauce Labs - Capabilities
 
-		/*  DesiredCapabilities caps = DesiredCapabilities.chrome();
-        caps.setCapability("platform", "macOS 10.12");
-        caps.setCapability("version", "58.0");
+		  DesiredCapabilities caps = DesiredCapabilities.chrome();
+     /*   caps.setCapability("platform", "macOS 10.12");
+        caps.setCapability("version", "58.0");*/
         driver = new RemoteWebDriver(new URL(URL), caps);
 
-		 */
+		
 
-
-		if(browser_name.equals("chrome")){
+		/*if(browser_name.equals("chrome")){
+			
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
@@ -159,7 +160,7 @@ public class LoadPropMac   {
 			driver.manage().window().maximize();
 
 		}
-
+*/
 
 		return driver;
 	}
