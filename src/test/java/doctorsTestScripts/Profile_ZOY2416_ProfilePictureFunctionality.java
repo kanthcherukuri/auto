@@ -20,8 +20,8 @@ public class Profile_ZOY2416_ProfilePictureFunctionality extends LoadPropMac
 	public RecipientPage RecipientPage;
 	public DoctorsPage doctorsPage;
 	
-	@Test()
-	public void doctorProfilePictureFunctionality() throws Exception
+	@Test(priority=1)
+	public void doctorProfilePictureTakePhoto() throws Exception
 	{
 		//Doctor Application
 		launchDoctorLogin();
@@ -52,7 +52,11 @@ public class Profile_ZOY2416_ProfilePictureFunctionality extends LoadPropMac
 		Browser.waitFortheElementXpath(Elements_Recipients.recipient_docProfilePageImg);
 		String srcOnRecDocProfile=Browser.getImageSrc(Elements_Recipients.recipient_docProfilePageImg);
 		Assert.assertEquals(srcOnDocProfile.replaceAll(" ", ""), srcOnRecDocProfile.replaceAll(" ", ""));
-		
+	}
+	
+	@Test(priority=2)
+	public void doctorProfilePictureUploadPhoto() throws Exception
+	{
 		//Doctor Application
 		launchDoctorLogin();
 		doctorsPage.goToDoctorProfilePicture();
@@ -71,7 +75,11 @@ public class Profile_ZOY2416_ProfilePictureFunctionality extends LoadPropMac
 		Browser.waitFortheElementXpath(Elements_Recipients.recipient_docProfilePageImg);
 		String srcOnRecDocProfile1=Browser.getImageSrc(Elements_Recipients.recipient_docProfilePageImg);
 		Assert.assertEquals(srcOnDocProfile1.replaceAll(" ", ""), srcOnRecDocProfile1.replaceAll(" ", ""));
+	}
 		
+	@Test(priority=3)
+	public void doctorProfilePictureRemovePhoto() throws Exception
+	{
 		//Doctor Application
 		launchDoctorLogin();
 		doctorsPage.goToDoctorProfilePicture();
@@ -91,7 +99,7 @@ public class Profile_ZOY2416_ProfilePictureFunctionality extends LoadPropMac
 		String srcOnRecDocProfile2=Browser.getImageSrc(Elements_Recipients.recipient_docProfilePageImg);
 		Assert.assertEquals(srcOnDocProfile2.replaceAll(" ", ""), srcOnRecDocProfile2.replaceAll(" ", ""));
 	}
-	
+
 	public void launchDoctorLogin() throws Exception
 	{
 		driver.get(loginPage_Url);
