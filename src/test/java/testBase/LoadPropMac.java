@@ -11,8 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
+
+import com.gargoylesoftware.htmlunit.WebClient;
 
 public class LoadPropMac   {
 	public static Properties prop = new Properties();
@@ -144,6 +147,7 @@ public class LoadPropMac   {
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
+			 options.addArguments("--use-fake-ui-for-media-stream=1");
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
