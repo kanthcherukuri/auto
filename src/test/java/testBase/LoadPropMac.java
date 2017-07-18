@@ -127,6 +127,7 @@ public class LoadPropMac   {
 		  DesiredCapabilities caps = DesiredCapabilities.chrome();
      /*   caps.setCapability("platform", "macOS 10.12");
         caps.setCapability("version", "58.0");*/
+		  caps.setCapability("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");
         driver = new RemoteWebDriver(new URL(URL), caps);
 
 		
