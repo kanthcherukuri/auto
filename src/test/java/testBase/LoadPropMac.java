@@ -130,7 +130,7 @@ public class LoadPropMac   {
 
 		if(browser_name.equals("chrome")){
 			System.out.println("launching chrome browser");
-			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");
 			ChromeOptions options = new ChromeOptions(); 
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			driver = new ChromeDriver(options);	
@@ -143,8 +143,9 @@ public class LoadPropMac   {
 			driver.manage().window().setSize(new Dimension(width, height));
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
-
+			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
+			//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			//capabilities.setCapability("marionette", false);
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();
 

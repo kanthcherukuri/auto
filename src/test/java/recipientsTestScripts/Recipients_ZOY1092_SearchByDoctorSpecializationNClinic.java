@@ -44,7 +44,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx","Apollo Hospital" }
+			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx123sx","Apollo Hospitals" }
 
 		};
 	}
@@ -145,8 +145,11 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			    	Thread.sleep(500);
 			    }
 			    Thread.sleep(500);
-			Browser.waitforTextbyxpath("//div[@class='a-s-w']", "Oops your Search for "+invalidData+" did not match any records");
-			
+			   String InvalidSearchMessage=Browser.getTextByXpath("//div[@class='a-s-w']"); 
+			    
+			   Assert.assertTrue(InvalidSearchMessage.contains("Oops your Search"));
+			   Assert.assertTrue(InvalidSearchMessage.contains("did not match any records"));
+
 
 		}else{
 

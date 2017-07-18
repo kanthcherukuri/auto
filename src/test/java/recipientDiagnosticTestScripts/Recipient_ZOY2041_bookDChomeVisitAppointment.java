@@ -23,7 +23,6 @@ public class Recipient_ZOY2041_bookDChomeVisitAppointment extends LoadPropMac
 	public void bookDChomeVisitapt() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
