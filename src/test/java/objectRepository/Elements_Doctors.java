@@ -155,6 +155,7 @@ public class Elements_Doctors  {
 	 //Doctor Profile
 	 public static String doctor_changePassword, doctor_profileEdit, doctor_ProfileFirstName, doctor_ProfileAbout;
 	 public static String doctor_profileRegistrationNum, doctor_profileSaveInfo, doctor_ProfilePaymentTab, doctor_Profile_PaymentCash, doctor_Profile_PaymentSave;
+	 public static String doctor_Profile, doctor_profilePicture, doctor_profilePicturePopUp, doctor_profileTakePhotoBtn, doctor_profilePictureRemoveBtn, doctor_profilePictureUploadBtn, doctor_profileUploadInputID, doctor_profileVideoWindow, doctor_profileVideoWindowTakePhotoBtn, doctor_profileVideoUsePhotoBtn;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 		//Doctor Profile
@@ -381,6 +382,17 @@ public class Elements_Doctors  {
 			 appointment_getappointmentid="html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span";
 			 alert_clickonalertmenu="alerts";
 			
+			 //Profile picture elements
+			 doctor_Profile=".//*[@id='account']"; //XPATH
+			 doctor_profilePicture="//img[@class='sp-doc-hosp-image-53px']"; //XPATH
+			 doctor_profilePicturePopUp="//div[@class='acc-upload-remove-img']"; //XPATH
+			 doctor_profileTakePhotoBtn="//input[@class='capture']"; //XPATH
+			 doctor_profilePictureRemoveBtn="//li[@class='acc-pic-hide modalList menu_links']"; //XPATH
+			 doctor_profilePictureUploadBtn="uploadTrigger"; //ID
+			 doctor_profileUploadInputID="profileImage"; //ID
+			 doctor_profileVideoWindow="video"; //ID
+			 doctor_profileVideoWindowTakePhotoBtn="//button[@class='button shutter']"; //XPATH
+			 doctor_profileVideoUsePhotoBtn="//button[@class='button use-photo']"; //XPATH
 			
 		return driver;	
         

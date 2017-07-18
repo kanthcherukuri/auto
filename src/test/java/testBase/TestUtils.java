@@ -52,7 +52,18 @@ public class TestUtils {
 	public TestUtils(WebDriver driver) {
 		this.driver=driver;
 	}
-  
+		/*	@Author: Sagar Sen
+		 * 	@Description: This method can be used to extract the image source using xpath
+		 * 	@Parms: xpath
+		 * 	@Return: src path
+		 */
+		public String getImageSrc(String xpath)
+		{
+			WebElement element = driver.findElement(By.xpath(xpath));
+			String src = ((JavascriptExecutor)driver).executeScript("return arguments[0].attributes['src'].value;", element).toString();
+			System.out.println("The image source extracted is: "+src);
+			return src;
+		}
 
 	 /*   @Autur : Ganesh Mandala
 	  *   @Description: Sharing geolocation in zoylo map
