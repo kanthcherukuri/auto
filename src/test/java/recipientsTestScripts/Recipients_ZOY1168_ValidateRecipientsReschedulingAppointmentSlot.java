@@ -66,16 +66,22 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			RecipientPage.makePayment();
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
+			String AppointmentId = Browser.getAppointmentID();
 			//Re Scheduling the Apppointment
-
-			RecipientPage.openMyAccounts("Appointments");
-			Browser.clickOnTheElementByXpath("//div[@class='apt-dt-chng' and contains(.,'Scheduled')]/div[2]/div[1]");
-			
-			Browser.clickOnTheElementByXpath("//li[@id='cd-1']/div");
-			
+			RecipientPage.openMyAccounts("Appointments");			
+			RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Reschedule");		
+			Browser.clickOnTheElementByXpath("//li[@id='cd-1']/div"); //Tomarw Slots			
             Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
             Browser.CheckNotificationMessage(SlotChangeMesg);
+            //Verify Reschedule Status 
+			RecipientPage.openMyAccounts("Appointments");			
+			Browser.waitFortheID("upcmng");
+			driver.findElement(By.id("aptSearch")).click();
+			driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
+			Thread.sleep(5000);
+			Browser.waitFortheElementXpath("//div[@class='patientApmtStatus' and contains(.,'Rescheduled')]");
+			
+			
 			
 
 
