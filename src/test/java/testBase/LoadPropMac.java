@@ -28,7 +28,7 @@ public class LoadPropMac   {
 	public static final String USERNAME = "ganeshmandala123";
 	public static final String ACCESS_KEY = "54f5beb0-8191-4184-9094-ec209f9b300c";
 	//public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
-	public static final String URL = "http://127.0.0.1:4723/wd/hub";
+	public static final String URL = "http://localhost:8885";
 
 	//Diagnostic Variables
 	public static String Diagnostic_usernameone,Diagnostic_passwordone;
