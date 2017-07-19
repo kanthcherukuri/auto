@@ -134,9 +134,9 @@ public class LoadPropMac   {
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
-			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			options.addArguments("--use-fake-ui-for-media-stream=1");
-			options.addArguments("--kiosk");
+			//options.addArguments("disable-infobars");   // Added to remove new chrome warning message
+			//options.addArguments("--use-fake-ui-for-media-stream=1");
+			//options.addArguments("--kiosk");
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			/*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
