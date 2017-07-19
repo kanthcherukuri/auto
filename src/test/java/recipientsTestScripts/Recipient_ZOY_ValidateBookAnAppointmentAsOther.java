@@ -16,11 +16,7 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
 
- */
 public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
