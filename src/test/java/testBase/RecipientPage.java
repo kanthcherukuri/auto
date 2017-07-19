@@ -79,8 +79,8 @@ public class RecipientPage  {
 		driver.findElement(By.id(Elements_Recipients.Recipient_Password)).sendKeys(password);
 		driver.findElement(By.xpath(Elements_Recipients.Recipient_Button_Login)).click();
 		Browser.waitTill(60);
-		System.out.println("Logged in as"+email );
-		Reporter.log("Logged in as"+email);
+		System.out.println("Logged in as "+email );
+		Reporter.log("Logged in as "+email);
 
 	}
 	
@@ -928,6 +928,22 @@ public class RecipientPage  {
 
 		}
 
+	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Description: This method will route user to profile picture pop up
+	 * @Parms:
+	 * @Return:
+	 */
+	public void goToRecipientProfilePic()
+	{
+		Browser.clickOnTheElementByXpath(Elements_Recipients.Recipient_ProfilePicture);
+		if(driver.findElements(By.xpath(Elements_Recipients.Recipient_ProfilePopUp)).size()==0)
+		{
+			Browser.clickOnTheElementByXpath(Elements_Recipients.Recipient_ProfilePicture);
+		}
+		Browser.waitFortheElementXpath(Elements_Recipients.Recipient_ProfilePopUp);
 	}
 
 }

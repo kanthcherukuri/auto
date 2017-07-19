@@ -13,7 +13,7 @@ public class Elements_Recipients  {
 	public static FileInputStream inStream;
 
 	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
-	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab;
+	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab, Recipient_MyAccountTab, Recipient_ProfilePicture, Recipient_ProfilePopUp, Recipient_ProfileUploadInputID, Recipient_ProfileRemoveBtn, Recipient_ProfileGetSrc;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
@@ -109,6 +109,12 @@ public class Elements_Recipients  {
          dcHometestTab="h_Test_li";
          dcHomePkgTab="h_Package_li";
          hWorkingTab="h_WorkTimings_li";
+         Recipient_MyAccountTab="myaccount"; //ID
+         Recipient_ProfilePicture="//span[@class='user-imgHolder']"; //XPATH
+         Recipient_ProfilePopUp="//div[@class='acc-upload-remove-img']"; //XPATH
+         Recipient_ProfileUploadInputID="profileImage";
+         Recipient_ProfileRemoveBtn="//li[@class='acc-pic-hide modalList']";
+         Recipient_ProfileGetSrc="//span[@class='user-imgHolder']//img"; //XPATH
          
          //Doc profile page
          recipient_DocProfile_About="about-doc";
