@@ -410,7 +410,7 @@ public class DiagnosticPage {
 		Browser.waitFortheElementXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		}
 	
 	

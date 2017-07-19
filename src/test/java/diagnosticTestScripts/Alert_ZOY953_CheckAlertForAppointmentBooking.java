@@ -62,7 +62,6 @@ public class Alert_ZOY953_CheckAlertForAppointmentBooking extends LoadPropMac{
 	@AfterMethod()
 	public void bulkcancelandlogout() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
-		Thread.sleep(5000);
 		DiagnosticPageZoylo.diagnosticlogout();
 		}
 	
