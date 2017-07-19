@@ -27,7 +27,7 @@ public class Elements_Recipients  {
 	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
 	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo, recipient_DocProfile_About, recipient_DCProfileAbout;
 	public static String recipient_DCProfileABoutText, recipient_DCProfileRegNum, recipient_DCEstablishedYear, recipient_DCLanguage, recipient_DCPayment;
-	public static String recipient_DCAwardsTab, recipient_DCAwardsContent;
+	public static String recipient_DCAwardsTab, recipient_DCAwardsContent, recipient_DoctorListProfilePic, recipient_DCListProfilePic, recipient_docProfilePageImg, recipient_dcProfilePageImg;
 	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -37,6 +37,10 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
+		recipient_DoctorListProfilePic="//span[@class='imgHolder']//img"; //XPATH
+		recipient_DCListProfilePic="//img[@class='diagno-defaultimg zy-diagno-image-53px']"; //XPATH
+		recipient_docProfilePageImg="//img[@class='zy-provider-image-53px']"; //XPATH
+		recipient_dcProfilePageImg="//img[@class='zy-rec-diag-m-image-53px']"; //XPATH
 		thankYouPageLogo="//a[@class='desktop-logo']"; //XPATH
 		dcNameOnThankYouPage="(//div[@class='book-dtbox']//h3)[2]"; //XPATH
 		dcNameOnProfilePage="//span[@class='zy-rec-diag-m-d-name']"; //XPATH

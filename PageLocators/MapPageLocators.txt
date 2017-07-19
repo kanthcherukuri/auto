@@ -1,9 +1,0 @@
-
-
-
-
-//---- Map------//
-
-
-
-map.AreaName=zy-location-right

@@ -1173,5 +1173,20 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 		Assert.assertEquals(clinicName, clinicNameonPage);
 	}
 	
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will route to doctor profile picture pop up
+	 * @ Pram:
+	 * @ Return:
+	 */
+	public void goToDoctorProfilePicture() throws Exception
+	{
+		Browser.waitFortheID(Elements_Doctors.schedule);
+		Browser.scrollbyxpath(Elements_Doctors.doctor_Profile);
+		Browser.clickOnTheElementByXpath(Elements_Doctors.doctor_Profile);
+		Browser.clickOnTheElementByXpath(Elements_Doctors.doctor_profilePicture);
+		Browser.waitFortheElementXpath(Elements_Doctors.doctor_profilePicturePopUp);
+	}
+	
 
 }//main class

@@ -66,23 +66,20 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 		String AppointmentId = Browser.getAppointmentID();
 		System.out.println(AppointmentId);
-		driver.get(""+base_url+"myAppointments");
-		Thread.sleep(10000);
-		Browser.waitFortheElementXpath("//div[@class='patientApmtStatus']");
+		
+		//Verify Canceling of appointment
+		RecipientPage.openMyAccounts("Appointments");			
+		RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Cancel");		
+		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
+		Assert.assertEquals(cancel_mesg, "Appointment has been CANCELLED");
+		//Verify Canceling Status in History
+		Thread.sleep(5000);
+		Browser.clickOnTheElementByID("hist");
 		driver.findElement(By.id("aptSearch")).click();
 		driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
-		Thread.sleep(5000);
-		//Browser.scrollbyxpath("//div[@class='patientApmtStatus' and contains(.,'"+AppointmentId+"')]/following-sibling::*/div[2]");
-		Browser.clickOnTheElementByXpath("//div[@class='patientApmtStatus' and contains(.,'"+AppointmentId+"')]/following-sibling::*/div[2]");
-		//driver.findElement(By.id("cancel")).click();
-		Browser.clickOnTheElementByID("cancelYes");
-		//Thread.sleep(2000);
-		//driver.findElement(By.id("confirmYes")).click();
-		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-
-		Assert.assertEquals(cancel_mesg, "Appointment has been CANCELLED");
+		Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Canceled')]//div/span[contains(.,'"+AppointmentId+"')]");
 		
-		
+			
 		/*
 		
 		//Email Verification of recipient

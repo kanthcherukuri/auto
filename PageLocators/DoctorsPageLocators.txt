@@ -1,8 +1,0 @@
-// Doctors enrollment
-
-enrollment.area=
-enrollment.firstname=
-enrollment.lastname=
-enrollment.gender=
-
-enrollment.h5=//h5

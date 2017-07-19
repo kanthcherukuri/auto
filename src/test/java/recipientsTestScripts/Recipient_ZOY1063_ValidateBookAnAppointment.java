@@ -27,8 +27,6 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 		  	 
  } 
 
- 
-
 
 	 @Test(groups = { "Regression","High" })
 	 public void validateBookingAnAppointment() throws Exception {
@@ -53,9 +51,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 				Assert.assertTrue(Browser.getTextByXpath("//div[@class='book-dtbox']//h3[2]").contains(Appointmentdetails[0]));
 				//Verifying Consultation Fee in Thank you Page
 				Assert.assertTrue(Browser.getTextByXpath("//div[@class='book-dtbox']//p[2]").contains("Consultation:"+Fee.replace(" ", "")+""));
-	 
-		
-			
+	
 	    }
 	  
 

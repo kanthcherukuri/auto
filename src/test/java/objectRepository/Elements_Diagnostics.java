@@ -167,6 +167,7 @@ public class Elements_Diagnostics  {
 	 public static String adminusername, adminpassword, adminlogin;
 	 
 	 public static String dc_ProfileEditBtn, dc_ProfileAboutTxt, dc_ProfileLanguage, dc_ProfileEstablishedVaue, dc_ProfileRegNum, dc_ProfileAwardsTab, dc_ProfileAwardsDiv, dc_ProfileAwardsContent, dc_ProfilePaymentTab, dc_ProfilePaymentCash, dc_ProfilePaymentSave;
+	 public static String dc_ProfilePicture, dc_profilePictureRemoveBtn;
 		
 		
 	public static WebDriver Diag_PageProperties()throws Exception{
@@ -311,6 +312,8 @@ public class Elements_Diagnostics  {
          dc_ProfilePaymentTab="//a[@href='#payment']"; //XPATH
          dc_ProfilePaymentCash="cash"; //ID
          dc_ProfilePaymentSave="zyPayment_edit_save"; //ID
+         dc_ProfilePicture=".//*[@id='usrImgTt']/img"; //XPATH
+         dc_profilePictureRemoveBtn="(//li[@class='acc-pic-hide modalList menu_links'])[1]"; //XPATH
 		 
 		//Show More Diagnostic Dashboard locators
 		 showmorebutton="html/body/div[6]/div[3]/div[1]/div[5]/button[1]";

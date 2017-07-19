@@ -1,7 +1,4 @@
 package testBase;
-
-
-
 import objectRepository.*;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -10,8 +7,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.SkipException;
 
@@ -218,7 +213,12 @@ public class RecipientPage  {
 	 *  @Parameters  : DCName
 	 *  @Return      : 
 	 */
-	public void searchDCInZoyloMAP(String keyword) throws InterruptedException{
+	public void searchDCInZoyloMAP(String keyword) throws InterruptedException
+	{
+		if(driver.findElements(By.xpath(Elements_Home.Map_DiagnosticsCenters)).size()==0)
+		{
+			Browser.clickOnTheElementByID("diagnostics");
+		}
 		Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 		Thread.sleep(1000);
 		driver.findElement(By.id("search2")).click();
@@ -231,7 +231,6 @@ public class RecipientPage  {
 	    Thread.sleep(500);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(2000);
-
 	}
 	
 	/*   
@@ -700,6 +699,32 @@ public class RecipientPage  {
 			
 			
 		}
+		
+		
+		//New Promo Page
+				public void UpcomingAppointmentForDoctors(String APID , String Action) throws InterruptedException{
+
+					//Browser.waitFortheID("upcmng");
+					Browser.waitFortheElementXpath("//div[@class='patientApmtStatus']");
+					driver.findElement(By.id("aptSearch")).click();
+					driver.findElement(By.id("aptSearch")).sendKeys(APID);
+					Thread.sleep(5000);
+					Browser.waitFortheElementXpath("//div[@class='patientApmtStatus' and contains(.,'"+APID+"')]");	
+				
+				if(Action.equals("Reschedule")){
+					
+					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[1]")).click();
+					System.out.println("Reshedule Action Is Executed");
+				}else if (Action.equals("Cancel")){
+					
+					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[2]")).click();
+					Thread.sleep(2000);
+					driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
+					System.out.println("Cancelled Action Is Executed");
+				}
+					
+					
+				}
 	
 	/*   
 	 *  @Author      : Sagar Sen
