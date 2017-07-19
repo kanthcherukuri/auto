@@ -21,6 +21,7 @@ import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
 
 import objectRepository.Elements_Diagnostics;
+import objectRepository.Elements_Doctors;
 
 public class DiagnosticPage {
 	
@@ -409,7 +410,7 @@ public class DiagnosticPage {
 		Browser.waitFortheElementXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		}
 	
 	
@@ -1404,5 +1405,15 @@ public class DiagnosticPage {
   		Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
       }
 		
-	
+      /*
+  	 * @ Author: Sagar Sen
+  	 * @ Description: This method will route to diagnostic profile picture pop up
+  	 * @ Pram:
+  	 * @ Return:
+  	 */
+  	public void goToDcProfilePicture() throws Exception
+  	{
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.dc_ProfilePicture);
+		Browser.waitFortheElementXpath(Elements_Doctors.doctor_profilePicturePopUp);
+  	}
 }//main Class

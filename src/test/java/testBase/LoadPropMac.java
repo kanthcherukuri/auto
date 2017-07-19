@@ -11,10 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import java.net.URL;
+
 
 
 public class LoadPropMac   {
@@ -130,7 +128,8 @@ public class LoadPropMac   {
         driver = new RemoteWebDriver(new URL(URL), caps);*/
 
 		if(browser_name.equals("chrome")){
-
+			//String os = System.getProperty("os.name").toLowerCase();
+			//System.out.println("Operating System is :"+os );
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
@@ -147,6 +146,7 @@ public class LoadPropMac   {
 			driver.manage().window().setSize(new Dimension(width, height));*/
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
+
 			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
 			//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			//capabilities.setCapability("marionette", false);

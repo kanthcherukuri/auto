@@ -26,7 +26,6 @@ public class Appointment_ZOY1045_DiagnosticAppointmentBulkCancel extends LoadPro
 	  }
 	
 	
-	
 	@Test
 	public void appointmentbulkcancel() throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");

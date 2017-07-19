@@ -15,9 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -429,69 +427,6 @@ public class DoctorsPage  {
 	}
 
 
-
-	
-
-		public void doctorprofileEditing() throws Exception{
-	
-		driver.findElement(By.id("account_accountIcon")).click();
-		Thread.sleep(3000);
-		((JavascriptExecutor)driver).executeScript("scroll(0,400)");
-		driver.findElement(By.id("editAboutInfo")).click();
-		Thread.sleep(1000);
-		WebElement element=driver.findElement(By.id("doctorQualification"))	; 
-		Select se= new Select(element);
-		se.selectByValue("BACHELOR OF DENTAL SURGERY");
-		Thread.sleep(2000);
-		 Browser.actionbyXpath(".//*[@id='areaOfSpecialisations']/div[2]/span/span[1]/span/ul", "Ayurvedic");
-		 Browser.actionbyXpath(".//*[@id='lineOfPractice']/div[2]/span/span[1]/span/ul", "Homeopathy");
-		Thread.sleep(2000);		 
-        driver.findElement(By.id("aboutField")).clear();
-        driver.findElement(By.id("aboutField")).sendKeys("Hi I am Rajasekhar I had 11 years of Experience in Dental");
-		driver.findElement(By.id("saveAboutInfo")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id='myTabs']/li[2]/a")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.id("editProfileAwards")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("membership")).clear();
-		driver.findElement(By.id("membership")).sendKeys("World Health Organisation");
-		Thread.sleep(1000);
-		driver.findElement(By.id("certifications")).clear();
-		driver.findElement(By.id("certifications")).sendKeys("Cisco");
-		Thread.sleep(2000);
-		driver.findElement(By.id("saveAwards")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id='myTabs']/li[3]/a/span[2]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("online")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("cheque")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("debitCard")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("creditCard")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("cash")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("doctor_edit_save")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id='myTabs']/li[4]/a")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("editAddInfo")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id("website")).clear();
-		driver.findElement(By.id("website")).sendKeys("www.zoylo.com");
-		Thread.sleep(1000);
-		driver.findElement(By.id("journals")).clear();
-		driver.findElement(By.id("journals")).sendKeys("http://www.omicsonline.org/open-access-journals-list.php");
-		Thread.sleep(1000);
-		driver.findElement(By.id("books")).clear();
-		driver.findElement(By.id("books")).sendKeys("APJ Adbul Kalam");
-		Thread.sleep(1000);
-		driver.findElement(By.id("saveAddInfo")).click();
-		Thread.sleep(3000);
-		}
 		
 		/*
 		 * Author: Sagar Sen
