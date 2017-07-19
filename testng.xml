@@ -1,50 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite"  parallel="none" >
-<!--
+
 <listeners>
        <listener class-name="listners.TestListener"/>
       
   </listeners>
   
-  -->
+
   <test name="Recipient Test Scripts"> 
     <classes>
-      <class name="recipientsTestScripts.Recipient_ZOY1986_PaymentPageNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin"/>
-      <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointment"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1067_AccountCreation"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1364_ValidateaccountIconOnHeader"/>
-      <class name="recipientsTestScripts.Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavourites"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1092_SearchByDoctorSpecializationNClinic"/>
-      <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentAsOther"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1067_ValidateRecipientAccountCreationValidations"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1063_ValidateBookAnAppointment"/>
+         
       <class name="recipientsTestScripts.Recipients_ZOY1192_ValidateRecipientLogout"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1176_ValidateRecipientsPasswordChange"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1189_ValidateRecipientReferFriend"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1332_ValidateHomePageElements"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors"/>
-      <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1074_ValidateRecipientPasswordrecovery"/>
-      <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentForHospital"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1170_ValidateRecipientsMyAccountReviews"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1062_ValidateLoginScreenValidations"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1072_ValidateAddDoctorFavourites"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1182_ValidateRecipientsAlerts"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1169_ValidateRecipientsAppointmentCancel"/>
-      <class name="recipientsTestScripts.Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1977_ValidateDirectionsNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1984_BookAptNegativeScenario"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1066_ValidateMapFilters"/>
-      <class name="recipientsTestScripts.Recipients_ZOY_1192_ValidateRecipientLogout"/>
     </classes> 
   </test>
 
