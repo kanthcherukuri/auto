@@ -135,15 +135,15 @@ public class LoadPropMac   {
 			ChromeOptions options = new ChromeOptions(); 
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1");
-			//options.addArguments("--kiosk");
+			options.addArguments("--kiosk");
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
-			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+			/*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			System.out.println("width :" +width);
 			int height = gd.getDisplayMode().getHeight();
 			System.out.println("Height :"+height);
-			driver.manage().window().setSize(new Dimension(width, height));
+			driver.manage().window().setSize(new Dimension(width, height));*/
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 
