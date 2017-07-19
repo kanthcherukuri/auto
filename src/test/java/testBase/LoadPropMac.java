@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
 
@@ -147,9 +148,9 @@ public class LoadPropMac   {
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 
-			System.setProperty("webdriver.firefox.marionette","BrowserDrivers/geckodriver");
-			//DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-			//capabilities.setCapability("marionette", false);
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
+			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+			capabilities.setCapability("marionette", true);
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();
 
