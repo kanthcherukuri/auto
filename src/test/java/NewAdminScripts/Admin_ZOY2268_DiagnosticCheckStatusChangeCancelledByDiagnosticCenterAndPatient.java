@@ -55,7 +55,6 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		Browser.openUrl( loginPage_Url);
 		AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
-		//driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu_Complete);
 		Thread.sleep(2000);

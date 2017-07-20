@@ -153,12 +153,9 @@ public class LoadPropMac   {
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			options.addArguments("--use-fake-ui-for-media-stream=1");
-			//options.addArguments("--kiosk");
 			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
-			options.addArguments("--kiosk");                          // Added to Maximize window
+			//options.addArguments("--kiosk");                          // Added to Maximize window
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 

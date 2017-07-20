@@ -18,13 +18,12 @@ public class Appointment_ZOY1036_CancelAppointHomeVisit extends LoadPropMac{
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {	
 		
-	 LoadBrowserProperties();
-	 driver.manage().window().maximize();
-	 driver.get(doctors_Url);
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DiagnosticPageZoylo=new DiagnosticPage(driver);
-	 Browser=new TestUtils(driver);
-	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		LoadBrowserProperties();
+		 DiagnosticPageZoylo=new DiagnosticPage(driver);
+		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		
 	  }
 	

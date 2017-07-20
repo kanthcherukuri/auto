@@ -19,11 +19,11 @@ public class Alert_ZOY953_CheckAlertForReschedule extends LoadPropMac{
 	
 	@BeforeClass
 	  public void LaunchBrowser() throws Exception {
-			LoadBrowserProperties();
-		 driver.get(doctors_Url);
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		LoadBrowserProperties();
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 	

@@ -6,7 +6,8 @@ import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.*;
+
 import org.testng.annotations.DataProvider;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -19,12 +20,11 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	
 	@BeforeClass
 	public void launchbrowser() throws Exception {
-	LoadBrowserProperties();
-	 driver.manage().window().maximize();
-	 driver.get(doctors_Url);	
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DiagnosticPageZoylo=new DiagnosticPage(driver);
-	 Browser=new TestUtils(driver);
+		LoadBrowserProperties();
+		 DiagnosticPageZoylo=new DiagnosticPage(driver);
+		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	  }
 	
