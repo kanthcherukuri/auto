@@ -6,7 +6,7 @@ driver.path=C:/Users/Z9149/Downloads/
 
 //----Browser------//
 
-browser.name=chrome
+browser.name=firefox
 
 
 //----Environment----//
@@ -22,21 +22,24 @@ index.url=https://zoyloqa.zoylo.com/index
 dev.url=https://dev.zoylo.com/login
 recipient.myaccount=https://zoyloqa.zoylo.com/myaccount
 
+
+
 //--------Admin Login Details----//
 admin.user=sagar@zoylo.com
 admin.password=Zoylo@123
-doctor.image=/Users/sen/Desktop/d.png
-dc.image=/Users/sen/Desktop/dc.png
+
+AdminLogin.username=kanthl@zoylo.com
+AdminLogin.password=Zoylo@123
+
 adminuser.user=sen@zoylo.com
 adminuser.password=Zoylo@1234
 
 
+
 //--------Doctor Login Details----//
 
-Doctors.Url=https://zoyloqa.zoylo.com/login
 DoctorsLogin.username=may19_0@zoy.com
 DoctorsLogin.password=Zoylo@123
-browser=chrome
 
 DoctorsLogin.usernameone=kanthzoylo@gmail.com
 DoctorsLogin.passwordone=Zoylo@666
@@ -49,6 +52,10 @@ DoctorLogin.passwordthree=Zoylo@123
 
 DoctorsLogin.usernamefour=pomhop30_1@zoy.com
 DoctorsLogin.passwordfour=Zoylo@123
+
+
+
+
 
 //-------Diagnostic Login Details----//
 
@@ -68,14 +75,8 @@ DiagnosticLogin.passwordfive=Zoylo@666
 DiagnosticLogin.usernamesix=divya@gmail.com
 DiagnosticLogin.passwordsix=Zoylo@123
 
-recipientDC.username=Diagnosticszoylo@zoylo.com
-recipientDC.password=Zoylo@123
 
 
-//-------Diagnostic Login Details----//
-Diagnostic.Urltwo=https://zoyloqa.zoylo.com/login
-DiagnosticLogin.usernametwo=sadeq88.ss@gmail.com
-DiagnosticLogin.passwordtwo=Zoylo@123
 
 
 //--------Recipient Login Details----//
@@ -99,9 +100,14 @@ Recipient.DiaPassword=Zoylo@123
 Doctor.Name=Doctorzoylo
 Diagnostic.Name=Diagnosticszoylo
 
-//---------Admin Login Details-------//
-AdminLogin.username=kanthl@zoylo.com
-AdminLogin.password=Zoylo@123
+
+
+
+
+
+
+
+
 
 //----Diagnostic Appointment URL----//
 Diagnostic.ApprovedApptURL=https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList
