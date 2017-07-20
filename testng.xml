@@ -10,7 +10,6 @@
 
   <test name="Recipient Test Scripts"> 
     <classes>
-         
       <class name="recipientsTestScripts.Recipients_ZOY1192_ValidateRecipientLogout"/>
     </classes> 
   </test>
