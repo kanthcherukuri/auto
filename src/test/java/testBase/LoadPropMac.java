@@ -124,9 +124,9 @@ public class LoadPropMac   {
 		//Sauce Labs - Capabilities
 
 		/* DesiredCapabilities caps = DesiredCapabilities.chrome();
-       caps.setCapability("platform", "macOS 10.12");
-        caps.setCapability("version", "58.0");
-        driver = new RemoteWebDriver(new URL(URL), caps);*/
+           caps.setCapability("platform", "macOS 10.12");
+           caps.setCapability("version", "58.0");
+           driver = new RemoteWebDriver(new URL(URL), caps);*/
 
 		if(browser_name.equals("chrome")){
 			//String os = System.getProperty("os.name").toLowerCase();
@@ -134,9 +134,9 @@ public class LoadPropMac   {
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
-			//options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			//options.addArguments("--use-fake-ui-for-media-stream=1");
-			//options.addArguments("--kiosk");
+			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
+			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
+			options.addArguments("--kiosk");                          // Added to Maximize window
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			/*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
