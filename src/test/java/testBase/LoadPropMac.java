@@ -48,8 +48,8 @@ public class LoadPropMac   {
 		inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
 		Properties prop = new Properties();
 		prop.load(inStream);
-		
-		
+
+
 		//URL'S
 		base_url=prop.getProperty("base.url");
 		loginPage_Url=prop.getProperty("loginPage.url");
@@ -60,7 +60,7 @@ public class LoadPropMac   {
 		index_url=prop.getProperty("index.url");
 		diagnostic_url =prop.getProperty("diagnostic_url");	
 
-		
+
 		//Doctors -Login- Credentails
 		DoctorsLogin_username=prop.getProperty("DoctorsLogin.username");
 		DoctorsLogin_password=prop.getProperty("DoctorsLogin.password");
@@ -78,58 +78,58 @@ public class LoadPropMac   {
 		//Admin - Login Credentials
 		Admin_Username=prop.getProperty("AdminLogin.username");
 		Admin_Password=prop.getProperty("AdminLogin.password");
-		
+
 		admin_user=prop.getProperty("admin.user");
 		admin_password=prop.getProperty("admin.password");
-		
+
 		adminuser_user=prop.getProperty("adminuser.user");
 		adminuser_password=prop.getProperty("adminuser.password");
-		
-		
-		
+
+
+
 		//Recipients -Login- Credentails
-		
+
 		Recipient_Username=prop.getProperty("Recipient.Username");
 		Recipient_Password=prop.getProperty("Recipient.Password");
-		
+
 		Recipient2_Username=prop.getProperty("Recipient2.Username");
 		Recipient2_Password=prop.getProperty("Recipient2.Password");
-		
+
 		Recipient3_Username=prop.getProperty("Recipient3.Username");
 		Recipient3_Password=prop.getProperty("Recipient3.Password");
-		
+
 		Recipient_DSusername=prop.getProperty("Recipient.DSusername");
 		Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
-		
+
 		Recipient_DocUsername=prop.getProperty("Recipient.DocUsername");
 		Recipient_DocPassword=prop.getProperty("Recipient.DocPassword");
-		
+
 		Recipient_DiaUsername=prop.getProperty("Recipient.DiaUsername");
 		Recipient_DiaPassword=prop.getProperty("Recipient.DiaPassword");
-		
+
 		recipientDC_User=prop.getProperty("recipientDC.username");
 		recipientDC_Password=prop.getProperty("recipientDC.password");
-		
-		
-		
+
+
+
 		//Diagnostic- Login- Credentials
 
 		Diagnostic_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
 		Diagnostic_passwordone=prop.getProperty("DiagnosticLogin.passwordone");
-		
+
 		Diagnostic_username=prop.getProperty("DiagonsticLogin.username");
 		Diagnostic_password=prop.getProperty("DiagnosticLogin.password");
-		
+
 		Diagnostic_usernamethree=prop.getProperty("DiagnosticLogin.usernamethree");
 		Diagnostic_passwordthree=prop.getProperty("DiagnosticLogin.passwordthree");
-		
+
 		DiagnosticLogin_usernamefive=prop.getProperty("DiagnosticLogin.usernamefive");
 		DiagnosticLogin_passwordfive=prop.getProperty("DiagnosticLogin.passwordfive");
-		
+
 		Diagnostic_usernamesix=prop.getProperty("DiagnosticLogin.usernamesix");
 		Diagnostic_passwordsix=prop.getProperty("DiagnosticLogin.passwordsix");
-		
-		
+
+
 		//Other Variables
 		Environment_Name=prop.getProperty("Environment.name");
 		recipient_myaccount=prop.getProperty("recipient.myaccount");
@@ -138,7 +138,7 @@ public class LoadPropMac   {
 		browser_name=prop.getProperty("browser.name");
 		login_password=prop.getProperty("login.password");
 		login_username=prop.getProperty("login.username");
-		
+
 
 		//Sauce Labs - Capabilities
 
@@ -161,15 +161,15 @@ public class LoadPropMac   {
 			options.addArguments("--kiosk");                          // Added to Maximize window
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
-			
+
 			/*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			System.out.println("width :" +width);
 			int height = gd.getDisplayMode().getHeight();
 			System.out.println("Height :"+height);
 			driver.manage().window().setSize(new Dimension(width, height));*/
-			
-		     }else if(browser_name.equals("firefox")){
+
+		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -177,7 +177,7 @@ public class LoadPropMac   {
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();
 
-		    }else if(browser_name.equals("safari")){
+		}else if(browser_name.equals("safari")){
 			System.out.println("launching Safari browser");
 			driver=new SafariDriver();
 			driver.manage().window().maximize();
