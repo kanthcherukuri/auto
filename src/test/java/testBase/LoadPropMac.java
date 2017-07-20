@@ -143,19 +143,28 @@ public class LoadPropMac   {
 		//Sauce Labs - Capabilities
 
 		/* DesiredCapabilities caps = DesiredCapabilities.chrome();
-       caps.setCapability("platform", "macOS 10.12");
-        caps.setCapability("version", "58.0");
-        driver = new RemoteWebDriver(new URL(URL), caps);*/
+           caps.setCapability("platform", "macOS 10.12");
+           caps.setCapability("version", "58.0");
+           driver = new RemoteWebDriver(new URL(URL), caps);*/
 
 		if(browser_name.equals("chrome")){
 			//String os = System.getProperty("os.name").toLowerCase();
 			//System.out.println("Operating System is :"+os );
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
+
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1");
 			//options.addArguments("--kiosk");
+
+			ChromeOptions options = new ChromeOptions(); 
+
+			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
+			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
+			options.addArguments("--kiosk");                          // Added to Maximize window
+
+
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -164,7 +173,7 @@ public class LoadPropMac   {
 			int height = gd.getDisplayMode().getHeight();
 			System.out.println("Height :"+height);
 			driver.manage().window().setSize(new Dimension(width, height));
-		}else if(browser_name.equals("firefox")){
+		     }else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
@@ -172,7 +181,7 @@ public class LoadPropMac   {
 			driver=new FirefoxDriver();
 			driver.manage().window().maximize();
 
-		}else if(browser_name.equals("safari")){
+		    }else if(browser_name.equals("safari")){
 			System.out.println("launching Safari browser");
 			driver=new SafariDriver();
 			driver.manage().window().maximize();
