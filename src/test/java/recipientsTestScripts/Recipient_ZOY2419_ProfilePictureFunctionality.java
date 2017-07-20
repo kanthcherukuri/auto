@@ -55,7 +55,7 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 		RecipientPage.goToRecipientProfilePic();
 		Browser.clickOnTheElementByXpath(Elements_Recipients.Recipient_ProfileRemoveBtn);
 		String srcOnRecProfile=Browser.getImageSrc(Elements_Recipients.Recipient_ProfileGetSrc);
-		Assert.assertEquals(srcOnRecProfile, "http://www.broowaha.com/assets/images/defaultUserImage180x180.jpg");
+		Assert.assertTrue(srcOnRecProfile.contains("defaultUserImage180x180"));
 	}
 	
 	@BeforeClass

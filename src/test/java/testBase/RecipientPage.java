@@ -95,6 +95,7 @@ public class RecipientPage  {
 
 		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/myaccount");
 		Thread.sleep(5000);
+		Browser.scrollbyxpath("//a[@id='logout_1']/span/i");
 		driver.findElement(By.xpath("//a[@id='logout_1']/span/i")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.id("logout")).click();
