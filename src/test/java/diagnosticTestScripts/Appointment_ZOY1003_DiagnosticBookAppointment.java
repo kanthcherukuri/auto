@@ -14,16 +14,16 @@ import testBase.TestUtils;
 
 public class Appointment_ZOY1003_DiagnosticBookAppointment extends LoadPropMac{
 	public DiagnosticPage DiagnosticPageZoylo;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 	
 	@BeforeClass
 	  public void beforeClass() throws Exception {
-		 LoadBrowserProperties();
-		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);
+		LoadBrowserProperties();
+		 DiagnosticPageZoylo=new DiagnosticPage(driver);
+		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DiagnosticPageZoylo=new DiagnosticPage(driver);	
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }
 

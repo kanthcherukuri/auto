@@ -3,6 +3,9 @@ package diagnosticTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import testBase.DiagnosticPage;
@@ -18,10 +21,10 @@ public class Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled  extends Loa
 	@BeforeClass
 	  public void launchbrowser() throws Exception {
 		LoadBrowserProperties();
-		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);		 
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamethree, Diagnostic_passwordthree);
 		  }
 	@Test

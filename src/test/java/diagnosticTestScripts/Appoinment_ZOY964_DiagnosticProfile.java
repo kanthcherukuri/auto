@@ -11,15 +11,15 @@ import testBase.TestUtils;
 public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 
 	public DiagnosticPage DiagnosticPageZoylo;
-	public TestUtils exceldata;
+	public TestUtils Browser;
 	
 		@BeforeClass
 		public void beforeClass() throws Exception {
-		LoadBrowserProperties();
-		driver.manage().window().maximize();
-		driver.get(doctors_Url);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		DiagnosticPageZoylo=new DiagnosticPage(driver);	
+			LoadBrowserProperties();
+			 DiagnosticPageZoylo=new DiagnosticPage(driver);
+			 Browser=new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);	
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	  	}
 		

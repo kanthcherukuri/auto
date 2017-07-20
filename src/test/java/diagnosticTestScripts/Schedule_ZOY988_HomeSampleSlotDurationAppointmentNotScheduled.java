@@ -17,11 +17,10 @@ public class Schedule_ZOY988_HomeSampleSlotDurationAppointmentNotScheduled exten
 	@BeforeClass
 	  public void launchbrowser() throws Exception {
 		LoadBrowserProperties();
-		 driver.manage().window().maximize();
-		 driver.get(doctors_Url);	
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
+		 Browser.openUrl(loginPage_Url);
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamethree, Diagnostic_passwordthree);
 		  }
 	
