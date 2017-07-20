@@ -48,30 +48,20 @@ public class LoadPropMac   {
 		inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
 		Properties prop = new Properties();
 		prop.load(inStream);
+		
+		
+		//URL'S
 		base_url=prop.getProperty("base.url");
-		recipient_myaccount=prop.getProperty("recipient.myaccount");
 		loginPage_Url=prop.getProperty("loginPage.url");
 		dev_url=prop.getProperty("dev.url");
 		enrollment_url=prop.getProperty("enrollment.url");
 		doctors_Url=prop.getProperty("Doctors.Url");
-		login_password=prop.getProperty("login.password");
-		browser_name=prop.getProperty("browser.name");
-		login_username=prop.getProperty("login.username");
-		Doctor_Name=prop.getProperty("Doctor.Name");
-		Diagnostic_Name=prop.getProperty("Diagnostic.Name");
-		index_url=prop.getProperty("index.url");
-		doc_image=prop.getProperty("doctor.image");
-		dc_image=prop.getProperty("dc.image");
-		adminuser_user=prop.getProperty("adminuser.user");
-		adminuser_password=prop.getProperty("adminuser.password");
-		recipientDC_User=prop.getProperty("recipientDC.username");
-		recipientDC_Password=prop.getProperty("recipientDC.password");
-
-		//URL
-
 		Diagnostic_ApprovedApptURL=prop.getProperty("Diagnostic.ApprovedApptURL");
+		index_url=prop.getProperty("index.url");
+		diagnostic_url =prop.getProperty("diagnostic_url");	
 
-		//Doctors -Login Credentails
+		
+		//Doctors -Login- Credentails
 		DoctorsLogin_username=prop.getProperty("DoctorsLogin.username");
 		DoctorsLogin_password=prop.getProperty("DoctorsLogin.password");
 
@@ -88,38 +78,67 @@ public class LoadPropMac   {
 		//Admin - Login Credentials
 		Admin_Username=prop.getProperty("AdminLogin.username");
 		Admin_Password=prop.getProperty("AdminLogin.password");
-
-		//Recipients -Login Credentails
+		
+		admin_user=prop.getProperty("admin.user");
+		admin_password=prop.getProperty("admin.password");
+		
+		adminuser_user=prop.getProperty("adminuser.user");
+		adminuser_password=prop.getProperty("adminuser.password");
+		
+		
+		
+		//Recipients -Login- Credentails
+		
 		Recipient_Username=prop.getProperty("Recipient.Username");
 		Recipient_Password=prop.getProperty("Recipient.Password");
+		
 		Recipient2_Username=prop.getProperty("Recipient2.Username");
 		Recipient2_Password=prop.getProperty("Recipient2.Password");
+		
 		Recipient3_Username=prop.getProperty("Recipient3.Username");
 		Recipient3_Password=prop.getProperty("Recipient3.Password");
-
-		//Diagnostic- Login Credentials
+		
+		Recipient_DSusername=prop.getProperty("Recipient.DSusername");
+		Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
+		
+		Recipient_DocUsername=prop.getProperty("Recipient.DocUsername");
+		Recipient_DocPassword=prop.getProperty("Recipient.DocPassword");
+		
+		Recipient_DiaUsername=prop.getProperty("Recipient.DiaUsername");
+		Recipient_DiaPassword=prop.getProperty("Recipient.DiaPassword");
+		
+		recipientDC_User=prop.getProperty("recipientDC.username");
+		recipientDC_Password=prop.getProperty("recipientDC.password");
+		
+		
+		
+		//Diagnostic- Login- Credentials
 
 		Diagnostic_usernameone=prop.getProperty("DiagnosticLogin.usernameone");
 		Diagnostic_passwordone=prop.getProperty("DiagnosticLogin.passwordone");
-		diagnostic_url =prop.getProperty("diagnostic_url");
+		
 		Diagnostic_username=prop.getProperty("DiagonsticLogin.username");
 		Diagnostic_password=prop.getProperty("DiagnosticLogin.password");
+		
 		Diagnostic_usernamethree=prop.getProperty("DiagnosticLogin.usernamethree");
 		Diagnostic_passwordthree=prop.getProperty("DiagnosticLogin.passwordthree");
+		
 		DiagnosticLogin_usernamefive=prop.getProperty("DiagnosticLogin.usernamefive");
 		DiagnosticLogin_passwordfive=prop.getProperty("DiagnosticLogin.passwordfive");
+		
 		Diagnostic_usernamesix=prop.getProperty("DiagnosticLogin.usernamesix");
 		Diagnostic_passwordsix=prop.getProperty("DiagnosticLogin.passwordsix");
-		Recipient_DSusername=prop.getProperty("Recipient.DSusername");
-		Recipient_DSpassword=prop.getProperty("Recipient.DSpassword");
-		Recipient_DocUsername=prop.getProperty("Recipient.DocUsername");
-		Recipient_DocPassword=prop.getProperty("Recipient.DocPassword");
-		Recipient_DiaUsername=prop.getProperty("Recipient.DiaUsername");
-		Recipient_DiaPassword=prop.getProperty("Recipient.DiaPassword");
+		
+		
+		//Other Variables
 		Environment_Name=prop.getProperty("Environment.name");
-		admin_user=prop.getProperty("admin.user");
-		admin_password=prop.getProperty("admin.password");
-
+		recipient_myaccount=prop.getProperty("recipient.myaccount");
+		Doctor_Name=prop.getProperty("Doctor.Name");
+		Diagnostic_Name=prop.getProperty("Diagnostic.Name");
+		browser_name=prop.getProperty("browser.name");
+		login_password=prop.getProperty("login.password");
+		login_username=prop.getProperty("login.username");
+		
 
 		//Sauce Labs - Capabilities
 
@@ -132,12 +151,14 @@ public class LoadPropMac   {
 			//String os = System.getProperty("os.name").toLowerCase(); // Added to verify the OS
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
-			ChromeOptions options = new ChromeOptions(); 
 
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
+			options.addArguments("--use-fake-ui-for-media-stream=1");
+			//options.addArguments("--kiosk");
 			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
 			options.addArguments("--kiosk");                          // Added to Maximize window
-
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			
@@ -150,7 +171,6 @@ public class LoadPropMac   {
 			
 		     }else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
-
 			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
