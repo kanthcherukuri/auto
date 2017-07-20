@@ -157,14 +157,9 @@ public class LoadPropMac   {
 			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1");
 			//options.addArguments("--kiosk");
-
-			ChromeOptions options = new ChromeOptions(); 
-
 			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
 			options.addArguments("--kiosk");                          // Added to Maximize window
-
-
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
