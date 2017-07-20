@@ -478,7 +478,7 @@ public class NewAdminDiagnosticPage
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.DiagnosticTests_Menu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.DiagnosticTests_AddTests);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName);
-		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName, diagTestname);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName, diagTestname+Browser.randomalphabets());
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_TestDescription);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestDescription, diagTestdesc);
 		Browser.selectbyid(Elements_NewAdminDiagnostic.DiagnosticTests_AdminStatus, "approved");

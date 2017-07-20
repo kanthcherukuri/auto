@@ -26,7 +26,6 @@ public class Appointment_ZOY1043_BulkCancellationHomeVisit extends LoadPropMac{
 	 Browser=new TestUtils(driver);
 	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		
-		
 	  }
 	
 	
