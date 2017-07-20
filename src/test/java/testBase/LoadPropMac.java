@@ -129,8 +129,7 @@ public class LoadPropMac   {
            driver = new RemoteWebDriver(new URL(URL), caps);*/
 
 		if(browser_name.equals("chrome")){
-			//String os = System.getProperty("os.name").toLowerCase();
-			//System.out.println("Operating System is :"+os );
+			//String os = System.getProperty("os.name").toLowerCase(); // Added to verify the OS
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions(); 
@@ -141,12 +140,14 @@ public class LoadPropMac   {
 
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
-			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+			
+			/*GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			System.out.println("width :" +width);
 			int height = gd.getDisplayMode().getHeight();
 			System.out.println("Height :"+height);
-			driver.manage().window().setSize(new Dimension(width, height));
+			driver.manage().window().setSize(new Dimension(width, height));*/
+			
 		     }else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 
