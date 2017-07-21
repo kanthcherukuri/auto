@@ -1,0 +1,958 @@
+//********* Provider collection DOCTOR ************\\
+**Collection Name: providers
+{
+    "_id" : "79dLo7aSnWbqvFvza",
+    "username" : "zoylodoctor@gmail.com",
+    "password" : "$2a$10$ayZ8nybeTUu846kayqa38ORmtHc0CrIlIH/LLJ7iX8IwJT6j4Zgra",
+    "confirmPassword" : "$2a$10$ayZ8nybeTUu846kayqa38ORmtHc0CrIlIH/LLJ7iX8IwJT6j4Zgra",
+    "doctorAssociatedWith" : "hospital-clinics",
+    "doctorInformation" : {
+        "firstName" : "Doctorzoylo",
+        "medicalRegistrationNumber" : "June01-6",
+        "gender" : "Male",
+        "areaOfSpecialisations" : [ 
+            "Urology"
+        ],
+        "areaOfSpecialisationIds" : [ 
+            "sCDMwsJLPQzmxpzJF"
+        ],
+        "doctorQualification" : [ 
+            "MBBS"
+        ],
+        "rating" : 5,
+        "zoyloFacilitationCharge" : 5,
+        "clinicName" : "Default Clinic",
+        "consultationFee" : 100,
+        "doesHouseCalls" : false,
+        "practiceStartDate" : ISODate("1989-06-18T18:30:00.000Z"),
+        "doctorImage" : "https://zoylo-qa-images.s3-ap-southeast-1.amazonaws.com/files/a0d4b861-74af-4824-81c0-1eb096137722-usePhoto.png",
+        "DefaultImageActive" : false,
+        "isAvailableDigital" : false,
+        "vacation" : [ 
+            {
+                "isActive" : false,
+                "startDate" : ISODate("2019-12-31T18:30:00.000Z"),
+                "endDate" : ISODate("2020-01-30T18:29:59.999Z")
+            }
+        ],
+        "consultationDuration" : {
+            "hrs" : 0,
+            "mins" : 15
+        },
+        "followUp" : 7,
+        "otherClinics" : [ 
+            {
+                "name" : "Xyz Clinics",
+                "clinicId" : "15b89678-f538-29bd-627b-5144e1a1a586",
+                "consultationFee" : 100,
+                "addressLine1" : "Ameerpet",
+                "addressLine2" : "Hyderabad",
+                "country" : "IN",
+                "state" : "IN-TG",
+                "city" : "y9QNxhvzrxKivkk7X",
+                "pincode" : "500090",
+                "phoneNumber" : "9878867323",
+                "lng" : "234",
+                "lat" : "2341",
+                "isActive" : true,
+                "facilities" : {
+                    "ambulanceEnabled" : false,
+                    "emergencyAvailable" : false,
+                    "isParkingAvailableAtTheClinic" : false,
+                    "isCarParkingAvailableAtTheClinic" : false,
+                    "premiumServicesAvailable" : false
+                }
+            }
+        ],
+        "hospital" : [ 
+            {
+                "hospitalName" : "uSdoRQSEeL5bSdL2K",
+                "consultationFee" : 20,
+                "fecilationCharge" : 4,
+                "active" : true
+            }
+        ],
+        "workingHrs" : {
+            "Sunday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "other-clinics",
+                        "clinic" : "Xyz Clinics",
+                        "clinicId" : "516e8ead-a0c3-58c2-5a13-895d3f6938a9",
+                        "start" : "20:00",
+                        "end" : "21:30",
+                        "startTimestamp" : 72000000,
+                        "endTimestamp" : 77400000,
+                        "hospital" : null
+                    }, 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "hospital" : "uSdoRQSEeL5bSdL2K",
+                        "start" : "22:00",
+                        "end" : "23:45",
+                        "startTimestamp" : 79200000,
+                        "endTimestamp" : 85500000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Monday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Tuesday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Wednesday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Thursday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Friday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            },
+            "Saturday" : {
+                "markedAsOpen" : true,
+                "slots" : [ 
+                    {
+                        "isActive" : true,
+                        "locationType" : "hospital",
+                        "start" : "04:00",
+                        "end" : "23:30",
+                        "startTimestamp" : 14400000,
+                        "endTimestamp" : 84600000,
+                        "clinic" : null
+                    }
+                ],
+                "isHouseVisitActive" : false,
+                "isLunchTimingActive" : true
+            }
+        },
+        "clinicId" : "3ea32318-e1e0-949a-c984-54c7ef5fb130",
+        "dateOfBirth" : ISODate("1959-12-31T18:30:00.000Z")
+    },
+    "additionalInformation" : {
+        "mobileNumber" : "+917777710006",
+        "lineOfPractice" : [ 
+            "Naturopathy"
+        ],
+        "tag" : [ 
+            "Obstetrician"
+        ],
+        "doesProBono" : false,
+        "isSecondOpinion" : false,
+        "registrationNeededAtTheClinic" : false,
+        "certifiedAndVerified" : false,
+        "ePrescriptions" : true,
+        "hasAssociatedPharmacy" : false,
+        "hasDiagnosticCenter" : false,
+        "languagesSpoken" : [ 
+            "ENGLISH"
+        ],
+        "proBonoServiceFee" : null,
+        "socialLinksAll" : [],
+        "services" : []
+    },
+    "otherInformation" : {
+        "homeDelivery" : false
+    },
+    "facilities" : {
+        "ambulanceEnabled" : false,
+        "emergencyAvailable" : false,
+        "isParkingAvailableAtTheClinic" : false,
+        "isCarParkingAvailableAtTheClinic" : false,
+        "premiumServicesAvailable" : false,
+        "paymentAccepted" : []
+    },
+    "address" : {
+        "country" : "IN",
+        "state" : "IN-TG",
+        "city" : "y9QNxhvzrxKivkk7X",
+        "completeAddress" : "101/4b Block C, Jubliee Enclave",
+        "locality" : "Hitech City",
+        "pincode" : "500045",
+        "lng" : "77.123",
+        "lat" : "17.234"
+    },
+    "location" : [ 
+        77.123, 
+        17.234
+    ],
+    "createdBy" : "sagar@zoylo.com",
+    "createdAt" : 1496333003948,
+    "updatedBy" : "ganesh@zoylo.com",
+    "updatedAt" : 1500615149938,
+    "providerType" : "doctor",
+    "scoreCard" : "90%",
+    "zoyloFacilitationCharge" : 5,
+    "countryName" : "India",
+    "stateName" : "Telangana",
+    "cityName" : "Hyderabad",
+    "seoFriendlyUrl" : {
+        "citySpeciality" : [ 
+            "hyderabad/doctors/urology"
+        ],
+        "cityDoctor" : "hyderabad/doctor/79dLo7aSnWbqvFvza"
+    },
+    "userId" : "eX394unQKYA9PCdxZ",
+    "isActive" : true,
+    "seoInformation" : {},
+    "about" : "Doctorzoylo has good experience."
+}
+
+
+//******** Provider DOCTOR user collection ************\\
+**Collection Name: users
+{
+    "_id" : "eX394unQKYA9PCdxZ",
+    "createdAt" : ISODate("2017-06-01T16:03:24.111Z"),
+    "services" : {
+        "password" : {
+            "bcrypt" : "$2a$10$rNKqWF24C3AF3ADxkblGHOfNzi0R1SxTjYNIMcD1qal7Y41.9SXJu",
+            "reset" : {
+                "token" : "HDi672SIIRhlUFao7P5r-0klZGmaoOHsIPWHqnIDC8p",
+                "email" : "zoylodoctor@gmail.com",
+                "when" : ISODate("2017-07-18T06:35:52.894Z")
+            }
+        },
+        "resume" : {
+            "loginTokens" : [ 
+                {
+                    "when" : ISODate("2017-07-12T10:20:50.415Z"),
+                    "hashedToken" : "H9do3JeprNviby5307L7hl41RRtJhq1iArPFT3xOhEU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T07:16:32.771Z"),
+                    "hashedToken" : "7qFeJe2LCjrBozMEpCr6Gi1j/FTf3ySh0wBoC765aFc="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T07:18:40.398Z"),
+                    "hashedToken" : "kwu+G2SLw9uRTSFTvQo+X7OYLhNVajeWBxNBQgINiqM="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T08:17:00.306Z"),
+                    "hashedToken" : "fspueY/QR6XxFH/lWO8+458aWzT7ai2Hhp47pMahwxA="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T08:20:53.181Z"),
+                    "hashedToken" : "C3K6HnCJPprliqXySOodMtnSiKzGreGo9CQwjXKKwy0="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T08:21:56.914Z"),
+                    "hashedToken" : "HAySheApbHkYjHXkRtbsnszvmHA+zpYuEDTdLC8q1xk="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T08:23:31.557Z"),
+                    "hashedToken" : "AkIUV4psg5MXQgGQEhuj2Y9SpWmydJatAkosXII7BPU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T09:18:42.595Z"),
+                    "hashedToken" : "+apfwt4O1FpQ926Dp34Z+xWiF5uguFHEbA3adYehk2k="
+                }, 
+                {
+                    "when" : ISODate("2017-07-13T09:31:45.985Z"),
+                    "hashedToken" : "lNhHXerxvgWIc4S+klcncX3nfrvmUNjMlXJisSzsRYw="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T04:19:30.951Z"),
+                    "hashedToken" : "BqMgCx4HvA65QzBr94uCeznfrcoElBuPIaaHBHtSM2w="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:20:46.013Z"),
+                    "hashedToken" : "MmFnlcYf5iloMF/8N+QaB56Vepu4WtamQ/cFLXx1wlo="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:41:27.854Z"),
+                    "hashedToken" : "K3lrvf6FKxekVgSCDqL5b1IbRNQnltcDuTMglgTxccY="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:43:25.215Z"),
+                    "hashedToken" : "OyZLTthySF500XfyIc6l/KbieUlIGXbJKl8aK3JM4kw="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:44:27.206Z"),
+                    "hashedToken" : "s3fxhfrFSXb53zWNUw5WLWSEqbVwb4ndRRae2MXQZ60="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:45:59.466Z"),
+                    "hashedToken" : "McAFyg76wYK0S2ovRcAJoSxINcfioVy9K8yQclbal4M="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T05:50:21.111Z"),
+                    "hashedToken" : "B0PVOZiiGLE0L35QDbfduBzQl5GTRIcMCgsJUbOV4VU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:00:07.501Z"),
+                    "hashedToken" : "OSZ9KbuoImj5hTCaq4T5nfqFNZFkfBZvtKhf+d6g25U="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:02:31.500Z"),
+                    "hashedToken" : "TnjiTt8/Jj5RNYyozUERjFVBFdr2kqaq/SI3plajWow="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:14:50.399Z"),
+                    "hashedToken" : "WTCpwfGo+NXnuJWPNoSB6nX6jg5b6RJcEtb1z/D9hC0="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:19:21.281Z"),
+                    "hashedToken" : "HIijYCmbNlwfTkwFizb04sLL84rX/Q0eCcLmQimlP0M="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:45:31.886Z"),
+                    "hashedToken" : "BGFY2VH067FtM3BsBGLhkKaDt2+37krkGUDdAG+7+mY="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T06:47:48.645Z"),
+                    "hashedToken" : "aZinOpCqXZ6dX5a8pARgxbQU3X4IlTQrq1bOuxC/YRs="
+                }, 
+                {
+                    "when" : ISODate("2017-07-14T10:01:13.170Z"),
+                    "hashedToken" : "wyEEO6uT47jVRTRSHtg2s2RkBXcpl4enU8k2eWnaB9Y="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:19:33.518Z"),
+                    "hashedToken" : "j8aH/kzndJvI/QZ9EgVDZcDlSUzQ6rAHRLaU26E3NWo="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:27:39.111Z"),
+                    "hashedToken" : "H1E6k+SANa/joed48NdLruCmMwpXAe8F0tSo01WQ7OM="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:28:13.340Z"),
+                    "hashedToken" : "6MoPbWsyVexDks5zalIn82lZHixDy8WI11cQRaO0igY="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:30:40.273Z"),
+                    "hashedToken" : "3h9lqaA5Wdzf76UJNyEBxR1dLbZ7mHGTR3dUpSzA+KM="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:31:17.485Z"),
+                    "hashedToken" : "myJY8w6yXo6eRX2dvG067Y0TKJ42AuX8SEffxmw8Wvg="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:32:47.501Z"),
+                    "hashedToken" : "nSF5WEN+zkILZFqoFTBegvKh80Adub/yEACH82lVZr8="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:33:27.440Z"),
+                    "hashedToken" : "a18Xtl2gIImbMgc/ktTpTIDH4uK/COCOA5X3HJA6iI0="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:34:19.221Z"),
+                    "hashedToken" : "N1oMb71VAertYH0emv0wBgch01Pk14Rcndm8kgBZz2o="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T04:55:54.955Z"),
+                    "hashedToken" : "z+DbbFoFEBLeXjWpWTsn9spyC5XSKyf6D2oCoEjw0r4="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T05:58:04.483Z"),
+                    "hashedToken" : "On61idl7CFOpDDZ2oSa/Dc162Z8i2NyMLZBjmPilpe8="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T05:59:52.882Z"),
+                    "hashedToken" : "p67txU0ouQDwTJcXc/NCq1SAm/ZfAY0CmtfJvrLxULw="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T06:01:10.336Z"),
+                    "hashedToken" : "jeCf8IgMFc8kuoPX3lSvGH5Yx37WBzULMv2IOFzsb0U="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T06:14:51.169Z"),
+                    "hashedToken" : "61H5mNOpJT8/AU6uXoZ2mH3WVTakZ1rgEO7jVonGeaA="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T06:31:40.551Z"),
+                    "hashedToken" : "Qx9C4Gptzm54jelQMMLWjRaNBE3g1S3U5FHjgpAUTpA="
+                }
+            ]
+        }
+    },
+    "username" : "zoylodoctor@gmail.com",
+    "emails" : [ 
+        {
+            "address" : "zoylodoctor@gmail.com",
+            "verified" : true
+        }
+    ],
+    "profile" : {
+        "fullName" : "Doctorzoylo",
+        "email" : "zoylodoctor@gmail.com",
+        "mobileNumber" : "+917777710006",
+        "isProvider" : true,
+        "sex" : null,
+        "dateOfBirth" : "01/06/2017",
+        "isAdmin" : false,
+        "isApproved" : false,
+        "isZoyloBackend" : false,
+        "zoyloId" : "ZY-SP-0017346",
+        "otps" : [ 
+            {
+                "num" : "8714",
+                "time" : ISODate("2017-07-11T11:10:09.308Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-11T11:17:20.900Z")
+            }, 
+            {
+                "num" : "9864",
+                "time" : ISODate("2017-07-11T11:17:44.420Z"),
+                "verified" : true
+            }, 
+            {
+                "num" : "9610",
+                "time" : ISODate("2017-07-11T11:19:18.541Z"),
+                "verified" : true
+            }, 
+            {
+                "num" : "3532",
+                "time" : ISODate("2017-07-11T11:19:53.704Z"),
+                "verified" : false,
+                "resendTime" : ISODate("2017-07-11T11:20:22.167Z")
+            }, 
+            {
+                "num" : "7846",
+                "time" : ISODate("2017-07-11T11:36:20.382Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-11T11:37:11.001Z")
+            }, 
+            {
+                "num" : "4832",
+                "time" : ISODate("2017-07-11T11:42:20.402Z"),
+                "verified" : false,
+                "resendTime" : ISODate("2017-07-11T11:46:04.576Z")
+            }, 
+            {
+                "num" : "9493",
+                "time" : ISODate("2017-07-11T11:58:09.292Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-11T12:02:04.063Z")
+            }, 
+            {
+                "num" : "1494",
+                "time" : ISODate("2017-07-11T12:02:59.637Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-11T12:06:37.469Z")
+            }, 
+            {
+                "num" : "6715",
+                "time" : ISODate("2017-07-12T07:45:51.364Z"),
+                "verified" : false
+            }, 
+            {
+                "num" : "8538",
+                "time" : ISODate("2017-07-12T09:45:43.377Z"),
+                "verified" : false,
+                "resendTime" : ISODate("2017-07-12T10:00:30.813Z")
+            }, 
+            {
+                "num" : "5463",
+                "time" : ISODate("2017-07-12T10:02:06.558Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-12T10:06:43.160Z")
+            }, 
+            {
+                "num" : "7209",
+                "time" : ISODate("2017-07-12T10:09:37.980Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-12T10:13:11.276Z")
+            }, 
+            {
+                "num" : "4935",
+                "time" : ISODate("2017-07-12T10:13:54.422Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-12T10:17:07.997Z")
+            }, 
+            {
+                "num" : "5343",
+                "time" : ISODate("2017-07-12T10:18:22.563Z"),
+                "verified" : true
+            }, 
+            {
+                "num" : "1225",
+                "time" : ISODate("2017-07-12T10:19:22.198Z"),
+                "verified" : true,
+                "resendTime" : ISODate("2017-07-12T10:20:27.672Z")
+            }, 
+            {
+                "num" : "4672",
+                "time" : ISODate("2017-07-13T10:24:49.287Z"),
+                "verified" : false
+            }, 
+            {
+                "num" : "1109",
+                "time" : ISODate("2017-07-13T12:53:09.410Z"),
+                "verified" : false,
+                "resendTime" : ISODate("2017-07-13T12:54:37.007Z")
+            }, 
+            {
+                "num" : "3921",
+                "time" : ISODate("2017-07-18T06:35:52.881Z"),
+                "verified" : false
+            }
+        ]
+    }
+}
+
+
+//*********** DC PROVIDER collection data ************\\
+**Collection Name: zyDiagnosticCenters
+{
+    "_id" : "kiATeiucMDRdgYWA6",
+    "diagnosticCenterName" : "Diagnosticszoylo",
+    "diagnosticCenterShortName" : "DIAGUSERZOYLO",
+    "user" : {
+        "fullName" : "Java One",
+        "email" : "Diagnosticszoylo@zoylo.com",
+        "password" : "$2a$10$Nc4aFgBVU76MKPVdOPDdB.zG//P.I0TrG6ave0ER5x0QiFcmiHQlC",
+        "confirmPassword" : "$2a$10$Nc4aFgBVU76MKPVdOPDdB.zG//P.I0TrG6ave0ER5x0QiFcmiHQlC"
+    },
+    "primaryPhoneNumber" : "+918888120000",
+    "zoyloStatusCode" : "approved",
+    "isActive" : true,
+    "isSponsored" : false,
+    "addresses" : [ 
+        {
+            "addressType" : "BRANCH_OFFICE",
+            "isActive" : true,
+            "isDefault" : true,
+            "address" : {
+                "addressLine1" : "Forum Mall Kukatpally",
+                "addressCountry" : "IN",
+                "addressState" : "IN-TG",
+                "addressCity" : "y9QNxhvzrxKivkk7X",
+                "addressPincode" : "500082",
+                "addressLocality" : "Forum Mall",
+                "addressLandmark" : "Jntu",
+                "addressGPSLongitude" : "78.4844",
+                "addressGPSLatitude" : "17.3922"
+            }
+        }
+    ],
+    "contactPersons" : [ 
+        {
+            "contactPersonName" : "Veever Milan",
+            "contactPersonPhone" : "9000000000",
+            "contactPersonEmail" : "milan30@zoylo.com"
+        }
+    ],
+    "imagesList" : [ 
+        {}, 
+        {
+            "fileRecordId" : "https://zoylo-qa-images.s3-ap-southeast-1.amazonaws.com/reports/9ecdbb1b-bb80-4756-aff7-35d5369c6a51-dc.png"
+        }
+    ],
+    "clinicSlotDuration" : "15",
+    "doesHomeVisit" : true,
+    "clinicAppointmentsPerSlot" : 10,
+    "clinicVisitOperatingHours" : [ 
+        {
+            "dayCode" : "Monday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Tuesday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Wednesday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Thursday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Friday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Saturday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }
+    ],
+    "homeVisitOperatingHours" : [ 
+        {
+            "dayCode" : "Monday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "20:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Tuesday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Wednesday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Thursday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Friday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }, 
+        {
+            "dayCode" : "Saturday",
+            "isActive" : true,
+            "workStartTime" : "09:00",
+            "workEndTime" : "22:00",
+            "isLunchTimeActive" : false
+        }
+    ],
+    "isNABLAccredited" : false,
+    "isOnlineAppointmentUsingZoylo" : false,
+    "isSelfCheckInSoftwareAppUsingZoylo" : false,
+    "isReportOnline" : false,
+    "healthPackages" : [ 
+        {
+            "id" : "Mo2eQq9iTftkcJs9o",
+            "adminStatus" : "approved",
+            "isActive" : true,
+            "serviceMode" : "C",
+            "packageName" : "Zoylo Health Pkg",
+            "packageCost" : 200,
+            "discountPercentage" : 5,
+            "discountAmount" : 10,
+            "zoyloChargePercentage" : 5,
+            "packageActiveTillDate" : ISODate("2017-07-21T04:55:54.911Z"),
+            "packageCostAfterDiscount" : 200,
+            "testsUnderPackage" : []
+        }, 
+        {
+            "id" : "yfgrnGCHkSQKZTudF",
+            "adminStatus" : "approved",
+            "isActive" : true,
+            "serviceMode" : "H",
+            "packageName" : "Zoylo Home Pkg",
+            "packageCost" : 30,
+            "discountAmount" : 3,
+            "zoyloChargePercentage" : 5,
+            "packageActiveTillDate" : ISODate("2017-07-21T04:56:21.903Z"),
+            "packageCostAfterDiscount" : 28.5,
+            "discountPercentage" : 10,
+            "testsUnderPackage" : []
+        }
+    ],
+    "isCAPAccredited" : false,
+    "createdAt" : ISODate("2017-06-01T16:13:15.474Z"),
+    "createdBy" : "sagar@zoylo.com",
+    "editedBy" : "DC",
+    "tempDiagnosticId" : "pBDpbTqA6aTfX8kjY",
+    "activeFromDate" : ISODate("2017-05-31T18:30:00.000Z"),
+    "activeTillDate" : ISODate("2030-12-30T18:30:00.000Z"),
+    "zoyloRating" : 5,
+    "diagnosticCenterImage" : "https://d130z5wnxdwqwr.cloudfront.net/images/defaultDC.png",
+    "isFromRequested" : false,
+    "location" : [ 
+        78.48439999999999, 
+        17.3922
+    ],
+    "userId" : "AEn4uTw3RodAoDBaz",
+    "tests" : [ 
+        {
+            "testName" : "Cbt",
+            "adminStatus" : "approved",
+            "serviceMode" : "C",
+            "testCost" : 100,
+            "discountPercentage" : 20,
+            "zoyloChargePercentage" : 20,
+            "isActive" : true,
+            "discountAmount" : 20,
+            "totalCostAfterDiscount" : 100,
+            "isTestActive" : false,
+            "testActiveTillDate" : ISODate("2017-07-11T07:02:26.311Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10,
+            "id" : "eHyuFThdXjGf7QBdj"
+        }, 
+        {
+            "testName" : "Sugar Test",
+            "adminStatus" : "approved",
+            "serviceMode" : "C",
+            "testCost" : 100,
+            "discountPercentage" : 20,
+            "zoyloChargePercentage" : 20,
+            "isActive" : true,
+            "discountAmount" : 20,
+            "totalCostAfterDiscount" : 100,
+            "isTestActive" : false,
+            "testActiveTillDate" : ISODate("2017-07-11T07:02:26.313Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10,
+            "id" : "azf8GSu6MpJ6bYNDD"
+        }, 
+        {
+            "testName" : "Home Test",
+            "adminStatus" : "approved",
+            "serviceMode" : "H",
+            "testCost" : 40,
+            "zoyloChargePercentage" : 5,
+            "isActive" : true,
+            "discountPercentage" : 5,
+            "discountAmount" : 2,
+            "totalCostAfterDiscount" : 40,
+            "isTestActive" : false,
+            "testActiveTillDate" : ISODate("2017-07-11T07:02:26.315Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10,
+            "isTestApproved" : false,
+            "id" : "kb8ZHztFAq3Q9XBSJ"
+        }
+    ],
+    "updatedAt" : ISODate("2017-07-21T04:56:24.312Z"),
+    "updatedBy" : "system",
+    "seoFriendlyUrl" : {
+        "cityDiagnostic" : "hyderabad/diagnostic/kiATeiucMDRdgYWA6"
+    },
+    "homeVisitCharge" : "20",
+    "homeVisitServiceRangeKms" : "100",
+    "homeVisitSlotDuration" : "15",
+    "homeVisitAppointmentsPerSlot" : 10,
+    "markAsClosed" : [ 
+        {
+            "isActive" : false
+        }
+    ],
+    "availableFacilities" : [],
+    "acceptedPaymentTypes" : [],
+    "dateOfRegistration" : ISODate("2017-07-05T18:30:00.000Z"),
+    "languagesSpoken" : [],
+    "socialNetworkList" : []
+}
+
+
+//******** DC USER collection DATA *********\\
+** Collection Name: users
+{
+    "_id" : "AEn4uTw3RodAoDBaz",
+    "createdAt" : ISODate("2017-06-01T16:13:15.582Z"),
+    "services" : {
+        "password" : {
+            "bcrypt" : "$2a$10$7WMZzFDdknj53rgx23RROuyYPsrsbqvKWvJ9SbarKjk.A2oqVvWPy"
+        },
+        "resume" : {
+            "loginTokens" : [ 
+                {
+                    "when" : ISODate("2017-06-05T12:21:45.981Z"),
+                    "hashedToken" : "6ErGcCqSq6ATzQoQNDCeEmZBPO/ubf/m3DuY7aV4f7Y="
+                }, 
+                {
+                    "when" : ISODate("2017-06-06T04:54:52.603Z"),
+                    "hashedToken" : "zNLQyA6yYqRbvxhjTSAmCV0XjSp/Bfm9BgnDmqwN3N8="
+                }, 
+                {
+                    "when" : ISODate("2017-06-14T12:22:21.412Z"),
+                    "hashedToken" : "CpqQCiECRolzV6WjMw1MSdWeMOdhnzr7aODDtjcq6y4="
+                }, 
+                {
+                    "when" : ISODate("2017-06-14T12:35:35.697Z"),
+                    "hashedToken" : "PNEYzj0wlMv/vn2QHnOcAGk7Bs/cK6S3d7hXvyIGkoY="
+                }, 
+                {
+                    "when" : ISODate("2017-06-20T06:22:41.719Z"),
+                    "hashedToken" : "vEnOHefibRHWpIY9+VZH8RmsabRtOPblMr0xFmy2rMc="
+                }, 
+                {
+                    "when" : ISODate("2017-06-22T13:06:53.165Z"),
+                    "hashedToken" : "P5F1HBmSDU0jihTpI50ps/FgCzdLxHwexn8huKYBpxo="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:21:21.008Z"),
+                    "hashedToken" : "J3mxiOMPzLM0CuBk3dbWg9XH1TBwIpegSGCWAXIVEKo="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:31:10.343Z"),
+                    "hashedToken" : "Khx4afUYlpPSJzn2jU2HNBkN+Wf/X1sVwVIfnXQX+QY="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:35:16.258Z"),
+                    "hashedToken" : "hL7w8NCNGgr+wONzhpKMEHHNk7wkjinWLaX+N/xKCqU="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:35:45.553Z"),
+                    "hashedToken" : "rAbfQczN794YriAlbGpizYC0s7tq/xa5xzhyJZJOo40="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:37:47.446Z"),
+                    "hashedToken" : "v02AAPY5eEeljJpIxaTcsHG5XfKO+8rsmO9CT2yDd9o="
+                }, 
+                {
+                    "when" : ISODate("2017-06-30T12:42:38.453Z"),
+                    "hashedToken" : "OedzU5aR/RTlJEXwz+Hjs13Q2Q1UcLKFiUmlaSBhnmI="
+                }, 
+                {
+                    "when" : ISODate("2017-07-06T08:37:16.203Z"),
+                    "hashedToken" : "I4hehABgfK/W0+KRmwEqtYFox6VUSypZ+NjhuBSt0FM="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T09:37:22.052Z"),
+                    "hashedToken" : "o9il82tg+1TTQS08Mb0joQGkOZyV0PLRMeBs3YbiRx8="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T10:56:49.609Z"),
+                    "hashedToken" : "taVgAOdAgQ50bpEldFJzEXN/s/HrK7slZr0PzmgIEi4="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T11:31:39.000Z"),
+                    "hashedToken" : "aXg4hyH7bsRZMYkKgS9X+PAmkviUVy6v5dOWMhSN5XU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-18T11:34:56.075Z"),
+                    "hashedToken" : "Ja+mzFpPW/OkvWwRnlrKsn9KoqI4TcVTYmU2lGvOx5A="
+                }, 
+                {
+                    "when" : ISODate("2017-07-20T06:13:37.090Z"),
+                    "hashedToken" : "AKdtRRC/uHcqCvSYCyh+p1x1YJLee5MuwFfuIDpcMMU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-20T06:14:17.756Z"),
+                    "hashedToken" : "fLj59JjkI3+bLXB5toC6EWc6HKuxCTSymZo2Qbaj5GQ="
+                }, 
+                {
+                    "when" : ISODate("2017-07-20T06:14:51.580Z"),
+                    "hashedToken" : "BrpDywUEJK//o01aDAlxLJzYhwG1DoHSI6cZqFue2JU="
+                }, 
+                {
+                    "when" : ISODate("2017-07-20T06:15:45.492Z"),
+                    "hashedToken" : "GLQAPjPoz3KCE6SmGB8CG/CN7wd1cG1W/DHSyW1tizA="
+                }, 
+                {
+                    "when" : ISODate("2017-07-20T06:16:13.688Z"),
+                    "hashedToken" : "k803ynJ6ZRyvv22Y1m91zT69sr0C35iTWiTwPkl3T4c="
+                }, 
+                {
+                    "when" : ISODate("2017-07-21T04:23:22.784Z"),
+                    "hashedToken" : "jnk+8UXfH7ikXqiTaZuLpvZvEO8nG31bDPVEZsO6XZw="
+                }
+            ]
+        }
+    },
+    "username" : "Diagnosticszoylo@zoylo.com",
+    "emails" : [ 
+        {
+            "address" : "diagnosticszoylo@zoylo.com",
+            "verified" : false
+        }
+    ],
+    "profile" : {
+        "fullName" : null,
+        "email" : "Diagnosticszoylo@zoylo.com",
+        "mobileNumber" : "+918888120000",
+        "isProvider" : true,
+        "dateOfBirth" : "01/06/2017",
+        "isAdmin" : false,
+        "isApproved" : false,
+        "isZoyloBackend" : false,
+        "zoyloId" : "ZY-SP-0017347",
+        "providers" : [ 
+            {
+                "providerId" : "kiATeiucMDRdgYWA6",
+                "type" : "diagnostic-center",
+                "isDefault" : true
+            }
+        ]
+    }
+}
