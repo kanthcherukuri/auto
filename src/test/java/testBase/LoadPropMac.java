@@ -107,10 +107,6 @@ public class LoadPropMac   {
 		Recipient_DiaUsername=prop.getProperty("Recipient.DiaUsername");
 		Recipient_DiaPassword=prop.getProperty("Recipient.DiaPassword");
 
-		recipientDC_User=prop.getProperty("recipientDC.username");
-		recipientDC_Password=prop.getProperty("recipientDC.password");
-
-
 
 		//Diagnostic- Login- Credentials
 
