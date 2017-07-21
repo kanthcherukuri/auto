@@ -75,7 +75,7 @@ public class Profile_ZOY2418_ProfilePictureFunctionality extends LoadPropMac
 		RecipientPage=new RecipientPage(driver);
 		diagnosticPage=new DiagnosticPage(driver);
 		driver.get(loginPage_Url);
-		diagnosticPage.SignIn(recipientDC_User, recipientDC_Password);
+		diagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 	}
 	
 	@AfterClass
