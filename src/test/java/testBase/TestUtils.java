@@ -359,6 +359,16 @@ public class TestUtils {
 		System.out.println("Texted = "+data);
 	}
 
+	//Enter int by  Xpath
+		public void enterTextByXpathInt(String Xpath,int data)
+		{
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+			driver.findElement(By.xpath(Xpath)).sendKeys(String.valueOf(data));
+			System.out.println("Texted = "+data);
+		}
+		
+		
 	// select text by id
 	public void selectByVisibleTextByID(String ID,String data)
 	{
