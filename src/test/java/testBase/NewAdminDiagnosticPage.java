@@ -508,19 +508,22 @@ public class NewAdminDiagnosticPage
 	 */
 	public void  EnterAdditionalContactInformation(String Personname,String PersonPhone,String PersonEmail,String PersonFax) throws Exception{
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.AdditionalInformation_Menu);
-		//Thread.sleep(1000);
+		Thread.sleep(500);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.ContactPerson_AddContact);
+		Thread.sleep(500);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Name);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Name, Personname);
+		Thread.sleep(500);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Phone);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Phone, PersonPhone);
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Email);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Email, PersonEmail);
 		Thread.sleep(1000);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Fax);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.ContactPerson_Fax, PersonFax);
+		Thread.sleep(500);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.ContactPerson_Save);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.ContactPerson_Save);
 		Thread.sleep(4000);
@@ -533,7 +536,7 @@ public class NewAdminDiagnosticPage
 		Browser.clickOnTheElementByID("zyDCInfoGallery");
 		Browser.waitFortheID("isDiagnoDefault");
 		Browser.clickOnTheElementByID("isDiagnoDefault");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		driver.findElement(By.id("diagnosDefaImagesList")).sendKeys(current+imageURL);
 		Thread.sleep(2000);
 	}

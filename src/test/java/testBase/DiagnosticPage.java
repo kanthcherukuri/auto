@@ -1209,7 +1209,7 @@ public class DiagnosticPage {
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			 Assert.assertEquals(ActualNotification,"Approval is pending");
-			 Thread.sleep(1000);
+			 Thread.sleep(2000);
 			 
 		}
 		

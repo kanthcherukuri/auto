@@ -6,7 +6,7 @@ driver.path=C:/Users/Z9149/Downloads/
 
 //----Browser------//
 
-browser.name=firefox
+browser.name=chrome
 
 
 //----Environment----//
