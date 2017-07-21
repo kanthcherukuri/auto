@@ -49,7 +49,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		};
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateRecipientAccountCreationValidations(String runmode,String FullName,String Email,String Password,String ConfirmPassword,String RefCode) throws Exception {
+	public void validateRecipientAccountCreationValidations(String runmode,String FullName,String ResipientEmail,String ResipientPassword,String ConfirmPassword,String RefCode) throws Exception {
 
 		if(runmode.equals("yes")){
 
@@ -57,16 +57,16 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			Browser.openUrl(loginPage_Url);				
 			driver.findElement(By.linkText("Don't have an account?")).click();
 			Browser.waitTill(10);
-			//*Creating the Recipient 
+			//*************Creating New Recipient***********// 
 			driver.findElement(By.id("fullName")).sendKeys(FullName);
-			driver.findElement(By.id("emailAddress")).sendKeys(Email);
+			driver.findElement(By.id("emailAddress")).sendKeys(ResipientEmail);
 			int Phno = (int )(Math.random() *1000000000);
 			driver.findElement(By.id("mobileNumber")).sendKeys(String.valueOf("9"+Phno));
-			driver.findElement(By.id("password")).sendKeys(Password);
+			driver.findElement(By.id("password")).sendKeys(ResipientPassword);
 			driver.findElement(By.xpath("//button[text()='Sign Up']")).click();
 			Thread.sleep(10000);
 			//*Getting the OTP password from Gmail
-			String CompleteOTPEmail=Browser.emailResponse("doctorzoylo@gmail.com", "Zoylo@123", "	Zoylo.com | One Time Password (OTP) to activate your Zoylo account..");
+			String CompleteOTPEmail=Browser.emailResponse(ResipientEmail, ResipientPassword, "	Zoylo.com | One Time Password (OTP) to activate your Zoylo account..");
 			System.out.println("CompleteOTPEmail="+CompleteOTPEmail);
 			//*TRim OTP from the email 
 			String a[] = CompleteOTPEmail.split("Use ");
@@ -80,8 +80,28 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			//*Confirming Thank you page
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Please login to your email and proceed for verification to confirm your enrollment with us.");
+			
+			//********Booking Appointment with newly created User**********//
+			
+			Browser.openUrl(loginPage_Url);			
+			RecipientPage.recipientLogin(ResipientEmail, ResipientPassword);
+			RecipientPage.searchInZoyloMAP(Doctor_Name);
+			String DoctorFullName = Browser.getTextByXpath("//h1");
+			String Fee = Browser.getTextByXpath("//div[@class='consultFee']");
+			RecipientPage.bookAppointment();
+			String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
+			System.out.println("Clinic Name details"+Appointmentdetails[0]);
+			System.out.println("Time details"+Appointmentdetails[1]);
+			RecipientPage.confirmAppointment("Patient details");
+		    RecipientPage.makePayment();
+			//Verifying Thank you Message in Thank you Page
+			Assert.assertEquals(Browser.getTextByXpath("//h5"), "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
+		
+			
+			
+			
 			//*Removing Created User from the data Base Mongo 
-			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", "username", "doctorzoylo@gmail.com");
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", "username", ResipientEmail);
 
 
 		}else{
