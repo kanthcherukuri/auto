@@ -17,10 +17,10 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 	@BeforeClass	 
 	 public void LaunchBrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 driver.get(doctors_Url);		 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
+	 Browser.openUrl(loginPage_Url);
+	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	 Thread.sleep(2000);
 	 

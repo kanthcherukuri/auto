@@ -52,8 +52,12 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		DiagnosticPageZoylo.diagnosticlogout();
 		Browser.openUrl(loginPage_Url);
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
-		Thread.sleep(2000);
-		driver.get( Diagnostic_ApprovedApptURL);
+		Browser.waitTill(2000);
+		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
+		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
+		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
+		Thread.sleep(1000);
+		//driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
 		Thread.sleep(5000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");

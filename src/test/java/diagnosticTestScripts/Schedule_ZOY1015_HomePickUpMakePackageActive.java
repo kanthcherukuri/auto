@@ -31,7 +31,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Ratnasuperone","Full Body Test","10000","5","Suryanarayanatest","Full Body Test"}
+					{ "yes","Kuppampackage","Full Body Test","10000","5","Kuppamtest","Full Body Test"}
 
 			};
 		}
@@ -47,8 +47,12 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.diagnosticlogout();
 		Browser.openUrl(loginPage_Url);
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
-		Thread.sleep(2000);
-		driver.get( Diagnostic_ApprovedApptURL);
+		Browser.waitTill(2000);
+		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
+		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
+		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
+		Thread.sleep(1000);
+		//driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
 		Thread.sleep(5000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
