@@ -12,7 +12,7 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
+	 public static String recipient_DoctorClusters, Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
 	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab, Recipient_MyAccountTab, Recipient_ProfilePicture, Recipient_ProfilePopUp, Recipient_ProfileUploadInputID, Recipient_ProfileRemoveBtn, Recipient_ProfileGetSrc;
 	 public static WebDriver driver;
 	 
@@ -27,7 +27,7 @@ public class Elements_Recipients  {
 	public static String indexLocationName, indexLocationDropDown, indexCurrentLocator, indexLocationContainer;
 	public static String dcNameOnProfilePage, dcBookAptPageHeader, dcNameOnThankYouPage, thankYouPageLogo, recipient_DocProfile_About, recipient_DCProfileAbout;
 	public static String recipient_DCProfileABoutText, recipient_DCProfileRegNum, recipient_DCEstablishedYear, recipient_DCLanguage, recipient_DCPayment;
-	public static String recipient_DCAwardsTab, recipient_DCAwardsContent, recipient_DoctorListProfilePic, recipient_DCListProfilePic, recipient_docProfilePageImg, recipient_dcProfilePageImg;
+	public static String recipient_DCAwardsTab, recipient_DCAwardsContent, recipient_DCTestCost, recipient_DCPackageCost, recipient_DCPackageTab, recipient_DCTestTab, recipient_DCPackageCostOnBookPay, recipient_DCTestCostOnBookPay, recipient_DCTotalCost, recipient_DCPackageQnty, recipient_DCPackageUp, recipient_DCTestUp, recipient_DCTestQnty, recipient_DCPackageDown, recipient_DCtestDown, recipient_DCHereOnPayment, recipient_DCTestPkgHeaderOnPayment, recipient_DCPackageQntyOnPayment, recipient_DCtestQntyOnPayment, recipient_DCpkgCostOnPayment, recipient_DCtestCostOnPayment, recipient_DCTotalCostOnPayment, recipient_DCThankYouPagePKGQnty, recipient_DCThankYouPageTestQnty, recipient_DCTotalOnThankYouPage, recipient_DoctorListProfilePic, recipient_DCListProfilePic, recipient_docProfilePageImg, recipient_dcProfilePageImg;
 	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
@@ -37,6 +37,7 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
+		recipient_DoctorClusters="//div[@class='pin bounce ']"; //XPATH
 		recipient_DoctorListProfilePic="//span[@class='imgHolder']//img"; //XPATH
 		recipient_DCListProfilePic="//img[@class='diagno-defaultimg zy-diagno-image-53px']"; //XPATH
 		recipient_docProfilePageImg="//img[@class='zy-provider-image-53px']"; //XPATH
@@ -126,7 +127,30 @@ public class Elements_Recipients  {
          recipient_DCPayment="//span[@class='zy-rec-diag-pay-options']"; //XPATH
          recipient_DCAwardsTab="//a[@href='#awards']"; //XPATH
          recipient_DCAwardsContent="//div[@class='zy-rec-diag-awards-right-info']"; //XPATH
-        
+         recipient_DCTestCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon'])[1]"; //XPATH
+         recipient_DCPackageCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon'])[3]"; //XPATH
+         recipient_DCPackageTab="//*[@id='package-li']/a"; //XPATH
+         recipient_DCTestTab="//*[@id='test-li']/a"; //XPATH
+         recipient_DCPackageCostOnBookPay="(.//*[@id='finalcost'])[1]"; //XPATH
+         recipient_DCTestCostOnBookPay="(.//*[@id='finalcost'])[2]"; //XPATH
+         recipient_DCTotalCost="(//div[@class='zy-rec-diag-txt-amt']//span)[3]"; //XPATH
+         recipient_DCPackageQnty="(//input[@class='form-control text-center'])[1]"; //XPATH
+         recipient_DCPackageUp="(//i[@class='fa fa-caret-up'])[1]";
+         recipient_DCTestUp="(//i[@class='fa fa-caret-up'])[2]";
+         recipient_DCTestQnty="(//input[@class='form-control text-center'])[2]"; //XPATH
+         recipient_DCPackageDown="(//i[@class='fa fa-caret-down'])[1]"; //XPATH
+         recipient_DCtestDown="(//i[@class='fa fa-caret-down'])[2]"; //XPATH
+         recipient_DCHereOnPayment="//a[@data-parent='#accordion9']"; //XPATH
+         recipient_DCTestPkgHeaderOnPayment="//div[@class='zy-rec-diag-pkgs-tests']"; //XPATH
+         recipient_DCPackageQntyOnPayment="(//td[@class='zyPackgTestQty'])[1]"; //XPATH
+         recipient_DCtestQntyOnPayment="(//td[@class='zyPackgTestQty'])[2]"; //XPATH
+         recipient_DCpkgCostOnPayment="(//td[@class='zyPackgTestPrice']//span[@class='zy-sp-payment-money'])[1]"; //XPATH
+         recipient_DCtestCostOnPayment="(//td[@class='zyPackgTestPrice']//span[@class='zy-sp-payment-money'])[2]"; //XPATH
+         recipient_DCTotalCostOnPayment="(//div[@class='zy-sp-payment-opts']//span[@class='zy-sp-payment-money'])[3]"; //XPATH
+         recipient_DCThankYouPagePKGQnty="(//tr//td)[4]"; //XPATH
+         recipient_DCThankYouPageTestQnty="(//tr//td)[8]"; //XPATH
+         recipient_DCTotalOnThankYouPage="(//tr//td)[14]"; //XPATH
+         
 		return driver;	
         
        
