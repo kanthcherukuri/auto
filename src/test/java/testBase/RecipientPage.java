@@ -494,18 +494,18 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */
 	public String[] selectAvailableSlotInDiagnostics(String tests,String pkg ) throws InterruptedException{
-		Browser.waitFortheElementXpath("//*[@id='test-li']/a");
+		Browser.waitFortheElementXpath(Elements_Recipients.recipient_DCTestTab);
 
 		if(pkg.isEmpty()){
 			//tests
-			driver.findElement(By.xpath("//*[@id='test-li']/a")).click();
+			driver.findElement(By.xpath(Elements_Recipients.recipient_DCTestTab)).click();
 			driver.findElement(By.id("tests_search")).sendKeys(tests);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
 
 		}else if (tests.isEmpty()){
 			//pkg
-			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
+			driver.findElement(By.xpath(Elements_Recipients.recipient_DCPackageTab)).click();
 			driver.findElement(By.id("packages_search")).sendKeys(pkg);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
