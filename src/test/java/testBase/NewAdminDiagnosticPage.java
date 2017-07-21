@@ -68,12 +68,13 @@ public class NewAdminDiagnosticPage
 	
 	public void EnterDiagnosticDetails(String DiagnosticName,String ShortName,String fullname,String email,String phone,String password) throws Exception{
 		
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_Name)).sendKeys(DiagnosticName);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_ShortName)).sendKeys(ShortName);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_fullname)).sendKeys(fullname);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_email)).sendKeys(email);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_phone)).sendKeys(phone);
-		driver.findElement(By.id(Elements_NewAdminDiagnostic.DiagnosticCenter_password)).sendKeys(password);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_Name, DiagnosticName);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_ShortName, ShortName);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_fullname, fullname);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_email, email);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_phone,phone);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticCenter_password, password);
+		
 		Thread.sleep(2000);
 	}
 	
@@ -86,6 +87,7 @@ public class NewAdminDiagnosticPage
 	public void EnterMandatoryFields(String dateofbirth,String desc,String regno,String dateofreg,String rating,String startedyear) throws Exception{
 		
 		driver.findElement(By.id(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth)).clear();
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.MandatoryFields_dateofbirth, dateofbirth);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.MandatoryFields_desc, desc);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.MandatoryFields_regno, regno);
