@@ -25,7 +25,7 @@ public class Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled extends Loa
 		 Browser=new TestUtils(driver);
 		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamethree, Diagnostic_passwordthree);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
 	
 	@Test

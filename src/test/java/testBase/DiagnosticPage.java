@@ -627,11 +627,11 @@ public class DiagnosticPage {
 		String fullname=firstname+" "+lastname;
 		if(name.equalsIgnoreCase(fullname)&& schedule.equalsIgnoreCase("Scheduled"));{
 			driver.findElement(By.xpath("//*[@id='sp-diagno-tab-2']/div/div/div[2]/div/h1/span[1]")).click();
-			Thread.sleep(5000);
+			Browser.waitTill(2000);
 			driver.findElement(By.id("checkIn")).click();
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			driver.findElement(By.id("startConsultation")).click();
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			WebElement element=driver.findElement(By.xpath("//*[@id='0']"));
 			Select se=new Select(element);
 			se.selectByValue("Completed");
@@ -642,7 +642,7 @@ public class DiagnosticPage {
 			driver.findElement(By.id("diag-note-btn")).click();
 			Thread.sleep(8000);
 			driver.findElement(By.id("generatReceiptBtn")).click();
-			Thread.sleep(20000);
+			Thread.sleep(6000);
 			driver.findElement(By.id("checkoutBtn")).click();
 			Browser.CheckNotificationMessage("Checked-out successfully");	
 			System.out.println("SUCESSFULLY CHECKED OUT");
@@ -665,12 +665,13 @@ public class DiagnosticPage {
 			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			driver.findElement(By.id("all_reports_upload")).click();
-			Thread.sleep(6000);
+			Thread.sleep(3000);
 			driver.findElement(By.id("appt-reports-btn")).click();
-			Thread.sleep(6000);
+			Thread.sleep(1000);
 			Browser.CheckNotificationMessage("All reports uploaded successfully");
+			
 			}
 		}
 	

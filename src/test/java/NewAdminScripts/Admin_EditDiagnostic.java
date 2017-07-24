@@ -83,7 +83,8 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		Assert.assertEquals(diagtestname, EditdiagTestname);
 		driver.findElement(By.id("editDiagnosticSubmit")).click();
 		Browser.CheckNotificationMessage("Diagnostic Center Updated Successfully");
-		
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", DiagnosticEmail);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenters", "user.email", DiagnosticEmail);
 	}
 	
 	@AfterClass
