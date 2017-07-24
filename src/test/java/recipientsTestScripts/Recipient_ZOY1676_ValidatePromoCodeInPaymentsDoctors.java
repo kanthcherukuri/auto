@@ -5,6 +5,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.*;
 import testBase.*;
 import objectRepository.*;
@@ -17,8 +22,8 @@ MethodListener.class })
 public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPropMac {
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
-
-
+	DateFormat ModTime = new SimpleDateFormat("h:mm");
+	DateFormat CurrentDate = new SimpleDateFormat("MMM dd");
 
 
 	@BeforeClass(groups = { "Regression","High" })	
@@ -88,10 +93,17 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	       // String BalanceAmountString = BalanceAmount.replace(". ", "");
 	        System.out.println("BalanceAmountString="+BalanceAmount);
 	        Assert.assertEquals(BalanceAmount, "95.00");
-	        
-	
-	
-	
+	      
+	     //Verify ConsultationFee and Balance Amount in Thank u Page
+	     Browser.clickOnTheElementByID("proceed");
+	     String PayDetailsINThankUPage=Browser.getTextByXpath("//div[@class='book-dtbox']//p[2]");
+	     PayDetailsINThankUPage.contains("Consultation:"+ConsultationFee.replace(" ", ""));
+	     PayDetailsINThankUPage.contains("Balance:"+BalanceAmount.replace(".00", ""));
+	     //Verify  Appointment time in Thank u Page
+	     String APTDetailsInThankUPage=Browser.getTextByXpath("//div[@class='book-dtbox']//p[1]");
+	     APTDetailsInThankUPage.contains(ModTime.format(ModTime.parse(Appointmentdetails[1])));
+	     APTDetailsInThankUPage.contains(CurrentDate.format(new Date()));
+	     
 	}
 
 	@AfterClass(groups = { "Regression","High" })

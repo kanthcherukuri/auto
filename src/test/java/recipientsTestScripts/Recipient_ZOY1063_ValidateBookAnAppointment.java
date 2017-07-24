@@ -52,6 +52,7 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 				//Verifying Consultation Fee in Thank you Page
 				Assert.assertTrue(Browser.getTextByXpath("//div[@class='book-dtbox']//p[2]").contains("Consultation:"+Fee.replace(" ", "")+""));
 	
+				
 	    }
 	  
 

@@ -16,9 +16,8 @@ public class Recipient_ZOY2426_QuantityToAmountScenarios extends LoadPropMac
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	public String[] totalCostOnBookPay, totalCostOnBookPay3, totalCostOnBookPay2, pkgCostOnPaymentHeresplit, testCostOnPaymentHeresplit, totalCostOnPaymentsplit, totalCostOnThankYouPagesplit;
-	public int totalCostOnBookPayValue;
 	public String testCost, packageCost, testCostOnBookPay, packageCostOnBookPay, totalCost, packageCostOnBookPay3, testCostOnBookPay3, totalCost3, packageCostOnBookPay2, testCostOnBookPay2, totalCost2, pkgQntyOnPayment, testQntyOnPayment, pkgCostOnPaymentHere, testCostOnPaymentHere, totalCostOnPayment, pkgQntyOnThankYouPage, testQntyOnThankYouPage, totalCostOnThankYouPage;
-	public int ActualTestCostValue, ActualPackageCostValue, testCostOnBookPayValue, packageCostOnBookPayValue, ActualTotal, packageCostOnBookPayValue3, testCostOnBookPayValue3, totalCostOnBookPayValue3, ActualTotal3, testCostOnBookPayValue2, packageCostOnBookPayValue2, totalCostOnBookPayValue2, ActualTotal2, pkgCostOnPaymentHereValue, testCostOnPaymentHereValue, totalCostOnPaymentValue, totalCostOnThankYouPageValue;
+	public int totalCostOnBookPayValue, ActualTestCostValue, ActualPackageCostValue, testCostOnBookPayValue, packageCostOnBookPayValue, ActualTotal, packageCostOnBookPayValue3, testCostOnBookPayValue3, totalCostOnBookPayValue3, ActualTotal3, testCostOnBookPayValue2, packageCostOnBookPayValue2, totalCostOnBookPayValue2, ActualTotal2, pkgCostOnPaymentHereValue, testCostOnPaymentHereValue, totalCostOnPaymentValue, totalCostOnThankYouPageValue;
 	
 	@Test(priority=1)
 	public void testPackageInitialAmount() throws Exception
@@ -28,7 +27,6 @@ public class Recipient_ZOY2426_QuantityToAmountScenarios extends LoadPropMac
 		RecipientPage.goToDiagnostics();
 		RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		RecipientPage.bookAppointmentOnDiagnostics();
-		String dcName=Browser.getTextByXpath(Elements_Recipients.dcNameOnProfilePage);
 		//Capture test and package amount
 		testCost=Browser.getTextByXpath(Elements_Recipients.recipient_DCTestCost);
 		Browser.clickOnTheElementByXpath(Elements_Recipients.recipient_DCPackageTab);

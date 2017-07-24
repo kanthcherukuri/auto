@@ -14,6 +14,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
 
 
 
@@ -149,17 +151,21 @@ public class LoadPropMac   {
 			System.out.println("launching chrome browser");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("disable-infobars");                 // Added to remove new chrome warning message
-			options.addArguments("--use-fake-ui-for-media-stream=1"); // Added to allow camera
+			options.addArguments("disable-infobars");                   // Added to remove new chrome warning message
+			options.addArguments("--use-fake-ui-for-media-stream=1");   // Added to allow camera
 			//options.addArguments("--kiosk");                          // Added to Maximize window
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
+
+
+
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			System.out.println("width :" +width);
 			int height = gd.getDisplayMode().getHeight();
 			System.out.println("Height :"+height);
 			driver.manage().window().setSize(new Dimension(width, height));
+
 		}else if(browser_name.equals("firefox")){
 			System.out.println("launching Firefox browser");
 			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
@@ -179,6 +185,36 @@ public class LoadPropMac   {
 
 
 		return driver;
+	}
+
+
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void onStart(ITestContext arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void onTestSkipped(ITestResult arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void onTestSuccess(ITestResult arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
