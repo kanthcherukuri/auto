@@ -174,11 +174,15 @@ public class LoadPropMac   {
 			FirefoxProfile profile = new FirefoxProfile();
 			profile.setPreference("geo.prompt.testing", true);
 		    profile.setPreference("geo.prompt.testing.allow", true);
+
 //		    profile.setPreference("browser.download.folderList",1);
 //		    profile.setPreference("browser.download.manager.showWhenStarting",false);
 //		    profile.setPreference("browser.download.dir","/Users/"); 
 		    
 		    profile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/pdf");
+
+		    profile.setPreference("media.navigator.permission.disabled", true);
+
 			driver=new FirefoxDriver(profile);
 			driver.manage().window().maximize();
 		}else if(browser_name.equals("safari")){
@@ -193,34 +197,7 @@ public class LoadPropMac   {
 	}
 
 
-	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onStart(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestSkipped(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestSuccess(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 }

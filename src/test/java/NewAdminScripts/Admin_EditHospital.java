@@ -54,7 +54,7 @@ public class Admin_EditHospital extends LoadPropMac {
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");
 		Thread.sleep(1000);
-		
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "hospital", "name", HospitalName);
 	}
 	
 	@AfterClass
