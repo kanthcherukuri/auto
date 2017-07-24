@@ -1,15 +1,9 @@
 package recipientDiagnosticTestScripts;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.SkipException;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
 import objectRepository.Elements_Admin;
 import objectRepository.Elements_Recipients;
 import testBase.LoadPropMac;

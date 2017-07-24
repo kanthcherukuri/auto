@@ -2,7 +2,7 @@ package recipientDiagnosticTestScripts;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 
 import org.openqa.selenium.By;
@@ -32,7 +32,7 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 		  RecipientPage = new RecipientPage(driver);
 		  Browser= new TestUtils(driver); 
 		  Browser.openUrl(loginPage_Url);
-		  RecipientPage.recipientLogin("ganeshzoylo@gmail.com","Zoylo@123");
+		  RecipientPage.recipientLogin(Recipient_Username,Recipient_Password);
 		 
 	 }
 	 
@@ -47,26 +47,13 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 		 String todaydate=driver.findElement(By.xpath("//span[@class='zy-rec-diag-apt-date']")).getText();
 		 System.out.println("Today Date :"+todaydate);
 		 DateFormat srcDf = new SimpleDateFormat("dd/MM/yyyy");
-		 Date date = srcDf.parse(todaydate);
 		 DateFormat destDf = new SimpleDateFormat("MMM dd");
-		 String dateStr = destDf.format(date);
+		 String dateStr=destDf.format(srcDf.parse(todaydate));
 		 System.out.println("Converted date is :"+dateStr);
 		 
 		 String verifydate=driver.findElement(By.xpath(".//*[@id='blk']/span[1]")).getText();
-		 System.out.println(verifydate);
-		 String[] getdate=verifydate.split("on");
-		 String text=getdate[0];
-		 System.out.println("First Part of Split :"+text);
-		 String time=getdate[1];
-		 System.out.println("Second Part of Split :"+time);
-		 String[] finaldate=time.split(",");
-		 String comparedate=finaldate[0];
-		
-		 System.out.println("Comparedate of First Part :"+comparedate);
-		 String comparetime=finaldate[1];
-		 System.out.println("Comparedate of Second Part :"+comparetime);
-		
-		 if(dateStr.equals(comparedate.trim())) {
+		 System.out.println(verifydate);	
+		 if(verifydate.contains(dateStr)) {
 			 System.out.println("Date Comparision is Sucessfull");
 			 Reporter.log("Date Comparision is Sucessfull");
 		 }else {
