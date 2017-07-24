@@ -15,25 +15,12 @@ import testBase.LoadPropMac;
 public class TestListener extends LoadPropMac implements ITestListener {
 	String filePath = "Screenshots/";
 	Date today = new Date();
-	@Override
+	
+	
 	public void onFinish(ITestContext context) {
 		
     }
 		
-	
-
-	@Override
-	public void onStart(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void onTestFailure(ITestResult result) {
     	System.out.println("***** Error "+result.getName()+" test has failed *****");
     	String methodName=result.getName().toString().trim();
@@ -56,7 +43,7 @@ public class TestListener extends LoadPropMac implements ITestListener {
 			}
     }
 
-	@Override
+	
 	public void onTestSkipped(ITestResult arg0) {
 		// TODO Auto-generated method stub
 		
@@ -71,8 +58,28 @@ public class TestListener extends LoadPropMac implements ITestListener {
 	    	System.out.println("***********Testing Method Name ="+methodName+"***************");
 	    }
 
-	@Override
+	
 	public void onTestSuccess(ITestResult arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	public void onStart(ITestContext arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 		// TODO Auto-generated method stub
 		
 	}
