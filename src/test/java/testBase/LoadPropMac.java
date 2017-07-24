@@ -174,6 +174,7 @@ public class LoadPropMac   {
 			FirefoxProfile profile = new FirefoxProfile();
 			profile.setPreference("geo.prompt.testing", true);
 		    profile.setPreference("geo.prompt.testing.allow", true);
+		    profile.setPreference("media.navigator.permission.disabled", true);
 			driver=new FirefoxDriver(profile);
 			driver.manage().window().maximize();
 		}else if(browser_name.equals("safari")){
