@@ -188,34 +188,7 @@ public class LoadPropMac   {
 	}
 
 
-	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onStart(ITestContext arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestSkipped(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void onTestSuccess(ITestResult arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 }
