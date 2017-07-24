@@ -30,7 +30,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Deevayani","V","9963990000","deevayani@gmail.com","Diabetic" }
+					{ "yes","Katchayanisi","V","9963990000","katchayanisi@gmail.com","Diabetic" }
 
 			};
 		}
@@ -40,7 +40,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	public void VerifyCheckInCheckOut(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPageZoylo.VerifyCheckInCheckoutforAllTab(firstname, lastname, email);
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 	
 	@AfterMethod
@@ -51,7 +51,7 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	
 	  @AfterClass
 	  public void afterClass() {
-		driver.quit();
+		//driver.quit();
 	  }
 	
 	}
