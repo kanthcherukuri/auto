@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -164,7 +165,10 @@ public class LoadPropMac   {
 			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
-			driver=new FirefoxDriver();
+			FirefoxProfile profile = new FirefoxProfile();
+			profile.setPreference("geo.prompt.testing", true);
+		    profile.setPreference("geo.prompt.testing.allow", true);
+			driver=new FirefoxDriver(profile);
 			driver.manage().window().maximize();
 		}else if(browser_name.equals("safari")){
 			System.out.println("launching Safari browser");
