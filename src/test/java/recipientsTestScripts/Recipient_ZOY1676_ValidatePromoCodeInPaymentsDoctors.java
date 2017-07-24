@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.*;
 import testBase.*;
@@ -22,7 +23,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	public RecipientPage RecipientPage;
 	public TestUtils Browser;	
 	DateFormat ModTime = new SimpleDateFormat("h:mm");
-
+	DateFormat CurrentDate = new SimpleDateFormat("MMM dd");
 
 
 	@BeforeClass(groups = { "Regression","High" })	
@@ -101,7 +102,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	     //Verify  Appointment time in Thank u Page
 	     String APTDetailsInThankUPage=Browser.getTextByXpath("//div[@class='book-dtbox']//p[1]");
 	     APTDetailsInThankUPage.contains(ModTime.format(ModTime.parse(Appointmentdetails[1])));
-	     
+	     APTDetailsInThankUPage.contains(CurrentDate.format(new Date()));
 	     
 	}
 
