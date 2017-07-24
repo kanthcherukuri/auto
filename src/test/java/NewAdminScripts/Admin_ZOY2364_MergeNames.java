@@ -54,7 +54,7 @@ public class Admin_ZOY2364_MergeNames extends LoadPropMac{
 		Thread.sleep(2000);
 	}
 	@AfterMethod
-	public void MakeSpecialisationDefault(){
+	public void MakeSpecialisationDefault() throws InterruptedException{
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Admin_ClickOnAdministrationMenu);
 		Browser.scrollbyxpath(Elements_NewAdminDiagnostic.Administration_MergeNamesMenu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Administration_MergeNamesMenu);

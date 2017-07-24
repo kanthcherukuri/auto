@@ -84,18 +84,21 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				DiagnosticPage.diagnosticsCheckinCheckOut();
 				DiagnosticPage.diagnosticslogout();
 				
-				
+
 				//Login as Recipient
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-                Thread.sleep(15000);				
-				driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
-				Browser.scrollbyID("submitReview");				
+                Thread.sleep(2000);
+                driver.navigate().refresh();
+                Thread.sleep(5000);
+				Browser.scrollbyID("skipForLater");	
+                Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");			
 				driver.findElement(By.id("skipForLater")).click();
 				Thread.sleep(5000);
 				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
-				Thread.sleep(2000);
+				driver.findElement(By.id("aptSearch")).click();
+				driver.findElement(By.id("aptSearch")).sendKeys(APID);
 				String Appointment_Status_Completed=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
 	            Assert.assertEquals(Appointment_Status_Completed, "Completed");
 	 

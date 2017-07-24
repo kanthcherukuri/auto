@@ -14,7 +14,7 @@
 
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2001_dcPaymentNegativeScenario"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogin"/>
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY2048_changeDChomeVisitApt"/>
+      <class name="recipientDiagnosticTestScripts.Recipient_ZOY2048_DiagnosticsRechangeNcancelHomeVisitApt"/>
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1094_ValidateDiagnosticsMapFilters"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2032_14dayNegativeScenario"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2034_homeVisitServiceRange"/>

@@ -21,7 +21,7 @@ public class Admin_ZOY1754_ref_EditCity extends LoadPropMac
 	public String cityName="Junefivecity";
 	
 	@Test()
-	public void editCity()
+	public void editCity() throws InterruptedException
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");

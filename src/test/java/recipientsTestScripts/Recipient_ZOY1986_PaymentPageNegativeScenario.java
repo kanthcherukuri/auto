@@ -27,7 +27,9 @@ public class Recipient_ZOY1986_PaymentPageNegativeScenario extends LoadPropMac
 		String verifyDT= Browser.getTextByXpath(Elements_Recipients.bookAptPageDate);
 		String verifyFee=Browser.getTextByID(Elements_Recipients.bookAptPageFee);
 		RecipientPage.bookAppointment();
+	   
 		Browser.waitFortheID(Elements_Recipients.makePaymentBtn);
+		Browser.scrollbyID(Elements_Recipients.makePaymentBtn);
 		driver.findElement(By.id(Elements_Recipients.makePaymentBtn)).click();     //Make payment
 		Browser.waitFortheID("merchantlogo");
 		driver.navigate().back();

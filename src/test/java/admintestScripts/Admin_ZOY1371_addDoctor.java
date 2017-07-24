@@ -117,7 +117,7 @@ public class Admin_ZOY1371_addDoctor extends LoadPropMac
 	}
 	
 	@Test(dataProvider="timeSlots", priority=3)
-	public void doctorTimeSlots(String mValue, String mondayStart, String mondayEnd, String tValue, String tueStart, String tueEnd, String wValue, String wStart, String wEnd, String thValue, String thStart, String thEnd, String fValue, String fStart, String fEnd)
+	public void doctorTimeSlots(String mValue, String mondayStart, String mondayEnd, String tValue, String tueStart, String tueEnd, String wValue, String wStart, String wEnd, String thValue, String thStart, String thEnd, String fValue, String fStart, String fEnd) throws InterruptedException
 	{
 		Browser.scrollbyxpath(".//*[@id='doctorInformation']/div/div[2]/div/div[27]/div"); //Scroll to Vacation text
 		//Monday

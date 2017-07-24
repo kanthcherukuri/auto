@@ -86,7 +86,6 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			Browser.clickOnTheElementByID("hist"); // my History
 			driver.findElement(By.id("aptSearch")).click();
 			driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
-			Thread.sleep(5000);
 			Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Completed')]/div[contains(.,'"+AppointmentId+"')]");
 
 			driver.findElement(By.xpath("(//img[@class='followup'])[1]")).click();

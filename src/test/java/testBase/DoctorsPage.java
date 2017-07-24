@@ -481,7 +481,7 @@ public class DoctorsPage  {
 		 * Param: start time and end time
 		 * Return:
 		 */
-		public void checkAddBreakTimes(String strtTime, String endTime)
+		public void checkAddBreakTimes(String strtTime, String endTime) throws InterruptedException
 		{
 			//Click Sunday break time
 			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
@@ -499,7 +499,7 @@ public class DoctorsPage  {
 		 * Param: start time and end time
 		 * Return:
 		 */
-		public void checkremoveBreakTimes()
+		public void checkremoveBreakTimes() throws InterruptedException
 		{
 			//Click sunday break time
 			Browser.scrollbyxpath(Elements_Doctors.sunToggle);
@@ -828,7 +828,7 @@ public void DoctorAppointmentBookingForSunday(String firstname,String lastname,S
  * @ Param: AddressLine One, locality, pincode
  * @ Return:
  */
-public void editScheduleDefaultClinicAddress(String addLineOne, String Locality, String pinCode)
+public void editScheduleDefaultClinicAddress(String addLineOne, String Locality, String pinCode) throws InterruptedException
 {
 	driver.findElement(By.id(Elements_Doctors.schedule)).click();
 	Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
@@ -1030,7 +1030,7 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	 * @ Pram: Other clinic Name, other clinic fee, other clinic mobile number
 	 * @ Return:
 	 */
-	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String lineone, String othrPin, String othrLon, String othrLat)
+	public void addclinicSchedule(String otherClnName, String otherfee, String othermob, String lineone, String othrPin, String othrLon, String othrLat) throws InterruptedException
 	{
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");

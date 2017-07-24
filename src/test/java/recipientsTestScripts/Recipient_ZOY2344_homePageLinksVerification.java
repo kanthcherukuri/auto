@@ -89,7 +89,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	}
 	
 	@Test(dataProvider="placeInfo",priority=2)
-	public void doctorseoLinksFromHomePage(String place)
+	public void doctorseoLinksFromHomePage(String place) throws InterruptedException
 	{
 		String home_DoctorsLink="//a[contains(., 'Doctors in "+place+"')]"; //XPATH
 		String home_DiagnosticLink="//a[contains(., 'Diagnostics in "+place+"')]"; //XPATH
@@ -136,7 +136,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	}
 	
 	@Test(dataProvider="placeInfoDC",priority=3)
-	public void diagnosticseoLinksFromHomePage(String place)
+	public void diagnosticseoLinksFromHomePage(String place) throws InterruptedException
 	{
 		String home_DiagnosticLink="//a[contains(., 'Diagnostics in "+place+"')]"; //XPATH
 		Browser.scrollbyxpath(home_DiagnosticLink);

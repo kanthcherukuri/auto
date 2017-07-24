@@ -27,6 +27,7 @@ public class Recipient_ZOY2016_doctorPaymentPageCancelNegativeScenario extends L
 		Browser.waitFortheElementXpath(Elements_Recipients.bookAptHeader);
 		RecipientPage.bookAppointment();
 		Browser.waitFortheElementXpath(Elements_Recipients.paymentPageHeader);
+		Browser.scrollbyID(Elements_Recipients.cancelPaymentPage);
 		driver.findElement(By.id(Elements_Recipients.cancelPaymentPage)).click();
 		Browser.waitforTextbyxpath(Elements_Recipients.doctorNameOnProfile, docName);
 	}

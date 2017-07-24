@@ -101,17 +101,19 @@ public class TestUtils {
 
 
 	//Scroll by ID
-	public void scrollbyID(String ID)
+	public void scrollbyID(String ID) throws InterruptedException
 	{
 		WebElement scroll = driver.findElement(By.id(ID));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+		Thread.sleep(500);
 	}
 
 	//Scroll by xpath
-	public void scrollbyxpath(String xpath)
+	public void scrollbyxpath(String xpath) throws InterruptedException
 	{
 		WebElement scroll = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+		Thread.sleep(500);
 	}
 
 	//Scroll by name
