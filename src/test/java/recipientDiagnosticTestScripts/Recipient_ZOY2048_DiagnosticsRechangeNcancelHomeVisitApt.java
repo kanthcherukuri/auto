@@ -16,7 +16,7 @@ import testBase.LoadPropMac;
 import testBase.RecipientPage;
 import testBase.TestUtils;
 
-public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
+public class Recipient_ZOY2048_DiagnosticsRechangeNcancelHomeVisitApt extends LoadPropMac
 {
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
@@ -40,38 +40,32 @@ public class Recipient_ZOY2048_changeDChomeVisitApt extends LoadPropMac
 		RecipientPage.confirmAppointmentOnDiagnostics();
 		RecipientPage.makePayment();
 		Browser.waitFortheElementXpath("//h5[contains(., 'Thank you for booking appointment at Diagnosticszoylo through Zoylo')]");
-		System.out.println("Home visit appointment is successfully booked");
-		String aptID=driver.findElement(By.xpath("(//div[@class='book-dtbox']//h3)[1]")).getText();
-		String lastWord = aptID.substring(aptID.lastIndexOf(" ")+1);
-		System.out.println(aptID);
-		System.out.println(lastWord);
-		driver.get(recipient_myaccount);
-		Browser.waitFortheElementXpath("(//span[@class='usr-pr-tab-txt'])[1]");
-		driver.findElement(By.xpath("(//span[@class='usr-pr-tab-txt'])[3]")).click();
-		Browser.waitFortheID("upcmng");
-		driver.findElement(By.id("aptSearch")).click();
-		driver.findElement(By.id("aptSearch")).sendKeys(lastWord);
-		Thread.sleep(5000);
-	/*    String chkAppointmentIDInUpcoming=driver.findElement(By.xpath("(//div[@class='zy-diagno-zy-apt-chng']//div[@class='zyBookApmptId'])")).getText();
-	    System.out.println("AP id="+chkAppointmentIDInUpcoming);
-	    Assert.assertTrue(chkAppointmentIDInUpcoming.contains("-"+aptID));*/
-		driver.findElement(By.xpath("//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
-		Browser.waitforTextbyxpath(Elements_Recipients.dcNameHolder, dcName);
-		Browser.waitFortheElementXpath("//div[@class='zy-rec-diag-hm-add-title']"); //Address heading
-		driver.findElement(By.xpath(Elements_Recipients.recipient_firstHomeAddress)).click();
-		driver.findElement(By.xpath(Elements_Recipients.dcHomeVisitAddressProceed)).click();
-		Browser.waitFortheElementXpath("(//a[contains(., 'Change')])[2]");
-		if(driver.findElements(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[2]")).isEmpty())
-		{
-			throw new SkipException("Slots are not available");
-		}
-		else
-		{
-			driver.findElement(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[2]")).click();  // book
-			Thread.sleep(2000);
-			System.out.println("Cliked on Available Slot Button from diagonostics");
-			Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
-		}
+		System.out.println("Home visit appointment is successfully booked");		
+		
+		 //Get Appointment ID
+		String APID = Browser.getAppointmentID();
+		//Re Scheduling the Apppointment
+		Browser.openUrl(loginPage_Url);
+		//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
+		RecipientPage.goToAppointments();
+		//Rescheduling the appointment	
+		RecipientPage.UpcomingAppointment(APID, "Reschedule");
+		Browser.clickOnTheElementByXpath(Elements_Recipients.recipient_firstHomeAddress);
+		Browser.clickOnTheElementByXpath(Elements_Recipients.dcHomeVisitAddressProceed);
+		Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[2]");							 
+		Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
+		//Verifying Reshedule label in appointments
+		String Appointment_Status_Reshedule=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
+        Assert.assertEquals(Appointment_Status_Reshedule, "Rescheduled");
+		//Canceling the appointment			
+        RecipientPage.UpcomingAppointment(APID, "Cancel");	   
+        Browser.verifyNotificationMessage("Appointment has been Cancelled");
+		driver.findElement(By.id("hist")).click();  // my History
+		Thread.sleep(2000);
+		String Appointment_Status_cancelled=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
+        Assert.assertEquals(Appointment_Status_cancelled, "Cancelled");
+		
+		
 	}
 	
 	@BeforeClass
