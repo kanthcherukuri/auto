@@ -77,7 +77,7 @@ public class Elements_NewAdminDiagnostic
 	Hospital_Longitude,Hospital_Latitude,Hospital_Country,Hospital_State,Hospital_City,Hospital_Pincode,Hospital_CloseContacts,
 	Hospital_CloseGallery,Hospital_CloseAwards,Hospital_ClosePackages,Hospital_CloseServices,Hospital_Save,Hospital_ClickOnCountry,
 	Hospital_ClickOnState,Hospital_ClickOnCity,Hospital_Cancel,Hospital_NameField,Hospital_ClickOnEdit,Hospital_SelectBikeParking,
-	Hospital_SelectCarParking,Hospital_SelectAmbulance,Hospital_SelectPremiumServices,Hospital_SelectICU;
+	Hospital_SelectCarParking,Hospital_SelectAmbulance,Hospital_SelectPremiumServices,Hospital_SelectICU,Hospital_Update;
 	
 	public static String Admin_ClickOnAdministrationMenu,Administration_MergeNamesMenu,MergeName_SelectType,
 	MergeName_FromValue,MergeName_ToValue,MergeName_Submit,Admin_ClickOnDoctorMenu, Admin_Serachbox,Doctor_GetSpecialisation;
@@ -351,6 +351,7 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_SelectAmbulance="//input[@name='facilities.hasAmbulance']";
 		 Hospital_SelectPremiumServices="//input[@name='facilities.hasPremiumServicesAtHospital']";
 		 Hospital_SelectICU="//input[@name='facilities.hasIcuAtHospital']";
+		 Hospital_Update="//*[@id='updateHospital']/div/div[2]/div/div/div/button[2]";
 		 
 		 
 		 Diagnostic_AppointmentMenu="//div[@id='accordionDiagnostic']/div[2]/a/div/h4";
