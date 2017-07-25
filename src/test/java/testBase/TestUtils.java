@@ -656,12 +656,7 @@ public class TestUtils {
 
 	}
 
-	public void maximizechromebrowser(){
-		System.out.println(driver.manage().window().getSize());
-		Dimension d= new Dimension(1920, 1080);
-		driver.manage().window().setSize(d);
-
-	}
+	
 	/*	@Author: Ganesh
 	 * 	@Description: This method can be used to generate Random String
 	 * 	@Parms: length of the return type
@@ -700,6 +695,7 @@ public class TestUtils {
 		  email=temp.substring(0,temp.length()-9)+"@test.org";
 		  return email;
 		 }
+
 
 
 

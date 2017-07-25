@@ -45,7 +45,6 @@ public class Admin_ZOY2284_DiagnosticReferences extends LoadPropMac {
 		AdminDiagnostic.ClickOnDiagnosticMenu();
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_ClickReferencemenu)).click();
 		driver.findElement(By.xpath(Elements_NewAdminDiagnostic.References_ClickOnTestsMenu)).click();
-		Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.References_ClickOnAddButton);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.References_ClickOnAddButton);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.References_EntityName, entityname);

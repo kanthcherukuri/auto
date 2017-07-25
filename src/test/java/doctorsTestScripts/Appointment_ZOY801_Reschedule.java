@@ -9,7 +9,7 @@ import org.testng.Assert;
 import objectRepository.Elements_Doctors;
 
 
-import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -31,10 +31,9 @@ public class Appointment_ZOY801_Reschedule extends LoadPropMac{
 	 @BeforeClass(groups = { "Regression","High" })	
 	 public void LaunchBrowser() throws Exception {
 		 LoadBrowserProperties();
-		 driver.get(doctors_Url);		 
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DoctorsPage= new DoctorsPage(driver);
 		 Browser= new TestUtils(driver); 
+		 Browser.openUrl(loginPage_Url);
 		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		  }
 	 

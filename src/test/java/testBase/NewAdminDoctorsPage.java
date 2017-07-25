@@ -1501,7 +1501,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void edit_requestedDoctorDetails() throws Exception
 	{
 		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, "Sonologist");
-		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Skin");
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Pox");
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);

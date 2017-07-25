@@ -44,7 +44,7 @@ public class Schedule_ZOY811_Doctor_DeleteCorrectTimings extends LoadPropMac
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
   }
 
   	@BeforeClass

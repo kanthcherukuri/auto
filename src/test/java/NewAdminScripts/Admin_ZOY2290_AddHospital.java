@@ -46,7 +46,6 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_ClickOnHospitalMenu);
 		Thread.sleep(2000);
-		//Browser.maximizechromebrowser();
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Hospital_ClickOnAdd);
