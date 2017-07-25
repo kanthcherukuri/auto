@@ -81,7 +81,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		            {"Delhi"},
 		            {"Mumbai"},
 		            {"Hyderabad"},
-		            {"Banglore"},
+		            {"Bengaluru"},
 		            {"Chennai"},
 		            {"Pune"},
 		            {"Ahmedabad"}
@@ -92,7 +92,6 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	public void doctorseoLinksFromHomePage(String place) throws InterruptedException
 	{
 		String home_DoctorsLink="//a[contains(., 'Doctors in "+place+"')]"; //XPATH
-		String home_DiagnosticLink="//a[contains(., 'Diagnostics in "+place+"')]"; //XPATH
 		Browser.scrollbyxpath(home_DoctorsLink);
 		Browser.clickOnTheElementByXpath(home_DoctorsLink);
 		Browser.waitFortheID(Elements_Recipients.indexLocationName);
@@ -128,7 +127,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		            {"Delhi"},
 		            {"Mumbai"},
 		            {"Hyderabad"},
-		            {"Banglore"},
+		            {"Bengaluru"},
 		            {"Chennai"},
 		            {"Pune"},
 		            {"Ahmedabad"}
