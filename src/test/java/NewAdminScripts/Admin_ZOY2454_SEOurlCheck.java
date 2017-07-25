@@ -27,11 +27,11 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
-		boolean isChecked = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		boolean isChecked = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
 		System.out.println(emailID + "" + isChecked);
 		if(isChecked!=true)
 		{
-			Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorActiveCheckBox);
 		}
 		driver.get("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
@@ -45,17 +45,17 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		driver.get(loginPage_Url);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
-		boolean isChecked1 = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		boolean isChecked1 = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
 		System.out.println(emailID + "" + isChecked1);
 		if(isChecked1==true)
 		{
-			Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorActiveCheckBox);
 		}
 		Thread.sleep(1000);
-		boolean isChecked2 = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		boolean isChecked2 = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
 		System.out.println(emailID + "" + isChecked2);
 		Thread.sleep(2000);
-		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap");
+		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		Thread.sleep(20000);

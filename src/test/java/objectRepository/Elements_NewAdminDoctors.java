@@ -6,7 +6,7 @@ public class Elements_NewAdminDoctors {
 
 public static WebDriver driver;
 public static String loginemail, loginpassword, loginbutton;
-public static String doctorLabel, addDoctorButton;
+public static String doctorLabel, addDoctorButton, doctorActiveCheckBox;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
 public static String practiceTab, addOtherClinic;
@@ -52,6 +52,7 @@ public static String administrator_lookupCodeTab, administrator_lookupCodeHeader
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
+		doctorActiveCheckBox="//input[@class='no-margin providerActive-class']"; //XPATH
 		adminUserDropDownBtn="//button[@class='btn btn-default dropdown-toggle']"; //XPATH
 		adminUserChangePassword="adminChangePasswordLink"; //ID
 		adminUserOldPassword="oldpassword"; //NAME
