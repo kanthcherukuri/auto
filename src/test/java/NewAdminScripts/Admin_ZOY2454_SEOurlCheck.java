@@ -1,12 +1,11 @@
 package NewAdminScripts;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import objectRepository.Elements_NewAdminDoctors;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
@@ -28,7 +27,12 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
-		System.out.println(emailID+ " is Active");
+		boolean isChecked = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		System.out.println(emailID + "" + isChecked);
+		if(isChecked!=true)
+		{
+			Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
+		}
 		driver.get("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
 		boolean reader = driver.getPageSource().contains(seoID);
@@ -41,9 +45,16 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		driver.get(loginPage_Url);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
-		Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
+		boolean isChecked1 = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		System.out.println(emailID + "" + isChecked1);
+		if(isChecked1==true)
+		{
+			Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
+		}
+		Thread.sleep(1000);
+		boolean isChecked2 = driver.findElement(By.xpath("//input[@class='no-margin providerActive-class']")).isSelected();
+		System.out.println(emailID + "" + isChecked2);
 		Thread.sleep(2000);
-		System.out.println(emailID+ " is NOT Active");
 		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap");
 		Thread.sleep(5000);
 		driver.navigate().refresh();
@@ -52,10 +63,6 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		Thread.sleep(5000);
 		boolean reader = driver.getPageSource().contains(seoID);
 		assertFalse(reader);
-		driver.get(loginPage_Url);
-		admin.click_doctorsTab();
-		admin.searchDoctorbyEmailID(emailID);
-		Browser.clickOnTheElementByXpath("//input[@class='no-margin providerActive-class']");
 	}
 	
 	@BeforeClass
