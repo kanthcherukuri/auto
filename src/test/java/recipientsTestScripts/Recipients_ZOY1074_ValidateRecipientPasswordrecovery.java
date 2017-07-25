@@ -81,7 +81,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		driver.findElement(By.id("resetPassword")).click();
 		driver.findElement(By.id("mobileOrEmail")).sendKeys("zoylodoctor@gmail.com");
 		driver.findElement(By.id("resetPassword")).click();
-		Browser.waitTill(10);
+		Browser.waitTill(30);
 		//verifying OTP with in valid data
 		//*Getting the OTP password from Gmail
 		String CompleteOTPEmail=Browser.emailResponse("zoylodoctor@gmail.com", "Zoylo@123", "Zoylo.com | One Time Password (OTP) to reset your Zoylo account password.");

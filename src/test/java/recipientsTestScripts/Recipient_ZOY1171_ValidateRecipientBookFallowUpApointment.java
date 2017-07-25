@@ -76,8 +76,10 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			Browser.openUrl(loginPage_Url);			
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
-			driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");
+			driver.navigate().refresh();
+			Thread.sleep(2000);
 			Browser.scrollbyID("submitReview");
+			driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");			
 			driver.findElement(By.id("submitReview")).click();
 			Browser.verifyNotificationMessage("Review submitted successfully.");
 			Thread.sleep(5000);
