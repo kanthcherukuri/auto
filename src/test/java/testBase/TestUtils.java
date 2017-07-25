@@ -652,10 +652,6 @@ public class TestUtils {
 
 	}
 
-
-	
-
-
 	
 	/*	@Author: Ganesh
 	 * 	@Description: This method can be used to generate Random String
@@ -695,7 +691,7 @@ public class TestUtils {
 		  email=temp.substring(0,temp.length()-9)+"@test.org";
 		  return email;
 		 }
->>>>>>> ddd103ded18772649a64a9f14a9cf4d9aff56185
+
 
 
 
