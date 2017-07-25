@@ -18,11 +18,12 @@ public class Schedule_ZOY844_DoctorHospital_DeleteWorkTimings extends LoadPropMa
 
 	 @BeforeClass
 		public void LaunchBrowser() throws Exception {
-			LoadBrowserProperties();
-			 driver.get(doctors_Url);		 
+			LoadBrowserProperties(); 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
+			 Browser.openUrl(loginPage_Url);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
 	 

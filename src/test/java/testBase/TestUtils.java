@@ -649,13 +649,7 @@ public class TestUtils {
 
 	}
 
-	public void maximizechromebrowser(){
-		System.out.println(driver.manage().window().getSize());
-		Dimension d= new Dimension(1920, 1080);
-		driver.manage().window().setSize(d);
-
-	}
-
+	
 
 
 

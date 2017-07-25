@@ -27,11 +27,10 @@ public class Appointments_ZOY794_ShowMore extends LoadPropMac {
 		@BeforeClass
 		public void beforeClass() throws Exception {
 		  		LoadBrowserProperties();
-		  		driver.manage().window().maximize();
-				 driver.get(doctors_Url);		 
-				 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				 DoctorsPage= new DoctorsPage(driver);	
 				 Browser=new TestUtils(driver);
+				 Browser.openUrl(loginPage_Url);
+				 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 				 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 				 
 				  }	 
