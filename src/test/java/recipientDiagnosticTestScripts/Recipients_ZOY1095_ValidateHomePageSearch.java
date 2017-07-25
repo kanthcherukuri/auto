@@ -91,9 +91,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 
 		if(runmode.equals("yes")){
 			//Test Starts - Here
-			// Browser.openUrl(base_url);
 			driver.findElement(By.xpath("//*[@id='onlyDiagnostics']/a")).click();
-
 		 	HomePage.searchDiagnosticsZoylo(City, Locality, pkg);
 		 	Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 			Thread.sleep(10000);
