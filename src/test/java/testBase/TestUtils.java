@@ -658,19 +658,36 @@ public class TestUtils {
 		driver.manage().window().setSize(d);
 
 	}
-
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to generate Random String
+	 * 	@Parms: length of the return type
+	 * 	@Return: RandomString
+	 */
 	    public String generateRandomString(int length){
 		  return RandomStringUtils.randomAlphabetic(length);
 		 }
-		 
+	    
+	    /*	@Author: Ganesh
+		 * 	@Description: This method can be used to generate Random Number
+		 * 	@Parms: length of the return type
+		 * 	@Return: Random Number
+		 */	 
 		 public String generateRandomNumber(int length){
 		  return RandomStringUtils.randomNumeric(length);
 		 }
-		 
+		 /*	@Author: Ganesh
+			 * 	@Description: This method can be used to generate Random AlphaNumeric
+			 * 	@Parms: length of the return type
+			 * 	@Return: Random AlphaNumeric
+			 */	 
 		 public String generateRandomAlphaNumeric(int length){
 		  return RandomStringUtils.randomAlphanumeric(length);
 		 }
-		
+		 /*	@Author: Ganesh
+			 * 	@Description: This method can be used to generate random Email
+			 * 	@Parms: length of the return type
+			 * 	@Return: random Email
+			 */	 
 		 public String generateEmail(int length) {
 		  String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
 		    "1234567890";
