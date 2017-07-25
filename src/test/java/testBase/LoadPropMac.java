@@ -157,8 +157,6 @@ public class LoadPropMac   {
 			driver = new ChromeDriver(options);	
 			driver.manage().window().maximize();
 
-
-
 			GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 			int width = gd.getDisplayMode().getWidth();
 			System.out.println("width :" +width);

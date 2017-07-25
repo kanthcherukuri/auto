@@ -930,7 +930,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void clickSubmitDoctor()
+	public void clickSubmitDoctor() throws InterruptedException
 	{
 		Browser.scrollbyID(Elements_NewAdminDoctors.doctorSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
@@ -1501,7 +1501,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public void edit_requestedDoctorDetails() throws Exception
 	{
 		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, "Sonologist");
-		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Skin");
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, "Pox");
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.defaultClinicTab);
@@ -1727,7 +1727,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_administratorSave()
+	public void click_administratorSave() throws InterruptedException
 	{
 		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
@@ -1861,7 +1861,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_modulesTab()
+	public void click_modulesTab() throws InterruptedException
 	{
 		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_moduleTab);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_moduleTab)).click();
@@ -1893,7 +1893,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_marketingElementsTab()
+	public void click_marketingElementsTab() throws InterruptedException
 	{
 		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_marketingElementsTab);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_marketingElementsTab)).click();
@@ -1919,7 +1919,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void click_appPropertyTab()
+	public void click_appPropertyTab() throws InterruptedException
 	{
 		Browser.scrollbyxpath(Elements_NewAdminDoctors.administrator_appPropertyTab);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.administrator_appPropertyTab)).click();

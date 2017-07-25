@@ -64,18 +64,10 @@ public class TestListener extends LoadPropMac implements ITestListener {
 		
 	}
 
-
-
-
-
-
 	public void onStart(ITestContext arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 
 
 

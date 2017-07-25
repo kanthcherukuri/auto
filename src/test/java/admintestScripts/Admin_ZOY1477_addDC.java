@@ -138,7 +138,7 @@ public class Admin_ZOY1477_addDC extends LoadPropMac
 	}
 	
 	@Test(dataProvider="dcTimeslots", priority=4)
-	public void diagnosticSlots(String day, String dayStart, String dayEnd, String hday, String hdayStart, String hDayEnd)
+	public void diagnosticSlots(String day, String dayStart, String dayEnd, String hday, String hdayStart, String hDayEnd) throws InterruptedException
 	{
 		//LAB VISIT
 		Browser.actionbyname("clinicVisitOperatingHours.0.dayCode", day);

@@ -23,7 +23,7 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 	public String state="Telangana";
 	
 	@Test()
-	public void addCity()
+	public void addCity() throws InterruptedException
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		Browser.waitFortheElementXpath("//span[@class='welcome-admin']");
@@ -35,6 +35,7 @@ public class Admin_ZOY1753_ref_AddCity extends LoadPropMac
 		driver.findElement(By.xpath("//span[@aria-labelledby='select2-newCityForState-container']")).click();
 		driver.findElement(By.xpath("html/body/span/span/span[1]/input")).sendKeys(state);
 		driver.findElement(By.xpath("html/body/span/span/span[1]/input")).sendKeys(Keys.ENTER);
+		
 		Browser.scrollbyxpath("//h3[contains(., 'Diagnostic Centre Seo Information')]");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Browser.waitforTextbyxpath("//h4[contains(., 'Cities')]", "Cities");

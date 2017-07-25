@@ -58,6 +58,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
+		Thread.sleep(5000);
   }
   
   @BeforeClass

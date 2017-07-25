@@ -95,6 +95,7 @@ public class Recipient_ZOY1676_ValidatePromoCodeInPaymentsDoctors extends LoadPr
 	        Assert.assertEquals(BalanceAmount, "95.00");
 	      
 	     //Verify ConsultationFee and Balance Amount in Thank u Page
+	     Browser.scrollbyID("proceed"); 
 	     Browser.clickOnTheElementByID("proceed");
 	     String PayDetailsINThankUPage=Browser.getTextByXpath("//div[@class='book-dtbox']//p[2]");
 	     PayDetailsINThankUPage.contains("Consultation:"+ConsultationFee.replace(" ", ""));

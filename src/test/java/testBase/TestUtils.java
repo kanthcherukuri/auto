@@ -23,6 +23,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import objectRepository.Elements_Recipients;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -101,17 +102,19 @@ public class TestUtils {
 
 
 	//Scroll by ID
-	public void scrollbyID(String ID)
+	public void scrollbyID(String ID) throws InterruptedException
 	{
 		WebElement scroll = driver.findElement(By.id(ID));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+		Thread.sleep(500);
 	}
 
 	//Scroll by xpath
-	public void scrollbyxpath(String xpath)
+	public void scrollbyxpath(String xpath) throws InterruptedException
 	{
 		WebElement scroll = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+		Thread.sleep(500);
 	}
 
 	//Scroll by name
@@ -649,8 +652,50 @@ public class TestUtils {
 
 	}
 
+
 	
 
+
+	
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to generate Random String
+	 * 	@Parms: length of the return type
+	 * 	@Return: RandomString
+	 */
+	    public String generateRandomString(int length){
+		  return RandomStringUtils.randomAlphabetic(length);
+		 }
+	    
+	    /*	@Author: Ganesh
+		 * 	@Description: This method can be used to generate Random Number
+		 * 	@Parms: length of the return type
+		 * 	@Return: Random Number
+		 */	 
+		 public String generateRandomNumber(int length){
+		  return RandomStringUtils.randomNumeric(length);
+		 }
+		 /*	@Author: Ganesh
+			 * 	@Description: This method can be used to generate Random AlphaNumeric
+			 * 	@Parms: length of the return type
+			 * 	@Return: Random AlphaNumeric
+			 */	 
+		 public String generateRandomAlphaNumeric(int length){
+		  return RandomStringUtils.randomAlphanumeric(length);
+		 }
+		 /*	@Author: Ganesh
+			 * 	@Description: This method can be used to generate random Email
+			 * 	@Parms: length of the return type
+			 * 	@Return: random Email
+			 */	 
+		 public String generateEmail(int length) {
+		  String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
+		    "1234567890";
+		  String email="";
+		  String temp=RandomStringUtils.random(length,allowedChars);
+		  email=temp.substring(0,temp.length()-9)+"@test.org";
+		  return email;
+		 }
+>>>>>>> ddd103ded18772649a64a9f14a9cf4d9aff56185
 
 
 
