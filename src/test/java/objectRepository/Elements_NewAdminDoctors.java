@@ -5,12 +5,12 @@ import org.openqa.selenium.WebDriver;
 public class Elements_NewAdminDoctors {
 
 public static WebDriver driver;
-public static String loginemail, loginpassword, loginbutton;
+public static String loginemail, loginpassword, loginbutton, adminLogoutBtn;
 public static String doctorLabel, addDoctorButton, doctorActiveCheckBox;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
 public static String practiceTab, addOtherClinic;
-public static String otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicTable_ClinicName, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
+public static String otherClinicEditBtn, otherClinicName, otherClinicPhoneNumber, otherClinicFee, otherClinicCountry, otherClinicCountrySelectID, otherClinicState, otherClinicStateSelectID, otherClinicCity, otherClinicCitySelectID, otherClinicAddressLineOne, otherClinicPinCode, otherClinicLongitude, otherClinicLatitude, otherClinicActiveCheckBox, otherClinicFacilitiesTab, otherClinicSave, otherClinicTable_ClinicName, otherClinicCancel, otherClinicFacilities_Ambulance, otherClinicFacilities_assisted, otherClinicFacilities_emergency, otherClinicFacilities_bikeParking, otherClinicFacilities_CarParking, otherClinicFacilities_paymentCredit, otherClinicFacilities_paymentDebit, otherClinicFacilities_paymentCash, otherClinicFacilities_paymentOnline, otherClinicFacilities_paymentCheque, otherClinicFacilities_premiumService, otherClinicFacilities_CleanScore, otherClinicServicesTab, otherClinicServiceAdd, otherClinicServiceName, otherClinicServiceSave;
 public static String hospitalGenericInfo, defaultClinicTab, defaultClinicName, defaultClinicconsultationFee, defaultClinicPracticeStartDate, defaultClinicFacilitationCharges;
 public static String VacationTab, vacationAddButton, vacationStartDate, vacationEndDate, vacationActiveCheckBox, vacationSave, vacationCancel;
 public static String HospitalTab, hospitaladdHospitalBtn, hospitalAddHeading, hospitalpopUpName, hospitalpopUpConsultationFee, hospitalpopUpzoyloCharges, hospitalpopUpActiveCheckBox, hospitalpopUpDefaultCheckBox, hospitalpopUpSaveButton, hospitalTable_hospitalName, hospitalpopUpCancelButton;
@@ -54,6 +54,7 @@ public static String administrator_lookupCodeTab, administrator_lookupCodeHeader
 	{
 		doctorActiveCheckBox="//input[@class='no-margin providerActive-class']"; //XPATH
 		adminUserDropDownBtn="//button[@class='btn btn-default dropdown-toggle']"; //XPATH
+		adminLogoutBtn="logout"; //ID
 		adminUserChangePassword="adminChangePasswordLink"; //ID
 		adminUserOldPassword="oldpassword"; //NAME
 		adminUserNewPassword="newpassword"; //NAME
@@ -195,6 +196,7 @@ public static String administrator_lookupCodeTab, administrator_lookupCodeHeader
 		aboutDoctor="about"; //ID
 		practiceTab="practiceInfoTab"; //ID
 		addOtherClinic="zoyAddOtherClinicsBtn"; //ID
+		otherClinicEditBtn="(.//*[@id='0'])[7]"; //XPATH
 		otherClinicName="zoyOtherClinicsName"; //ID
 		otherClinicPhoneNumber="zoyOtherClinicsPhnNum"; //ID
 		otherClinicFee="zoyOtherClinicsConFee"; //ID
