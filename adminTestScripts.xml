@@ -4,7 +4,7 @@
   <test name="newAdmin">
     <classes>
     <!-- New admin doctor test scripts -->
-   <!--  	<class name="NewAdminScripts.Admin_ZOY2194_addClinicDoctor"/>
+   		<class name="NewAdminScripts.Admin_ZOY2194_addClinicDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2220_addHospitalDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2234_editClinicDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2238_editHospitalDoctor"/>
@@ -15,10 +15,10 @@
       	<class name="NewAdminScripts.Admin_ZOY2239_AddEditDoctorReference_Practice"/>
       	<class name="NewAdminScripts.Admin_ZOY2267_AddEditDoctorReferenceTag"/>
       	<class name="NewAdminScripts.Admin_ZOY2312_doctorChangePassword"/>
-      	<class name="NewAdminScripts.Admin_ZOY2339_DefaultScenarioEditHospitalDoctor"/> -->
+      	<class name="NewAdminScripts.Admin_ZOY2339_DefaultScenarioEditHospitalDoctor"/>
     
     <!-- New admin administratorTab test scripts -->
-    	<!-- <class name="NewAdminScripts.Admin_ZOY2288_administratorAddEditCountry"/>
+    	<class name="NewAdminScripts.Admin_ZOY2288_administratorAddEditCountry"/>
       	<class name="NewAdminScripts.Admin_ZOY2291_administratorAddEditState"/>
       	<class name="NewAdminScripts.Admin_ZOY2293_administratorAddEditCity"/>
       	<class name="NewAdminScripts.Admin_ZOY2285_administratorAddEditLanguages"/>
@@ -27,7 +27,7 @@
       	<class name="NewAdminScripts.Admin_ZOY2325_administratorAddEditMaerketingElements"/>
       	<class name="NewAdminScripts.Admin_ZOY2318_administratorModuleConfig"/>
       	<class name="NewAdminScripts.Admin_ZOY2336_adminChangePassword"/>
-      	<class name="NewAdminScripts.Admin_ZOY2415_administratorAddEditLookUpCodes"/> -->
+      	<class name="NewAdminScripts.Admin_ZOY2415_administratorAddEditLookUpCodes"/>
       	
     <!-- New admin diagnostic test scripts -->
       	<class name="NewAdminScripts.Admin_AddDiagnostic"/>
