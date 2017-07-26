@@ -1012,6 +1012,16 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		driver.findElement(By.id(Elements_NewAdminDoctors.Add_doctor_reference)).click();
 	}
+	/*
+	 * @ Authour		: Ganesh
+	 * @ Description	: This method is used to click practice add button of doctor references on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_doctorReference_AddSynonym()
+	{
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.Add_synonym)).click();
+	}
 	
 	/*
 	 * @ Authour		: Sagar Sen

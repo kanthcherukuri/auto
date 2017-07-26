@@ -31,7 +31,7 @@ public static String facilitiesTab, facilitiesTab_ambulance, facilitiesTab_assis
 public static String addressTab, addressTab_Country, addressTab_CountrySelectID, addressTab_State, addressTab_StateSelectID, addressTab_City, addressTab_CitySelectID, addressTab_completeAddress, addressTab_locality, addressTab_pinCode, addressTab_landMark, addressTab_location, addressTab_pharmaNearBy, addressTab_longitude, addressTab_latitude;
 public static String seoInfoTab, seoInfoTab_metaTitle, seoInfoTab_metaDescription, seoInfoTab_metaTags, seoInfoTab_metaKeyWords, seoInfoTab_seoURL, seoInfoTab_scoreCard;
 public static String doctorSave, doctorCancel, doctorChangePassword, doctorChangeNewPassword, doctorChangeNewConfirmPassword, doctorChangePasswordSave, doctorChangePasswordHeader, SearchTab, EditButton, searchResultOnTable, searchResultonTableforReqDoc, searchResultonTableTwo;
-public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference, doctor_reference_Name, doctor_reference_Description, doctor_reference_descriptionXpath, doctor_reference_ActiveCheckBox;
+public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference,Add_synonym, doctor_reference_Name, doctor_reference_Description, doctor_reference_descriptionXpath, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
 public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
@@ -431,6 +431,7 @@ public static String administrator_lookupCodeTab, administrator_lookupCodeHeader
 		doctor_reference_specialisation_metaTitle="seoTitle"; //ID
 		doctor_reference_specialisation_metaDescription="seoDescription"; //ID
 		doctor_reference_specialisation_keyword="seoKeywords"; //ID
+		Add_synonym="//div[@class='zoyCommonGreenBtn' and contains(.,'Add Synonym')]";
 		
 		//REFERENCE TAGS
 		doctor_reference_tag="//a[@href='/admin/providerTagList']"; //XPATH
