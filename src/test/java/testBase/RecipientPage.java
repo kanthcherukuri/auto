@@ -193,7 +193,7 @@ public class RecipientPage  {
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
-		Thread.sleep(5000);
+		Thread.sleep(5000);   // Added to avoid loading icon
 		
 		driver.findElement(By.id("search2")).click();
 	    for(int i=0;i<=keyword.length()-1; i++)

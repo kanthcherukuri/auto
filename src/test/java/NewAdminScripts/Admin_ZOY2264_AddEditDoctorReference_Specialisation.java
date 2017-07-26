@@ -57,7 +57,7 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 	}
 	
 	@Test(dataProvider="DoctorSpecialisationDetailsADD", priority=3)
-	public void AddnDeleteSynonymWithSpecialization(String specialisationName,String specialisationDescription) throws Exception
+	public void AddSynonymWithSpecialization(String specialisationName,String specialisationDescription) throws Exception
 	{
 		admin.click_doctorsTab();
 		admin.click_doctorReferences();
