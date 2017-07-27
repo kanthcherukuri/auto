@@ -16,7 +16,7 @@ import testBase.TestUtils;
 
 //@Authour: Sagar Sen
 
-public class Admin_ZOY2234_editClinicDoctor extends LoadPropMac
+public class Admin_ZOY2234_ZOY_2453_editClinicDoctorAndOtherClinicName extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
@@ -37,7 +37,7 @@ public class Admin_ZOY2234_editClinicDoctor extends LoadPropMac
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		admin.clickEditbutton();
-		//Edit other clinic Name
+		//Edit other clinic Name - To test ZOY-2453
 		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.practiceTab);
 		Browser.waitFortheID(Elements_NewAdminDoctors.addOtherClinic);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.otherClinicEditBtn);
@@ -55,7 +55,7 @@ public class Admin_ZOY2234_editClinicDoctor extends LoadPropMac
 		admin.click_UserDropDownBtn();
 		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.adminLogoutBtn);
 		
-		//Recipient check for edited other clinic name
+		//Recipient check for edited other clinic name - To test ZOY-2453
 		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);
 		driver.navigate().refresh();
 		RecipientPage.searchInZoyloMAP(docName);

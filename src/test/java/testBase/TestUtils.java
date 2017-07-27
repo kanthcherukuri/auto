@@ -430,7 +430,7 @@ public class TestUtils {
 	 *
 	 */
 
-	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue) throws UnknownHostException{
+	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collection, String QueryKey,String QueryValue) throws UnknownHostException{
 
 
 		MongoClient mongoClient = null;
@@ -447,7 +447,7 @@ public class TestUtils {
 		//System.out.println(db.getStats());
 		System.out.println(db.getCollectionNames());
 
-		DBCollection coll = db.getCollection("users");
+		DBCollection coll = db.getCollection(collection);
 		System.out.println("Collection mycol selected successfully");
 
 		BasicDBObject searchQuery = new BasicDBObject();
@@ -692,7 +692,7 @@ public class TestUtils {
 		    "1234567890";
 		  String email="";
 		  String temp=RandomStringUtils.random(length,allowedChars);
-		  email=temp.substring(0,temp.length()-9)+"@test.org";
+		  email=temp.substring(0,temp.length()-9)+"@automation.org";
 		  return email;
 		 }
 		 /*	@Author: Ganesh

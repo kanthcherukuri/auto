@@ -155,7 +155,9 @@ public class Elements_Doctors  {
 	 //Doctor Profile
 	 public static String doctor_changePassword, doctor_profileEdit, doctor_ProfileFirstName, doctor_ProfileAbout;
 	 public static String doctor_profileRegistrationNum, doctor_profileSaveInfo, doctor_ProfilePaymentTab, doctor_Profile_PaymentCash, doctor_Profile_PaymentSave;
-	 public static String doctor_Profile, doctor_profilePicture, doctor_profilePicturePopUp, doctor_profileTakePhotoBtn, doctor_profilePictureRemoveBtn, doctor_profilePictureUploadBtn, doctor_profileUploadInputID, doctor_profileVideoWindow, doctor_profileVideoWindowTakePhotoBtn, doctor_profileVideoUsePhotoBtn;
+	 public static String doctor_Profile, doctor_profilePicture, doctor_profilePicturePopUp, doctor_profileTakePhotoBtn, doctor_profilePictureRemoveBtn, 
+	 doctor_profilePictureUploadBtn, doctor_profileUploadInputID, doctor_profileVideoWindow, doctor_profileVideoWindowTakePhotoBtn, 
+	 doctor_profileVideoUsePhotoBtn,doctor_profilemenu,doctor_qualification;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 		//Doctor Profile
@@ -168,6 +170,8 @@ public class Elements_Doctors  {
 		doctor_ProfilePaymentTab="//a[@href='#payment']"; //XPATH
 		doctor_Profile_PaymentCash="cash"; //ID
 		doctor_Profile_PaymentSave="doctor_edit_save";
+		doctor_profilemenu="account_accountIcon"; //ID
+		doctor_qualification="doctorQualification"; //ID
 		
 		//Schedule Hospital Tab
 		patient_getAptID="(//div[@class='zy-rec-tab-cell zy-rec-dtls'])[1]"; //XPATH

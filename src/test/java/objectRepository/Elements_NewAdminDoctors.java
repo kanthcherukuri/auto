@@ -49,9 +49,11 @@ public static String administrator_marketingElementsTab, administrator_marketing
 public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOldPassword, adminUserNewPassword, adminUserConfirmPassword, adminUserPasswordSave;
 public static String administrator_lookupCodeTab, administrator_lookupCodeHeader, administrator_lookupCodeType, administrator_lookupCodeName, administrator_lookupCodeDescription, administrator_lookupCodeValue, administrator_lookupCodeValueName, administrator_lookupCodeValueDesription, administrator_lookupCodeValueSeuence, administrator_lookupCodeValueActiveCheckBox;
+public static String confirmToChangeToProvider;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
+		confirmToChangeToProvider="confirmYes"; //ID
 		doctorActiveCheckBox="//input[@class='no-margin providerActive-class']"; //XPATH
 		adminUserDropDownBtn="//button[@class='btn btn-default dropdown-toggle']"; //XPATH
 		adminLogoutBtn="logout"; //ID

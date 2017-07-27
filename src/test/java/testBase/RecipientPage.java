@@ -63,6 +63,45 @@ public class RecipientPage  {
 
 	}
 
+	/*
+	 * 	@Author		: Sagar Sen
+	 * 	@Description: This method is used to click dont have an account link on login page
+	 * 	@Params		: NA
+	 * 	@Returns	: NA
+	 */
+	public void click_DontHaveAnAccount()
+	{
+		Browser.clickOnTheElementByXpath(Elements_Recipients.recipient_signUp);
+	}
+	
+	/*
+	 * 	@Author		: Sagar Sen
+	 * 	@Description: This method is used to signUp details on signUp page
+	 * 	@Params		: fullName, emailID, mobileNumber, password
+	 * 	@Returns	: NA
+	 */
+	public void enter_SignUpDetails(String fullName, String emailID, int Phno, String password) throws Exception
+	{
+		Browser.enterTextByID(Elements_Recipients.recipient_signUpFullName, fullName);
+		Thread.sleep(500);
+		Browser.enterTextByID(Elements_Recipients.Recipient_UserName, emailID);
+		Thread.sleep(800);
+		Browser.enterTextByID(Elements_Recipients.recipient_signUpMobileNumber, String.valueOf("9"+Phno));
+		Thread.sleep(1000);
+		Browser.enterTextByID(Elements_Recipients.Recipient_Password, password);
+		Thread.sleep(300);
+	}
+	
+	/*
+	 * 	@Author		: Sagar Sen
+	 * 	@Description: This method is used to click signUp button on signUp page
+	 * 	@Params		: NA
+	 * 	@Returns	: NA
+	 */
+	public void click_signUpBtn()
+	{
+		Browser.clickOnTheElementByID(Elements_Recipients.recipient_signUpBtn);
+	}
 
 	/*  
 	 *  @Author      : Ganesh kumar.M

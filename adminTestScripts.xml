@@ -6,7 +6,7 @@
     <!-- New admin doctor test scripts -->
    		<class name="NewAdminScripts.Admin_ZOY2194_addClinicDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2220_addHospitalDoctor"/>
-      	<class name="NewAdminScripts.Admin_ZOY2234_editClinicDoctor"/>
+      	<class name="NewAdminScripts.Admin_ZOY2234_ZOY_2453_editClinicDoctorAndOtherClinicName"/>
       	<class name="NewAdminScripts.Admin_ZOY2238_editHospitalDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2282_requestedDoctorMoveToQue"/>
       	<class name="NewAdminScripts.Admin_ZOY2270_doctorAppointmentStatusChange"/>
