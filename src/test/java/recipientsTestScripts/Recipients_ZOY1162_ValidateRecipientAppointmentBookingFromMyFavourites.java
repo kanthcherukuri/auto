@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+
 import org.openqa.selenium.*;
 /*
 import atu.testng.reports.listeners.ATUReportsListener;
@@ -44,7 +45,6 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 	   			 
 			//Test Starts-Here
 			Browser.openUrl(loginPage_Url);
-			Thread.sleep(2000);
 		    //Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
@@ -52,12 +52,14 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			System.out.println("fav"+Fav_DoctorFullName);
 			RecipientPage.bookAppointment();
 			driver.findElement(By.id("favourites")).click();
-			Thread.sleep(2000);
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
-			Browser.waitTill(30);
-			String myActFav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
+			//Browser.waitTill(30);
+			String myActFav_DoctorFullName = Browser.getTextByXpath("//h1");
 			Assert.assertEquals(Fav_DoctorFullName, myActFav_DoctorFullName);
+			//JiraID - ZOY2384 -Distance should appear in Favorites screen
+			String Distance = Browser.getTextByXpath("//div[@class='dctr-exprnce']/span[2]/i");
+			Assert.assertTrue(Browser.isInteger(Distance));
 			RecipientPage.bookAppointment();
 			RecipientPage.selectDefaultSlot();
 			RecipientPage.confirmAppointment("Test details");
@@ -65,18 +67,17 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+myActFav_DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			RecipientPage.openMyAccounts();
-			//Verifying the reset of favaourites
+			//Verifying the reset of favourites
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click();
-			Thread.sleep(2000);
 			RecipientPage.bookAppointment();
 			driver.findElement(By.id("favourites")).click();
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);
-			boolean fav_doc= driver.findElements(By.xpath("//h1")) != null;
+			boolean fav_doc= driver.findElements(By.xpath("//h1")).isEmpty();
 			System.out.println("fav doc after un check"+fav_doc);
-			Assert.assertFalse(fav_doc);
-			RecipientPage.goToDoctors();
+			Assert.assertTrue(fav_doc);
+			
 			 
 		
 			

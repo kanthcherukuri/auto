@@ -460,7 +460,7 @@ public class TestUtils {
 			//System.out.println("Inserted Document: "+i); 
 			response = cursor.next().toString();
 			System.out.println(response); 
-
+			
 
 		} 
 		// Assert.assertTrue(response.contains("ganesh@zoylo.com"));
@@ -695,8 +695,20 @@ public class TestUtils {
 		  email=temp.substring(0,temp.length()-9)+"@automation.org";
 		  return email;
 		 }
-
-
+		 /*	@Author: Ganesh
+			 * 	@Description: This method verify the string is integer / decimal or not
+			 * 	@Parms: String
+			 * 	@Return: boolean
+			 */	
+		 public  boolean isInteger(String str) {
+			    try { 
+			        Double.parseDouble(str);
+			    } catch(NumberFormatException e) { 
+			        return false; 
+			    } 
+			    // only got here if we didn't return false
+			    return true;
+			}
 
 
 }
