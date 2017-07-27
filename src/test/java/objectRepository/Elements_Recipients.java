@@ -162,8 +162,8 @@ public class Elements_Recipients  {
          recipient_DCpkgCostOnPayment="(//td[@class='zyPackgTestPrice']//span[@class='zy-sp-payment-money'])[1]"; //XPATH
          recipient_DCtestCostOnPayment="(//td[@class='zyPackgTestPrice']//span[@class='zy-sp-payment-money'])[2]"; //XPATH
          recipient_DCTotalCostOnPayment="(//div[@class='zy-sp-payment-opts']//span[@class='zy-sp-payment-money'])[3]"; //XPATH
-         recipient_DCThankYouPagePKGQnty="(//tr//td)[4]"; //XPATH
-         recipient_DCThankYouPageTestQnty="(//tr//td)[8]"; //XPATH
+         recipient_DCThankYouPagePKGQnty="(//tr//td)[2]"; //XPATH
+         recipient_DCThankYouPageTestQnty="(//tr//td)[6]"; //XPATH
          recipient_DCTotalOnThankYouPage="(//tr//td)[14]"; //XPATH
          
 		return driver;	
