@@ -34,9 +34,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		//Test Starts-Here
 		Browser.openUrl(loginPage_Url);			
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		Thread.sleep(2000);
-		//Searching Locality/Area
-		//RecipientPage.searchInZoyloMAPArea("Hyderabad");
+
 
 	} 
 
@@ -44,12 +42,12 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx123sx","Apollo Hospitals" }
+			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx123sx","Apollo Hospitals","Ent" }
 
 		};
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
-	public void mapSearchByDoctors(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
+	public void mapSearchByDoctors(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
 
 		if(runmode.equals("yes")){
 
@@ -76,7 +74,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
-	public void mapSearchBySpecialization(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
+	public void mapSearchBySpecialization(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ,String Synonym) throws Exception {
 
 		if(runmode.equals("yes")){
 			RecipientPage.searchInZoyloMAP(Specialization);
@@ -92,7 +90,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	}
 
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
-	public void validateMapsearchByClinic(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
+	public void validateMapsearchByClinic(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
@@ -112,7 +110,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
 
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
-	public void validateMapsearchByHospital(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
+	public void validateMapsearchByHospital(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ,String Synonym) throws Exception {
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
@@ -131,7 +129,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	}
 
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
-	public void mapSearchByInvalidData(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ) throws Exception {
+	public void mapSearchByInvalidData(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
 
 		if(runmode.equals("yes")){
 
@@ -150,6 +148,24 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			   Assert.assertTrue(InvalidSearchMessage.contains("Oops your Search"));
 			   Assert.assertTrue(InvalidSearchMessage.contains("did not match any records"));
 
+
+		}else{
+
+			throw new SkipException("RUNMODE IS OFF");
+
+		}	
+	}
+	
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
+	public void mapSearchBySynonym(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
+
+		if(runmode.equals("yes")){
+
+			//Verify search with clinic name
+			RecipientPage.searchInZoyloMAP(Synonym);
+			String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
+			Assert.assertTrue(Search_Specialization.contains(Specialization));
+			System.out.println("Passed"+Search_Specialization);
 
 		}else{
 

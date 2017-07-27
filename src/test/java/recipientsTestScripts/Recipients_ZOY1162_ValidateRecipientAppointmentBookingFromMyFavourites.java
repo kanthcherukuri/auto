@@ -73,9 +73,9 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
 			Browser.waitTill(30);
-			boolean fav_doc= driver.findElements(By.xpath("//h1")).isEmpty();
+			boolean fav_doc= driver.findElements(By.xpath("//h1")) != null;
 			System.out.println("fav doc after un check"+fav_doc);
-			Assert.assertTrue(fav_doc);
+			Assert.assertFalse(fav_doc);
 			RecipientPage.goToDoctors();
 			 
 		

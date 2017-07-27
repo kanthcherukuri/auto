@@ -37,13 +37,13 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 	 }
 	 
 	 @Test(priority=1)
-	 public void  checkdeletPackage() throws Exception {
+	 public void  ValidateDiagnosticsdeletPackage() throws Exception {
 		 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		 RecipientPage.goToDiagnostics();
 		 RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		 RecipientPage.bookAppointmentOnDiagnostics();
 		 RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
-		 Browser.waitTill(2000);
+		 //Browser.waitTill(2000);
 		 String todaydate=driver.findElement(By.xpath("//span[@class='zy-rec-diag-apt-date']")).getText();
 		 System.out.println("Today Date :"+todaydate);
 		 DateFormat srcDf = new SimpleDateFormat("dd/MM/yyyy");
@@ -59,30 +59,30 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 		 }else {
 			Assert.fail();
 		 }
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		 
 		 Browser.clickOnTheElementByXpath("//i[@name='package']");
 		 Browser.CheckNotificationMessage("The Zoylo Health Pkg package has been removed");
 		 Reporter.log("Package had Deleted In Book and Pay Page");  
-		 Thread.sleep(6000);
+		// Thread.sleep(6000);
 	 }
 	 
 	 @Test(priority=2)
-	 public void Checkdeletetest() throws Exception {
+	 public void ValidateDiagnosticsdeletTest() throws Exception {
 		 Browser.clickOnTheElementByXpath("//i[@name='test']");
 		 Browser.CheckNotificationMessage("The Cbt test has been removed");
 		 Reporter.log("Test also Deleted from In Book and Pay Page");
-		 Thread.sleep(6000);
+		 //Thread.sleep(6000);
 		 Browser.clickOnTheElementByXpath("//*[@id='bookAndPay']/span");
 		 Browser.CheckNotificationMessage("Please select Test/Package");
 		 Reporter.log("After Deleteing Test/Package and saved Got Notification as: Please select Test/Package"); 
-		 Thread.sleep(2000);
+		 RecipientPage.recipientLogout();
 		 
 	 }
 	 
 	 @AfterClass
 	 public void logout() throws Exception {
-	RecipientPage.recipientLogout();
+	
 	driver.quit();
 		 
 	 }

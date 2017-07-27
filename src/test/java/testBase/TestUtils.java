@@ -209,13 +209,16 @@ public class TestUtils {
 	public void waitforTextbyxpath(String xpath, String value)
 	{
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
+		//wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
+		wait.until(ExpectedConditions.textToBePresentInElement(By.xpath(xpath), value));
+		
 	}
 
 	//Wait for text to be present by ID
 	public void waitforTextbyID(String ID, String value)
 	{
 		WebDriverWait wait = (new WebDriverWait(driver, 20));
+		//wait.until(ExpectedConditions.textToBePresentInElementValue(By.id(ID), value));
 		wait.until(ExpectedConditions.textToBePresentInElement(By.id(ID), value));
 	}
 
@@ -309,6 +312,7 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		driver.findElement(By.id(ID)).click();
 		System.out.println("Clicked on "+ID);
+		Reporter.log("Clicked on the Element="+ID);
 	}
 
 	//Get text of the element by Xpath
@@ -341,6 +345,7 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 		driver.findElement(By.xpath(Xpath)).click();
 		System.out.println("Clicked on "+Xpath);
+		Reporter.log("Clicked on the Element="+Xpath);
 	}
 
 	// Enter text by id
@@ -351,6 +356,7 @@ public class TestUtils {
 		driver.findElement(By.id(ID)).clear();
 		driver.findElement(By.id(ID)).sendKeys(data);
 		System.out.println("Texted = "+data);
+		Reporter.log("Text Entered="+data);
 	}
 
 	//Enter text by  Xpath
@@ -360,17 +366,10 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 		driver.findElement(By.xpath(Xpath)).sendKeys(data);
 		System.out.println("Texted = "+data);
+		Reporter.log("Text Entered="+data);
 	}
 
-	//Enter int by  Xpath
-		public void enterTextByXpathInt(String Xpath,int data)
-		{
-			WebDriverWait wait = (new WebDriverWait(driver, 90));
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
-			driver.findElement(By.xpath(Xpath)).sendKeys(String.valueOf(data));
-			System.out.println("Texted = "+data);
-		}
-		
+	
 		
 	// select text by id
 	public void selectByVisibleTextByID(String ID,String data)
@@ -400,9 +399,10 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='zy-status-wrapper']")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
+		Reporter.log("Notification="+ActualNotification);
 		Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
-		//driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='zy-status-wrapper']"))); 
+		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
+		 
 	}
 
 
@@ -430,7 +430,7 @@ public class TestUtils {
 	 *
 	 */
 
-	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue) throws UnknownHostException{
+	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collection, String QueryKey,String QueryValue) throws UnknownHostException{
 
 
 		MongoClient mongoClient = null;
@@ -447,7 +447,7 @@ public class TestUtils {
 		//System.out.println(db.getStats());
 		System.out.println(db.getCollectionNames());
 
-		DBCollection coll = db.getCollection("users");
+		DBCollection coll = db.getCollection(collection);
 		System.out.println("Collection mycol selected successfully");
 
 		BasicDBObject searchQuery = new BasicDBObject();
@@ -548,7 +548,7 @@ public class TestUtils {
 		Message[] messages = null;
 		boolean isMailFound = false;
 		Message mailFromGod= null;
-
+		Thread.sleep(1000);
 		//Search for mail from Zoylo
 		for (int i = 0; i<=5; i++) {
 			Thread.sleep(500);
@@ -604,7 +604,11 @@ public class TestUtils {
 		return Email_response;
 	}
 
-
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to read xl sheet with table name and sheet name
+	 * 	@Parms: xlFilePath,  sheetName,  tableName
+	 * 	@Return: Table array
+	 */
 
 	public static String[][] getTableArray(String xlFilePath, String sheetName, String tableName) throws Exception{
 		String[][] tabArray=null;

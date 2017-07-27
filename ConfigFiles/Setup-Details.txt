@@ -1,8 +1,3 @@
-//Driver -path
-
-driver.path=C:/Users/Z9149/Downloads/
-
-
 
 //----Browser------//
 
@@ -19,7 +14,7 @@ base.url=https://zoyloqa.zoylo.com/
 enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
 loginPage.url=https://zoyloqa.zoylo.com/login
 index.url=https://zoyloqa.zoylo.com/index
-dev.url=https://dev.zoylo.com/login
+dev.url=https://zoyloqa.zoylo.com/login
 recipient.myaccount=https://zoyloqa.zoylo.com/myaccount
 
 
@@ -74,8 +69,6 @@ DiagnosticLogin.passwordfive=Zoylo@666
 
 DiagnosticLogin.usernamesix=divya@gmail.com
 DiagnosticLogin.passwordsix=Zoylo@123
-
-
 
 
 

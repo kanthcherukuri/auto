@@ -20,7 +20,7 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 	@Test(priority=1)
 	public void userTakePhoto() throws Exception
 	{
-		Browser.waitFortheElementXpath(Elements_Recipients.indexHeaderUserIcon);
+		Browser.waitFortheElementXpath(Elements_Recipients.recipient_DoctorClusters);
 		Browser.clickOnTheElementByID(Elements_Recipients.Recipient_MyAccountTab);
 		RecipientPage.goToRecipientProfilePic();
 		Browser.clickOnTheElementByXpath(Elements_Doctors.doctor_profileTakePhotoBtn);
@@ -38,7 +38,7 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 		Thread.sleep(5000);
 	}
 	
-	@Test(priority=2)
+	//@Test(priority=2)
 	public void userBrowsePhoto() throws Exception
 	{
 		driver.navigate().refresh();
@@ -48,7 +48,7 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 		Thread.sleep(6000);
 	}
 	
-	@Test(priority=3)
+	//@Test(priority=3)
 	public void userRemovePhoto() throws Exception
 	{
 		driver.navigate().refresh();
