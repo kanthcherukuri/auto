@@ -692,7 +692,7 @@ public class TestUtils {
 		    "1234567890";
 		  String email="";
 		  String temp=RandomStringUtils.random(length,allowedChars);
-		  email=temp.substring(0,temp.length()-9)+"@test.org";
+		  email=temp.substring(0,temp.length()-9)+"@automation.org";
 		  return email;
 		 }
 

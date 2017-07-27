@@ -29,6 +29,9 @@ public class Elements_Recipients  {
 	public static String recipient_DCProfileABoutText, recipient_DCProfileRegNum, recipient_DCEstablishedYear, recipient_DCLanguage, recipient_DCPayment;
 	public static String recipient_DCAwardsTab, recipient_DCAwardsContent, recipient_DCTestCost, recipient_DCPackageCost, recipient_DCPackageTab, recipient_DCTestTab, recipient_DCPackageCostOnBookPay, recipient_DCTestCostOnBookPay, recipient_DCTotalCost, recipient_DCPackageQnty, recipient_DCPackageUp, recipient_DCTestUp, recipient_DCTestQnty, recipient_DCPackageDown, recipient_DCtestDown, recipient_DCHereOnPayment, recipient_DCTestPkgHeaderOnPayment, recipient_DCPackageQntyOnPayment, recipient_DCtestQntyOnPayment, recipient_DCpkgCostOnPayment, recipient_DCtestCostOnPayment, recipient_DCTotalCostOnPayment, recipient_DCThankYouPagePKGQnty, recipient_DCThankYouPageTestQnty, recipient_DCTotalOnThankYouPage, recipient_DoctorListProfilePic, recipient_DCListProfilePic, recipient_docProfilePageImg, recipient_dcProfilePageImg;
 	
+	//Don't have an account page
+	public static String recipient_signUp, recipient_signUpFullName, recipient_signUpMobileNumber, recipient_signUpBtn, recipient_OtpText, recipient_VerifyOtp, recipient_thankYouSignUpName;
+	
 	public static WebDriver Recipients_PageProperties()throws Exception{
 	   // FileInputStream inStream;
 		/*
@@ -37,6 +40,18 @@ public class Elements_Recipients  {
         inStream = new FileInputStream(new File("PageLocators\\MapPageLocators.txt")); 
          prop.load(inStream);
         */
+		
+		//Don't have an account
+		recipient_signUp="//a[@href='/signup']"; //XPAtH
+		recipient_signUpFullName="fullName"; //ID
+		//Recipient_UserName
+		recipient_signUpMobileNumber="mobileNumber"; //ID
+		//Recipient_Password
+		recipient_signUpBtn="test"; //ID
+		recipient_OtpText="entered-otp"; //ID
+		recipient_VerifyOtp="verify-otp-btn"; //ID
+		recipient_thankYouSignUpName="//div[@class='col-md-12 col-sm-12 col-xs-12 signup-txtwrap']//h4"; //XPATH
+		
 		recipient_DoctorClusters="//div[@class='pin bounce ']"; //XPATH
 		recipient_DoctorListProfilePic="//span[@class='imgHolder']//img"; //XPATH
 		recipient_DCListProfilePic="//img[@class='diagno-defaultimg zy-diagno-image-53px']"; //XPATH
