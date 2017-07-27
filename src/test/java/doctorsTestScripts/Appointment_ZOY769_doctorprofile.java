@@ -45,7 +45,7 @@ public class Appointment_ZOY769_doctorprofile extends LoadPropMac{
 	((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 	driver.findElement(By.id("editAboutInfo")).click();
 	Browser.waitFortheID("doctorQualification");
-	WebElement element=driver.findElement(By.id("doctorQualification"))	; 
+	WebElement element=driver.findElement(By.id("doctorQualification")); 
 	Select se= new Select(element);
 	se.selectByValue(qualification);
 	Browser.waitFortheElementXpath(".//*[@id='areaOfSpecialisations']/div[2]/span/span[1]/span/ul");
