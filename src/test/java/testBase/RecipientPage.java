@@ -87,7 +87,7 @@ public class RecipientPage  {
 		Browser.enterTextByID(Elements_Recipients.Recipient_UserName, emailID);
 		Thread.sleep(800);
 		Browser.enterTextByID(Elements_Recipients.recipient_signUpMobileNumber, String.valueOf("9"+Phno));
-		Thread.sleep(800);
+		Thread.sleep(1000);
 		Browser.enterTextByID(Elements_Recipients.Recipient_Password, password);
 		Thread.sleep(300);
 	}

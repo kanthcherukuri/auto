@@ -1,9 +1,10 @@
 package NewAdminScripts;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.text.WordUtils;
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import objectRepository.Elements_NewAdminDoctors;
 import objectRepository.Elements_Recipients;
@@ -22,8 +23,15 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 	public String emailID, Name, fullName, password, otpValue, verifyNameOnThankyouSignUp;
 	public int Phno = (int )(Math.random() *1000000000);
 	
-	@Test()
-	public void UserToProvider() throws Exception
+	@DataProvider(name="convert")
+	public Object[][] clinicDocInfo() throws Exception
+	{
+		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/rvmpAdmin_addDoctor.xls", "enroll", "ZOY2441");
+		return(clinicDocInformation);
+	}
+	
+	@Test(dataProvider="convert")
+	public void UserToProvider(String firstName, String MiddleName, String LastName, String ShortName, String mobileNumber, String genderValue, String DOB, String regNum, String qualification, String tag, String specialization, String practiceLine, String aboutDoc, String defaultClinicName, String defaultClinicFee, String practiceStartDate, String zoyloFacilitationFee, String Country, String State, String City, String completeAddress, String Locality, String pin, String longitude, String latitude, String removeFromDB) throws Exception
 	{
 		//Pre Requisits
 		emailID=Browser.generateEmail(15);
@@ -49,6 +57,47 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 		{
 			System.out.println("Recipient registration FAILED with emailID: "+emailID);
 		}
+		
+		//ADMIN ADD DOCTOR
+		driver.get(loginPage_Url);
+		//driver.get("https://dev.zoylo.com/login");
+		admin.adminSignIn(admin_user, admin_password);
+		admin.click_doctorsTab();
+		admin.click_addDoctor();
+		admin.Enter_doctorGenericDetails(firstName, MiddleName, LastName, ShortName, emailID, mobileNumber, password);
+		driver.findElement(By.id(Elements_NewAdminDoctors.Active)).click();
+		if(genderValue.equalsIgnoreCase("Male"))
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Male");
+			System.out.println("Gender of the doctor being entered is Male");
+		}
+		else
+		{
+			Browser.actionbyid(Elements_NewAdminDoctors.gender, "Female");
+			System.out.println("Gender of the doctor being entered is Female");
+		}
+		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.dateOfBirth);
+		driver.findElement(By.id(Elements_NewAdminDoctors.dateOfBirth)).clear();
+		Browser.enterTextByID(Elements_NewAdminDoctors.dateOfBirth, DOB); //(MM/DD/YYYY)
+		Browser.enterTextByID(Elements_NewAdminDoctors.medicalRegistrationNumber, regNum);
+		Browser.selectbyID(Elements_NewAdminDoctors.Qualification, qualification);
+		Browser.selectbyID(Elements_NewAdminDoctors.professionalTag, tag);
+		Browser.selectbyID(Elements_NewAdminDoctors.areaOfSpecialization, specialization);
+		Browser.selectbyID(Elements_NewAdminDoctors.lineOfPractice, practiceLine);
+		Browser.enterTextByID(Elements_NewAdminDoctors.aboutDoctor, aboutDoc);
+		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.practiceTab);
+		admin.Enter_practiceDetails_DefaultClinic(defaultClinicName, defaultClinicFee, practiceStartDate, zoyloFacilitationFee);
+		admin.Enter_addressInfo(Country, State, City, completeAddress, Locality, pin, longitude, latitude);
+		admin.clickSubmitDoctor();
+		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.confirmToChangeToProvider);
+		Browser.CheckNotificationMessage("Doctor created successfully");
+		System.out.println(emailID+ " converted to doctor and saved successfully");
+		if(removeFromDB.equalsIgnoreCase("true"))
+		{
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
+			System.out.println(emailID+" removed from providers and users collections.");
+		}
 	}
 	
 	@BeforeClass
@@ -56,12 +105,12 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 	{
 		LoadBrowserProperties();
 		driver.get(loginPage_Url);
+		//driver.get("https://dev.zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		RecipientPage= new RecipientPage(driver);
 		admin=new NewAdminDoctorsPage(driver);
-		//admin.adminSignIn(admin_user, admin_password);
 	}
 	
 	@AfterClass
