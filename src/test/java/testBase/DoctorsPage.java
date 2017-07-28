@@ -141,12 +141,16 @@ public class DoctorsPage  {
 			String PslotTime=ModTime.format(ModTime.parse(slotTime)).toLowerCase();
             System.out.println("Slot Time after modification"+PslotTime);
             
-			if(driver.findElements(By.id("show-all-btn")).isEmpty()){
+            Boolean ShowallButton =Browser.isElementPresent(By.id("show-all-btn"));
+            System.out.println("Button status"+ShowallButton);
+
+			if(ShowallButton==false){
 				System.out.println("is empty");
-				Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
+				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
 				driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
 				Browser.waitTill(60);
-			}else{
+			}
+			else {
 				System.out.println("show all btn exisit");
 				driver.findElement(By.id("show-all-btn")).click();
 				Thread.sleep(2000);
@@ -175,7 +179,8 @@ public class DoctorsPage  {
 			Thread.sleep(10000);
 			Browser.clickOnTheElementByID("checkOut");
 			Thread.sleep(2000);
-			Browser.verifyNotificationMessage("Appointment checked out successfully");
+			Browser.CheckNotificationMessage("Appointment checked out successfully");
+			//Browser.verifyNotificationMessage("Appointment checked out successfully");
 		}
 	
 	// Doctors Checkin and check the recipient

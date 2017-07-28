@@ -49,16 +49,15 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		};
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateRecipientAccountCreationValidations(String runmode,String FullName,String ResipientEmail,String ResipientPassword,String ConfirmPassword,String RefCode) throws Exception {
+	public void validateRecipientAccountCreation(String runmode,String FullName,String ResipientEmail,String ResipientPassword,String ConfirmPassword,String RefCode) throws Exception {
 
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
 			Browser.openUrl(loginPage_Url);				
 			driver.findElement(By.linkText("Don't have an account?")).click();
-			Browser.waitTill(10);
-			//*************Creating New Recipient***********// 
-			driver.findElement(By.id("fullName")).sendKeys(FullName);
+			//*************Creating New Recipient***********//
+			Browser.enterTextByID("fullName", FullName);
 			driver.findElement(By.id("emailAddress")).sendKeys(ResipientEmail);
 			int Phno = (int )(Math.random() *1000000000);
 			driver.findElement(By.id("mobileNumber")).sendKeys(String.valueOf("9"+Phno));
@@ -100,9 +99,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			
 			
 			
-			//*Removing Created User from the data Base Mongo 
-			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", "username", ResipientEmail);
-
+			
 
 		}else{
 
@@ -120,7 +117,8 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 	@AfterClass(groups = { "Regression","High" })
 
 	public void Exit() throws UnknownHostException {
-
+		//*Removing Created User from the data Base Mongo 
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", "username", "doctorzoylo@gmail.com");
 		// Email trigger Off
 		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", true);
 

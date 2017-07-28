@@ -24,6 +24,9 @@ import jxl.Workbook;
 import objectRepository.Elements_Recipients;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -472,7 +475,7 @@ public class TestUtils {
 
 	public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey,String QueryValue) throws UnknownHostException{
 
-
+try{
 		MongoClient mongoClient = null;
 		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
 
@@ -495,6 +498,10 @@ public class TestUtils {
 
 		coll.remove(searchQuery);
 		System.out.println("Removed successfully");
+		
+}catch (Exception e) {
+	System.out.println("Data from MongoDB is not removed");
+}
 
 	}
 
@@ -710,7 +717,11 @@ public class TestUtils {
 			    // only got here if we didn't return false
 			    return true;
 			}
-		 
+		 /*	@Author: Ganesh
+			 * 	@Description: This method verify the the element present or not
+			 * 	@Parms: Element by xpath/css/id or any element tag
+			 * 	@Return: boolean
+			 */	
 		 public boolean isElementPresent(By by){
 		        try{
 		            driver.findElement(by);
@@ -721,5 +732,20 @@ public class TestUtils {
 		        }
 		    }
 
+		 /*	@Author: Ganesh
+			 * 	@Description: This method use to read PDF
+			 * 	@Parms: url
+			 * 	@Return: String
+			 */	
+		 public String readPDF(File file) throws  IOException{
+			 PDDocument document = PDDocument.load(file);
 
+		      PDFTextStripper pdfStripper = new PDFTextStripper();
+
+		      String text = pdfStripper.getText(document);
+		      System.out.println(text);
+
+		      document.close();
+			return text;
+		    }
 }
