@@ -946,7 +946,7 @@ public void cancelSundayAppt() throws InterruptedException
 public void CheckPateintScreenForCheckInFunctionality(String firstname,String lastname,String email) throws InterruptedException{
 	
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
-	Browser.waitTill(5000);
+	Browser.waitTill(2000);
 	driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 	//Thread.sleep(2000);
 	Browser.waitFortheID(Elements_Doctors.patient_searchbox);
@@ -1004,45 +1004,13 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	Thread.sleep(1000);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_savenotes);
 	System.out.println("Consultation Notes Saved");
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_generatereciept);
-	Thread.sleep(2000);
+	Thread.sleep(6000);
 	System.out.println("generateReceipt");
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonrecieptdownload);		
-	System.out.println("click on the download Receipt icon");	
-	Thread.sleep(2000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectreciepttodownload);	
-	Thread.sleep(5000);
-	
-//	File file = new File("/Users/lakshmikanth/Downloads/file.pdf");
-//	PDDocument document = PDDocument.load(file);
-//	//Instantiate PDFTextStripper class         
-//	PDFTextStripper pdfStripper = new PDFTextStripper();
-//	//Retrieving text from PDF document         
-//	String text = pdfStripper.getText(document); 
-//	System.out.println(text);
-//	Assert.assertTrue(text.contains("Dr.Kanth Doctor"));
-//	if(file.delete()) { 
-//        System.out.println(file.getName() + " is deleted!");
-//     } else {
-//        System.out.println("Delete operation is failed.");
-//		}
-	//Assert.assertEquals(text.contains("Dr.Kanth Doctor");
-	
-	
-//	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonprescription);
-//	Thread.sleep(5000);
-//	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectprescription);	
-//	Thread.sleep(5000);
-//	Browser.clickOnTheElementByID("Email-share");
-//	Browser.CheckNotificationMessage("Your email has been sent successfully");
-//		
-//	Thread.sleep(7000);
-//	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckoutbutton);
-//	Browser.CheckNotificationMessage("Appointment checked out successfully");
-//	System.out.print("Clicked on Checkout");
-//	System.out.println("Check-In Scheduled/Rescheduled Sucessfull");
-//	Thread.sleep(3000);
+	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckoutbutton);
+	Browser.CheckNotificationMessage("Appointment checked out successfully");
+	Thread.sleep(3000);
 			
 }
 

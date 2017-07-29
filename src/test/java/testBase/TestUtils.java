@@ -25,7 +25,6 @@ import objectRepository.Elements_Recipients;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -749,6 +748,15 @@ try{
 		      System.out.println(text);
 
 		      document.close();
+	
+		 	if(fileDetails.delete()) { 
+		        System.out.println(fileDetails.getName() + " is deleted!");
+		        } else {
+			        System.out.println("Delete operation is failed.");
+				}
 			return text;
-		    }
+			
+
+		
+		 }
 }
