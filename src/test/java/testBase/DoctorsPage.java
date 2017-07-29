@@ -2,6 +2,7 @@ package testBase;
 
 
 
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -11,6 +12,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 import objectRepository.*;
+
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -1000,23 +1004,40 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	Thread.sleep(2000);
 	System.out.println("generateReceipt");
 	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonrecieptdownload);		
-	System.out.println("click on the download Receipt icon");		
-	Thread.sleep(5000);
+	System.out.println("click on the download Receipt icon");	
+	Thread.sleep(2000);
 	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectreciepttodownload);	
-	Thread.sleep(10000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonprescription);
 	Thread.sleep(5000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectprescription);	
-	Thread.sleep(5000);
-	Browser.clickOnTheElementByID("Email-share");
-	Browser.CheckNotificationMessage("Your email has been sent successfully");
-	//driver.findElement(By.xpath(Elements_Doctors.patient_selectemailno)).click();		
-	Thread.sleep(7000);
-	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckoutbutton);
-	Browser.CheckNotificationMessage("Appointment checked out successfully");
-	System.out.print("Clicked on Checkout");
-	System.out.println("Check-In Scheduled/Rescheduled Sucessfull");
-	Thread.sleep(3000);
+	
+//	File file = new File("/Users/lakshmikanth/Downloads/file.pdf");
+//	PDDocument document = PDDocument.load(file);
+//	//Instantiate PDFTextStripper class         
+//	PDFTextStripper pdfStripper = new PDFTextStripper();
+//	//Retrieving text from PDF document         
+//	String text = pdfStripper.getText(document); 
+//	System.out.println(text);
+//	Assert.assertTrue(text.contains("Dr.Kanth Doctor"));
+//	if(file.delete()) { 
+//        System.out.println(file.getName() + " is deleted!");
+//     } else {
+//        System.out.println("Delete operation is failed.");
+//		}
+	//Assert.assertEquals(text.contains("Dr.Kanth Doctor");
+	
+	
+//	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonprescription);
+//	Thread.sleep(5000);
+//	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectprescription);	
+//	Thread.sleep(5000);
+//	Browser.clickOnTheElementByID("Email-share");
+//	Browser.CheckNotificationMessage("Your email has been sent successfully");
+//		
+//	Thread.sleep(7000);
+//	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckoutbutton);
+//	Browser.CheckNotificationMessage("Appointment checked out successfully");
+//	System.out.print("Clicked on Checkout");
+//	System.out.println("Check-In Scheduled/Rescheduled Sucessfull");
+//	Thread.sleep(3000);
 			
 }
 

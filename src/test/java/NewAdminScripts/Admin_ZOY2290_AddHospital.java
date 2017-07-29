@@ -1,6 +1,7 @@
 package NewAdminScripts;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
@@ -81,6 +82,12 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Hospital_Save);
 		Browser.CheckNotificationMessage("Hospital information saved successfully");	
 		
+		
+	}
+	
+	@AfterClass
+	public void closebrowser() {
+		driver.quit();
 	}
 
 }

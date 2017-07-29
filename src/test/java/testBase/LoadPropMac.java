@@ -165,8 +165,9 @@ public class LoadPropMac   {
 			driver.manage().window().setSize(new Dimension(width, height));
 
 		}else if(browser_name.equals("firefox")){
+			
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriverFireLinux");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			FirefoxProfile profile = new FirefoxProfile();
