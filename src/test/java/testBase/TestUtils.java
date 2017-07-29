@@ -734,11 +734,14 @@ try{
 
 		 /*	@Author: Ganesh
 			 * 	@Description: This method use to read PDF
-			 * 	@Parms: url
+			 * 	@Parms: String
 			 * 	@Return: String
 			 */	
-		 public String readPDF(File file) throws  IOException{
-			 PDDocument document = PDDocument.load(file);
+		 public String readPDF(String filepath) throws  IOException{
+			 
+			 File fileDetails = new File(filepath);
+				
+			 PDDocument document = PDDocument.load(fileDetails);
 
 		      PDFTextStripper pdfStripper = new PDFTextStripper();
 
