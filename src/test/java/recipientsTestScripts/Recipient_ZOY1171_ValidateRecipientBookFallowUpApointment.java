@@ -77,12 +77,13 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);
 			driver.navigate().refresh();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			Browser.scrollbyID("submitReview");
 			driver.findElement(By.id("comment")).sendKeys("Review Comments test details Review Comments test details Review Comments test details Review Comment");			
 			driver.findElement(By.id("submitReview")).click();
-			Browser.verifyNotificationMessage("Review submitted successfully.");
-			Thread.sleep(5000);
+			Browser.CheckNotificationMessage("Review submitted successfully.");
+			//Browser.verifyNotificationMessage("Review submitted successfully.");
+			//Thread.sleep(5000);
 			//FallowUp the Appointment
 			RecipientPage.goToMyAccounts("Appointment");
 			Browser.clickOnTheElementByID("hist"); // my History
@@ -91,17 +92,18 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Completed')]/div[contains(.,'"+AppointmentId+"')]");
 
 			driver.findElement(By.xpath("(//img[@class='followup'])[1]")).click();
-			Browser.waitTill(60);
+			//Browser.waitTill(60);
 			//Book FallowUp Slot
 			RecipientPage.selectDefaultSlot();
 			Browser.waitFortheID("followUpBookAppointment");
 			driver.findElement(By.id("problem")).sendKeys("Health details");
 			driver.findElement(By.id("followUpBookAppointment")).click();  // FollowUp Book
 
-			WebDriverWait wait = (new WebDriverWait(driver, 60));
+			Browser.CheckNotificationMessage("You will Recieve a confirmation SMS");
+/*			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 			String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-			ActualError.contains("You will Recieve a confirmation SMS");
+			ActualError.contains("You will Recieve a confirmation SMS");*/
 			System.out.println("followUpBookAppointment Confirmed");
 
 		}else{
