@@ -738,25 +738,20 @@ try{
 			 */	
 		 public String readPDF(String filepath) throws  IOException{
 			 
-			 File fileDetails = new File(filepath);
-				
+			 File fileDetails = new File(filepath);	
 			 PDDocument document = PDDocument.load(fileDetails);
-
-		      PDFTextStripper pdfStripper = new PDFTextStripper();
-
-		      String text = pdfStripper.getText(document);
-		      System.out.println(text);
-
-		      document.close();
-	
-		 	if(fileDetails.delete()) { 
+		     PDFTextStripper pdfStripper = new PDFTextStripper();
+		     String text = pdfStripper.getText(document);
+		     System.out.println(text);
+		     document.close();
+		 		if(fileDetails.delete()) { 
 		        System.out.println(fileDetails.getName() + " is deleted!");
 		        } else {
 			        System.out.println("Delete operation is failed.");
 				}
 			return text;
-			
-
-		
 		 }
+		 
+		 
+		 
 }
