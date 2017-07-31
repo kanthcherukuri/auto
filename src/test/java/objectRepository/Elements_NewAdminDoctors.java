@@ -198,7 +198,7 @@ public static String confirmToChangeToProvider;
 		aboutDoctor="about"; //ID
 		practiceTab="practiceInfoTab"; //ID
 		addOtherClinic="zoyAddOtherClinicsBtn"; //ID
-		otherClinicEditBtn="(.//*[@id='0'])[7]"; //XPATH
+		otherClinicEditBtn="//i[@class='fa fa-pencil zoyEditOtherClinicsBtn']"; //XPATH
 		otherClinicName="zoyOtherClinicsName"; //ID
 		otherClinicPhoneNumber="zoyOtherClinicsPhnNum"; //ID
 		otherClinicFee="zoyOtherClinicsConFee"; //ID
