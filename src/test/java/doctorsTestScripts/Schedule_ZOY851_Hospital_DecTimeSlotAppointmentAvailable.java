@@ -45,12 +45,15 @@ public class Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable extends Lo
 		 Browser.clickOnTheElementByID(Elements_Doctors.schedule);
 		 Thread.sleep(2000);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+		 Browser.waitFortheID(Elements_Doctors.Schedule_Hospital_SundayMenu);
 		 Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
+		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
 		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "19:00");
+		 //Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Conflict with existing appointments, please cancel the appointments to change working start time.");
-		 Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
+		 //Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 		 Thread.sleep(6000);
 		 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
 		 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, "22:00");

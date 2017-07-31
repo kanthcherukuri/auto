@@ -26,12 +26,11 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 		  Browser= new TestUtils(driver);        
 		  	 
  } 
-
-
+	 
 	 @Test(groups = { "Regression","High" })
 	 public void validateBookingAnAppointment() throws Exception {
 	  	    
-				Browser.openUrl(loginPage_Url);			
+				Browser.openUrl(loginPage_Url);	
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = Browser.getTextByXpath("//h1");
@@ -42,7 +41,8 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 				System.out.println("Time details"+Appointmentdetails[1]);
 				RecipientPage.confirmAppointment("Patient details");
 			    RecipientPage.makePayment();
-
+			    
+			
 				//Verifying Thank you Message in Thank you Page
 				Assert.assertEquals(Browser.getTextByXpath("//h5"), "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 				//Verifying Doctor Name in Thank you Page

@@ -12,12 +12,13 @@ public class Elements_Recipients  {
 	public static Properties prop = new Properties();
 	public static FileInputStream inStream;
 
-	 public static String recipient_DoctorClusters, Recipient_UserName,Recipient_Password,Recipient_Button_Login,Recipient_Wrapper,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
+	 public static String recipient_DoctorClusters, Recipient_UserName,Recipient_Password,Recipient_Button_Login,Default_Slot,link_myAccountheaderIcon,link_aboutHeaderIndex,link_contactUsIndex,link_termsIndex,link_h2Header,link_header,link_privacyIndex,link_cancellationIndex,link_signinIndex;
+	
 	 public static String dcNameHolder, dcHomePickUp, recipient_firstHomeAddress, dcHomeVisitAddressProceed, dcHometestTab, dcHomePkgTab, hWorkingTab, Recipient_MyAccountTab, Recipient_ProfilePicture, Recipient_ProfilePopUp, Recipient_ProfileUploadInputID, Recipient_ProfileRemoveBtn, Recipient_ProfileGetSrc;
 	 public static WebDriver driver;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
-	public static String selectFirstDoctorFromListingPage, selectFirstDoctorBookBtnFromListingPage, mapListingIcon;
+	public static String selectFirstDoctorFromListingPage, selectFirstDoctorBookBtnFromListingPage, mapListingIcon,Recipient_Wrapper;
 	public static String addressAssertion, getDirectionLink, distanceValue, backBtn, getDistanceFromListingForFirstDoctor, doctorNameOnProfile, doctor_ProfileAminities, doctor_ProfileSchedule, doctor_ProfilePlusMore, doctor_ProfileOtherClinicDropDown, doctor_ProfileClinicName;
 	public static String bookAptHeader,paymentPageHeader,cancelPaymentPage, bookAptPageDate, bookAptPageFee, makePaymentBtn, indexHeaderUserIcon;
 	

@@ -336,9 +336,9 @@ public class Elements_Doctors  {
 			 patient_consultationnotes="consultationNotes";
 			 patient_savenotes="saveNotes";
 			 patient_generatereciept="generateReceipt";
-			 patient_clickonrecieptdownload="html/body/div[7]/div[3]/div/div[2]/div[2]/div[1]/button";
+			 patient_clickonrecieptdownload="html/body/div[7]/div[3]/div/div[2]/div[2]/div[2]/button";
 			 patient_selectreciepttodownload="//*[@id='presDownload']";
-			 patient_clickonprescription="html/body/div[7]/div[3]/div/div[2]/div[2]/div[2]/button";
+			 patient_clickonprescription="html/body/div[7]/div[3]/div/div[2]/div[2]/div[3]/button";
 			 patient_selectprescription="//*[@id='prescriptionPdfShare']";
 			 patient_selectemailno="//*[@id='sp-patient-sharepopup']/div/div/div/div/div/span[1]";
 			 patient_clickoncheckoutbutton="checkOut";

@@ -24,10 +24,13 @@ import jxl.Workbook;
 import objectRepository.Elements_Recipients;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -471,7 +474,7 @@ public class TestUtils {
 
 	public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey,String QueryValue) throws UnknownHostException{
 
-
+try{
 		MongoClient mongoClient = null;
 		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
 
@@ -494,6 +497,10 @@ public class TestUtils {
 
 		coll.remove(searchQuery);
 		System.out.println("Removed successfully");
+		
+}catch (Exception e) {
+	System.out.println("Data from MongoDB is not removed");
+}
 
 	}
 
@@ -709,6 +716,42 @@ public class TestUtils {
 			    // only got here if we didn't return false
 			    return true;
 			}
+		 /*	@Author: Ganesh
+			 * 	@Description: This method verify the the element present or not
+			 * 	@Parms: Element by xpath/css/id or any element tag
+			 * 	@Return: boolean
+			 */	
+		 public boolean isElementPresent(By by){
+		        try{
+		            driver.findElement(by);
+		            return true;
+		        }
+		        catch(NoSuchElementException e){
+		            return false;
+		        }
+		    }
 
-
+		 /*	@Author: Ganesh
+			 * 	@Description: This method use to read PDF
+			 * 	@Parms: String
+			 * 	@Return: String
+			 */	
+		 public String readPDF(String filepath) throws  IOException{
+			 
+			 File fileDetails = new File(filepath);	
+			 PDDocument document = PDDocument.load(fileDetails);
+		     PDFTextStripper pdfStripper = new PDFTextStripper();
+		     String text = pdfStripper.getText(document);
+		     System.out.println(text);
+		     document.close();
+		 		if(fileDetails.delete()) { 
+		        System.out.println(fileDetails.getName() + " is deleted!");
+		        } else {
+			        System.out.println("Delete operation is failed.");
+				}
+			return text;
+		 }
+		 
+		 
+		 
 }
