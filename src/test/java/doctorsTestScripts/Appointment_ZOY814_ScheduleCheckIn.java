@@ -17,9 +17,7 @@ import testBase.TestUtils;
 public class Appointment_ZOY814_ScheduleCheckIn extends LoadPropMac  {
 	
 	public DoctorsPage DoctorsPage;
-	 
 	 public TestUtils Browser;
-	
 	
  
   @BeforeClass
