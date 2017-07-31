@@ -32,11 +32,11 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 	  	Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
@@ -44,9 +44,9 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		activateDeactivate();
 		Browser.CheckNotificationMessage("Conflict with existing appointments. To deactivate the clinic, please cancel the scheduled appointments");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
@@ -56,7 +56,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		Thread.sleep(6000);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
   }
   
   public void activateDeactivate() throws Exception

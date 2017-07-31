@@ -31,12 +31,12 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 	  	doctorsPage.BulkCancel();
 	  	Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.checkWorkDeletionConflict(); //check delete conflicts
 		Thread.sleep(6000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
@@ -45,7 +45,7 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
   }
 
   	@BeforeClass
