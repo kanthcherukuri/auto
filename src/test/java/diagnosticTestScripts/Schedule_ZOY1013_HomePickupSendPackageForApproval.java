@@ -29,10 +29,10 @@ public class Schedule_ZOY1013_HomePickupSendPackageForApproval extends LoadPropM
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("konarkpackage", "Full body Examination", "20000", "2","konarttest", "Full body Examination");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticlogout();
+		
+		
 		
 	}
 	

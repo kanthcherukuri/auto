@@ -41,8 +41,7 @@ public class Schedule_ZOY1000_InMangaeSubimtPackageforApproval extends LoadPropM
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
 		DiagnosticPageZoylo.ScheduleInManageSubmitPackageforApproval();
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticlogout();
+		
 	}
 	
 	@AfterClass

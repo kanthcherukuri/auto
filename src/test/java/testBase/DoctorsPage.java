@@ -631,21 +631,16 @@ public class DoctorsPage  {
 		public void DoctorsHospitalAddWorkTimings(String starttime, String endtime) throws Exception{
 				
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
-			 //Thread.sleep(1000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_Starttime);
 			driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
 			Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, starttime);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
 			 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
 			 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, endtime);
-			 //Thread.sleep(1000);
 			 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");

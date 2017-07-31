@@ -31,14 +31,14 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","chipurupalipak","Full Body Test","10000","5","Kuppamtest","Full Body Test"}
+					{ "yes","Full Body Test","10000","5","Kuppamtest","Full Body Test"}
 
 			};
 		}
 	
 	@Test(dataProvider="DP1")
-	public void HomePickupMakePackageActive(String RunMode,String packagename,String desc,String cost,String discount,String testname,String testdesc) throws Exception{
-		
+	public void HomePickupMakePackageActive(String RunMode,String desc,String cost,String discount,String testname,String testdesc) throws Exception{
+		 String packagename="chilukuri"+Browser.randomalphabets();
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
@@ -52,12 +52,11 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Thread.sleep(1000);
-		//driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);
 		Browser.openUrl(loginPage_Url);
@@ -72,7 +71,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		driver.findElement(By.id("homeVisitPackages")).click();
 		Thread.sleep(1000);
 		Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
-		DiagnosticPageZoylo.diagnosticslogout();
+		
 		
 	}
    @AfterClass
