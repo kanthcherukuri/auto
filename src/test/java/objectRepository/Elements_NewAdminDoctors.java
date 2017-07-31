@@ -34,7 +34,7 @@ public static String doctorSave, doctorCancel, doctorChangePassword, doctorChang
 public static String doctor_referenceTabAssertion, doctor_referencesOption, Add_doctor_reference,Add_synonym, doctor_reference_Name, doctor_reference_Description, doctor_reference_descriptionXpath, doctor_reference_ActiveCheckBox;
 public static String doctor_reference_practice, doctor_reference_practiceHeader, doctor_reference_practiceAddHeader, doctor_reference_practiceSave, doctor_reference_updatePracticeSave, doctor_reference_practiceEditHeader;
 public static String doctor_reference_qualification, doctor_reference_qualificationHeader, doctor_reference_qualificationAddHeader, doctor_reference_qualificationSave, doctor_reference_updateQualificationSave, doctor_reference_qualificationEditHeader;
-public static String doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
+public static String doctor_reference_synonymName, doctor_reference_synonymSave, doctor_reference_specialisation, doctor_reference_specialisationHeader, doctor_reference_specialisationAddHeader, doctor_reference_specialisationSave, doctor_reference_updateSpecialisationSave, doctor_reference_specialisationEditHeader, doctor_reference_specialisation_metaTitle, doctor_reference_specialisation_metaDescription, doctor_reference_specialisation_keyword;
 public static String doctor_reference_tag, doctor_reference_tagHeader, doctor_reference_tagAddHeader, doctor_reference_tagSave, doctor_reference_tagEditHeader, doctor_reference_updateTagSave;
 public static String doctor_AppointmentTabAssertion, doctor_appointmentCompleted, doctor_appointmentHeader, doctor_appointmentStatusDropDown, doctor_appointmentResendBtn, doctor_appointmentTodayTabID, doctor_appointmentReschedule_MorningTab, doctor_appointmentReschedule_MorningMsg, doctor_appointmentReschedule_NoonTab, doctor_appointmentReschedule_NoonMsg, doctor_appointmentReschedule_EveTab, doctor_appointmentReschedule_EveMsg, doctor_appointmentReschedule_NightTab, doctor_appointmentReschedule_NightMsg, doctor_appointmentReschedule_availableSlot, doctor_appointmentCancelByDoctorSubmitBtn, doctor_appointmentCancelByPatientSubmitBtn, doctor_appointmentCompletedSubmitBtn;
 public static String requestedDocTab, requestedDoctorHeader, detailsBtn, requestedDoctorEditHeader, requestedDoctorValidateBtn, requestedDoctorCountry, requestedDoctorState, requestedDoctorCity;
@@ -426,6 +426,8 @@ public static String confirmToChangeToProvider;
 		doctor_reference_qualificationEditHeader="//h1[contains(., 'Doctor Qualification - Edit')]"; //XPATH
 		
 		//REFERENCE SPECIALIZATION
+		doctor_reference_synonymName="synonymName"; //ID
+		doctor_reference_synonymSave="synonymSave"; //ID
 		doctor_reference_specialisation="//a[@href='/admin/areaOfSpecializationList']"; //XPATH
 		doctor_reference_specialisationHeader="//h1[contains(., 'Doctor - Specializations')]"; //XPATH
 		doctor_reference_specialisationAddHeader="//h1[contains(., 'Doctor Specialization - Add')]"; //XPATH
