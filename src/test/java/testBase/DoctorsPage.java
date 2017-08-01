@@ -848,7 +848,6 @@ public void editScheduleDefaultClinicAddress(String addLineOne, String Locality,
 	driver.findElement(By.id(Elements_Doctors.pincode)).sendKeys(pinCode);
 	Browser.scrollbyID(Elements_Doctors.addSave); //Scroll to save
 	driver.findElement(By.id(Elements_Doctors.addSave)).click();
-	Browser.CheckNotificationMessage("Clinic details updated successfully");
 }
 
 /*
