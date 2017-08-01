@@ -2,11 +2,9 @@ package testBase;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
 import objectRepository.Elements_NewAdminDoctors;
 
 public class NewAdminDoctorsPage extends LoadPropMac
@@ -14,7 +12,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public WebDriver driver;
 	public TestUtils Browser;
 	
-	public NewAdminDoctorsPage(WebDriver driver)
+	public NewAdminDoctorsPage(WebDriver driver) throws Exception
 	{
 		this.driver=driver;
 		Browser=new TestUtils(driver);
@@ -1885,7 +1883,6 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void checkModuleConfiginIndex()
 	{
-		driver.get(index_url);
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
 		if(driver.findElement(By.id(Elements_NewAdminDoctors.recipient_HospitalIcon)).isDisplayed())
 		{
