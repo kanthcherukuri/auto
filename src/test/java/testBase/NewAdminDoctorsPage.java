@@ -2001,14 +2001,15 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to click change password from dropdown options of users on admin screen
-	 * @ Param			: NA
+	 * @ Description	: This method is used to click on user dropdown button on admin screen
+	 * @ Param			: Value must be either = User Profile , Change Password , Logout
 	 * @ return			: NA
 	 */
-	public void click_UserChangePasswordBtn()
+	public void click_Profile_Options(String value)
 	{
-		Browser.waitFortheID(Elements_NewAdminDoctors.adminUserChangePassword);
-		driver.findElement(By.id(Elements_NewAdminDoctors.adminUserChangePassword)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.adminUserDropDownBtn);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.adminUserDropDownBtn)).click();
+		Browser.clickOnTheElementByXpath("//li//a[contains(., '"+value+"')]");
 	}
 	
 	/*
@@ -2048,8 +2049,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_ResetAdminUserPassword(String changedPassword) throws Exception
 	{
-		click_UserDropDownBtn();
-		click_UserChangePasswordBtn();
+		click_Profile_Options("Change Password");
 		Browser.waitforElementName(Elements_NewAdminDoctors.adminUserOldPassword);
 		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserOldPassword)).sendKeys(changedPassword);
 		Thread.sleep(1500);
