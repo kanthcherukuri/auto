@@ -28,7 +28,7 @@ public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 	  Thread.sleep(1000);
 	  doctorsPage.editScheduleDefaultClinicAddress(AddLineOne, CityLocality, CityPincode);
 	  Thread.sleep(3000);
-	  Browser.CheckNotificationMessage("Clinic details updated successfully");
+	  Browser.CheckNotificationMessage("Clinic details updated successfully"); //ISSUE ZOY-2490
   }
 
   @BeforeClass
