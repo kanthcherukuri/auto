@@ -33,11 +33,11 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 	  	Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.addClinicWorkTimings("10:00", "17:00");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
@@ -50,7 +50,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
 		Thread.sleep(4000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
@@ -61,7 +61,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
   }
   
   @BeforeClass

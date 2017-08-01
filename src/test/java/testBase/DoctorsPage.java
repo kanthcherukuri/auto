@@ -2,6 +2,7 @@ package testBase;
 
 
 
+import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -11,6 +12,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
 import objectRepository.*;
+
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -627,21 +631,16 @@ public class DoctorsPage  {
 		public void DoctorsHospitalAddWorkTimings(String starttime, String endtime) throws Exception{
 				
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
-			 //Thread.sleep(1000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_Starttime);
 			driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
 			Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, starttime);
-			 //Thread.sleep(2000);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
 			 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
 			 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, endtime);
-			 //Thread.sleep(1000);
 			 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
@@ -942,7 +941,7 @@ public void cancelSundayAppt() throws InterruptedException
 public void CheckPateintScreenForCheckInFunctionality(String firstname,String lastname,String email) throws InterruptedException{
 	
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
-	Browser.waitTill(5000);
+	Browser.waitTill(2000);
 	driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 	//Thread.sleep(2000);
 	Browser.waitFortheID(Elements_Doctors.patient_searchbox);
@@ -1000,27 +999,12 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	Thread.sleep(1000);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_savenotes);
 	System.out.println("Consultation Notes Saved");
-	Thread.sleep(3000);
-	Browser.clickOnTheElementByID(Elements_Doctors.patient_generatereciept);
 	Thread.sleep(2000);
+	Browser.clickOnTheElementByID(Elements_Doctors.patient_generatereciept);
+	Thread.sleep(6000);
 	System.out.println("generateReceipt");
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonrecieptdownload);		
-	System.out.println("click on the download Receipt icon");		
-	Thread.sleep(5000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectreciepttodownload);	
-	Thread.sleep(10000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_clickonprescription);
-	Thread.sleep(5000);
-	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_selectprescription);	
-	Thread.sleep(5000);
-	Browser.clickOnTheElementByID("Email-share");
-	Browser.CheckNotificationMessage("Your email has been sent successfully");
-	//driver.findElement(By.xpath(Elements_Doctors.patient_selectemailno)).click();		
-	Thread.sleep(7000);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckoutbutton);
 	Browser.CheckNotificationMessage("Appointment checked out successfully");
-	System.out.print("Clicked on Checkout");
-	System.out.println("Check-In Scheduled/Rescheduled Sucessfull");
 	Thread.sleep(3000);
 			
 }

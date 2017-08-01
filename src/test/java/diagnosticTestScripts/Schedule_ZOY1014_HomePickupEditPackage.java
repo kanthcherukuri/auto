@@ -29,7 +29,6 @@ public class Schedule_ZOY1014_HomePickupEditPackage extends LoadPropMac {
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("Surya diagnostic", "Full Body Test Examination", "30000", "2", "Surya Full Tes", "Full Body Test Examination");
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleHomePickupEditPackage("Sunny Diagnosis", "Body Total scan", "40000", "2", "SunnyTest", "Toatal Body scan");
 		
 	}

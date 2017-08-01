@@ -165,21 +165,17 @@ public class LoadPropMac   {
 			driver.manage().window().setSize(new Dimension(width, height));
 
 		}else if(browser_name.equals("firefox")){
+			
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriverFireLinux");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			FirefoxProfile profile = new FirefoxProfile();
 			profile.setPreference("geo.prompt.testing", true);
 		    profile.setPreference("geo.prompt.testing.allow", true);
-
-//		    profile.setPreference("browser.download.folderList",1);
-//		    profile.setPreference("browser.download.manager.showWhenStarting",false);
-//		    profile.setPreference("browser.download.dir","/Users/"); 
-		    
-//		    profile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/pdf");
-
 		    profile.setPreference("media.navigator.permission.disabled", true);
+		    profile.setPreference("pdfjs.disabled", true);
+		    profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
 
 			driver=new FirefoxDriver(profile);
 			driver.manage().window().maximize();

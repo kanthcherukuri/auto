@@ -66,8 +66,8 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.Enter_specialisationDetails(specialisationName, specialisationDescription);
 		admin.click_doctorReference_AddSynonym();
 		Thread.sleep(1000);
-		Browser.enterTextByID("synonymName", "TestSynonym");
-		Browser.clickOnTheElementByID("synonymSave");
+		Browser.enterTextByID(Elements_NewAdminDoctors.doctor_reference_synonymName, "TestSynonym");
+		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.doctor_reference_synonymSave);
 		admin.click_specialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization created successfully");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
