@@ -44,7 +44,7 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 		RecipientPage.enter_SignUpDetails(fullName, emailID, Phno, password);
 		RecipientPage.click_signUpBtn();
 		Thread.sleep(500);
-		otpValue=getOtp();
+		otpValue=Browser.getOtp(emailID);
 		Browser.enterTextByID(Elements_Recipients.recipient_OtpText, otpValue);
 		Thread.sleep(500);
 		Browser.clickOnTheElementByID(Elements_Recipients.recipient_VerifyOtp);
@@ -117,15 +117,5 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 	public void closeapp()
 	{
 		driver.quit();
-	}
-	
-	public String getOtp() throws Exception
-	{
-		String x=Browser.mongoDB_Response("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
-		String[] y=x.split("num\" : \"");
-		//System.out.println("otpString="+y[1]);		
-		String[] otp=y[1].split("\" , \"");		
-		System.out.println("otp="+otp[0]);
-		return otp[0];
 	}
 }
