@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -28,14 +27,14 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 		 Browser= new TestUtils(driver); 
 		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
+		 DoctorsPage.SignIn(DoctorsLogin_usernamefour, DoctorsLogin_passwordfour);
 		  }  
 		
 		@Test
 		public void checkqualificationorder() throws Exception {
 			
 			DoctorsPage.ClickingOnEllipse();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profilemenu);
 			Browser.waitTill(3000);
 			((JavascriptExecutor)driver).executeScript("scroll(0,400)");
@@ -81,10 +80,7 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 		} 
 		
 		
-    @AfterMethod
-    public void Logout() throws Exception {
-   	DoctorsPage.doctorlogout();
-    }
+   
     
     @AfterClass
     public void CloseBrowser() {

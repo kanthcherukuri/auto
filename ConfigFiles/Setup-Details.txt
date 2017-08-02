@@ -102,7 +102,6 @@ Diagnostic.Name=Diagnosticszoylo
 
 
 
-//----Diagnostic Appointment URL----//
-Diagnostic.ApprovedApptURL=https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList
+
 
 
