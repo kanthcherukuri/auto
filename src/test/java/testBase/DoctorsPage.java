@@ -518,21 +518,10 @@ public class DoctorsPage  {
 		 */
 		public void addClinicWorkTimings(String strtTime, String endTime) throws Exception
 		{
-			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+			Browser.clickOnTheElementByXpath(Elements_Doctors.clinicTab);
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
 			driver.findElement(By.id(Elements_Doctors.AddWorkTime)).click(); //Add sat clinic slot
-			
-			try {
-				if(driver.findElements(By.id("1")).size()!=0)
-				{
-					driver.findElement(By.id("1")).click();
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("Two slot tabs did not open");
-			}
-			
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
 			Thread.sleep(1000);
@@ -1053,6 +1042,7 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	 */
 	public void switchClinicPracticeLoactions()
 	{
+		Browser.clickOnTheElementByXpath(Elements_Doctors.clinicTab);
 		Browser.clickOnTheElementByID(Elements_Doctors.clickPlusMore);
 		Browser.waitFortheElementXpath(Elements_Doctors.selectOtherClinic);
 		String clinicName= Browser.getTextByXpath(Elements_Doctors.selectOtherClinic);
@@ -1077,5 +1067,19 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 		Browser.waitFortheElementXpath(Elements_Doctors.doctor_profilePicturePopUp);
 	}
 	
-
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will route to doctor other clinic and edit clinic name
+	 * @ Pram: othEditName
+	 * @ Return:
+	 */
+	public void Edit_OtherClinicName(String othEditName) throws Exception
+	{
+		Browser.clickOnTheElementByXpath(Elements_Doctors.addressTab);
+		Browser.clickOnTheElementByID(Elements_Doctors.addressEditButton);
+		driver.findElement(By.id(Elements_Doctors.clinicName)).clear();
+		Browser.enterTextByID(Elements_Doctors.clinicName, othEditName);
+		Browser.clickOnTheElementByID(Elements_Doctors.addSave);
+	}
+	
 }//main class

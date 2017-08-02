@@ -111,7 +111,7 @@ public class Elements_Doctors  {
 				public static String schedule;
 				
 		//Clinic tab
-				public static String clinicTab, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots;
+				public static String clinicTab, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots, clinic_ScheduleTab, otherClinic_InactiveBtn;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
@@ -227,6 +227,8 @@ public class Elements_Doctors  {
 		WstrtTime="//input[@class='slot-start']";
 		WendTime="//input[@class='slot-end']";
 		clinicSubmitTimeSlots="(//span[@class='sp-doc-clinic-schd-save'])[2]";
+		clinic_ScheduleTab="(//li[@data-tab='tab-clinic-schedule'])[1]"; //XPATH
+		otherClinic_InactiveBtn="(//span[@class='sp-doc-clinic-status-switch'])[1]"; //XPATH
 		
 		
 		//submit schedule
