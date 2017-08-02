@@ -34,9 +34,9 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 		//Recipient
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
-		RecipientPage.searchInZoyloMAP("Srscript");
+		RecipientPage.searchInZoyloMAP("Zombidoctor");
 		driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click();
-		Browser.waitforTextbyxpath("//h1[@class='tr-override-dctr-content-h1']", "Srscript");
+		Browser.waitforTextbyxpath("//h1[@class='tr-override-dctr-content-h1']", "Zombidoctor");
 		String checkHomeFee = driver.findElement(By.xpath("(//div[@class='zy-homevisitfee']//span)[2]")).getText();
 		if(checkHomeFee.contains(homeFee))
 		{

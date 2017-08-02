@@ -42,7 +42,7 @@ DoctorsLogin.passwordone=Zoylo@666
 DoctorsLogin.usernametwo=sss1@gmail.com
 DoctorsLogin.passwordtwo=Zoylo@123
 
-DoctorLogin.usernamethree=sagarsen@gmai.com
+DoctorLogin.usernamethree=sagarsen@gma.com
 DoctorLogin.passwordthree=Zoylo@123
 
 DoctorsLogin.usernamefour=pomhop30_1@zoy.com
@@ -102,7 +102,6 @@ Diagnostic.Name=Diagnosticszoylo
 
 
 
-//----Diagnostic Appointment URL----//
-Diagnostic.ApprovedApptURL=https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterPackagesAndTestApprovalsList
+
 
 

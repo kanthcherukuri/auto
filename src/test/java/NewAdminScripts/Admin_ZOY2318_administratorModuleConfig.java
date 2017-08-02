@@ -28,8 +28,8 @@ public class Admin_ZOY2318_administratorModuleConfig extends LoadPropMac
 		driver.findElement(By.name(Elements_NewAdminDoctors.administrator_moduleHospitalActiveCheckBox)).click();
 		admin.click_administratorSave();
 		Browser.CheckNotificationMessage("Module Config information saved successfully");
-		closeapp();
-		launchapp();
+		Thread.sleep(2000);
+		admin.click_Profile_Options("Logout");
 		admin.checkModuleConfiginIndex();
 		driver.get(loginPage_Url);
 		admin.adminSignIn(admin_user, admin_password);

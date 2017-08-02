@@ -2,7 +2,7 @@ package testBase;
 
 
 
-import java.io.File;
+
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -223,11 +223,8 @@ public class DoctorsPage  {
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeicon);
 		Thread.sleep(5000);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_nextmenu);
-		Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
-		Browser.waitFortheElementXpath(Elements_Doctors.appointment_morningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morningfirstcell);
-		Browser.waitFortheElementXpath(Elements_Doctors.appointment_changeslot);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_changeslot);
 		Thread.sleep(3000);
 		//Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
@@ -298,15 +295,10 @@ public class DoctorsPage  {
 			String AppointmentId=driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[1]/div[2]/div/div/div[1]/div/span")).getText();
 			System.out.println(AppointmentId);
 			driver.findElement(By.id("backbtn")).click();
-			Browser.waitFortheElementXpath("//*[@id='cd-1']");
 			Browser.clickOnTheElementByXpath("//*[@id='cd-1']");
-			Browser.waitFortheElementXpath("//*[@id='patient-apmt-tabs']/li[1]/div/center");
 			Browser.clickOnTheElementByXpath("//*[@id='patient-apmt-tabs']/li[1]/div/center");
-			Browser.waitFortheElementXpath("//*[@id='patient-apmt-tabs']/li[2]/div/center");
 			Browser.clickOnTheElementByXpath("//*[@id='patient-apmt-tabs']/li[2]/div/center");
-			Browser.waitFortheElementXpath("//*[@id='patient-apmt-tabs']/li[3]/div/center");
 			Browser.clickOnTheElementByXpath("//*[@id='patient-apmt-tabs']/li[3]/div/center");
-			Browser.waitFortheElementXpath("//*[@id='tab-3']/ul/li[1]/div[2]");
 			Browser.clickOnTheElementByXpath("//*[@id='tab-3']/ul/li[1]/div[2]");
 			return AppointmentId;
 		}
@@ -343,7 +335,6 @@ public class DoctorsPage  {
 	public void Cancel(String firstname,String lastname,String mobile,String email,String problem) throws Exception {
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID(Elements_Doctors.appointment_clickoncancelmenu);
-		Browser.waitFortheElementXpath(Elements_Doctors.appointment_selectcancelreason);
 		Browser.enterTextByXpath(Elements_Doctors.appointment_selectcancelreason, "Personal reason");
 		Browser.clickOnTheElementByID(Elements_Doctors.appointment_cancelconfirmation);
 		
@@ -527,21 +518,10 @@ public class DoctorsPage  {
 		 */
 		public void addClinicWorkTimings(String strtTime, String endTime) throws Exception
 		{
-			driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+			Browser.clickOnTheElementByXpath(Elements_Doctors.clinicTab);
 			Browser.waitFortheID(Elements_Doctors.clinicName);
 			driver.findElement(By.id(Elements_Doctors.sundayTab)).click(); //Click on Sunday
 			driver.findElement(By.id(Elements_Doctors.AddWorkTime)).click(); //Add sat clinic slot
-			
-			try {
-				if(driver.findElements(By.id("1")).size()!=0)
-				{
-					driver.findElement(By.id("1")).click();
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println("Two slot tabs did not open");
-			}
-			
 			Thread.sleep(1000);
 			driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
 			Thread.sleep(1000);
@@ -631,17 +611,13 @@ public class DoctorsPage  {
 		public void DoctorsHospitalAddWorkTimings(String starttime, String endtime) throws Exception{
 				
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
-			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
-			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
-			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_Starttime);
 			driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
 			Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, starttime);
 			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
 			 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
 			 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, endtime);
-			 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
 			 Thread.sleep(2000);
@@ -669,13 +645,9 @@ public class DoctorsPage  {
 		String enddate= sdf.format(lastDayOfMonth);
 		System.out.println(date);
 		System.out.println(enddate);
-		Browser.waitFortheID(Elements_Doctors.appointments_doctortab);
 		Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
-		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_clickonbulkcancelbutton);
-		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_fromdate);
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromdate, date);
-		Browser.waitFortheElementXpath(Elements_Doctors.bulkcancel_todate);
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_todate, enddate);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_fromtime);
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "07:00");
@@ -751,17 +723,13 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
  public void DoctorAppointmentBookingForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception
  {	 
 	 Browser.clickOnTheElementByID(Elements_Doctors.appointments_doctortab);
-	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_todaymenu);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_todaymenu);
-	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_morning);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_morning);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_noon);
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningfirstcell);
-	 Browser.waitFortheElementXpath(Elements_Doctors.appointment_firstname);
 	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname, firstname);
 	 Browser.enterTextByID(Elements_Doctors.appointment_lsatname, lastname);
-	 Browser.waitFortheID(Elements_Doctors.appointment_mobile);
 	 Browser.enterTextByID(Elements_Doctors.appointment_mobile, mobile);
 	 Browser.enterTextByID(Elements_Doctors.appointment_email, email);
 	 Browser.enterTextByID(Elements_Doctors.appointment_problem, problem);
@@ -848,7 +816,6 @@ public void editScheduleDefaultClinicAddress(String addLineOne, String Locality,
 	driver.findElement(By.id(Elements_Doctors.pincode)).sendKeys(pinCode);
 	Browser.scrollbyID(Elements_Doctors.addSave); //Scroll to save
 	driver.findElement(By.id(Elements_Doctors.addSave)).click();
-	Browser.CheckNotificationMessage("Clinic details updated successfully");
 }
 
 /*
@@ -944,7 +911,6 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 	Browser.waitTill(2000);
 	driver.findElement(By.name(Elements_Doctors.patientallmenuname)).click();
 	//Thread.sleep(2000);
-	Browser.waitFortheID(Elements_Doctors.patient_searchbox);
 	Browser.enterTextByID(Elements_Doctors.patient_searchbox, email); 
 	driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
 	 String fullname=firstname+" "+lastname;
@@ -968,31 +934,19 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 		String drug,String strenght,String notes) throws Exception{
 	
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckinbutton);
-	Browser.waitFortheID(Elements_Doctors.patient_clickonstartconsulationbutton);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_clickonstartconsulationbutton);
-	Browser.waitFortheID(Elements_Doctors.patient_prognosis);
 	Browser.enterTextByID(Elements_Doctors.patient_prognosis, prognosis);
-	Browser.waitFortheID(Elements_Doctors.patient_diagnosis);
 	Browser.enterTextByID(Elements_Doctors.patient_diagnosis, diagnosis);
-	Browser.waitFortheID(Elements_Doctors.patient_saveproblems);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_saveproblems);
 	Thread.sleep(1000);
-	Browser.waitFortheID(Elements_Doctors.patient_height);
 	Browser.enterTextByID(Elements_Doctors.patient_height, height);
-	Browser.waitFortheID(Elements_Doctors.patient_heightinches);
 	Browser.enterTextByID(Elements_Doctors.patient_heightinches, inches);
-	Browser.waitFortheID(Elements_Doctors.patient_weight);
 	Browser.enterTextByID(Elements_Doctors.patient_weight, weight);
-	Browser.waitFortheID(Elements_Doctors.patient_savevitals);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_savevitals);
 	Thread.sleep(1000);
-	Browser.waitFortheID(Elements_Doctors.patient_druginstructions);
 	Browser.enterTextByID(Elements_Doctors.patient_druginstructions, drug);
-	Browser.waitFortheID(Elements_Doctors.patient_strenght);
 	Browser.enterTextByID(Elements_Doctors.patient_strenght, strenght);
-	Browser.waitFortheElementXpath(Elements_Doctors.patient_medicinetime);
 	Browser.clickOnTheElementByXpath(Elements_Doctors.patient_medicinetime);
-	Browser.waitFortheID(Elements_Doctors.patient_saveprescription);
 	Browser.clickOnTheElementByID(Elements_Doctors.patient_saveprescription);
 	Thread.sleep(1000);
 	Browser.enterTextByID(Elements_Doctors.patient_consultationnotes, notes);
@@ -1088,6 +1042,7 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	 */
 	public void switchClinicPracticeLoactions()
 	{
+		Browser.clickOnTheElementByXpath(Elements_Doctors.clinicTab);
 		Browser.clickOnTheElementByID(Elements_Doctors.clickPlusMore);
 		Browser.waitFortheElementXpath(Elements_Doctors.selectOtherClinic);
 		String clinicName= Browser.getTextByXpath(Elements_Doctors.selectOtherClinic);
@@ -1112,5 +1067,19 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 		Browser.waitFortheElementXpath(Elements_Doctors.doctor_profilePicturePopUp);
 	}
 	
-
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method will route to doctor other clinic and edit clinic name
+	 * @ Pram: othEditName
+	 * @ Return:
+	 */
+	public void Edit_OtherClinicName(String othEditName) throws Exception
+	{
+		Browser.clickOnTheElementByXpath(Elements_Doctors.addressTab);
+		Browser.clickOnTheElementByID(Elements_Doctors.addressEditButton);
+		driver.findElement(By.id(Elements_Doctors.clinicName)).clear();
+		Browser.enterTextByID(Elements_Doctors.clinicName, othEditName);
+		Browser.clickOnTheElementByID(Elements_Doctors.addSave);
+	}
+	
 }//main class

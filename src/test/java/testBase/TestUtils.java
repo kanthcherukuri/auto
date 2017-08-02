@@ -214,7 +214,7 @@ public class TestUtils {
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		//wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(xpath), value));
 		wait.until(ExpectedConditions.textToBePresentInElement(By.xpath(xpath), value));
-		
+
 	}
 
 	//Wait for text to be present by ID
@@ -372,8 +372,8 @@ public class TestUtils {
 		Reporter.log("Text Entered="+data);
 	}
 
-	
-		
+
+
 	// select text by id
 	public void selectByVisibleTextByID(String ID,String data)
 	{
@@ -405,7 +405,7 @@ public class TestUtils {
 		Reporter.log("Notification="+ActualNotification);
 		Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
 		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
-		 
+
 	}
 
 
@@ -427,109 +427,7 @@ public class TestUtils {
 	}
 
 
-	/* 
-	 * This function is used to get the values from MongoDB based on the key and value
-	   Ex:Browser.mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue);
-	 *
-	 */
 
-	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collection, String QueryKey,String QueryValue) throws UnknownHostException{
-
-
-		MongoClient mongoClient = null;
-		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
-
-		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
-
-
-		//Selecting the database
-		DB db = mongoClient.getDB("zoylo_zqa");
-
-		System.out.println("Connect to database successfully");
-
-		//System.out.println(db.getStats());
-		System.out.println(db.getCollectionNames());
-
-		DBCollection coll = db.getCollection(collection);
-		System.out.println("Collection mycol selected successfully");
-
-		BasicDBObject searchQuery = new BasicDBObject();
-		searchQuery.put(QueryKey, QueryValue);
-
-		DBCursor cursor = coll.find(searchQuery);
-
-		String response=null;
-		while (cursor.hasNext()) { 
-			//System.out.println("Inserted Document: "+i); 
-			response = cursor.next().toString();
-			System.out.println(response); 
-			
-
-		} 
-		// Assert.assertTrue(response.contains("ganesh@zoylo.com"));
-		System.out.println("Asserted successfully");
-		return response;
-
-	}
-
-	public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey,String QueryValue) throws UnknownHostException{
-
-try{
-		MongoClient mongoClient = null;
-		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
-
-		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
-
-
-		//Selecting the database
-		DB db = mongoClient.getDB("zoylo_zqa");
-
-		System.out.println("Connect to database successfully");
-
-		//System.out.println(db.getStats());
-		System.out.println(db.getCollectionNames());
-
-		DBCollection coll = db.getCollection(collectionName);
-		System.out.println(collectionName+" Collection selected successfully");
-
-		BasicDBObject searchQuery = new BasicDBObject();
-		searchQuery.put(QueryKey, QueryValue);
-
-		coll.remove(searchQuery);
-		System.out.println("Removed successfully");
-		
-}catch (Exception e) {
-	System.out.println("Data from MongoDB is not removed");
-}
-
-	}
-
-
-	public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, boolean isWhiteListHonouredValue) throws UnknownHostException{
-
-
-		//Connecting to the mongoDB instance
-		MongoClient mongoClient = null;
-		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
-
-		mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
-		System.out.println("Connect to server successfully");   
-		//Selecting the database
-		DB db = mongoClient.getDB("zoylo_zqa");
-		System.out.println("Connect to database successfully");   
-
-		DBCollection dbCollection = db.getCollection("applicationProperties");
-
-		BasicDBObject newDocument = new BasicDBObject();
-		newDocument.append("$set", new BasicDBObject().append("propertyValue", isWhiteListHonouredValue));
-		BasicDBObject searchQuery = new BasicDBObject().append("propertyName", "isWhiteListHonoured");
-
-		dbCollection.update(searchQuery, newDocument);
-
-		System.out.println("Updated successfully");
-		mongoClient.close();
-
-	}
 
 	/* 
 	 * This function is used to read the emails from gmail with the subject name
@@ -663,95 +561,254 @@ try{
 
 	}
 
-	
+
 	/*	@Author: Ganesh
 	 * 	@Description: This method can be used to generate Random String
 	 * 	@Parms: length of the return type
 	 * 	@Return: RandomString
 	 */
-	    public String generateRandomString(int length){
-		  return RandomStringUtils.randomAlphabetic(length);
-		 }
-	    
-	    /*	@Author: Ganesh
-		 * 	@Description: This method can be used to generate Random Number
-		 * 	@Parms: length of the return type
-		 * 	@Return: Random Number
-		 */	 
-		 public String generateRandomNumber(int length){
-		  return RandomStringUtils.randomNumeric(length);
-		 }
-		 /*	@Author: Ganesh
-			 * 	@Description: This method can be used to generate Random AlphaNumeric
-			 * 	@Parms: length of the return type
-			 * 	@Return: Random AlphaNumeric
-			 */	 
-		 public String generateRandomAlphaNumeric(int length){
-		  return RandomStringUtils.randomAlphanumeric(length);
-		 }
-		 /*	@Author: Ganesh
-			 * 	@Description: This method can be used to generate random Email
-			 * 	@Parms: length of the return type
-			 * 	@Return: random Email
-			 */	 
-		 public String generateEmail(int length) {
-		  String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-		    "1234567890";
-		  String email="";
-		  String temp=RandomStringUtils.random(length,allowedChars);
-		  email=temp.substring(0,temp.length()-9)+"@automation.org";
-		  return email;
-		 }
-		 /*	@Author: Ganesh
-			 * 	@Description: This method verify the string is integer / decimal or not
-			 * 	@Parms: String
-			 * 	@Return: boolean
-			 */	
-		 public  boolean isInteger(String str) {
-			    try { 
-			        Double.parseDouble(str);
-			    } catch(NumberFormatException e) { 
-			        return false; 
-			    } 
-			    // only got here if we didn't return false
-			    return true;
-			}
-		 /*	@Author: Ganesh
-			 * 	@Description: This method verify the the element present or not
-			 * 	@Parms: Element by xpath/css/id or any element tag
-			 * 	@Return: boolean
-			 */	
-		 public boolean isElementPresent(By by){
-		        try{
-		            driver.findElement(by);
-		            return true;
-		        }
-		        catch(NoSuchElementException e){
-		            return false;
-		        }
-		    }
+	public String generateRandomString(int length){
+		return RandomStringUtils.randomAlphabetic(length);
+	}
 
-		 /*	@Author: Ganesh
-			 * 	@Description: This method use to read PDF
-			 * 	@Parms: String file path
-			 * 	@Return: String
-			 */	
-		 public String readPDF(String filepath) throws  IOException{
-			 
-			 File fileDetails = new File(filepath);	
-			 PDDocument document = PDDocument.load(fileDetails);
-		     PDFTextStripper pdfStripper = new PDFTextStripper();
-		     String text = pdfStripper.getText(document);
-		     System.out.println(text);
-		     document.close();
-		 		if(fileDetails.delete()) { 
-		        System.out.println(fileDetails.getName() + " is deleted!");
-		        } else {
-			        System.out.println("Delete operation is failed.");
-				}
-			return text;
-		 }
-		 
-		 
-		 
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to generate Random Number
+	 * 	@Parms: length of the return type
+	 * 	@Return: Random Number
+	 */	 
+	public String generateRandomNumber(int length){
+		return RandomStringUtils.randomNumeric(length);
+	}
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to generate Random AlphaNumeric
+	 * 	@Parms: length of the return type
+	 * 	@Return: Random AlphaNumeric
+	 */	 
+	public String generateRandomAlphaNumeric(int length){
+		return RandomStringUtils.randomAlphanumeric(length);
+	}
+	/*	@Author: Ganesh
+	 * 	@Description: This method can be used to generate random Email
+	 * 	@Parms: length of the return type
+	 * 	@Return: random Email
+	 */	 
+	public String generateEmail(int length) {
+		String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
+				"1234567890";
+		String email="";
+		String temp=RandomStringUtils.random(length,allowedChars);
+		email=temp.substring(0,temp.length()-9)+"@automation.org";
+		return email;
+	}
+	/*	@Author: Ganesh
+	 * 	@Description: This method verify the string is integer / decimal or not
+	 * 	@Parms: String
+	 * 	@Return: boolean
+	 */	
+	public  boolean isInteger(String str) {
+		try { 
+			Double.parseDouble(str);
+		} catch(NumberFormatException e) { 
+			return false; 
+		} 
+		// only got here if we didn't return false
+		return true;
+	}
+	/*	@Author: Ganesh
+	 * 	@Description: This method verify the the element present or not
+	 * 	@Parms: Element by xpath/css/id or any element tag
+	 * 	@Return: boolean
+	 */	
+	public boolean isElementPresent(By by){
+		try{
+			driver.findElement(by);
+			return true;
+		}
+		catch(NoSuchElementException e){
+			return false;
+		}
+	}
+
+	/*	@Author: Ganesh
+	 * 	@Description: This method use to read PDF
+	 * 	@Parms: String file path
+	 * 	@Return: String
+	 */	
+	public String readPDF(String filepath) throws  IOException{
+
+		File fileDetails = new File(filepath);	
+		PDDocument document = PDDocument.load(fileDetails);
+		PDFTextStripper pdfStripper = new PDFTextStripper();
+		String text = pdfStripper.getText(document);
+		System.out.println(text);
+		document.close();
+		if(fileDetails.delete()) { 
+			System.out.println(fileDetails.getName() + " is deleted!");
+		} else {
+			System.out.println("Delete operation is failed.");
+		}
+		return text;
+	}
+
+	//MONGO DB
+	/* 
+	 * This function is used to get the values from MongoDB based on the key and value
+			   Ex:Browser.mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String QueryKey,String QueryValue);
+	 */
+	public String mongoDB_Response(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collection, String QueryKey,String QueryValue) throws UnknownHostException{
+
+
+		MongoClient mongoClient = null;
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
+
+		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
+
+
+		//Selecting the database
+		DB db = mongoClient.getDB("zoylo_zqa");
+
+		System.out.println("Connect to database successfully");
+
+		//System.out.println(db.getStats());
+		System.out.println(db.getCollectionNames());
+
+		DBCollection coll = db.getCollection(collection);
+		System.out.println("Collection mycol selected successfully");
+
+		BasicDBObject searchQuery = new BasicDBObject();
+		searchQuery.put(QueryKey, QueryValue);
+
+		DBCursor cursor = coll.find(searchQuery);
+
+		String response=null;
+		while (cursor.hasNext()) { 
+			//System.out.println("Inserted Document: "+i); 
+			response = cursor.next().toString();
+			System.out.println(response); 
+
+
+		} 
+		// Assert.assertTrue(response.contains("ganesh@zoylo.com"));
+		System.out.println("Asserted successfully");
+		return response;
+
+	}
+
+	/*
+	 * @ Description: This method is used to remove the document from DB
+	 */
+	public void mongoDB_Remove(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey,String QueryValue) throws UnknownHostException{
+
+		try{
+			MongoClient mongoClient = null;
+			MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
+
+			mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
+
+
+			//Selecting the database
+			DB db = mongoClient.getDB("zoylo_zqa");
+
+			System.out.println("Connect to database successfully");
+
+			//System.out.println(db.getStats());
+			System.out.println(db.getCollectionNames());
+
+			DBCollection coll = db.getCollection(collectionName);
+			System.out.println(collectionName+" Collection selected successfully");
+
+			BasicDBObject searchQuery = new BasicDBObject();
+			searchQuery.put(QueryKey, QueryValue);
+
+			coll.remove(searchQuery);
+			System.out.println("Removed successfully");
+
+		}catch (Exception e) {
+			System.out.println("Data from MongoDB is not removed");
+		}
+
+	}
+
+
+	public void mongoDB_isWhiteListHonoured(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, boolean isWhiteListHonouredValue) throws UnknownHostException{
+
+		//Connecting to the mongoDB instance
+		MongoClient mongoClient = null;
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
+
+		mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
+		System.out.println("Connect to server successfully");   
+		//Selecting the database
+		DB db = mongoClient.getDB("zoylo_zqa");
+		System.out.println("Connect to database successfully");   
+
+		DBCollection dbCollection = db.getCollection("applicationProperties");
+
+		BasicDBObject newDocument = new BasicDBObject();
+		newDocument.append("$set", new BasicDBObject().append("propertyValue", isWhiteListHonouredValue));
+		BasicDBObject searchQuery = new BasicDBObject().append("propertyName", "isWhiteListHonoured");
+
+		dbCollection.update(searchQuery, newDocument);
+
+		System.out.println("Updated successfully");
+		mongoClient.close();
+
+	}
+
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method is used to get ID of a document
+	 * @ Parms: ServerAddress , Port , UserName,  Database , Password, collectionName,  QueryKey,  QueryValue
+	 * @ Returns: ID
+	 */
+	public String mongoDB_getID(String ServerAddress ,int Port ,String UserName, String Database ,String Password,String collectionName, String QueryKey, String QueryValue) throws UnknownHostException{
+
+		//Connecting to the mongoDB instance
+		MongoClient mongoClient = null;
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
+
+		mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
+		System.out.println("Connect to server successfully");   
+		//Selecting the database
+		DB db = mongoClient.getDB("zoylo_zqa");
+		System.out.println("Connect to database successfully");   
+
+		DBCollection dbCollection = db.getCollection(collectionName);
+
+		BasicDBObject searchQuery = new BasicDBObject();
+		searchQuery.put(QueryKey, QueryValue);
+		BasicDBObject searchQuery1 = new BasicDBObject();
+		searchQuery1.put("_id", 1);
+
+		DBCursor cursor = dbCollection.find(searchQuery,searchQuery1);
+
+		String response=null;
+		while (cursor.hasNext()) { 
+			//System.out.println("Inserted Document: "+i); 
+			response = cursor.next().get("_id").toString();
+			System.out.println(response); 
+			System.out.println("Updated successfully");
+			mongoClient.close();
+			//System.out.println(resultValue);
+
+		}
+		return response;
+	}
+
+	/*
+	 * @ Author: Sagar Sen
+	 * @ Description: This method is used to get OTP
+	 * @ Parms: value exsmple emsil ID
+	 * @ Returns: otp
+	 */
+	public String getOtp(String value) throws Exception
+	{
+		String x=mongoDB_Response("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", value);
+		String[] y=x.split("num\" : \"");
+		//System.out.println("otpString="+y[1]);		
+		String[] otp=y[1].split("\" , \"");		
+		System.out.println("otp="+otp[0]);
+		return otp[0];
+	}
+
 }
