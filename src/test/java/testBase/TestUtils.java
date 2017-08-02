@@ -733,7 +733,7 @@ try{
 
 		 /*	@Author: Ganesh
 			 * 	@Description: This method use to read PDF
-			 * 	@Parms: String
+			 * 	@Parms: String file path
 			 * 	@Return: String
 			 */	
 		 public String readPDF(String filepath) throws  IOException{

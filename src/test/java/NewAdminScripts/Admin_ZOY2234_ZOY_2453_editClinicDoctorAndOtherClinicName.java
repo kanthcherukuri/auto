@@ -50,10 +50,10 @@ public class Admin_ZOY2234_ZOY_2453_editClinicDoctorAndOtherClinicName extends L
 		Assert.assertEquals(verifyClinicName, editedOtherClinicName);
 		Thread.sleep(1000);
 		admin.clickSubmitDoctor();
+		//Thread.sleep(10000);
 		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 		Thread.sleep(2000);
-		admin.click_UserDropDownBtn();
-		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.adminLogoutBtn);
+		admin.click_Profile_Options("Logout");
 		
 		//Recipient check for edited other clinic name - To test ZOY-2453
 		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);

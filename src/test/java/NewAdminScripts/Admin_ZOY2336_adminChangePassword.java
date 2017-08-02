@@ -28,8 +28,7 @@ public class Admin_ZOY2336_adminChangePassword extends LoadPropMac
 		System.out.println("The old password is "+oldPassword);
 		changedPassword="Zoy12@"+Browser.randomalphabets();
 		System.out.println("New password generated is "+changedPassword);
-		admin.click_UserDropDownBtn();
-		admin.click_UserChangePasswordBtn();
+		admin.click_Profile_Options("Change Password");
 		admin.Enter_UserChangePasswordDetails(changedPassword);
 		admin.click_UserChangePassworSavedBtn();
 		Browser.CheckNotificationMessage("Your password has been successfully changed!");

@@ -2,11 +2,9 @@ package testBase;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
 import objectRepository.Elements_NewAdminDoctors;
 
 public class NewAdminDoctorsPage extends LoadPropMac
@@ -14,7 +12,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	public WebDriver driver;
 	public TestUtils Browser;
 	
-	public NewAdminDoctorsPage(WebDriver driver)
+	public NewAdminDoctorsPage(WebDriver driver) throws Exception
 	{
 		this.driver=driver;
 		Browser=new TestUtils(driver);
@@ -1885,7 +1883,6 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void checkModuleConfiginIndex()
 	{
-		driver.get(index_url);
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
 		if(driver.findElement(By.id(Elements_NewAdminDoctors.recipient_HospitalIcon)).isDisplayed())
 		{
@@ -2001,14 +1998,15 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	
 	/*
 	 * @ Authour		: Sagar Sen
-	 * @ Description	: This method is used to click change password from dropdown options of users on admin screen
-	 * @ Param			: NA
+	 * @ Description	: This method is used to click on user dropdown button on admin screen
+	 * @ Param			: Value must be either = User Profile , Change Password , Logout
 	 * @ return			: NA
 	 */
-	public void click_UserChangePasswordBtn()
+	public void click_Profile_Options(String value)
 	{
-		Browser.waitFortheID(Elements_NewAdminDoctors.adminUserChangePassword);
-		driver.findElement(By.id(Elements_NewAdminDoctors.adminUserChangePassword)).click();
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.adminUserDropDownBtn);
+		driver.findElement(By.xpath(Elements_NewAdminDoctors.adminUserDropDownBtn)).click();
+		Browser.clickOnTheElementByXpath("//li//a[contains(., '"+value+"')]");
 	}
 	
 	/*
@@ -2048,8 +2046,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void Enter_ResetAdminUserPassword(String changedPassword) throws Exception
 	{
-		click_UserDropDownBtn();
-		click_UserChangePasswordBtn();
+		click_Profile_Options("Change Password");
 		Browser.waitforElementName(Elements_NewAdminDoctors.adminUserOldPassword);
 		driver.findElement(By.name(Elements_NewAdminDoctors.adminUserOldPassword)).sendKeys(changedPassword);
 		Thread.sleep(1500);
