@@ -14,8 +14,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
+
+
 
 
 
@@ -41,7 +41,7 @@ public class LoadPropMac   {
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
 	public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour;
 	public static String Admin_Username, Admin_Password, Diagnostic_usernamesix,Diagnostic_passwordsix;
-	public static String Diagnostic_ApprovedApptURL,DiagnosticLogin_usernamefive,DiagnosticLogin_passwordfive;
+	public static String DiagnosticLogin_usernamefive,DiagnosticLogin_passwordfive;
 
 	public static WebDriver driver;
 
@@ -59,7 +59,6 @@ public class LoadPropMac   {
 		dev_url=prop.getProperty("dev.url");
 		enrollment_url=prop.getProperty("enrollment.url");
 		doctors_Url=prop.getProperty("Doctors.Url");
-		Diagnostic_ApprovedApptURL=prop.getProperty("Diagnostic.ApprovedApptURL");
 		index_url=prop.getProperty("index.url");
 		diagnostic_url =prop.getProperty("diagnostic_url");	
 

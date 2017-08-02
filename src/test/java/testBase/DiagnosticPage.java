@@ -1017,7 +1017,7 @@ public class DiagnosticPage {
 		
 		public void SchecduleEditPackageInManage(String packagename,String cost,String discount,String desc,String testname,String testdescription) throws Exception{
 			
-			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackageEditlink)).click();
+			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManagePackageEditlink);
 			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagename);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagename)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagename, packagename);
@@ -1312,22 +1312,22 @@ public class DiagnosticPage {
 		 */
 		
 		public void ScheduleInManageEditTests(String testname,String testdesc,String cost,String discount) throws Exception{
-		
-			driver.findElement(By.xpath(Elements_Diagnostics.ManageTestEditLink)).click();
-			Thread.sleep(1000);
+			
+			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManageTestEditLink);
+			Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestname);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestname)).clear();
-			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestname)).sendKeys(testname);
-			 Thread.sleep(1000);
+			Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
+			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestDesc);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestDesc)).clear();
-			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestDesc)).sendKeys(testdesc);
-			 Thread.sleep(1000);
+			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, testdesc);
+			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestCost);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestCost)).clear();
-			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestCost)).sendKeys(cost);
-			 Thread.sleep(1000);
+			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);
+			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestDiscount);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestDiscount)).clear();
-			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestDiscount)).sendKeys(discount);
-			 Thread.sleep(1000);
-			 driver.findElement(By.id(Elements_Diagnostics.ManageTestSave)).click();
+			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestDiscount, discount);
+			 Browser.waitFortheID(Elements_Diagnostics.ManageTestSave); 
+			 Browser.clickOnTheElementByID(Elements_Diagnostics.ManageTestSave);
 			 Browser.CheckNotificationMessage("Tests updated successfully");
 		}
 		
@@ -1365,7 +1365,7 @@ public class DiagnosticPage {
       public void ApproveTestInAdmin(String testname) throws Exception{
     	
   		Thread.sleep(3000);
-  		driver.findElement(By.xpath(Elements_Diagnostics.adminsearchbutton)).sendKeys(testname);
+  		Browser.enterTextByXpath(Elements_Diagnostics.adminsearchbutton, testname);
   		Thread.sleep(3000);
   		Browser.waitFortheElementXpath(Elements_Diagnostics.facilitationbutton);
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).click();
