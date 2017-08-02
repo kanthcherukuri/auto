@@ -765,9 +765,9 @@ public class TestUtils {
 
 		//Connecting to the mongoDB instance
 		MongoClient mongoClient = null;
-		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential("zoynpap","zoylo_zqa","apz0yl0_321".toCharArray());
+		MongoCredential mongoCredential = MongoCredential.createScramSha1Credential(UserName,Database,Password.toCharArray());
 
-		mongoClient = new MongoClient(new ServerAddress("52.66.101.182", 27219), Arrays.asList(mongoCredential));
+		mongoClient = new MongoClient(new ServerAddress(ServerAddress, Port), Arrays.asList(mongoCredential));
 		System.out.println("Connect to server successfully");   
 		//Selecting the database
 		DB db = mongoClient.getDB("zoylo_zqa");
