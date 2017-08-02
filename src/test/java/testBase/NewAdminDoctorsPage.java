@@ -2005,11 +2005,12 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: Value must be either = User Profile , Change Password , Logout
 	 * @ return			: NA
 	 */
-	public void click_Profile_Options(String value)
+	public void click_Profile_Options(String value) throws InterruptedException
 	{
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.adminUserDropDownBtn);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.adminUserDropDownBtn)).click();
 		Browser.clickOnTheElementByXpath("//li//a[contains(., '"+value+"')]");
+		Thread.sleep(2000);
 	}
 	
 	/*
