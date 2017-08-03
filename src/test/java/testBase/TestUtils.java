@@ -707,7 +707,7 @@ public class TestUtils {
 
 
 			//Selecting the database
-			DB db = mongoClient.getDB("zoylo_zqa");
+			DB db = mongoClient.getDB(Database);
 
 			System.out.println("Connect to database successfully");
 
@@ -721,7 +721,7 @@ public class TestUtils {
 			searchQuery.put(QueryKey, QueryValue);
 
 			coll.remove(searchQuery);
-			System.out.println("Removed successfully");
+			System.out.println("Removed " +QueryValue+ " from " +collectionName+ " collection successfully ");
 
 		}catch (Exception e) {
 			System.out.println("Data from MongoDB is not removed");

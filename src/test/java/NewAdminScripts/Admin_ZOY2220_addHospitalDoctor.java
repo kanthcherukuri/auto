@@ -50,9 +50,12 @@ public class Admin_ZOY2220_addHospitalDoctor extends LoadPropMac
 		
 		if(removeFromDB.equalsIgnoreCase("true"))
 		{
+			String docID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
+			System.out.println("DOC ID retrived is: "+docID);
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyGlobalGenericSearch", "entityId", docID);
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "redisProvidersCache", "providerId", docID);
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
-			System.out.println(emailID+" removed from providers and users collections.");
 		}
 	}
 	
