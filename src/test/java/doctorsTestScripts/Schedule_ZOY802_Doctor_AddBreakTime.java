@@ -19,7 +19,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@Test()
 	public void testAddBreakTime() throws Exception 
 	{
-		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		doctorsPage.SignIn(DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo);
 		doctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		Thread.sleep(6000);

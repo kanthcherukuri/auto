@@ -31,7 +31,6 @@ public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 	  driver.manage().timeouts().implicitlyWait(4000,TimeUnit.SECONDS);
 	  wait=new WebDriverWait(driver, 8000);
 	  wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(".//*[@id='sp-dashboard-content']/div[1]/div[2]")));
-	  driver.navigate().refresh();
 	  driver.findElement(By.xpath(".//*[@id='schedule_scheduleIcon']")).click();
 	  driver.findElement(By.xpath(".//*[@id='cd-13']/div")).click();
 	  String a=driver.findElement(By.xpath(".//*[@class='sp-doc-home-visit']")).getAttribute("id");
