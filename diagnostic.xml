@@ -68,6 +68,7 @@
       <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationChangingCounterSlotDuration"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule"/>
+      <class name="diagnosticTestScripts.Profile_ZOY2418_ProfilePictureFunctionality"/>
       
     </classes>
   </test> <!-- diagnosticTest -->
