@@ -145,9 +145,9 @@ public class DiagnosticPage {
 	
 	public void CancelAppointmentOfHomeVisit() throws Exception{
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickoncancel);
-		Browser.waitFortheID(Elements_Diagnostics.selectbox);
-		Browser.enterTextByID(Elements_Diagnostics.selectbox, "Personal reason");
-		Browser.waitFortheElementXpath(Elements_Diagnostics.submitbutton);
+		Thread.sleep(3000);
+		Browser.selectByVisibleTextByID(Elements_Diagnostics.selectbox, "Personal reason");
+		Thread.sleep(1000);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.submitbutton);
 		//Browser.CheckNotificationMessage("Appointment has been Cancelled");
 
@@ -711,7 +711,6 @@ public class DiagnosticPage {
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
 		 Thread.sleep(8000);
 		 Browser.clickOnTheElementByID(Elements_Diagnostics.clickonalltab);
-		 Browser.waitFortheElementXpath(Elements_Diagnostics.clickonsearchicon);
 		 Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsearchicon);
 		 Thread.sleep(1000);
 		 String fullname=firstname+" "+lastname;
@@ -1195,7 +1194,7 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickUpPackageSendforApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackSubmit);
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			Assert.assertEquals(ActualNotification,"Approval is pending");
@@ -1273,15 +1272,10 @@ public class DiagnosticPage {
 		public void ScheduleDiagnosticManageAddTests(String testname,String description,String cost,String discount) throws Exception{
 		
 			Browser.clickOnTheElementByID("addTests");
-		    Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestname);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
-		    Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestDesc);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, description);
-		    Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestCost);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);
-		    Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestDiscount);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestDiscount, discount);
-		    Browser.waitFortheID(Elements_Diagnostics.ManageTestSave);
 		    Browser.clickOnTheElementByID(Elements_Diagnostics.ManageTestSave);
 		    Browser.CheckNotificationMessage("Tests updated successfully");
 		    
@@ -1314,19 +1308,15 @@ public class DiagnosticPage {
 		public void ScheduleInManageEditTests(String testname,String testdesc,String cost,String discount) throws Exception{
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManageTestEditLink);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestname);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestname)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestTestDesc);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestTestDesc)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, testdesc);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestCost);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestCost)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);
 			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestDiscount);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestDiscount)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestDiscount, discount);
-			 Browser.waitFortheID(Elements_Diagnostics.ManageTestSave); 
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.ManageTestSave);
 			 Browser.CheckNotificationMessage("Tests updated successfully");
 		}
@@ -1371,11 +1361,10 @@ public class DiagnosticPage {
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).click();
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).clear();
   		Browser.enterTextByXpath(Elements_Diagnostics.facilitationbutton, "2");
-  		Browser.waitFortheElementXpath(Elements_Diagnostics.adminsearchbutton);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminsearchbutton);
   		Thread.sleep(8000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
-  		Thread.sleep(10000);
+  		Thread.sleep(12000);
       }
       
       /*  Below is the  Method

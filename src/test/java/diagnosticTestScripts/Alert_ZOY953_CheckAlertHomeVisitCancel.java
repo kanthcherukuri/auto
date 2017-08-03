@@ -48,9 +48,6 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 		System.out.println(alert);
 		Assert.assertTrue(alert.contains("You have CANCELLED the home visit appointment of "+firstname));
 		Assert.assertTrue(alert.contains(Id));
-		
-	
-		
 	}
 	
 	@AfterMethod()

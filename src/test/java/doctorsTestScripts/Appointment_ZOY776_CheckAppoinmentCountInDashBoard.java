@@ -54,10 +54,7 @@ public class Appointment_ZOY776_CheckAppoinmentCountInDashBoard extends LoadProp
 				Assert.fail("Appointment Count Verification for Today is UnSucess");
 			}
 		}
-			
-			
-			
-			
+				
 		
 		@AfterMethod
 		public void BulkCancelandLogout() throws Exception{
