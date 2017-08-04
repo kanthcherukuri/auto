@@ -35,7 +35,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);        
-       // Email trigger ON
+        //Email trigger ON
 		Browser.mongoDB_isWhiteListHonoured("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321","users", false);
 
 	} 
