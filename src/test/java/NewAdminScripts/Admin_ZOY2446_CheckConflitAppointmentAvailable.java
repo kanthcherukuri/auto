@@ -40,6 +40,7 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 	 @DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
+				
 					{ "Meeraa","K","9966655501","meeraa@gmail.com","Diabetic" }
 
 			};
