@@ -42,7 +42,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","Clinic Niramoi","sx123sx","Apollo Hospitals","Ent" }
+			{ "yes","Deepak","Cardiology","32 - Intact & Pulp Care Dental Centre","sx123sx","Apollo Hospitals","Ent" }
 
 		};
 	}

@@ -7,19 +7,21 @@
   </listeners>
   <test name="Recipients Doctor Module">
     <classes>
+    
       <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
       <class name="recipientsTestScripts.Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot"/>
       <class name="recipientsTestScripts.Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin"/>
       <class name="recipientsTestScripts.Recipient_ZOY1067_AccountCreation"/>    
       <class name="recipientsTestScripts.Recipients_ZOY1066_ValidateMapFilters"/>
+      <class name="recipientsTestScripts.Recipients_ZOY1092_SearchByDoctorSpecializationNClinic"/>
+      <class name="recipientsTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/> 
       <class name="recipientsTestScripts.Recipients_ZOY1074_ValidateRecipientPasswordrecovery"/>
       <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentAsOther"/>
       <class name="recipientsTestScripts.Recipient_ZOY1063_ValidateBookAnAppointment"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1092_SearchByDoctorSpecializationNClinic"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>  
-      <class name="recipientsTestScripts.Recipients_ZOY1169_ValidateRecipientsAppointmentCancel"/>
+ 
+    <!--   <class name="recipientsTestScripts.Recipients_ZOY1169_ValidateRecipientsAppointmentCancel"/>
        
-           
+     -->       
       <class name="recipientsTestScripts.Recipients_ZOY1188_ValidateBookingAnInActiveDoctor"/>
       <class name="recipientsTestScripts.Recipient_ZOY1986_PaymentPageNegativeScenario"/>
       <class name="recipientsTestScripts.Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario"/>      

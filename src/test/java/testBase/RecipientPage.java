@@ -280,7 +280,8 @@ public class RecipientPage  {
 	 *  @Return      : 
 	 */	
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
-
+	
+		// Unable to fetch the location
         Browser.waitFortheElementXpath("//span[@id='zy-location-right']/span[2]");
 		driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
 		for(int i=0;i<=Area.length()-1; i++)
@@ -704,15 +705,12 @@ public class RecipientPage  {
 
 		Browser.waitFortheElementXpath("//h4[@class='review-panelLink']");
 		Browser.enterTextByID("promocodeValue", "ZOY15");
-		//driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
-		//driver.findElement(By.xpath("//span[3]")).click();
 		Browser.clickOnTheElementByXpath("//span[@class='btn btn-default applyPromocode']");
-		Thread.sleep(6000);
+		Thread.sleep(6000); // Added this to apply promo code
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();  // To check the 3rd Option of promo code
 		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
-		Browser.scrollbyID("proceed");
-		driver.findElement(By.id("proceed")).click();     //Make payment
-		//Browser.waitTill(60);
+		Browser.scrollbyID("proceedPayment");
+		driver.findElement(By.id("proceedPayment")).click();     //Make payment
 		Thread.sleep(5000);
 		System.out.println("Payment done");
 	}
@@ -928,7 +926,7 @@ public class RecipientPage  {
 
 	public void openMyAccounts(String TabName) throws InterruptedException{
 		driver.get(LoadPropMac.base_url+"myaccount");
-		Thread.sleep(5000);
+		Thread.sleep(5000);  // added to avoid clickable issue
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);
 		System.out.println("Cliked on Tab Name"+TabName);
