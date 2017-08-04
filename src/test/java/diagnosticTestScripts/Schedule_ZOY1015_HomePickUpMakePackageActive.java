@@ -49,7 +49,6 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Browser.waitTill(2000);
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
-		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);

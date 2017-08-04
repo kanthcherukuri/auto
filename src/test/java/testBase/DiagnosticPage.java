@@ -1017,16 +1017,13 @@ public class DiagnosticPage {
 		public void SchecduleEditPackageInManage(String packagename,String cost,String discount,String desc,String testname,String testdescription) throws Exception{
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManagePackageEditlink);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagename);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagename)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagename, packagename);
 			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagecost);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagecost)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagecost, cost);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagediscount);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagediscount)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagediscount, discount);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagedesc);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackagedesc)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagedesc, desc);
 			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackageTestname);
@@ -1035,7 +1032,6 @@ public class DiagnosticPage {
 			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackageTestdesc);
 			driver.findElement(By.xpath(Elements_Diagnostics.ManagePackageTestdesc)).clear();
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackageTestdesc, testdescription);
-			Browser.waitFortheID(Elements_Diagnostics.ManagePackageSavePackage);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.ManagePackageSavePackage);
 			Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 		}
@@ -1082,15 +1078,10 @@ public class DiagnosticPage {
 		public void ScheduleHomePickUpAddTest(String testname,String description,String cost,String discount) throws Exception{	
 	
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhometestaddbutton);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupTestTestname);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestname, testname);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupTestTestdesc);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestdesc, description);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupTestTestcost);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestcost, cost);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupTestTestdiscount);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestdiscount, discount);
-			Browser.waitFortheID(Elements_Diagnostics.clickhomevisittestsavebutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickhomevisittestsavebutton);
 			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
 			
@@ -1118,7 +1109,6 @@ public class DiagnosticPage {
 			Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupTestTestdiscount);
 			driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestTestdiscount)).clear();
 			driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestTestdiscount)).sendKeys(discount);
-			Browser.waitFortheID(Elements_Diagnostics.clickhomevisittestsavebutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickhomevisittestsavebutton);
 			Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
 		}
@@ -1170,15 +1160,12 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDesc, desc);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackCost, cost);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDiscount, discount);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupPackClickAddTest);
 			 Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackClickAddTest);
 			 Thread.sleep(1000);
 			 WebElement sc= driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]"));
 			 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			 driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]")).sendKeys(testname);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPacktestdesc);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPacktestdesc, testdesc);
-			 Browser.waitFortheID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
 			 Thread.sleep(2000);
@@ -1213,25 +1200,19 @@ public class DiagnosticPage {
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackEditLink);
 			 System.out.println("Clicked on Edit Link");
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupPackName);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackName)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomePickupPackName, packagename);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPackDesc);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackDesc)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDesc, desc);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPackCost);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackCost)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackCost, cost);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPackDiscount);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackDiscount)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDiscount, discount);
 			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPacktestname);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestname)).clear();
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestname)).sendKeys(testname);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomepickupPacktestdesc);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPacktestdesc)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPacktestdesc, testdesc);
-			 Browser.waitFortheID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 //Thread.sleep(8000);
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
@@ -1314,7 +1295,6 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, testdesc);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestCost)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);
-			 Browser.waitFortheElementXpath(Elements_Diagnostics.ManageTestDiscount);
 			 driver.findElement(By.xpath(Elements_Diagnostics.ManageTestDiscount)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.ManageTestDiscount, discount);
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.ManageTestSave);
@@ -1322,28 +1302,7 @@ public class DiagnosticPage {
 		}
 		
 		
-		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
-		 *  @Description : Launching New Browser To Log In To Admin Account
-		 *  @Parameters  : username,password
-		 *  @Return      : 
-		 */
-		public void LaunchBrowserToLoginIntoAdminAccount(String username,String password) throws Exception{
-			
-			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");
-			ChromeOptions options = new ChromeOptions(); // Added to remove new chrome warning message
-			options.addArguments("disable-infobars");   // Added to remove new chrome warning message
-			options.addArguments("disable-save-password-bubble");
-			driver = new ChromeDriver(options);
-			driver.manage().window().maximize();
-			driver.get("https:zoyloqa.zoylo.com/login");
-			driver.findElement(By.id(Elements_Diagnostics.adminusername)).sendKeys(username);
-			Thread.sleep(2000);
-			driver.findElement(By.id(Elements_Diagnostics.adminpassword)).sendKeys(password);
-			Thread.sleep(2000);
-			driver.findElement(By.xpath(Elements_Diagnostics.adminlogin)).click();
-			Thread.sleep(3000);
-		}
+		
 		
 		/*  Below is the  Method
 		 *  @Author      : Ch.Lakshmi Kanth
@@ -1364,7 +1323,7 @@ public class DiagnosticPage {
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminsearchbutton);
   		Thread.sleep(8000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
-  		Thread.sleep(12000);
+  		Thread.sleep(10000);
       }
       
       /*  Below is the  Method
