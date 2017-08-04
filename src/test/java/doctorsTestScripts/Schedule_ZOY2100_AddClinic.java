@@ -34,6 +34,8 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		Thread.sleep(2000);
+		doctorsPage.BulkCancel();
+		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		doctorsPage.addclinicSchedule(ohrName, otrClincFee, othrCliNum, linone, otrPin, lon, lat);
 		doctorsPage.doctorlogout();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
