@@ -52,7 +52,6 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 	public void validateRecipientAccountCreation(String runmode,String FullName,String ResipientEmail,String ResipientPassword,String ConfirmPassword,String RefCode) throws Exception {
 
 		if(runmode.equals("yes")){
-
 			//Test Starts-Here
 			Browser.openUrl(loginPage_Url);				
 			driver.findElement(By.linkText("Don't have an account?")).click();
