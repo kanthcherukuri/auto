@@ -34,10 +34,10 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
-		  LoadBrowserProperties(); // Create driver instance and launch the browser
+		  LoadBrowserProperties();                        // Create driver instance and launch the browser
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
-		  RecipientPage = new RecipientPage(driver); // Loading Pages
-		  DiagnosticPage = new DiagnosticPage(driver); // Loading Pages
+		  RecipientPage = new RecipientPage(driver);      // Loading Pages
+		  DiagnosticPage = new DiagnosticPage(driver);    // Loading Pages
 		  Browser= new TestUtils(driver);        
 		  	 
  } 
@@ -95,7 +95,6 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
                 Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");			
 				driver.findElement(By.id("skipForLater")).click();
 				driver.findElement(By.id("skipForLater")).click();
-				//Thread.sleep(5000);
 				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
 				driver.findElement(By.id("aptSearch")).click();
