@@ -101,7 +101,6 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				driver.findElement(By.id("aptSearch")).sendKeys(APID);
 				String Appointment_Status_Completed=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
 	            Assert.assertEquals(Appointment_Status_Completed, "Completed");
-	 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
