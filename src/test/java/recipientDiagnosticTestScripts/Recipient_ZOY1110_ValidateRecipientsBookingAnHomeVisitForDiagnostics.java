@@ -57,7 +57,6 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 			Browser.openUrl(loginPage_Url);			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-			Thread.sleep(10000);
 			RecipientPage.goToDiagnostics();
 			RecipientPage.searchInZoyloMAPArea(City);
 			RecipientPage.clickOnFilterImg();

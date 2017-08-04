@@ -41,7 +41,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 
 
 
-	//@Test(groups = { "Regression","High" },priority=0)
+	@Test(groups = { "Regression","High" },priority=0)
 	public void validateRecipientPasswordValidations() throws Exception {
 
 
@@ -49,39 +49,31 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 		//Test Starts-Here
 		Browser.openUrl(loginPage_Url);
 		//verifing email validation
-		driver.findElement(By.id("forgotPassword")).click();
-		Browser.waitTill(10);
-		driver.findElement(By.id("resetPassword")).click();
+		Browser.clickOnTheElementByID("forgotPassword");
+		Browser.clickOnTheElementByID("resetPassword");
 		String emialMandatory=driver.findElement(By.xpath("//div[@class='err-msg-mob-email']")).getText();
 		Assert.assertEquals(emialMandatory, "Email or Mobile field is mandatory");			 
 		//verifying Email with valid data
 		driver.findElement(By.id("mobileOrEmail")).sendKeys("ganeshmandala@gmail.com");
-		driver.findElement(By.id("resetPassword")).click();
-		Browser.waitTill(10);
+		Browser.clickOnTheElementByID("resetPassword");
 		//verifying OTP with in valid data
-		driver.findElement(By.id("entered-otp")).sendKeys("1234");
-		driver.findElement(By.id("verify")).click();
-		Thread.sleep(2000);
-		String OtpInvalid=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
-		Assert.assertEquals(OtpInvalid, "OTP is Invalid, enter a correct one or try resend option");
-
+		Browser.enterTextByID("entered-otp", "1234");
+		Browser.clickOnTheElementByID("verify");
+		Browser.CheckNotificationMessage("OTP is Invalid, enter a correct one or try resend option");
 
 	}
 
 	@Test(groups = { "Regression","High" },priority=1)
 	public void validateRecipientPasswordRecovery() throws Exception {
 
-
-
 		//Test Starts-Here
 		Browser.openUrl(loginPage_Url);
 		//verifing email validation
 		Browser.clickOnTheElementByID("forgotPassword");
-		Browser.waitTill(10);
-		driver.findElement(By.id("resetPassword")).click();
+		Browser.clickOnTheElementByID("resetPassword");
 		driver.findElement(By.id("mobileOrEmail")).sendKeys("zoylodoctor@gmail.com");
-		driver.findElement(By.id("resetPassword")).click();
-		Browser.waitTill(30);
+		Browser.clickOnTheElementByID("resetPassword");
+		Thread.sleep(10000); // Added to get the email
 		//verifying OTP with in valid data
 		//*Getting the OTP password from Gmail
 		String CompleteOTPEmail=Browser.emailResponse("zoylodoctor@gmail.com", "Zoylo@123", "Zoylo.com | One Time Password (OTP) to reset your Zoylo account password.");

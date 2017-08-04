@@ -138,37 +138,34 @@ public class DoctorsPage  {
 		}
 
 	}
-	// Click on recent Patient from dashboard
-		public  void clickOnThePatientFromDashBoard(String slotTime) throws IOException, InterruptedException, ParseException{
-			Thread.sleep(2000);
-			DateFormat ModTime = new SimpleDateFormat("h:mm a");
-			String PslotTime=ModTime.format(ModTime.parse(slotTime)).toLowerCase();
-            System.out.println("Slot Time after modification"+PslotTime);
-            
-            Boolean ShowallButton =Browser.isElementPresent(By.id("show-all-btn"));
-            System.out.println("Button status"+ShowallButton);
+	
+		// Click on recent Patient from dashboard
+				public  void clickOnThePatientFromDashBoard(String slotTime) throws IOException, InterruptedException, ParseException{
+					Browser.waitFortheID("dashboard_dashboardIcon");
+					DateFormat ModTime = new SimpleDateFormat("h:mm a");
+					String PslotTime=ModTime.format(ModTime.parse(slotTime)).toLowerCase();
+		            System.out.println("Slot Time after modification"+PslotTime);
+		            
+		    
+					if(driver.findElements(By.id("show-all-btn")).size()==0){
+						System.out.println("is empty");
+						driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
+						Browser.waitTill(60);
+					}
+					else {
+						System.out.println("show all btn exisit");
+						driver.findElement(By.id("show-all-btn")).click();
+						Thread.sleep(2000);
+						JavascriptExecutor jse = (JavascriptExecutor)driver;
+						jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
+						Thread.sleep(2000);
+						driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
+						Browser.waitTill(60);
 
-			if(ShowallButton==false){
-				System.out.println("is empty");
-				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
-				driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
-				Browser.waitTill(60);
-			}
-			else {
-				System.out.println("show all btn exisit");
-				driver.findElement(By.id("show-all-btn")).click();
-				Thread.sleep(2000);
-				JavascriptExecutor jse = (JavascriptExecutor)driver;
-				jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
-				Thread.sleep(5000);
-				//Browser.scrollbyxpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]");
-				//Browser.waitFortheElementXpath("//div[@class='doctor-patientname patientfullName']/span");
-				driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
-				Browser.waitTill(60);
+					}
 
-			}
+				}
 
-		}
 
 	// Doctors Checkin and check the recipient
 		public  void doctorCheckinCheckOut() throws IOException, InterruptedException{
@@ -176,42 +173,18 @@ public class DoctorsPage  {
 			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickonstartconsulationbutton);			
 			Browser.enterTextByID(Elements_Doctors.patient_diagnosis, "Doctor Details");
 			Browser.clickOnTheElementByID(Elements_Doctors.patient_saveproblems);
-			Browser.clickOnTheElementByID("saveVitals");
-			Browser.clickOnTheElementByID("savePrescription");
+			Browser.clickOnTheElementByID("saveVitals");			
+			Browser.clickOnTheElementByID("savePrescription");			
 			Browser.clickOnTheElementByID("saveNotes");
-			Browser.clickOnTheElementByID("generateReceipt");
 			Thread.sleep(10000);
+			Browser.clickOnTheElementByID("generateReceipt");
+			Browser.CheckNotificationMessage("Bill generated successfully");
 			Browser.clickOnTheElementByID("checkOut");
-			Thread.sleep(2000);
 			Browser.CheckNotificationMessage("Appointment checked out successfully");
 			//Browser.verifyNotificationMessage("Appointment checked out successfully");
 		}
 	
-	// Doctors Checkin and check the recipient
-	public  void doctorCheckinCheckOut1() throws IOException, InterruptedException{			
-		driver.findElement(By.id(Elements_Doctors.patient_clickoncheckinbutton)).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.patient_clickonstartconsulationbutton)).click();				
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.patient_diagnosis)).sendKeys("Diagonis Details");
-		Thread.sleep(2000);
-		driver.findElement(By.id(Elements_Doctors.patient_saveproblems)).click();
-		Thread.sleep(5000);
-		driver.findElement(By.id("saveVitals")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.id("savePrescription")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.id("saveNotes")).click();				
-		Thread.sleep(5000);
-		driver.findElement(By.id("generateReceipt")).click();
-		Thread.sleep(5000);
-		//Browser.verifyNotificationMessage("Bill generated successfully");
-		Thread.sleep(5000);
-		driver.findElement(By.id("checkOut")).click();
-		Thread.sleep(2000);
-		Browser.verifyNotificationMessage("Appointment checked out successfully");
-	}
-
+	
 	/*
 	 * @ Author: Ch.Lakshmi Kanth
 	 * @ Description: This method to reschedule appointment

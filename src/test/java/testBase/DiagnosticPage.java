@@ -858,7 +858,7 @@ public class DiagnosticPage {
 		public  void diagnosticsCheckinCheckOut() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.checkinbutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.checkinstartconsultation);
-			Thread.sleep(5000);
+		
 			Browser.selectByVisibleTextByID("0", "Completed");
 			Browser.selectByVisibleTextByID("1", "Completed");
 			Browser.clickOnTheElementByID(Elements_Diagnostics.packagessavebutton);

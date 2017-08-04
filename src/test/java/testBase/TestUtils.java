@@ -322,7 +322,7 @@ public class TestUtils {
 	public String getTextByXpath(String xpath)
 	{
 		System.out.println("waiting  for "+xpath);
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		String text =driver.findElement(By.xpath(xpath)).getText();
 		System.out.println("Text = "+text);
@@ -377,6 +377,8 @@ public class TestUtils {
 	// select text by id
 	public void selectByVisibleTextByID(String ID,String data)
 	{
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		Select drpCountry = new Select(driver.findElement(By.id(ID)));
 		drpCountry.selectByVisibleText(data);
 		System.out.println("Selected = "+data);

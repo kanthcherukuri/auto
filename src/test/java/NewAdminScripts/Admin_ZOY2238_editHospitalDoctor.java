@@ -1,5 +1,6 @@
 package NewAdminScripts;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -16,6 +17,8 @@ public class Admin_ZOY2238_editHospitalDoctor extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
+	public String mandateSpec="Unani";
+	public String nonmandateSpec="Regnotreq";
 	
 	@DataProvider(name="clinicDoctorDetails")
 	public Object[][] clinicDocInfo() throws Exception
@@ -25,12 +28,23 @@ public class Admin_ZOY2238_editHospitalDoctor extends LoadPropMac
 	}
 	
 	@Test(dataProvider="clinicDoctorDetails")
-	public void editHospitalDoctor(String emailID, String isSEOInfoTrue, String metaTitle) throws Exception
+	public void editHospitalDoctorANDZOY_2442_validateMedRegNumNotMandatory(String emailID) throws Exception
 	{
+		String medNum=Browser.generateRandomAlphaNumeric(6);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		admin.clickEditbutton();
-		admin.seoInfoEdit(isSEOInfoTrue, metaTitle);
+		admin.Validate_RegNumNotMandatory(mandateSpec, nonmandateSpec);
+		driver.navigate().refresh();
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID(emailID);
+		admin.clickEditbutton();
+		Browser.waitFortheID(Elements_NewAdminDoctors.medicalRegistrationNumber);
+		driver.findElement(By.id(Elements_NewAdminDoctors.medicalRegistrationNumber)).clear();
+		Browser.enterTextByID(Elements_NewAdminDoctors.medicalRegistrationNumber, medNum);
+		Browser.clickOnTheElementByXpath("//li[@title='"+nonmandateSpec+"']//span[@class='select2-selection__choice__remove']");
+		Browser.selectbyID(Elements_NewAdminDoctors.areaOfSpecialization, mandateSpec);
+		System.out.println("Added "+mandateSpec+ " as specialization");
 		admin.clickSubmitDoctor();
 		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}

@@ -74,10 +74,10 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			System.out.println("OTP="+Finalotp[0]);
 			//*Entering the OTP Value
 			driver.findElement(By.id("entered-otp")).sendKeys(Finalotp[0]);
-			driver.findElement(By.id("verify-otp-btn")).click();
-			Thread.sleep(10000);
+			Browser.clickOnTheElementByID("verify-otp-btn");
 			//*Confirming Thank you page
-			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
+			String SuccessfullMesg =Browser.getTextByXpath("//h5");
+			//String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Please login to your email and proceed for verification to confirm your enrollment with us.");
 			
 			//********Booking Appointment with newly created User**********//
@@ -95,11 +95,6 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		    RecipientPage.makePayment();
 			//Verifying Thank you Message in Thank you Page
 			Assert.assertEquals(Browser.getTextByXpath("//h5"), "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-		
-			
-			
-			
-			
 
 		}else{
 

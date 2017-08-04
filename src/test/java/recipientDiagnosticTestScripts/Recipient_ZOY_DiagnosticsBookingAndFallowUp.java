@@ -34,10 +34,10 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 	 @BeforeClass(groups = { "Regression","High" })	
     public void LaunchBrowser() throws Exception {
   
-		  LoadBrowserProperties(); // Create driver instance and launch the browser
+		  LoadBrowserProperties();                        // Create driver instance and launch the browser
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
-		  RecipientPage = new RecipientPage(driver); // Loading Pages
-		  DiagnosticPage = new DiagnosticPage(driver); // Loading Pages
+		  RecipientPage = new RecipientPage(driver);      // Loading Pages
+		  DiagnosticPage = new DiagnosticPage(driver);    // Loading Pages
 		  Browser= new TestUtils(driver);        
 		  	 
  } 
@@ -89,19 +89,18 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
                 Thread.sleep(2000);
-                driver.navigate().refresh();
+                driver.navigate().refresh(); // Added this to remove the loading icon
                 Thread.sleep(5000);
 				Browser.scrollbyID("skipForLater");	
                 Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");			
 				driver.findElement(By.id("skipForLater")).click();
-				Thread.sleep(5000);
+				driver.findElement(By.id("skipForLater")).click();
 				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
 				driver.findElement(By.id("aptSearch")).click();
 				driver.findElement(By.id("aptSearch")).sendKeys(APID);
 				String Appointment_Status_Completed=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='paddingl0 apt-dt-chng']")).getText();
 	            Assert.assertEquals(Appointment_Status_Completed, "Completed");
-	 
 		 }else{
 			 
 			throw new SkipException("RUNMODE IS OFF");
