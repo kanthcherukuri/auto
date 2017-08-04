@@ -11,8 +11,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -1323,7 +1321,9 @@ public class DiagnosticPage {
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminsearchbutton);
   		Thread.sleep(8000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
-  		Thread.sleep(10000);
+  		//Browser.waitFortheElementXpath("//div[@class='zy-status-wrapper']");
+  		Browser.CheckNotificationMessage("Diagnostic Center package/test approved successfully");
+  		//Thread.sleep(10000);
       }
       
       /*  Below is the  Method

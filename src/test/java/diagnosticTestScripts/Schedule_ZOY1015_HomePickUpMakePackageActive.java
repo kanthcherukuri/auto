@@ -50,9 +50,8 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		Browser.waitTill(2000);
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
-		Thread.sleep(3000);
+		//Thread.sleep(6000);
 		Browser.clickOnTheElementByXpath("//button[@class='btn btn-default dropdown-toggle']");
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID("logout");

@@ -3,8 +3,6 @@ package doctorsTestScripts;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -40,26 +38,21 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 			((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 			driver.findElement(By.id(Elements_Doctors.doctor_profileEdit)).click();
 			Browser.waitFortheID("doctorQualification");
-			driver.findElement(By.xpath("//li[@title='WCLI (LASER)']/span")).click();
+			driver.findElement(By.xpath(Elements_Doctors.doctor_ProfileRemoveQualificationFCLI)).click();
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[@href='#about']")).click();
-			driver.findElement(By.xpath("//li[@title='BOT']/span")).click();
+			driver.findElement(By.xpath(Elements_Doctors.Profile_AboutMenu)).click();
+			driver.findElement(By.xpath(Elements_Doctors.doctor_ProfileRemoveQualificationBOT)).click();
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//a[@href='#about']")).click();
-			driver.findElement(By.xpath("//li[@title='VLCC']/span")).click();
-			Browser.waitFortheID(Elements_Doctors.doctor_qualification);
-			WebElement element=driver.findElement(By.id(Elements_Doctors.doctor_qualification)); 
-			Select se= new Select(element);
-			se.selectByValue("WCLI (LASER)");
+			driver.findElement(By.xpath(Elements_Doctors.Profile_AboutMenu)).click();
+			driver.findElement(By.xpath(Elements_Doctors.doctor_ProfileRemoveQualificationVLCC)).click();
 			Thread.sleep(1000);
-			WebElement elementone=driver.findElement(By.id(Elements_Doctors.doctor_qualification)); 
-			Select seone= new Select(elementone);
-			seone.selectByValue("BOT");
+			driver.findElement(By.xpath(Elements_Doctors.Profile_AboutMenu)).click();
+			Browser.waitFortheElementXpath(Elements_Doctors.Profile_Qualification);
+			Browser.actionbyXpath(Elements_Doctors.Profile_Qualification, "FCLI");
+			Thread.sleep(2000);
+			Browser.actionbyXpath(Elements_Doctors.Profile_Qualification, "BOT");
 			Thread.sleep(1000);
-			WebElement elementtwo=driver.findElement(By.id(Elements_Doctors.doctor_qualification)); 
-			Select seotwo= new Select(elementtwo);
-			seotwo.selectByValue("VLCC");
-			Browser.waitFortheID(Elements_Doctors.doctor_profileSaveInfo);
+			Browser.actionbyXpath(Elements_Doctors.Profile_Qualification, "VLCC");
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileSaveInfo);
 			Thread.sleep(5000);
 			String ele= driver.findElement(By.id("doctorQualification_def")).getText();
@@ -71,7 +64,7 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 			System.out.println("Split two value:"+checkpartone);
 			String checkparttwo=order[2];
 			System.out.println("Split three value:"+checkparttwo);
-			if(check.equals("WCLI (LASER)")&&(checkpartone.equals("BOT")&&(checkparttwo.equals("VLCC")))) {
+			if(check.equals("FCLI")&&(checkpartone.equals("BOT")&&(checkparttwo.equals("VLCC")))) {
 				System.out.println("Qualification Values are in Inserted Order");
 			}else {
 				Assert.fail("Qualification Values are Not in Inserted Order");

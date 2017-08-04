@@ -157,7 +157,8 @@ public class Elements_Doctors  {
 	 public static String doctor_profileRegistrationNum, doctor_profileSaveInfo, doctor_ProfilePaymentTab, doctor_Profile_PaymentCash, doctor_Profile_PaymentSave;
 	 public static String doctor_Profile, doctor_profilePicture, doctor_profilePicturePopUp, doctor_profileTakePhotoBtn, doctor_profilePictureRemoveBtn, 
 	 doctor_profilePictureUploadBtn, doctor_profileUploadInputID, doctor_profileVideoWindow, doctor_profileVideoWindowTakePhotoBtn, 
-	 doctor_profileVideoUsePhotoBtn,doctor_profilemenu,doctor_qualification;
+	 doctor_profileVideoUsePhotoBtn,doctor_profilemenu,doctor_qualification,doctor_ProfileRemoveQualificationFCLI,doctor_ProfileRemoveQualificationBOT,
+	 doctor_ProfileRemoveQualificationVLCC,Profile_AboutMenu,Profile_Qualification;
 		
 	public static  WebDriver Doc_PageProperties()throws Exception{
 		//Doctor Profile
@@ -399,6 +400,11 @@ public class Elements_Doctors  {
 			 doctor_profileVideoWindow="video"; //ID
 			 doctor_profileVideoWindowTakePhotoBtn="//button[@class='button shutter']"; //XPATH
 			 doctor_profileVideoUsePhotoBtn="//button[@class='button use-photo']"; //XPATH
+			 doctor_ProfileRemoveQualificationFCLI="//li[@title='FCLI']/span";
+			 doctor_ProfileRemoveQualificationBOT="//li[@title='BOT']/span";
+			 doctor_ProfileRemoveQualificationVLCC="//li[@title='VLCC']/span";
+			 Profile_AboutMenu="//a[@href='#about']";
+			 Profile_Qualification="//*[@id='doctorQualificationParent']/div[2]/span/span[1]/span/ul";
 			
 		return driver;	
         

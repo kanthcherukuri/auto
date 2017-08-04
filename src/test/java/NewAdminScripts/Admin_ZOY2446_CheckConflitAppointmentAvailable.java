@@ -18,7 +18,7 @@ import testBase.NewAdminDiagnosticPage;
 import testBase.NewAdminDoctorsPage;
 import testBase.TestUtils;
 
-public class Admin_ZOY2386_CheckConflitAppointmentAvailable extends LoadPropMac {
+public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac {
 	
 	public TestUtils Browser;
 	public NewAdminDiagnosticPage AdminDiagnostic;
@@ -62,15 +62,16 @@ public class Admin_ZOY2386_CheckConflitAppointmentAvailable extends LoadPropMac 
 		 Browser.waitFortheElementXpath(Elements_NewAdminDoctors.notification);
 		 String notification=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
 		 Assert.assertTrue(notification.contains("Conflict with existing appointment"));
+		 Thread.sleep(6000);
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-pencil editSlots']");
 		 String notificationtwo=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
 		 Assert.assertTrue(notificationtwo.contains("Conflict with existing appointment"));
+		 Thread.sleep(6000);
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-trash-o delSlots']");
 		 String notificationthree=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
 		 Assert.assertTrue(notificationthree.contains("Conflict with existing appointment"));
-		 Thread.sleep(2000);
-		 admin.click_Profile_Options("Logout");
-		 
+		 Thread.sleep(6000);
+		 admin.click_Profile_Options("Logout"); 
 	 }
 	 
 	 @AfterMethod
