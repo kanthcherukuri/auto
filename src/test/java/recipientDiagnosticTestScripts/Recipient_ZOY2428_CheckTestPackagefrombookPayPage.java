@@ -1,3 +1,7 @@
+
+/*@author:ch.LakshmiKanth
+* About Script:Compares the Date and Check Notification Message When Package is deleted
+*/
 package recipientDiagnosticTestScripts;
 
 import java.text.DateFormat;
@@ -43,11 +47,11 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 		 RecipientPage.searchDCInZoyloMAP(Diagnostic_Name);
 		 RecipientPage.bookAppointmentOnDiagnostics();
 		 RecipientPage.selectAvailableSlotInDiagnostics("Cbt", "Zoylo Health Pkg");
-		 //Browser.waitTill(2000);
+		// Browser.waitTill(2000);
 		 String todaydate=driver.findElement(By.xpath("//span[@class='zy-rec-diag-apt-date']")).getText();
 		 System.out.println("Today Date :"+todaydate);
 		 DateFormat srcDf = new SimpleDateFormat("dd/MM/yyyy");
-		 DateFormat destDf = new SimpleDateFormat("MMM dd");
+		 DateFormat destDf = new SimpleDateFormat("MMM d");
 		 String dateStr=destDf.format(srcDf.parse(todaydate));
 		 System.out.println("Converted date is :"+dateStr);
 		 

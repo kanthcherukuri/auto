@@ -25,7 +25,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		 Browser=new TestUtils(driver);
 		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	  }
 	
 	@DataProvider(name = "DP1")
@@ -49,13 +49,11 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Browser.waitTill(2000);
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
-		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
 		Thread.sleep(3000);
-		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
-		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Browser.clickOnTheElementByXpath("//button[@class='btn btn-default dropdown-toggle']");
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);

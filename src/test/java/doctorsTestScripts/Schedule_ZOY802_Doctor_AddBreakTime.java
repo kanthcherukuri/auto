@@ -19,15 +19,18 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@Test()
 	public void testAddBreakTime() throws Exception 
 	{
-		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		doctorsPage.SignIn(DoctorsLogin_usernamefive, DoctorsLogin_passwordfive);
 		doctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
-		Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Thread.sleep(6000);
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		doctorsPage.checkAddBreakTimes("13:00", "13:00");
+		Browser.CheckNotificationMessage("End Time should be after Start Time");
+		doctorsPage.checkremoveBreakTimes();
 		doctorsPage.checkAddBreakTimes("13:00", "14:00");
 		Browser.CheckNotificationMessage("Schedule updated successfully");
+		doctorsPage.checkremoveBreakTimes();
 		Thread.sleep(5000);
 	}
 	
@@ -43,7 +46,6 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
-		doctorsPage.checkremoveBreakTimes();
 		driver.quit();
 	}
 

@@ -23,12 +23,12 @@ public class Admin_ZOY2312_doctorChangePassword extends LoadPropMac
 	@DataProvider(name="clinicDoctorDetails")
 	public Object[][] clinicDocInfo() throws Exception
 	{
-		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/rvmpAdmin_addDoctor.xls", "clinicDoctor", "ZOY2234");
+		Object[][] clinicDocInformation=TestUtils.getTableArray("TestData/rvmpAdmin_addDoctor.xls", "clinicDoctor", "ZOY2234PW");
 		return(clinicDocInformation);
 	}
 	
 	@Test(dataProvider="clinicDoctorDetails")
-	public void editClinicDoctor(String emailID, String isSEOInfoTrue, String metaTitle) throws Exception
+	public void editClinicDoctor(String emailID) throws Exception
 	{
 		admin.adminSignIn(admin_user, admin_password);
 		changedPassword="Zoy12@"+Browser.randomalphabets();

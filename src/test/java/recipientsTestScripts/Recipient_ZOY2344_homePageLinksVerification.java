@@ -94,28 +94,12 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		String home_DoctorsLink="//a[contains(., 'Doctors in "+place+"')]"; //XPATH
 		Browser.scrollbyxpath(home_DoctorsLink);
 		Browser.clickOnTheElementByXpath(home_DoctorsLink);
-		Browser.waitFortheID(Elements_Recipients.indexLocationName);
+		if(driver.findElements(By.xpath("//div[@class='zy-status-wrapper']")).size()>0)
+		{
+			Browser.clickOnTheElementByXpath("//div[@class='zy-status-wrapper']");
+		}
 		String locationDisplayed=Browser.getTextByID(Elements_Recipients.indexLocationName);
-		if(place.contains("Banglore"))
-		{
-			Assert.assertEquals(locationDisplayed, "Bengaluru");
-		}
-		else
-		{
-			Assert.assertEquals(locationDisplayed, place);
-		}
-//		Browser.clickOnTheElementByXpath(Elements_Recipients.indexLocationDropDown);
-//		Browser.waitFortheElementXpath(Elements_Recipients.indexLocationContainer);
-//		String currentLocationis=Browser.getTextByXpath(Elements_Recipients.indexCurrentLocator);
-//		if(currentLocationis.equals(""))
-//		{
-//			System.out.println("Assert fail condition");
-//			Assert.assertEquals(true, false);
-//		}
-//		else
-//		{
-//			System.out.println("Current location is available and is "+currentLocationis);
-//		}
+		Assert.assertEquals(locationDisplayed, place);
 		navigateToBase();
 	}
 	
@@ -140,28 +124,12 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		String home_DiagnosticLink="//a[contains(., 'Diagnostics in "+place+"')]"; //XPATH
 		Browser.scrollbyxpath(home_DiagnosticLink);
 		Browser.clickOnTheElementByXpath(home_DiagnosticLink);
-		Browser.waitFortheID(Elements_Recipients.indexLocationName);
+		if(driver.findElements(By.xpath("//div[@class='zy-status-wrapper']")).size()>0)
+		{
+			Browser.clickOnTheElementByXpath("//div[@class='zy-status-wrapper']");
+		}
 		String locationDisplayed=Browser.getTextByID(Elements_Recipients.indexLocationName);
-		if(place.contains("Banglore"))
-		{
-			Assert.assertEquals(locationDisplayed, "Bengaluru");
-		}
-		else
-		{
-			Assert.assertEquals(locationDisplayed, place);
-		}
-//		Browser.clickOnTheElementByXpath(Elements_Recipients.indexLocationDropDown);
-//		Browser.waitFortheElementXpath(Elements_Recipients.indexLocationContainer);
-//		String currentLocationis=Browser.getTextByXpath(Elements_Recipients.indexCurrentLocator);
-//		if(currentLocationis.equals(""))
-//		{
-//			System.out.println("Assert fail condition");
-//			Assert.assertEquals(true, false);
-//		}
-//		else
-//		{
-//			System.out.println("Current location is available and is "+currentLocationis);
-//		}
+		Assert.assertEquals(locationDisplayed, place);
 		navigateToBase();
 	}
 	
@@ -184,5 +152,6 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	public void navigateToBase()
 	{
 		driver.get(base_url);
+		//Browser.waitTill(60);
 	}
 }

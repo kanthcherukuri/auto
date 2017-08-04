@@ -642,7 +642,7 @@ public class NewAdminDiagnosticPage
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Address_ClickOnCity);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Address_ClickOnCity);
 		Browser.selectbyID(Elements_NewAdminDiagnostic.Address_City, city);
-		Browser.waitFortheID(Elements_NewAdminDiagnostic.Address_Pincode);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Address_Pincode);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.Address_Pincode, pincode);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Address_Locality);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.Address_Locality, locality);
@@ -663,7 +663,6 @@ public class NewAdminDiagnosticPage
 	 */
 	public void EnterTheFacilities() throws Exception{
 		
-		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Menu);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_Menu);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_DebitCard);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_DebitCard);

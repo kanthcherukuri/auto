@@ -25,8 +25,8 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		return(DocInfoAdd);
 	}
 	
-	//@Test(dataProvider="DoctorSpecialisationDetailsADD", priority=1)
-	public void addDoctorPractice(String specialisationName, String specialisationDescription) throws Exception
+	@Test(dataProvider="DoctorSpecialisationDetailsADD", priority=1)
+	public void addDoctorSpecialization(String specialisationName, String specialisationDescription) throws Exception
 	{
 		admin.click_doctorsTab();
 		admin.click_doctorReferences();
@@ -35,6 +35,9 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.Enter_specialisationDetails(specialisationName, specialisationDescription);
 		admin.click_specialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization created successfully");
+		String specID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
+		System.out.println("Spec ID retrived is: "+specID);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyGlobalGenericSearch", "_id", specID);
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
 	}
 	
@@ -45,8 +48,8 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		return(DocInfoEdit);
 	}
 	
-	//@Test(dataProvider="DoctorSpecialisationDetailsEDIT", priority=2)
-	public void editDoctorPractice(String specialisationName) throws Exception
+	@Test(dataProvider="DoctorSpecialisationDetailsEDIT", priority=2)
+	public void editDoctorSpecialization(String specialisationName) throws Exception
 	{
 		driver.navigate().refresh();
 		admin.searchDoctorspecialisationByName(specialisationName);
@@ -56,7 +59,7 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		Browser.CheckNotificationMessage("Doctor - Specialization updated successfully");
 	}
 	
-	@Test(dataProvider="DoctorSpecialisationDetailsADD", priority=3)
+	//@Test(dataProvider="DoctorSpecialisationDetailsADD", priority=3)
 	public void AddSynonymWithSpecialization_ZOY2152(String specialisationName,String specialisationDescription) throws Exception
 	{
 		admin.click_doctorsTab();
@@ -73,7 +76,6 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.click_Profile_Options("Logout");
 		Browser.openUrl(index_url);
 		RecipientPage.searchInZoyloMAP("TestSynonym");
-
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
 	}
 	

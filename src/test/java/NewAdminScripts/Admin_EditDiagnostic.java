@@ -78,8 +78,12 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		Assert.assertEquals(diagtestname, EditdiagTestname);
 		driver.findElement(By.id("editDiagnosticSubmit")).click();
 		Browser.CheckNotificationMessage("Diagnostic Center Updated Successfully");
+		String dcID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenters", "user.email", DiagnosticEmail);
+		System.out.println("DC ID retrived is: "+dcID);
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", DiagnosticEmail);
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenters", "user.email", DiagnosticEmail);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyGlobalGenericSearch", "entityId", dcID);
+		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "redisProvidersCache", "providerId", dcID);
 	}
 	
 	@AfterClass
