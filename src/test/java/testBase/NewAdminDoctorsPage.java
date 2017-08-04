@@ -928,7 +928,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 * @ Param			: NA
 	 * @ return			: NA
 	 */
-	public void clickSubmitDoctor() throws InterruptedException
+	public void clickSubmitDoctor() throws Exception
 	{
 		Browser.scrollbyID(Elements_NewAdminDoctors.doctorSave);
 		driver.findElement(By.id(Elements_NewAdminDoctors.doctorSave)).click();
@@ -2087,5 +2087,25 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueDesription, codeValueDescription);
 		Browser.enterTextByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueSeuence, codeValueSequence);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.administrator_lookupCodeValueActiveCheckBox);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to validate med-req number not mandatory for few specializations
+	 * @ Param			: mandateSpec, nonmandateSpec
+	 * @ return			: NA
+	 */
+	public void Validate_RegNumNotMandatory(String mandateSpec, String nonmandateSpec) throws Exception
+	{
+		Browser.waitFortheID(Elements_NewAdminDoctors.medicalRegistrationNumber);
+		driver.findElement(By.id(Elements_NewAdminDoctors.medicalRegistrationNumber)).clear();
+		clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Please Enter Medical Registration Number");
+		//Edit specialization to non mandate spec
+		Browser.clickOnTheElementByXpath("//li[@title='"+mandateSpec+"']//span[@class='select2-selection__choice__remove']");
+		Browser.selectbyID(Elements_NewAdminDoctors.areaOfSpecialization, nonmandateSpec);
+		System.out.println("Added "+nonmandateSpec+ " as specialization");
+		clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
 } //End of class
