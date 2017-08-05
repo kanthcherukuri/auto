@@ -49,7 +49,8 @@ public static String administrator_marketingElementsTab, administrator_marketing
 public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOldPassword, adminUserNewPassword, adminUserConfirmPassword, adminUserPasswordSave;
 public static String administrator_lookupCodeTab, administrator_lookupCodeHeader, administrator_lookupCodeType, administrator_lookupCodeName, administrator_lookupCodeDescription, administrator_lookupCodeValue, administrator_lookupCodeValueName, administrator_lookupCodeValueDesription, administrator_lookupCodeValueSeuence, administrator_lookupCodeValueActiveCheckBox;
-public static String confirmToChangeToProvider,notification;
+public static String confirmToChangeToProvider,notification, registrationStatusOnTable;
+public static String registrationTab, registrationDocURL, registrationStateCouncil, registrationVerifyBtn;
 
 	public static WebDriver newAdmin_DoctorPageProperties()
 	{
@@ -62,6 +63,13 @@ public static String confirmToChangeToProvider,notification;
 		adminUserNewPassword="newpassword"; //NAME
 		adminUserConfirmPassword="confirmpassword"; //NAME
 		adminUserPasswordSave="adminChangePasswordButton"; //ID
+		registrationStatusOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[17]"; //XPATH
+		
+		//REGISTRATION TAB
+		registrationTab="//li[@data-tab='zoyDocRegVerInfo']"; //XPATH
+		registrationDocURL="UrlLink"; //ID
+		registrationStateCouncil="stateMedicalCouncilData"; //ID
+		registrationVerifyBtn="verifyRegistraion"; //ID
 		
 		//LOGIN PAGE
 		loginemail="emailAddress"; //ID

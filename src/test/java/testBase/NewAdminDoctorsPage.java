@@ -2108,4 +2108,19 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		clickSubmitDoctor();
 		Browser.CheckNotificationMessage("Doctor Updated Successfully");
 	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to validate registration verification tab in admin doctor
+	 * @ Param			: mandateSpec, nonmandateSpec
+	 * @ return			: NA
+	 */
+	public void registrationVerification() throws Exception
+	{
+		String url=Browser.generateRandomString(8).toLowerCase();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.registrationTab);
+		Browser.enterTextByID(Elements_NewAdminDoctors.registrationDocURL, "https://"+url+".com");
+		Browser.selectbyID(Elements_NewAdminDoctors.registrationStateCouncil, "Telangana Medical Council");
+		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.registrationVerifyBtn);
+	}
 } //End of class

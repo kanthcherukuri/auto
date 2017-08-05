@@ -56,8 +56,32 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		admin.Enter_defaultFacilities(FacilityStatus, AmbulanceStatus, EmergencyStatus, BikeParkStatus, CarParkStatus, PayCreditStatus, PayDebitStatus, PayCashStatus, PayOnlineStatus, PayChecqueStatus, PremiumServiceStatus);
 		admin.Enter_addressInfo(Country, State, City, completeAddress, Locality, pin, longitude, latitude);
 		admin.clickSubmitDoctor();
-
 		Browser.CheckNotificationMessage("Doctor created successfully");
+		
+		//ZOY-2450 check registration verification
+		driver.navigate().refresh();
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID(emailID);
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.registrationStatusOnTable);
+		String state=Browser.getTextByXpath(Elements_NewAdminDoctors.registrationStatusOnTable);
+		if(state=="NO"){
+			admin.clickEditbutton();
+			admin.registrationVerification();
+		}
+		else{
+			System.out.println("Doctor registration is verified");
+		}
+		
+		admin.clickSubmitDoctor();
+		Browser.CheckNotificationMessage("Doctor created successfully");
+		driver.navigate().refresh();
+		admin.click_doctorsTab();
+		admin.searchDoctorbyEmailID(emailID);
+		Browser.scrollbyxpath(Elements_NewAdminDoctors.registrationStatusOnTable);
+		String state1=Browser.getTextByXpath(Elements_NewAdminDoctors.registrationStatusOnTable);
+		if(state1=="YES"){
+			System.out.println(emailID+" registration is verified");
+		}
 		
 		if(removeFromDB.equalsIgnoreCase("true"))
 		{
