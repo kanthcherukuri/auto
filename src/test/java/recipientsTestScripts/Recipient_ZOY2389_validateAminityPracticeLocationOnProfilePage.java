@@ -86,7 +86,6 @@ public class Recipient_ZOY2389_validateAminityPracticeLocationOnProfilePage exte
 				Assert.assertEquals(Aminity, "Car Parking Available");
 			}
 		}
-		
 		driver.get(loginPage_Url);
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 		Browser.clickOnTheElementByID(Elements_Doctors.schedule);
