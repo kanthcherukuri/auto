@@ -19,7 +19,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	
-	@Test()
+	@Test(priority=1,enabled=false)
 	public void validateDirectionsnegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -44,6 +44,41 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.navigate().refresh();
 		driver.findElement(By.xpath("//a[@class='cancel']")).click();
 		RecipientPage.addressAssertion();
+	}
+	
+	//@Author:Ch.LakshmiKanth
+	@Test(priority=2)
+	public void CompareOfDefaultClinicDiatanceAndHospitalDistance() throws Exception {
+	
+		driver.get(index_url);
+		RecipientPage.searchInZoyloMAP("kanth doctor");
+		RecipientPage.bookAppointment();
+		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
+		driver.findElement(By.xpath(Elements_Recipients.addressAssertion)).click();
+		Thread.sleep(1000);
+		String currentavailableclinic=driver.findElement(By.xpath("//span[@class='icon-distance']/following-sibling::*")).getText();
+		System.out.println("Available:"+currentavailableclinic);
+		Thread.sleep(2000);
+		String[] available=currentavailableclinic.split(" kms");
+		String defaultclinic=available[0];
+		System.out.println("Printing Available Clinic After Split:"+defaultclinic);
+		double AvailableDefaultClinic=Double.parseDouble(defaultclinic);
+		System.out.println("Double value of available:"+AvailableDefaultClinic);
+		driver.findElement(By.xpath("//i[@class='fa fa-plus']/following-sibling::*")).click();
+		System.out.println("Clicked on Plus Symbol");
+		Browser.clickOnTheElementByXpath("//div[@class='sp-moreclinic-address sp-clinic-address']//h5//a");
+		Browser.clickOnTheElementByXpath(" (//span[@class='docinfo-address-label'])[2]");
+		System.out.println("clicked on second time Address");
+		Thread.sleep(1000);
+		String Hospital=driver.findElement(By.xpath("(//span[@class='icon-distance']/following-sibling::*)[2]")).getText();
+		System.out.println("AvailableHospital:"+Hospital);
+		String[] other=Hospital.split(" kms");
+		String otherlocation=other[0];
+		System.out.println("Other location after Split:"+otherlocation);
+		double OtherClinic=Double.parseDouble(otherlocation);
+		System.out.println("Other loctaion after Double:"+OtherClinic);
+		Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
+		
 	}
 	
 	@BeforeClass
