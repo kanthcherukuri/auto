@@ -7,7 +7,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import objectRepository.Elements_Doctors;
 import objectRepository.Elements_Recipients;
-
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
@@ -81,7 +80,7 @@ public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 		driver.get(loginPage_Url);
 	}
 	
-@AfterClass
+  @AfterClass
 	public void closeapp() throws Exception
 	{
 		driver.quit();
