@@ -976,7 +976,7 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	public void deleteOtherClinicFromAdmin(String docEmail) throws Exception
 	{
 		admin.click_doctorsTab();
-		admin.searchDoctorbyEmailID("may19_0@zoy.com");
+		admin.searchDoctorbyEmailID(docEmail);
 		admin.clickEditbutton();
 		Browser.waitFortheID(Elements_NewAdminDoctors.practiceTab);
 		driver.findElement(By.id(Elements_NewAdminDoctors.practiceTab)).click();
