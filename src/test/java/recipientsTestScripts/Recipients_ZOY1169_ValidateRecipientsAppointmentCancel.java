@@ -77,7 +77,7 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		Browser.clickOnTheElementByID("hist");
 		driver.findElement(By.id("aptSearch")).click();
 		driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
-		Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Canceled')]//div/span[contains(.,'"+AppointmentId+"')]");
+		Browser.waitFortheElementXpath("//div[@class='apt-dt-chng' and contains(.,'Cancelled')]//div/span[contains(.,'"+AppointmentId+"')]");
 		
 			
 		/*
