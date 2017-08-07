@@ -35,20 +35,20 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 			System.out.println("The video window is not available to take a picture");
 		}
 		Browser.CheckNotificationMessage("Your profile photo has been successfully updated");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
 	
-	//@Test(priority=2)
+	@Test(priority=2)
 	public void userBrowsePhoto() throws Exception
 	{
 		driver.navigate().refresh();
 		RecipientPage.goToRecipientProfilePic();
 		Browser.enterTextByID(Elements_Recipients.Recipient_ProfileUploadInputID, System.getProperty("user.dir")+"/Uploads/d.png");
 		Browser.CheckNotificationMessage("Your profile photo has been successfully updated");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 	}
 	
-	//@Test(priority=3)
+	@Test(priority=3)
 	public void userRemovePhoto() throws Exception
 	{
 		driver.navigate().refresh();
