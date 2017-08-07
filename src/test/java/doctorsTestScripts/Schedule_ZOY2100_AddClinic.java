@@ -32,7 +32,7 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 	@Test(dataProvider="clinicdata")
 	public void addClinic(String ohrName, String otrClincFee, String othrCliNum, String linone, String otrPin, String lon, String lat) throws Exception
 	{
-		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		doctorsPage.SignIn(DoctorsLogin_usernamefive, DoctorsLogin_passwordfive);
 		Thread.sleep(2000);
 		doctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
@@ -41,13 +41,13 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
 		driver.get(loginPage_Url);
 		admin.adminSignIn(admin_user, admin_password);
-		doctorsPage.deleteOtherClinicFromAdmin(DoctorsLogin_username);
+		doctorsPage.deleteOtherClinicFromAdmin(DoctorsLogin_usernamefive);
 		admin.click_Profile_Options("Logout");
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
 		
 		//Deactivate all days break time temporary error cover methods
 		driver.get(loginPage_Url);
-		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		doctorsPage.SignIn(DoctorsLogin_usernamefive, DoctorsLogin_passwordfive);
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");

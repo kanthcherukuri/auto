@@ -53,7 +53,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		activateDeactivate();
-		Thread.sleep(6000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		Thread.sleep(2000);
@@ -63,7 +63,6 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
   {
 	  	Thread.sleep(1000);
 		driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
-		//driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
   }
 	  
   @BeforeClass
