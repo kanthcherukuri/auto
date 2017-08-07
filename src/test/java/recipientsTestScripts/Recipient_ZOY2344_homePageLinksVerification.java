@@ -42,31 +42,31 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	    driver.switchTo().window(tabs2.get(0));
 	    Thread.sleep(1000);
 	   //About Us
-	    Browser.scrollbyxpath(Elements_Recipients.home_aboutUs);
+	    Browser.ScrollDown();
 	    Browser.clickOnTheElementByXpath(Elements_Recipients.home_aboutUs);
 	    Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual1 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
 		Assert.assertEquals("About Us", actual1);
 		//Contact Us
-		Browser.scrollbyxpath(Elements_Recipients.home_contactUs);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_contactUs);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_header);
 		String actual2 = Browser.getTextByXpath(Elements_Recipients.link_header);
 		Assert.assertEquals("Our Location", actual2);
 		//Terms
-		Browser.scrollbyxpath(Elements_Recipients.home_terms);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_terms);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual3 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
 		Assert.assertEquals("Terms of Use", actual3);
 		//Privacy
-		Browser.scrollbyxpath(Elements_Recipients.home_privacy);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_privacy);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual4 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
 		Assert.assertEquals("Privacy Policy", actual4);
 		//Cancellation Refund
-		Browser.scrollbyxpath(Elements_Recipients.home_cancelRefund);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_Recipients.home_cancelRefund);
 		Browser.waitFortheElementXpath(Elements_Recipients.link_h2Header);
 		String actual5 = Browser.getTextByXpath(Elements_Recipients.link_h2Header);
@@ -92,7 +92,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	public void doctorseoLinksFromHomePage(String place) throws InterruptedException
 	{
 		String home_DoctorsLink="//a[contains(., 'Doctors in "+place+"')]"; //XPATH
-		Browser.scrollbyxpath(home_DoctorsLink);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(home_DoctorsLink);
 		if(driver.findElements(By.xpath("//div[@class='zy-status-wrapper']")).size()>0)
 		{
@@ -122,7 +122,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 	public void diagnosticseoLinksFromHomePage(String place) throws InterruptedException
 	{
 		String home_DiagnosticLink="//a[contains(., 'Diagnostics in "+place+"')]"; //XPATH
-		Browser.scrollbyxpath(home_DiagnosticLink);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(home_DiagnosticLink);
 		if(driver.findElements(By.xpath("//div[@class='zy-status-wrapper']")).size()>0)
 		{
