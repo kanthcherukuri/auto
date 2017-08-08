@@ -61,6 +61,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 			RecipientPage.bookAppointment();
+			String DefaultClinic = Browser.getTextByXpath("//h2[@class='addr-ClinicName']");
 			RecipientPage.selectDefaultSlot();
 			RecipientPage.confirmAppointment("Test details");
 			RecipientPage.makePayment();
@@ -69,7 +70,10 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 			String AppointmentId = Browser.getAppointmentID();
 			//Re Scheduling the Apppointment
 			RecipientPage.openMyAccounts("Appointments");			
-			RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Reschedule");		
+			RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Reschedule");	
+			// ZOY-2515 - verify the reschedule doctor 
+			String ResheduleDefaultClinic = Browser.getTextByXpath("//h2[@class='addr-ClinicName']");
+			Assert.assertEquals(DefaultClinic, ResheduleDefaultClinic);
 			Browser.clickOnTheElementByXpath("//li[@id='cd-1']/div"); //Tomarw Slots			
             Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
             Browser.CheckNotificationMessage(SlotChangeMesg);

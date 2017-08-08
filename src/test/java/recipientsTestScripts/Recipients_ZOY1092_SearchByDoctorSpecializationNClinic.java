@@ -42,7 +42,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@DataProvider(name = "DP1")
 	public String[][] createData1() {
 		return new String[][] {
-			{ "yes","Deepak","Cardiology","32 - Intact & Pulp Care Dental Centre","sx123sx","Apollo Hospitals","Heart Specialist" }
+			{ "yes","Deepak","Cardiology","32 - Intact & Pulp Care Dental Centre","sx123sx","Zoylo Hospital","Heart Specialist" }
 
 		};
 	}
@@ -117,7 +117,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			RecipientPage.searchInZoyloMAP(Hospital);
 			RecipientPage.bookAppointment();
 			String Search_Hospital = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
-			System.out.println("clicnic name"+Search_Hospital);
+			System.out.println("clinic name"+Search_Hospital);
 			Assert.assertEquals(Search_Hospital, Hospital);
 			RecipientPage.goToDoctors();
 

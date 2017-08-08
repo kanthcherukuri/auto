@@ -45,13 +45,13 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Ganesh" }
+					{ "yes","Xyz Clinics" }
 
 			};
 		}
 
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void ValidateBookAnAppointmentForOtherClinics(String runmode,String Doctor ) throws Exception {
+	 public void ValidateBookAnAppointmentForOtherClinics(String runmode,String ClinicName,String slotchangemesg ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -59,7 +59,6 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 				Browser.openUrl(loginPage_Url);			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-				Thread.sleep(2000);
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
@@ -71,7 +70,24 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
+				String AppointmentId = Browser.getAppointmentID();
+				//Re Scheduling the Apppointment
+				RecipientPage.openMyAccounts("Appointments");			
+				RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Reschedule");	
+				// ZOY-2515 - verify the reschedule doctor 
+				String ResheduleDefaultClinic = Browser.getTextByXpath("//div[contains(@id,'other-clinics-section') and @style='display: block;']//div[@class='clinic_details']//div[@class='address']");
+				Assert.assertEquals(ClinicName, ResheduleDefaultClinic);
+				//Browser.clickOnTheElementByXpath("//li[@id='cd-1']/div"); //Tomarw Slots			
+	            Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[2]");
+	            Browser.CheckNotificationMessage(slotchangemesg);
+	            //Verify Reschedule Status 
+				RecipientPage.openMyAccounts("Appointments");			
+				Browser.waitFortheID("upcmng");
+				driver.findElement(By.id("aptSearch")).click();
+				driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
+				Thread.sleep(5000);
+				Browser.waitFortheElementXpath("//div[@class='patientApmtStatus' and contains(.,'Rescheduled')]");
+				
 	 
 		 }else{
 			 

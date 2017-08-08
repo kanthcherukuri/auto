@@ -44,7 +44,6 @@
       <class name="recipientsTestScripts.Recipient_ZOY1170_ValidateRecipientsMyAccountReviews"/>
       <class name="recipientsTestScripts.Recipients_ZOY1062_ValidateLoginScreenValidations"/>
       <class name="recipientsTestScripts.Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor"/>
-      <class name="recipientsTestScripts.Recipients_ZOY1072_ValidateAddDoctorFavourites"/>
       <class name="recipientsTestScripts.Recipients_ZOY1182_ValidateRecipientsAlerts"/>      
       <class name="recipientsTestScripts.Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario"/>
       <class name="recipientsTestScripts.Recipient_ZOY2389_validateAminityPracticeLocationOnProfilePage"/>

@@ -42,13 +42,13 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForHospital extends LoadProp
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Ganesh" }
+					{ "yes","Zoylo Hospital","Your appointment slot has been successfully CHANGED" }
 
 			};
 		}
 
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
+	 public void validateBookAnAppointmentForHospital(String runmode,String Hospital,String SlotchangeMesg ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 
@@ -61,14 +61,15 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForHospital extends LoadProp
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				driver.findElement(By.id("manage-flip")).click();
-				driver.findElement(By.linkText("Apollo Hospital")).click();
+				driver.findElement(By.linkText(Hospital)).click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[contains(@class,'sp-available-slots')])[1]")).click();
 				RecipientPage.confirmAppointment("Test details");
 			    RecipientPage.makePayment();
 				String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 				Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+DoctorFullName+" through Zoylo. Your appointment booking details are below:");
-
+				
+				
 	 
 		 }else{
 			 
