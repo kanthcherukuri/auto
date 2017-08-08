@@ -178,15 +178,10 @@ public class DiagnosticPage {
 		System.out.println(date);
 		System.out.println(enddate);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonbulkcancelcalendar);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.fromcanceldate);
 		Browser.actionbyXpath(Elements_Diagnostics.fromcanceldate, date);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tocanceldate);
 		Browser.actionbyXpath(Elements_Diagnostics.tocanceldate, enddate);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.fromtime);
 		Browser.enterTextByXpath(Elements_Diagnostics.fromtime, CancelFromtime);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.totime);
 		Browser.enterTextByXpath(Elements_Diagnostics.totime, CancelTotime);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
 		Thread.sleep(2000);
@@ -198,29 +193,17 @@ public class DiagnosticPage {
 	public void DiagnosticAppointmentbookingForTomorrow(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tommorowmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
-		Browser.waitFortheID(Elements_Diagnostics.detailsfirstname);
 		Browser.enterTextByID(Elements_Diagnostics.detailsfirstname,firstname);
-		Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 		Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-		Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 		Browser.enterTextByID(Elements_Diagnostics.detailsmobile,mobile);
-		Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 		Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-		Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 		Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 		Thread.sleep(2000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -263,13 +246,9 @@ public class DiagnosticPage {
 		
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonchange);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.nextdaymenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
 		WebDriverWait wait = (new WebDriverWait(driver, 40));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.notification)));
@@ -283,27 +262,16 @@ public class DiagnosticPage {
 	public void DiagnosticAppointmentForToday(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
-		Browser.waitFortheID(Elements_Diagnostics.detailsfirstname);
 		Browser.enterTextByID(Elements_Diagnostics.detailsfirstname,firstname);
-		Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 		Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-		Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 		Browser.enterTextByID(Elements_Diagnostics.detailsmobile,mobile);
-		Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 		Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-		Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 		Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 		Thread.sleep(5000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -315,31 +283,18 @@ public class DiagnosticPage {
 	
 	public void DiagnosticHomeVisitAppointmentForToday(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickontoggle);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickontoggle);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
-		Browser.waitFortheID(Elements_Diagnostics.detailsfirstname);
 		Browser.enterTextByID(Elements_Diagnostics.detailsfirstname, firstname);
-		Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 		Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-		Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 		Browser.enterTextByID(Elements_Diagnostics.detailsmobile, mobile);
-		Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 		Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-		Browser.waitFortheID(Elements_Diagnostics.detailsaddress);
 		Browser.enterTextByID(Elements_Diagnostics.detailsaddress, address);
-		Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 		Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 		Thread.sleep(2000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -395,17 +350,11 @@ public class DiagnosticPage {
 		System.out.println(date);
 		System.out.println(enddate);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickonbulkcancelcalendar);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonbulkcancelcalendar);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.fromcanceldate);
 		Browser.actionbyXpath(Elements_Diagnostics.fromcanceldate, date);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tocanceldate);
 		Browser.actionbyXpath(Elements_Diagnostics.tocanceldate, enddate);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.fromtime);
 		Browser.enterTextByXpath(Elements_Diagnostics.fromtime, CancelFromTime);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.totime);
 		Browser.enterTextByXpath(Elements_Diagnostics.totime, CancelToTime);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.bulksubmitbutton);
 		Browser.CheckNotificationMessage("All Appointments Cancelled between the applied dates");
 		Thread.sleep(2000);
@@ -415,32 +364,21 @@ public class DiagnosticPage {
 	public void AppointCreationForShowMore(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tommorowmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morningmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningmenu);
 		Thread.sleep(1000);
 		int cellsize=driver.findElements(By.xpath("//*[@id='myTab-3']/ul/li")).size();
 		System.out.println(cellsize);
 		for(cellsize=1;cellsize<=6;cellsize++){
 			driver.findElement(By.xpath("//*[@id='myTab-3']/ul/li["+cellsize+"]")).click();
-			Browser.waitFortheID(Elements_Diagnostics.detailsfirstname);
 			Browser.enterTextByID(Elements_Diagnostics.detailsfirstname, firstname);
-			Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 			Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-			Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 			Browser.enterTextByID(Elements_Diagnostics.detailsmobile, mobile);
-			Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 			Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-			Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 			Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 			Thread.sleep(2000);
 			WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -455,7 +393,7 @@ public class DiagnosticPage {
 	
 	public void ClickOnDashboardMenu(){
 		
-		driver.findElement(By.id(Elements_Diagnostics.clickondashboardmenu)).click();
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickondashboardmenu);
 		WebDriverWait wait=new WebDriverWait(driver,1000);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.todayhighliteddate)));
 		String date=driver.findElement(By.xpath(Elements_Diagnostics.todayhighliteddate)).getText();
@@ -519,11 +457,8 @@ public class DiagnosticPage {
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
 		Thread.sleep(8000);
-		Browser.waitFortheID(Elements_Diagnostics.clickonserachbarid);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonserachbarid);
-		Browser.waitFortheID(Elements_Diagnostics.clickonalltab);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonalltab);
-		Browser.waitFortheID(Elements_Diagnostics.serachtextbox);
 		Browser.enterTextByID(Elements_Diagnostics.serachtextbox, email);
 		driver.findElement(By.id(Elements_Diagnostics.serachtextbox)).sendKeys(Keys.ENTER);
 		int alltabsize=driver.findElements(By.xpath(Elements_Diagnostics.alltabsize)).size();
@@ -581,7 +516,6 @@ public class DiagnosticPage {
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
 		Browser.waitTill(3000);
-		Browser.waitFortheID(Elements_Diagnostics.clickonserachbarid);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonserachbarid);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonalltab);
 		Browser.enterTextByID(Elements_Diagnostics.serachtextbox, email);
@@ -962,7 +896,6 @@ public class DiagnosticPage {
 			Browser.waitFortheID(Elements_Diagnostics.addfax);
 			driver.findElement(By.id(Elements_Diagnostics.addfax)).clear();
 			Browser.enterTextByID(Elements_Diagnostics.addfax, fax);
-			Browser.waitFortheID(Elements_Diagnostics.clickonsave);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonsave);
 			Browser.CheckNotificationMessage("Contact Information updated successfully");
 			Thread.sleep(5000);
@@ -978,22 +911,14 @@ public class DiagnosticPage {
 		public void ScheduleInManageAddPackage(String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
 			
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickondiagnosticmanage);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.clickonpackagemenu);
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonpackagemenu);
-			Browser.waitFortheID("addPackage");
 			Browser.clickOnTheElementByID("addPackage");
-			Browser.waitFortheID(Elements_Diagnostics.clickonaddpackagebutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonaddpackagebutton);
 			System.out.println("Clicked on the add button");
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagename);
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagename, packagename);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagecost);
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagecost,cost);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagediscount);
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagediscount,discount);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackagedesc);
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagedesc, description);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.ManagePackageAddTest);
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManagePackageAddTest);
 			Thread.sleep(5000);
 			Browser.enterTextByXpath(Elements_Diagnostics.ManagePackageTestname, testname);
@@ -1120,12 +1045,12 @@ public class DiagnosticPage {
 		 */
 		
 		public void ScheduleHomePickupSubmitTestsForApproval() throws Exception{
-			driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmit)).click();
+			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupTestSubmit);
 			Thread.sleep(3000);
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)).getText();
 			assertion.assertEquals(ActualNotification, "Approval is pending");
 			assertion.assertAll();
-			Assert.assertEquals(ActualNotification,"Approval is pending");
+			//Assert.assertEquals(ActualNotification,"Approval is pending");
 		}
 		
 		
@@ -1311,7 +1236,7 @@ public class DiagnosticPage {
 	
       public void ApproveTestInAdmin(String testname) throws Exception{
     	
-  		Thread.sleep(3000);
+  		Thread.sleep(1000);
   		Browser.enterTextByXpath(Elements_Diagnostics.adminsearchbutton, testname);
   		Thread.sleep(3000);
   		Browser.waitFortheElementXpath(Elements_Diagnostics.facilitationbutton);
@@ -1319,11 +1244,10 @@ public class DiagnosticPage {
   		driver.findElement(By.xpath(Elements_Diagnostics.facilitationbutton)).clear();
   		Browser.enterTextByXpath(Elements_Diagnostics.facilitationbutton, "2");
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminsearchbutton);
-  		Thread.sleep(8000);
+  		Thread.sleep(7000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
-  		//Browser.waitFortheElementXpath("//div[@class='zy-status-wrapper']");
   		Browser.CheckNotificationMessage("Diagnostic Center package/test approved successfully");
-  		//Thread.sleep(10000);
+  		Thread.sleep(1000);
       }
       
       /*  Below is the  Method

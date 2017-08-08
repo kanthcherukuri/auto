@@ -29,12 +29,14 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Guntapallipack","30000","10","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
+					{ "yes","30000","10","Full Body Blood Test for Malaria","anantpurtest","Full Body Blood Test for Malaria"}
 
 			};
 		}
 	@Test(dataProvider="DP1")
-	public void ManageMakePackageActive(String RunMode,String packagename,String cost,String discount, String description,String testname,String testdescription) throws Exception{
+	public void ManageMakePackageActive(String RunMode,String cost,String discount, String description,String testname,String testdescription) throws Exception{
+		String packagename="Guntapalli"+Browser.randomalphabets();
+		System.out.println("Random Package Name:"+packagename);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleInManageAddPackage(packagename, cost, discount, description, testname, testdescription);
 		DiagnosticPageZoylo.ScheduleInManageSubmitPackageforApproval();
@@ -46,11 +48,9 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
 		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
-		Thread.sleep(1000);
-		//driver.get( Diagnostic_ApprovedApptURL);
+		//Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
-		Thread.sleep(5000);
-		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
+		Thread.sleep(6000);
 		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByID("logout");
