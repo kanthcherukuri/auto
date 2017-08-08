@@ -30,14 +30,15 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Pasmmarrupack","Full Body Blood Test for Malaria","10000","5"}
+					{ "yes","Full Body Blood Test for Malaria","10000","5"}
 
 			};
 		}
 
 	@Test(dataProvider="DP1")
-	public void ScheduleManageMakeTestActive(String RunMode,String testname,String description,String cost,String discount) throws Exception{
-		
+	public void ScheduleManageMakeTestActive(String RunMode,String description,String cost,String discount) throws Exception{
+		String testname="Pasmmarru"+Browser.randomalphabets();
+		System.out.println("Rando Test Name"+testname);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
@@ -53,7 +54,6 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Thread.sleep(1000);
-		//driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
 		Thread.sleep(5000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");

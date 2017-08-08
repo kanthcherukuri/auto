@@ -51,33 +51,43 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public void CompareOfDefaultClinicDiatanceAndHospitalDistance() throws Exception {
 	
 		driver.get(index_url);
-		RecipientPage.searchInZoyloMAP("kanth doctor");
+		RecipientPage.searchInZoyloMAP("honey");
 		RecipientPage.bookAppointment();
-		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
-		driver.findElement(By.xpath(Elements_Recipients.addressAssertion)).click();
+		String availableclinic=driver.findElement(By.xpath("//*[@id='myclinics-section']/div[1]/div[1]/div[2]/div/h2/span")).getText();
+		System.out.println("AvailableClinic:"+availableclinic);
+			if(availableclinic.equalsIgnoreCase("Madvin Clinic")) {
+		Browser.clickOnTheElementByXpath("//*[@id='myclinics-section']/div[1]/div[2]/h4/span");
+		System.out.println("Clicked on MadvinClinicAddress");
 		Thread.sleep(1000);
-		String currentavailableclinic=driver.findElement(By.xpath("//span[@class='icon-distance']/following-sibling::*")).getText();
-		System.out.println("Available:"+currentavailableclinic);
+		String availableclinicdistance=driver.findElement(By.xpath("//span[@class='icon-distance']/following-sibling::*")).getText();
+		System.out.println("Got Availableclinicdiatance:"+availableclinicdistance);
 		Thread.sleep(2000);
-		String[] available=currentavailableclinic.split(" kms");
+		String[] available=availableclinicdistance.split(" kms");
 		String defaultclinic=available[0];
-		System.out.println("Printing Available Clinic After Split:"+defaultclinic);
 		double AvailableDefaultClinic=Double.parseDouble(defaultclinic);
-		System.out.println("Double value of available:"+AvailableDefaultClinic);
-		driver.findElement(By.xpath("//i[@class='fa fa-plus']/following-sibling::*")).click();
+		System.out.println("Printing Available Clinic After Split:"+AvailableDefaultClinic);
+		Browser.clickOnTheElementByXpath("//i[@class='fa fa-plus']/following-sibling::*");
 		System.out.println("Clicked on Plus Symbol");
-		Browser.clickOnTheElementByXpath("//div[@class='sp-moreclinic-address sp-clinic-address']//h5//a");
-		Browser.clickOnTheElementByXpath(" (//span[@class='docinfo-address-label'])[2]");
-		System.out.println("clicked on second time Address");
-		Thread.sleep(1000);
-		String Hospital=driver.findElement(By.xpath("(//span[@class='icon-distance']/following-sibling::*)[2]")).getText();
-		System.out.println("AvailableHospital:"+Hospital);
-		String[] other=Hospital.split(" kms");
-		String otherlocation=other[0];
-		System.out.println("Other location after Split:"+otherlocation);
-		double OtherClinic=Double.parseDouble(otherlocation);
-		System.out.println("Other loctaion after Double:"+OtherClinic);
-		Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
+		Browser.waitFortheElementXpath("//*[@id='manage-panel']/div/div/div");
+		int size=driver.findElements(By.xpath(".//*[@id='manage-panel']/div/div/div")).size();
+		for(int i=1;i<=size;i++) {
+			driver.findElement(By.xpath("//*[@id='manage-panel']/div/div/div["+i+"]/h5/a")).click();
+			Browser.clickOnTheElementByXpath("(//div[@class='zy-enclosing-div']//div[@class='accordion']//span[@class='docinfo-address-label'])['"+i+"']");
+			Browser.waitFortheElementXpath("(//span[@class='icon-distance']/following-sibling::*)["+i+"+1]");
+			String otherClinic=driver.findElement(By.xpath("(//span[@class='icon-distance']/following-sibling::*)["+i+"+1]")).getText();
+			System.out.println("Other Clinic"+otherClinic);
+			String[] Hospital =otherClinic.split(" kms");
+			String otherlocation=Hospital[0];
+			double OtherClinic=Double.parseDouble(otherlocation);
+			System.out.println("After Spliting of Hospital:"+OtherClinic);
+			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
+			
+		}
+		
+		
+	}
+		
+	
 		
 	}
 	
@@ -92,9 +102,9 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.get(loginPage_Url);
 	}
 	
-	@AfterClass()
-	public void Exit() {
-		
-		driver.quit();
-	} 
+//	@AfterClass()
+//	public void Exit() {
+//		
+//		driver.quit();
+//	} 
 }

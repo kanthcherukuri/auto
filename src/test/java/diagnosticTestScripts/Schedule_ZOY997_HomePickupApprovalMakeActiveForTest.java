@@ -35,14 +35,16 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","kormangaltest","Full Body Test","10000","5"}
+					{"Full Body Test","10000","5"}
 
 			};
 		}
 
 	@Test(dataProvider="DP1")
-	public void ScheduleHomePickupTestMakeActiveInActive(String RunMode, String testname,String description,String cost,String discount) throws Exception{
-	
+	public void ScheduleHomePickupTestMakeActiveInActive( String description,String cost,String discount) throws Exception{
+		
+		String testname="kormangaltest"+Browser.randomalphabets();
+		System.out.println("Random Test Name"+testname);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddTest(testname, description, cost, discount);
@@ -56,10 +58,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
 		Browser.waitFortheElementXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
-		Thread.sleep(1000);
-		//driver.get( Diagnostic_ApprovedApptURL);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
-		Thread.sleep(5000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
@@ -75,8 +74,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		Thread.sleep(3000);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickhomevisittestsavebutton);
   		Browser.CheckNotificationMessage("Home Visit Tests updated successfully");
-		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticslogout();
+		
 	}
 	
 	@AfterClass
