@@ -30,7 +30,9 @@ public class Admin_ZOY2238_editHospitalDoctor extends LoadPropMac
 	@Test(dataProvider="clinicDoctorDetails")
 	public void editHospitalDoctorANDZOY_2442_validateMedRegNumNotMandatory(String emailID) throws Exception
 	{
-		String medNum=Browser.generateRandomAlphaNumeric(6);
+		String alfamed=Browser.generateRandomAlphaNumeric(5).toLowerCase();
+		String intt=Browser.generateRandomNumber(3);
+		String medNum=intt+alfamed;
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		admin.clickEditbutton();

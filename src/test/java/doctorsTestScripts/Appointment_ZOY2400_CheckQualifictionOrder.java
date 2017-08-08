@@ -35,8 +35,10 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profilemenu);
 			Browser.waitTill(3000);
-			((JavascriptExecutor)driver).executeScript("scroll(0,400)");
-			driver.findElement(By.id(Elements_Doctors.doctor_profileEdit)).click();
+			//((JavascriptExecutor)driver).executeScript("scroll(0,400)");
+			Browser.scrollbyID(Elements_Doctors.doctor_profileEdit);
+			Thread.sleep(1000);
+			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileEdit);
 			Browser.waitFortheID("doctorQualification");
 			driver.findElement(By.xpath(Elements_Doctors.doctor_ProfileRemoveQualificationFCLI)).click();
 			Thread.sleep(1000);

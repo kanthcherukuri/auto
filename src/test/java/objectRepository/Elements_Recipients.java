@@ -143,8 +143,8 @@ public class Elements_Recipients  {
          recipient_DCPayment="//span[@class='zy-rec-diag-pay-options']"; //XPATH
          recipient_DCAwardsTab="//a[@href='#awards']"; //XPATH
          recipient_DCAwardsContent="//div[@class='zy-rec-diag-awards-right-info']"; //XPATH
-         recipient_DCTestCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon'])[1]"; //XPATH
-         recipient_DCPackageCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon'])[3]"; //XPATH
+         recipient_DCTestCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon zy-diag-prcAlign'])[1]"; //XPATH
+         recipient_DCPackageCost="(//span[@class='zy-sp-diag-s-pkg-cost-icon zy-diag-prcAlign'])[3]"; //XPATH
          recipient_DCPackageTab="//*[@id='package-li']/a"; //XPATH
          recipient_DCTestTab="//*[@id='test-li']/a"; //XPATH
          recipient_DCPackageCostOnBookPay="(.//*[@id='finalcost'])[1]"; //XPATH
