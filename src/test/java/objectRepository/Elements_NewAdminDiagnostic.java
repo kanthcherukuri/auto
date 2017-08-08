@@ -345,7 +345,7 @@ public class Elements_NewAdminDiagnostic
 		 Hospital_ClickOnCity="select2-companyCityOptions-container";
 		 Hospital_Cancel="submitCancel";
 		 Hospital_NameField="//*[@id='DataTables_Table_0']/tbody/tr[1]/td[1]";
-		 Hospital_ClickOnEdit="//*[@id='DataTables_Table_0']/tbody/tr[1]/td[6]/button";
+		 Hospital_ClickOnEdit="//button[contains(., 'EDIT')]";
 		 Hospital_SelectBikeParking="//input[@name='facilities.isBikeParkingAvailableAtTheHospital']";
 		 Hospital_SelectCarParking="//input[@name='facilities.isCarParkingAvailableAtTheHospital']";
 		 Hospital_SelectAmbulance="//input[@name='facilities.hasAmbulance']";
