@@ -2,8 +2,7 @@ package NewAdminScripts;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -61,17 +60,11 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 		 Browser.clickOnTheElementByID(Elements_NewAdminDoctors.workDaysTab);
 		 Browser.clickOnTheElementByID(Elements_NewAdminDoctors.workDays_SundayActiveCheckBox);
 		 Browser.waitFortheElementXpath(Elements_NewAdminDoctors.notification);
-		 String notification=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
-		 Assert.assertTrue(notification.contains("Conflict with existing appointment"));
-		 Thread.sleep(6000);
+		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to deactivate the sunday");
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-pencil editSlots']");
-		 String notificationtwo=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
-		 Assert.assertTrue(notificationtwo.contains("Conflict with existing appointment"));
-		 Thread.sleep(6000);
+		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to edit the time-slot");
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-trash-o delSlots']");
-		 String notificationthree=driver.findElement(By.xpath(Elements_NewAdminDoctors.notification)).getText();
-		 Assert.assertTrue(notificationthree.contains("Conflict with existing appointment"));
-		 Thread.sleep(6000);
+		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to delete time-slot");
 		 admin.click_Profile_Options("Logout"); 
 	 }
 	 
