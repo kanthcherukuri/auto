@@ -111,7 +111,7 @@ public class Elements_Doctors  {
 				public static String schedule;
 				
 		//Clinic tab
-				public static String clinicTab, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots, clinic_ScheduleTab, otherClinic_InactiveBtn;
+				public static String clinicTab, homeVisitTab, carIcon, homeVisitFee, clinicName, clinicTimeSlotMinusBtn, sundayTab, AddWorkTime, sundayToggle, WstrtTime, WendTime, clinicSubmitTimeSlots, clinic_ScheduleTab, otherClinic_InactiveBtn;
 	 
 	 public static By enrollment1_h5 = By.xpath("//h5");// Another way of initialization to avoid xpath/id by defining in test case
 		
@@ -220,6 +220,9 @@ public class Elements_Doctors  {
 		
 		//clinic tab
 		clinicTab="(//div[contains(., 'Clinics')])[4]";
+		homeVisitTab="(//div[contains(., 'Home Visit')])[4]";
+		carIcon="//i[@class='fa fa-car']";
+		homeVisitFee="houseCallServiceFee"; //ID
 		clinicName="editClinicName";
 		clinicTimeSlotMinusBtn="//i[@class='fa fa-minus-circle clinc_rem_slot']";
 		sundayTab="cd-6";
