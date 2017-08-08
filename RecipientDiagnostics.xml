@@ -29,6 +29,7 @@
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2426_QuantityToAmountScenarios"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2043_DiagnosticsChangeLocation"/>
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>
+     
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
