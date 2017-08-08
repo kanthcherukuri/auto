@@ -384,6 +384,7 @@ public class DoctorsPage  {
 		 * @ Returns:
 		 */
 		public void ClickingOnEllipse(){
+			
 		Browser.clickOnTheElementByXpath(Elements_Doctors.clickonellipse);	
 		}
 
