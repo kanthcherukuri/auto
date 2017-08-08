@@ -133,6 +133,21 @@ public class TestUtils {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;     
 		jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
 	}
+	
+	// scroll UP
+		public void ScrollUp()
+		{
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,-250)", "");
+		}
+		
+		// scroll Down
+				public void ScrollDown()
+				{
+					
+					JavascriptExecutor jse = (JavascriptExecutor)driver;
+					jse.executeScript("window.scrollBy(0,250)", "");
+				}
 
 	//screen-shot
 	public void capturescreenshot(String screenname) throws IOException{

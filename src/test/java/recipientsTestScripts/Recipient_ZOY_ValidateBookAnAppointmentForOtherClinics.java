@@ -51,7 +51,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 		}
 
 	 @Test(dataProvider="DP1",groups = { "Regression","High" })
-	 public void validateBookingAnAppointment(String runmode,String Doctor ) throws Exception {
+	 public void ValidateBookAnAppointmentForOtherClinics(String runmode,String Doctor ) throws Exception {
 	  
 		 if(runmode.equals("yes")){
 			 		 

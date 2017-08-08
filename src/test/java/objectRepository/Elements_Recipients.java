@@ -76,7 +76,7 @@ public class Elements_Recipients  {
 		home_AppStoreLink="//a[@href='http://m.onelink.me/34dfbfec']"; //XPATH
 		home_AppStore_Page="//img[@alt='iTunes']"; //XPATH
 		home_androidLink="//a[@href='http://m.onelink.me/7a85373']"; //XPATH
-		home_androidLink_Page="//span[@class='gb_Za gb_Xa']"; //XPATH
+		home_androidLink_Page="//span[@class='gb_Xa gb_Wa']"; //XPATH
 		home_aboutUs="//a[@href='/aboutus']"; //XPATH
 		home_contactUs="//a[@href='contactus']"; //XPATH
 		home_terms="//a[@href='/terms']"; //XPATH

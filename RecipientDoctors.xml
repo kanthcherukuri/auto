@@ -19,9 +19,9 @@
       <class name="recipientsTestScripts.Recipient_ZOY_ValidateBookAnAppointmentAsOther"/>
       <class name="recipientsTestScripts.Recipient_ZOY1063_ValidateBookAnAppointment"/>
  
-    <!--   <class name="recipientsTestScripts.Recipients_ZOY1169_ValidateRecipientsAppointmentCancel"/>
+       <class name="recipientsTestScripts.Recipients_ZOY1169_ValidateRecipientsAppointmentCancel"/>
        
-     -->       
+          
       <class name="recipientsTestScripts.Recipients_ZOY1188_ValidateBookingAnInActiveDoctor"/>
       <class name="recipientsTestScripts.Recipient_ZOY1986_PaymentPageNegativeScenario"/>
       <class name="recipientsTestScripts.Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario"/>      

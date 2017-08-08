@@ -42,10 +42,8 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 
 	 @Test(groups = { "Regression","Medium" })
 	 public void validateRecipientAppointmentBookingFromMyFavourites() throws Exception {
-	   			 
-			//Test Starts-Here
+
 			Browser.openUrl(loginPage_Url);
-		    //Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
@@ -54,12 +52,12 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			driver.findElement(By.id("favourites")).click();
 			RecipientPage.goToMyAccount();
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click(); // my account fav
-			//Browser.waitTill(30);
 			String myActFav_DoctorFullName = Browser.getTextByXpath("//h1");
+			//ZOY1072 - Verifying the add fav is added in Favs
 			Assert.assertEquals(Fav_DoctorFullName, myActFav_DoctorFullName);
-			//JiraID - ZOY2384 -Distance should appear in Favorites screen
-			String Distance = Browser.getTextByXpath("//div[@class='dctr-exprnce']/span[2]/i");
-			Assert.assertTrue(Browser.isInteger(Distance));
+			//ZOY2384 -Distance should appear in Favorites screen
+			String Distance = Browser.getTextByXpath("//div[@class='dctr-exprnce']/span[2]");		
+			Assert.assertTrue(Browser.isInteger(Distance.replace(" Km", "")));
 			RecipientPage.bookAppointment();
 			RecipientPage.selectDefaultSlot();
 			RecipientPage.confirmAppointment("Test details");
@@ -67,6 +65,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+myActFav_DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			RecipientPage.openMyAccounts();
+			
 			//Verifying the reset of favourites
 			driver.findElement(By.xpath("//li[@id='myFavourites']/a/span/i")).click();
 			RecipientPage.bookAppointment();

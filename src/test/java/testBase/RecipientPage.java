@@ -232,7 +232,7 @@ public class RecipientPage  {
 	public void searchInZoyloMAP(String keyword) throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
-		Thread.sleep(5000);   // Added to avoid loading icon
+		Thread.sleep(2000);   // Added to avoid loading icon or dont type in search box some times
 		
 		driver.findElement(By.id("search2")).click();
 	    for(int i=0;i<=keyword.length()-1; i++)
@@ -709,8 +709,8 @@ public class RecipientPage  {
 		Thread.sleep(6000); // Added this to apply promo code
 		//driver.findElement(By.xpath("(//input[@name='paymentOption'])[3]")).click();  // To check the 3rd Option of promo code
 		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
-		Browser.scrollbyID("proceedPayment");
-		driver.findElement(By.id("proceedPayment")).click();     //Make payment
+		Browser.scrollbyID("proceed");
+		driver.findElement(By.id("proceed")).click();     //Make payment
 		Thread.sleep(5000);
 		System.out.println("Payment done");
 	}
