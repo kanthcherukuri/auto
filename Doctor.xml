@@ -39,8 +39,7 @@
       <class name="doctorsTestScripts.Schedule_ZOY842_DoctorHospital_UpdateWorkTimings"/>
       <class name="doctorsTestScripts.Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes"/>
       <class name="doctorsTestScripts.Schedule_ZOY844_DoctorHospital_DeleteWorkTimings"/>
-      <class name="doctorsTestScripts.Schedule_ZOY851_Hospital_DecTimeSlotAppointmentAvailable"/>
-      <class name="doctorsTestScripts.Schedule_ZOY851_DoctorHospital_EditTimeSlots_NoBookedApp"/>
+      <class name="doctorsTestScripts.Schedule_ZOY851_DoctorHospital_EditTimeSlots"/>
       <class name="doctorsTestScripts.Schedule_ZOY841_DoctorHospital_AddWorkTimings"/>
       <class name= "doctorsTestScripts.Schedule_ZOY899_DoctorHospital_ActivateDeactivateTimeSlot"/>
       
