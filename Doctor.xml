@@ -31,8 +31,7 @@
       <class name="doctorsTestScripts.Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab"/>
       <class name="doctorsTestScripts.Schedule_ZOY811_Doctor_DeleteCorrectTimings"/>
       <class name="doctorsTestScripts.Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks"/>
-      <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime"/>
-      <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime"/>
+      <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics"/>
       <class name="doctorsTestScripts.Schedule_ZOY824_clinicAddressEdit"/>
       <class name="doctorsTestScripts.Schedule_ZOY827_829_AminitiesServicesUpdate"/>
       <class name="doctorsTestScripts.Schedule_ZOY795_Doctor_EditConsultationDuration"/>
