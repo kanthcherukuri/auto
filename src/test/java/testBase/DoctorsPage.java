@@ -836,6 +836,7 @@ public void checkWorkDeletionConflict()
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
 	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
+	driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 }
 
 /*

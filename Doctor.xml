@@ -33,7 +33,6 @@
       <class name="doctorsTestScripts.Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks"/>
       <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime"/>
       <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime"/>
-      <class name="doctorsTestScripts.Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot"/>
       <class name="doctorsTestScripts.Schedule_ZOY824_clinicAddressEdit"/>
       <class name="doctorsTestScripts.Schedule_ZOY827_829_AminitiesServicesUpdate"/>
       <class name="doctorsTestScripts.Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp"/>
