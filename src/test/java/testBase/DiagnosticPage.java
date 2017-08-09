@@ -1084,7 +1084,7 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackCost, cost);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDiscount, discount);
 			 Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackClickAddTest);
-			 Thread.sleep(1000);
+			 Thread.sleep(3000);
 			 WebElement sc= driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]"));
 			 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			 driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]")).sendKeys(testname);
@@ -1104,7 +1104,7 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickUpPackageSendforApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackSubmit);
-			Thread.sleep(15000);
+			Thread.sleep(20000);
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			Assert.assertEquals(ActualNotification,"Approval is pending");

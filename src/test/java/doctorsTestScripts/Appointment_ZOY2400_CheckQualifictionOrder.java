@@ -2,7 +2,6 @@ package doctorsTestScripts;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -35,7 +34,6 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profilemenu);
 			Browser.waitTill(3000);
-			//((JavascriptExecutor)driver).executeScript("scroll(0,400)");
 			Browser.scrollbyID(Elements_Doctors.doctor_profileEdit);
 			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileEdit);
