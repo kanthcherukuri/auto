@@ -253,7 +253,7 @@ public class DoctorsPage  {
 		 */
 		public void ClickonAlertmenu(){
 			Browser.clickOnTheElementByID("alerts");
-			WebDriverWait wait=new WebDriverWait(driver,100);
+			WebDriverWait wait=new WebDriverWait(driver,90);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
 		
@@ -624,7 +624,7 @@ public class DoctorsPage  {
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromdate, date);
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_todate, enddate);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_fromtime);
-		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "07:00");
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "06:00");
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_totime, "23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
 		Thread.sleep(3000);

@@ -19,7 +19,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1)
 	public void validateDirectionsnegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -64,7 +64,6 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		double AvailableDefaultClinic=Double.parseDouble(defaultclinic);
 		System.out.println("Printing Available Clinic After Split:"+AvailableDefaultClinic);
 		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-		//Browser.clickOnTheElementByID("manage-flip");
 		System.out.println("Clicked on Plus Symbol");
 		Browser.waitFortheElementXpath("//div[@style='display: block;']//h5//a");
 		int size=driver.findElements(By.xpath("//div[@style='display: block;']//h5//a")).size();
@@ -135,9 +134,9 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.get(loginPage_Url);
 	}
 	
-//	@AfterClass()
-//	public void Exit() {
-//		
-//		driver.quit();
-//	} 
+	@AfterClass()
+	public void Exit() {
+		
+		driver.quit();
+	} 
 }
