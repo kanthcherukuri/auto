@@ -35,7 +35,6 @@
       <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_IncreaseTime"/>
       <class name="doctorsTestScripts.Schedule_ZOY824_clinicAddressEdit"/>
       <class name="doctorsTestScripts.Schedule_ZOY827_829_AminitiesServicesUpdate"/>
-      <class name="doctorsTestScripts.Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp"/>
       <class name="doctorsTestScripts.Schedule_ZOY795_Doctor_EditConsultationDuration"/>
       <class name="doctorsTestScripts.Schedule_ZOY2100_AddClinic"/>
       <class name="doctorsTestScripts.Profile_ZOY2416_ProfilePictureFunctionality"/>
