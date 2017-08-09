@@ -23,6 +23,17 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 	public void editConsultationDuration() throws Exception
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		//ZOY1004 check
+		doctorsPage.DoctorAppointmentBookingForToday("Saatwika", "Swathi", "7829292920", "adf@fd.com", "dfsdf");
+		driver.findElement(By.id(Elements_Doctors.schedule)).click();
+		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
+		driver.findElement(By.id("consultation-min")).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.id("consultation-min")).sendKeys(duration);
+		Browser.scrollbyxpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']");
+		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
+		Thread.sleep(2000);
+		Browser.CheckNotificationMessage("Conflict with existing appointments, please cancel the appointments to change consultation duration.");
 		doctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		Browser.clickOnTheElementByID(Elements_Doctors.schedule);

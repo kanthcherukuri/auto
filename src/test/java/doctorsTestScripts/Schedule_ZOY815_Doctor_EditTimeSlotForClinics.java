@@ -11,13 +11,14 @@ import testBase.TestUtils;
 
 //@Author: Sagar Sen
 
-public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends LoadPropMac
+public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics extends LoadPropMac
 {	
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
 	//Global variables
-	public String updtendTime="16:00";
+	public String timeDecrease="16:00";
+	public String timeIncrease="18:00";
 	@DataProvider(name="addAptdetail")
 	  public Object[][] adAptInfo() throws Exception
 	  {
@@ -45,10 +46,16 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(timeDecrease);
 		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
-		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
+		Thread.sleep(2000);
+		//ZOY815 Increase time check
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(timeIncrease);
+		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
@@ -56,11 +63,6 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime extends 
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(updtendTime);
-		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		Thread.sleep(2000);
   }
   

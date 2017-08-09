@@ -599,6 +599,29 @@ public class DoctorsPage  {
 		}
 		
 		/*
+		 * Author: Sagar Sen
+		 * Description: This method will Create Work Timings for doctor in Hospiatl Tab on sunday
+		 * Param:
+		 * Return:
+		 */
+		public void DoctorsHospitalAddWorkTimingsSunday(String starttime, String endtime) throws Exception{
+				
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+			Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
+			driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
+			Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, starttime);
+			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
+			 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
+			 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, endtime);
+			 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			 Thread.sleep(2000);
+			
+		}
+		
+		/*
 		 * Author: Ch.Lakshmi kanth
 		 * @ Description: This method to Cancel All Existing Appointments at Once
 		 * @ Params:
