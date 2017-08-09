@@ -29,7 +29,6 @@
       <class name="doctorsTestScripts.Schedule_ZOY798_Doctor_SetVacation"/>
       <class name="doctorsTestScripts.Schedule_ZOY802_Doctor_AddBreakTime"/>
       <class name="doctorsTestScripts.Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab"/>
-      <class name="doctorsTestScripts.Schedule_ZOY809_Doctor_BreakTimeDoesntOverlappWithWorkTime"/>
       <class name="doctorsTestScripts.Schedule_ZOY811_Doctor_DeleteCorrectTimings"/>
       <class name="doctorsTestScripts.Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks"/>
       <class name="doctorsTestScripts.Schedule_ZOY815_Doctor_EditTimeSlotForClinics_DecreaseTime"/>
