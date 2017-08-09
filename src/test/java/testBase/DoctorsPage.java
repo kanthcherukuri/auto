@@ -539,7 +539,7 @@ public class DoctorsPage  {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(Elements_Doctors.clinicTimeSlotMinusBtn)).click();
 			Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
-			Thread.sleep(6000);
+			Thread.sleep(2000);
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
@@ -836,6 +836,7 @@ public void checkWorkDeletionConflict()
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
 	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
+	driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 }
 
 /*

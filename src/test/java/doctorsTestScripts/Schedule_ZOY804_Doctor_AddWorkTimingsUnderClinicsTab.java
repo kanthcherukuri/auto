@@ -15,6 +15,8 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab extends LoadPr
 {
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
+	public String updateStrtTime="11:00";
+	public String updateEndTime="16:00";
 	
 	@Test()
       public void testAddWorkTimingsUnderClinicsTab() throws Exception
@@ -24,10 +26,12 @@ public class Schedule_ZOY804_Doctor_AddWorkTimingsUnderClinicsTab extends LoadPr
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		//Thread.sleep(6000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.addClinicWorkTimings("10:00", "12:00");
-		Thread.sleep(6000);
+		driver.navigate().refresh();
+		doctorsPage.updateClinicWorkTimings(updateStrtTime, updateEndTime); //ZOY-807 script merged
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass

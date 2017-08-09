@@ -23,15 +23,27 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 		doctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
 		doctorsPage.checkAddBreakTimes("13:00", "13:00");
 		Browser.CheckNotificationMessage("End Time should be after Start Time");
 		doctorsPage.checkremoveBreakTimes();
+		driver.navigate().refresh();
+		//ZOY809 check
+		Browser.clickOnTheElementByID(Elements_Doctors.schedule);
+		Thread.sleep(2000);
+		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
+		doctorsPage.addClinicWorkTimings("10:00", "17:00");
+		driver.navigate().refresh();
+		Browser.waitFortheElementXpath("//strong[contains(., 'SET BREAK TIME')]");
 		doctorsPage.checkAddBreakTimes("13:00", "14:00");
-		Browser.CheckNotificationMessage("Schedule updated successfully");
+		Browser.CheckNotificationMessage("Lunch Slots overlap with working slots");
 		doctorsPage.checkremoveBreakTimes();
-		Thread.sleep(5000);
+		driver.navigate().refresh();
+		Browser.waitFortheElementXpath(Elements_Doctors.clinicTab);
+		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
+		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
+		Thread.sleep(2000);
 	}
 	
 	@BeforeClass
@@ -46,6 +58,7 @@ public class Schedule_ZOY802_Doctor_AddBreakTime extends LoadPropMac
 	@AfterClass
 	public void closeapp() throws Exception
 	{
+		doctorsPage.removeClinicWorkTimings();
 		driver.quit();
 	}
 

@@ -31,11 +31,9 @@ public class Appointment_ZOY2400_CheckQualifictionOrder extends LoadPropMac{
 		public void checkqualificationorder() throws Exception {
 			
 			DoctorsPage.ClickingOnEllipse();
-			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profilemenu);
-			Browser.waitTill(3000);
+			Thread.sleep(5000);
 			Browser.scrollbyID(Elements_Doctors.doctor_profileEdit);
-			Thread.sleep(1000);
 			Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileEdit);
 			Browser.waitFortheID("doctorQualification");
 			driver.findElement(By.xpath(Elements_Doctors.doctor_ProfileRemoveQualificationFCLI)).click();

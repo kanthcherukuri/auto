@@ -34,20 +34,16 @@ public class Recipient_ZOY2408_validateDCdetailsOnProfilePage extends LoadPropMa
 		driver.findElement(By.id(Elements_Diagnostics.dc_ProfileAboutTxt)).sendKeys(aboutData);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.aboutsave);
 		Browser.CheckNotificationMessage("Your profile updated successfully");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		String profileRegNum=Browser.getTextByXpath(Elements_Diagnostics.dc_ProfileRegNum);
 		String profileLanguage=Browser.getTextByID(Elements_Diagnostics.dc_ProfileLanguage);
 		String profileEstablishedValue=Browser.getTextByXpath(Elements_Diagnostics.dc_ProfileEstablishedVaue);
-		//DC Awards
-		Browser.clickOnTheElementByXpath(Elements_Diagnostics.dc_ProfileAwardsTab);
-		Browser.waitFortheID(Elements_Diagnostics.dc_ProfileAwardsDiv);
-		String profileAward=Browser.getTextByXpath(Elements_Diagnostics.dc_ProfileAwardsContent);
 		//DC Payment accepted
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.dc_ProfilePaymentTab);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.dc_ProfilePaymentCash);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.dc_ProfilePaymentSave);
 		Browser.CheckNotificationMessage("Payment information updated successfully");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
 		DiagnosticPage.diagnosticslogout(); //logout
 		
 		//Recipient assert
@@ -67,9 +63,6 @@ public class Recipient_ZOY2408_validateDCdetailsOnProfilePage extends LoadPropMa
 		Assert.assertEquals(dcLanguage, profileLanguage);
 		String dcPaymentOption=Browser.getTextByXpath(Elements_Recipients.recipient_DCPayment);
 		Assert.assertEquals(dcPaymentOption, "Cash");
-		Browser.clickOnTheElementByXpath(Elements_Recipients.recipient_DCAwardsTab);
-		String awardContent=Browser.getTextByXpath(Elements_Recipients.recipient_DCAwardsContent);
-		Assert.assertEquals(awardContent, profileAward);
 		
 		//DC reset value
 		driver.get(loginPage_Url);
