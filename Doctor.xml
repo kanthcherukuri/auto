@@ -39,7 +39,6 @@
       <class name="doctorsTestScripts.Schedule_ZOY827_829_AminitiesServicesUpdate"/>
       <class name="doctorsTestScripts.Schedule_ZOY1004_Doctor_ConsultDurationCannotupdateWithExistingApp"/>
       <class name="doctorsTestScripts.Schedule_ZOY795_Doctor_EditConsultationDuration"/>
-      <class name="doctorsTestScripts.Schedule_ZOY797_Doctor_EditFollowUpDays"/>
       <class name="doctorsTestScripts.Schedule_ZOY2100_AddClinic"/>
       <class name="doctorsTestScripts.Profile_ZOY2416_ProfilePictureFunctionality"/>
       <class name="doctorsTestScripts.Schedule_ZOY842_DoctorHospital_UpdateWorkTimings"/>

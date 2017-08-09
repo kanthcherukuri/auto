@@ -24,19 +24,22 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 	{
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 		doctorsPage.BulkCancel();
-		Thread.sleep(5000);
-		driver.findElement(By.id(Elements_Doctors.schedule)).click();
-		Browser.waitFortheElementXpath("(//div[@class='day-title'])[1]");
-		Thread.sleep(6000);
+		Browser.CheckNotificationMessage("Appointments cancelled successfully");
+		Browser.clickOnTheElementByID(Elements_Doctors.schedule);
+		Browser.waitFortheID("consultation-min");
+		Thread.sleep(1000);
 		driver.findElement(By.id("consultation-min")).clear();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		driver.findElement(By.id("consultation-min")).sendKeys(duration);
-		//driver.findElement(By.xpath("sp-doc-conc-duration-label")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("followup-days")).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.id("followup-days")).sendKeys(duration);
 		Browser.scrollbyxpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']");
 		driver.findElement(By.xpath("//div[@class='sp-doc-clinic-schd-save-btn menu_links']")).click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		Browser.CheckNotificationMessage("Schedule updated successfully");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
   
 	@BeforeClass
