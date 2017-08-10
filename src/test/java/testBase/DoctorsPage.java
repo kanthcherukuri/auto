@@ -213,7 +213,7 @@ public class DoctorsPage  {
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
-		WebDriverWait wait = new WebDriverWait(driver, 8000);
+		WebDriverWait wait = new WebDriverWait(driver, 90);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
 		Browser.enterTextByID(Elements_Doctors.patient_searchbox, email);
 		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);

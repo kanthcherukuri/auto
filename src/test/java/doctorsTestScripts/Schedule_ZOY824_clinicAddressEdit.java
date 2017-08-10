@@ -1,12 +1,7 @@
 package doctorsTestScripts;
 
-import org.apache.commons.lang3.text.WordUtils;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import objectRepository.Elements_Doctors;
-import objectRepository.Elements_Recipients;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import testBase.DoctorsPage;
