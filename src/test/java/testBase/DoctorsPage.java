@@ -22,6 +22,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 
 
@@ -88,6 +89,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id(Elements_Doctors.password)).sendKeys(password);	
 		driver.findElement(By.xpath(Elements_Doctors.loginbutton)).click();			
 		Browser.waitFortheID(Elements_Doctors.schedule);
+		Reporter.log("Doctor Signed in as "+username);
 	}
 	
 	/*
@@ -114,6 +116,7 @@ public class DoctorsPage  {
 		driver.findElement(By.id("logout")).click();
 		Thread.sleep(5000);
 		System.out.println("Doctor Logged Out");
+		Reporter.log("Doctor Logged Out");
 	}
 
 	// Click on recent Patient from dashboard
@@ -145,7 +148,7 @@ public class DoctorsPage  {
 					DateFormat ModTime = new SimpleDateFormat("h:mm a");
 					String PslotTime=ModTime.format(ModTime.parse(slotTime)).toLowerCase();
 		            System.out.println("Slot Time after modification"+PslotTime);
-		            
+		        	
 		    
 					if(driver.findElements(By.id("show-all-btn")).size()==0){
 						System.out.println("is empty");
@@ -155,12 +158,14 @@ public class DoctorsPage  {
 					else {
 						System.out.println("show all btn exisit");
 						driver.findElement(By.id("show-all-btn")).click();
+						Reporter.log("Clicked on Show all Button");
 						Thread.sleep(2000);
 						JavascriptExecutor jse = (JavascriptExecutor)driver;
 						jse.executeScript("scroll(0, 250)"); // if the element is on bottom.
 						Thread.sleep(2000);
 						driver.findElement(By.xpath("//div[@class='timing' and contains(.,'"+PslotTime+"')]/following-sibling::div[1]")).click();  // Recent Appointment
 						Browser.waitTill(60);
+						Reporter.log("Clicked Patient at Slot Time="+slotTime);
 
 					}
 
@@ -178,10 +183,13 @@ public class DoctorsPage  {
 			Browser.clickOnTheElementByID("saveNotes");
 			Thread.sleep(10000);
 			Browser.clickOnTheElementByID("generateReceipt");
+			Reporter.log("Clicked on generateReceipt");
 			Browser.CheckNotificationMessage("Bill generated successfully");
 			Browser.clickOnTheElementByID("checkOut");
+			Reporter.log("Clicked on checkOut");
 			Browser.CheckNotificationMessage("Appointment checked out successfully");
-			//Browser.verifyNotificationMessage("Appointment checked out successfully");
+
+
 		}
 	
 	

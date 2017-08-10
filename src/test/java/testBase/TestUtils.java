@@ -109,6 +109,7 @@ public class TestUtils {
 		WebElement scroll = driver.findElement(By.id(ID));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
 		Thread.sleep(500);
+		Reporter.log("scrolled to "+ID);
 	}
 
 	//Scroll by xpath
@@ -117,6 +118,7 @@ public class TestUtils {
 		WebElement scroll = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
 		Thread.sleep(500);
+		Reporter.log("scrolled to "+xpath);
 	}
 
 	//Scroll by name
@@ -125,6 +127,7 @@ public class TestUtils {
 		WebElement scrollname = driver
 				.findElement(By.name(name));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollname);
+		Reporter.log("scrolled to "+name);
 	}
 
 	//horizontal scroll
@@ -132,6 +135,7 @@ public class TestUtils {
 	{
 		JavascriptExecutor jse = (JavascriptExecutor) driver;     
 		jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
+		Reporter.log("scrolled Horizontally");
 	}
 	
 	// scroll UP
@@ -139,6 +143,7 @@ public class TestUtils {
 		{
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
 			jse.executeScript("window.scrollBy(0,-250)", "");
+			Reporter.log("scrolled UP");
 		}
 		
 		// scroll Down
@@ -147,6 +152,7 @@ public class TestUtils {
 					
 					JavascriptExecutor jse = (JavascriptExecutor)driver;
 					jse.executeScript("window.scrollBy(0,250)", "");
+					Reporter.log("scrolled Down");
 				}
 
 	//screen-shot
@@ -418,7 +424,7 @@ public class TestUtils {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='zy-status-wrapper']")));
 		String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
 		System.out.println("ActualNotificationMessage="+ActualNotification);
-		Reporter.log("Notification="+ActualNotification);
+		Reporter.log("Verified Notification="+ActualNotification);
 		Assert.assertEquals(ActualNotification,ExpectedNotificationMesg);
 		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 

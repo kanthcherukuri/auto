@@ -60,7 +60,7 @@ public class RecipientPage  {
 		driver.findElement(By.id(Elements_Doctors.enrollment_terms_cond)).click();
 		driver.findElement(By.xpath(Elements_Doctors.enrollment_submit)).click();
 
-
+		Reporter.log("doctorsEnrollment Completed");
 	}
 
 	/*
@@ -90,6 +90,8 @@ public class RecipientPage  {
 		Thread.sleep(1000);
 		Browser.enterTextByID(Elements_Recipients.Recipient_Password, password);
 		Thread.sleep(300);
+		Reporter.log("SignUpDetails Entered");
+		
 	}
 	
 	/*
@@ -139,6 +141,7 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		driver.findElement(By.id("logout")).click();
 		Thread.sleep(2000);	
+		Reporter.log("Logged Out");
 
 	}
 	
@@ -244,7 +247,7 @@ public class RecipientPage  {
 	    Thread.sleep(500);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(2000);
-
+		Reporter.log("Zoylo Map Doctor Search as"+keyword);
 	}
 	
 	/*  
@@ -271,6 +274,7 @@ public class RecipientPage  {
 	    Thread.sleep(500);
 		driver.findElement(By.cssSelector("div.a-s-w > span")).click();
 		Thread.sleep(2000);
+		Reporter.log("Zoylo Map Diagnostics Search as"+keyword);
 	}
 	
 	/*   
@@ -294,7 +298,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//li[@id='locationName']")).click();
 		Thread.sleep(5000);
 		System.out.println("Searched with location"+Area);
-
+		Reporter.log("Zoylo Map LOcation set as"+Area);
 	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
@@ -318,6 +322,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("(//div[@class='a-s-w']/span)[3]")).click();
 		System.out.println("Cliked on span");
 		Thread.sleep(5000);	
+		Reporter.log("Zoylo Map = Detail Search as"+keyword);
 
 	}
 	/*   
@@ -333,6 +338,7 @@ public class RecipientPage  {
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Book Button");
+		Reporter.log("Cliked on Doctor Appointment Book Button");
 	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
@@ -345,6 +351,7 @@ public class RecipientPage  {
 		Browser.clickOnTheElementByXpath("//*[@id='diagnosticDetails']");
 		Browser.waitTill(60);
 		System.out.println("Cliked on Book Button");
+		Reporter.log("Cliked on Doctor Appointment Book Button");
 	}
 
 	public boolean isElementPresent(By by) {
@@ -380,6 +387,8 @@ public class RecipientPage  {
 			System.out.println("Cliked on Default Slot Button");
 
 		}
+		Reporter.log("Appointment Clinic="+Appointmentdetails[0]);
+		Reporter.log("Selected Slot at"+Appointmentdetails[1]);
 		return Appointmentdetails;
 	}
 	
@@ -401,12 +410,15 @@ public class RecipientPage  {
 			System.out.println("Default Slot Tab");
 			Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
 			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).getText();
-	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+	        
+			System.out.println("Clinic Name:"+Appointmentdetails[0]);
 	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
-		
-				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).click();  // book
-				Thread.sleep(2000);
-				System.out.println("Cliked on Default Slot Button");
+	        Reporter.log("Appointment Clinic="+Appointmentdetails[0]);
+			Reporter.log("Selected Slot at"+Appointmentdetails[1]);
+			
+			driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+			System.out.println("Cliked on Default Slot Button");
 
 		}else{
 			System.out.println("Cliked on Next Slot Tab");
@@ -414,15 +426,18 @@ public class RecipientPage  {
 			Thread.sleep(2000);
 			Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
 			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).getText();
-	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
+	        
+			System.out.println("Clinic Name:"+Appointmentdetails[0]);
 	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
-		
-				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).click();  // book
-				Thread.sleep(2000);
+	        Reporter.log("Appointment Clinic="+Appointmentdetails[0]);
+			Reporter.log("Selected Slot at"+Appointmentdetails[1]);
 			
-		
-		
+			driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+
 		}
+		
+		
 
 		return Appointmentdetails;
 	}
@@ -441,7 +456,8 @@ public class RecipientPage  {
 		}
 		else
 		{
-			driver.findElement(By.id("session4")).click();
+			//driver.findElement(By.id("session4")).click();    // New change in UI
+			Browser.clickOnTheElementByXpath("//a[contains(@href, 'NightSlots')]");
 		}
 		
 		Thread.sleep(2000);
@@ -455,6 +471,8 @@ public class RecipientPage  {
 			Thread.sleep(2000);
 			
 		}
+		
+		Reporter.log("Selected Home Slot");
 		return slotTime;
 	}
 	
@@ -471,6 +489,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("termsAndConditions")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("proceed")).click();
+		Reporter.log("Clicked on Proceed");
 	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
@@ -524,7 +543,8 @@ public class RecipientPage  {
 			System.out.println("Cliked on Available Slot Button from diagonostics");
 			
 		}
-
+		
+		
 	}
 	
 	/*   
@@ -557,13 +577,15 @@ public class RecipientPage  {
 			driver.findElement(By.id("tests_search")).sendKeys(tests);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
-
+			  Reporter.log("Diagnostic Test selected as "+tests);
+			
 			//pkg
 			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();
 			driver.findElement(By.id("packages_search")).sendKeys(pkg);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
 			Thread.sleep(5000);
+			Reporter.log("Diagnostic Package selected as "+pkg);
 
 		}
 		
@@ -572,7 +594,7 @@ public class RecipientPage  {
 		Thread.sleep(5000);
 		Browser.waitFortheElementXpath("(//div[@class='panel-collapse collapse in']/ul/li)[1]");
 		String SlotStatus=driver.findElement(By.xpath("//div[@class='panel-collapse collapse in']/ul/li[last()]")).getAttribute("class");
-		
+		Reporter.log("Clicked on Schedule Tab ");
 		
 		
 		if(SlotStatus.equals("timeSlot sp-available-slots")){
@@ -581,25 +603,28 @@ public class RecipientPage  {
 			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).getText();
 	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
 	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
-		
-				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
-				Thread.sleep(2000);
-				System.out.println("Cliked on Default Slot Button");
+	        Reporter.log("Appointment Clinic="+Appointmentdetails[0]);
+			Reporter.log("Selected Slot at"+Appointmentdetails[1]);
+			
+			driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+			System.out.println("Cliked on Default Slot Button");
 
 		}else{
 			System.out.println("Cliked on Next Slot Tab");
 			driver.findElement(By.xpath("//div[@class='panel-collapse collapse in']/parent::*/following-sibling::div[@class='panel panel-default'][1]/div[1]//a")).click();
 			Thread.sleep(2000);
+
 			Appointmentdetails[0] = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']/span")).getText();
 			Appointmentdetails[1] = driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).getText();
 	        System.out.println("Clinic Name:"+Appointmentdetails[0]);
 	        System.out.println("Appointment Time:"+Appointmentdetails[1]);
-		
-				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
-				Thread.sleep(2000);
+	        Reporter.log("Appointment Clinic="+Appointmentdetails[0]);
+			Reporter.log("Selected Slot at"+Appointmentdetails[1]);
 			
-		
-		
+			driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
+			Thread.sleep(2000);
+
 		}
 		
 		return Appointmentdetails;
@@ -630,6 +655,7 @@ public class RecipientPage  {
 			driver.findElement(By.xpath("(//div[@id='diag-rec-h-timings']//div[@class='sp-slots-booking']//li[@class='timeSlot sp-available-slots'])[1]")).click();  // book
 			Thread.sleep(2000);
 			System.out.println("Cliked on Available Slot Button from diagonostics");
+			Reporter.log("Cliked on Home visit Slot  from diagonostics");
 		}
 	}
 	
@@ -647,6 +673,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//div[@id='bookAppointment']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //Add Due to clickable Issue
 		System.out.println("Appointment Confirmed");
+		Reporter.log("Clicked on Appointment Confirmed");
 	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
@@ -661,6 +688,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//*[@id='bookAndPay']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
+		Reporter.log("Clicked on Appointment Confirmed");
 	}
 	/*   
 	 *  @Author      : Ganesh kumar.M
@@ -683,6 +711,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("bookAppointment")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
 		System.out.println("Appointment Confirmed");
+		Reporter.log("Appointment Confirmed as Other Name="+Pname);
 	}
 	public void makePayment_old() throws InterruptedException{
 
@@ -713,6 +742,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("proceed")).click();     //Make payment
 		Thread.sleep(5000);
 		System.out.println("Payment done");
+		Reporter.log("Clicked on Payment Done");
 	}
 	
 	//New Promo Page
@@ -725,14 +755,20 @@ public class RecipientPage  {
 			Browser.waitFortheElementXpath("(//div[@class='zy-diagno-zy-apt-chng']//div[@class='zyBookApmptId' and contains(.,'"+APID+"')])");	
 			//driver.findElement(By.xpath("//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
 		if(Action.equals("Reschedule")){
-			System.out.println("Reshedule Action Is Executed");
+			
 			driver.findElement(By.xpath("(//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col' and contains(.,'Reschedule Appointment')])")).click();
+			System.out.println("Reshedule Action Is Executed");
+			Reporter.log("Clicked On Reshedule For Appointment="+APID);
+			
 		}else if (Action.equals("Cancel")){
-			System.out.println("Cancelled Action Is Executed");
+
 			driver.findElement(By.xpath("(//div[@class='menu_links appt-cancel apt-doc-col'])[1]")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
 			Thread.sleep(2000);
+			System.out.println("Cancelled Action Is Executed");
+			Reporter.log("Clicked On Cancel For Appointment="+APID);
+			
 		}
 			
 			
@@ -753,12 +789,14 @@ public class RecipientPage  {
 					
 					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[1]")).click();
 					System.out.println("Reshedule Action Is Executed");
+					Reporter.log("Clicked On Reshedule For Appointment="+APID);
 				}else if (Action.equals("Cancel")){
 					
 					driver.findElement(By.xpath("//div[@class='patientApmtStatus' and contains(.,'Scheduled')]/following-sibling::div[1]/div[2]")).click();
 					Thread.sleep(2000);
 					driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
 					System.out.println("Cancelled Action Is Executed");
+					Reporter.log("Clicked On Cancel For Appointment="+APID);
 				}
 					
 					
@@ -783,6 +821,7 @@ public class RecipientPage  {
 		//Browser.waitTill(60);
 		Thread.sleep(15000);
 		System.out.println("Payment done");
+		Reporter.log("Clicked payment Done");
 	}
 	
 	/*   
@@ -804,6 +843,7 @@ public class RecipientPage  {
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on My Account Icon");
+		Reporter.log("Cliked on My Account Icon");
 	}
 
 	public void goToDoctors() throws InterruptedException{
@@ -812,6 +852,7 @@ public class RecipientPage  {
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Doctors Icon");
+		Reporter.log("Cliked on Doctors Icon");
 	}
 
 	public void goToDiagnostics() throws InterruptedException{
@@ -820,6 +861,8 @@ public class RecipientPage  {
 		//Browser.waitTill(60);
 		Thread.sleep(3000);
 		System.out.println("Cliked on Diagnostics Icon");
+		Reporter.log("Cliked on Diagnostics Icon");
+		
 	}
 
 
@@ -833,6 +876,7 @@ public class RecipientPage  {
 		Thread.sleep(2000);
 		System.out.println("Clicked On Appointments");	
 		Thread.sleep(5000);// Added for view
+		Reporter.log("Cliked on Accounts Icon->myAppointment");
 		
 	}
 	public void ApplyFilter(String FilterCatagory,String name , String Value,String Search) throws InterruptedException{
@@ -859,6 +903,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	
 		System.out.println("Applied filter on"+FilterCatagory+" "+Value);
+		Reporter.log("Applied filter in Doctors with "+FilterCatagory+" "+Value);
 	}
 
 
@@ -886,6 +931,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("applyFilter")).click();
 		Thread.sleep(5000);	
 		System.out.println("Applied filter on"+FilterCatagory+" "+Value);
+		Reporter.log("Applied filter in Doctors with "+FilterCatagory+" "+Value);
 	}
 
 	public void ClearFilters() throws InterruptedException{
@@ -893,6 +939,7 @@ public class RecipientPage  {
 		driver.findElement(By.id("clearFilter")).click();
 		Thread.sleep(5000);	
 		System.out.println("Cliked on Clear filter Button");
+		Reporter.log("Cliked on Clear filter Button");
 	}
 
 	public void clickOnFilterImg() throws InterruptedException{
@@ -900,6 +947,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//span[@class='zy-filtersimg']/img")).click();
 		Thread.sleep(5000);	
 		System.out.println("Cliked on filter img");
+		Reporter.log("Clicked on Filter img in Zoylo map");
 	}
 
 	public void clickOnMapICon() throws InterruptedException{
@@ -907,12 +955,15 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//div[@id='mapIconMenu']/span/img")).click();
 		Thread.sleep(5000);
 		System.out.println("Cliked on Map Listing / Icon");
+		Reporter.log("Cliked on Map Listing / Icon");
 	}
 
 	public void openMyAccounts() throws InterruptedException{
 		driver.get(LoadPropMac.base_url+"myaccount");
 		Thread.sleep(5000);
-		System.out.println("Cliked on Map Listing / Icon");
+		System.out.println("Opened my Accounts Page");
+		Reporter.log("Opened my Accounts Page");
+		
 	}
 	
 	public String getNotificationMesssage() throws InterruptedException{
@@ -930,6 +981,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);
 		System.out.println("Cliked on Tab Name"+TabName);
+		Reporter.log("Opened my Accounts Page and clicked on tab="+TabName);
 	}
 
 	public void goToMyAccounts(String TabName) throws InterruptedException{
@@ -939,6 +991,7 @@ public class RecipientPage  {
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);
 		System.out.println("Cliked on Tab Name"+TabName);
+		Reporter.log("Clicked on Accounts Icon and clicked on tab="+TabName);
 	}
 
 
