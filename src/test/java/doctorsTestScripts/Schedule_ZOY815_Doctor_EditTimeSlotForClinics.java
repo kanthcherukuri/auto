@@ -1,5 +1,4 @@
 package doctorsTestScripts;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -12,11 +11,14 @@ import testBase.TestUtils;
 
 //@Author: Sagar Sen
 
-public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropMac
-{
+public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics extends LoadPropMac
+{	
 	public TestUtils Browser;
 	public DoctorsPage doctorsPage;
 	
+	//Global variables
+	public String timeDecrease="16:00";
+	public String timeIncrease="18:00";
 	@DataProvider(name="addAptdetail")
 	  public Object[][] adAptInfo() throws Exception
 	  {
@@ -25,7 +27,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 	  }
 	
 	@Test(dataProvider="addAptdetail")
-  public void testActivateDeactivateTimeSlot(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
+  public void testEditTimeSlotForClinicsDecreaseTime(String firstName, String lastName, String Mobile, String mail, String prob) throws Exception
   {
 		doctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
 	  	doctorsPage.BulkCancel();
@@ -42,9 +44,18 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		activateDeactivate();
-		Browser.CheckNotificationMessage("Conflict with existing appointments. To deactivate the clinic, please cancel the scheduled appointments");
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(timeDecrease);
+		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+		Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
+		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 		Thread.sleep(2000);
+		//ZOY815 Increase time check
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).clear();
+		driver.findElement(By.xpath(Elements_Doctors.WendTime)).sendKeys(timeIncrease);
+		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
+		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
@@ -52,19 +63,9 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		driver.findElement(By.xpath(Elements_Doctors.clinicTab)).click();
 		Browser.waitFortheID(Elements_Doctors.clinicName);
 		driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
-		activateDeactivate();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
-		Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
 		Thread.sleep(2000);
   }
   
-  public void activateDeactivate() throws Exception
-  {
-	  	Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
-  }
-	  
   @BeforeClass
 	public void launchapp() throws Exception
 	{
@@ -74,7 +75,7 @@ public class Schedule_ZOY821_Doctor_ActivateDeactivateTimeSlot extends LoadPropM
 		driver.get(loginPage_Url);
 	}
 	
-  @AfterClass
+	@AfterClass
 	public void closeapp() throws Exception
 	{
 		doctorsPage.removeClinicWorkTimings();

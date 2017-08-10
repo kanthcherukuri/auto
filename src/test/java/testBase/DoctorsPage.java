@@ -221,7 +221,7 @@ public class DoctorsPage  {
 		public void CheckPatientScreenForReschedule(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Doctors.patient_id);
-		WebDriverWait wait = new WebDriverWait(driver, 8000);
+		WebDriverWait wait = new WebDriverWait(driver, 90);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("searchPatientsList")));
 		Browser.enterTextByID(Elements_Doctors.patient_searchbox, email);
 		driver.findElement(By.id(Elements_Doctors.patient_searchbox)).sendKeys(Keys.ENTER);
@@ -261,7 +261,7 @@ public class DoctorsPage  {
 		 */
 		public void ClickonAlertmenu(){
 			Browser.clickOnTheElementByID("alerts");
-			WebDriverWait wait=new WebDriverWait(driver,100);
+			WebDriverWait wait=new WebDriverWait(driver,90);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='provider-alerts-cardholder']")));
 		}
 		
@@ -547,7 +547,7 @@ public class DoctorsPage  {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(Elements_Doctors.clinicTimeSlotMinusBtn)).click();
 			Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
-			Thread.sleep(6000);
+			Thread.sleep(2000);
 			//driver.findElement(By.id("1")).click();
 			driver.findElement(By.xpath(Elements_Doctors.clinicSubmitTimeSlots)).click(); //Save
 			Browser.CheckNotificationMessage("Clinic Time Slot Updated Successfully");
@@ -607,6 +607,29 @@ public class DoctorsPage  {
 		}
 		
 		/*
+		 * Author: Sagar Sen
+		 * Description: This method will Create Work Timings for doctor in Hospiatl Tab on sunday
+		 * Param:
+		 * Return:
+		 */
+		public void DoctorsHospitalAddWorkTimingsSunday(String starttime, String endtime) throws Exception{
+				
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
+			Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickAddWorkTimingsButton);
+			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnToggle);
+			driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_Starttime)).clear();
+			Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_Starttime, starttime);
+			Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_EndTime);
+			 driver.findElement(By.xpath(Elements_Doctors.Schedule_Hospital_EndTime)).clear();
+			 Browser.enterTextByXpath(Elements_Doctors.Schedule_Hospital_EndTime, endtime);
+			 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
+			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			 Thread.sleep(2000);
+			
+		}
+		
+		/*
 		 * Author: Ch.Lakshmi kanth
 		 * @ Description: This method to Cancel All Existing Appointments at Once
 		 * @ Params:
@@ -632,7 +655,7 @@ public class DoctorsPage  {
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromdate, date);
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_todate, enddate);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.bulkcancel_fromtime);
-		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "07:00");
+		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_fromtime, "06:00");
 		Browser.enterTextByXpath(Elements_Doctors.bulkcancel_totime, "23:00");
 		Browser.clickOnTheElementByID(Elements_Doctors.bulkcancel_submit);
 		Thread.sleep(3000);
@@ -844,6 +867,7 @@ public void checkWorkDeletionConflict()
 	driver.findElement(By.id(Elements_Doctors.sundayTab)).click();
 	driver.findElement(By.xpath("//i[@class='fa fa-minus-circle clinc_rem_slot']")).click();
 	Browser.waitforTextbyxpath("//div[@class='zy-status-wrapper']", "Conflict");
+	driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 }
 
 /*

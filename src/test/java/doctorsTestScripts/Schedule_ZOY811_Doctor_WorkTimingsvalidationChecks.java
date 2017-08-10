@@ -38,7 +38,12 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 		doctorsPage.DoctorAppointmentBookingForSunday(firstName, lastName, Mobile, mail, prob);
 		Thread.sleep(2000);
 		doctorsPage.checkWorkDeletionConflict(); //check delete conflicts
-		Thread.sleep(6000);
+		Thread.sleep(2000);
+		//ZOY821 check
+		driver.findElement(By.xpath(Elements_Doctors.sundayToggle)).click();
+		Browser.CheckNotificationMessage("Conflict with existing appointments. To deactivate the clinic, please cancel the scheduled appointments");
+		System.out.println("Conflict validation checked for both time slot deletion and slot inactivate");
+		Thread.sleep(1000);
 		doctorsPage.cancelSundayAppt(); //cancel sunday appointment
 		Thread.sleep(1000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();

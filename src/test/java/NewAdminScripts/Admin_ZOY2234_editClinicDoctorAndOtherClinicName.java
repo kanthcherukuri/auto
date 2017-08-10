@@ -16,7 +16,7 @@ import testBase.TestUtils;
 
 //@Authour: Sagar Sen
 
-public class Admin_ZOY2234_ZOY_2453_editClinicDoctorAndOtherClinicName extends LoadPropMac
+public class Admin_ZOY2234_editClinicDoctorAndOtherClinicName extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
