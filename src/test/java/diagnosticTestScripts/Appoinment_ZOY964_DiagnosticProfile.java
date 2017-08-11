@@ -26,7 +26,6 @@ public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 		@Test()
 		public void DiagnosticProfile() throws Exception{
 		DiagnosticPageZoylo.ClickingOnEllipse();
-		Thread.sleep(1000);
 		DiagnosticPageZoylo.EditProfilepage("NTR", "9900006666", "PadmaSri", "1990");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticslogout();

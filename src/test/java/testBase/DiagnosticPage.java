@@ -90,7 +90,7 @@ public class DiagnosticPage {
 	
 	public void ClickingOnEllipse() throws Exception{
 		driver.findElement(By.xpath(Elements_Diagnostics.ellipse)).click();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 	   }
 	
 		
@@ -673,22 +673,17 @@ public class DiagnosticPage {
 	public void EditProfilepage(String shortname,String mobile,String award,String year) throws InterruptedException{
 		driver.findElement(By.id(Elements_Diagnostics.clickonmyaccountmenu)).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Diagnostics.abouteditbutton)).click();
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.abouteditbutton);
 		driver.findElement(By.id(Elements_Diagnostics.shortname)).clear();
-		driver.findElement(By.id(Elements_Diagnostics.shortname)).sendKeys(shortname);
-		Thread.sleep(1000);
+		Browser.enterTextByID(Elements_Diagnostics.shortname, shortname);
 		driver.findElement(By.id(Elements_Diagnostics.profilemobile)).clear();
-		driver.findElement(By.id(Elements_Diagnostics.profilemobile)).sendKeys(mobile);
-		Thread.sleep(1000);
+		Browser.enterTextByID(Elements_Diagnostics.profilemobile, mobile);
 		WebElement element=driver.findElement(By.id(Elements_Diagnostics.language))	; 
 		Select se= new Select(element);
 		se.selectByValue("GUJARATHI");
-		driver.findElement(By.id(Elements_Diagnostics.aboutsave)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Diagnostics.profileaddressmenu)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.addresseditbutton)).click();		
-		Thread.sleep(1000);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.aboutsave);
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.profileaddressmenu);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.addresseditbutton);
 		WebElement element1=driver.findElement(By.id(Elements_Diagnostics.addresscountry))	; 
 		Select se1= new Select(element1);
 		se1.selectByValue("IN");
@@ -700,23 +695,9 @@ public class DiagnosticPage {
 		WebElement element3=driver.findElement(By.id(Elements_Diagnostics.addresscity))	; 
 		Select se3= new Select(element3);
 		se3.selectByValue("8vAzEjB3DaHdamRsQ");
+		Browser.clickOnTheElementByID(Elements_Diagnostics.addresssave);
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonawardsmenu);
 		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.addresssave)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(Elements_Diagnostics.clickonawardsmenu)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.awardseditbutton)).click();
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.awardsource)).clear();
-		driver.findElement(By.id(Elements_Diagnostics.awardsource)).sendKeys(award);
-		Thread.sleep(1000);
-		driver.findElement(By.id(Elements_Diagnostics.awardyear)).clear();
-		driver.findElement(By.id(Elements_Diagnostics.awardyear)).sendKeys(year);
-		driver.findElement(By.id(Elements_Diagnostics.saveawards)).click();
-		Thread.sleep(1000);
-		//driver.findElement(By.xpath(Elements_Diagnostics.clickonsignoutmenu)).click();
-		//Thread.sleep(1000);
-		//driver.findElement(By.id(Elements_Diagnostics.confirmlogout)).click();
 	}
 	
 	public void CheckTodayAppointmentCountInDashBoardScreen() throws InterruptedException{
