@@ -47,7 +47,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	}
 	
 	//@Author:Ch.LakshmiKanth
-	@Test(priority=2)
+	//@Test(priority=2)
 	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance() throws Exception {
 	
 		driver.get(index_url);
@@ -84,13 +84,13 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			}	
 			}
 		
-	//@Author:Ch.LakshmiKanth
+	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
 	@Test(priority=3)
 	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
 		driver.get(index_url);
 		RecipientPage.searchInZoyloMAP("kanth doctor");
 		RecipientPage.bookAppointment();	
-		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']");
+		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']"); 
 		System.out.println("Clicked on Default avialable Clinic Address Button");
 		Thread.sleep(2000);
 		String availableclinicdistance=driver.findElement(By.xpath("//div[@style='display: block;']//span[@class='icon-distance']/following-sibling::*")).getText();

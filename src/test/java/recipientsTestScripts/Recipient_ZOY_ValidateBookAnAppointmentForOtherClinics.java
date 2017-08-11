@@ -45,7 +45,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Xyz Clinics" }
+					{ "yes","Xyz Clinics","Your appointment slot has been successfully CHANGED" }
 
 			};
 		}
