@@ -44,7 +44,6 @@ public class DiagnosticPage {
 			driver.findElement(By.id(Elements_Diagnostics.username)).sendKeys(username);
 			driver.findElement(By.id(Elements_Diagnostics.password)).sendKeys(password);	
 			driver.findElement(By.xpath(Elements_Diagnostics.loginbutton)).click();	
-			driver.findElement(By.xpath("//div[@class='sp-diagno-patients-content']//h1// span//span[contains(text(),'+fullname+')]"));
 			}
 		
 	
@@ -598,7 +597,8 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
-			driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
+			driver.findElement(By.id("uploadBtn")).sendKeys(System.getProperty("user.dir")+"/Uploads/flower.jpeg");
+			//driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
 			Thread.sleep(8000);
 			driver.findElement(By.id("all_reports_upload")).click();
 			Thread.sleep(3000);

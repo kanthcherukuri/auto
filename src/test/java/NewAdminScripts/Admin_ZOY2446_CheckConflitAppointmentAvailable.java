@@ -2,7 +2,7 @@ package NewAdminScripts;
 
 import java.util.concurrent.TimeUnit;
 
-
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -60,11 +60,17 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 		 Browser.clickOnTheElementByID(Elements_NewAdminDoctors.workDaysTab);
 		 Browser.clickOnTheElementByID(Elements_NewAdminDoctors.workDays_SundayActiveCheckBox);
 		 Browser.waitFortheElementXpath(Elements_NewAdminDoctors.notification);
-		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to deactivate the sunday");
+		 String notification=Browser.getTextByXpath("//div[@class='zy-status-wrapper']");
+		 Assert.assertTrue(notification.contains("Please cancel the appointment to deactivate the sunday"));
+		 Thread.sleep(6000);
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-pencil editSlots']");
-		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to edit the time-slot");
+		 String notificationtwo=Browser.getTextByXpath("//div[@class='zy-status-wrapper']");
+		 Assert.assertTrue(notificationtwo.contains("Please cancel the appointment to edit the time-slot"));
+		 Thread.sleep(6000);
 		 Browser.clickOnTheElementByXpath("//i[@class='fa fa-trash-o delSlots']");
-		 Browser.CheckNotificationMessage("Conflict with existing appointment on 2017-08-13T16:00:00+05:30; Please cancel the appointment to delete time-slot");
+		 String notificationthree=Browser.getTextByXpath("//div[@class='zy-status-wrapper']");
+		 Assert.assertTrue(notificationthree.contains("Please cancel the appointment to delete time-slot"));
+		 Thread.sleep(6000);
 		 admin.click_Profile_Options("Logout"); 
 	 }
 	 
