@@ -44,6 +44,7 @@ public class DiagnosticPage {
 			driver.findElement(By.id(Elements_Diagnostics.username)).sendKeys(username);
 			driver.findElement(By.id(Elements_Diagnostics.password)).sendKeys(password);	
 			driver.findElement(By.xpath(Elements_Diagnostics.loginbutton)).click();	
+			driver.findElement(By.xpath("//div[@class='sp-diagno-patients-content']//h1// span//span[contains(text(),'+fullname+')]"));
 			}
 		
 	
@@ -310,7 +311,8 @@ public class DiagnosticPage {
 	public void patientserachforintoday(String firstname,String lastname,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
-		Thread.sleep(8000);
+		//Thread.sleep(8000);
+		Browser.waitFortheID(Elements_Diagnostics.clickonserachbarid);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonserachbarid);
 		Thread.sleep(1000);
 		Browser.enterTextByID(Elements_Diagnostics.serachtextbox, email);
@@ -394,7 +396,7 @@ public class DiagnosticPage {
 	public void ClickOnDashboardMenu(){
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickondashboardmenu);
-		WebDriverWait wait=new WebDriverWait(driver,1000);
+		WebDriverWait wait=new WebDriverWait(driver,100);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(Elements_Diagnostics.todayhighliteddate)));
 		String date=driver.findElement(By.xpath(Elements_Diagnostics.todayhighliteddate)).getText();
 		driver.findElement(By.xpath("//*[@id='diagnosticDashboardCalendar']/div[3]/a["+date+"+1]/div[1]")).click();
@@ -447,6 +449,7 @@ public class DiagnosticPage {
 			}else{
 				System.out.println("Appointment Booking Verification Failed in All Tab Patient Screen");
 				Assert.fail("Appointment Booking Verification Failed in All Tab Patient Screen");
+				
 			}
 			
 			}
@@ -804,7 +807,7 @@ public class DiagnosticPage {
 		
 		
 		
-		/*  @Author      :Ch.Lakshmi Kanth
+		/*  @Author      :Ch.LakshmiKanth
 		 *  @Description : Click On the Schedule Menu From The Ribbon Panel
 		 *  @Parameters  : 
 		 *  @Return      : 
@@ -819,7 +822,7 @@ public class DiagnosticPage {
 		
 		
 	   
-		/*  @Author      :Ch.Lakshmi Kanth
+		/*  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Add Contact
 		 *  @Parameters  : name,phone,email,fax
 		 *  @Return      : 
@@ -842,7 +845,7 @@ public class DiagnosticPage {
 		}
 		
 		/*   Below is the  Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		 *  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Delete Contact
 		 *  @Parameters  : 
 		 *  @Return      : 
@@ -856,7 +859,7 @@ public class DiagnosticPage {
 		}
 		
 		/*   Below is the  Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		 *  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Contact Menu Edit Contact
 		 *  @Parameters  : name,phone,email,fax
 		 *  @Return      : 
@@ -883,7 +886,7 @@ public class DiagnosticPage {
 		}
 		
 		/*   Below is the  Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		 *  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu :Add Package
 		 *  @Parameters  : packagename,discount,Description, testname,testdescription 
 		 *  @Return      : 
@@ -912,7 +915,7 @@ public class DiagnosticPage {
 		}
 		
 		  
-		/*  @Author      :Ch.Lakshmi Kanth
+		/*  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu : Edit Package
 		 *  @Parameters  : packagename,discount,Description, testname,testdescription 
 		 *  @Return      : 
@@ -941,7 +944,7 @@ public class DiagnosticPage {
 		}
 		
 		/*   Below is the  Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		 *  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manager - Package Menu : Submit The Package for Approval
 		 *  @Parameters  : 
 		 *  @Return      : 
@@ -958,7 +961,7 @@ public class DiagnosticPage {
 		
 		
 		/*   Below is the  Method
-		 *  @Author      :Ch.Lakshmi Kanth
+		 *  @Author      :Ch.LakshmiKanth
 		 *  @Description : In Schedule To Click on HomePickup Menu
 		 *  @Parameters  : 
 		 *  @Return      : 
@@ -973,7 +976,7 @@ public class DiagnosticPage {
 		
 
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Tests : Add Tests
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
@@ -993,7 +996,7 @@ public class DiagnosticPage {
 		
 
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Tests : Edit Tests
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
@@ -1019,7 +1022,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Tests : Submit Test For Approval
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
@@ -1036,7 +1039,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu : Click On Packages Menu
 		 *  @Parameters  : testname, description, cost,discount
 		 *  @Return      : 
@@ -1050,7 +1053,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Packages Menu: Add Package
 		 *  @Parameters  :packagename, desc,  cost, discount, testname, testdesc
 		 *  @Return      : 
@@ -1077,7 +1080,7 @@ public class DiagnosticPage {
 		}
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Packages Menu: Submit the Package For Approval
 		 *  @Parameters  :
 		 *  @Return      : 
@@ -1094,7 +1097,7 @@ public class DiagnosticPage {
 		}
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule HomePickup Menu Packages Menu: Edit Package
 		 *  @Parameters  :packagename, desc,  cost, discount, testname, testdesc
 		 *  @Return      : 
@@ -1123,7 +1126,7 @@ public class DiagnosticPage {
 		}
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule Click on Diagnostic Center- Manage Menu
 		 *  @Parameters  :
 		 *  @Return      : 
@@ -1135,7 +1138,7 @@ public class DiagnosticPage {
 		}
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu : Click On Tests Menu
 		 *  @Parameters  :packagename, desc, testname, cost, discount, testname, testdesc
 		 *  @Return      : 
@@ -1148,7 +1151,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Add Tests
 		 *  @Parameters  :packagename, desc, testname, cost, discount, testname, testdesc
 		 *  @Return      : 
@@ -1167,7 +1170,7 @@ public class DiagnosticPage {
 		}
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Submit Tests For Approval
 		 *  @Parameters  :
 		 *  @Return      : 
@@ -1184,7 +1187,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : In Schedule Diagnostic Center Manage Menu Tests Menu : Edit Tests
 		 *  @Parameters  : testname, testdesc cost, discount 
 		 *  @Return      : 
@@ -1209,7 +1212,7 @@ public class DiagnosticPage {
 		
 		
 		/*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : Functionality in Admin Login Search for testname
 		 *  @Parameters  : testnames
 		 *  @Return      : 
@@ -1232,7 +1235,7 @@ public class DiagnosticPage {
       }
       
       /*  Below is the  Method
-		 *  @Author      : Ch.Lakshmi Kanth
+		 *  @Author      : Ch.LakshmiKanth
 		 *  @Description : To Make the Tests and Packages in Diagnostic Centre- Manager Menu & Home  Pickup Menu as Active
 		 *  @Parameters  : username,password
 		 *  @Return      : 

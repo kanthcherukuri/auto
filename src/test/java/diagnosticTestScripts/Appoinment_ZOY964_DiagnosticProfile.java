@@ -20,13 +20,13 @@ public class Appoinment_ZOY964_DiagnosticProfile extends LoadPropMac{
 			 Browser=new TestUtils(driver);
 			 Browser.openUrl(loginPage_Url);
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);	
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+			 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	  	}
 		
 		@Test()
 		public void DiagnosticProfile() throws Exception{
 		DiagnosticPageZoylo.ClickingOnEllipse();
-		DiagnosticPageZoylo.EditProfilepage("NTR", "9900006666", "PadmaSri", "1990");
+		DiagnosticPageZoylo.EditProfilepage("Louisee", "9900006666", "PadmaSri", "1990");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticslogout();
 			
