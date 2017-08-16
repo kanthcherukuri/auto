@@ -18,7 +18,7 @@ public class ExtentManager extends LoadPropMac {
     
     public static ExtentReports getInstance()    {
     	if (extent == null)
-    		createInstance("test-output/extent.html");
+    		createInstance("test-output/ZoyloQA-Report.html");
     	
         return extent;
     }

@@ -21,7 +21,7 @@ import testBase.LoadPropMac;
 public class TestListener extends LoadPropMac implements ITestListener {
 	String filePath = "Screenshots/";
 	Date today = new Date();
-	private static ExtentReports extent = ExtentManager.createInstance("extent.html");
+	private static ExtentReports extent = ExtentManager.createInstance("ZoyloQA-Report.html");
 	private static ThreadLocal<ExtentTest> parentTest = new ThreadLocal<ExtentTest>();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
 	
