@@ -4,6 +4,8 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.Dimension;
@@ -24,7 +26,7 @@ public class LoadPropMac   {
 	public static FileInputStream inStream;
 	public static String driverpath;
 	public static String base_url, dev_url, loginPage_Url,index_url,enrollment_url,doctors_Url,browser_name , login_username,login_password,namespaceurl ;
-	public static String diagnostic_url;
+	public static String diagnostic_url,author_name;
 
 	//To Run On Cloud - Sauce Labs
 	public static final String USERNAME = "ganeshmandala123";
@@ -46,7 +48,7 @@ public class LoadPropMac   {
 	public static WebDriver driver;
 
 
-	public static WebDriver LoadBrowserProperties()throws Exception{
+	public static WebDriver LoadBrowserProperties() throws IOException{
 		FileInputStream inStream;
 		inStream = new FileInputStream(new File("ConfigFiles/Setup-Details.txt"));
 		Properties prop = new Properties();

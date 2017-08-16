@@ -6,6 +6,7 @@ package recipientsTestScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
 import org.testng.Reporter;
 import testBase.*;
 import objectRepository.*;
@@ -28,7 +29,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 	public void validateRecipientlogout() throws Exception {
 
 		
-		Browser.openUrl(loginPage_Url);			
+		Browser.openUrl(loginPage_Url);	
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);

@@ -6,12 +6,14 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 import testBase.LoadPropMac;
 
@@ -35,6 +37,7 @@ public class TestListener extends LoadPropMac implements ITestListener {
 	
 	
 	public synchronized void onTestStart(ITestResult result) {
+	
 		 ExtentTest child = parentTest.get().createNode(result.getMethod().getMethodName());
 	     test.set(child);
 	}
@@ -46,8 +49,42 @@ public class TestListener extends LoadPropMac implements ITestListener {
 
 	
 	public synchronized void onTestFailure(ITestResult result) {
-		test.get().fail(result.getThrowable());
+		
+		// adding screenshots to log
+		if(result.getStatus() == ITestResult.FAILURE)
+        {
+			String ScreenShot_methodName=result.getName().toString().trim();
+            String screenShotPath = null;
+			try {
+				screenShotPath = capture(driver, ScreenShot_methodName+today);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+          
+            
+            test.get().log(Status.FAIL,result.getThrowable());
+            try {
+				test.get().log(Status.FAIL, "Snapshot below: " + test.get().addScreenCaptureFromPath(screenShotPath));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+
+		//test.get().fail(result.getThrowable());
 	}
+	
+	public  String capture(WebDriver driver,String screenShotName) throws IOException
+    {
+        TakesScreenshot ts = (TakesScreenshot)driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String dest = System.getProperty("user.dir") +"/Screenshots/"+screenShotName+".png";
+        File destination = new File(dest);
+        FileUtils.copyFile(source, destination);        
+                     
+        return dest;
+    }
 
 	public synchronized void onTestSkipped(ITestResult result) {
 		test.get().skip(result.getThrowable());
