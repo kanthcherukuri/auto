@@ -8,7 +8,7 @@
   <test name="Recipients Doctor Module">
     <classes>
     
-      <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
+<!--       <class name="recipientsTestScripts.Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment"/>
       <class name="recipientsTestScripts.Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot"/>
       <class name="recipientsTestScripts.Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin"/>
       <class name="recipientsTestScripts.Recipient_ZOY1067_AccountCreation"/>    
@@ -47,9 +47,9 @@
       <class name="recipientsTestScripts.Recipients_ZOY1182_ValidateRecipientsAlerts"/>      
       <class name="recipientsTestScripts.Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario"/>
       <class name="recipientsTestScripts.Recipient_ZOY2389_validateAminityPracticeLocationOnProfilePage"/>
-      <class name="recipientsTestScripts.Recipient_ZOY1977_ValidateDirectionsNegativeScenario"/>
+      <class name="recipientsTestScripts.Recipient_ZOY1977_ValidateDirectionsNegativeScenario"/> -->
       <class name="recipientsTestScripts.Recipient_ZOY1984_BookAptNegativeScenario"/>
-      
+       <class name="recipientsTestScripts.Recipients_ZOY1192_ValidateRecipientLogout"/> 
 
     </classes>
   </test> <!-- Test -->

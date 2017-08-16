@@ -45,7 +45,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Xyz Clinics","Your appointment slot has been successfully CHANGED" }
+					{ "yes","Xyz Clinic","Your appointment slot has been successfully CHANGED" }
 
 			};
 		}
@@ -63,7 +63,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForOtherClinics extends Load
 				String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
 				RecipientPage.bookAppointment();
 				driver.findElement(By.id("manage-flip")).click();
-				driver.findElement(By.linkText("Xyz Clinics")).click();
+				driver.findElement(By.linkText(ClinicName)).click();
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("(//div[@class='panel-collapse collapse in']/ul/li[contains(@class,'sp-available-slots')])[1]")).click();
 				RecipientPage.confirmAppointment("Test details");
