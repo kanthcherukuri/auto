@@ -259,7 +259,6 @@ public class DoctorsPage  {
 		 */
 		public void ClickView() throws Exception
 		{
-			Thread.sleep(3000);
 			Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_clickonview);
 			Reporter.log("Clicked on View menu To get Appointment ID");
 			Browser.waitFortheID("about");
