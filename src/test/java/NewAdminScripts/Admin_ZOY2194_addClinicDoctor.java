@@ -83,6 +83,29 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		if(state1.equalsIgnoreCase("YES")){
 			System.out.println(emailID+" registration is verified");
 		}
+		//TO ACTIVATE DOCTOR FROM ADMIN LIST VIEW AND CHECK ERROR NOTIFICATION
+		if(isActiveValue.equalsIgnoreCase("false"))
+		{
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.adminListActiveCheckBox);
+			if(driver.findElements(By.xpath("//div[@class='zy-status-wrapper']")).size()!=0)
+			{
+				String notify=Browser.getTextByXpath("//div[@class='zy-status-wrapper']");
+				if(notify.equalsIgnoreCase("Internal server error"))
+				{
+					System.out.println("Cursor in assert fail condition");
+					if(removeFromDB.equalsIgnoreCase("true"))
+					{
+						String docID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
+						System.out.println("DOC ID retrived is: "+docID);
+						Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyGlobalGenericSearch", "entityId", docID);
+						Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "redisProvidersCache", "providerId", docID);
+						Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
+						Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
+					}
+					Assert.fail();
+				}
+			}
+		}
 		
 		if(removeFromDB.equalsIgnoreCase("true"))
 		{
