@@ -47,6 +47,7 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 		 DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
 			DiagnosticPageZoylo.diagnosticlogout();
 	 }
+	 
 	 @AfterClass
 	 public void CloseBrowser(){
 		 driver.quit();

@@ -23,7 +23,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		 Browser=new TestUtils(driver);
 		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
 		  }
 	
 	@DataProvider(name = "DP1")
@@ -50,21 +50,22 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		//Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(packagename);
-		Thread.sleep(6000);
+		//Thread.sleep(6000);
 		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByID("logout");
-		Thread.sleep(3000);
-		Browser.openUrl(loginPage_Url);
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
-		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		driver.findElement(By.id(Elements_Diagnostics.clickondiagnosticmanage)).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(Elements_Diagnostics.clickonpackagemenu)).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//span[@class='sp-diag-dcenter-packapprove-hours-switch-switch'])[last()]")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("saveClinicPackages")).click();
+		Browser.openUrl(loginPage_Url);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
+		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickondiagnosticmanage);
+		//Thread.sleep(3000);
+		Browser.waitFortheElementXpath(Elements_Diagnostics.clickonpackagemenu);
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonpackagemenu);
+		//Thread.sleep(3000);
+		Browser.clickOnTheElementByXpath("(//span[@class='sp-diag-dcenter-packapprove-hours-switch-switch'])[last()]");
+		//Thread.sleep(2000);
+		Browser.clickOnTheElementByID("saveClinicPackages");
 		Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.diagnosticslogout();

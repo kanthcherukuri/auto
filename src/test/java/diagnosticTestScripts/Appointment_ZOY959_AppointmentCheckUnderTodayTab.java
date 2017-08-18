@@ -41,12 +41,13 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	public void appointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.patientserachforintoday(firstname, lastname, email);
 		}
 	
 	@AfterMethod
 	public void bulkcancelandlogout() throws Exception{
-		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("07:00", "23:00");
+		DiagnosticPageZoylo.DiagnosticAppointmentsBulkCancellation("06:00", "23:00");
 		Thread.sleep(3000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	}

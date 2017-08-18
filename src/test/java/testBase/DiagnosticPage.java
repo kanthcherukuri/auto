@@ -515,11 +515,9 @@ public class DiagnosticPage {
 		}else{
 			System.out.println("Schedule/Reschedule Not Available In Today Tab ");
 		}
-			
-			
+				
 		}		
-			
-			
+				
 		}
 	
 
@@ -593,8 +591,7 @@ public class DiagnosticPage {
 	public void CheckPatientSearchfunctionalityInTodaytab(String firstname,String lastname,String mobile,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
-		 //Thread.sleep(5000);
-		 Browser.waitTill(90);
+		 Thread.sleep(5000);
 		 Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsearchicon);
 		 Thread.sleep(2000);
 		 String fullname=firstname+" "+lastname;
@@ -797,7 +794,7 @@ public class DiagnosticPage {
 		public void ClickOnScheduleMenu() throws Exception{
 			
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonschedulemenu);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		}
 		
 		
@@ -950,7 +947,7 @@ public class DiagnosticPage {
 		public void clickonhomevisitmenu() throws Exception{
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonhomevisitmenu);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}
 		
 		
@@ -1048,7 +1045,8 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackCost, cost);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDiscount, discount);
 			 Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackClickAddTest);
-			 Thread.sleep(3000);
+			 //Thread.sleep(3000);
+			 Browser.waitFortheElementXpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]");
 			 WebElement sc= driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]"));
 			 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			 driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]")).sendKeys(testname);
@@ -1068,7 +1066,7 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickUpPackageSendforApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackSubmit);
-			Thread.sleep(20000);
+			Thread.sleep(40000);
 			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			Assert.assertEquals(ActualNotification,"Approval is pending");
@@ -1087,6 +1085,7 @@ public class DiagnosticPage {
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackEditLink);
 			 System.out.println("Clicked on Edit Link");
+			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupPackName);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackName)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomePickupPackName, packagename);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackDesc)).clear();
@@ -1211,7 +1210,7 @@ public class DiagnosticPage {
   		Thread.sleep(7000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
   		Browser.CheckNotificationMessage("Diagnostic Center package/test approved successfully");
-  		Thread.sleep(1000);
+  		Thread.sleep(2000);
       }
       
       /*  Below is the  Method
