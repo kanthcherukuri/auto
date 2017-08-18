@@ -5,6 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Admin;
 import objectRepository.Elements_Recipients;
@@ -19,7 +20,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void validateDirectionsnegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -45,13 +46,23 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.findElement(By.xpath("//a[@class='cancel']")).click();
 		RecipientPage.addressAssertion();
 	}
+
+	//@Author:Ch.LakshmiKanth	
+	@DataProvider(name="CheckingDistance")
+	 public String[][] createData1() {
+			return new String[][] {
+					{ "banglore","srscript"}
+
+			};
+		}
 	
-	//@Author:Ch.LakshmiKanth
-	//@Test(priority=2)
-	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance() throws Exception {
+	@Test(dataProvider="CheckingDistance",priority=2)
+	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance(String Area,String keyword) throws Exception {
 	
 		driver.get(index_url);
-		RecipientPage.searchInZoyloMAP("doctor honey");
+		RecipientPage.searchInZoyloMAPArea(Area);
+		RecipientPage.searchInZoyloMAP(keyword);
+		//RecipientPage.searchInZoyloMAP("doctor honey");
 		RecipientPage.bookAppointment();	
 		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']");
 		System.out.println("Clicked on Default avialable Clinic Address Button");
@@ -85,7 +96,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			}
 		
 	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
-	@Test(priority=3)
+	@Test(priority=3,enabled=false)
 	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
 		driver.get(index_url);
 		RecipientPage.searchInZoyloMAP("kanth doctor");

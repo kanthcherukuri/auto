@@ -286,6 +286,7 @@ public class RecipientPage  {
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 	
 		// Unable to fetch the location
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
         Browser.waitFortheElementXpath("//span[@id='zy-location-right']/span[2]");
 		driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
 		for(int i=0;i<=Area.length()-1; i++)
@@ -294,8 +295,8 @@ public class RecipientPage  {
 	    	driver.findElement(By.id("location")).sendKeys(Character.toString(Doc));
 	    	Thread.sleep(500);
 	    }
-	
-		driver.findElement(By.xpath("//li[@id='locationName']")).click();
+		Browser.clickOnTheElementByXpath("(//li[@id='locationName'])[1]");
+		//driver.findElement(By.xpath("//li[@id='locationName']")).click();
 		Thread.sleep(5000);
 		System.out.println("Searched with location"+Area);
 		Reporter.log("Zoylo Map LOcation set as"+Area);

@@ -51,32 +51,19 @@ public class DiagnosticPage {
 	public void DiagnosticAppointmentForHomeVisit(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
 		Thread.sleep(3000);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickontoggle);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickontoggle);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tommorowmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonhomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonhomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.enterTextByID(Elements_Diagnostics.detailsfirstname,firstname);
-		Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 		Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-		Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 		Browser.enterTextByID(Elements_Diagnostics.detailsmobile,mobile);
-		Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 		Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-		Browser.waitFortheID(Elements_Diagnostics.detailsaddress);
 		Browser.enterTextByID(Elements_Diagnostics.detailsaddress, address);
-		Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 		Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 		Thread.sleep(2000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -89,20 +76,18 @@ public class DiagnosticPage {
 	
 	
 	public void ClickingOnEllipse() throws Exception{
-		driver.findElement(By.xpath(Elements_Diagnostics.ellipse)).click();
+		
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
 		Thread.sleep(1000);
 	   }
 	
 		
 	public void diagnosticlogout() throws Exception{
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
-		Browser.waitFortheID(Elements_Diagnostics.clickonmyaccountmenu);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
 		//Thread.sleep(5000);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickonsignout);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsignout);
 		//Thread.sleep(2000);
-		Browser.waitFortheID(Elements_Diagnostics.confirmsignout);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.confirmsignout);
 		Thread.sleep(2000);
 	}
@@ -113,15 +98,10 @@ public class DiagnosticPage {
 		//Thread.sleep(3000);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonchange);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.nextdaymenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.nextdaymenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonhomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonhomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
 		
 		}
@@ -135,8 +115,8 @@ public class DiagnosticPage {
   
 	
 	public void GetAlertTextFromAlertMenu(){
-		
-		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
+		String alert=Browser.getTextByXpath("(//*[@id='message'])[1]");
+		//String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
 	}
 	
@@ -613,7 +593,8 @@ public class DiagnosticPage {
 	public void CheckPatientSearchfunctionalityInTodaytab(String firstname,String lastname,String mobile,String email) throws Exception{
 		
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonpatientmenu);
-		 Thread.sleep(5000);
+		 //Thread.sleep(5000);
+		 Browser.waitTill(90);
 		 Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsearchicon);
 		 Thread.sleep(2000);
 		 String fullname=firstname+" "+lastname;
@@ -853,7 +834,6 @@ public class DiagnosticPage {
 		
 		public void DeleteContactInSchedule() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickondelete);
-			Browser.waitFortheID(Elements_Diagnostics.clickonsave);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonsave);
 			Browser.CheckNotificationMessage("Contact Information updated successfully");
 		}
