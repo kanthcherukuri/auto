@@ -286,7 +286,6 @@ public class RecipientPage  {
 	public void searchInZoyloMAPArea(String Area) throws InterruptedException{
 	
 		// Unable to fetch the location
-		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
         Browser.waitFortheElementXpath("//span[@id='zy-location-right']/span[2]");
 		driver.findElement(By.xpath("//span[@id='zy-location-right']/span[2]")).click();
 		for(int i=0;i<=Area.length()-1; i++)

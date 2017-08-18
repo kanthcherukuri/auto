@@ -78,7 +78,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				String APID=Browser.getAppointmentID();
 				RecipientPage.recipientLogout();
 			
-				//Verify Doctor Login with valid details
+				//Verify Diagnostic Login with valid details
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 				DiagnosticPage.clickOnThePatientFromDashBoardInDiagnostics(Appointmentdetails[1]);
 				DiagnosticPage.diagnosticsCheckinCheckOut();

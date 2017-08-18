@@ -27,7 +27,6 @@
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostics"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1121_ValidateDianosticsBookingAnAppointment"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2426_QuantityToAmountScenarios"/>
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY2043_DiagnosticsChangeLocation"/>
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1095_ValidateHomePageSearch"/>
      
     </classes>
