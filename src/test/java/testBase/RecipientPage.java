@@ -458,7 +458,7 @@ public class RecipientPage  {
 		else
 		{
 			//driver.findElement(By.id("session4")).click();    // New change in UI
-			Browser.clickOnTheElementByXpath("//a[contains(@href, 'NightSlots')]");
+			Browser.clickOnTheElementByXpath("//a[@href='#sp-nightslots']");
 		}
 		
 		Thread.sleep(2000);
