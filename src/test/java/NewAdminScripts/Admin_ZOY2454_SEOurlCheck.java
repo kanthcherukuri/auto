@@ -33,6 +33,10 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		{
 			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorActiveCheckBox);
 		}
+		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
+		Thread.sleep(5000);
+		driver.navigate().refresh();
+		Thread.sleep(20000);
 		driver.get("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
 		boolean reader = driver.getPageSource().contains(seoID);

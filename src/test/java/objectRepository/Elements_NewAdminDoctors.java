@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class Elements_NewAdminDoctors {
 
 public static WebDriver driver;
-public static String loginemail, loginpassword, loginbutton, adminLogoutBtn;
+public static String loginemail, loginpassword, loginbutton, adminLogoutBtn, adminListActiveCheckBox;
 public static String doctorLabel, addDoctorButton, doctorActiveCheckBox;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
@@ -64,6 +64,7 @@ public static String registrationTab, registrationDocURL, registrationStateCounc
 		adminUserConfirmPassword="confirmpassword"; //NAME
 		adminUserPasswordSave="adminChangePasswordButton"; //ID
 		registrationStatusOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[17]"; //XPATH
+		adminListActiveCheckBox="//input[@class='no-margin providerActive-class']"; //XPATH
 		
 		//REGISTRATION TAB
 		registrationTab="//li[@data-tab='zoyDocRegVerInfo']"; //XPATH
