@@ -5,6 +5,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import objectRepository.Elements_Diagnostics;
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
@@ -35,7 +38,9 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("Sulochanaytest","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
-		String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
+		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)));
+		String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.ManageTestSubmitNotification);
 		Assert.assertEquals(ActualNotification,"Approval is pending");
 
 		DiagnosticPageZoylo.diagnosticlogout();

@@ -930,8 +930,10 @@ public class DiagnosticPage {
 		public void ScheduleInManageSubmitPackageforApproval() throws Exception  {
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManagePacakgeApproval);
-			Thread.sleep(8000);
-			String ActualNotification= driver.findElement(By.xpath(Elements_Diagnostics.ManageSubmitPackageApproval)).getText();
+			//Thread.sleep(8000);
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.ManageSubmitPackageApproval)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.ManageSubmitPackageApproval);
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 		    Assert.assertEquals(ActualNotification,"Approval is pending");
 		}
@@ -1008,7 +1010,10 @@ public class DiagnosticPage {
 		public void ScheduleHomePickupSubmitTestsForApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupTestSubmit);
 			Thread.sleep(3000);
-			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)).getText();
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.HomePickupTestSubmitNotification);
+			//String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)).getText();
 			assertion.assertEquals(ActualNotification, "Approval is pending");
 			assertion.assertAll();
 			//Assert.assertEquals(ActualNotification,"Approval is pending");
@@ -1053,7 +1058,7 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPacktestdesc, testdesc);
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
-			 Thread.sleep(2000);
+			 Thread.sleep(3000);
 			
 		}
 		
@@ -1066,8 +1071,10 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickUpPackageSendforApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackSubmit);
-			Thread.sleep(40000);
-			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
+			//Thread.sleep(40000);
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.HomePickupPackSubmitNotification);
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			Assert.assertEquals(ActualNotification,"Approval is pending");
 			 Thread.sleep(2000);
@@ -1157,7 +1164,7 @@ public class DiagnosticPage {
 		
 		public void ClickOnToggletoSubmitTestsForApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManageTestSubmit);
-			Thread.sleep(10000);
+			//Thread.sleep(10000);
 //			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
 //			Assert.assertEquals(ActualNotification,"Approval is pending");
 			

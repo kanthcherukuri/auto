@@ -1,8 +1,5 @@
 package diagnosticTestScripts;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
@@ -32,7 +29,7 @@ public class Schedule_ZOY1013_HomePickupSendPackageForApproval extends LoadPropM
 		DiagnosticPageZoylo.clickonhomevisitmenu();
 		DiagnosticPageZoylo.ClickOnSchedulePackageHomePickUp();
 		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage("konarkpackage", "Full body Examination", "20000", "2","konarttest", "Full body Examination");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
 		
 		

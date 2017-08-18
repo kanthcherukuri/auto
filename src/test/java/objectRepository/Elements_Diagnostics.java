@@ -393,7 +393,8 @@ public class Elements_Diagnostics  {
 		 ManageTestDiscount="(//input[starts-with(@id,'discountPercentage')])[last()]";
 		 ManageTestSave="saveClinicTests";
 		 ManageTestSubmit="(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]";
-		 ManageTestSubmitNotification="(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[2])[last()]";
+		 ManageTestSubmitNotification="(//div[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']//div[contains(text(),'Approval is pending')])[last()]";
+		 //ManageTestSubmitNotification="(//*[@class='sp-diag-dcenter-pack-docard clinicTests testIndex']/div[1]/div/div[2])[last()]";
 		 ManageTestEditLink="(//div[@class='paddingb0 sp-diag-dcenter-edit clinicTestEdit menu_links'])[last()]";
 		 
 		 
@@ -404,7 +405,8 @@ public class Elements_Diagnostics  {
 		 HomePickupTestTestdiscount="(//input[starts-with(@id,'homeDiscountPercentage')])[last()]";
 		 HomePickupTestsEditLink="(//div[@class='paddingb0 sp-diag-homepick-edit homepickTestEdit menu_links'])[last()]";
 		 HomePickupTestSubmit="(//*[@class='sp-diag-homepick-pack-docard homePickTests testIndex']/div[1]/div/div[1]/div/label/span[2])[last()]";
-		 HomePickupTestSubmitNotification="(//div[@class='sp-diag-dcenter-testaproveswitch-label'])[last()]";
+		 HomePickupTestSubmitNotification="(//div[@class='sp-diag-homepick-pack-docard homePickTests testIndex']//div[contains(text(),' Approval is pending')])[last()]";
+		 //HomePickupTestSubmitNotification="(//div[@class='sp-diag-dcenter-testaproveswitch-label'])[last()]";
 		 HomePickupPackName="(//input[starts-with(@id, 'homeVisitPacakageName')])[last()]";
 		 HomepickupPackDesc="(//input[starts-with(@id, 'homeVisitPacakageDesc')])[last()]";
 		 HomepickupPackCost="(//input[starts-with(@id, 'homeVisitPacakageCost')])[last()]";
@@ -413,7 +415,8 @@ public class Elements_Diagnostics  {
 		 HomepickupPacktestdesc="(//input[starts-with(@id, 'homeVisitPackTestDesc')])[last()]";
 		 HomePickupPackClickAddTest="(//*[@id='addHomeVistPackageTest'])[last()]";
 		 HomePickupPackSubmit="(//*[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
-		 HomePickupPackSubmitNotification="(//div[@class='sp-diag-homepick-aproveswitch-label'])[last()]";
+		 HomePickupPackSubmitNotification="(//div[@class='sp-diag-homepick-pack-docard homeVisitPackages pckgIndex']//div[contains(text(),' Approval is pending')])[last()]";
+		 //HomePickupPackSubmitNotification="(//div[@class='sp-diag-homepick-aproveswitch-label'])[last()]";
 		 HomePickupPackEditLink="(//div[@class='sp-diag-homepick-edit homepickupPackageEdit menu_links'])[last()]";
 		 //Home Sample Collection menu
 		 
