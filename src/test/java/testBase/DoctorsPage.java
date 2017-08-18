@@ -175,12 +175,19 @@ public class DoctorsPage  {
 	// Doctors Checkin and check the recipient
 		public  void doctorCheckinCheckOut() throws IOException, InterruptedException{
 			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickoncheckinbutton);
-			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickonstartconsulationbutton);			
+			Reporter.log("Clicked on Check-In Button");
+			Browser.clickOnTheElementByID(Elements_Doctors.patient_clickonstartconsulationbutton);
+			Reporter.log("Clicked on Start Consulation Button");
 			Browser.enterTextByID(Elements_Doctors.patient_diagnosis, "Doctor Details");
+			Reporter.log("Entered Diagnosis Details");
 			Browser.clickOnTheElementByID(Elements_Doctors.patient_saveproblems);
-			Browser.clickOnTheElementByID("saveVitals");			
-			Browser.clickOnTheElementByID("savePrescription");			
+			Reporter.log("Clicked on Save Problems button");
+			Browser.clickOnTheElementByID("saveVitals");	
+			Reporter.log("Clicked On Save Vitals");
+			Browser.clickOnTheElementByID("savePrescription");	
+			Reporter.log("Clicked on Save Prescription");
 			Browser.clickOnTheElementByID("saveNotes");
+			Reporter.log("Clicked on Save Notes");
 			Thread.sleep(10000);
 			Browser.clickOnTheElementByID("generateReceipt");
 			Reporter.log("Clicked on generateReceipt");
@@ -194,7 +201,7 @@ public class DoctorsPage  {
 	
 	
 	/*
-	 * @ Author: Ch.Lakshmi Kanth
+	 * @ Author: Ch.LakshmiKanth
 	 * @ Description: This method to reschedule appointment
 	 * @ Params:
 	 * @ Returns:
@@ -218,7 +225,7 @@ public class DoctorsPage  {
 		}
 	
 	/*
-	 * Author: Ch.Lakshmi kanth
+	 * Author: Ch.LakshmiKanth
 	 * @ Description: This method to reschedule appointment and Check In Patient Screen
 	 * @ Params:
 	 * @ Returns:
@@ -252,7 +259,7 @@ public class DoctorsPage  {
 
 
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Click on View menu
 		 * @ Params:
 		 * @ Returns:
@@ -268,7 +275,7 @@ public class DoctorsPage  {
 		
 		
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Click on Alert menu
 		 * @ Params:
 		 * @ Returns:
@@ -282,7 +289,7 @@ public class DoctorsPage  {
 		}
 		
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to get Appointment Id
 		 * @ Params:
 		 * @ Returns:AppointmentId
@@ -301,7 +308,7 @@ public class DoctorsPage  {
 		}
 		
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Check the Alert Messages
 		 * @ Params:
 		 * @ Returns:
@@ -329,7 +336,7 @@ public class DoctorsPage  {
 		}
 
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Click on Cancel menu
 		 * @ Params:
 		 * @ Returns:
@@ -348,7 +355,7 @@ public class DoctorsPage  {
 	}
 	
 	/*
-	 * Author: Ch.Lakshmi kanth
+	 * Author: Ch.LakshmiKanth
 	 * @ Description: This method to Check the Cancel appoinrmnet In Patient Screen 
 	 * @ Params:
 	 * @ Returns:
@@ -385,7 +392,7 @@ public class DoctorsPage  {
 		}
 
 	/*
-	 * Author: Ch.Lakshmi kanth
+	 * Author: Ch.LakshmiKanth
 	 * @ Description: This method to Click on Send Notication in Patient Screen All Tab
 	 * @ Params:
 	 * @ Returns:
@@ -425,7 +432,7 @@ public class DoctorsPage  {
 
 
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Click on Ellipse to select the hide menu in ribbon Panel
 		 * @ Params:
 		 * @ Returns:
@@ -437,7 +444,7 @@ public class DoctorsPage  {
 		}
 
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Click on DashBoard menu
 		 * @ Params:
 		 * @ Returns:
@@ -627,7 +634,7 @@ public class DoctorsPage  {
 		}
 		
 		/*
-		 * Author: Ch.Lakshmi Kanth
+		 * Author: Ch.LakshmiKanth
 		 * Description: This method will Create Work Timings for doctor in Hospiatl Tab
 		 * Param:
 		 * Return:
@@ -678,7 +685,7 @@ public class DoctorsPage  {
 		}
 		
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Cancel All Existing Appointments at Once
 		 * @ Params:
 		 * @ Returns:
@@ -711,7 +718,7 @@ public class DoctorsPage  {
 			}
 
 		/*
-		 * Author: Ch.Lakshmi kanth
+		 * Author: Ch.LakshmiKanth
 		 * @ Description: This method to Create Appointment For Tommorow(Next Day)
 		 * @ Params:
 		 * @ Returns:
@@ -746,7 +753,7 @@ public class DoctorsPage  {
 
 
  /*
-	 * Author: Ch.Lakshmi kanth
+	 * Author: Ch.LakshmiKanth
 	 * @ Description: This method to Search The Appointment Details in Patient screen
 	 * @ Params:
 	 * @ Returns:
@@ -787,7 +794,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 
 
 /*
- * Author: Ch.Lakshmi kanth
+ * Author: Ch.LakshmiKanth
  * @ Description: This method to Create Appointment For Today
  * @ Params:
  * @ Returns:
@@ -984,7 +991,7 @@ public void cancelSundayAppt() throws InterruptedException
 }
 
 /*
- * @ Author: Ch.Lakshmi Kanth
+ * @ Author: Ch.LakshmiKanth
  * @ Description: This method to Check the appointment is available in Patient Screen and Click on the Patient Name 
  * @ Pram: Other clinic Name, other clinic fee, other clinic mobile number
  * @ Return:
@@ -1016,7 +1023,7 @@ public void CheckPateintScreenForCheckInFunctionality(String firstname,String la
 		}
 
 /*
- * @ Author: Ch.Lakshmi kanth
+ * @ Author: Ch.LakshmiKanth
  * @ Description: This method To Check the CheckIN Functionality on Patient Screen
  * @ Pram: 
  * @ Return:
