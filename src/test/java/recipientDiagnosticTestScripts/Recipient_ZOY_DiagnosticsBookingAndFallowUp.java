@@ -78,7 +78,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				String APID=Browser.getAppointmentID();
 				RecipientPage.recipientLogout();
 			
-				//Verify Doctor Login with valid details
+				//Verify Diagnostic Login with valid details
 				DiagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 				DiagnosticPage.clickOnThePatientFromDashBoardInDiagnostics(Appointmentdetails[1]);
 				DiagnosticPage.diagnosticsCheckinCheckOut();
@@ -92,9 +92,9 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
                 driver.navigate().refresh(); // Added this to remove the loading icon
                 Thread.sleep(5000);
 				Browser.scrollbyID("skipForLater");	
-                Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");			
+                Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				driver.findElement(By.id("skipForLater")).click();
-				driver.findElement(By.id("skipForLater")).click();
+				Thread.sleep(1000);
 				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
 				driver.findElement(By.id("aptSearch")).click();

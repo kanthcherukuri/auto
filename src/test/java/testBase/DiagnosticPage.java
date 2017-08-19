@@ -44,7 +44,6 @@ public class DiagnosticPage {
 			driver.findElement(By.id(Elements_Diagnostics.username)).sendKeys(username);
 			driver.findElement(By.id(Elements_Diagnostics.password)).sendKeys(password);	
 			driver.findElement(By.xpath(Elements_Diagnostics.loginbutton)).click();	
-			driver.findElement(By.xpath("//div[@class='sp-diagno-patients-content']//h1// span//span[contains(text(),'+fullname+')]"));
 			}
 		
 	
@@ -52,32 +51,19 @@ public class DiagnosticPage {
 	public void DiagnosticAppointmentForHomeVisit(String firstname,String lastname,String mobile,String email,String address,String problem) throws Exception{
 		Thread.sleep(3000);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonappointmentsmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickontoggle);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickontoggle);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.tommorowmenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonhomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonhomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.enterTextByID(Elements_Diagnostics.detailsfirstname,firstname);
-		Browser.waitFortheID(Elements_Diagnostics.detailslastname);
 		Browser.enterTextByID(Elements_Diagnostics.detailslastname, lastname);
-		Browser.waitFortheID(Elements_Diagnostics.detailsmobile);
 		Browser.enterTextByID(Elements_Diagnostics.detailsmobile,mobile);
-		Browser.waitFortheID(Elements_Diagnostics.detailsemail);
 		Browser.enterTextByID(Elements_Diagnostics.detailsemail, email);
-		Browser.waitFortheID(Elements_Diagnostics.detailsaddress);
 		Browser.enterTextByID(Elements_Diagnostics.detailsaddress, address);
-		Browser.waitFortheID(Elements_Diagnostics.detailsproblem);
 		Browser.enterTextByID(Elements_Diagnostics.detailsproblem, problem);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagetab);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagetab);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.packagecheckbox);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.packagecheckbox);
 		Thread.sleep(2000);
 		WebElement sc = driver.findElement(By.id(Elements_Diagnostics.windowsavebutton));
@@ -90,20 +76,18 @@ public class DiagnosticPage {
 	
 	
 	public void ClickingOnEllipse() throws Exception{
-		driver.findElement(By.xpath(Elements_Diagnostics.ellipse)).click();
+		
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
 		Thread.sleep(1000);
 	   }
 	
 		
 	public void diagnosticlogout() throws Exception{
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
-		Browser.waitFortheID(Elements_Diagnostics.clickonmyaccountmenu);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
 		//Thread.sleep(5000);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.clickonsignout);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsignout);
 		//Thread.sleep(2000);
-		Browser.waitFortheID(Elements_Diagnostics.confirmsignout);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.confirmsignout);
 		Thread.sleep(2000);
 	}
@@ -114,15 +98,10 @@ public class DiagnosticPage {
 		//Thread.sleep(3000);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonchange);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.tommorowmenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.nextdaymenu);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.nextdaymenu);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.morninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.morninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.noonhomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.noonhomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveninghomevisit);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveninghomevisit);
-		Browser.waitFortheElementXpath(Elements_Diagnostics.eveningfirstcell);
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.eveningfirstcell);
 		
 		}
@@ -136,8 +115,8 @@ public class DiagnosticPage {
   
 	
 	public void GetAlertTextFromAlertMenu(){
-		
-		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
+		String alert=Browser.getTextByXpath("(//*[@id='message'])[1]");
+		//String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
 	}
 	
@@ -536,11 +515,9 @@ public class DiagnosticPage {
 		}else{
 			System.out.println("Schedule/Reschedule Not Available In Today Tab ");
 		}
-			
-			
+				
 		}		
-			
-			
+				
 		}
 	
 
@@ -598,7 +575,8 @@ public class DiagnosticPage {
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//li[5]")).click();
 			Thread.sleep(5000);
-			driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
+			driver.findElement(By.id("uploadBtn")).sendKeys(System.getProperty("user.dir")+"/Uploads/flower.jpeg");
+			//driver.findElement(By.id("uploadBtn")).sendKeys("/Users/lakshmikanth/Downloads/flower.jpeg");
 			Thread.sleep(8000);
 			driver.findElement(By.id("all_reports_upload")).click();
 			Thread.sleep(3000);
@@ -816,7 +794,7 @@ public class DiagnosticPage {
 		public void ClickOnScheduleMenu() throws Exception{
 			
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonschedulemenu);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		}
 		
 		
@@ -853,7 +831,6 @@ public class DiagnosticPage {
 		
 		public void DeleteContactInSchedule() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickondelete);
-			Browser.waitFortheID(Elements_Diagnostics.clickonsave);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonsave);
 			Browser.CheckNotificationMessage("Contact Information updated successfully");
 		}
@@ -953,8 +930,10 @@ public class DiagnosticPage {
 		public void ScheduleInManageSubmitPackageforApproval() throws Exception  {
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManagePacakgeApproval);
-			Thread.sleep(8000);
-			String ActualNotification= driver.findElement(By.xpath(Elements_Diagnostics.ManageSubmitPackageApproval)).getText();
+			//Thread.sleep(8000);
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.ManageSubmitPackageApproval)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.ManageSubmitPackageApproval);
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 		    Assert.assertEquals(ActualNotification,"Approval is pending");
 		}
@@ -970,7 +949,7 @@ public class DiagnosticPage {
 		public void clickonhomevisitmenu() throws Exception{
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonhomevisitmenu);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}
 		
 		
@@ -1031,7 +1010,10 @@ public class DiagnosticPage {
 		public void ScheduleHomePickupSubmitTestsForApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupTestSubmit);
 			Thread.sleep(3000);
-			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)).getText();
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.HomePickupTestSubmitNotification);
+			//String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupTestSubmitNotification)).getText();
 			assertion.assertEquals(ActualNotification, "Approval is pending");
 			assertion.assertAll();
 			//Assert.assertEquals(ActualNotification,"Approval is pending");
@@ -1068,14 +1050,15 @@ public class DiagnosticPage {
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackCost, cost);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPackDiscount, discount);
 			 Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackClickAddTest);
-			 Thread.sleep(3000);
+			 //Thread.sleep(3000);
+			 Browser.waitFortheElementXpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]");
 			 WebElement sc= driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]"));
 			 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sc);
 			 driver.findElement(By.xpath("(//input[starts-with(@id, 'homeVisitPackTestName')])[last()]")).sendKeys(testname);
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomepickupPacktestdesc, testdesc);
 			 Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhomevisitpackagesavebutton);
 			 Browser.CheckNotificationMessage("Home Visit Packages updated successfully");
-			 Thread.sleep(2000);
+			 Thread.sleep(3000);
 			
 		}
 		
@@ -1088,8 +1071,10 @@ public class DiagnosticPage {
 		
 		public void ScheduleHomePickUpPackageSendforApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackSubmit);
-			Thread.sleep(20000);
-			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)).getText();
+			//Thread.sleep(40000);
+			WebDriverWait wait = (new WebDriverWait(driver, 90));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Elements_Diagnostics.HomePickupPackSubmitNotification)));
+			String ActualNotification=Browser.getTextByXpath(Elements_Diagnostics.HomePickupPackSubmitNotification);
 			System.out.println("ActualNotificationMessage="+ActualNotification);
 			Assert.assertEquals(ActualNotification,"Approval is pending");
 			 Thread.sleep(2000);
@@ -1107,6 +1092,7 @@ public class DiagnosticPage {
 			
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.HomePickupPackEditLink);
 			 System.out.println("Clicked on Edit Link");
+			 Browser.waitFortheElementXpath(Elements_Diagnostics.HomePickupPackName);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomePickupPackName)).clear();
 			 Browser.enterTextByXpath(Elements_Diagnostics.HomePickupPackName, packagename);
 			 driver.findElement(By.xpath(Elements_Diagnostics.HomepickupPackDesc)).clear();
@@ -1178,7 +1164,7 @@ public class DiagnosticPage {
 		
 		public void ClickOnToggletoSubmitTestsForApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManageTestSubmit);
-			Thread.sleep(10000);
+			//Thread.sleep(10000);
 //			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
 //			Assert.assertEquals(ActualNotification,"Approval is pending");
 			
@@ -1231,7 +1217,7 @@ public class DiagnosticPage {
   		Thread.sleep(7000);
   		Browser.clickOnTheElementByXpath(Elements_Diagnostics.adminapprovebutton);
   		Browser.CheckNotificationMessage("Diagnostic Center package/test approved successfully");
-  		Thread.sleep(1000);
+  		Thread.sleep(2000);
       }
       
       /*  Below is the  Method

@@ -24,7 +24,7 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		 Browser=new TestUtils(driver);
 		 Browser.openUrl(loginPage_Url);
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
 		  }
 	
 	@DataProvider(name = "DP1")
@@ -37,7 +37,7 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 
 	@Test(dataProvider="DP1")
 	public void ScheduleManageMakeTestActive(String RunMode,String description,String cost,String discount) throws Exception{
-		String testname="Pasmmarru"+Browser.randomalphabets();
+		String testname="Pasmmaru"+Browser.randomalphabets();
 		System.out.println("Rando Test Name"+testname);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
@@ -55,14 +55,14 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestApprovalsList']");
 		Thread.sleep(1000);
 		DiagnosticPageZoylo.ApproveTestInAdmin(testname);
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		Browser.waitFortheElementXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Browser.clickOnTheElementByXpath("html/body/div[6]/header/div[2]/ul/li/div/button");
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);
 		Browser.openUrl(loginPage_Url);
-		DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
+		DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();

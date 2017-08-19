@@ -87,7 +87,7 @@ public class RecipientPage  {
 		Browser.enterTextByID(Elements_Recipients.Recipient_UserName, emailID);
 		Thread.sleep(800);
 		Browser.enterTextByID(Elements_Recipients.recipient_signUpMobileNumber, String.valueOf("9"+Phno));
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		Browser.enterTextByID(Elements_Recipients.Recipient_Password, password);
 		Thread.sleep(300);
 		Reporter.log("SignUpDetails Entered");
@@ -294,8 +294,8 @@ public class RecipientPage  {
 	    	driver.findElement(By.id("location")).sendKeys(Character.toString(Doc));
 	    	Thread.sleep(500);
 	    }
-	
-		driver.findElement(By.xpath("//li[@id='locationName']")).click();
+		Browser.clickOnTheElementByXpath("(//li[@id='locationName'])[1]");
+		//driver.findElement(By.xpath("//li[@id='locationName']")).click();
 		Thread.sleep(5000);
 		System.out.println("Searched with location"+Area);
 		Reporter.log("Zoylo Map LOcation set as"+Area);
@@ -457,7 +457,7 @@ public class RecipientPage  {
 		else
 		{
 			//driver.findElement(By.id("session4")).click();    // New change in UI
-			Browser.clickOnTheElementByXpath("//a[contains(@href, 'NightSlots')]");
+			Browser.clickOnTheElementByXpath("//a[@href='#sp-nightslots']");
 		}
 		
 		Thread.sleep(2000);

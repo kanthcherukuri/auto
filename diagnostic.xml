@@ -3,6 +3,7 @@
 <suite name="diagnosticSuite">
   <test name="diagnosticTest">
     <classes>
+    <class name="diagnosticTestScripts.MongoRemove_ZOY2572_DiagnosticsAppointments"/> <!-- Remove appointments -->
       <class name="diagnosticTestScripts.Appointment_ZOY956_SearchInPatientScreen"/>
       <class name="diagnosticTestScripts.Alert_ZOY953_CheckAlertForAppointmentBooking"/>
       <class name="diagnosticTestScripts.Appointment_ZOY1045_DiagnosticAppointmentBulkCancel"/>
