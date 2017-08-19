@@ -4,13 +4,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+import org.testng.Reporter;
+
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
-//import objectRepository.Elements_Recipients;
+import testBase.DoctorsPage;
 import testBase.LoadPropMac;
 import testBase.NewAdminDoctorsPage;
+import testBase.RecipientPage;
 import testBase.TestUtils;
 
 //@Authour: Sagar Sen
@@ -19,6 +22,10 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
+	public RecipientPage RecipientPage;
+	public DoctorsPage doctorsPage;
+	
+	public String password="Zoylo@123";
 	
 	@DataProvider(name="clinicDoctorDetails")
 	public Object[][] clinicDocInfo() throws Exception
@@ -58,7 +65,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		admin.clickSubmitDoctor();
 		Browser.CheckNotificationMessage("Doctor created successfully");
 		
-		//ZOY-2450 check registration verification
+		//*********** ZOY-2450 check registration verification **************\\
 		driver.navigate().refresh();
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
@@ -83,7 +90,8 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		if(state1.equalsIgnoreCase("YES")){
 			System.out.println(emailID+" registration is verified");
 		}
-		//TO ACTIVATE DOCTOR FROM ADMIN LIST VIEW AND CHECK ERROR NOTIFICATION
+		
+		//********* TO ACTIVATE DOCTOR FROM ADMIN LIST VIEW AND CHECK ERROR NOTIFICATION ************\\
 		if(isActiveValue.equalsIgnoreCase("false"))
 		{
 			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.adminListActiveCheckBox);
@@ -107,6 +115,47 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 			}
 		}
 		
+		//************** RESET LOGIN PASSWORD **************\\
+		admin.clickEditbutton();
+		Browser.waitFortheID(Elements_NewAdminDoctors.firstName);
+		admin.doctorChangePassword(password);
+		admin.click_Profile_Options("Logout");
+		
+		//************ RECIPIENT BOOK RESCHEDULE AND CANCEL APPOINTMENT *************\\
+		Browser.openUrl(loginPage_Url);	
+		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		RecipientPage.searchInZoyloMAP("Creditsuite");
+		RecipientPage.bookAppointment();
+		//BOOK APPOINTMENT
+		String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
+		System.out.println("Clinic Name details"+Appointmentdetails[0]);
+		System.out.println("Time details"+Appointmentdetails[1]);
+		RecipientPage.confirmAppointment("Patient details");
+	    RecipientPage.makePayment();
+		Assert.assertTrue(Browser.getTextByXpath("//div[@class='book-dtbox']/p[1]/a").contains("Creditsuite")); //Verifying Doctor Name in Thank you Page
+		String AppointmentId = Browser.getAppointmentID();
+		//RESCHEDULE APPOINTMENT
+		RecipientPage.openMyAccounts("Appointments");
+		RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Reschedule");
+		Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='sp-available-slots'])");
+		Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
+		driver.navigate().refresh();
+		//CANCEL APPOINTMENT
+		Browser.enterTextByID("aptSearch", AppointmentId);
+		Thread.sleep(2000);
+		Browser.clickOnTheElementByXpath("//div[@class='patientApmtStatus' and contains(.,'Rescheduled')]/following-sibling::div[1]/div[2]");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='cancelYes']")).click();
+		System.out.println("Cancelled Action Is Executed");
+		Reporter.log("Clicked On Cancel For Appointment="+AppointmentId);
+		Browser.CheckNotificationMessage("Appointment has been CANCELLED");
+		RecipientPage.recipientLogout();
+		
+		//************** LOGIN WITH NEW DOCTOR CREDENTIALS **************\\
+		Browser.openUrl(loginPage_Url);
+		doctorsPage.SignIn(emailID, password);
+		doctorsPage.doctorlogout();
+		
 		if(removeFromDB.equalsIgnoreCase("true"))
 		{
 			String docID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
@@ -128,7 +177,9 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
+		RecipientPage = new RecipientPage(driver);
 		admin=new NewAdminDoctorsPage(driver);
+		doctorsPage=new DoctorsPage(driver);
 		admin.adminSignIn(admin_user, admin_password);
 	}
 	
