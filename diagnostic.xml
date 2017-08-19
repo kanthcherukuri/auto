@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="diagnosticSuite">
+<listeners>
+       <listener class-name="listners.TestListener"/>
+</listeners>
   <test name="diagnosticTest">
     <classes>
       <class name="diagnosticTestScripts.Appointment_ZOY956_SearchInPatientScreen"/>
@@ -31,7 +34,7 @@
       <class name="diagnosticTestScripts.Appointment_ZOY_HomeAppointmentInDashBoard"/>
       <class name="diagnosticTestScripts.Appointment_ZOY956_SearchPatientScreenAllTab"/>
       <!-- Schedule Scripts-->
-      <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationCounterslotdurationlessthan15mnts"/>
+      <!-- <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationCounterslotdurationlessthan15mnts"/>
       	<class name="diagnosticTestScripts.Schedule_ZOY997_HomePickupApprovalMakeActiveForTest"/>
        	<class name="diagnosticTestScripts.Schedule_ZOY1011_HomePickupEditTests"/>
        	<class name="diagnosticTestScripts.Schedule_ZOY995_HomePickupSubmitTestForApproval"/>
@@ -68,7 +71,7 @@
       <class name="diagnosticTestScripts.Schedule_ZOY977_ConsultationChangingCounterSlotDuration"/>
       <class name="diagnosticTestScripts.Schedule_ZOY992_HomeSampleDistanceAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleToggleAppointmentNotSchedule"/>
-      <class name="diagnosticTestScripts.Profile_ZOY2418_ProfilePictureFunctionality"/>
+      <class name="diagnosticTestScripts.Profile_ZOY2418_ProfilePictureFunctionality"/> -->
       
     </classes>
   </test> <!-- diagnosticTest -->
