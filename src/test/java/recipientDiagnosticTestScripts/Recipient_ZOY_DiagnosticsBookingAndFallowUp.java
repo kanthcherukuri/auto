@@ -92,9 +92,9 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
                 driver.navigate().refresh(); // Added this to remove the loading icon
                 Thread.sleep(5000);
 				Browser.scrollbyID("skipForLater");	
-                Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");			
+                Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				driver.findElement(By.id("skipForLater")).click();
-				driver.findElement(By.id("skipForLater")).click();
+				Thread.sleep(1000);
 				RecipientPage.openMyAccounts("Appointments");
 				driver.findElement(By.id("hist")).click();  // my History
 				driver.findElement(By.id("aptSearch")).click();

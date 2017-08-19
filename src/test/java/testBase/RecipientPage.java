@@ -279,7 +279,7 @@ public class RecipientPage  {
 	
 	/*   
 	 *  @Author      : Ganesh kumar.M
-	 *  @Description : This method is used to Enter the search details in Zoylo Map
+	 *  @Description : This method is used to set the location in  Zoylo Map
 	 *  @Parameters  : Area ..
 	 *  @Return      : 
 	 */	
