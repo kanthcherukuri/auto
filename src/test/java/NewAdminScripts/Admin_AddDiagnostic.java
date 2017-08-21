@@ -1,23 +1,29 @@
 package NewAdminScripts;
-
 import org.testng.annotations.Test;
+import objectRepository.Elements_NewAdminDiagnostic;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
+import testBase.NewAdminDoctorsPage;
+import testBase.RecipientPage;
 import testBase.TestUtils;
 
 public class Admin_AddDiagnostic extends LoadPropMac{
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
+	public NewAdminDoctorsPage admin;
+	public RecipientPage RecipientPage;
 	
 	@BeforeClass	 
 	 public void LaunchBrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
+	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);
+	 admin=new NewAdminDoctorsPage(driver);
+	 RecipientPage = new RecipientPage(driver);
 	 Browser= new TestUtils(driver);
 	 Browser.openUrl(loginPage_Url);
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -70,8 +76,42 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterTheFacilities();
 		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
 		AdminDiagnostic.SaveDiagnosticDetails();
-		//Browser.CheckNotificationMessage("Diagnostic Center created successfully");	
+		Browser.CheckNotificationMessage("Diagnostic Center created successfully");	
 		Thread.sleep(2000);
+		
+		//@Author: Sagar Sen
+		//******** MAKE DC ACTIVE FROM ADMIN LISTING ********\\
+		driver.navigate().refresh();
+		AdminDiagnostic.ClickOnDiagnosticMenu();
+		Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox, email);
+		Browser.waitforTextbyxpath("//*[@id='DataTables_Table_0']/tbody/tr/td[3]", email);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_ActiveCheckBoxList);
+		Browser.CheckNotificationMessage("Diagnostic Center Status Changed Successfully.");
+		admin.click_Profile_Options("Logout");
+		
+		//************ RECIPIENT BOOK RESCHEDULE AND CANCEL APPOINTMENT *************\\
+		Browser.openUrl(loginPage_Url);	
+		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
+		RecipientPage.goToDiagnostics();
+		RecipientPage.searchDCInZoyloMAP(DiagnosticName);
+		RecipientPage.bookAppointmentOnDiagnostics();
+		RecipientPage.selectAvailableSlotInDiagnostics(diagTestname, packagename);
+		RecipientPage.confirmAppointmentOnDiagnostics();
+		RecipientPage.makePayment();
+		String APID=Browser.getAppointmentID();
+		//RESCHEDULE APPOINTMENT
+		RecipientPage.openMyAccounts("Appointments");
+		RecipientPage.UpcomingAppointment(APID, "Reschedule");
+		Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[2]");							 
+		Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
+		driver.navigate().refresh();
+		//CANCEL APPOINTMENT
+		RecipientPage.UpcomingAppointment(APID, "Cancel");	   
+        Browser.verifyNotificationMessage("Appointment has been Cancelled");
+        RecipientPage.recipientLogout();
+        
+        Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenterAppointments", "appointmentNumber", APID);
 	}
 	
 	@AfterClass
