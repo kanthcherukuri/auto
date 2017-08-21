@@ -164,6 +164,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "redisProvidersCache", "providerId", docID);
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "providers", "username", emailID);
 			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "users", "username", emailID);
+			Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "appointment", "bookingNumber", AppointmentId);
 		}
 
 		Thread.sleep(5000);
