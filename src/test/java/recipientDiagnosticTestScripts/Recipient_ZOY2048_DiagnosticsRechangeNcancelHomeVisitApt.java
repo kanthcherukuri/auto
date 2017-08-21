@@ -17,7 +17,7 @@ public class Recipient_ZOY2048_DiagnosticsRechangeNcancelHomeVisitApt extends Lo
 	public RecipientPage RecipientPage;
 	
 	@Test()
-	public void changeDChomeVisitApt() throws InterruptedException
+	public void DiagnosticsRechangeNcancelHomeVisitApt() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
@@ -39,17 +39,14 @@ public class Recipient_ZOY2048_DiagnosticsRechangeNcancelHomeVisitApt extends Lo
 		
 		 //Get Appointment ID
 		String APID = Browser.getAppointmentID();
-		//Re Scheduling the Apppointment
-		Browser.openUrl(loginPage_Url);
-		//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
-		RecipientPage.goToAppointments();
-		//Rescheduling the appointment	
+		//Re-Scheduling the Apppointment
+		RecipientPage.openMyAccounts("Appointments");
 		RecipientPage.UpcomingAppointment(APID, "Reschedule");
 		Browser.clickOnTheElementByXpath(Elements_Recipients.recipient_firstHomeAddress);
 		Browser.clickOnTheElementByXpath(Elements_Recipients.dcHomeVisitAddressProceed);
 		Browser.clickOnTheElementByXpath("(//div[@class='panel-collapse collapse in']/ul/li[@class='timeSlot sp-available-slots'])[2]");							 
 		Browser.verifyNotificationMessage("Your appointment slot has been successfully CHANGED");
-		//Verifying Reshedule label in appointments
+		//Verifying Re-shedule label in appointments
 		String Appointment_Status_Reshedule=driver.findElement(By.xpath("//div[contains(.,'"+APID+"')]/preceding-sibling::div[@class='patientApmtStatus']")).getText();
         Assert.assertEquals(Appointment_Status_Reshedule, "Rescheduled");
 		//Canceling the appointment			

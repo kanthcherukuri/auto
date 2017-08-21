@@ -26,7 +26,8 @@ public class TestListener extends LoadPropMac implements ITestListener {
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
 	
     public synchronized void onStart(ITestContext context) {
-    	ExtentTest parent = extent.createTest(getClass().getName());
+    	String ZoyloQA = "Report On ZoyloQA";
+    	ExtentTest parent = extent.createTest(ZoyloQA);
         parentTest.set(parent);
 	}
 

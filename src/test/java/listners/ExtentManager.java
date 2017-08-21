@@ -57,7 +57,7 @@ public class ExtentManager extends LoadPropMac {
          extent.setSystemInfo("Environment", "Zolyo-QA");
          extent.setSystemInfo("Browser Details", browser_name);
          extent.setSystemInfo("Application", base_url);
-         extent.setSystemInfo("User Name", "Ganesh Kumar Mandala");
+         extent.setSystemInfo("User Name", System.getProperty("user.name"));
          extent.setSystemInfo("Device Name", System.getProperty("os.name"));
          extent.attachReporter(htmlReporter);
         

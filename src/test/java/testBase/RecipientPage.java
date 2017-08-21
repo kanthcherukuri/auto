@@ -868,6 +868,8 @@ public class RecipientPage  {
 
 
 	public void goToAppointments() throws InterruptedException{
+		
+		//Thread sleep added to avoid clickable issue
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//li[@id='myaccount']/span/img")).click();
 		Thread.sleep(5000);

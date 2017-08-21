@@ -47,7 +47,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 		};
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","High" })
-	public void validateRecipientsBookingAnHomeVisitForDoctor(String runmode,String City,String Tests, String Pkg ) throws Exception {
+	public void validateRecipientsBookingAnHomeVisitForDC(String runmode,String City,String Tests, String Pkg ) throws Exception {
 
 		if(runmode.equals("yes")){
 

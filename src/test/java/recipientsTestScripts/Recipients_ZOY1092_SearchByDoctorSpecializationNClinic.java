@@ -68,19 +68,20 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	@AfterMethod(groups = { "Regression","Medium" })
 	public void refresh( ) throws Exception {
 
-		driver.navigate().refresh();
-		Thread.sleep(5000);	
+		RecipientPage.goToDoctors();
 		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
-		
 	}
 	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
 	public void mapSearchBySpecialization(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ,String Synonym) throws Exception {
 
 		if(runmode.equals("yes")){
+			
 			RecipientPage.searchInZoyloMAP(Specialization);
 			String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertTrue(Search_Specialization.contains(Specialization));
 			System.out.println("Passed"+Search_Specialization);
+			driver.navigate().refresh();	
+			Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 
 		}else{
 
@@ -94,12 +95,13 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
+			
 			RecipientPage.searchInZoyloMAP(Clinic);
 			RecipientPage.bookAppointment();
 			String Search_Clinic = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
 			System.out.println("clicnic name"+Search_Clinic);
 			Assert.assertEquals(Search_Clinic, Clinic);
-			RecipientPage.goToDoctors();
+			
 
 		}else{
 
@@ -109,17 +111,18 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 	}
 
 
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
 	public void validateMapsearchByHospital(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital ,String Synonym) throws Exception {
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
+			
 			RecipientPage.searchInZoyloMAP(Hospital);
 			RecipientPage.bookAppointment();
 			String Search_Hospital = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();
 			System.out.println("clinic name"+Search_Hospital);
 			Assert.assertEquals(Search_Hospital, Hospital);
-			RecipientPage.goToDoctors();
+			
 
 		}else{
 
@@ -128,13 +131,14 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		}	
 	}
 
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=5)
 	public void mapSearchByInvalidData(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
 
 		if(runmode.equals("yes")){
 
 			//Verify with Invalid data
-			driver.findElement(By.id("search2")).click();
+			
+			Browser.clickOnTheElementByID("search2");
 			
 			 for(int i=0;i<=invalidData.length()-1; i++)
 			    {
@@ -147,8 +151,8 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 			    
 			   Assert.assertTrue(InvalidSearchMessage.contains("Oops your Search"));
 			   Assert.assertTrue(InvalidSearchMessage.contains("did not match any records"));
-
-
+               driver.navigate().refresh();
+               Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		}else{
 
 			throw new SkipException("RUNMODE IS OFF");
@@ -156,17 +160,19 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		}	
 	}
 	
-	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=4)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=6)
 	public void mapSearchBySynonym(String runmode,String Doctor,String Specialization,String Clinic,String invalidData,String Hospital,String Synonym ) throws Exception {
 
 		if(runmode.equals("yes")){
 
 			//Verify search with clinic name
+			
 			RecipientPage.searchInZoyloMAP(Synonym);
 			String Search_Specialization = driver.findElement(By.xpath("//div[@class='dctr-desig']")).getText();
 			Assert.assertTrue(Search_Specialization.contains(Specialization));
 			System.out.println("Passed"+Search_Specialization);
-
+			driver.navigate().refresh();
+            Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		}else{
 
 			throw new SkipException("RUNMODE IS OFF");

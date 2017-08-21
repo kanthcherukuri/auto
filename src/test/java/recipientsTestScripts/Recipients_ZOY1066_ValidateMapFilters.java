@@ -148,8 +148,8 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		    RecipientPage.clickOnFilterImg();
 
 			RecipientPage.ApplyFilter("Specialization","specialization", "Trichology","searchSpecialization");
-			Thread.sleep(5000);
-			String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
+			String NoDataFound=Browser.getTextByXpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span");
+			//String NoDataFound=driver.findElement(By.xpath("//ul[@class='rec-doctorslist rec-doc-list search-result-wrapper']/span")).getText();
 			Assert.assertEquals(NoDataFound, "Oops your Search did not match any records. Why don't you try searching after clearing the filter. Clear Filter");
 	
 	    }

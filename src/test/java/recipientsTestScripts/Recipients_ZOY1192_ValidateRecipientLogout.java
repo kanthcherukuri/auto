@@ -30,6 +30,7 @@ public class Recipients_ZOY1192_ValidateRecipientLogout extends LoadPropMac {
 
 		
 		Browser.openUrl(loginPage_Url);	
+	
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);

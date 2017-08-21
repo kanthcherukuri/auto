@@ -89,8 +89,8 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				Browser.openUrl(loginPage_Url);			
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
                 Thread.sleep(2000);
-                driver.navigate().refresh(); // Added this to remove the loading icon
-                Thread.sleep(5000);
+                driver.navigate().refresh(); // Added this to remove the Map loading icon
+				Browser.waitFortheElementXpath("//div[@class='review-label']");
 				Browser.scrollbyID("skipForLater");	
                 Browser.enterTextByID("comment", "Review Comments test details Review Comments test details Review Comments test details Review Comment");
 				driver.findElement(By.id("skipForLater")).click();
