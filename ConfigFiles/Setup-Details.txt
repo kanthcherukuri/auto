@@ -54,9 +54,11 @@ DoctorsLogin.passwordfour=Zoylo@123
 
 //-------Diagnostic Login Details----//
 
+
 Diagnostic.Url=https://dev.zoylo.com
-DiagnosticLogin.usernameone=louise@gmail.com
-DiagnosticLogin.passwordone=Zoylo@123
+DiagnosticLogin.usernameone=honeytestdg@gmail.com
+DiagnosticLogin.passwordone=Zoylo@666
+>>>>>>> 779ba1b7e4db0229f8031a153b966fcf647bef64
 
 DiagonsticLogin.username=email1@zoylo.com
 DiagnosticLogin.password=Zoylo@123

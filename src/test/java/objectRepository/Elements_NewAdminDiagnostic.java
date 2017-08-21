@@ -82,7 +82,7 @@ public class Elements_NewAdminDiagnostic
 	public static String Admin_ClickOnAdministrationMenu,Administration_MergeNamesMenu,MergeName_SelectType,
 	MergeName_FromValue,MergeName_ToValue,MergeName_Submit,Admin_ClickOnDoctorMenu, Admin_Serachbox,Doctor_GetSpecialisation;
 	
-	
+	public static String Diagnostic_ActiveCheckBoxList;
 	
 	
 	
@@ -90,7 +90,8 @@ public class Elements_NewAdminDiagnostic
 	
 	public static WebDriver newAdmin_DiagnosticPageProperties()
 	{
-	
+		Diagnostic_ActiveCheckBoxList="//input[@class='no-margin diagnosticCenterActive-class']"; //XPATH
+		
 		Diagnostic_Menu="//*[@id='tabs']/li[3]/a/div/div/a";
 		Diagnostic_ClickOnAddDiagnostic="add";
 		DiagnosticCenter_Name="diagnosticCenterName";

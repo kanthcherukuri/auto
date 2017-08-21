@@ -43,8 +43,8 @@
       	<class name="NewAdminScripts.Admin_ZOY2290_AddHospital"/>
      	<class name="NewAdminScripts.Admin_EditHospital"/>
       	<class name="NewAdminScripts.Admin_ZOY2284_DiagnosticReferences"/>
-      	<class name="NewAdminScripts.Admin_ZOY2281_CheckDiagnosticLogs"/>
       	<class name="NewAdminScripts.Admin_ZOY2364_MergeNames"/>
+      	<class name="NewAdminScripts.Admin_ZOY2281_CheckDiagnosticLogs"/>
     </classes>
   </test> <!-- newAdmin -->
 </suite> <!-- NewAdmin -->

@@ -480,7 +480,7 @@ public class NewAdminDiagnosticPage
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.DiagnosticTests_Menu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.DiagnosticTests_AddTests);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName);
-		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName, diagTestname+Browser.randomalphabets());
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestName, diagTestname);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_TestDescription);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_TestDescription, diagTestdesc);
 		Browser.selectbyid(Elements_NewAdminDiagnostic.DiagnosticTests_AdminStatus, "approved");
@@ -703,7 +703,7 @@ public class NewAdminDiagnosticPage
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_Keywords);
 		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_Keywords, SEOkeywords);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.SEO_URL);
-		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_URL, SEOurl);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.SEO_URL, SEOurl+Browser.generateRandomString(6));
 		Thread.sleep(2000);
 		
 	}
