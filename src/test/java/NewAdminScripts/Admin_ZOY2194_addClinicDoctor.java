@@ -124,7 +124,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		//************ RECIPIENT BOOK RESCHEDULE AND CANCEL APPOINTMENT *************\\
 		Browser.openUrl(loginPage_Url);	
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
-		RecipientPage.searchInZoyloMAP("Creditsuite");
+		RecipientPage.searchInZoyloMAP(firstName);
 		RecipientPage.bookAppointment();
 		//BOOK APPOINTMENT
 		String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
