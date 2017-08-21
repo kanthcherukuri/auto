@@ -5,17 +5,17 @@ browser.name=chrome
 
 
 //----Environment----//
-Environment.name=zoyloqa
+Environment.name=dev
 
 
 //----Login URL Details---//
 
-base.url=https://zoyloqa.zoylo.com/
-enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
-loginPage.url=https://zoyloqa.zoylo.com/login
-index.url=https://zoyloqa.zoylo.com/index
-dev.url=https://zoyloqa.zoylo.com/login
-recipient.myaccount=https://zoyloqa.zoylo.com/myaccount
+base.url=https://dev.zoylo.com/
+enrollment.url=https://dev.zoylo.com/doctorenrollmentform
+loginPage.url=https://dev.zoylo.com/login
+index.url=https://dev.zoylo.com/index
+dev.url=https://dev.zoylo.com/login
+recipient.myaccount=https://dev.zoylo.com/myaccount
 
 
 
@@ -54,7 +54,7 @@ DoctorsLogin.passwordfour=Zoylo@123
 
 //-------Diagnostic Login Details----//
 
-Diagnostic.Url=https://zoyloqa.zoylo.com
+Diagnostic.Url=https://dev.zoylo.com
 DiagnosticLogin.usernameone=louise@gmail.com
 DiagnosticLogin.passwordone=Zoylo@123
 
@@ -94,10 +94,6 @@ Doctor.Name=Doctorzoylo
 Diagnostic.Name=Diagnosticszoylo
 
 
-
-
-//----Execution by----//
-author.name=Ganesh kumar Mandala
 
 
 
