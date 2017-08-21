@@ -29,7 +29,7 @@ public class Schedule_ZOY842_DoctorHospital_UpdateWorkTimings extends LoadPropMa
 	 @Test
 	 public void DoctorHospitalUpdateWorkTiming() throws Exception{
 		 DoctorsPage.BulkCancel();
-		 Thread.sleep(2000);
+		 Thread.sleep(4000);
 		 Browser.clickOnTheElementByID("schedule");
 		 Browser.waitTill(2000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");

@@ -1164,7 +1164,7 @@ public class DiagnosticPage {
 		
 		public void ClickOnToggletoSubmitTestsForApproval() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.ManageTestSubmit);
-			//Thread.sleep(10000);
+			Thread.sleep(2000);
 //			String ActualNotification=driver.findElement(By.xpath(Elements_Diagnostics.ManageTestSubmitNotification)).getText();
 //			Assert.assertEquals(ActualNotification,"Approval is pending");
 			

@@ -30,7 +30,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots extends LoadPropMac {
 	 @Test
 	 public void HospitalIncreaseTimeSlotNoBookedApp() throws Exception{
 		 DoctorsPage.BulkCancel();
-		 Thread.sleep(2000);
+		 Thread.sleep(5000);
 		 Browser.clickOnTheElementByID("schedule");
 		 Thread.sleep(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimingsSunday("07:00", "20:00");
@@ -40,7 +40,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots extends LoadPropMac {
 		 Browser.waitFortheElementXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
-		 Thread.sleep(2000);
+		 Thread.sleep(7000);
 		 DoctorsPage.DoctorAppointmentBookingForSunday("Mohan", "M", "9900224466", "mohan@gmail.com", "liver");
 		 Browser.clickOnTheElementByID(Elements_Doctors.schedule);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_ClickOnHospitalTab);
@@ -60,6 +60,7 @@ public class Schedule_ZOY851_DoctorHospital_EditTimeSlots extends LoadPropMac {
 		 Browser.clickOnTheElementByID(Elements_Doctors.Schedule_Hospital_SundayMenu);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_DeleteWorkTimings);
 		 Browser.CheckNotificationMessage("Time Slot Deleted Successfully");
+		 Thread.sleep(7000);
 		 Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 		 Browser.CheckNotificationMessage("Hospital Time Slot Updated Successfully");
 		 Thread.sleep(2000);

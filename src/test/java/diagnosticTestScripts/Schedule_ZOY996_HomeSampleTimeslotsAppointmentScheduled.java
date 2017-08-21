@@ -41,8 +41,10 @@ public class Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled extends Loa
 		 int day = calendar.get(Calendar.DAY_OF_WEEK); 
 		 
 		 System.out.println(day);
+		 Thread.sleep(2000);
 		 switch (day) {
 		 case Calendar.SUNDAY:
+			 Browser.waitFortheElementXpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']");	 
 	    	 driver.findElement(By.xpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']")).clear();
 	    	 driver.findElement(By.xpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']")).sendKeys("22:00");
 	    	 Thread.sleep(2000);

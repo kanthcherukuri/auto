@@ -33,6 +33,7 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 		 Thread.sleep(2000);
 		 Browser.clickOnTheElementByID("schedule");
 		 Thread.sleep(3000);
+		 Browser.waitTill(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("10:00", "10:00");
 		 Browser.CheckNotificationMessage("Hospital Time Slot overlaps with Other Working Time Slot");
 		 Thread.sleep(3000);
