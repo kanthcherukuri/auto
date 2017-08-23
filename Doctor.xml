@@ -6,7 +6,7 @@
 </listeners>
   <test name="DoctorRegression">
     <classes>
-   <!--  <class name="doctorsTestScripts.MongoRemove_ZOY2572_DoctorAppointments"/> Remove appointments -->
+    <class name="doctorsTestScripts.MongoRemove_ZOY2572_DoctorAppointments"/> <!-- Remove appointments  -->
       <class name="doctorsTestScripts.Appointments_ZOY794_ShowMore"/>
       <class name="doctorsTestScripts.Appointment_ZOY_ValidateAppointmentCancelAlert"/>
       <class name="doctorsTestScripts.Appointment_ZOY2140_checkOutScenraio"/>
