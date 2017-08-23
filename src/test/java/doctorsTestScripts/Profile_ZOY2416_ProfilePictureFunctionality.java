@@ -102,7 +102,7 @@ public class Profile_ZOY2416_ProfilePictureFunctionality extends LoadPropMac
 
 	public void launchDoctorLogin() throws Exception
 	{
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 	}
 	

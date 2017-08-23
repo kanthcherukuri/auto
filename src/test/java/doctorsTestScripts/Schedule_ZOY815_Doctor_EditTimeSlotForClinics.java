@@ -72,7 +72,7 @@ public class Schedule_ZOY815_Doctor_EditTimeSlotForClinics extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

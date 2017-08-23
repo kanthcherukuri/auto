@@ -51,7 +51,7 @@ public class Recipient_ZOY1399_ValidateDianosticsRebook extends LoadPropMac {
 	 public void validateRecipientRebookingOfAppointment() throws Exception {
 	   			 
 			 //Test Starts-Here
-			 Browser.openUrl(loginPage_Url);			
+		     Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			 //Verify Recipient Login with valid details
 			 RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			 Thread.sleep(5000);

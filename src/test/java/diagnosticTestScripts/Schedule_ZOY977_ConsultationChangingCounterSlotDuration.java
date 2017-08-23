@@ -20,7 +20,7 @@ public class Schedule_ZOY977_ConsultationChangingCounterSlotDuration  extends Lo
 		LoadBrowserProperties();
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }

@@ -54,7 +54,7 @@ public class Recipient_ZOY1110_ValidateRecipientsBookingAnHomeVisitForDiagnostic
 
 
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");		
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 			RecipientPage.goToDiagnostics();

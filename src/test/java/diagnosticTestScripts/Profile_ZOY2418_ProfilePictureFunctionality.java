@@ -74,7 +74,7 @@ public class Profile_ZOY2418_ProfilePictureFunctionality extends LoadPropMac
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		diagnosticPage=new DiagnosticPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		diagnosticPage.SignIn(Recipient_DiaUsername, Recipient_DiaPassword);
 	}
 	

@@ -32,7 +32,7 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);   
 		//Test Starts-Here
-		Browser.openUrl(loginPage_Url);			
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 
 

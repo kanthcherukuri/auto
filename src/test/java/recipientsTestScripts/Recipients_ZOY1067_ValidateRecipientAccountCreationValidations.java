@@ -59,7 +59,7 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 		 if(runmode.equals("yes")){
 			 			 
 			 //Test Starts-Here
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		
 			 driver.findElement(By.linkText("Don't have an account?")).click();
 			 Browser.waitTill(10);
@@ -106,7 +106,7 @@ public class Recipients_ZOY1067_ValidateRecipientAccountCreationValidations exte
 		 if(runmode.equals("yes")){
 			 			 
 			 //Test Starts-Here
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		
 			 driver.findElement(By.linkText("Don't have an account?")).click();
 			 Browser.waitTill(10);

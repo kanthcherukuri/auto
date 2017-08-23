@@ -43,7 +43,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 	 @Test(groups = { "Regression","Medium" })
 	 public void validateRecipientAppointmentBookingFromMyFavourites() throws Exception {
 
-			Browser.openUrl(loginPage_Url);
+		    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String Fav_DoctorFullName = driver.findElement(By.xpath("//h1")).getText();

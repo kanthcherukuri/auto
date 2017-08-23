@@ -75,7 +75,7 @@ public class Recipient_ZOY2019_updateHomeVisitFeeNegativeScenario extends LoadPr
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		DoctorsPage=new testBase.DoctorsPage(driver);
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

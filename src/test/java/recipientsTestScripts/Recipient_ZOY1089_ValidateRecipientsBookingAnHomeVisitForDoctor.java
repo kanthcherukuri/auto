@@ -47,7 +47,7 @@ public class Recipient_ZOY1089_ValidateRecipientsBookingAnHomeVisitForDoctor ext
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient2_Username, Recipient2_Password);	
 			RecipientPage.searchInZoyloMAP("srscript");

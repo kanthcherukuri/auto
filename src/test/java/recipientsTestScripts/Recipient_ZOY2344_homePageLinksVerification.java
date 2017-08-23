@@ -140,7 +140,7 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties(); //Load page elements of recipients
 		Elements_Home.Home_PageProperties(); //Load home page elements
 		Browser= new TestUtils(driver);
-		driver.get(base_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/");
 	}
 	
 	@AfterClass()
@@ -149,9 +149,9 @@ public class Recipient_ZOY2344_homePageLinksVerification extends LoadPropMac
 		driver.quit();
 	}
 	
-	public void navigateToBase()
+	public void navigateToBase() throws InterruptedException
 	{
-		driver.get(base_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/");
 		//Browser.waitTill(60);
 	}
 }

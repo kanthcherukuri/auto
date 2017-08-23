@@ -37,7 +37,7 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(index_url);			
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");			
 		  RecipientPage.searchInZoyloMAPArea("Miyapur");
  } 
 	 @Test(groups = { "Regression","High" },priority=1)
@@ -73,11 +73,12 @@ public class Recipients_ZOY1066_ValidateMapFilters extends LoadPropMac {
 	 //
 	 @AfterMethod
 	 public void AfterFiters() throws Exception {
-		 Browser.openUrl(index_url);
-		 Thread.sleep(3000);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
+		 Browser.waitFortheElementXpath(Elements_Recipients.recipient_DoctorClusters);
+		 /*Thread.sleep(3000);
 		 WebDriverWait wait = (new WebDriverWait(driver, 60));
 		 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//html/body/div[8]/div/img")));
-		
+		*/
 	    }
 	 
 	 @Test(groups = { "Regression","High" },priority=3)

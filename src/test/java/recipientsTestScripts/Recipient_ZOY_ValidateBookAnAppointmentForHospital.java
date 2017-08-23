@@ -53,7 +53,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentForHospital extends LoadProp
 		 if(runmode.equals("yes")){
 			 		 
 			    //Test Starts-Here
-				Browser.openUrl(loginPage_Url);			
+			    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				Thread.sleep(2000);

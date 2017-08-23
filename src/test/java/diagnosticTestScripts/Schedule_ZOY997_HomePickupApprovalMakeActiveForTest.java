@@ -26,7 +26,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		LoadBrowserProperties();
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
@@ -52,7 +52,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		DiagnosticPageZoylo.ScheduleHomePickupSubmitTestsForApproval();
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Browser.waitTill(2000);
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
@@ -64,7 +64,7 @@ public class Schedule_ZOY997_HomePickupApprovalMakeActiveForTest extends LoadPro
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();

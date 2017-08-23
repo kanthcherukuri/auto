@@ -42,7 +42,7 @@ public class Recipient_ZOY_ValidateBookAnAppointmentAsOther extends LoadPropMac 
 	public void ValidateBookAnAppointmentAsOther( ) throws Exception {
 
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);			
+		    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			Thread.sleep(2000);

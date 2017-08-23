@@ -24,7 +24,7 @@ public class Alert_ZOY953_CheckAlertForCancel extends LoadPropMac{
 	@BeforeClass
 	  public void LaunchBrowser() throws Exception {
 		LoadBrowserProperties();
-		 driver.get(loginPage_Url);
+		 driver.get("https://"+Environment_Name+".zoylo.com/login");
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPage=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);

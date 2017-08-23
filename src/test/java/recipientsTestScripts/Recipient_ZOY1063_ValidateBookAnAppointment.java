@@ -30,15 +30,17 @@ public class Recipient_ZOY1063_ValidateBookAnAppointment extends LoadPropMac {
 	 @Test(groups = { "Regression","High" })
 	 public void validateBookingAnAppointment() throws Exception {
 	  	    
-				Browser.openUrl(loginPage_Url);	
+				Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");	
 				RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 				RecipientPage.searchInZoyloMAP(Doctor_Name);
 				String DoctorFullName = Browser.getTextByXpath("//h1");
 				String Fee = Browser.getTextByXpath("//div[@class='consultFee']");
 				RecipientPage.bookAppointment();
+	            Assert.assertEquals(Browser.getTextByXpath("(//span[@class='left-align2'])[1]").replace(" ", ""), Fee.replace(" ", ""));  // Verify "Fee" on Slot Booking Page
 				String[] Appointmentdetails = RecipientPage.selectDefaultSlot();
 				System.out.println("Clinic Name details"+Appointmentdetails[0]);
 				System.out.println("Time details"+Appointmentdetails[1]);
+				Assert.assertEquals(Browser.getTextByXpath("//*[@id='providerFees']"), Fee.replace(" ", ""));                            // Verify "Fee" on Confirm Appointment Page
 				RecipientPage.confirmAppointment("Patient details");
 			    RecipientPage.makePayment();
 			    

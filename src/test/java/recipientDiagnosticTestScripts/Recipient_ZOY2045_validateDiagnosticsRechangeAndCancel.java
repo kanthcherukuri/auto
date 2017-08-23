@@ -61,7 +61,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
 			 		 
 			// /*
 			    //Test Starts-Here
-				Browser.openUrl(loginPage_Url);			
+			    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");		
 				//Verify Recipient Login with valid details
          		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
@@ -78,7 +78,7 @@ public class Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel extends Load
                 //Get Appointment ID
 				String APID = Browser.getAppointmentID();
 				//Re Scheduling the Apppointment
-				Browser.openUrl(loginPage_Url);
+				Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 				//RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToAppointments();
 				//Rescheduling the appointment	

@@ -35,7 +35,7 @@ public class Recipient_ZOY2428_CheckTestPackagefrombookPayPage extends LoadPropM
 		  Elements_Recipients.Recipients_PageProperties();
 		  RecipientPage = new RecipientPage(driver);
 		  Browser= new TestUtils(driver); 
-		  Browser.openUrl(loginPage_Url);
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		  RecipientPage.recipientLogin(Recipient_Username,Recipient_Password);
 		 
 	 }

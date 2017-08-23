@@ -55,7 +55,7 @@ public class Recipients_ZOY1168_ValidateRecipientsReschedulingAppointmentSlot ex
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			//Verify Recipient Login with valid details
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);

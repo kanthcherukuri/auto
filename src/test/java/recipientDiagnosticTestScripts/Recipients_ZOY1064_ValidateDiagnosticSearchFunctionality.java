@@ -31,7 +31,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);   
 		//Test Starts-Here
-		Browser.openUrl(loginPage_Url);			
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		//Searching Locality/Area
@@ -46,7 +46,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 
 			};
 		}
-	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=1)
 	public void mapSearchByDiagnostics(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -64,7 +64,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 
 	}
 
-	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=2)
 	public void ValidateMapSearchByTests(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -85,7 +85,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		}	
 	}
 
-	//@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
+	@Test(dataProvider="DP1",groups = { "Regression","Medium" },priority=3)
 	public void ValidateMapsearchByPackages(String runmode,String Diagnostics,String Tests,String Packages,String invalidData ) throws Exception {
 
 		if(runmode.equals("yes")){
@@ -137,7 +137,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	@BeforeMethod(groups = { "Regression","Medium" })
 	public void Inti( ) throws Exception {
 
-		  Browser.openUrl(index_url);			
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");			
 		  RecipientPage.goToDiagnostics();
 		  Browser.waitFortheElementXpath(Elements_Home.Map_DiagnosticsCenters);
 	}

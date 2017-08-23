@@ -44,7 +44,7 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 	public void validateBookingFallowUpAppointmentForDoctor( ) throws Exception {
 
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);
+		    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
@@ -60,13 +60,13 @@ public class Recipient_ZOY1171_ValidateRecipientBookFallowUpApointment extends L
 			System.out.println(AppointmentId);
 			RecipientPage.recipientLogout();				
 			//Login as Doctor				
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			DoctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 			DoctorsPage.clickOnThePatientFromDashBoard(Appointmentdetails[1]);
 			DoctorsPage.doctorCheckinCheckOut();
 			DoctorsPage.doctorlogout();				
 			//Login as Recipient
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 			//Thread.sleep(2000);
 			//driver.navigate().refresh();
