@@ -57,7 +57,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 
 			 
 			    //Test Starts-Here
-				Browser.openUrl(loginPage_Url);			
+			    Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");		
 				//Verify Recipient Login with valid details
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 				RecipientPage.goToDiagnostics();
@@ -86,7 +86,7 @@ public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
 				
 
 				//Login as Recipient
-				Browser.openUrl(loginPage_Url);			
+				Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");		
 				RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
                 Thread.sleep(2000);
                 driver.navigate().refresh(); // Added this to remove the Map loading icon

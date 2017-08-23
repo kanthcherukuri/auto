@@ -52,7 +52,7 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 		 if(runmode.equals("yes")){
 			 			 
 			  //Test Starts-Here
-			  Browser.openUrl(loginPage_Url);			
+			  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			  RecipientPage.recipientLogin(Username, Password);
 			  Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 			  Thread.sleep(5000);

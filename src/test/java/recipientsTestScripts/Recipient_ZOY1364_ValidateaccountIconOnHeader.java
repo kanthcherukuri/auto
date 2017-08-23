@@ -16,7 +16,7 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 	public TestUtils Browser;
 	
 	@Test
-	public void headerAccountIcon()
+	public void headerAccountIcon() throws InterruptedException
 	{
 		reloadtohomePge();
 		
@@ -62,7 +62,6 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties(); //Load page elements of recipients
 		Elements_Home.Home_PageProperties(); //Load home page elements
 		Browser= new TestUtils(driver);
-		//driver.get(base_url);
 
 	}
 	
@@ -71,9 +70,9 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 		
 		driver.quit();
 	} 
-	public void reloadtohomePge() //method to reload and wait until page is loaded
+	public void reloadtohomePge() throws InterruptedException //method to reload and wait until page is loaded
 	{
-		driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/home");
 		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);
 		driver.findElement(By.xpath(Elements_Recipients.link_myAccountheaderIcon)).click();
 	}

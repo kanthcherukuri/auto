@@ -49,7 +49,7 @@ public class Recipients_ZOY1176_ValidateRecipientsPasswordChange extends LoadPro
 	  
 		if(runmode.equals("yes")) {
 			 			 
-		  Browser.openUrl(loginPage_Url);			
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 	      //Verify Recipient Login with valid details
 		  RecipientPage.recipientLogin(username, password);
 		  Browser.waitFortheElementXpath("//div[@class='pin bounce ']");

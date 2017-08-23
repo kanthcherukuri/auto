@@ -40,7 +40,7 @@ public class Recipient_ZOY2034_homeVisitServiceRange extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

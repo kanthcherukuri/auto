@@ -49,8 +49,7 @@ public class Recipient_ZOY2023_homeVisitwithoutLoginNegativeScenario extends Loa
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		//driver.get(loginPage_Url);
-		driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 	}
 	
 	@AfterClass

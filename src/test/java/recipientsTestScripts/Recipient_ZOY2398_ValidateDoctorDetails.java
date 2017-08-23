@@ -26,7 +26,7 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 	{
 		//Doctor profile
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
-		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
+		driver.get("https://"+Environment_Name+".zoylo.com/providerAccount");
 		Browser.waitFortheID(Elements_Doctors.doctor_profileEdit);
 		Browser.scrollbyID(Elements_Doctors.doctor_profileEdit);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileEdit);
@@ -65,9 +65,9 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		Assert.assertEquals(paymentType, "Cash");
 		
 		//Doctor reset data
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
-		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
+		driver.get("https://"+Environment_Name+".zoylo.com/providerAccount");
 		Browser.waitFortheID(Elements_Doctors.doctor_profileEdit);
 		driver.findElement(By.xpath(Elements_Doctors.doctor_ProfilePaymentTab)).click();
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentCash);
@@ -87,8 +87,7 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
-		//driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

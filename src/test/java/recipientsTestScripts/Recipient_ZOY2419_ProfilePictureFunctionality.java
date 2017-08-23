@@ -66,7 +66,7 @@ public class Recipient_ZOY2419_ProfilePictureFunctionality extends LoadPropMac
 		Elements_Doctors.Doc_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 	}
 	

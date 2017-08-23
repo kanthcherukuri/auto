@@ -65,7 +65,7 @@ public class Recipient_ZOY2408_validateDCdetailsOnProfilePage extends LoadPropMa
 		Assert.assertEquals(dcPaymentOption, "Cash");
 		
 		//DC reset value
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPage.SignIn("indiandc@zoy.com", "Zoylo@123");
 		Browser.waitFortheID(Elements_Diagnostics.clickondashboardmenu);
 		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/zyDiagnosticCenterAccount");
@@ -87,7 +87,7 @@ public class Recipient_ZOY2408_validateDCdetailsOnProfilePage extends LoadPropMa
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		DiagnosticPage=new DiagnosticPage(driver);
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

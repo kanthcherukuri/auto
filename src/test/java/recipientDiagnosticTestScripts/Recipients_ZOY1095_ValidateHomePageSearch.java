@@ -48,7 +48,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 	} 
 	@BeforeMethod(groups = { "Regression","High" })
 	public void HomePage() throws Exception {
-		Browser.openUrl(base_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/");
 
 	}
 

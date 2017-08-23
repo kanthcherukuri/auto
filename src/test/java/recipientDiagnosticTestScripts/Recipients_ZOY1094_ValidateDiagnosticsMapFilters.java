@@ -41,7 +41,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
 		  //Test Starts-Here
-		  Browser.openUrl(index_url);			
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");			
 		  RecipientPage.goToDiagnostics();
 		  RecipientPage.searchInZoyloMAPArea("Miyapur");
 		  	 
@@ -50,7 +50,7 @@ public class Recipients_ZOY1094_ValidateDiagnosticsMapFilters extends LoadPropMa
 	 @AfterMethod
 	 public void AfterFiters() throws Exception {
 
-		  Browser.openUrl(index_url);			
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");			
 		  RecipientPage.goToDiagnostics();	
 			
 	    }

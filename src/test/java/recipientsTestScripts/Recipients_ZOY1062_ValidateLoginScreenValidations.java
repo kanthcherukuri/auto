@@ -78,7 +78,7 @@ public class Recipients_ZOY1062_ValidateLoginScreenValidations extends LoadPropM
 	 @BeforeMethod(groups = { "Regression","High" })
 	 public void openUrl() throws Exception {
 		 //Test Starts-Here
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 
 	    }
 

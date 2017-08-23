@@ -54,7 +54,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 		if(runmode.equals("yes")){
 			
 			//Test Starts-Here
-			Browser.openUrl(loginPage_Url);				
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");				
 			driver.findElement(By.linkText("Don't have an account?")).click();
 			//*************Creating New Recipient***********//
 			Browser.enterTextByID("fullName", FullName);
@@ -82,7 +82,7 @@ public class Recipient_ZOY1067_AccountCreation extends LoadPropMac {
 			
 			//********Booking Appointment with newly created User**********//
 			
-			Browser.openUrl(loginPage_Url);			
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
 			RecipientPage.recipientLogin(ResipientEmail, ResipientPassword);
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			String DoctorFullName = Browser.getTextByXpath("//h1");

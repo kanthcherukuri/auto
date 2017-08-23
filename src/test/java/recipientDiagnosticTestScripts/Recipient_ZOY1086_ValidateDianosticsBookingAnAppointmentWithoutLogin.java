@@ -60,7 +60,7 @@ public class Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogi
 		if(runmode.equals("yes")){
 
 			//Test Starts-Here
-			Browser.openUrl(base_url);
+			Browser.openUrl("https://"+Environment_Name+".zoylo.com/");
 			HomePage.searchZoylo("Hyderabad","","");
 			Browser.waitFortheID(Elements_Home.map_AreaName);
 			RecipientPage.goToDiagnostics();

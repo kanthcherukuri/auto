@@ -39,7 +39,10 @@ public class LoadPropMac   {
 	public static String DoctorsLogin_username, DoctorsLogin_password,Doctor_Name,Diagnostic_Name, recipient_myaccount, DoctorsLogin_usernametwo, DoctorsLogin_passwordtwo;
 	public static String Recipient_Username, Recipient_Password,Recipient2_Username, Recipient2_Password,Recipient3_Username, Recipient3_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
-	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone,Environment_Name, recipientDC_User, recipientDC_Password;
+	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
+	public static String Environment_Name;
+	public static String recipientDC_User;
+	public static String recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
 	public static String Diagnostic_usernamethree, Diagnostic_passwordthree, DoctorsLogin_usernamefour, DoctorsLogin_passwordfour, DoctorsLogin_usernamefive, DoctorsLogin_passwordfive;
 	public static String Admin_Username, Admin_Password, Diagnostic_usernamesix,Diagnostic_passwordsix;

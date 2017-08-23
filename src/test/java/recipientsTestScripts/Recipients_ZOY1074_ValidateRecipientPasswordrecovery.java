@@ -47,7 +47,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 
 
 		//Test Starts-Here
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		//verifing email validation
 		Browser.clickOnTheElementByID("forgotPassword");
 		Browser.clickOnTheElementByID("resetPassword");
@@ -67,7 +67,7 @@ public class Recipients_ZOY1074_ValidateRecipientPasswordrecovery extends LoadPr
 	public void validateRecipientPasswordRecovery() throws Exception {
 
 		//Test Starts-Here
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		//verifing email validation
 		Browser.clickOnTheElementByID("forgotPassword");
 		Browser.clickOnTheElementByID("resetPassword");

@@ -20,7 +20,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public TestUtils Browser;
 	public RecipientPage RecipientPage;
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1)
 	public void validateDirectionsnegativeScenario() throws InterruptedException
 	{
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
@@ -59,7 +59,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	@Test(dataProvider="CheckingDistance",priority=2)
 	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance(String Area,String keyword) throws Exception {
 	
-		driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 		RecipientPage.searchInZoyloMAPArea(Area);
 		RecipientPage.searchInZoyloMAP(keyword);
 		//RecipientPage.searchInZoyloMAP("doctor honey");
@@ -96,9 +96,9 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			}
 		
 	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
-	@Test(priority=3,enabled=false)
+	@Test(priority=3)
 	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
-		driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 		RecipientPage.searchInZoyloMAP("kanth doctor");
 		RecipientPage.bookAppointment();	
 		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']"); 
@@ -142,7 +142,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass()

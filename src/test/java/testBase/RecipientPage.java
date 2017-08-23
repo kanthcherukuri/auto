@@ -23,7 +23,6 @@ public class RecipientPage  {
 		Elements_Recipients.Recipients_PageProperties();
 		Elements_Home.Home_PageProperties();
 		Browser= new TestUtils(driver);  
-		// LoadProp Prop= new LoadProp(driver);
 	}
 
 
@@ -577,7 +576,7 @@ public class RecipientPage  {
 			driver.findElement(By.id("tests_search")).sendKeys(tests);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'test_select_checkbox')])[1]")).click();
-			  Reporter.log("Diagnostic Test selected as "+tests);
+			Reporter.log("Diagnostic Test selected as "+tests);
 			
 			//pkg
 			driver.findElement(By.xpath("//*[@id='package-li']/a")).click();

@@ -86,7 +86,7 @@ public class Recipient_ZOY2389_validateAminityPracticeLocationOnProfilePage exte
 				Assert.assertEquals(Aminity, "Car Parking Available");
 			}
 		}
-		driver.get(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
 		Browser.clickOnTheElementByID(Elements_Doctors.schedule);
 		Browser.waitforTextbyxpath("(//div[@class='day-title'])[1]", "Consultation");
@@ -110,8 +110,7 @@ public class Recipient_ZOY2389_validateAminityPracticeLocationOnProfilePage exte
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
-		//driver.get(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

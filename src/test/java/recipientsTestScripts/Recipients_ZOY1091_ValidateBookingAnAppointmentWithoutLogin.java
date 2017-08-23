@@ -36,7 +36,7 @@ public class Recipients_ZOY1091_ValidateBookingAnAppointmentWithoutLogin extends
 	public void validateBookingAnAppointmentWithoutLogin( ) throws Exception {
 
 			//Test Starts - Here
-			Browser.openUrl(index_url);
+		    Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 			RecipientPage.searchInZoyloMAP(Doctor_Name);
 			Browser.waitFortheElementXpath("//div[@class='dctr-desig']");
 			String DoctorFullName = driver.findElement(By.xpath("//h1")).getText();
