@@ -26,7 +26,7 @@ public class Admin_ZOY2290_AddHospital extends LoadPropMac {
 	 LoadBrowserProperties();
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
-	 Browser.openUrl(loginPage_Url);
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}

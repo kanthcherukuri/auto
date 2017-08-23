@@ -23,14 +23,10 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 	@BeforeClass	 
 	 public void launchbrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 		 
-	 
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
-	 
 	}
-	
 
 	@DataProvider(name = "StatusCheckByDiagnostic")
     public Object[][] createData_DP1() throws Exception{
@@ -42,7 +38,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 	public void CheckStatusChangeCancelledByDiagnosticCenter(String firstname,String lastname,String mobile,String email,String problem,
 			String status) throws Exception{
 		
-		Browser.openUrl( loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
@@ -52,7 +48,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		String getId=driver.findElement(By.xpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]")).getText();
 		System.out.println("Appointment ID :"+getId);
 		DiagnosticPage.diagnosticlogout();
-		Browser.openUrl( loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_AppointmentMenu);
@@ -81,7 +77,4 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCancelledByDiagnosticCente
 		driver.quit();
 	}
 	
-	
 	}
-
-

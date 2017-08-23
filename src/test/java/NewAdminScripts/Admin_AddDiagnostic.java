@@ -25,7 +25,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 	 admin=new NewAdminDoctorsPage(driver);
 	 RecipientPage = new RecipientPage(driver);
 	 Browser= new TestUtils(driver);
-	 Browser.openUrl(loginPage_Url);
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	 Thread.sleep(2000);
@@ -90,7 +90,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		admin.click_Profile_Options("Logout");
 		
 		//************ RECIPIENT BOOK RESCHEDULE AND CANCEL APPOINTMENT *************\\
-		Browser.openUrl(loginPage_Url);	
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");	
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		RecipientPage.goToDiagnostics();

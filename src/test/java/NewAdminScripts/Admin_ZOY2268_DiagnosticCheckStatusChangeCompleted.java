@@ -25,11 +25,10 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCompleted extends LoadProp
 	@BeforeClass	 
 	 public void launchbrowser() throws Exception {		
 	 LoadBrowserProperties();
-	 
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
-	 Browser.openUrl(loginPage_Url);
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
@@ -50,7 +49,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeCompleted extends LoadProp
 		String getId=driver.findElement(By.xpath("(//span[@class='zy-sp-diag-m-p-uname'])[2]")).getText();
 		System.out.println("Appointment ID :"+getId);
 		DiagnosticPage.diagnosticlogout();
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
 		//driver.get(Elements_NewAdminDiagnostic.Diagnostic_AppointmentsUrl);

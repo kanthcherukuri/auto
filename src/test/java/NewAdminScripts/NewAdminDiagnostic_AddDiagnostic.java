@@ -28,19 +28,14 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
-	 
 	  }
 
-	
-	
 	@Test(priority=1)
 	public void ClickandAddDiagnostic() throws Exception{
 		
 		AdminDiagnostic.ClickOnDiagnosticMenu();
 		AdminDiagnostic.ClickOnAddDiagnostic();
-		
 	}
-	
 	
 	@DataProvider(name = "DiagnosticDetails")
     public Object[][] createData_DP1() throws Exception{
@@ -48,18 +43,13 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
         return(retObjArr);
     }
 	
-	
 	@Test(dataProvider="DiagnosticDetails", priority=2)
 	public void EnterDiagnosticDetailsAndMandatoryFields(String RunMode,String DiagnosticName,String ShortName,String fullname,String email,String phone,String password, 
 	String dateofbirth,String desc,String regno,String dateofreg,String rating,String  startedyear ) throws Exception{
 		
 		AdminDiagnostic.EnterDiagnosticDetails(DiagnosticName, ShortName, fullname, email, phone, password);
 		AdminDiagnostic.EnterMandatoryFields(dateofbirth, desc, regno, dateofreg, rating, startedyear);
-		
-		
 	}
-	
-	
 	
 	@DataProvider(name ="HomeVisitDetails")
     public Object[][] createData_DP2() throws Exception{
@@ -99,9 +89,6 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		String SatStarttime=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HomeVisit_SaturdayAssert)).getText();
 		AssertJUnit.assertEquals(SatStarttime, Sstarttime);
 	}
-	
-	
-	
 	
 	@DataProvider(name ="LabVisitDetails")
     public Object[][] createData_DP3() throws Exception{
@@ -143,12 +130,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.LabVisit_Saturday);
 		String labSatStart=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.LabVisit_SaturdayAssert)).getText();
 		AssertJUnit.assertEquals(labSatStart, LSstarttime);
-
-		
 	}
-	
-	
-	
 	
 	@DataProvider(name ="HealthPackages")
     public Object[][] createData_DP4() throws Exception{
@@ -163,9 +145,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.ClickOnPackageAndTestsMenu();
 		AdminDiagnostic.AddHealthPackages(servicemode, packagename, packagedesc, packagecost, discountpercentage, zoylopercentage,
 				packageduration, packageperslot);
-		
 	}
-	
 	
 	@DataProvider(name ="HealthTests")
     public Object[][] createData_DP5() throws Exception{
@@ -180,10 +160,7 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		String healthtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.HealthPackage_TestAssert)).getText();
 		AssertJUnit.assertEquals(healthtestname, testname);
 		AdminDiagnostic.SaveAddHealthPackages();
-		
-		
 	}
-	
 	
 	@DataProvider(name ="DiagnosticTests")
     public Object[][] createData_DP6() throws Exception{
@@ -201,8 +178,6 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		String diagTests=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_Assert)).getText();
 		AssertJUnit.assertEquals(diagTests,diagTestname);
 	}
-	
-	
 	
 	@DataProvider(name ="AdditionalInformation")
     public Object[][] createData_DP7() throws Exception{
@@ -241,21 +216,10 @@ public class NewAdminDiagnostic_AddDiagnostic extends LoadPropMac{
 		AdminDiagnostic.EnterDetailsForSEO(SEOtitle, SEOdesc, SEOkeywords, SEOurl);
 	}
 	
-	
 	@Test(priority=10)
 	public void SaveTheEnterDiagnosticDetails() throws Exception{
 		AdminDiagnostic.SaveDiagnosticDetails();
 		Browser.CheckNotificationMessage("Diagnostic Center created successfully");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

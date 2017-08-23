@@ -10,12 +10,12 @@ Environment.name=zoyloqa
 
 //----Login URL Details---//
 
-base.url=https://zoyloqa.zoylo.com/
-enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
-loginPage.url=https://zoyloqa.zoylo.com/login
-index.url=https://zoyloqa.zoylo.com/index
-zoyloqa.url=https://zoyloqa.zoylo.com/login
-recipient.myaccount=https://zoyloqa.zoylo.com/myaccount
+//base.url=https://zoyloqa.zoylo.com/
+//enrollment.url=https://zoyloqa.zoylo.com/doctorenrollmentform
+//loginPage.url=https://zoyloqa.zoylo.com/login
+//index.url=https://zoyloqa.zoylo.com/index
+//zoyloqa.url=https://zoyloqa.zoylo.com/login
+//recipient.myaccount=https://zoyloqa.zoylo.com/myaccount
 
 
 

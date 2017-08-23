@@ -59,8 +59,7 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 		}
 		
 		//ADMIN ADD DOCTOR
-		driver.get(loginPage_Url);
-		//driver.get("https://dev.zoylo.com/login");
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.click_addDoctor();
@@ -107,8 +106,7 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get(loginPage_Url);
-		//driver.get("https://dev.zoylo.com/login");
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);

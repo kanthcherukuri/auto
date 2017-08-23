@@ -74,7 +74,7 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 		admin.click_specialisationSaveBtn();
 		Browser.CheckNotificationMessage("Doctor - Specialization created successfully");
 		admin.click_Profile_Options("Logout");
-		Browser.openUrl(index_url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 		RecipientPage.searchInZoyloMAP("TestSynonym");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "areaOfSpecialization", "name", specialisationName);
 	}
@@ -83,7 +83,7 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
