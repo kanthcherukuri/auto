@@ -38,7 +38,7 @@ public class Schedule_ZOY792_Home_Visit_enable_disable extends LoadPropMac
 		Elements_Doctors.Doc_PageProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 
 	@AfterClass

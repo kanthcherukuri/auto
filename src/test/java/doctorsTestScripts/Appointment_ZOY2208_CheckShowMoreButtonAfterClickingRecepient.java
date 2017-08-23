@@ -27,7 +27,7 @@ public class Appointment_ZOY2208_CheckShowMoreButtonAfterClickingRecepient exten
 	public void beforeClass() throws Exception {
 	  		LoadBrowserProperties();
 	  		driver.manage().window().maximize();
-			 driver.get(doctors_Url);		 
+			 driver.get("https://"+Environment_Name+".zoylo.com/login");		 
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
