@@ -27,7 +27,7 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 			 LoadBrowserProperties();	 
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser= new TestUtils(driver);
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn( DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 	}

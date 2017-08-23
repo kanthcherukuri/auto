@@ -39,14 +39,14 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		doctorsPage.addclinicSchedule(ohrName, otrClincFee, othrCliNum, linone, otrPin, lon, lat);
 		doctorsPage.doctorlogout();
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		doctorsPage.deleteOtherClinicFromAdmin(DoctorsLogin_usernamefive);
 		admin.click_Profile_Options("Logout");
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.recipient_IndexAccountIcon);
 		
 		//Deactivate all days break time temporary error cover methods
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(DoctorsLogin_usernamefive, DoctorsLogin_passwordfive);
 		Thread.sleep(2000);
 		driver.findElement(By.id(Elements_Doctors.schedule)).click();
@@ -75,7 +75,7 @@ public class Schedule_ZOY2100_AddClinic extends LoadPropMac
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
 		admin=new NewAdminDoctorsPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

@@ -5875,3 +5875,789 @@
         ]
     }
 }
+
+//********** DC PROVIDER COLLECTION DATA ************\\
+/* 1 */
+{
+    "_id" : "8pw8dKZbB7MHZ7ohM",
+    "diagnosticCenterName" : "Honeydiagnostic",
+    "diagnosticCenterShortName" : "HONEY DG",
+    "user" : {
+        "fullName" : "Honey  Diagnostic Center",
+        "email" : "honeytestdg@gmail.com",
+        "password" : "$2a$10$AUwou5bLCX2288prARAwhu7IB/mXhQCc9ZWAPo8g30oY8TAqahjnK",
+        "confirmPassword" : "$2a$10$AUwou5bLCX2288prARAwhu7IB/mXhQCc9ZWAPo8g30oY8TAqahjnK"
+    },
+    "primaryPhoneNumber" : "+919966220010",
+    "zoyloStatusCode" : "approved",
+    "zoyloRating" : 5,
+    "isActive" : true,
+    "addresses" : [ 
+        {
+            "address" : {
+                "addressCountry" : "IN",
+                "addressState" : "IN-AP",
+                "addressCity" : "8vAzEjB3DaHdamRsQ",
+                "addressLine1" : "401plot No 51 Kakatiya Residency",
+                "addressPincode" : "500090",
+                "addressLocality" : "Nizampet",
+                "addressLandmark" : "Lilliputs School",
+                "addressGPSLongitude" : "70.7",
+                "addressGPSLatitude" : "69.7"
+            },
+            "addressType" : "BRANCH_OFFICE",
+            "isActive" : true,
+            "isDefault" : true
+        }
+    ],
+    "contactPersons" : [],
+    "imagesList" : [ 
+        {
+            "fileRecordId" : "https://zoylo-qa-images.s3-ap-southeast-1.amazonaws.com/files/e562fb51-872d-4723-ae01-c8257e554e2d-dc.png",
+            "isDefault" : true
+        }
+    ],
+    "clinicSlotDuration" : "15",
+    "clinicAppointmentsPerSlot" : 5,
+    "clinicVisitOperatingHours" : [ 
+        {
+            "dayCode" : "Monday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Tuesday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Wednesday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Thursday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Friday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Saturday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Sunday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : false
+        }
+    ],
+    "homeVisitOperatingHours" : [ 
+        {
+            "dayCode" : "Monday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Tuesday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Wednesday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:00",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Thursday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Friday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Saturday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : true
+        }, 
+        {
+            "dayCode" : "Sunday",
+            "workStartTime" : "06:00",
+            "workEndTime" : "23:59",
+            "isActive" : true,
+            "isLunchTimeActive" : false
+        }
+    ],
+    "availableFacilities" : [ 
+        {
+            "facility_id" : "BIKE_PARKING",
+            "isActive" : true
+        }, 
+        {
+            "facility_id" : "CAR_PARKING",
+            "isActive" : true
+        }, 
+        {
+            "facility_id" : "PREMIUM_SERVICE",
+            "isActive" : true
+        }, 
+        {
+            "facility_id" : "EMERGENCY_SERVICE",
+            "isActive" : true
+        }
+    ],
+    "acceptedPaymentTypes" : [ 
+        {
+            "acceptedPaymentTypes" : "DEBIT_CARD"
+        }, 
+        {
+            "acceptedPaymentTypes" : "CREDIT_CARD"
+        }, 
+        {
+            "acceptedPaymentTypes" : "ONLINE_PAYMENT"
+        }, 
+        {
+            "acceptedPaymentTypes" : "CHEQUE"
+        }
+    ],
+    "doesHomeVisit" : true,
+    "isNABLAccredited" : true,
+    "isOnlineAppointmentUsingZoylo" : true,
+    "isSelfCheckInSoftwareAppUsingZoylo" : true,
+    "isReportOnline" : true,
+    "healthPackages" : [ 
+        {
+            "id" : "KBKkHKiddjs4r9WE8",
+            "adminStatus" : "approved",
+            "serviceMode" : "C",
+            "packageName" : "Kanthpackage",
+            "packageDescription" : "Total body tests",
+            "packageCost" : 20000,
+            "discountPercentage" : 12,
+            "packageCostAfterDiscount" : 18200,
+            "zoyloChargePercentage" : 3,
+            "averageDuration" : 10,
+            "isActive" : true,
+            "averageNumberOfPackagesPerSlot" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Vedapriyatests",
+                    "testDescription" : "Total body tests",
+                    "standardTestName" : [],
+                    "isActive" : true,
+                    "id" : "646PTscAS5LhzAAma"
+                }
+            ],
+            "discountAmount" : 2400,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.474Z"),
+            "isPackageApproved" : false
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Sunny Diagnosis",
+            "packageDescription" : "Body Total scan",
+            "packageCost" : 40000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Surya Full Tes",
+                    "testDescription" : "Full Body Test Examination",
+                    "isActive" : true,
+                    "id" : "xPQWu2tD2cQvkaCxq"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "oB49ah7C5BMxLKEjz",
+            "discountAmount" : 800,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.477Z"),
+            "isActive" : true
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Konarkpackage",
+            "packageDescription" : "Full body Examination",
+            "packageCost" : 20000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Konarttest",
+                    "testDescription" : "Full body Examination",
+                    "isActive" : true,
+                    "id" : "k6HtDRpctRMiDs6FJ"
+                }
+            ],
+            "adminStatus" : "submitted",
+            "id" : "jveoCAh3doh6Gywrz",
+            "discountAmount" : 400,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.479Z")
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Srivalli",
+            "packageDescription" : "Full Body Test For Blood",
+            "packageCost" : 10000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Srivallitest",
+                    "testDescription" : "Full Body Test for blood",
+                    "isActive" : true,
+                    "id" : "ySDc9dZyNP2RS9PG8"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "mjqPNLAdh5zzu2SFh",
+            "discountAmount" : 200,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.481Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Prabhashealthcard",
+            "packageDescription" : "Full Body Test For Diabetic",
+            "packageCost" : 25000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Snehaullaltest",
+                    "testDescription" : "Full Body Test For Diseases",
+                    "id" : "ZTer9zKQA8mxJ8fmE"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "jRbSxC3ED5nStB96B",
+            "discountAmount" : 500,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.483Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Samoraihospital",
+            "packageDescription" : "Check to test how your body parts are working",
+            "packageCost" : 9000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 10,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Fullbodytest",
+                    "testDescription" : "Check to test how your body parts are working",
+                    "id" : "cvvCtt3nWQkgqDYZN"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "3o5jzQ2X9kuKXwf4N",
+            "discountAmount" : 900,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.485Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Teezapackage",
+            "packageDescription" : "Check to test how your body parts are working",
+            "packageCost" : 9000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 10,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Fullbodytest",
+                    "testDescription" : "Check to test how your body parts are working",
+                    "id" : "2pvbP87c6BXqitGzx"
+                }
+            ],
+            "adminStatus" : "submitted",
+            "id" : "hNaQr2C7Dyk8S2kJv",
+            "discountAmount" : 900,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.488Z")
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Sunny Diagnosis",
+            "packageDescription" : "Body Total scan",
+            "packageCost" : 40000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Surya Full Tes",
+                    "testDescription" : "Full Body Test Examination",
+                    "isActive" : true,
+                    "id" : "QZ8uQRNhPTzYDe3sm"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "73QWhANQXERhZXKsc",
+            "discountAmount" : 800,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.490Z")
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Konarkpackage",
+            "packageDescription" : "Full body Examination",
+            "packageCost" : 20000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Konarttest",
+                    "testDescription" : "Full body Examination",
+                    "isActive" : true,
+                    "id" : "usEWAm4ayhDmRkQT6"
+                }
+            ],
+            "adminStatus" : "submitted",
+            "id" : "vs3qCfiC5JANqXTAC",
+            "discountAmount" : 400,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.492Z")
+        }, 
+        {
+            "serviceMode" : "H",
+            "packageName" : "Srivalli",
+            "packageDescription" : "Full Body Test For Blood",
+            "packageCost" : 10000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Srivallitest",
+                    "testDescription" : "Full Body Test for blood",
+                    "isActive" : true,
+                    "id" : "JbYCxvF3HPMgjQTNh"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "uTGjArYCR3wE5zWon",
+            "discountAmount" : 200,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.494Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Prabhashealthcard",
+            "packageDescription" : "Full Body Test For Diabetic",
+            "packageCost" : 25000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Snehaullaltest",
+                    "testDescription" : "Full Body Test For Diseases",
+                    "id" : "Lc3Nc7mJQ349MmSrx"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "iJJEFCyjNxhfweppM",
+            "discountAmount" : 500,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.496Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Samoraihospital",
+            "packageDescription" : "Check to test how your body parts are working",
+            "packageCost" : 9000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 10,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Fullbodytest",
+                    "testDescription" : "Check to test how your body parts are working",
+                    "id" : "bHWa6crZ3eeWKdiMQ"
+                }
+            ],
+            "adminStatus" : "draft",
+            "id" : "JThDdyTWCTkxbbXeu",
+            "discountAmount" : 900,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.499Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "packageName" : "Teezapackage",
+            "packageDescription" : "Check to test how your body parts are working",
+            "packageCost" : 9000,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 10,
+            "testsUnderPackage" : [ 
+                {
+                    "testName" : "Fullbodytest",
+                    "testDescription" : "Check to test how your body parts are working",
+                    "id" : "nw9L9MgbNaYBk85GB"
+                }
+            ],
+            "adminStatus" : "submitted",
+            "id" : "zHb35sismz96ygMe6",
+            "discountAmount" : 900,
+            "packageActiveTillDate" : ISODate("2017-08-21T04:54:37.501Z")
+        }
+    ],
+    "isCAPAccredited" : false,
+    "isFromRequested" : false,
+    "location" : [ 
+        70.7, 
+        69.7
+    ],
+    "tests" : [ 
+        {
+            "id" : "B2wW3wSMxh3Yqyemw",
+            "adminStatus" : "approved",
+            "serviceMode" : "C",
+            "testName" : "Kanthtest",
+            "testDescription" : "Total body tests",
+            "standardTestName" : [],
+            "testCost" : 20000,
+            "discountPercentage" : 10,
+            "totalCostAfterDiscount" : 18400,
+            "zoyloChargePercentage" : 2,
+            "averageDuration" : 30,
+            "averageNumberOfTestsPerSlot" : 5,
+            "isTestActive" : true,
+            "isActive" : true,
+            "discountAmount" : 2000,
+            "testActiveFromDate" : ISODate("2017-08-21T05:50:54.725Z"),
+            "isTestApproved" : false
+        }, 
+        {
+            "serviceMode" : "H",
+            "testCost" : 36000,
+            "totalCostAfterDiscount" : 34920,
+            "zoyloChargePercentage" : 2,
+            "discountPercentage" : 5,
+            "testName" : "Rajinitest",
+            "testDescription" : "Person Has Robotic sense",
+            "adminStatus" : "submitted",
+            "id" : "A3o3uYrKtRdxDWqj6",
+            "discountAmount" : 1800,
+            "testActiveTillDate" : ISODate("2017-08-19T04:46:29.262Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10,
+            "standardTestName" : [],
+            "isTestActive" : true,
+            "isActive" : true,
+            "testActiveFromDate" : ISODate("2017-08-21T05:50:54.726Z")
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Konark",
+            "testDescription" : "Not Full Body Test",
+            "testCost" : 20000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "draft",
+            "id" : "ZQnzKFKRPYMEap4WE",
+            "discountAmount" : 400,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.729Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Sulochanaytest",
+            "testDescription" : "Full body Test for all",
+            "testCost" : 2000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "submitted",
+            "id" : "HQEg9wHinLMAYtx9p",
+            "discountAmount" : 40,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.730Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Monablood Test",
+            "testDescription" : "Full body Test for all",
+            "testCost" : 2000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "draft",
+            "id" : "4okJDRn8etm5kCQTY",
+            "discountAmount" : 40,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.730Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "H",
+            "testCost" : 36000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "testName" : "Rajinitest",
+            "testDescription" : "Person Has Robotic sense",
+            "adminStatus" : "submitted",
+            "id" : "D9rxDq84aQT4rMTkh",
+            "discountAmount" : 720,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.731Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Monablood Test",
+            "testDescription" : "Full body Test for all",
+            "testCost" : 2000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "draft",
+            "id" : "RpaY3DaXZrPTkizEJ",
+            "discountAmount" : 40,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.732Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Konark",
+            "testDescription" : "Not Full Body Test",
+            "testCost" : 20000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "draft",
+            "id" : "SAFxQgLdA3GRt6rDT",
+            "discountAmount" : 400,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.733Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }, 
+        {
+            "serviceMode" : "C",
+            "testName" : "Sulochanaytest",
+            "testDescription" : "Full body Test for all",
+            "testCost" : 2000,
+            "totalCostAfterDiscount" : 0,
+            "zoyloChargePercentage" : 0,
+            "discountPercentage" : 2,
+            "adminStatus" : "submitted",
+            "id" : "NCupXpp3zFomeDkmn",
+            "discountAmount" : 40,
+            "testActiveTillDate" : ISODate("2017-08-21T05:50:54.733Z"),
+            "averageDuration" : 20,
+            "averageNumberOfTestsPerSlot" : 10
+        }
+    ],
+    "registrationNumber" : "99662201",
+    "establishedYear" : "2012",
+    "dateOfRegistration" : ISODate("2012-06-14T18:30:00.000Z"),
+    "homeVisitCharge" : "20000",
+    "homeVisitServiceRangeKms" : "20",
+    "homeVisitSlotDuration" : "15",
+    "homeVisitAppointmentsPerSlot" : 15,
+    "languagesSpoken" : [ 
+        "ENGLISH"
+    ],
+    "websiteURL" : "www.kanthch.com",
+    "socialNetworkList" : [ 
+        {
+            "socialNetworkId" : "FACEBOOK",
+            "socialNetworkUrl" : "www.kanthch/facebook.com"
+        }, 
+        {
+            "socialNetworkId" : "GOOGLEPLUS",
+            "socialNetworkUrl" : "www.kanthch/googleurl.com"
+        }, 
+        {
+            "socialNetworkId" : "LINKEDIN",
+            "socialNetworkUrl" : "www.kanth/url.com"
+        }, 
+        {
+            "socialNetworkId" : "TWITTER",
+            "socialNetworkUrl" : "www.kanth/twiter.com"
+        }
+    ],
+    "accreditationsReceived" : "Achieved as best diagnostic",
+    "seoTitle" : "Diagnostic",
+    "seoDescription" : "Body Checkup",
+    "seoKeywords" : "Diagnostic,Tets",
+    "seoUrl" : "Diagnostics",
+    "reportOnlineDuration" : 10,
+    "ngosAssociatedWith" : "Kanti",
+    "diagnosticCenterDescription" : "Total Body Tests",
+    "createdBy" : "kanthl@zoylo.com",
+    "createdAt" : ISODate("2017-07-14T06:00:30.936Z"),
+    "markAsClosed" : [ 
+        {
+            "startDate" : ISODate("2018-06-16T18:30:00.000Z"),
+            "endDate" : ISODate("2018-07-17T18:29:59.999Z"),
+            "isActive" : true
+        }
+    ],
+    "editedBy" : "DC",
+    "diagnosticCenterImage" : "https://zoylo-qa-images.s3-ap-southeast-1.amazonaws.com/files/e562fb51-872d-4723-ae01-c8257e554e2d-dc.png",
+    "userId" : "Nb83dBKNeDdiCR7pL",
+    "activeFromDate" : ISODate("2017-08-18T18:30:00.000Z"),
+    "activeTillDate" : ISODate("2017-08-18T18:30:00.000Z"),
+    "updatedAt" : ISODate("2017-08-21T05:50:54.686Z"),
+    "updatedBy" : "honeytestdg@gmail.com",
+    "seoFriendlyUrl" : {
+        "cityDiagnostic" : "vijayawada/diagnostic/Diagnostics"
+    },
+    "landingToPackage" : false,
+    "cityName" : "Vijayawada",
+    "stateName" : "Andhra Pradesh"
+}
+
+//********** DC USER COLLECTION DATA **************\\
+/* 1 */
+{
+    "_id" : "Nb83dBKNeDdiCR7pL",
+    "createdAt" : ISODate("2017-07-14T06:00:31.087Z"),
+    "services" : {
+        "password" : {
+            "bcrypt" : "$2a$10$lFxgZzcFEkg6QcTK.QmPbOh5C2Km7kxcjwu12IIBTIYE2vCSzMT8C"
+        },
+        "resume" : {
+            "loginTokens" : [ 
+                {
+                    "when" : ISODate("2017-08-19T04:38:04.420Z"),
+                    "hashedToken" : "U95m5y6DIvUEwfzdsIhxZbkammo+9WwKDbhrcOexmos="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:39:29.062Z"),
+                    "hashedToken" : "ZYGrKFAEw+O5M8Mg2cCgZyNHdXzMX0tJbRsve8nlXVQ="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:39:50.047Z"),
+                    "hashedToken" : "FBkDmT9VkEuex3jEsfWVktU0lwOGiv2GbyAZO+Lc6Ig="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:40:30.945Z"),
+                    "hashedToken" : "lFzeXguYxnQQ49h/It1eA2KT2gPlX8W7V5q946kvkTE="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:40:51.117Z"),
+                    "hashedToken" : "Y/h/P3DfFL7nSE2S3VqtZK6Rql1MrNz3JyYCQH9o2A0="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:41:14.844Z"),
+                    "hashedToken" : "4/8vZA1MFZ8uWfheVTNgjrgyA7lR4d5BvjQRMhw5HiQ="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:44:35.023Z"),
+                    "hashedToken" : "4wS8vJR/S2iOe6EzvEiyWEwAm+9nlIqSgAo5UqV3b/E="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:46:24.481Z"),
+                    "hashedToken" : "+znYPzhim5tDGEp2OPnMsGo6SuGMxzHLPAuGHLKORy4="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T04:47:05.193Z"),
+                    "hashedToken" : "WpMO93ewMxx7DNR+rBu7jLBvXQ5fEk3Cu6A7wPYFixI="
+                }, 
+                {
+                    "when" : ISODate("2017-08-19T05:03:37.999Z"),
+                    "hashedToken" : "Oz97ky5jgKh5M6dAy8ZGoC+30ZQUmI1g6Rf6adp/EzY="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:45:54.670Z"),
+                    "hashedToken" : "YxsKyD8FLVi9P+E+IHcw67mZr4WxjzakFYjmWSYdBb8="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:47:17.066Z"),
+                    "hashedToken" : "7N4BhvKu16vvIHV+K8vWzIUW56FzAysKkIpJr1Cm4/Y="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:47:38.273Z"),
+                    "hashedToken" : "GwdHbZwKrovGtOcf5c3c2O6an5hPYt0IqYDwQkF/wKI="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:48:16.156Z"),
+                    "hashedToken" : "neiefmx+6FMLeS3DS08hM/8sjJtN00RCFIVCqtf+LTM="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:48:35.703Z"),
+                    "hashedToken" : "7Oc6vkpgL0rs8zipCrTRUVGZLX4XuUR/eOJyWj5OuW8="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:48:59.480Z"),
+                    "hashedToken" : "kzOZPLeqbYC95wCbqveZTJriMvk3s133jYfJQrhoBK0="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:50:28.377Z"),
+                    "hashedToken" : "vaGcdaOThdH5xzeTF5KGf9CKc8cuT87ThDXD9CULhSk="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:51:44.550Z"),
+                    "hashedToken" : "fA1dwL570L/TuAvoscOzgUcCVSuxBr8RSAG1ovzCf+M="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:53:40.777Z"),
+                    "hashedToken" : "8TGyg30SwL9zXZ0V2cl5Slve5ijGTzO8sM6SGHws+T0="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T04:54:22.801Z"),
+                    "hashedToken" : "zK2JfPK3Z7hKkHaBFAK5k5EXKH1dTOHsLx7O4R8vNVs="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T05:48:17.673Z"),
+                    "hashedToken" : "GlKG05mkKL5VVYEW3P5sUGpFfhj+GlkneeejGzksZ7Y="
+                }, 
+                {
+                    "when" : ISODate("2017-08-21T05:49:04.300Z"),
+                    "hashedToken" : "pLGmZUjHnnSvPssybCiOogIfDoSRPUOBxl9iTGW8ThU="
+                }
+            ]
+        }
+    },
+    "username" : "honeytestdg@gmail.com",
+    "emails" : [ 
+        {
+            "address" : "honeytestdg@gmail.com",
+            "verified" : false
+        }
+    ],
+    "profile" : {
+        "fullName" : null,
+        "email" : "honeytestdg@gmail.com",
+        "mobileNumber" : "+919966220010",
+        "isProvider" : true,
+        "dateOfBirth" : "15/06/2012",
+        "isAdmin" : false,
+        "isApproved" : false,
+        "isZoyloBackend" : false,
+        "zoyloId" : "ZY-SP-0017737",
+        "providers" : [ 
+            {
+                "providerId" : "8pw8dKZbB7MHZ7ohM",
+                "type" : "diagnostic-center",
+                "isDefault" : true
+            }
+        ]
+    }
+}

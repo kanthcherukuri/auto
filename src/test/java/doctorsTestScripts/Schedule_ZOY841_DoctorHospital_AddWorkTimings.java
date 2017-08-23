@@ -26,7 +26,7 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
@@ -34,10 +34,11 @@ public class Schedule_ZOY841_DoctorHospital_AddWorkTimings extends LoadPropMac{
 	 @Test
 	 public void DoctorHospitalAddWorkTimings() throws Exception{
 		 DoctorsPage.BulkCancel();
-		 Browser.waitTill(2000);
+		 Thread.sleep(4000);
 		 Browser.clickOnTheElementByID("schedule");
 		 Browser.waitTill(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("07:00", "23:59");
+		 Thread.sleep(2000);
 	 }
 	 
 	 @AfterMethod

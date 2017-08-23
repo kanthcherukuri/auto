@@ -22,7 +22,7 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 			LoadBrowserProperties();
 			 DoctorsPage= new DoctorsPage(driver);	
 			 Browser=new TestUtils(driver);
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernamefour,  DoctorsLogin_passwordfour);
 			  } 
@@ -33,6 +33,7 @@ public class Schedule_ZOY848_DoctorHospital_DifferentStartEndTimes extends LoadP
 		 Thread.sleep(2000);
 		 Browser.clickOnTheElementByID("schedule");
 		 Thread.sleep(3000);
+		 Browser.waitTill(3000);
 		 DoctorsPage.DoctorsHospitalAddWorkTimings("10:00", "10:00");
 		 Browser.CheckNotificationMessage("Hospital Time Slot overlaps with Other Working Time Slot");
 		 Thread.sleep(3000);

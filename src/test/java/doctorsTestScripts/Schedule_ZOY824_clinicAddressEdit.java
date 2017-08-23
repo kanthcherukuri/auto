@@ -77,7 +77,7 @@ public class Schedule_ZOY824_clinicAddressEdit extends LoadPropMac
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
 		RecipientPage=new RecipientPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
   @AfterClass

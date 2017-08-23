@@ -61,7 +61,7 @@ public class Schedule_ZOY795_Doctor_EditConsultationDuration extends LoadPropMac
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

@@ -23,7 +23,7 @@ public class Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled extends Loa
 		LoadBrowserProperties();
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_username, Diagnostic_password);
 		  }
@@ -41,8 +41,10 @@ public class Schedule_ZOY996_HomeSampleTimeslotsAppointmentScheduled extends Loa
 		 int day = calendar.get(Calendar.DAY_OF_WEEK); 
 		 
 		 System.out.println(day);
+		 Thread.sleep(2000);
 		 switch (day) {
 		 case Calendar.SUNDAY:
+			 Browser.waitFortheElementXpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']");	 
 	    	 driver.findElement(By.xpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']")).clear();
 	    	 driver.findElement(By.xpath("//*[@id='Sunday'][@class='hvEndTime7 SundayHE']")).sendKeys("22:00");
 	    	 Thread.sleep(2000);

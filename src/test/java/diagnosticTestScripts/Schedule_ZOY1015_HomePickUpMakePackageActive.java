@@ -23,7 +23,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		LoadBrowserProperties();
 		 DiagnosticPageZoylo=new DiagnosticPage(driver);
 		 Browser=new TestUtils(driver);
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
 	  }
@@ -45,7 +45,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		DiagnosticPageZoylo.ScheduleHomePickUpAddPackage(packagename, desc, cost, discount, testname, testdesc);
 		DiagnosticPageZoylo.ScheduleHomePickUpPackageSendforApproval();
 		DiagnosticPageZoylo.diagnosticlogout();
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPageZoylo.SignIn("kanthl@zoylo.com","Zoylo@123");
 		Browser.waitTill(2000);
 		Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenters']");
@@ -56,7 +56,7 @@ public class Schedule_ZOY1015_HomePickUpMakePackageActive extends LoadPropMac{
 		Thread.sleep(1000);
 		Browser.clickOnTheElementByID("logout");
 		Thread.sleep(3000);
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPageZoylo.SignIn(Diagnostic_usernamesix, Diagnostic_passwordsix);
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.clickonhomevisitmenu();

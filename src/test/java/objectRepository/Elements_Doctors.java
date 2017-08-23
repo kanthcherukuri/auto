@@ -182,7 +182,7 @@ public class Elements_Doctors  {
 		Schedule_Hospital_Starttime="//input[@class='slot-start-hos']";
 		Schedule_Hospital_EndTime="//input[@class='slot-end-hos']";
 		Schedule_Hospital_SaveWorkTimings="//span[@class='sp-doc-hosp-schd-save']";
-		Schedule_Hospital_DeleteWorkTimings="(//*[@id='0'])[2]";
+		Schedule_Hospital_DeleteWorkTimings="//i[@class='fa fa-minus-circle hospital_rem_slot']";
 		Schedule_Hospital_SundayMenu="cd-26";
 	 
 		//Add clinic

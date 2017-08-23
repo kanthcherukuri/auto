@@ -59,7 +59,7 @@ public class Schedule_ZOY811_Doctor_WorkTimingsvalidationChecks extends LoadProp
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		doctorsPage=new DoctorsPage(driver);
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

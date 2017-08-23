@@ -47,19 +47,21 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		RecipientPage.addressAssertion();
 	}
 
-	//@Author:Ch.LakshmiKanth	
+	//@Author:Ch.LakshmiKanth	 Jira - 2401 , 2340
 	@DataProvider(name="CheckingDistance")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "banglore","srscript"}
-
+					{ "banglore","doctor honey"},
+					{"kondapur", "kanth doctor"}
 			};
 		}
 	
 	@Test(dataProvider="CheckingDistance",priority=2)
 	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance(String Area,String keyword) throws Exception {
 	
+
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
+
 		RecipientPage.searchInZoyloMAPArea(Area);
 		RecipientPage.searchInZoyloMAP(keyword);
 		//RecipientPage.searchInZoyloMAP("doctor honey");
@@ -95,6 +97,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			}	
 			}
 		
+
 	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
 	@Test(priority=3)
 	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
@@ -132,6 +135,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			Thread.sleep(1000);
 			}	
 			}
+
 	
 	
 	@BeforeClass

@@ -17,7 +17,7 @@ public class Schedule_ZOY1007_HomePickupAddPackage extends LoadPropMac{
 			LoadBrowserProperties();
 			 DiagnosticPageZoylo=new DiagnosticPage(driver);
 			 Browser=new TestUtils(driver);
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		 DiagnosticPageZoylo.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 		  }

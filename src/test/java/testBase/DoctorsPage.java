@@ -656,8 +656,8 @@ public class DoctorsPage  {
 			Reporter.log("Entered End Time");
 			Browser.clickOnTheElementByXpath(Elements_Doctors.Schedule_Hospital_SaveWorkTimings);
 			Reporter.log("Clicked on Save Work Timing Button");
-			 //Browser.CheckNotificationMessage("Schedule Updated Successfully");
-			 Thread.sleep(2000);
+			//Browser.CheckNotificationMessage("Schedule Updated Successfully");
+			 Thread.sleep(3000);
 			
 		}
 		
