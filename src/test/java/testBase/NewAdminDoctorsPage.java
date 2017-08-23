@@ -2006,6 +2006,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	{
 		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.adminUserDropDownBtn);
 		driver.findElement(By.xpath(Elements_NewAdminDoctors.adminUserDropDownBtn)).click();
+		Thread.sleep(1000);
 		Browser.clickOnTheElementByXpath("//li//a[contains(., '"+value+"')]");
 		Thread.sleep(2000);
 	}

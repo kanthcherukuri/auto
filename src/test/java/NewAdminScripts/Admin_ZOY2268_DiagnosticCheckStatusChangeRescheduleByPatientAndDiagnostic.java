@@ -27,7 +27,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
-	 Browser.openUrl(loginPage_Url);	 
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");	 
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
@@ -42,7 +42,7 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 	public void DiagnosticCheckStatusChangeReschedule(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
 		DiagnosticPage.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPage.diagnosticlogout();
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
 		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);

@@ -31,7 +31,7 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 			 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 			 admin=new NewAdminDoctorsPage(driver);
 			 Browser= new TestUtils(driver);
-			 Browser.openUrl(loginPage_Url);
+			 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 			  }
@@ -51,7 +51,7 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 		 
 		 DoctorsPage.DoctorAppointmentBookingForSunday(firstname, lastname, mobile, email, problem);
 		 DoctorsPage.doctorlogout();
-		 Browser.openUrl(loginPage_Url);
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 		 admin.click_doctorsTab();
 		 admin.searchDoctorbyEmailID("kanthzoylo@gmail.com");
@@ -76,7 +76,7 @@ public class Admin_ZOY2446_CheckConflitAppointmentAvailable extends LoadPropMac 
 	 
 	 @AfterMethod
 	 public void CancelAppointment() throws Exception {
-		 Browser.openUrl(loginPage_Url); 
+		 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login"); 
 		 DoctorsPage.SignIn(DoctorsLogin_usernameone, DoctorsLogin_passwordone);
 		 DoctorsPage.cancelSundayAppt();
 	 }

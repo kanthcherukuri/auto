@@ -122,7 +122,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		admin.click_Profile_Options("Logout");
 		
 		//************ RECIPIENT BOOK RESCHEDULE AND CANCEL APPOINTMENT *************\\
-		Browser.openUrl(loginPage_Url);	
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");	
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		RecipientPage.searchInZoyloMAP(firstName);
 		RecipientPage.bookAppointment();
@@ -152,7 +152,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		RecipientPage.recipientLogout();
 		
 		//************** LOGIN WITH NEW DOCTOR CREDENTIALS **************\\
-		Browser.openUrl(loginPage_Url);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(emailID, password);
 		doctorsPage.doctorlogout();
 		
@@ -174,7 +174,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);

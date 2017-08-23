@@ -23,7 +23,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	@Test(priority=1)
 	public void activeDoctorSEOurl() throws Exception
 	{
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
@@ -46,7 +46,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	@Test(priority=2)
 	public void inactiveDoctorSEOurl() throws Exception
 	{
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		boolean isChecked1 = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
@@ -73,12 +73,10 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		//driver.get(loginPage_Url);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
-		//admin.adminSignIn(admin_user, admin_password);
 	}
 	
 	@AfterClass

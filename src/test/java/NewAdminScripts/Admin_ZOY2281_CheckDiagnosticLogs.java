@@ -24,7 +24,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 	 LoadBrowserProperties();	 
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
-	 Browser.openUrl(loginPage_Url);
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage=new DiagnosticPage(driver);
 	 DiagnosticPage.SignIn(DiagnosticLogin_usernamefive, DiagnosticLogin_passwordfive);
@@ -56,7 +56,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 		  Browser.enterTextByXpath(Elements_Diagnostics.ManagePackagecost, price);
 		  Browser.clickOnTheElementByID(Elements_Diagnostics.ManagePackageSavePackage);
 		  DiagnosticPage.diagnosticlogout();
-		  Browser.openUrl(loginPage_Url);
+		  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		  DiagnosticPage.SignIn("kanthl@zoylo.com", "Zoylo@123");
 		  Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.Diagnostic_Menu);
 		  Browser.waitTill(2000);

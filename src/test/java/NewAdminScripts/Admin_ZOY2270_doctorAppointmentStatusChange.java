@@ -58,7 +58,7 @@ public class Admin_ZOY2270_doctorAppointmentStatusChange extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get(loginPage_Url);
+		driver.get("https://"+Environment_Name+".zoylo.com/login");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
