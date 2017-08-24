@@ -980,7 +980,7 @@ public class RecipientPage  {
 	}
 
 	public void openMyAccounts(String TabName) throws InterruptedException{
-		driver.get(LoadPropMac.base_url+"myaccount");
+		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/"+"myaccount");
 		Thread.sleep(5000);  // added to avoid clickable issue
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);

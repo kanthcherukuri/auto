@@ -3,7 +3,6 @@ import org.testng.annotations.Test;
 import objectRepository.Elements_NewAdminDiagnostic;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -26,7 +25,6 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 	 RecipientPage = new RecipientPage(driver);
 	 Browser= new TestUtils(driver);
 	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	 Thread.sleep(2000);
 	 

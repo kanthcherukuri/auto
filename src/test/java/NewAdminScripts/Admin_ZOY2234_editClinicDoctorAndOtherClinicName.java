@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
 import objectRepository.Elements_Recipients;
@@ -70,12 +69,11 @@ public class Admin_ZOY2234_editClinicDoctorAndOtherClinicName extends LoadPropMa
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
 		RecipientPage=new RecipientPage(driver);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 	}
 	

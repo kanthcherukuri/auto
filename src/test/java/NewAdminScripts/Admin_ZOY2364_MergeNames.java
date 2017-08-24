@@ -1,14 +1,11 @@
 package NewAdminScripts;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -25,7 +22,6 @@ public class Admin_ZOY2364_MergeNames extends LoadPropMac{
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	 Thread.sleep(2000);
 	 
