@@ -50,10 +50,6 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		System.out.println("case 1 done");
 		Browser.clickOnTheElementByID("backArrow");
 		System.out.println("Clicked on Back Arrow");
-		
-		
-		
-		
 	}
 
 	//@Author:Ch.LakshmiKanth	 Jira - 2401 , 2340
