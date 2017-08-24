@@ -2,7 +2,6 @@ package recipientsTestScripts;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import org.testng.annotations.BeforeClass;
@@ -57,7 +56,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	 public String[][] createData1() {
 			return new String[][] {
 					{ "banglore","doctor honey"},
-					{"kondapur", "srscript"}
+					{"kondapur", "Kanth doctor"}
 			};
 		}
 	
@@ -100,20 +99,12 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			String otherlocation=Hospital[0];
 			double OtherClinic=Double.parseDouble(otherlocation);
 			System.out.println("After Spliting of Hospital:"+OtherClinic);
-			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
+			Assert.assertTrue(AvailableDefaultClinic<=OtherClinic);
 			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
 			Thread.sleep(1000);
 			}	
 			}
 	
-//		
-//	@AfterMethod
-//	public void launchindexpage() throws Exception {
-//	Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
-//	System.out.println("After Method Executed");
-//	}
-//	
-
 	
 	
 	@BeforeClass
