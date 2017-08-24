@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
 import org.testng.Reporter;
-
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
@@ -174,13 +172,12 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		RecipientPage = new RecipientPage(driver);
 		admin=new NewAdminDoctorsPage(driver);
 		doctorsPage=new DoctorsPage(driver);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 	}
 	

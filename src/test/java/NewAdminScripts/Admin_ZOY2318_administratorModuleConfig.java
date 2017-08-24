@@ -1,9 +1,7 @@
 package NewAdminScripts;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import objectRepository.Elements_NewAdminDoctors;
 import testBase.LoadPropMac;
@@ -45,7 +43,6 @@ public class Admin_ZOY2318_administratorModuleConfig extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);

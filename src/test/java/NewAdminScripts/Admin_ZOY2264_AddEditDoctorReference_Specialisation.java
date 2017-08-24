@@ -3,8 +3,6 @@ package NewAdminScripts;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
 import objectRepository.Elements_Recipients;
@@ -83,13 +81,12 @@ public class Admin_ZOY2264_AddEditDoctorReference_Specialisation extends LoadPro
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 	}
 	

@@ -1,9 +1,7 @@
 package NewAdminScripts;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDoctors;
 import testBase.HomePage;
@@ -46,12 +44,11 @@ public class Admin_ZOY2282_requestedDoctorMoveToQue extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/doctorenrollmentform");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
 		HomePageOfZoylo=new HomePage(driver);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/doctorenrollmentform");
 	}
 	
 	@AfterClass

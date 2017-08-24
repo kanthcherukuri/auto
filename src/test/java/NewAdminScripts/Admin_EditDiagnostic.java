@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
@@ -23,7 +22,6 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	 
 	  }

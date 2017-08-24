@@ -1,5 +1,4 @@
 package NewAdminScripts;
-import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.text.WordUtils;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
@@ -106,12 +105,11 @@ public class Admin_ZOY_2441_UserToProvider extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		RecipientPage= new RecipientPage(driver);
 		admin=new NewAdminDoctorsPage(driver);
+		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	}
 	
 	@AfterClass

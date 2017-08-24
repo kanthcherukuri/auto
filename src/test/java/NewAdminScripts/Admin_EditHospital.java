@@ -3,7 +3,6 @@ package NewAdminScripts;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
@@ -21,7 +20,6 @@ public class Admin_EditHospital extends LoadPropMac {
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
 	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 AdminDiagnostic.SignIn(Admin_Username, Admin_Password);
 	}
 	

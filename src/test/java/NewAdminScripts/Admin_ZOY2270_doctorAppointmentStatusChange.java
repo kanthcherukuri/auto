@@ -1,9 +1,7 @@
 package NewAdminScripts;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_Doctors;
@@ -58,11 +56,10 @@ public class Admin_ZOY2270_doctorAppointmentStatusChange extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DoctorsPage=new DoctorsPage(driver);
 	}
 	
