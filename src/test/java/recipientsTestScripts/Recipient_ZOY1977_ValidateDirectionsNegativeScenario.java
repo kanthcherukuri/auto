@@ -47,7 +47,6 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.navigate().refresh();
 		driver.findElement(By.xpath("//a[@class='cancel']")).click();
 		RecipientPage.addressAssertion();
-		Thread.sleep(3000);
 		System.out.println("case 1 done");
 		Browser.clickOnTheElementByID("backArrow");
 		System.out.println("Clicked on Back Arrow");
@@ -107,7 +106,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			System.out.println("After Spliting of Hospital:"+OtherClinic);
 			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
 			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 			}	
 			}
 	
