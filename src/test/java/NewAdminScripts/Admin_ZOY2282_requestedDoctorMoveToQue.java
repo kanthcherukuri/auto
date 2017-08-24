@@ -32,7 +32,7 @@ public class Admin_ZOY2282_requestedDoctorMoveToQue extends LoadPropMac
 		HomePageOfZoylo.doctorsEnrollment(Area, FirstName, LastName, Gender, Qualification, Email,  Address, Fee, Notes);
 		Thread.sleep(5000);
 		//Admin Module
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.click_requestedDoctorTab();
@@ -46,7 +46,7 @@ public class Admin_ZOY2282_requestedDoctorMoveToQue extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.get("https://"+Environment_Name+".zoylo.com/doctorenrollmentform");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/doctorenrollmentform");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);

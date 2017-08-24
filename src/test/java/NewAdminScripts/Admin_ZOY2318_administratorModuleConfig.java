@@ -20,7 +20,7 @@ public class Admin_ZOY2318_administratorModuleConfig extends LoadPropMac
 	@Test()
 	public void checkModule() throws Exception
 	{
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_AdministratorTab();
 		admin.click_modulesTab();
@@ -31,7 +31,7 @@ public class Admin_ZOY2318_administratorModuleConfig extends LoadPropMac
 		Thread.sleep(2000);
 		admin.click_Profile_Options("Logout");
 		admin.checkModuleConfiginIndex();
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_AdministratorTab();
 		admin.click_modulesTab();
