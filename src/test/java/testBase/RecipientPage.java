@@ -158,16 +158,7 @@ public class RecipientPage  {
 		String distance=Browser.getTextByXpath(Elements_Recipients.distanceValue);
 		Browser.clickOnTheElementByID(Elements_Recipients.getDirectionLink);
 		//Pop up handler
-		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
-		String subWindowHandler = null;
-
-		Set<String> handles = driver.getWindowHandles(); // get all window handles
-		Iterator<String> iterator = handles.iterator();
-		while (iterator.hasNext())
-		{
-		    subWindowHandler = iterator.next();
-		}
-		driver.switchTo().window(subWindowHandler); // switch to popup window
+		Thread.sleep(1500);
 		if(driver.findElement(By.xpath("(//img[@class='adp-marker'])[1]")).isDisplayed())
 		{
 			System.out.println("Get directions is displayed as expected");
@@ -177,8 +168,7 @@ public class RecipientPage  {
 			System.out.println("ERROR - Get directions is not displayed");
 		}
 		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
-		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-		
+		Thread.sleep(2000);
 		return distance;
 		
 	}
