@@ -2,6 +2,7 @@ package recipientsTestScripts;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import org.testng.annotations.BeforeClass;
@@ -21,8 +22,9 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	public RecipientPage RecipientPage;
 	
 	@Test(priority=1)
-	public void validateDirectionsnegativeScenario() throws InterruptedException
+	public void validateDirectionsnegativeScenario() throws Exception
 	{
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 		Thread.sleep(2000);
 		RecipientPage.searchInZoyloMAP(Doctor_Name);
@@ -45,6 +47,14 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		driver.navigate().refresh();
 		driver.findElement(By.xpath("//a[@class='cancel']")).click();
 		RecipientPage.addressAssertion();
+		Thread.sleep(3000);
+		System.out.println("case 1 done");
+		Browser.clickOnTheElementByID("backArrow");
+		System.out.println("Clicked on Back Arrow");
+		
+		
+		
+		
 	}
 
 	//@Author:Ch.LakshmiKanth	 Jira - 2401 , 2340
@@ -52,16 +62,20 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 	 public String[][] createData1() {
 			return new String[][] {
 					{ "banglore","doctor honey"},
-					{"kondapur", "kanth doctor"}
+					{"kondapur", "srscript"}
 			};
 		}
 	
 	@Test(dataProvider="CheckingDistance",priority=2)
 	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance(String Area,String keyword) throws Exception {
-	
+	System.out.println("case 2");
 
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
-
+		
+		//RecipientPage.goToDoctors();
+		Browser.clickOnTheElementByXpath("//span[@class='true ficon btm-nav-icon']/img");
+		System.out.println("Clicked on Doctor");
+		//Thread.sleep(5000);
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		RecipientPage.searchInZoyloMAPArea(Area);
 		RecipientPage.searchInZoyloMAP(keyword);
 		//RecipientPage.searchInZoyloMAP("doctor honey");
@@ -93,48 +107,17 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			System.out.println("After Spliting of Hospital:"+OtherClinic);
 			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
 			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			}	
 			}
-		
-
-	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
-	@Test(priority=3)
-	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
-		RecipientPage.searchInZoyloMAP("kanth doctor");
-		RecipientPage.bookAppointment();	
-		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']"); 
-		System.out.println("Clicked on Default avialable Clinic Address Button");
-		Thread.sleep(2000);
-		String availableclinicdistance=driver.findElement(By.xpath("//div[@style='display: block;']//span[@class='icon-distance']/following-sibling::*")).getText();
-		System.out.println("Got Availableclinic diatance:"+availableclinicdistance);
-		Thread.sleep(2000);
-		String[] available=availableclinicdistance.split(" kms");
-		String defaultclinic=available[0];
-		double AvailableDefaultClinic=Double.parseDouble(defaultclinic);
-		System.out.println("Printing Available Clinic After Split:"+AvailableDefaultClinic);
-		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-		//Browser.clickOnTheElementByID("manage-flip");
-		System.out.println("Clicked on Plus Symbol");
-		Browser.waitFortheElementXpath("//div[@style='display: block;']//h5//a");
-		int size=driver.findElements(By.xpath("//div[@style='display: block;']//h5//a")).size();
-		System.out.println("Size of Other Clinics:"+size);
-		Thread.sleep(1000);
-		for(int i=1;i<=size;i++) {
-			driver.findElement(By.xpath("(//div[@style='display: block;']//h5//a)["+i+"]")).click();
-			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']");
-	String 	otherClinic=	Browser.getTextByXpath("//div[@style='display: block;']//span[@class='icon-distance']/following-sibling::*");
-			System.out.println("Other Clinic:"+otherClinic);
-			String[] Hospital =otherClinic.split(" kms");
-			String otherlocation=Hospital[0];
-			double OtherClinic=Double.parseDouble(otherlocation);
-			System.out.println("After Spliting of Hospital:"+OtherClinic);
-			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
-			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-			Thread.sleep(1000);
-			}	
-			}
+	
+//		
+//	@AfterMethod
+//	public void launchindexpage() throws Exception {
+//	Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
+//	System.out.println("After Method Executed");
+//	}
+//	
 
 	
 	
@@ -146,7 +129,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		Elements_Recipients.Recipients_PageProperties();
 		Browser= new TestUtils(driver);
 		RecipientPage=new RecipientPage(driver);
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
+		
 	}
 	
 	@AfterClass()

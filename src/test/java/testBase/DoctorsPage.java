@@ -112,9 +112,11 @@ public class DoctorsPage  {
 		//driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
+		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.id("logout")).click();
+		Browser.clickOnTheElementByID("logout");
+		//driver.findElement(By.id("logout")).click();
 		Thread.sleep(5000);
 		System.out.println("Doctor Logged Out");
 		Reporter.log("Doctor Logged Out");

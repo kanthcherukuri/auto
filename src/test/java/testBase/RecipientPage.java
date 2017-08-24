@@ -150,7 +150,7 @@ public class RecipientPage  {
 	 *  @Parameters  :
 	 *  @Return      : distance
 	 */
-	public String addressAssertion()
+	public String addressAssertion() throws Exception
 	{
 		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
 		driver.findElement(By.xpath(Elements_Recipients.addressAssertion)).click();
@@ -178,7 +178,9 @@ public class RecipientPage  {
 		}
 		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
 		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+		
 		return distance;
+		
 	}
 	
 	/*  
@@ -847,7 +849,8 @@ public class RecipientPage  {
 
 	public void goToDoctors() throws InterruptedException{
 
-		driver.findElement(By.xpath("//*[@id='index']/span[1]/img")).click();  // book
+		Browser.clickOnTheElementByXpath("//*[@id='index']/span[1]/img");
+		//driver.findElement(By.xpath("//*[@id='index']/span[1]/img")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Doctors Icon");
