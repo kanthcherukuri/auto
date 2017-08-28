@@ -840,7 +840,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningSecondCell);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
+	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname, firstname);
 	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
 	 Thread.sleep(1000);
 	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);
