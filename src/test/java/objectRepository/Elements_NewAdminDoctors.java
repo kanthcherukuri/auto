@@ -78,7 +78,7 @@ public static String registrationTab, registrationDocURL, registrationStateCounc
 		loginbutton="//button[text()='Login']"; //XPATH
 		
 		//GENERIC ADMIN
-		doctorLabel="//a[@href='/admin/serviceProvidersList']"; //XPATH
+		doctorLabel="(//a[@href='/admin/serviceProvidersList'])[1]"; //XPATH
 		SearchTab="//div[@class='dataTables_filter']//input[@type='search']"; //XPATH
 		EditButton="//button[contains(., 'EDIT')]"; //XPATH
 		searchResultOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[1]"; //XPATH
