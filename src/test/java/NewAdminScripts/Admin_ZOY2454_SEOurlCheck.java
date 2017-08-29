@@ -1,7 +1,6 @@
 package NewAdminScripts;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +22,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	@Test(priority=1)
 	public void activeDoctorSEOurl() throws Exception
 	{
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.adminSignIn(admin_user, admin_password);
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
@@ -33,11 +32,11 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		{
 			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorActiveCheckBox);
 		}
-		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		Thread.sleep(20000);
-		driver.get("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
 		boolean reader = driver.getPageSource().contains(seoID);
 		assertTrue(reader);
@@ -46,7 +45,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	@Test(priority=2)
 	public void inactiveDoctorSEOurl() throws Exception
 	{
-		driver.get("https://"+Environment_Name+".zoylo.com/login");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		admin.click_doctorsTab();
 		admin.searchDoctorbyEmailID(emailID);
 		boolean isChecked1 = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
@@ -59,11 +58,11 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		boolean isChecked2 = driver.findElement(By.xpath(Elements_NewAdminDoctors.doctorActiveCheckBox)).isSelected();
 		System.out.println(emailID + "" + isChecked2);
 		Thread.sleep(2000);
-		driver.get("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/generateSitemap"); //Generate sitemap to update SEO collections
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		Thread.sleep(20000);
-		driver.get("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
 		boolean reader = driver.getPageSource().contains(seoID);
 		assertFalse(reader);
@@ -73,7 +72,6 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 	public void launchapp() throws Exception
 	{
 		LoadBrowserProperties();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Elements_NewAdminDoctors.newAdmin_DoctorPageProperties(); // loading the Elements
 		Browser= new TestUtils(driver);
 		admin=new NewAdminDoctorsPage(driver);

@@ -82,7 +82,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void clickHospitalWorkType() throws Exception
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.workTypeHospital)).click();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.workTypeHospital);
 		Thread.sleep(1500);
 	}
 	

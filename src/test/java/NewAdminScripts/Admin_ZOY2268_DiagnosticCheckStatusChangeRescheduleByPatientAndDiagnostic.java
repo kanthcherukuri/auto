@@ -5,8 +5,6 @@ package NewAdminScripts;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import objectRepository.Elements_NewAdminDiagnostic;
@@ -28,7 +26,6 @@ public class Admin_ZOY2268_DiagnosticCheckStatusChangeRescheduleByPatientAndDiag
 	 Browser= new TestUtils(driver);
 	 DiagnosticPage=new DiagnosticPage(driver);
 	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");	 
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage.SignIn(Diagnostic_usernameone, Diagnostic_passwordone);
 	}
 	

@@ -112,10 +112,18 @@ public class DoctorsPage  {
 		//driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
+<<<<<<< HEAD
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByXpath("//ul[@id='myTabs']/li[5]/a/span/i");
 		//Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");		
         Browser.clickOnTheElementByID("logout");
+=======
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out")).click();
+		Thread.sleep(2000);
+		Browser.clickOnTheElementByID("logout");
+		//driver.findElement(By.id("logout")).click();
+>>>>>>> 439e0190c6a844980b8093a153d836cfaf1fd656
 		Thread.sleep(5000);
 		System.out.println("Doctor Logged Out");
 		Reporter.log("Doctor Logged Out");
@@ -839,7 +847,7 @@ public void CheckPatientScreenSearchFunctionality(String firstname,String lastna
 	 driver.findElement(By.xpath(Elements_Doctors.appointment_todaymenu)).click();
      Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningtab);
 	 Browser.clickOnTheElementByXpath(Elements_Doctors.appointment_eveningSecondCell);
-	 driver.findElement(By.xpath(Elements_Doctors.appointment_firstname)).sendKeys(firstname);
+	 Browser.enterTextByXpath(Elements_Doctors.appointment_firstname, firstname);
 	 driver.findElement(By.id(Elements_Doctors.appointment_lsatname)).sendKeys(lastname);
 	 Thread.sleep(1000);
 	 driver.findElement(By.id(Elements_Doctors.appointment_mobile)).sendKeys(mobile);

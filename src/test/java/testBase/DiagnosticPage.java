@@ -11,6 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -962,8 +963,9 @@ public class DiagnosticPage {
 		 */
 		
 		public void ScheduleHomePickUpAddTest(String testname,String description,String cost,String discount) throws Exception{	
-	
+			//Browser.scrollbyID(Elements_Diagnostics.clickhomevisittestsavebutton);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonhometestaddbutton);
+			Thread.sleep(5000);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestname, testname);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestdesc, description);
 			Browser.enterTextByXpath(Elements_Diagnostics.HomePickupTestTestcost, cost);
@@ -1144,8 +1146,12 @@ public class DiagnosticPage {
 		 */
 		
 		public void ScheduleDiagnosticManageAddTests(String testname,String description,String cost,String discount) throws Exception{
-		
-			Browser.clickOnTheElementByID("addTests");
+			
+			WebElement sc=driver.findElement(By.id("addTests"));
+			Actions actions = new Actions(driver);
+			actions.moveToElement(sc).click().perform();
+			//Browser.clickOnTheElementByID("addTests");
+			Thread.sleep(2000);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, description);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);

@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Diagnostics;
 import objectRepository.Elements_NewAdminDiagnostic;
@@ -24,9 +23,8 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 	 LoadBrowserProperties();	 
 	 AdminDiagnostic=new NewAdminDiagnosticPage(driver);	
 	 Browser= new TestUtils(driver);
-	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 DiagnosticPage=new DiagnosticPage(driver);
+	 Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 	 DiagnosticPage.SignIn(DiagnosticLogin_usernamefive, DiagnosticLogin_passwordfive);
 	}
 	

@@ -150,7 +150,7 @@ public class RecipientPage  {
 	 *  @Parameters  :
 	 *  @Return      : distance
 	 */
-	public String addressAssertion()
+	public String addressAssertion() throws Exception
 	{
 		Browser.waitFortheElementXpath(Elements_Recipients.addressAssertion);
 		driver.findElement(By.xpath(Elements_Recipients.addressAssertion)).click();
@@ -158,16 +158,7 @@ public class RecipientPage  {
 		String distance=Browser.getTextByXpath(Elements_Recipients.distanceValue);
 		Browser.clickOnTheElementByID(Elements_Recipients.getDirectionLink);
 		//Pop up handler
-		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
-		String subWindowHandler = null;
-
-		Set<String> handles = driver.getWindowHandles(); // get all window handles
-		Iterator<String> iterator = handles.iterator();
-		while (iterator.hasNext())
-		{
-		    subWindowHandler = iterator.next();
-		}
-		driver.switchTo().window(subWindowHandler); // switch to popup window
+		Thread.sleep(1500);
 		if(driver.findElement(By.xpath("(//img[@class='adp-marker'])[1]")).isDisplayed())
 		{
 			System.out.println("Get directions is displayed as expected");
@@ -177,8 +168,9 @@ public class RecipientPage  {
 			System.out.println("ERROR - Get directions is not displayed");
 		}
 		driver.findElement(By.xpath("(//button[@class='close'])[2]")).click();
-		driver.switchTo().window(parentWindowHandler);  // switch back to parent window
+		Thread.sleep(2000);
 		return distance;
+		
 	}
 	
 	/*  
@@ -863,7 +855,8 @@ public class RecipientPage  {
 
 	public void goToDoctors() throws InterruptedException{
 
-		driver.findElement(By.xpath("//*[@id='index']/span[1]/img")).click();  // book
+		Browser.clickOnTheElementByXpath("//*[@id='index']/span[1]/img");
+		//driver.findElement(By.xpath("//*[@id='index']/span[1]/img")).click();  // book
 		Browser.waitTill(60);
 		Thread.sleep(2000);
 		System.out.println("Cliked on Doctors Icon");
@@ -993,8 +986,8 @@ public class RecipientPage  {
 	}
 
 	public void openMyAccounts(String TabName) throws InterruptedException{
+
 		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/myaccount");
-		//driver.get(LoadPropMac.base_url+"myaccount");
 		Thread.sleep(3000);  // added to avoid clickable issue
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);
