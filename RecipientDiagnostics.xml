@@ -7,11 +7,12 @@
   </listeners>
   <test name="Recipients Diagnostics">
     <classes>
-     <class name="recipientDiagnosticTestScripts.Recipient_ZOY_DiagnosticsBookingAndFallowUp"/> 
+      <class name="recipientDiagnosticTestScripts.Recipient_ZOY_DiagnosticsBookingAndFallowUp"/> 
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2041_bookDChomeVisitAppointment"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1399_ValidateDianosticsRebook"/>
      
+      <class name="recipientDiagnosticTestScripts.Recipient_ZOY_ValidateDianosticsBookingAnAppointmentForOthers"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2001_dcPaymentNegativeScenario"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1086_ValidateDianosticsBookingAnAppointmentWithoutLogin"/>
       <class name="recipientDiagnosticTestScripts.Recipients_ZOY1094_ValidateDiagnosticsMapFilters"/>

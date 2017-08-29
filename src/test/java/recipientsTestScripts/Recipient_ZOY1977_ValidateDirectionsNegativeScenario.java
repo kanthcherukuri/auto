@@ -57,7 +57,7 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 		}
 	
 	@Test(dataProvider="CheckingDistance",priority=2)
-	public void CompareOfHospitalDistanceLessThanDefaultClinicDistance(String Area,String keyword) throws Exception {
+	public void CompareOfDefaultEntityasPerTheDistance(String Area,String keyword) throws Exception {
 	
 
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
@@ -97,44 +97,6 @@ public class Recipient_ZOY1977_ValidateDirectionsNegativeScenario extends LoadPr
 			}	
 			}
 		
-
-	//@Author:Ch.LakshmiKanth   // Jira - 2401 , 2340
-	@Test(priority=3)
-	public void CompareOfDefaultClinicDiatanceLessThanHospitalDistance() throws Exception {
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
-		RecipientPage.searchInZoyloMAP("kanth doctor");
-		RecipientPage.bookAppointment();	
-		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']"); 
-		System.out.println("Clicked on Default avialable Clinic Address Button");
-		Thread.sleep(2000);
-		String availableclinicdistance=driver.findElement(By.xpath("//div[@style='display: block;']//span[@class='icon-distance']/following-sibling::*")).getText();
-		System.out.println("Got Availableclinic diatance:"+availableclinicdistance);
-		Thread.sleep(2000);
-		String[] available=availableclinicdistance.split(" kms");
-		String defaultclinic=available[0];
-		double AvailableDefaultClinic=Double.parseDouble(defaultclinic);
-		System.out.println("Printing Available Clinic After Split:"+AvailableDefaultClinic);
-		Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-		//Browser.clickOnTheElementByID("manage-flip");
-		System.out.println("Clicked on Plus Symbol");
-		Browser.waitFortheElementXpath("//div[@style='display: block;']//h5//a");
-		int size=driver.findElements(By.xpath("//div[@style='display: block;']//h5//a")).size();
-		System.out.println("Size of Other Clinics:"+size);
-		Thread.sleep(1000);
-		for(int i=1;i<=size;i++) {
-			driver.findElement(By.xpath("(//div[@style='display: block;']//h5//a)["+i+"]")).click();
-			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@class='docinfo-address-label']");
-	String 	otherClinic=	Browser.getTextByXpath("//div[@style='display: block;']//span[@class='icon-distance']/following-sibling::*");
-			System.out.println("Other Clinic:"+otherClinic);
-			String[] Hospital =otherClinic.split(" kms");
-			String otherlocation=Hospital[0];
-			double OtherClinic=Double.parseDouble(otherlocation);
-			System.out.println("After Spliting of Hospital:"+OtherClinic);
-			Assert.assertTrue(AvailableDefaultClinic<OtherClinic);
-			Browser.clickOnTheElementByXpath("//div[@style='display: block;']//span[@style='padding-left: 10px;']");
-			Thread.sleep(1000);
-			}	
-			}
 
 	
 	

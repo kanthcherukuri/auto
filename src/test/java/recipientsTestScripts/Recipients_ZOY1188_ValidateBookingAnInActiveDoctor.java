@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.openqa.selenium.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
@@ -17,15 +18,11 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
 
-*/
 public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
-
+	 public NewAdminDoctorsPage admin;
 	 @BeforeClass(groups = { "Regression","High" })	
     public void launchBrowser() throws Exception {
   
@@ -33,9 +30,8 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 		  Elements_Recipients.Recipients_PageProperties();// loading UI Page Elements / Locators
 		  RecipientPage = new RecipientPage(driver); // Loading Pages
 		  Browser= new TestUtils(driver);   
-		
-		  System.out.println("Executing Before Class");
-		// Note: Make sure  doctor is inactive and add him to recipient fav list 	 
+		  admin=new NewAdminDoctorsPage(driver);
+			 
  } 
 
  
@@ -52,15 +48,32 @@ public class Recipients_ZOY1188_ValidateBookingAnInActiveDoctor extends LoadProp
 		 if(runmode.equals("yes")){
 			 			 
 			  //Test Starts-Here
-			  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			
+			  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
+			  admin.adminSignIn(admin_user, admin_password);
+			  Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorLabel);
+			  admin.searchDoctorbyEmailID("aletiavinashreddy@gmail.com");
+			  //InACtive Doctor
+			  Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.adminListActiveCheckBox);
+			  Thread.sleep(2000);
+			  admin.click_Profile_Options("Logout");
+			  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			  
 			  RecipientPage.recipientLogin(Username, Password);
 			  Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
-			  Thread.sleep(5000);
 			  RecipientPage.goToMyAccounts("My Favourites");
-			  Thread.sleep(5000);
-			  driver.findElement(By.xpath("//*[@id='bookAppointment']/button")).click(); 
-			  String Notification = RecipientPage.getNotificationMesssage();
-			  Assert.assertEquals(Notification, "Doctor is not working");
+			  Browser.clickOnTheElementByXpath("//*[@id='bookAppointment']/button");
+			  String ActualNotification= driver.findElement(By.cssSelector("div.zy-status-wrapper")).getText();
+			  Assert.assertEquals(ActualNotification,"Doctor is not working");
+			  RecipientPage.recipientLogout();
+			  //ACtive -Doctor
+			  admin.adminSignIn(admin_user, admin_password);
+			  Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.doctorLabel);
+			  admin.searchDoctorbyEmailID("aletiavinashreddy@gmail.com");
+			  Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.adminListActiveCheckBox);
+			  Thread.sleep(2000);
+			  admin.click_Profile_Options("Logout");
+			  Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");			  
+			  RecipientPage.recipientLogin(Username, Password);
+			  RecipientPage.searchInZoyloMAP("Avinashzoylo Reddy Aleti");
 	 
 		 }else{
 			 

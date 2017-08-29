@@ -108,7 +108,7 @@ public class TestUtils {
 	{
 		WebElement scroll = driver.findElement(By.id(ID));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		Reporter.log("scrolled to "+ID);
 	}
 
@@ -189,12 +189,13 @@ public class TestUtils {
 		System.out.println("waiting for "+ID);
 		WebDriverWait wait = (new WebDriverWait(driver, 90));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
+		System.out.println("waited for "+ID);
 	}
 
 	//Wait for the Xpath Element
 	public void waitFortheElementXpath(String xpath){
 		System.out.println("waiting for "+xpath);
-		WebDriverWait wait = (new WebDriverWait(driver, 60));
+		WebDriverWait wait = (new WebDriverWait(driver, 90));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		System.out.println("waited for "+xpath);	 
 	}

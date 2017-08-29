@@ -583,7 +583,7 @@ public class RecipientPage  {
 			driver.findElement(By.id("packages_search")).sendKeys(pkg);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath("(//input[contains(@class,'pack_select_checkbox')])[1]")).click();
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			Reporter.log("Diagnostic Package selected as "+pkg);
 
 		}
@@ -683,6 +683,22 @@ public class RecipientPage  {
 	public void confirmAppointmentOnDiagnostics() throws InterruptedException{
 
 		Browser.waitFortheElementXpath("//h5[contains(., 'Selected Packages & Tests')]");
+		Browser.scrollbyxpath("//*[@id='bookAndPay']");
+		driver.findElement(By.xpath("//*[@id='bookAndPay']")).click();  //Confirm Appointment
+		Thread.sleep(5000); //changed
+		System.out.println("Appointment Confirmed");
+		Reporter.log("Clicked on Appointment Confirmed");
+	}
+	public void confirmAppointmentOnDiagnosticsAsOthers(String details,String Pname,String Lname,String Pgender,String PAge,String BloodGRP) throws InterruptedException{
+
+		Browser.waitFortheElementXpath("//h5[contains(., 'Selected Packages & Tests')]");
+		driver.findElement(By.xpath("//*[@id='blk']/span[2]/span[2]/label")).click();
+		Thread.sleep(2000);		
+		driver.findElement(By.id("firstName")).sendKeys(Pname);
+		driver.findElement(By.id("lastName")).sendKeys(Lname);
+		driver.findElement(By.id("patientGender")).sendKeys(Pgender);
+		driver.findElement(By.id("patientAge")).sendKeys(PAge);
+		
 		Browser.scrollbyxpath("//*[@id='bookAndPay']");
 		driver.findElement(By.xpath("//*[@id='bookAndPay']")).click();  //Confirm Appointment
 		Thread.sleep(5000); //changed
@@ -960,8 +976,8 @@ public class RecipientPage  {
 	}
 
 	public void openMyAccounts() throws InterruptedException{
-		driver.get(LoadPropMac.base_url+"myaccount");
-		Thread.sleep(5000);
+		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/myaccount");
+		Thread.sleep(3000);
 		System.out.println("Opened my Accounts Page");
 		Reporter.log("Opened my Accounts Page");
 		
@@ -977,8 +993,9 @@ public class RecipientPage  {
 	}
 
 	public void openMyAccounts(String TabName) throws InterruptedException{
-		driver.get(LoadPropMac.base_url+"myaccount");
-		Thread.sleep(5000);  // added to avoid clickable issue
+		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/myaccount");
+		//driver.get(LoadPropMac.base_url+"myaccount");
+		Thread.sleep(3000);  // added to avoid clickable issue
 		driver.findElement(By.xpath("//*[@id='tabs']/li[contains(.,'"+TabName+"')]")).click();
 		Thread.sleep(2000);
 		System.out.println("Cliked on Tab Name"+TabName);

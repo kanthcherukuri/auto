@@ -26,15 +26,15 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 	{
 		//Doctor profile
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
-		driver.get("https://"+Environment_Name+".zoylo.com/providerAccount");
-		Browser.waitFortheID(Elements_Doctors.doctor_profileEdit);
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/providerAccount");
+		Browser.waitFortheElementXpath("//*[@id='myTabs']/li[5]/a");
 		Browser.scrollbyID(Elements_Doctors.doctor_profileEdit);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_profileEdit);
 		Browser.scrollbyID(Elements_Doctors.doctor_ProfileAbout);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_ProfileAbout);
 		driver.findElement(By.id(Elements_Doctors.doctor_ProfileAbout)).clear();
 		driver.findElement(By.id(Elements_Doctors.doctor_ProfileAbout)).sendKeys(aboutData);
-		Thread.sleep(400);
+		Thread.sleep(1000);
 		Browser.scrollbyID(Elements_Doctors.doctor_profileSaveInfo);
 		String regNum=Browser.getTextByXpath(Elements_Doctors.doctor_profileRegistrationNum);
 		String RegNumSplit[]=regNum.split("\\.");
@@ -46,7 +46,6 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentCash);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentSave);
 		Browser.CheckNotificationMessage("Information Updated Successfully");
-		Thread.sleep(5000);
 		doctorsPage.doctorlogout();
 		
 		//Recipient asserts
@@ -67,13 +66,12 @@ public class Recipient_ZOY2398_ValidateDoctorDetails extends LoadPropMac
 		//Doctor reset data
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		doctorsPage.SignIn(Recipient_DocUsername, Recipient_DocPassword);
-		driver.get("https://"+Environment_Name+".zoylo.com/providerAccount");
-		Browser.waitFortheID(Elements_Doctors.doctor_profileEdit);
-		driver.findElement(By.xpath(Elements_Doctors.doctor_ProfilePaymentTab)).click();
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/providerAccount");
+		Thread.sleep(2000);
+		Browser.clickOnTheElementByXpath(Elements_Doctors.doctor_ProfilePaymentTab);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentCash);
 		Browser.clickOnTheElementByID(Elements_Doctors.doctor_Profile_PaymentSave);
 		Browser.CheckNotificationMessage("Information Updated Successfully");
-		Thread.sleep(5000);
 		doctorsPage.doctorlogout();
 	}
 	

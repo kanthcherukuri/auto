@@ -7,17 +7,19 @@ import org.testng.Assert;
 import org.openqa.selenium.By;
 import objectRepository.Elements_Home;
 import objectRepository.Elements_Recipients;
-import testBase.LoadPropMac;
-import testBase.TestUtils;
+import testBase.*;
 
 public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 {
 
 	public TestUtils Browser;
+	public RecipientPage RecipientPage;
+
 	
 	@Test
 	public void headerAccountIcon() throws InterruptedException
 	{
+		
 		reloadtohomePge();
 		
 		driver.findElement(By.xpath(Elements_Recipients.link_aboutHeaderIndex)).click();
@@ -61,8 +63,10 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 		LoadBrowserProperties();
 		Elements_Recipients.Recipients_PageProperties(); //Load page elements of recipients
 		Elements_Home.Home_PageProperties(); //Load home page elements
+		RecipientPage = new RecipientPage(driver); // Loading Pages
 		Browser= new TestUtils(driver);
-
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
+		RecipientPage.recipientLogin(Recipient_Username, Recipient_Password);
 	}
 	
 	@AfterClass()
@@ -72,7 +76,7 @@ public class Recipient_ZOY1364_ValidateaccountIconOnHeader extends LoadPropMac
 	} 
 	public void reloadtohomePge() throws InterruptedException //method to reload and wait until page is loaded
 	{
-		Browser.openUrl("https://"+Environment_Name+".zoylo.com/home");
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);
 		driver.findElement(By.xpath(Elements_Recipients.link_myAccountheaderIcon)).click();
 	}

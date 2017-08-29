@@ -62,6 +62,7 @@ public class Recipients_ZOY1162_ValidateRecipientAppointmentBookingFromMyFavouri
 			RecipientPage.selectDefaultSlot();
 			RecipientPage.confirmAppointment("Test details");
 		    RecipientPage.makePayment();
+		    Thread.sleep(1000);
 			String SuccessfullMesg = driver.findElement(By.cssSelector("h5")).getText();
 			Assert.assertEquals(SuccessfullMesg, "Thank you for booking appointment with "+myActFav_DoctorFullName+" through Zoylo. Your appointment booking details are below:");
 			RecipientPage.openMyAccounts();
