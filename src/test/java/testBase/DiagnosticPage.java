@@ -86,9 +86,9 @@ public class DiagnosticPage {
 	public void diagnosticlogout() throws Exception{
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
-		//Thread.sleep(5000);
+		Browser.waitFortheID("myTabs");
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonsignout);
-		//Thread.sleep(2000);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.confirmsignout);
 		Thread.sleep(2000);
 	}
