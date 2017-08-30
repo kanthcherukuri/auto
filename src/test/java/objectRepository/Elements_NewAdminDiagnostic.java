@@ -244,15 +244,15 @@ public class Elements_NewAdminDiagnostic
 		//Facilities
 		Facilities_Menu="facilitiesTab";
 		Facilities_DebitCard="debitCard";
-		Facilities_Bike="bikeParking";
+		Facilities_Bike="BIKE_PARKING";
 		Facilities_CreditCard="creditCard";
-		Facilities_CarParking="carParking";
+		Facilities_CarParking="CAR_PARKING";
 		Facilities_ambulance="ambulance";
 		Facilities_proBono="proBono";
 		Facilities_onlinePayment="onlinePayment";
-		Facilities_Premium="premium";
+		Facilities_Premium="PREMIUM_SERVICE";
 		Facilities_Cheque="cheque";
-		Facilities_Emergency="emergency";
+		Facilities_Emergency="EMERGENCY_SERVICE";
 		//SEO
 		SEO_Menu="seoTab";
 		SEO_Title="seoTitle";
