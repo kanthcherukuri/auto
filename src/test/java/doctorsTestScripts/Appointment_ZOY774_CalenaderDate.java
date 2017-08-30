@@ -54,21 +54,21 @@ public class Appointment_ZOY774_CalenaderDate extends LoadPropMac {
 		String date=driver.findElement(By.xpath(Elements_Doctors.dashboard_selecttodaysdate)).getText();
 		System.out.println(date);
 		String fullname=firstname+" "+lastname;
-		if(date.equals("30")||(date.equals("31"))){
-			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickonnextmonth)).click();
-			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickondateone)).click();
-			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
-			Assert.assertEquals(name, fullname);
-			System.out.println("Created Appointment is Available");
-		}
-		else{
+//		if(date.equals("30")||(date.equals("31"))){
+//			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickonnextmonth)).click();
+//			driver.findElement(By.xpath(Elements_Doctors.dashboard_clickondateone)).click();
+//			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
+//			Assert.assertEquals(name, fullname);
+//			System.out.println("Created Appointment is Available");
+//		}
+//		else{
 			driver.findElement(By.xpath("//*[@id='mycalendar']/div[3]/a["+date+"+1]/div[1]")).click();
 			Thread.sleep(3000);
 			String name=driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).getText();
 			Assert.assertEquals(name, fullname);
 			driver.findElement(By.xpath(Elements_Doctors.dashboard_fullname)).click();
 			System.out.println("Created Appointment is Available");
-		}
+		//}
 		}
 		
 				 

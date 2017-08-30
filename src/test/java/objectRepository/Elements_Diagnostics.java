@@ -257,7 +257,7 @@ public class Elements_Diagnostics  {
 		 enableddates="//td[@class='day']";
 		 
 		 //Diagnostic Appointment Creation Locators
-		 
+		
 		 morningmenu="//*[@id='diag-home-samples']/div[3]/ul/li[1]/div/div";
 		 noonmenu="//*[@id='diag-home-samples']/div[3]/ul/li[2]/div/div";
 		 eveningmenu="//*[@id='diag-home-samples']/div[3]/ul/li[3]/div/div";
@@ -347,7 +347,7 @@ public class Elements_Diagnostics  {
 		 addfax="contactPersonFax0";
 		 clickonsave="editClinicContactDetails";
 		 clickondelete="//i[@class='fa fa-minus-circle diagcontact_rem_slot']";
-		 clickonpackagemenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[3]";
+		 clickonpackagemenu="//li[@data-tab='tab-hosp-packages']";
 		 clickonaddpackagebutton="addPackage";
 		 
 		 //Schedule Home Pickup Locators

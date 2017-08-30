@@ -6,8 +6,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 
 import java.util.concurrent.TimeUnit;
-
-import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import testBase.DiagnosticPage;
 import testBase.LoadPropMac;
@@ -42,14 +40,11 @@ public class Appointment_ZOY956_SearchInPatientScreen extends LoadPropMac {
 	 
 	 @Test(dataProvider="DP1", groups = { "Regression","High" })
 	 public void patientsearch(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-		 if(RunMode.equals("yes")){
-			 
+		 
 			 DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 			 DiagnosticPageZoylo.CheckPatientSearchfunctionalityInTodaytab(firstname, lastname, mobile, email);
 			 Thread.sleep(2000);
-			 }else{
-				 throw new SkipException("RUNMODE IS OFF"); 
-			 }	
+			 	
 	 			}
 
 	    @AfterMethod
