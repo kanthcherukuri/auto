@@ -230,7 +230,7 @@ public class Elements_Diagnostics  {
 		 
 		//Diagnostics logout locator 
 		 clickonmyaccountmenu="account";	
-		 clickonsignout="//*[@id='myTabs']/li[5]/a/span[1]/i";
+		 clickonsignout="//a[@data-target='#logoutModal1']";
 		 confirmsignout="logout";
 		 
 		 ellipse="//span//i[@class='fa fa-ellipsis-v footer-relipse']";
