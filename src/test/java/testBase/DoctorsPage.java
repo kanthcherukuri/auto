@@ -109,20 +109,12 @@ public class DoctorsPage  {
 
 	// Doctors logout 
 	public  void doctorlogout() throws IOException, InterruptedException{			
-		//driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
+		
 		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
-
-		Thread.sleep(3000);
-		Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");
-
-
-		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
-
+		Browser.waitFortheID("myTabs");
 		Thread.sleep(2000);
-		Browser.clickOnTheElementByXpath("//ul[@id='myTabs']/li[5]/a/span/i");
-		//Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");		
+		Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");
         Browser.clickOnTheElementByID("logout");
-
 		Thread.sleep(5000);
 		System.out.println("Doctor Logged Out");
 		Reporter.log("Doctor Logged Out");
