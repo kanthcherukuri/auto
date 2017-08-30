@@ -68,7 +68,7 @@ public class Recipient_ZOY2408_validateDCdetailsOnProfilePage extends LoadPropMa
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/login");
 		DiagnosticPage.SignIn("indiandc@zoy.com", "Zoylo@123");
 		Browser.waitFortheID(Elements_Diagnostics.clickondashboardmenu);
-		driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/zyDiagnosticCenterAccount");
+		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/zyDiagnosticCenterAccount");
 		Browser.clickOnTheElementByXpath(Elements_Diagnostics.dc_ProfilePaymentTab);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.dc_ProfilePaymentCash);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.dc_ProfilePaymentSave);

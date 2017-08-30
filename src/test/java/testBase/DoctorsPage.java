@@ -111,10 +111,18 @@ public class DoctorsPage  {
 	public  void doctorlogout() throws IOException, InterruptedException{			
 		//driver.get("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
 		Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/providerAccount");
+
 		Thread.sleep(3000);
 		Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");
+
+
+		Browser.waitFortheElementXpath("//a[@data-target='#logoutModal1']");
+
 		Thread.sleep(2000);
-		Browser.clickOnTheElementByID("logout");
+		Browser.clickOnTheElementByXpath("//ul[@id='myTabs']/li[5]/a/span/i");
+		//Browser.clickOnTheElementByXpath("//a[@data-target='#logoutModal1']");		
+        Browser.clickOnTheElementByID("logout");
+
 		Thread.sleep(5000);
 		System.out.println("Doctor Logged Out");
 		Reporter.log("Doctor Logged Out");
@@ -1177,6 +1185,7 @@ public void VerifyCheckINFunctionality(String prognosis,String diagnosis,String 
 	 */
 	public void goToDoctorProfilePicture() throws Exception
 	{
+		
 		Browser.waitFortheID(Elements_Doctors.schedule);
 		Browser.scrollbyxpath(Elements_Doctors.doctor_Profile);
 		Browser.clickOnTheElementByXpath(Elements_Doctors.doctor_Profile);

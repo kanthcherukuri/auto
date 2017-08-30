@@ -42,7 +42,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 	 @DataProvider(name = "DP1")
 		public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Diagnosticszoylo","Sugar Test","Zoylo Health Pkg","sdf12345" }
+					{ "yes","Diagnosticszoylo","Blood Sugar Test","Zoylo Health Pkg","sdf12345" }
 
 			};
 		}

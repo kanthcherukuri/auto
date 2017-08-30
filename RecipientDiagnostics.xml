@@ -7,8 +7,10 @@
   </listeners>
   <test name="Recipients Diagnostics">
     <classes>
+          <!-- <class name="recipientDiagnosticTestScripts.Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel"/>
+      -->
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY_DiagnosticsBookingAndFallowUp"/> 
-      <class name="recipientDiagnosticTestScripts.Recipient_ZOY2045_validateDiagnosticsRechangeAndCancel"/>
+
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY2041_bookDChomeVisitAppointment"/>
       <class name="recipientDiagnosticTestScripts.Recipient_ZOY1399_ValidateDianosticsRebook"/>
      

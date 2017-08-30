@@ -153,6 +153,7 @@ public class TestUtils {
 					JavascriptExecutor jse = (JavascriptExecutor)driver;
 					jse.executeScript("window.scrollBy(0,250)", "");
 					Reporter.log("scrolled Down");
+					
 				}
 
 	//screen-shot
@@ -221,7 +222,7 @@ public class TestUtils {
 	//Wait for the Screen Validation
 	public void verifyNotificationMessage(String ExpectedErrorMesg ) throws InterruptedException{
 		Thread.sleep(2000);
-		WebDriverWait wait = (new WebDriverWait(driver, 1000));
+		WebDriverWait wait = (new WebDriverWait(driver, 80));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 		String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 		System.out.println("ActualError="+ActualError);			    

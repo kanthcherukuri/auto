@@ -74,20 +74,19 @@ public class Recipient_ZOY1676_ValidatePromocodeInDiagnostics extends LoadPropMa
 				RecipientPage.confirmAppointmentOnDiagnostics();
 				 //verifying Promo code with no data
 				driver.findElement(By.xpath("//span[text()='Apply']")).click();
-			    Browser.verifyNotificationMessage("Please enter promocode");
-			    driver.navigate().refresh();
+			    Browser.CheckNotificationMessage("Please enter promocode");
 			    //verifying Promo code with Invalid data
 			    driver.findElement(By.id("promocodeValue")).sendKeys("asdg123");
 				driver.findElement(By.xpath("//span[text()='Apply']")).click();
-			    Browser.verifyNotificationMessage("Promo Code Not Found or Invalid");
+			    Browser.CheckNotificationMessage("Promo Code Not Found or Invalid");
 			    //verifying Promo code with Valid data
-			    driver.navigate().refresh();
+			    driver.findElement(By.id("promocodeValue")).clear();
 			    driver.findElement(By.id("promocodeValue")).sendKeys("ZOY15");
 				driver.findElement(By.xpath("//span[text()='Apply']")).click();
-			    Browser.verifyNotificationMessage("Promocode applied successfully");
+			    Browser.CheckNotificationMessage("Promocode applied successfully");
 			  
 			    
-			  //verifying Consultation Fee
+			   //verifying Consultation Fee
 			    String PaymentConsultationFee=driver.findElement(By.xpath("//div[@class='zy-sp-payment-opts' and contains(.,'Amount Payable')]/div[2]")).getText();
 		       // System.out.println("PaymentConsultationFee="+PaymentConsultationFee.replace(".00", ""));
 		        Assert.assertEquals(PaymentConsultationFee, "100.00");
