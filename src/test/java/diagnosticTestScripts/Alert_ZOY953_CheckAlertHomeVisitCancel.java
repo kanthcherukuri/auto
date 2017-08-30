@@ -44,6 +44,7 @@ public class Alert_ZOY953_CheckAlertHomeVisitCancel extends LoadPropMac{
 		String Id=DiagnosticPageZoylo.GetDiagnosticAppointmentId();
 		DiagnosticPageZoylo.CancelAppointmentOfHomeVisit();
 		DiagnosticPageZoylo.clickOnAlertMenu();
+		
 		String alert=driver.findElement(By.xpath("(//*[@id='message'])[1]")).getText();
 		System.out.println(alert);
 		Assert.assertTrue(alert.contains("You have CANCELLED the home visit appointment of "+firstname));
