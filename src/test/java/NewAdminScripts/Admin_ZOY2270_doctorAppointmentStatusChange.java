@@ -30,7 +30,7 @@ public class Admin_ZOY2270_doctorAppointmentStatusChange extends LoadPropMac
 	public void doctorAptStatus(String firstname,String lastname,String mobile,String email,String problem, String status, String Notification) throws Exception
 	{
 		//Doctor Module
-		DoctorsPage.SignIn(DoctorsLogin_username, DoctorsLogin_password);
+		DoctorsPage.SignIn(DoctorsLogin_usernamefive, DoctorsLogin_passwordfive);
 		DoctorsPage.BulkCancel();
 		Browser.CheckNotificationMessage("Appointments cancelled successfully");
 		Thread.sleep(5000);
