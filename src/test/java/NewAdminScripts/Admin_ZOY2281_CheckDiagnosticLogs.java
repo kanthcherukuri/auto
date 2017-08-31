@@ -62,7 +62,7 @@ public class Admin_ZOY2281_CheckDiagnosticLogs extends LoadPropMac{
 		  Browser.clickOnTheElementByXpath("//a[@href='/admin/zyDiagnosticCenterPackagesAndTestsLogList']");
 		  
 		  //driver.get(Elements_NewAdminDiagnostic.DiagnosticLogs_url);
-		  Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
+		  driver.navigate().refresh();
 		  Browser.enterTextByXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox, name);
 		  Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.DiagnosticLogs_NewCost);
 		  Thread.sleep(2000);

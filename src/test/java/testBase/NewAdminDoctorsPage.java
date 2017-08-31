@@ -1737,8 +1737,8 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void click_administratorSave() throws InterruptedException
 	{
-		Browser.scrollbyxpath(Elements_NewAdminDoctors.admininstrator_Save);
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.admininstrator_Save)).click();
+		Browser.ScrollDown();
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.admininstrator_Save);
 	}
 	
 	/*

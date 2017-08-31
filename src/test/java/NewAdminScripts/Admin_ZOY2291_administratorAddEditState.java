@@ -25,7 +25,7 @@ public class Admin_ZOY2291_administratorAddEditState extends LoadPropMac
 		admin.Enter_stateDetails(stateCode, stateName);
 		admin.click_stateSaveBtn();
 		Browser.CheckNotificationMessage("State created successfully");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	}
 	
 	@Test(priority=2)

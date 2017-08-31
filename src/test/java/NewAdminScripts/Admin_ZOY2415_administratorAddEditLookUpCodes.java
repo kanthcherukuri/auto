@@ -13,8 +13,8 @@ public class Admin_ZOY2415_administratorAddEditLookUpCodes extends LoadPropMac
 {
 	public TestUtils Browser;
 	public NewAdminDoctorsPage admin;
-	public String codeType="NEWTYPE";
-	public String codeName="TypeName";
+	public String codeType="ZOYTA";
+	public String codeName="Zoytb";
 	public String codeDescription="Type is important";
 	public String codeValue="V1";
 	public String codeValueName="Value";
@@ -30,11 +30,11 @@ public class Admin_ZOY2415_administratorAddEditLookUpCodes extends LoadPropMac
 		admin.Enter_lookUpCodeDetails(codeType, codeName, codeDescription, codeValue, codeValueName, codeValueDescription, codeValueSequence);
 		admin.click_administratorSave();
 		Browser.CheckNotificationMessage("Lookup Code saved successfully");
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		driver.navigate().refresh();
 		admin.searchAdministratorReferenceByName(codeType);
 		admin.clickEditbutton();
-		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.admininstrator_Save);
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_lookupCodeType);
 		admin.click_administratorSave();
 		Browser.CheckNotificationMessage("Lookup Code Updated successfully");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "lookupCodes", "code", codeType);
