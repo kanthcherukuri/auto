@@ -35,6 +35,7 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 		DiagnosticPageZoylo.ClickOnScheduleMenu();
 		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
 		DiagnosticPageZoylo.ScheduleDiagnosticManageClickonTestsMenu();
+		Thread.sleep(2000);
 	    DiagnosticPageZoylo.ScheduleDiagnosticManageAddTests("Sulochanaytest","Full body Test for all ", "2000", "2");
 		Thread.sleep(2000);
 		DiagnosticPageZoylo.ClickOnToggletoSubmitTestsForApproval();
@@ -48,6 +49,6 @@ public class Schedule_ZOY968_InManageSubmitTestsForApproval extends LoadPropMac 
 	
 	@AfterClass
 	  public void CloaseBrowser() {
-		//driver.quit();
+		driver.quit();
 	  }
 }

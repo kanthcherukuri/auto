@@ -44,7 +44,7 @@
         <class name="diagnosticTestScripts.Schedule_ZOY1013_HomePickupSendPackageForApproval"/>
         <class name="diagnosticTestScripts.Schedule_ZOY991_HomePickUpAddTests"/>
        	<class name="diagnosticTestScripts.Schedule_ZOY1007_HomePickupAddPackage"/>
-      	<!-- <class name="diagnosticTestScripts.Schedule_ZOY982_InManageEditPackage"/>
+      	<class name="diagnosticTestScripts.Schedule_ZOY982_InManageEditPackage"/>
       	<class name="diagnosticTestScripts.Schedule_ZOY976_InManageEditTests"/>
      	 <class name="diagnosticTestScripts.Schedule_ZOY973_InManageMakeTestActive"/>
       	<class name="diagnosticTestScripts.Schedule_ZOY968_InManageSubmitTestsForApproval"/>
@@ -55,7 +55,7 @@
         <class name="diagnosticTestScripts.Schedule_ZOY986_InMangeDeleteContact"/>
       <class name="diagnosticTestScripts.Schedule_ZOY963_InManageADDTests"/>
        <class name="diagnosticTestScripts.Schedule_ZOY981_InManageAddContact"/>
-        <class name="diagnosticTestScripts.Schedule_ZOY1000_InMangaeSubimtPackageforApproval"/> -->
+        <class name="diagnosticTestScripts.Schedule_ZOY1000_InMangaeSubimtPackageforApproval"/>
       <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationTimeSlotdecreasingAppointmentScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY996_HomeSampleChangeSlotTimeAppointmentNotScheduled"/>
       <class name="diagnosticTestScripts.Schedule_ZOY985_ConsultationToggleAppointmentScheduled"/>

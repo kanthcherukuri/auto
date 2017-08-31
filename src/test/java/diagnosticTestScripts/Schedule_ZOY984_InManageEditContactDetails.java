@@ -2,6 +2,9 @@ package diagnosticTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -34,7 +37,9 @@ public class Schedule_ZOY984_InManageEditContactDetails extends LoadPropMac{
 	
 	@Test(dataProvider="DP1")
 	public void ScheduleEditInManager(String RunMode,String name,String phone,String email,String fax,String editedname,String editedphone,String editedemail,String editedfax) throws Exception{
-		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
+		Browser.waitFortheID("myTabs");
 		DiagnosticPageZoylo.AddContactInSchedule(name, phone, email, fax);
 		DiagnosticPageZoylo.EditConatctInSchedule(editedname, editedphone, editedemail, editedfax);
 	

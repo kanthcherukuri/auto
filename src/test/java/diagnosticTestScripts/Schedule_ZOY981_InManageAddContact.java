@@ -2,6 +2,9 @@ package diagnosticTestScripts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_Diagnostics;
+
 import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 import testBase.DiagnosticPage;
@@ -25,11 +28,12 @@ public class Schedule_ZOY981_InManageAddContact extends LoadPropMac {
 	@Test
 	public void ScheduleAddContact() throws Exception{
 		
-		DiagnosticPageZoylo.ClickOnScheduleMenu();
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
+		Browser.waitFortheID("myTabs");
 		DiagnosticPageZoylo.AddContactInSchedule("Roshan", "9988002222", "roshan@gmail.com", "99002266");
-		Thread.sleep(3000);
 		DiagnosticPageZoylo.DeleteContactInSchedule();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		DiagnosticPageZoylo.diagnosticlogout();
 	    
 	}

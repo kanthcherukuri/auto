@@ -29,9 +29,10 @@ public class Schedule_ZOY960_InManageUpdateAmenities extends LoadPropMac {
 	@Test
 	public void DiagnisticManageUpdateAmenities() throws Exception{
 		
-		DiagnosticPageZoylo.ClickOnScheduleMenu();
-		DiagnosticPageZoylo.ScheduleClickOnDiagnosticManage();
-		Thread.sleep(1000);
+		Browser.clickOnTheElementByXpath(Elements_Diagnostics.ellipse);
+		Browser.clickOnTheElementByID(Elements_Diagnostics.clickonmyaccountmenu);
+		Browser.waitFortheID("myTabs");
+		Browser.clickOnTheElementByXpath("//a[@href='#amenities']");
 		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiesbikeparking);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiescarparking);
 		Browser.clickOnTheElementByID(Elements_Diagnostics.amenitiespremiunservice);

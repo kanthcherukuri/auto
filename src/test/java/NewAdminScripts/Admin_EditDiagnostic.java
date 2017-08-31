@@ -35,7 +35,7 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 	
 	@Test(dataProvider="EditDiagnosticDetails")
 	public void EditDiagnostic(String DiagnosticEmail,String EditPackageName,String EditDiscountPercentage,String EditZoyloPercentage,String EditDiscountPercentageOne,
-	String EditZoyloPercentageOne,String EditdiagTestname,String Editdiagdiscountper,String EditdiagZoyloper) throws Exception{
+	String EditZoyloPercentageOne,String EditdiagTestname,String Editdiagdiscountper,String EditdiagZoyloper,String DiagnosticName) throws Exception{
 		AdminDiagnostic.ClickOnDiagnosticMenu();
 		//Thread.sleep(2000);
 		Browser.waitFortheElementXpath(Elements_NewAdminDiagnostic.Diagnostic_SearchBox);
@@ -74,6 +74,22 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 		Thread.sleep(8000);
 		String diagtestname=driver.findElement(By.xpath(Elements_NewAdminDiagnostic.DiagnosticTests_CheckTestName)).getText();
 		Assert.assertEquals(diagtestname, EditdiagTestname);
+//		 Script for ZOY-2458 and2539
+//		Thread.sleep(2000);
+//		Browser.clickOnTheElementByXpath("//button[@data-target='#zoyDiagAddTests']");
+//		Browser.selectbyID("diagServiceMode", "Lab Visit");
+//		Browser.enterTextByID("diagDiscountPercentage", "10");
+//		Browser.enterTextByID("diagZoyloChargePercentage", "2");
+//		Browser.enterTextByXpath("(//*[@id='diagTestName'])[last()]", "PrasadTest");
+//		Browser.enterTextByXpath("(//*[@id='diagAddTestCost'])[last()]", "20000");
+//		Browser.clickOnTheElementByXpath("(//button[contains(.,' Save')])[last()]");
+//		Thread.sleep(1000);
+//		Browser.clickOnTheElementByXpath("(//button[@id='zyAddDcTestClone'])[last()]");
+//		Browser.enterTextByXpath("(//*[@id='diagTestName'])[last()]", "PrasadTestone");
+//		Browser.enterTextByXpath("(//*[@id='diagAddTestCost'])[last()]", "25000");
+//		Browser.clickOnTheElementByXpath("(//button[contains(.,' Save')])[last()]");
+		
+		
 		driver.findElement(By.id("editDiagnosticSubmit")).click();
 		Browser.CheckNotificationMessage("Diagnostic Center Updated Successfully");
 		String dcID=Browser.mongoDB_getID("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zyDiagnosticCenters", "user.email", DiagnosticEmail);

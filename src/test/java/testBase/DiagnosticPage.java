@@ -809,9 +809,9 @@ public class DiagnosticPage {
 		
 		public void AddContactInSchedule(String name,String phone,String email,String fax) throws Exception{
 			
-			Browser.clickOnTheElementByID(Elements_Diagnostics.clickondiagnosticmanage);
-			Browser.waitTill(1000);
-			Browser.waitFortheElementXpath(Elements_Diagnostics.clickoncontact);
+			//Browser.clickOnTheElementByID(Elements_Diagnostics.clickondiagnosticmanage);
+			//Browser.waitTill(1000);
+			//Browser.waitFortheElementXpath(Elements_Diagnostics.clickoncontact);
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickoncontact);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickaddclinic);
 			Browser.enterTextByID(Elements_Diagnostics.addname, name);
@@ -820,7 +820,7 @@ public class DiagnosticPage {
 			Browser.enterTextByID(Elements_Diagnostics.addfax, fax);
 			Browser.clickOnTheElementByID(Elements_Diagnostics.clickonsave);
 			Browser.CheckNotificationMessage("Contact Information updated successfully");
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		}
 		
 		/*   Below is the  Method
@@ -1139,7 +1139,7 @@ public class DiagnosticPage {
 		public void ScheduleDiagnosticManageClickonTestsMenu() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonmanagetestsmenu);
 			Browser.waitTill(2000);
-			Thread.sleep(1000);
+			
 		}
 		
 		
@@ -1152,10 +1152,10 @@ public class DiagnosticPage {
 		
 		public void ScheduleDiagnosticManageAddTests(String testname,String description,String cost,String discount) throws Exception{
 			
-//			WebElement sc=driver.findElement(By.id("addTests"));
-//			Actions actions = new Actions(driver);
-//			actions.moveToElement(sc).click().perform();
-			Browser.clickOnTheElementByID("addTests");
+			WebElement sc=driver.findElement(By.id("addTests"));
+			Actions actions = new Actions(driver);
+			actions.moveToElement(sc).click().perform();
+			//Browser.clickOnTheElementByID("addTests");
 			Thread.sleep(2000);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
 		    Thread.sleep(1000);

@@ -149,7 +149,7 @@ public class Elements_Diagnostics  {
 		//ScheduleInManageAddPackage Variables
 		public static String ManagePackagename, ManagePackagecost, ManagePackagediscount, ManagePackagedesc, ManagePackageAddTest, ManagePackageTestname;
 		public static String ManagePackageTestdesc, ManagePackageSavePackage, ManagePackageEditlink, ManagePacakgeApproval,  amenitiesbikeparking;
-		public static String amenitiescarparking, amenitiescardswipe, amenitieswashroom, amenitiespremiunservice, amenitiesemergencyservices;
+		public static String amenitiescarparking,  amenitieswashroom, amenitiespremiunservice, amenitiesemergencyservices;
 		public static String amenitiessave, clcikondiagnosticmanagemenu, ManageSubmitPackageApproval ;
 		
 		//Schedule Manage Test Variables
@@ -339,7 +339,7 @@ public class Elements_Diagnostics  {
 		 //Diagnostic Center Manage Locators
 		 clickonschedulemenu="schedule";
 		 clickondiagnosticmanage="cd-12";
-		 clickoncontact="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[4]";
+		 clickoncontact="//a[@href='#contactDetails']";
 		 clickaddclinic="addClinicContact";
 		 addname="contactPersonName0";
 		 addphone="contactPersonPhone0";
@@ -356,7 +356,7 @@ public class Elements_Diagnostics  {
 		 clickonhometestaddbutton="addHomeVisitTests";
 		 clickhomevisittestsavebutton="saveHomePickTests";
 		 clickonhomevisitmenu="//*[@id='cd-13']/div";
-		 clickonmanagetestsmenu="//*[@id='tab-hospital']/div[2]/div[1]/ul/li[2]";
+		 clickonmanagetestsmenu="//li[@data-tab='tab-hosp-tests']";
 		 clickonpackagemenuinhomepickup="//*[@id='tab-home']/div[2]/div[1]/ul/li[2]";
 		 
 		 //Admin Locators
@@ -378,7 +378,6 @@ public class Elements_Diagnostics  {
 		 ManagePacakgeApproval="(//*[@class='sp-diag-dcenter-pack-docard clinicPackages pckgIndex']/div[1]/div[1]/div[1]/div/label/span[2])[last()]";
 		 amenitiesbikeparking="BIKE_PARKING";
 		 amenitiescarparking="CAR_PARKING";
-		 amenitiescardswipe="AMBULANCE";
 		 amenitieswashroom="PRO_BONO";
 		 amenitiespremiunservice="PREMIUM_SERVICE";
 		 amenitiesemergencyservices="EMERGENCY_SERVICE";
