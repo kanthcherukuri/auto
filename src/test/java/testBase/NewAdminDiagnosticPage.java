@@ -672,10 +672,6 @@ public class NewAdminDiagnosticPage
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_CreditCard);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_CarParking);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_CarParking);
-		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_ambulance);
-		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_ambulance);
-		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_proBono);
-		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_proBono);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_onlinePayment);
 		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.Facilities_onlinePayment);
 		Browser.waitFortheID(Elements_NewAdminDiagnostic.Facilities_Premium);

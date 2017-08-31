@@ -47,8 +47,8 @@ public class Elements_NewAdminDiagnostic
 	public static String Address_Menu,Address_Line1,Address_ClickOnCountry,Address_Country,Address_ClicOnState,Address_State,Address_ClickOnCity,
 	Address_City,Address_Pincode,Address_Locality,Address_Landmark,Address_Longitude,Address_latitude;
 	
-	public static String Facilities_Menu,Facilities_DebitCard,Facilities_Bike,Facilities_CreditCard,Facilities_CarParking,Facilities_ambulance,
-	Facilities_proBono,Facilities_onlinePayment,Facilities_Premium,Facilities_Cheque,Facilities_Emergency;
+	public static String Facilities_Menu,Facilities_DebitCard,Facilities_Bike,Facilities_CreditCard,Facilities_CarParking,
+	Facilities_onlinePayment,Facilities_Premium,Facilities_Cheque,Facilities_Emergency;
 	
 	public static String HomeVisit_MondayAssert,HomeVisit_TuesdayAssert,HomeVisit_WednesdayAssert,HomeVisit_ThusdayAssert,
 	HomeVisit_FridayAssert,HomeVisit_SaturdayAssert;
@@ -247,8 +247,6 @@ public class Elements_NewAdminDiagnostic
 		Facilities_Bike="BIKE_PARKING";
 		Facilities_CreditCard="creditCard";
 		Facilities_CarParking="CAR_PARKING";
-		Facilities_ambulance="ambulance";
-		Facilities_proBono="proBono";
 		Facilities_onlinePayment="onlinePayment";
 		Facilities_Premium="PREMIUM_SERVICE";
 		Facilities_Cheque="cheque";
