@@ -56,7 +56,8 @@ public class Admin_ZOY2234_editClinicDoctorAndOtherClinicName extends LoadPropMa
 		
 		//Recipient check for edited other clinic name - To test ZOY-2453
 		Browser.waitFortheElementXpath(Elements_Recipients.link_myAccountheaderIcon);
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
+		Browser.openUrl("https://"+Environment_Name+".zoylo.com/index");
 		RecipientPage.searchInZoyloMAP(docName);
 		RecipientPage.bookAppointment();
 		Browser.waitforTextbyxpath(Elements_Recipients.doctorNameOnProfile, docName);
