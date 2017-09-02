@@ -75,7 +75,7 @@ public class Schedule_ZOY973_InManageMakeTestActive  extends LoadPropMac{
 		Thread.sleep(2000);
 		Browser.CheckNotificationMessage("Tests updated successfully");
 		Thread.sleep(2000);
-		DiagnosticPageZoylo.diagnosticslogout();
+		DiagnosticPageZoylo.diagnosticlogout();
 	}
 
 	@AfterClass

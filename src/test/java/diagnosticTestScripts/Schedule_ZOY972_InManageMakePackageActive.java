@@ -67,7 +67,7 @@ public class Schedule_ZOY972_InManageMakePackageActive extends LoadPropMac{
 		Browser.clickOnTheElementByID("saveClinicPackages");
 		Browser.CheckNotificationMessage("Diagnostics Packages updated successfully");
 		Thread.sleep(1000);
-		DiagnosticPageZoylo.diagnosticslogout();
+		DiagnosticPageZoylo.diagnosticlogout();
 	}
 	
 	@AfterClass
