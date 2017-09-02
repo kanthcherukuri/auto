@@ -38,7 +38,7 @@ public class Admin_ZOY2541_EditAndBulkUpdateInAdmin extends LoadPropMac{
     }
 	
 	
-	@Test(dataProvider="EditAndBulkUpdateDiagnosticDetails")
+	@Test(dataProvider="EditAndBulkUpdateDiagnosticDetails",priority=1)
 	public void CheckEditAndBulkUpdateFunctionality(String DiagnosticEmail,String EditPackageName,String EditDiscountPercentage,String EditZoyloPercentage,String EditDiscountPercentageOne,
 			String EditZoyloPercentageOne,String EditdiagTestname,String Editdiagdiscountper,String EditdiagZoyloper,String DiagnosticName ) throws Exception {
 		
@@ -52,7 +52,7 @@ public class Admin_ZOY2541_EditAndBulkUpdateInAdmin extends LoadPropMac{
 		AdminDiagnostic.ClickOnBulkUpdateTab();
 		AdminDiagnostic.BulkUpdateSelection("10", "10", "Lab Visit", "Both");
 		Browser.CheckNotificationMessage("Diagnostic Center Bulk Updated Successfully");
-		Thread.sleep(2000);
+		Browser.waitFortheElementXpath("//*[@id='zyDCMandatoryFields']//a[@href='#zyDiagMandatoryFields']");
 		AdminDiagnostic.ClickOnPackageAndTestsMenu();
 		String discount=Browser.getTextByXpath(Elements_NewAdminDiagnostic.HealthPackage_CheckDiscount);
 		String ZFC=Browser.getTextByXpath(Elements_NewAdminDiagnostic.HealthPackage_CheckZFC);
@@ -94,6 +94,51 @@ public class Admin_ZOY2541_EditAndBulkUpdateInAdmin extends LoadPropMac{
 		String testZFCone=Browser.getTextByXpath(Elements_NewAdminDiagnostic.DiagnosticTests_CheckZFC);
 		Assert.assertEquals(testdisone,"20");
 		Assert.assertEquals(testZFCone,"5");
+	
+	}
+	
+	//2629 
+	@Test(priority=2)
+	public void CheckAddPackageInEdit() throws Exception {
+		AdminDiagnostic.ClickOnPackageAndTestsMenu();
+		Browser.clickOnTheElementByXpath("//a[@href='#zoyDiagPackHealth']");
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.HealthPackage_AddPackage);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.HealthPackage_Status);
+		Browser.selectbyID(Elements_NewAdminDiagnostic.HealthPackage_Status, "Approved");
+		Browser.selectbyID("serviceMode", "Lab & Home Visit");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.HealthPackage_packageName, "SnidgaPack");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.HealthPackage_packageCost, "30000");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.HealthPackage_discountPercentage, "10");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.HealthPackage_zoyloChargePercentage, "5");
+		Browser.clickOnTheElementByID("isPackagesActive");
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.HealthPackage_Save);
+		Browser.CheckNotificationMessage("Package Added successfully");
+		
+	}
+	
+	
+	//2539 Changes in Add Test Screen
+	@Test(dataProvider="EditAndBulkUpdateDiagnosticDetails",priority=3)
+	public void CheckAddTestScreenInEdit(String DiagnosticEmail,String EditPackageName,String EditDiscountPercentage,String EditZoyloPercentage,String EditDiscountPercentageOne,
+		String EditZoyloPercentageOne,String EditdiagTestname,String Editdiagdiscountper,String EditdiagZoyloper,String DiagnosticName) throws Exception {
+		AdminDiagnostic.ClickOnPackageAndTestsMenu();
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.DiagnosticTests_Menu);
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.DiagnosticTests_AddTests);
+		Browser.waitFortheID(Elements_NewAdminDiagnostic.DiagnosticTests_AdminStatus);
+		Browser.selectbyID("diagServiceMode", "Lab & Home Visit");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_DiscountPercentage, "10");
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.DiagnosticTests_ZoyloChargePercentage, "2");
+		Browser.enterTextByXpath("(//*[@id='diagTestName'])[last()]", "PrasadTest");
+		Browser.enterTextByXpath("(//*[@id='diagAddTestCost'])[last()]", "20000");
+		Browser.clickOnTheElementByXpath("(//button[contains(.,' Save')])[last()]");
+		Browser.CheckNotificationMessage("Dc Test Added successfully");
+		Thread.sleep(1000);
+		Browser.clickOnTheElementByXpath("(//button[@id='zyAddDcTestClone'])[last()]");
+		Browser.enterTextByXpath("(//*[@id='diagTestName'])[last()]", "PrasadTestone");
+		Browser.enterTextByXpath("(//*[@id='diagAddTestCost'])[last()]", "25000");
+		Browser.clickOnTheElementByXpath("(//button[contains(.,' Save')])[last()]");
+		Browser.CheckNotificationMessage("Dc Test Added successfully");
+		Browser.clickOnTheElementByXpath("(//*[@id='zoyPackageTestCancel'])[2]");	
 		
 	}
 	

@@ -181,7 +181,7 @@ public class Elements_NewAdminDiagnostic
 		PackageTests_TestSave="zoyPackageTestSave";
 		
 		DiagnosticTests_Menu="zyDCTests";
-		DiagnosticTests_AddTests="//*[@id='zoyDiagPackTest']/div/div[1]/button";
+		DiagnosticTests_AddTests="//button[@data-target='#zoyDiagAddTests']";
 		DiagnosticTests_TestName="diagTestName";
 		DiagnosticTests_TestDescription="diagTestDescription";
 		DiagnosticTests_AdminStatus="diagAdminStatus";
