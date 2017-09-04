@@ -1,0 +1,436 @@
+[Appium] Welcome to Appium v1.6.5
+[Appium] Non-default server args:
+[Appium]   port: 54311
+[Appium]   loglevel: info
+[Appium]   chromeDriverPort: 54387
+[Appium]   tmpDir: /var/folders/hd/_svbz9_d29n0_dbz_shfx9q40000gp/T//Katalon/Appium/Temp1504509046186
+[Appium] Appium REST http interface listener started on 0.0.0.0:54311
+[HTTP] --> GET /wd/hub/status {}
+[HTTP] <-- GET /wd/hub/status 200 21 ms - 83 
+[HTTP] --> GET /wd/hub/status {}
+[HTTP] <-- GET /wd/hub/status 200 12 ms - 83 
+[HTTP] --> POST /wd/hub/session {"desiredCapabilities":{"app":"/Users/sen/Desktop/apps/zoylo-PIT-24Apr.apk","noReset":true,"newCommandTimeout":1800,"automationName":"uiautomator2","udid":"emulator-5554","platformName":"Android","deviceName":"Emulator (Android SDK built for x86 - Android 8.0.0)","fullReset":false,"platform":"ANDROID"}}
+[Appium] Creating new AndroidUiautomator2Driver (v0.3.3) session
+[Appium] Capabilities:
+[Appium]   app: '/Users/sen/Desktop/apps/zoylo-PIT-24Apr.apk'
+[Appium]   noReset: true
+[Appium]   newCommandTimeout: 1800
+[Appium]   automationName: 'uiautomator2'
+[Appium]   udid: 'emulator-5554'
+[Appium]   platformName: 'Android'
+[Appium]   deviceName: 'Emulator (Android SDK built for x86 - Android 8.0.0)'
+[Appium]   fullReset: false
+[Appium]   platform: 'ANDROID'
+[BaseDriver] The following capabilities were provided, but are not recognized by appium: platform.
+[BaseDriver] Session created with session id: 65cc01d8-e632-457e-80e0-a151a1796bcb
+[BaseDriver] Using local app '/Users/sen/Desktop/apps/zoylo-PIT-24Apr.apk'
+[UiAutomator2] UIAutomator2 Driver version:0.3.3
+[AndroidDriver] Java version is: 1.8.0_102
+[ADB] Checking whether adb is present
+[ADB] Using adb from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/platform-tools/adb
+[AndroidDriver] Retrieving device list
+[AndroidDriver] Using device: emulator-5554
+[ADB] Checking whether adb is present
+[ADB] Using adb from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/platform-tools/adb
+[ADB] Checking whether aapt is present
+[ADB] Using aapt from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/build-tools/23.0.3/aapt
+[ADB] Extracting package and launch activity from manifest
+[ADB] Getting device platform version
+[ADB] Checking whether aapt is present
+[ADB] Using aapt from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/build-tools/23.0.3/aapt
+[ADB] Cannot read version codes of /usr/local/lib/node_modules/appium/node_modules/io.appium.settings/app/build/outputs/apk/settings_apk-debug.apk and/or io.appium.settings. Assuming correct app version is already installed
+[AndroidDriver] Screen already unlocked, doing nothing
+[ADB] Checking whether zipalign is present
+[ADB] Using zipalign from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/build-tools/23.0.3/zipalign
+[AndroidDriver] Remote apk path is /data/local/tmp/a0947e266cecee67dba20041d2b18601.apk
+[ADB] Checking whether aapt is present
+[ADB] Using aapt from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/build-tools/23.0.3/aapt
+[ADB] Checking whether aapt is present
+[ADB] Using aapt from /Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/android_sdk/build-tools/23.0.3/aapt
+[UiAutomator2] Starting uiautomator2 server v0.1.5 with cmd: am,instrument,-w,io.appium.uiautomator2.server.test/android.support.test.runner.AndroidJUnitRunner
+[UiAutomator2] running command...
+ adb -s emulator-5554 shell am instrument -w io.appium.uiautomator2.server.test/android.support.test.runner.AndroidJUnitRunner... 
+[UiAutomator2] Waiting up to 20000ms for UiAutomator2 to be online...
+[UiAutomator2] UiAutomator2 did not start the activity we were waiting for, 'com.zoylo.com/com.zoylo.com.MainActivity'. Starting it ourselves
+[Appium] New AndroidUiautomator2Driver session created successfully, session 65cc01d8-e632-457e-80e0-a151a1796bcb added to master session list
+[HTTP] <-- POST /wd/hub/session 200 10734 ms - 352 
+[HTTP] --> GET /wd/hub/status {}
+[HTTP] <-- GET /wd/hub/status 200 40 ms - 83 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 429 ms - 1813 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 2963 ms - 104426 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 924 ms - 32445 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4902 ms - 2211698 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 29 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 335 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 189 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 185 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 99 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 143 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 173 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 143 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 129 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 72 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 134 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 126 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 74 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 144 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 79 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 98 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 135 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 71 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 131 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 147 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 147 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 148 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 155 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 138 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 116 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 127 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 143 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 143 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 83 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 103 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 94 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 85 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 147 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 164 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 102 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 95 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 139 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 158 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 84 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 83 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 83 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 159 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 94 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 92 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 61 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 159 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 66 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 82 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 78 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 94 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 130 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 89 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 124 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 23 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 80 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 69 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 83 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 137 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 122 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 140 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 59 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 140 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 64 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 135 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 66 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 137 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 140 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 61 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 150 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 139 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 74 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 129 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 87 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 142 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 71 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 81 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 73 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 149 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 90 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 130 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 80 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 90 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 73 ms - 74 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[3]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 76 ms - 74 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 1021 ms - 30727 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4325 ms - 2213582 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 42 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.view.View[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 162 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/ad1d255b-4842-4327-8f69-ca6bb15f97e0/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/ad1d255b-4842-4327-8f69-ca6bb15f97e0/location 200 115 ms - 90 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform {"actions":[{"action":"press","options":{"element":"ad1d255b-4842-4327-8f69-ca6bb15f97e0"}},{"action":"wait","options":{"ms":1}},{"action":"release","options":{}}]}
+[UiAutomator2] calling get location: ad1d255b-4842-4327-8f69-ca6bb15f97e0
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform 200 361 ms - 76 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 388 ms - 2275 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 2896 ms - 299254 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 623 ms - 30722 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4260 ms - 2204102 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 409 ms - 30722 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4286 ms - 2204142 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 34 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.ListView[1]/android.view.View[3]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 152 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/7aea5b35-94a1-416c-ae20-d1b7819d8d4b/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/7aea5b35-94a1-416c-ae20-d1b7819d8d4b/location 200 59 ms - 91 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform {"actions":[{"action":"press","options":{"element":"7aea5b35-94a1-416c-ae20-d1b7819d8d4b"}},{"action":"wait","options":{"ms":1}},{"action":"release","options":{}}]}
+[UiAutomator2] calling get location: 7aea5b35-94a1-416c-ae20-d1b7819d8d4b
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform 200 423 ms - 76 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 431 ms - 14897 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 2138 ms - 200074 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 67 ms - 13700 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 1942 ms - 200074 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 39 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.EditText[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 23 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/location 200 15 ms - 89 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/clear {"id":"e220ae8e-196e-47a9-b309-392900b46d21"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/clear 200 438 ms - 76 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/value {"id":"e220ae8e-196e-47a9-b309-392900b46d21","value":["sagarsen.c@zoylo.com"]}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/e220ae8e-196e-47a9-b309-392900b46d21/value 200 64 ms - 74 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 75 ms - 13715 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 1952 ms - 212914 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 17 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.EditText[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 31 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/location 200 16 ms - 89 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/clear {"id":"6453c232-8210-43a9-af27-ca543698b7c9"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/clear 200 578 ms - 76 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/value {"id":"6453c232-8210-43a9-af27-ca543698b7c9","value":["Zoylo@123"]}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/6453c232-8210-43a9-af27-ca543698b7c9/value 200 776 ms - 74 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 63 ms - 13716 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 1844 ms - 202670 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 16 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[3]/android.view.View[1]/android.widget.Button[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 26 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/627ab1f5-5e33-4e83-869b-266734a6a5e1/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/627ab1f5-5e33-4e83-869b-266734a6a5e1/location 200 17 ms - 90 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform {"actions":[{"action":"press","options":{"element":"627ab1f5-5e33-4e83-869b-266734a6a5e1"}},{"action":"wait","options":{"ms":1}},{"action":"release","options":{}}]}
+[UiAutomator2] calling get location: 627ab1f5-5e33-4e83-869b-266734a6a5e1
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform 200 95 ms - 76 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 390 ms - 13715 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 2646 ms - 91078 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 710 ms - 31581 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 3950 ms - 2212014 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 316 ms - 30722 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4187 ms - 2214114 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 37 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.widget.Image[1]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 154 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/7ddb472f-39ff-4f36-806f-e61544147d7b/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/7ddb472f-39ff-4f36-806f-e61544147d7b/location 200 119 ms - 89 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform {"actions":[{"action":"press","options":{"element":"7ddb472f-39ff-4f36-806f-e61544147d7b"}},{"action":"wait","options":{"ms":1}},{"action":"release","options":{}}]}
+[UiAutomator2] calling get location: 7ddb472f-39ff-4f36-806f-e61544147d7b
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform 200 279 ms - 76 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 429 ms - 38582 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4070 ms - 1944214 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/window/current/size 200 35 ms - 100 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements {"using":"xpath","value":"//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.widget.ListView[1]/android.view.View[2]"}
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/elements 200 62 ms - 124 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/5ed9a8bb-ed45-4ebe-a232-6c87bac6dc9c/location {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/element/5ed9a8bb-ed45-4ebe-a232-6c87bac6dc9c/location 200 64 ms - 89 
+[HTTP] --> POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform {"actions":[{"action":"press","options":{"element":"5ed9a8bb-ed45-4ebe-a232-6c87bac6dc9c"}},{"action":"wait","options":{"ms":1}},{"action":"release","options":{}}]}
+[UiAutomator2] calling get location: 5ed9a8bb-ed45-4ebe-a232-6c87bac6dc9c
+[HTTP] <-- POST /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/touch/perform 200 306 ms - 76 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 232 ms - 30722 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 3414 ms - 2214138 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[JSONWP Proxy] Replacing sessionId 34b6d190-74c3-4871-9efd-f2e08c6bc747 with 65cc01d8-e632-457e-80e0-a151a1796bcb
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/source 200 507 ms - 30719 
+[HTTP] --> GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot {}
+[AndroidDriver] Cannot get screenshot data with 'adb exec-out' because of 'Command output is not a valid PNG file (fd504e47 !== 89504e47)'. Defaulting to 'adb shell' call
+[HTTP] <-- GET /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb/screenshot 200 4575 ms - 2204702 
+[HTTP] --> DELETE /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb {}
+[Appium] Removing session 65cc01d8-e632-457e-80e0-a151a1796bcb from our master session list
+[HTTP] <-- DELETE /wd/hub/session/65cc01d8-e632-457e-80e0-a151a1796bcb 200 233 ms - 76 
