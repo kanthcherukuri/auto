@@ -116,7 +116,6 @@ public class Recipients_ZOY1092_SearchByDoctorSpecializationNClinic extends Load
 
 		if(runmode.equals("yes")){
 			//Verify search with clinic name
-			
 			RecipientPage.searchInZoyloMAP(Hospital);
 			RecipientPage.bookAppointment();
 			String Search_Hospital = driver.findElement(By.xpath("//h2[@class='addr-ClinicName']")).getText();

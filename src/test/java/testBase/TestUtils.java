@@ -96,7 +96,7 @@ public class TestUtils {
 	//Open Browser
 	public void openUrl(String name) throws InterruptedException{
 		driver.get(name);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		System.out.println("Opened URL="+name);
 		Reporter.log("Opened URL="+name);
 	}
@@ -117,7 +117,7 @@ public class TestUtils {
 	{
 		WebElement scroll = driver.findElement(By.xpath(xpath));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		Reporter.log("scrolled to "+xpath);
 	}
 

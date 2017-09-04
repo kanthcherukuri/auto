@@ -747,7 +747,7 @@ public class RecipientPage  {
 		//driver.findElement(By.id("termsAndConditions")).click();                      // Terms and condition
 		Browser.scrollbyID("proceed");
 		driver.findElement(By.id("proceed")).click();     //Make payment
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		System.out.println("Payment done");
 		Reporter.log("Clicked on Payment Done");
 	}
@@ -763,7 +763,7 @@ public class RecipientPage  {
 			//driver.findElement(By.xpath("//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col']")).click();
 		if(Action.equals("Reschedule")){
 			
-			driver.findElement(By.xpath("(//div[@class='zy-diagno-doc-revw change-DcApt apt-doc-col' and contains(.,'Reschedule Appointment')])")).click();
+			driver.findElement(By.xpath("(//div[contains(@class,'zy-diagno-doc-revw change-DcApt apt-doc-col') and contains(.,'Reschedule Appointment')])")).click();
 			System.out.println("Reshedule Action Is Executed");
 			Reporter.log("Clicked On Reshedule For Appointment="+APID);
 			

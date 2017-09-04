@@ -48,6 +48,8 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Browser.clickOnTheElementByID("hist");
+			 Thread.sleep(1000);
+			 Browser.scrollbyxpath("//div[@class='call-btn' and contains(.,'Re-Book')]");
 			 Browser.clickOnTheElementByXpath("//div[@class='call-btn' and contains(.,'Re-Book')]");						 
 			 RecipientPage.selectDefaultSlot();
 			 RecipientPage.confirmAppointment("Fever");

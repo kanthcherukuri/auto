@@ -773,7 +773,7 @@ public class DiagnosticPage {
 		public  void diagnosticslogout() throws IOException, InterruptedException{			
 			Browser.openUrl("https://"+LoadPropMac.Environment_Name+".zoylo.com/zyDiagnosticCenterAccount");
 			Browser.waitFortheElementXpath("//*[@id='myTabs']/li[3]/a");
-		    Browser.scrollbyxpath("//ul[@id='myTabs']/li[10]/a/span");
+		    Browser.scrollbyxpath("//*[@id='myTabs']/li[7]/a/span");
 			driver.findElement(By.cssSelector("span.icon-diag-cen > i.fa.fa-sign-out"))	.click();
 			Browser.clickOnTheElementByID("logout");
 			Thread.sleep(5000);
