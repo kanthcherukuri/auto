@@ -717,6 +717,25 @@ public class NewAdminDiagnosticPage
 	
 	
 	
+	public void ClickOnBulkUpdateTab() throws Exception {
+		
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDiagnostic.BulkUpdate_Menu);
+		Thread.sleep(2000);
+	}
+	
+	
+	public void BulkUpdateSelection(String BulkDiscount,String BulkZFCDiscount,String BulkServiceMode,String BulkServiceType) throws Exception {
+		
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.BulkUpdate_Discount, BulkDiscount);
+		Browser.enterTextByID(Elements_NewAdminDiagnostic.BulkUpdate_ZFC, BulkZFCDiscount);
+		Browser.selectbyID(Elements_NewAdminDiagnostic.BulkUpdate_ServiceMode, BulkServiceMode);
+		Browser.selectbyID(Elements_NewAdminDiagnostic.BulkUpdate_ServiceType, BulkServiceType);
+		Browser.clickOnTheElementByID(Elements_NewAdminDiagnostic.BulkUpdate_Save);
+		
+	}
+	
+	
+	
 	
 	
 	

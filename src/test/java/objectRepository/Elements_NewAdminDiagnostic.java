@@ -24,7 +24,9 @@ public class Elements_NewAdminDiagnostic
 	
 	public static String PackageandTests_Menu,HealthPackage_AddPackage,HealthPackage_Status,HealthPackage_ClickOnServiceMode,HealthPackage_LabVisit,
 	HealthPackage_HomeVisit,HealthPackage_packageName,HealthPackage_packageDescription,HealthPackage_packageCost,HealthPackage_discountPercentage,
-	HealthPackage_zoyloChargePercentage,HealthPackage_averageDuration,HealthPackage_PackagesPerSlot,HealthPackage_PackagesActive,HealthPackage_Save;
+	HealthPackage_zoyloChargePercentage,HealthPackage_averageDuration,HealthPackage_PackagesPerSlot,HealthPackage_PackagesActive,HealthPackage_Save,
+	HealthPackage_CheckDiscount,HealthPackage_CheckZFC,HealthPackage_CheckServiceMode;
+	
 	
 	public static String PackageTests_Add,PackageTests_TestName,PackageTests_TestDescription,PackageTests_TestActive,PackageTests_TestSave;
 	
@@ -63,7 +65,7 @@ public class Elements_NewAdminDiagnostic
 	public static String Diagnostic_SearchBox,Diagnostic_ClickOnEdit,HealthPackage_ClickOnEditButton,HealthPackage_CheckPackageName,
 	HealthPackage_EditDiscount,HealthPackage_EditFacilitationCharge,DiagnosticTests_ClickOnEdit,DiagnosticTests_EditTestName,
 	DiagnosticTests_EditDiscountPercentage,DiagnosticTests_EditZoyloCharge,DiagnosticTests_EditTestSave,DiagnosticTests_EditCancel,
-	DiagnosticTests_CheckTestName;
+	DiagnosticTests_CheckTestName,DiagnosticTests_CheckDiscount,DiagnosticTests_CheckZFC,DiagnosticTests_CheckServiceMode;
 	
 	public static String  Diagnostic_AppointmentsUrl,Diagnostic_StatusChange,Reschedule_SelectTommorowMenu,Reschedule_SelectAvailableSlot,
 	Reschedule_ClosePopup,Reschedule_SelectNextDay,StatusChange_SubmitCancelledByPatient, StatusChange_SubmitCancelledByDoctor,
@@ -83,6 +85,8 @@ public class Elements_NewAdminDiagnostic
 	MergeName_FromValue,MergeName_ToValue,MergeName_Submit,Admin_ClickOnDoctorMenu, Admin_Serachbox,Doctor_GetSpecialisation;
 	
 	public static String Diagnostic_ActiveCheckBoxList;
+	
+	public static String BulkUpdate_Discount,BulkUpdate_ZFC,BulkUpdate_ServiceMode,BulkUpdate_ServiceType,BulkUpdate_Save, BulkUpdate_Menu;
 	
 	
 	
@@ -177,7 +181,7 @@ public class Elements_NewAdminDiagnostic
 		PackageTests_TestSave="zoyPackageTestSave";
 		
 		DiagnosticTests_Menu="zyDCTests";
-		DiagnosticTests_AddTests="//*[@id='zoyDiagPackTest']/div/div[1]/button";
+		DiagnosticTests_AddTests="//button[@data-target='#zoyDiagAddTests']";
 		DiagnosticTests_TestName="diagTestName";
 		DiagnosticTests_TestDescription="diagTestDescription";
 		DiagnosticTests_AdminStatus="diagAdminStatus";
@@ -282,6 +286,10 @@ public class Elements_NewAdminDiagnostic
 		Diagnostic_ClickOnEdit="//button[@class='btn btn-xs edit-btn']";
 		HealthPackage_ClickOnEditButton="(//*[@id='0'])[1]";
 		HealthPackage_CheckPackageName="//table[@class='table table-bordered text-center']//td[1]";
+		HealthPackage_CheckDiscount="//table[@class='table table-bordered text-center']//td[5]";
+		HealthPackage_CheckZFC="//table[@class='table table-bordered text-center']//td[6]";
+		HealthPackage_CheckServiceMode="//table[@class='table table-bordered text-center']//td[7]";
+		
 		HealthPackage_EditDiscount="dp-0";
 		HealthPackage_EditFacilitationCharge="zcp-0";
 		DiagnosticTests_ClickOnEdit="//i[@class='fa fa-pencil zoyEditTestsBtn']";
@@ -291,6 +299,9 @@ public class Elements_NewAdminDiagnostic
 		DiagnosticTests_EditTestSave="zyDiagnosticEditTestSave";
 		DiagnosticTests_EditCancel="testEditCancel";
 		DiagnosticTests_CheckTestName="(//table[@class='table table-bordered text-center'])[17]//td[1]";
+		DiagnosticTests_CheckDiscount="(//table[@class='table table-bordered text-center'])[17]//td[5]";
+		DiagnosticTests_CheckZFC="(//table[@class='table table-bordered text-center'])[17]//td[6]";
+		DiagnosticTests_CheckServiceMode="(//table[@class='table table-bordered text-center'])[17]//td[7]";
 		
 		
 		 Diagnostic_AppointmentsUrl="https://zoyloqa.zoylo.com/admin/zyDiagnosticCenterAppointmentsView";
@@ -366,6 +377,24 @@ public class Elements_NewAdminDiagnostic
 		 Admin_ClickOnDoctorMenu="//div[@class='tabLabels']//a[@href='/admin/serviceProvidersList']";
 		 Admin_Serachbox="//input[@type='search']";
 		 Doctor_GetSpecialisation="//*[@id='DataTables_Table_0']/tbody/tr/td[7]";
+		 
+		 
+		 BulkUpdate_Discount="zyBulkDiscount";
+		 BulkUpdate_ZFC="zyBulkZfc";
+		 BulkUpdate_ServiceMode="zybulkServiceMode";
+		 BulkUpdate_ServiceType="zybulkForType";
+		 BulkUpdate_Save="zyBulkUpdate";
+		 BulkUpdate_Menu="//a[@href='#zyDiagBulkUpdate']";
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 		
 		return driver;
 	}

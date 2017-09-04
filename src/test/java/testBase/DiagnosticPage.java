@@ -1139,6 +1139,7 @@ public class DiagnosticPage {
 		public void ScheduleDiagnosticManageClickonTestsMenu() throws Exception{
 			Browser.clickOnTheElementByXpath(Elements_Diagnostics.clickonmanagetestsmenu);
 			Browser.waitTill(2000);
+			Thread.sleep(1000);
 			
 		}
 		
@@ -1158,7 +1159,7 @@ public class DiagnosticPage {
 			//Browser.clickOnTheElementByID("addTests");
 			Thread.sleep(2000);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestname, testname);
-		    Thread.sleep(1000);
+		    Thread.sleep(3000);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestTestDesc, description);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestCost, cost);
 		    Browser.enterTextByXpath(Elements_Diagnostics.ManageTestDiscount, discount);

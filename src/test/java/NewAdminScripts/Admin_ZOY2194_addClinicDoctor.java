@@ -139,6 +139,7 @@ public class Admin_ZOY2194_addClinicDoctor extends LoadPropMac
 		Browser.CheckNotificationMessage("Your appointment slot has been successfully CHANGED");
 		driver.navigate().refresh();
 		//CANCEL APPOINTMENT
+		Browser.waitFortheID("aptSearch");
 		Browser.enterTextByID("aptSearch", AppointmentId);
 		Thread.sleep(2000);
 		Browser.clickOnTheElementByXpath("//div[@class='patientApmtStatus' and contains(.,'Rescheduled')]/following-sibling::div[1]/div[2]");
