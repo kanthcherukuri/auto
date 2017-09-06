@@ -39,7 +39,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		Thread.sleep(5000);
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
-		boolean reader = driver.getPageSource().contains(seoID);
+		boolean reader = driver.getPageSource().contains("https://"+Environment_Name+".zoylo.com/hyderabad/doctor/"+seoID);
 		assertTrue(reader);
 	}
 	
@@ -65,7 +65,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		Thread.sleep(5000);
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/cityDoctor-1-sitemap.xml");
 		Thread.sleep(5000);
-		boolean reader = driver.getPageSource().contains(seoID);
+		boolean reader = driver.getPageSource().contains("https://"+Environment_Name+".zoylo.com/hyderabad/doctor/"+seoID);
 		assertFalse(reader);
 	}
 	
@@ -90,7 +90,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		Thread.sleep(5000);
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/citySpeciality-1-sitemap.xml");
 		Thread.sleep(5000);
-		boolean reader = driver.getPageSource().contains(specURL);
+		boolean reader = driver.getPageSource().contains("https://"+Environment_Name+".zoylo.com/hyderabad/"+specURL);
 		assertTrue(reader);
 	}
 	
@@ -115,7 +115,7 @@ public class Admin_ZOY2454_SEOurlCheck extends LoadPropMac
 		Thread.sleep(5000);
 		Browser.openUrl("https://"+Environment_Name+".zoylo.com/sitemap/citySpeciality-1-sitemap.xml");
 		Thread.sleep(5000);
-		boolean reader = driver.getPageSource().contains(specURL);
+		boolean reader = driver.getPageSource().contains("https://"+Environment_Name+".zoylo.com/hyderabad/"+specURL);
 		assertFalse(reader);
 	}
 	
