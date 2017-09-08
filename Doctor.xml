@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Doctorsuite">
-<listeners>
-       <listener class-name="listners.TestListener"/>
-</listeners>
   <test name="DoctorRegression">
     <classes>
     <class name="doctorsTestScripts.MongoRemove_ZOY2572_DoctorAppointments"/> <!-- Remove appointments  -->
