@@ -120,7 +120,7 @@ public class Recipients_ZOY1095_ValidateHomePageSearch extends LoadPropMac {
 			 //Test Starts - Here
 		     driver.findElement(By.xpath("//*[@id='onlyDiagnostics']/a")).click();
 		 	 HomePage.searchDiagnosticsZoylo("Hyderabad", "", "Invalid data");
-		     Browser.CheckNotificationMessage("Oops .. no matching records found ! Refine your search or contact our customer support to help you find the right test or package.");	
+		     Browser.CheckNotificationMessage("No diagnostics are found in the vicinity of your location. Please change your location to find diagnostics.");	
 			
 	
 	
