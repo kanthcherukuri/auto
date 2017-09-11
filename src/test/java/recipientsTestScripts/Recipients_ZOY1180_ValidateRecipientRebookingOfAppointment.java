@@ -15,11 +15,7 @@ import atu.testng.reports.listeners.MethodListener;
 import testBase.*;
 import objectRepository.*;
 
-/*
-@Listeners({ ATUReportsListener.class, ConfigurationListener.class,
-MethodListener.class })
 
-*/
 public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
@@ -48,8 +44,7 @@ public class Recipients_ZOY1180_ValidateRecipientRebookingOfAppointment extends 
 			 Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 			 RecipientPage.goToMyAccounts("Appointments");
 			 Browser.clickOnTheElementByID("hist");
-			 Thread.sleep(1000);
-			 Browser.scrollbyxpath("//div[@class='call-btn' and contains(.,'Re-Book')]");
+			 Thread.sleep(2000);
 			 Browser.clickOnTheElementByXpath("//div[@class='call-btn' and contains(.,'Re-Book')]");						 
 			 RecipientPage.selectDefaultSlot();
 			 RecipientPage.confirmAppointment("Fever");
