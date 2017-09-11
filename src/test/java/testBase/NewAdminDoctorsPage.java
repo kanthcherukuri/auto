@@ -1837,7 +1837,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void searchPromoCodeByName(String promoName)
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(promoName);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.SearchTab, promoName);
 		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultonTableTwo, promoName);
 	}
 	
