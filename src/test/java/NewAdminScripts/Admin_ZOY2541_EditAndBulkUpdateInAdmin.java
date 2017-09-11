@@ -9,7 +9,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import objectRepository.Elements_NewAdminDiagnostic;
 import testBase.LoadPropMac;
 import testBase.NewAdminDiagnosticPage;
@@ -19,6 +18,7 @@ public class Admin_ZOY2541_EditAndBulkUpdateInAdmin extends LoadPropMac{
 	
 	public NewAdminDiagnosticPage AdminDiagnostic;
 	public TestUtils Browser;
+	
 	
 	@BeforeClass	 
 	 public void beforeClass() throws Exception {		
@@ -141,6 +141,8 @@ public class Admin_ZOY2541_EditAndBulkUpdateInAdmin extends LoadPropMac{
 		Browser.clickOnTheElementByXpath("(//*[@id='zoyPackageTestCancel'])[2]");	
 		
 	}
+	
+	
 	
 	@AfterClass
 	public void CloseBrowser() {

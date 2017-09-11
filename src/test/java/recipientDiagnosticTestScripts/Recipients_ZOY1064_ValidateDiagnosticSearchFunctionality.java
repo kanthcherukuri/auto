@@ -35,6 +35,7 @@ public class Recipients_ZOY1064_ValidateDiagnosticSearchFunctionality extends Lo
 		//Verify Recipient Login with valid details
 		RecipientPage.recipientLogin(Recipient_DSusername, Recipient_DSpassword);
 		//Searching Locality/Area
+		Browser.waitFortheElementXpath("//div[@class='pin bounce ']");
 		RecipientPage.searchInZoyloMAPArea("Hyderabad");
 
 	} 
