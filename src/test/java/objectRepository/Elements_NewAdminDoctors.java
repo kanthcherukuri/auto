@@ -6,7 +6,7 @@ public class Elements_NewAdminDoctors {
 
 public static WebDriver driver;
 public static String loginemail, loginpassword, loginbutton, adminLogoutBtn, adminListActiveCheckBox;
-public static String doctorLabel, addDoctorButton, doctorActiveCheckBox;
+public static String doctorLabel, addDoctorButton, doctorActiveCheckBox, recipientActiveCheckBox;
 public static String firstName, middleName, lastName, shortName, emailID, mobileNumber, password;
 public static String Active, workTypeHospital, workTypeHospitalClinic, houseCallActiveCheckBox, houseCallServiceFee, gender, dateOfBirth, medicalRegistrationNumber, Qualification, professionalTag, areaOfSpecialization, lineOfPractice, aboutDoctor;
 public static String practiceTab, addOtherClinic;
@@ -48,7 +48,7 @@ public static String administrator_moduleTab, administrator_moduleHospitalActive
 public static String administrator_marketingElementsTab, administrator_marketingHeader, administrator_marketingName;
 public static String administrator_appPropertyTab, administrator_appPropertyHeader, administrator_appPropertyAddHeader, administrator_appPropertyEditHeader, administrator_appPropertyKey, administrator_appPropertyValue, administrator_appPropertySave, administrator_appPropertyEditSave, administrator_appPropertyDeleteBtn, administrator_appPropertyDeleteHeader, administrator_appPropertyDeleteSubmitBtn;
 public static String adminUserDropDownBtn, adminUserChangePassword, adminUserOldPassword, adminUserNewPassword, adminUserConfirmPassword, adminUserPasswordSave;
-public static String administrator_lookupCodeTab, administrator_lookupCodeHeader, administrator_lookupCodeType, administrator_lookupCodeName, administrator_lookupCodeDescription, administrator_lookupCodeValue, administrator_lookupCodeValueName, administrator_lookupCodeValueDesription, administrator_lookupCodeValueSeuence, administrator_lookupCodeValueActiveCheckBox;
+public static String administrator_lookupCodeTab, administrator_lookupCodeHeader, administrator_lookupCodeType, administrator_lookupCodeName, administrator_lookupCodeDescription, administrator_lookupCodeValue, administrator_lookupCodeValueName, administrator_lookupCodeValueDesription, administrator_lookupCodeValueSeuence, administrator_lookupCodeValueActiveCheckBox, administrator_recipientTab, administrator_recipientHeader;
 public static String confirmToChangeToProvider,notification, registrationStatusOnTable;
 public static String registrationTab, registrationDocURL, registrationStateCouncil, registrationVerifyBtn;
 
@@ -65,6 +65,7 @@ public static String registrationTab, registrationDocURL, registrationStateCounc
 		adminUserPasswordSave="adminChangePasswordButton"; //ID
 		registrationStatusOnTable=".//*[@id='DataTables_Table_0']/tbody/tr/td[17]"; //XPATH
 		adminListActiveCheckBox="//input[@class='no-margin providerActive-class']"; //XPATH
+		recipientActiveCheckBox="//input[@class='no-margin recipientActive-class']"; //XPATH
 		
 		//REGISTRATION TAB
 		registrationTab="//li[@data-tab='zoyDocRegVerInfo']"; //XPATH
@@ -182,6 +183,8 @@ public static String registrationTab, registrationDocURL, registrationStateCounc
 		administrator_lookupCodeValueDesription=".//*[@name='values.0.description']"; //XPATH
 		administrator_lookupCodeValueSeuence=".//*[@name='values.0.sequence']"; //XPATH
 		administrator_lookupCodeValueActiveCheckBox=".//*[@name='values.0.isActive']"; //XPATH
+		administrator_recipientTab="//a[@href='/admin/zyRecipientsList']"; //XPATH
+		administrator_recipientHeader="//h1[contains(., 'Recipients')]"; //XPATH
 		
 		//DOCTOR PAGE
 		addDoctorButton="add"; //ID

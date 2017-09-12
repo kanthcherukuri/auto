@@ -21,6 +21,7 @@
       	<class name="NewAdminScripts.Admin_ZOY2339_DefaultScenarioEditHospitalDoctor"/>
       	<class name="NewAdminScripts.Admin_ZOY2454_SEOurlCheck"/>
       	<class name="NewAdminScripts.Admin_ZOY_2441_UserToProvider"/>
+      	<class name="NewAdminScripts.Admin_ZOY2655_InactiveLoginVerification"/>
     
     <!-- New admin administratorTab test scripts -->
     	<class name="NewAdminScripts.Admin_ZOY2288_administratorAddEditCountry"/>
