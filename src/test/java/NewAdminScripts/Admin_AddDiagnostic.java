@@ -67,7 +67,7 @@ public class Admin_AddDiagnostic extends LoadPropMac{
 		diagZoyloper, diagduration, diagNumofSlots);
 		AdminDiagnostic.EnterAdditionalContactInformation(Personname, PersonPhone, PersonEmail, PersonFax);
 		AdminDiagnostic.AddDiagnosticImage(imageURL);
-		AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
+		//AdminDiagnostic.EnterMarkedasClosedInformation(startdate, enddate);
 		AdminDiagnostic.EnterOtherInformationdetails(discountoffered, websiteURL, accreditations, ngo, reportonline);
 		AdminDiagnostic.EnterSocialInformation(facebookurl, googleurl, linkedinurl, twiterurl);
 		AdminDiagnostic.EnterAddressDetails(address, country, state, city, pincode, locality, landmark, longitude, latitude);
