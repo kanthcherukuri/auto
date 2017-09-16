@@ -188,7 +188,7 @@ public class TestUtils {
 	//Wait for the ID
 	public void waitFortheID(String ID){
 		System.out.println("waiting for "+ID);
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		System.out.println("waited for "+ID);
 	}
@@ -196,7 +196,7 @@ public class TestUtils {
 	//Wait for the Xpath Element
 	public void waitFortheElementXpath(String xpath){
 		System.out.println("waiting for "+xpath);
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		System.out.println("waited for "+xpath);	 
 	}
@@ -213,7 +213,7 @@ public class TestUtils {
 	//Wait for the Screen Validation
 	public void waitForScreenValidation( ){
 
-		WebDriverWait wait = (new WebDriverWait(driver, 30));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 		String validation= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 		System.out.println(validation);
@@ -222,7 +222,7 @@ public class TestUtils {
 	//Wait for the Screen Validation
 	public void verifyNotificationMessage(String ExpectedErrorMesg ) throws InterruptedException{
 		Thread.sleep(2000);
-		WebDriverWait wait = (new WebDriverWait(driver, 80));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(Elements_Recipients.Recipient_Wrapper)));
 		String ActualError= driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 		System.out.println("ActualError="+ActualError);			    
@@ -242,7 +242,7 @@ public class TestUtils {
 	//Wait for text to be present by ID
 	public void waitforTextbyID(String ID, String value)
 	{
-		WebDriverWait wait = (new WebDriverWait(driver, 20));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		//wait.until(ExpectedConditions.textToBePresentInElementValue(By.id(ID), value));
 		wait.until(ExpectedConditions.textToBePresentInElement(By.id(ID), value));
 	}
@@ -333,7 +333,7 @@ public class TestUtils {
 	public void clickOnTheElementByID(String ID)
 	{
 		System.out.println("waiting  for "+ID);
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		driver.findElement(By.id(ID)).click();
 		System.out.println("Clicked on "+ID);
@@ -366,7 +366,7 @@ public class TestUtils {
 	public void clickOnTheElementByXpath(String Xpath)
 	{
 		System.out.println("Waiting for "+Xpath);
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 		driver.findElement(By.xpath(Xpath)).click();
 		System.out.println("Clicked on "+Xpath);
@@ -376,7 +376,7 @@ public class TestUtils {
 	// Enter text by id
 	public void enterTextByID(String ID,String data)
 	{
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(ID)));
 		driver.findElement(By.id(ID)).clear();
 		driver.findElement(By.id(ID)).sendKeys(data);
@@ -387,7 +387,7 @@ public class TestUtils {
 	//Enter text by  Xpath
 	public void enterTextByXpath(String Xpath,String data)
 	{
-		WebDriverWait wait = (new WebDriverWait(driver, 90));
+		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
 		driver.findElement(By.xpath(Xpath)).sendKeys(data);
 		System.out.println("Texted = "+data);

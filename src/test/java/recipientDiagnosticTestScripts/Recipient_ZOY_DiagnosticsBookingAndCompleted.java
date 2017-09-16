@@ -24,7 +24,7 @@ import testBase.*;
 import objectRepository.*;
 
 
-public class Recipient_ZOY_DiagnosticsBookingAndFallowUp extends LoadPropMac {
+public class Recipient_ZOY_DiagnosticsBookingAndCompleted extends LoadPropMac {
 	 public RecipientPage RecipientPage;
 	 public TestUtils Browser;	
 	 public DiagnosticPage DiagnosticPage;
