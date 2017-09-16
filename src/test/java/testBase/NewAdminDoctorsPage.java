@@ -1611,8 +1611,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void searchAdministratorReferenceByName(String name) throws Exception
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(name);
-		//Thread.sleep(1500);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.SearchTab, name);
 		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultOnTable, name);
 	}
 	
@@ -1837,7 +1836,7 @@ public class NewAdminDoctorsPage extends LoadPropMac
 	 */
 	public void searchPromoCodeByName(String promoName)
 	{
-		driver.findElement(By.xpath(Elements_NewAdminDoctors.SearchTab)).sendKeys(promoName);
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.SearchTab, promoName);
 		Browser.waitforTextbyxpath(Elements_NewAdminDoctors.searchResultonTableTwo, promoName);
 	}
 	
@@ -2122,5 +2121,56 @@ public class NewAdminDoctorsPage extends LoadPropMac
 		Browser.enterTextByID(Elements_NewAdminDoctors.registrationDocURL, "https://"+url+".com");
 		Browser.selectbyID(Elements_NewAdminDoctors.registrationStateCouncil, "Telangana Medical Council");
 		Browser.clickOnTheElementByID(Elements_NewAdminDoctors.registrationVerifyBtn);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to click recipients under administrator tab on admin screen
+	 * @ Param			: NA
+	 * @ return			: NA
+	 */
+	public void click_recipientsTab()
+	{
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.administrator_recipientTab);
+		Browser.waitFortheElementXpath(Elements_NewAdminDoctors.administrator_recipientHeader);
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to activate deactivate recipients under administrator tab on admin screen
+	 * @ Param			: email
+	 * @ return			: NA
+	 */
+	public void activateDeactivateUser(String email) throws Exception
+	{
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.administratorTab);
+		click_recipientsTab();
+		driver.navigate().refresh();
+		Browser.enterTextByXpath(Elements_NewAdminDoctors.SearchTab, email);
+		Browser.waitforTextbyxpath(".//*[@id='DataTables_Table_0']/tbody/tr/td[3]", email);
+		boolean isChecked = driver.findElement(By.xpath(Elements_NewAdminDoctors.recipientActiveCheckBox)).isSelected();
+		System.out.println(email + " " + isChecked);
+		if(isChecked==true)
+		{
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.recipientActiveCheckBox);
+			click_Profile_Options("Logout");
+		}
+		else{
+			Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.recipientActiveCheckBox);
+			click_Profile_Options("Logout");
+		}
+	}
+	
+	/*
+	 * @ Authour		: Sagar Sen
+	 * @ Description	: This method is used to check inactive user login notification
+	 * @ Param			: email
+	 * @ return			: NA
+	 */
+	public void checkNotActiveNotification(String ID)
+	{
+		Browser.enterTextByID(Elements_NewAdminDoctors.loginemail, ID);
+		Browser.enterTextByID(Elements_NewAdminDoctors.loginpassword, "Zoylo@123");
+		Browser.clickOnTheElementByXpath(Elements_NewAdminDoctors.loginbutton);
 	}
 } //End of class
