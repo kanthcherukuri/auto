@@ -66,4 +66,33 @@ public class ZMTuserPage extends LoadPropMac
 	{
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter contact details on contactus form.
+	 * @Parms: 
+	 * @Return: NA
+	 */
+	public void Details_contactUs(String name)
+	{
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_name, name);
+		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, "Male");
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_age, "25");
+		Browser.selectbyID(Elements_ZMTusers.contactUs_country, "India");
+		Browser.selectbyID(Elements_ZMTusers.contactUs_state, "Hyderabad");
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, "gurucharan.a@zoylo.com");
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, "9999999999");
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_message, "Contactus message");
+	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to click contactus submit button on contactus page.
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	public void click_contactUsSubmitButton()
+	{
+		Browser.clickOnTheElementByID(Elements_ZMTusers.contactUs_submitButton);
+	}
 }

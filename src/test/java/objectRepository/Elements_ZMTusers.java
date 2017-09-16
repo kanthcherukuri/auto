@@ -8,6 +8,7 @@ public class Elements_ZMTusers extends LoadPropMac
 	
 	public static String zmt_login, zmt_SignUp_Button;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
+	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
 	
 	public static WebDriver zmt_UsersPageProperties()
 	{
@@ -27,6 +28,17 @@ public class Elements_ZMTusers extends LoadPropMac
 		signUp_functionalArea="signUpFunctional"; //ID
 		signUp_address="signUpAddress"; //ID
 		signUp_submit="signUpFormSubmit"; //ID
+		
+		//Contact Us
+		contactUs_name="contactUsName"; //ID
+		contactUs_gender="contactUsGender"; //ID
+		contactUs_age="contactUsAge"; //ID
+		contactUs_country="searchCountry"; //ID
+		contactUs_state="searchCity"; //ID
+		contactUs_email="contactUsEmail"; //ID
+		contactUs_phone="contactUsPhone"; //ID
+		contactUs_message="contactUsMessage"; //ID
+		contactUs_submitButton="contactUsSubmit"; //ID
 		
 		return driver;
 	}

@@ -26,7 +26,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 	{
 		Boolean removeFromDB=true;
 		String email1=Browser.generateRandomString(6);
-		String fname="A"+email1;
+		String fname="A"+email1.toLowerCase();
 		String lname=email1;
 		String phnum="9"+Browser.generateRandomNumber(9);
 		String emailID=email1.toLowerCase()+"@zmt.com";
