@@ -431,6 +431,21 @@ public class TestUtils {
 		driver.findElement(By.xpath("//div[@class='zy-status-wrapper']")).click();
 
 	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: Wait for notification message
+	 * @Parm: text
+	 * @return: NA
+	 */
+		public void zmt_notification(String text) throws Exception {
+			WebDriverWait wait = (new WebDriverWait(driver, 60));
+			wait.until(ExpectedConditions.textToBePresentInElementLocated(
+					By.xpath("//div[@class='alert alert-success alert-dismissable']"), text));
+			driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissable']//button[@class='close']"))
+					.click();
+			Thread.sleep(1500);
+		}
 
 
 	/* 
