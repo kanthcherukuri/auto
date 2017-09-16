@@ -68,12 +68,13 @@ public class Recipients_ZOY1169_ValidateRecipientsAppointmentCancel extends Load
 		System.out.println(AppointmentId);
 		
 		//Verify Canceling of appointment
-		RecipientPage.openMyAccounts("Appointments");			
+		RecipientPage.openMyAccounts("Appointments");	
+		//Thread.sleep(5000);  // added this to view Apid in upcoming
 		RecipientPage.UpcomingAppointmentForDoctors(AppointmentId, "Cancel");		
 		String cancel_mesg=driver.findElement(By.cssSelector(Elements_Recipients.Recipient_Wrapper)).getText();
 		Assert.assertEquals(cancel_mesg, "Appointment has been CANCELLED");
 		//Verify Canceling Status in History
-		Thread.sleep(5000);
+		Thread.sleep(5000);  // added this to view Apid in Hist
 		Browser.clickOnTheElementByID("hist");
 		driver.findElement(By.id("aptSearch")).click();
 		driver.findElement(By.id("aptSearch")).sendKeys(AppointmentId);
