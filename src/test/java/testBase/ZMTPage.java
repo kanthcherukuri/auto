@@ -1,4 +1,5 @@
 package testBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import objectRepository.Elements_ZMTusers;
 
@@ -50,5 +51,29 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, "gurucharan.a@zoylo.com");
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, "9999999999");
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_message, "Contactus message");
+	}
+	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Submit Your Profile In Careers .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	public void Details_Careers(String fullname,String expinyears,String expinmonths,String currentemployee,String applyingfor,String currentctc) {
+		
+		String emailone=Browser.generateEmail(20); 
+		String mobile="9"+Browser.generateRandomNumber(9);
+		
+		
+		Browser.enterTextByID(Elements_ZMTusers.careers_fullname, fullname);
+		Browser.enterTextByID(Elements_ZMTusers.careers_email,emailone);
+		Browser.enterTextByID(Elements_ZMTusers.careers_mobile, mobile);
+		Browser.enterTextByID(Elements_ZMTusers.careers_yearsofexperience, expinyears);
+		Browser.enterTextByID(Elements_ZMTusers.careers_monthsofexperirnce, expinmonths);
+		Browser.enterTextByID(Elements_ZMTusers.careers_currentemployee, currentemployee);
+		Browser.enterTextByID(Elements_ZMTusers.careers_applyingfor, applyingfor);
+		Browser.enterTextByID(Elements_ZMTusers.careers_currentctc, currentctc);
+		driver.findElement(By.id(Elements_ZMTusers.careers_upload)).sendKeys(System.getProperty("user.dir")+"/Uploads/scroll.pdf");
+		Browser.clickOnTheElementByID(Elements_ZMTusers.careers_submit);
 	}
 }

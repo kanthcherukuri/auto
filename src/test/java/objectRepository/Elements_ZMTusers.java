@@ -9,7 +9,8 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String zmt_login, zmt_SignUp_Button, zmt_AboutUs_menuTab, zmt_serviceAndSpeciality_menuTab, zmt_visionAndMission_menuTab, zmt_partnerWithUs_menuTab, zmt_career_menuTab, zmt_contactUs_menuTab, zmt_blog_menuTab, zmt_partnerWithUs_footerLink, zmt_hospital_footerLink, zmt_surgeon_footerLink, zmt_planUrTrip_footerLink, zmt_contactUs_footerLink, zmt_priceList_footerLink, zmt_facebook_footerLink, zmt_googlePlus_footerLink, zmt_twitter_footerLink, zmt_readMoreOnHomePage, zmt_viewAllSpecialitiesButton;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
 	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
-	
+	public static String careers_fullname,careers_email,careers_mobile,careers_yearsofexperience,careers_monthsofexperirnce,careers_currentemployee,
+	careers_applyingfor, careers_currentctc,careers_upload,careers_submit;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Home page
@@ -57,6 +58,19 @@ public class Elements_ZMTusers extends LoadPropMac
 		contactUs_phone="contactUsPhone"; //ID
 		contactUs_message="contactUsMessage"; //ID
 		contactUs_submitButton="contactUsSubmit"; //ID
+		
+		
+		//Careers
+		careers_fullname="fullName";
+		careers_email="username";
+		careers_mobile="mobileNumber";
+		careers_yearsofexperience="experienceInYears";
+		careers_monthsofexperirnce="experienceInMonths";
+		careers_currentemployee="applyNowDefaultCurrEmployer";
+		careers_applyingfor="applyNowDefaultFor";
+		careers_currentctc="applyNowDefaultCtc";
+		careers_upload="cvUpload";
+		careers_submit="submitProfile";
 		
 		return driver;
 	}
