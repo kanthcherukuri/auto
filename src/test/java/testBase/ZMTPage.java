@@ -17,33 +17,11 @@ public class ZMTPage extends LoadPropMac
 	
 	/*
 	 * @Author: Sagar Sen
-	 * @Desc: This method is used to click login button on home page.
-	 * @Parms: NA
-	 * @Return: NA
-	 */
-	public void click_Login()
-	{
-		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_login);
-	}
-	
-	/*
-	 * @Author: Sagar Sen
-	 * @Desc: This method is used to click signup hyperlink on home page login popup.
-	 * @Parms: NA
-	 * @Return: NA
-	 */
-	public void click_SignUp()
-	{
-		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_SignUp_Button);
-	}
-	
-	/*
-	 * @Author: Sagar Sen
 	 * @Desc: This method is used to enter signup details on signUp form.
 	 * @Parms: fname, lname, email, country, state, phnum, functionalArea, address
 	 * @Return: NA
 	 */
-	public void Details_SignUpForm(String fname, String lname, String email, String country, String state, String phnum, String functionalArea, String address)
+	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String phnum, String functionalArea, String address)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.signUp_FirstName, fname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_LastName, lname);
@@ -59,22 +37,11 @@ public class ZMTPage extends LoadPropMac
 	
 	/*
 	 * @Author: Sagar Sen
-	 * @Desc: This method is used to click signup submit button on signup popup.
-	 * @Parms: NA
-	 * @Return: NA
-	 */
-	public void click_SignUpButton()
-	{
-		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
-	}
-	
-	/*
-	 * @Author: Sagar Sen
 	 * @Desc: This method is used to enter contact details on contactus form.
 	 * @Parms: 
 	 * @Return: NA
 	 */
-	public void Details_contactUs(String name)
+	public void contactUs_Details(String name)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_name, name);
 		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, "Male");
@@ -84,17 +51,6 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, "gurucharan.a@zoylo.com");
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, "9999999999");
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_message, "Contactus message");
-	}
-	
-	/*
-	 * @Author: Sagar Sen
-	 * @Desc: This method is used to click contactus submit button on contactus page.
-	 * @Parms: NA
-	 * @Return: NA
-	 */
-	public void click_contactUsSubmitButton()
-	{
-		Browser.clickOnTheElementByID(Elements_ZMTusers.contactUs_submitButton);
 	}
 	
 	/*
@@ -120,5 +76,4 @@ public class ZMTPage extends LoadPropMac
 		driver.findElement(By.id(Elements_ZMTusers.careers_upload)).sendKeys(System.getProperty("user.dir")+"/Uploads/scroll.pdf");
 		Browser.clickOnTheElementByID(Elements_ZMTusers.careers_submit);
 	}
-	
 }

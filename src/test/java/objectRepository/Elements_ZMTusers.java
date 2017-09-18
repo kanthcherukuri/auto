@@ -6,7 +6,7 @@ public class Elements_ZMTusers extends LoadPropMac
 {
 	public static WebDriver driver;
 	
-	public static String zmt_login, zmt_SignUp_Button;
+	public static String zmt_login, zmt_SignUp_Button, zmt_AboutUs_menu;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
 	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
 	public static String careers_fullname,careers_email,careers_mobile,careers_yearsofexperience,careers_monthsofexperirnce,careers_currentemployee,
@@ -16,6 +16,7 @@ public class Elements_ZMTusers extends LoadPropMac
 		//Home page
 		zmt_login="loginFormData"; //ID
 		zmt_SignUp_Button="//a[@class='signupButton']"; //XPATH
+		zmt_AboutUs_menu="aboutUsMenuLabel"; //ID
 		
 		//SignUP form
 		signUp_FirstName="signUpFirstName"; //ID

@@ -3,6 +3,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import testBase.ZMTPage;
@@ -31,10 +33,10 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 		String phnum="9"+Browser.generateRandomNumber(9);
 		String emailID=email1.toLowerCase()+"@zmt.com";
 		
-		zmtUserPage.click_Login();
-		zmtUserPage.click_SignUp();
-		zmtUserPage.Details_SignUpForm(fname, lname, emailID, Country, State, phnum, functionalArea, address);
-		zmtUserPage.click_SignUpButton();
+		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_login);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_SignUp_Button);
+		zmtUserPage.SignUpForm_Details(fname, lname, emailID, Country, State, phnum, functionalArea, address);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
 		driver.navigate().refresh();
 		
