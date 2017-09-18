@@ -20,7 +20,7 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: fname, lname, email, country, state, phnum, functionalArea, address
 	 * @Return: NA
 	 */
-	public void Details_SignUpForm(String fname, String lname, String email, String country, String state, String phnum, String functionalArea, String address)
+	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String phnum, String functionalArea, String address)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.signUp_FirstName, fname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_LastName, lname);
@@ -40,7 +40,7 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: 
 	 * @Return: NA
 	 */
-	public void Details_contactUs(String name)
+	public void contactUs_Details(String name)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_name, name);
 		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, "Male");

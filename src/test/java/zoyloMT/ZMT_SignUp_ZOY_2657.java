@@ -35,7 +35,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 		
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_login);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_SignUp_Button);
-		zmtUserPage.Details_SignUpForm(fname, lname, emailID, Country, State, phnum, functionalArea, address);
+		zmtUserPage.SignUpForm_Details(fname, lname, emailID, Country, State, phnum, functionalArea, address);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
 		driver.navigate().refresh();

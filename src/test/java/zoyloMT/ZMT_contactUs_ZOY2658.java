@@ -20,7 +20,7 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 	{
 		String email1=Browser.generateRandomString(6);
 		String fname="A"+email1.toLowerCase();
-		zmtUserPage.Details_contactUs(fname);
+		zmtUserPage.contactUs_Details(fname);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.contactUs_submitButton);
 		Browser.zmt_notification("Thank you for your interest, our customer care team will get back to you soon");
 	}
