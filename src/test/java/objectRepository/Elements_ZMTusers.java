@@ -6,7 +6,7 @@ public class Elements_ZMTusers extends LoadPropMac
 {
 	public static WebDriver driver;
 	
-	public static String zmt_login, zmt_SignUp_Button, zmt_AboutUs_menu;
+	public static String zmt_login, zmt_SignUp_Button, zmt_AboutUs_menuTab, zmt_serviceAndSpeciality_menuTab, zmt_visionAndMission_menuTab, zmt_partnerWithUs_menuTab, zmt_career_menuTab, zmt_contactUs_menuTab, zmt_blog_menuTab, zmt_partnerWithUs_footerLink, zmt_hospital_footerLink, zmt_surgeon_footerLink, zmt_planUrTrip_footerLink, zmt_contactUs_footerLink, zmt_priceList_footerLink, zmt_facebook_footerLink, zmt_googlePlus_footerLink, zmt_twitter_footerLink, zmt_readMoreOnHomePage, zmt_viewAllSpecialitiesButton;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
 	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
 	
@@ -15,7 +15,24 @@ public class Elements_ZMTusers extends LoadPropMac
 		//Home page
 		zmt_login="loginFormData"; //ID
 		zmt_SignUp_Button="//a[@class='signupButton']"; //XPATH
-		zmt_AboutUs_menu="aboutUsMenuLabel"; //ID
+		zmt_AboutUs_menuTab="aboutUsMenuLabel"; //ID
+		zmt_serviceAndSpeciality_menuTab="servicesSpecialitiesMenuLabel"; //ID
+		zmt_visionAndMission_menuTab="visionMissionMenuLabel"; //ID
+		zmt_partnerWithUs_menuTab="(.//*[@id='partnerWithUsMenuLabel']/a)[1]"; //XPATH
+		zmt_career_menuTab="careersMenuLabel"; //ID
+		zmt_contactUs_menuTab="(.//*[@id='contactUsMenuLabel']/a)[1]"; //XPATH
+		zmt_blog_menuTab="blogMenuLabel"; //ID
+		zmt_partnerWithUs_footerLink="(.//*[@id='partnerWithUsMenuLabel']/a)[2]"; //XPATH
+		zmt_hospital_footerLink="//a[@href='/hospitalsList']"; //XPATH
+		zmt_surgeon_footerLink="//a[@href='/surgeonsList']"; //XPATH
+		zmt_planUrTrip_footerLink="planYourTripMenuLabel"; //XPATH
+		zmt_contactUs_footerLink="(.//*[@id='contactUsMenuLabel']/a)[2]"; //XPATH
+		zmt_priceList_footerLink="//a[@href='/priseComparisionList']"; //XPATH
+		zmt_facebook_footerLink="//i[@class='fa fa-facebook']"; //XPATH
+		zmt_googlePlus_footerLink="//i[@class='fa fa-google-plus']"; //XPATH
+		zmt_twitter_footerLink="//i[@class='fa fa-twitter']"; //XPATH
+		zmt_readMoreOnHomePage="//a[@href='/about-us']"; //XPATH
+		zmt_viewAllSpecialitiesButton="//a[@data-target='#servicesSpecialities']"; //XPATH
 		
 		//SignUP form
 		signUp_FirstName="signUpFirstName"; //ID
