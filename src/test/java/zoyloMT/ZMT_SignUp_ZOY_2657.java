@@ -5,14 +5,14 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
-import testBase.ZMTuserPage;
+import testBase.ZMTPage;
 
 //@Author: Sagar Sen
 
 public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 {
 	public TestUtils Browser;
-	public ZMTuserPage zmtUserPage;
+	public ZMTPage zmtUserPage;
 	
 	@DataProvider(name="zmt")
 	public Object[][] clinicDocInfo() throws Exception
@@ -50,7 +50,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 	{
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
-		zmtUserPage= new ZMTuserPage(driver);
+		zmtUserPage= new ZMTPage(driver);
 		Browser.openUrl("https://qa.zoylomt.com");
 	}
 	

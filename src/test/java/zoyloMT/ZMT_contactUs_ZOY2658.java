@@ -4,12 +4,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
-import testBase.ZMTuserPage;
+import testBase.ZMTPage;
+
+//@Author: Sagar Sen
 
 public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 {
 	public TestUtils Browser;
-	public ZMTuserPage zmtUserPage;
+	public ZMTPage zmtUserPage;
 	
 	@Test()
 	public void zmtContactUs() throws Exception
@@ -26,7 +28,7 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 	{
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
-		zmtUserPage= new ZMTuserPage(driver);
+		zmtUserPage= new ZMTPage(driver);
 		Browser.openUrl("https://qa.zoylomt.com/contact-us");
 	}
 	
