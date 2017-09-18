@@ -107,6 +107,10 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 		driver.close();
 		driver.switchTo().window(tabs4.get(0));
 		Thread.sleep(500);
+		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.ScrollDown();
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_viewAllSpecialitiesButton);
+		Browser.waitFortheElementXpath(Elements_ZMTusers.zmt_sepcialityPopUp);
 	}
 	
 	@BeforeClass
