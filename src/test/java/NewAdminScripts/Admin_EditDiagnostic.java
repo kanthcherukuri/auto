@@ -26,7 +26,7 @@ public class Admin_EditDiagnostic extends LoadPropMac {
 	 
 	  }
 	
-	@DataProvider(name = "EditDiagnosticDetails")
+	@DataProvider(name="EditDiagnosticDetails")
     public Object[][] createData_DP1() throws Exception{
         Object[][] retObjArr=TestUtils.getTableArray("TestData/NewAdmin.xls","EditDiagnostic", "TC1");
         return(retObjArr);

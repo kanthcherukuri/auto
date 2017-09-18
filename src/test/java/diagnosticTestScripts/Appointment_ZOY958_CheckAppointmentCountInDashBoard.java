@@ -29,7 +29,7 @@ public class Appointment_ZOY958_CheckAppointmentCountInDashBoard extends LoadPro
 	
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
-			return new String[][] {
+			return new String[][] { 
 					{ "yes","Nandini","J","9900222411","nandini@gmail.com","Diabetic" }
 
 			};
