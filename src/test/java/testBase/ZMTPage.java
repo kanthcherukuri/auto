@@ -21,15 +21,15 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: fname, lname, email, country, state, phnum, functionalArea, address
 	 * @Return: NA
 	 */
-	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String phnum, String functionalArea, String address)
+	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String password, String confirmPassword, String phnum, String functionalArea, String address)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.signUp_FirstName, fname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_LastName, lname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_email, email);
 		Browser.selectbyID(Elements_ZMTusers.signUp_country, country);
 		Browser.selectbyID(Elements_ZMTusers.signUp_state, state);
-		Browser.enterTextByID(Elements_ZMTusers.signUp_password, "Zmt@123");
-		Browser.enterTextByID(Elements_ZMTusers.signUp_confirmPassword, "Zmt@123");
+		Browser.enterTextByID(Elements_ZMTusers.signUp_password, password);
+		Browser.enterTextByID(Elements_ZMTusers.signUp_confirmPassword, confirmPassword);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_mobileNumber, phnum);
 		Browser.selectbyID(Elements_ZMTusers.signUp_functionalArea, functionalArea);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_address, address);
@@ -41,16 +41,16 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: 
 	 * @Return: NA
 	 */
-	public void contactUs_Details(String name)
+	public void contactUs_Details(String name, String gender, String age, String country, String city, String email, String number, String message)
 	{
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_name, name);
-		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, "Male");
-		Browser.enterTextByID(Elements_ZMTusers.contactUs_age, "25");
-		Browser.selectbyID(Elements_ZMTusers.contactUs_country, "India");
-		Browser.selectbyID(Elements_ZMTusers.contactUs_state, "Hyderabad");
-		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, "gurucharan.a@zoylo.com");
-		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, "9999999999");
-		Browser.enterTextByID(Elements_ZMTusers.contactUs_message, "Contactus message");
+		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, gender);
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_age, age);
+		Browser.selectbyID(Elements_ZMTusers.contactUs_country, country);
+		Browser.selectbyID(Elements_ZMTusers.contactUs_state, city);
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, email);
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, number);
+		Browser.enterTextByID(Elements_ZMTusers.contactUs_message, message);
 	}
 	
 	/*
