@@ -7,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
 import testBase.ZMTPage;
@@ -17,21 +18,18 @@ public class ZMT_Careers_ZOY2660 extends LoadPropMac
 	public ZMTPage zmtUserPage;
 	
 		@BeforeClass
-		public void Browser() throws Exception {
-			
+		public void Browser() throws Exception {	
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		zmtUserPage= new ZMTPage(driver);
 		Browser.openUrl("https://qa.zoylomt.com");
-		Browser.clickOnTheElementByXpath("//li[@id='careersMenuLabel']/a");
-		
+		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_career_menuTab);
 	}
 	
 	@Test
 	public void CheckCareersPage() throws Exception {
 		zmtUserPage.Details_Careers("LakshmiKanth", "10", "5", "Cognizant", "Senior", "500000");
 		Browser.zmt_notification("Your profile is sumbitted successfully");
-		
 	}
 	
 	@AfterClass

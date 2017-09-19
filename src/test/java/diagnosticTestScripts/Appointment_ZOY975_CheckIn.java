@@ -30,14 +30,15 @@ public class Appointment_ZOY975_CheckIn extends LoadPropMac {
 	@DataProvider(name = "DP1")
 	 public String[][] createData1() {
 			return new String[][] {
-					{ "yes","Katchayanisi","V","9963990000","katchayanisi@gmail.com","Diabetic" }
+					{ "kirankanth","V","9963990011","kirankanth@gmail.com","Diabetic" }
 
 			};
 		}
 	
 	
 	@Test(dataProvider="DP1")
-	public void VerifyCheckInCheckOut(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+	public void VerifyCheckInCheckOut(String firstname,String lastname,String mobile,String email,String problem) throws Exception{
+		Thread.sleep(1000);
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		DiagnosticPageZoylo.VerifyCheckInCheckoutforAllTab(firstname, lastname, email);
 		Thread.sleep(1000);
