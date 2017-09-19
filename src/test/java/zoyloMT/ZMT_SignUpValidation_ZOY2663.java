@@ -62,7 +62,15 @@ public class ZMT_SignUpValidation_ZOY2663 extends LoadPropMac
 		String passw= driver.findElement(By.xpath("//input[@id='signUpPassword']//following-sibling::ul")).getText();
 		Assert.assertEquals(passw, Apassword);
 		String confirmpass= driver.findElement(By.xpath("//input[@id='signUpConfirmPassword']//following-sibling::ul")).getText();
+		System.out.println("Matching text:"+confirmpass);
 		Assert.assertEquals(confirmpass, AconfirmPassword);
+		System.out.println("Password:"+ AconfirmPassword);
+		if (password!=confirmPassword) {
+			
+			String notmathching= driver.findElement(By.xpath("//span[@id='passwordMatchErr']")).getText();
+			System.out.println("Not Mached Text:"+notmathching);
+			Assert.assertEquals(notmathching, "Password and Confirm Password does not match");	
+		}
 		String phno= driver.findElement(By.xpath("//input[@id='signUpPhone']//following-sibling::ul")).getText();
 		Assert.assertEquals(phno, Aphnum);
 		String area= driver.findElement(By.xpath("//select[@id='signUpFunctional']//following-sibling::ul")).getText();
