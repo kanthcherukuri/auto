@@ -20,7 +20,7 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 	{
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_AboutUs_menuTab);
 		Browser.waitFortheElementXpath(Elements_ZMTusers.zmt_AboutUsPageElement);
-		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.openUrl("https://"+Zmt_environmentname+".com");
 		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_ReadMore);
 		Thread.sleep(1000);
@@ -107,7 +107,7 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 		driver.close();
 		driver.switchTo().window(tabs4.get(0));
 		Thread.sleep(500);
-		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.openUrl("https://"+Zmt_environmentname+".com");
 		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_viewAllSpecialitiesButton);
 		Browser.waitFortheElementXpath(Elements_ZMTusers.zmt_sepcialityPopUp);
@@ -119,7 +119,7 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		zmtUserPage= new ZMTPage(driver);
-		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.openUrl("https://"+Zmt_environmentname+".com");
 	}
 	
 	@AfterClass
