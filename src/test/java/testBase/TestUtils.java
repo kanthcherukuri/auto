@@ -442,7 +442,7 @@ public class TestUtils {
 			WebDriverWait wait = (new WebDriverWait(driver, 60));
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(
 					By.xpath("//div[@class='alert alert-success alert-dismissable']"), text));
-			driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissable']//button[@class='close']"))
+			driver.findElement(By.xpath("//button[@data-dismiss='alert']"))
 					.click();
 			Thread.sleep(1500);
 		}

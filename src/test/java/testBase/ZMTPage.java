@@ -67,6 +67,21 @@ public class ZMTPage extends LoadPropMac
 	}
 	
 	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to click submit enquiry button and fill the details.
+	 * @Parms: name, email, qury
+	 * @Return: NA
+	 */
+	public void surgeon_submitEnquiry_Details(String name, String email, String qury) throws Exception
+	{
+		Browser.enterTextByID(Elements_ZMTusers.zmt_enquireFirstName, name);
+		Browser.enterTextByID(Elements_ZMTusers.zmt_enquiryEmail, email);
+		Browser.enterTextByID(Elements_ZMTusers.zmt_enquiryQury, qury);
+		Thread.sleep(500);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_submitEnquiry);
+	}
+	
+	/*
 	 * @Author: Ch.LakshmiKanth
 	 * @Desc: This method is used to Submit Your Profile In Careers .
 	 * @Parms: NA
