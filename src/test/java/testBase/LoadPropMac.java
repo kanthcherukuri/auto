@@ -40,7 +40,7 @@ public class LoadPropMac   {
 	public static String Recipient_Username, Recipient_Password,Recipient2_Username, Recipient2_Password,Recipient3_Username, Recipient3_Password,Recipient_DSusername,
 	Recipient_DSpassword,Recipient_DocUsername,Recipient_DocPassword,Recipient_DiaUsername,Recipient_DiaPassword;
 	public static String DoctorsLogin_usernameone,DoctorsLogin_passwordone;
-	public static String Environment_Name;
+	public static String Environment_Name, Zmt_environmentname;
 	public static String recipientDC_User;
 	public static String recipientDC_Password;
 	public static String admin_user,admin_password,doc_image, dc_image, adminuser_user, adminuser_password, Diagnostic_username, Diagnostic_password;
@@ -138,6 +138,7 @@ public class LoadPropMac   {
 
 		//Other Variables
 		Environment_Name=prop.getProperty("Environment.name");
+		Zmt_environmentname=prop.getProperty("Zmt.environmentname");
 		recipient_myaccount=prop.getProperty("recipient.myaccount");
 		Doctor_Name=prop.getProperty("Doctor.Name");
 		Diagnostic_Name=prop.getProperty("Diagnostic.Name");

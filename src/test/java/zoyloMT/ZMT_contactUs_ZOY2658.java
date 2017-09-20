@@ -44,7 +44,7 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 	@Test(priority=2, dataProvider="zmt")
 	public void zmtContactUs_Validation_ZOY2664(String Name, String Gender, String Age, String Country, String City, String email, String phone, String message, String AName, String AGender, String AAge, String ACountry, String	ACity, String Aemail, String Aphone, String	Amessage) throws Exception
 	{
-		Browser.openUrl("https://qa.zoylomt.com/contact-us");
+		Browser.openUrl("https://"+Zmt_environmentname+".com/contact-us");
 		zmtUserPage.contactUs_Details(Name, Gender, Age, Country, City, email, phone, message);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.contactUs_submitButton);
 		String nameValidation=driver.findElement(By.xpath("//input[@id='contactUsName']/following-sibling::ul")).getText();
@@ -71,7 +71,7 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		zmtUserPage= new ZMTPage(driver);
-		Browser.openUrl("https://qa.zoylomt.com/contact-us");
+		Browser.openUrl("https://"+Zmt_environmentname+".com/contact-us");
 	}
 	
 	@AfterClass
