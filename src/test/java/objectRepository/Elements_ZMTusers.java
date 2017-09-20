@@ -13,6 +13,8 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
 	public static String careers_fullname,careers_email,careers_mobile,careers_yearsofexperience,careers_monthsofexperirnce,careers_currentemployee,
 	careers_applyingfor, careers_currentctc,careers_upload,careers_submit;
+	public static String careers_fullnamevalidationtext,careers_emailvalidationtext,careers_mobilevalidationtext,careers_yearsofexperiencevalidationtext,careers_monthsofexperirncevalidationtext,careers_currentemployeevalidationtext,
+	careers_applyingforvalidationtext, careers_currentctcvalidationtext;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Home page
@@ -101,6 +103,16 @@ public class Elements_ZMTusers extends LoadPropMac
 		careers_currentctc="applyNowDefaultCtc";
 		careers_upload="cvUpload";
 		careers_submit="submitProfile";
+		
+		//Careers Validation
+		 careers_fullnamevalidationtext ="//input[@id='fullName']//following-sibling::ul";
+		 careers_emailvalidationtext ="//input[@id='username']//following-sibling::ul";
+		 careers_mobilevalidationtext ="//input[@id='mobileNumber']//following-sibling::ul";
+		 careers_yearsofexperiencevalidationtext="//input[@id='experienceInYears']//following-sibling::ul"; 
+		 careers_monthsofexperirncevalidationtext="//input[@id='experienceInMonths']//following-sibling::ul";
+		 careers_currentemployeevalidationtext="//input[@id='applyNowDefaultCurrEmployer']//following-sibling::ul";
+		 careers_applyingforvalidationtext="//input[@id='applyNowDefaultFor']//following-sibling::ul"; 
+		 careers_currentctcvalidationtext="//input[@id='applyNowDefaultCtc']//following-sibling::ul";
 		
 		return driver;
 	}

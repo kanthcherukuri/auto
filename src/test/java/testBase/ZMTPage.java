@@ -87,12 +87,11 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: NA
 	 * @Return: NA
 	 */
-	public void Details_Careers(String fullname,String expinyears,String expinmonths,String currentemployee,String applyingfor,String currentctc) {
+	public void Details_Careers(String fullname,String email,String mobile,String expinyears,String expinmonths,String currentemployee,String applyingfor,String currentctc) {
 		
-		String emailone="kanth"+Browser.randomalphabets()+"@gmail.com" ;
-		String mobile="9"+Browser.generateRandomNumber(9);
+		 
 		Browser.enterTextByID(Elements_ZMTusers.careers_fullname, fullname);
-		Browser.enterTextByID(Elements_ZMTusers.careers_email,emailone);
+		Browser.enterTextByID(Elements_ZMTusers.careers_email,email);
 		Browser.enterTextByID(Elements_ZMTusers.careers_mobile, mobile);
 		Browser.enterTextByID(Elements_ZMTusers.careers_yearsofexperience, expinyears);
 		Browser.enterTextByID(Elements_ZMTusers.careers_monthsofexperirnce, expinmonths);
