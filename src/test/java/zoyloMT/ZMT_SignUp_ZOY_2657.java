@@ -14,6 +14,8 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 {
 	public TestUtils Browser;
 	public ZMTPage zmtUserPage;
+	public String password="Zmt@123";
+	public String confirmPassword="Zmt@123";
 	
 	@DataProvider(name="zmt")
 	public Object[][] clinicDocInfo() throws Exception
@@ -23,7 +25,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 	}
 	
 	@Test(dataProvider="zmt")
-	public void zmtSignUp(String functionalArea, String Country, String State, String address) throws Exception
+	public void zmtSignUp(String functionalArea, String Country, String State, String password, String confirmPassword, String address) throws Exception
 	{
 		Boolean removeFromDB=true;
 		String email1=Browser.generateRandomString(6);
@@ -34,7 +36,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 		
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_login);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_SignUp_Button);
-		zmtUserPage.SignUpForm_Details(fname, lname, emailID, Country, State, phnum, functionalArea, address);
+		zmtUserPage.SignUpForm_Details(fname, lname, emailID, Country, State, password, confirmPassword, phnum, functionalArea, address);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
 		driver.navigate().refresh();

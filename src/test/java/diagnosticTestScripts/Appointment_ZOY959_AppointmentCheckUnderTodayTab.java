@@ -39,7 +39,7 @@ public class Appointment_ZOY959_AppointmentCheckUnderTodayTab extends LoadPropMa
 	
 	@Test(dataProvider="DP1" )
 	public void appointment(String RunMode,String firstname,String lastname,String mobile,String email,String problem) throws Exception{
-		
+		Thread.sleep(1000);
 		DiagnosticPageZoylo.DiagnosticAppointmentForToday(firstname, lastname, mobile, email, problem);
 		Thread.sleep(4000);
 		DiagnosticPageZoylo.patientserachforintoday(firstname, lastname, email);
