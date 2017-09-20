@@ -25,7 +25,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 	}
 	
 	@Test(dataProvider="zmt")
-	public void zmtSignUp(String functionalArea, String Country, String State, String password, String confirmPassword, String address) throws Exception
+	public void zmtSignUp(String functionalArea, String Country, String State, String address) throws Exception
 	{
 		Boolean removeFromDB=true;
 		String email1=Browser.generateRandomString(6);
@@ -39,6 +39,8 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 		zmtUserPage.SignUpForm_Details(fname, lname, emailID, Country, State, password, confirmPassword, phnum, functionalArea, address);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
+		zmtUserPage.zmt_Logout();
+		Browser.zmt_notification("Logged Out Successfully");
 		driver.navigate().refresh();
 		
 		if(removeFromDB==true)
@@ -54,7 +56,7 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		zmtUserPage= new ZMTPage(driver);
-		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.openUrl("https://"+Zmt_environmentname+".com");
 	}
 	
 	@AfterClass

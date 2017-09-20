@@ -54,6 +54,19 @@ public class ZMTPage extends LoadPropMac
 	}
 	
 	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to click either options on profile drop down.
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	public void zmt_Logout()
+	{
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmtuserProfileButton);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_LogoutDropDown);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_confirmLogout);
+	}
+	
+	/*
 	 * @Author: Ch.LakshmiKanth
 	 * @Desc: This method is used to Submit Your Profile In Careers .
 	 * @Parms: NA
