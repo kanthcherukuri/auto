@@ -1,8 +1,8 @@
 package zoyloMT;
-import java.util.ArrayList;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import java.util.ArrayList;
 import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -29,7 +29,7 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_serviceAndSpeciality_menuTab);
 		Browser.waitFortheElementXpath(Elements_ZMTusers.zmt_servicesPage);
 		Browser.ScrollDown();
-		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_ReadMore);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_ReadMoreLink);
 		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_Readless);
 		Browser.ScrollUp();
