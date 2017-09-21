@@ -29,7 +29,7 @@ public class ZMT_homePageLinks_ZOY2659 extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_serviceAndSpeciality_menuTab);
 		Browser.waitFortheElementXpath(Elements_ZMTusers.zmt_servicesPage);
 		Browser.ScrollDown();
-		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_ReadMore);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_ReadMoreLink);
 		Browser.ScrollDown();
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_Readless);
 		Browser.ScrollUp();
