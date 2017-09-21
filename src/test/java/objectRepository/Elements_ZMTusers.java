@@ -15,6 +15,9 @@ public class Elements_ZMTusers extends LoadPropMac
 	careers_applyingfor, careers_currentctc,careers_upload,careers_submit;
 	public static String careers_fullnamevalidationtext,careers_emailvalidationtext,careers_mobilevalidationtext,careers_yearsofexperiencevalidationtext,careers_monthsofexperirncevalidationtext,careers_currentemployeevalidationtext,
 	careers_applyingforvalidationtext, careers_currentctcvalidationtext;
+	public static String SearchResults_TopHospitalMenu,SearchResults_TopHospitals_Size, SearchResults_TopHospitals_SubmitEnquiry, Name_TopHospitals,
+	Email_TopHospitals,Phone_TopHospitals,Query_TopHospitals,Submit_TopHospitals,SearchResults_TopHospitals_GetEstimate, Hospitals_Usefulllinks,Listofhospitalssize,
+	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Home page
@@ -113,7 +116,23 @@ public class Elements_ZMTusers extends LoadPropMac
 		 careers_currentemployeevalidationtext="//input[@id='applyNowDefaultCurrEmployer']//following-sibling::ul";
 		 careers_applyingforvalidationtext="//input[@id='applyNowDefaultFor']//following-sibling::ul"; 
 		 careers_currentctcvalidationtext="//input[@id='applyNowDefaultCtc']//following-sibling::ul";
-		
+		 
+		 //Hospitals
+		 SearchResults_TopHospitalMenu="//a[@href='#srch-hopitals']";
+		 SearchResults_TopHospitals_Size="//div[@class='tab-content row']/div[@id='srch-hopitals']/div";
+		 SearchResults_TopHospitals_SubmitEnquiry="//div[@class='tab-content row']/div[@id='srch-hopitals']/div[1]//span[@class='btn btn-default sub-enqbtn']";
+		 Name_TopHospitals="hos-name0";
+		 Email_TopHospitals="hos-email0";
+		 Phone_TopHospitals="hos-phone0";
+		 Query_TopHospitals="hos-query0";
+		 Submit_TopHospitals="//form[@id='hospitalSearchListForm']//button[@id='0']";
+		 SearchResults_TopHospitals_GetEstimate="//div[@class='tab-content row']/div[@id='srch-hopitals']/div[1]//span[2]";
+		 Hospitals_Usefulllinks="//a[@href='/list-of-hospitals']";
+		 Listofhospitalssize="//div[@class='zy-mt-wrapper']/div[@class='container']//div[@class='row']";
+		 SubmitEnquiry_ListOfhospitals="(//span[@class='btn btn-default sub-enqbtn'])[1]";
+		 Submit_Listofhospitals="//form[@id='submitEnq']//button[@id='0']";
+		 GetEstimate_Listofhospitals="(//span[@class='pull-right btn btn-default get-estbtn'])[1]";
+		 
 		return driver;
 	}
 }

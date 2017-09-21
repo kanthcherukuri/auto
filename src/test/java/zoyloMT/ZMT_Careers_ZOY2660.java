@@ -25,7 +25,7 @@ public class ZMT_Careers_ZOY2660 extends LoadPropMac
 		LoadBrowserProperties();
 		Browser= new TestUtils(driver);
 		zmtUserPage= new ZMTPage(driver);
-		Browser.openUrl("https://qa.zoylomt.com");
+		Browser.openUrl("https://"+Zmt_environmentname+".com");
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_career_menuTab);
 	}
 	

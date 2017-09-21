@@ -101,4 +101,20 @@ public class ZMTPage extends LoadPropMac
 		driver.findElement(By.id(Elements_ZMTusers.careers_upload)).sendKeys(System.getProperty("user.dir")+"/Uploads/scroll.pdf");
 		Browser.clickOnTheElementByID(Elements_ZMTusers.careers_submit);
 	}
+	
+	public void Hospitals_SubmitEnquiry_Details(String Name, String Email,String Phno,String Query) {
+		Browser.enterTextByID(Elements_ZMTusers.Name_TopHospitals, Name);	
+		Browser.enterTextByID(Elements_ZMTusers.Email_TopHospitals, Email);
+		Browser.enterTextByID(Elements_ZMTusers.Phone_TopHospitals, Phno);
+		Browser.enterTextByID(Elements_ZMTusers.Query_TopHospitals, Query);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.Submit_TopHospitals);
+	}
+	
+	public void ListOfHospitals_SubmitEnquiry_Details(String Name, String Email,String Phno,String Query) {
+		Browser.enterTextByID(Elements_ZMTusers.Name_TopHospitals, Name);	
+		Browser.enterTextByID(Elements_ZMTusers.Email_TopHospitals, Email);
+		Browser.enterTextByID(Elements_ZMTusers.Phone_TopHospitals, Phno);
+		Browser.enterTextByID(Elements_ZMTusers.Query_TopHospitals, Query);
+		Browser.clickOnTheElementByXpath(Elements_ZMTusers.Submit_Listofhospitals);
+	}
 }
