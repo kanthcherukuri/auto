@@ -1,8 +1,8 @@
 package zoyloMT;
-import java.util.ArrayList;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import java.util.ArrayList;
 import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;

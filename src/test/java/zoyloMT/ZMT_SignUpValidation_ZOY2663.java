@@ -2,13 +2,12 @@
 //Author:Ch.LakshmiKanth
 package zoyloMT;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -50,36 +49,36 @@ public class ZMT_SignUpValidation_ZOY2663 extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		String firstname=driver.findElement(By.xpath("//input[@id='signUpFirstName']//following-sibling::ul")).getText();
 		System.out.println("firts name is : "+firstname);
-		Assert.assertEquals(firstname, Afname);
+		AssertJUnit.assertEquals(firstname, Afname);
 		String lastname=driver.findElement(By.xpath("//input[@id='signUpLastName']//following-sibling::ul")).getText();
-		Assert.assertEquals(lastname, Alname);
+		AssertJUnit.assertEquals(lastname, Alname);
 		String emailone= driver.findElement(By.xpath("//input[@id='signUpEmail']//following-sibling::ul")).getText();
-		Assert.assertEquals(emailone, Aemail);
+		AssertJUnit.assertEquals(emailone, Aemail);
 		String count= driver.findElement(By.xpath("//select[@id='signUpCountry']//following-sibling::ul")).getText();
-		Assert.assertEquals(count, Acountry);
+		AssertJUnit.assertEquals(count, Acountry);
 		String stateone= driver.findElement(By.xpath("//select[@id='signUpCity']//following-sibling::ul")).getText();
-		Assert.assertEquals(stateone, Astate);
+		AssertJUnit.assertEquals(stateone, Astate);
 		String passw= driver.findElement(By.xpath("//input[@id='signUpPassword']//following-sibling::ul")).getText();
-		Assert.assertEquals(passw, Apassword);
+		AssertJUnit.assertEquals(passw, Apassword);
 		
 		System.out.println("Password:"+ AconfirmPassword);
 		if (password!=confirmPassword) {
 			
 			String notmathching= driver.findElement(By.xpath("//span[@id='passwordMatchErr']")).getText();
 			System.out.println("Not Mached Text:"+notmathching);
-			Assert.assertEquals(notmathching, AconfirmPassword);	
+			AssertJUnit.assertEquals(notmathching, AconfirmPassword);	
 		}else {
 			String confirmpass= driver.findElement(By.xpath("//input[@id='signUpConfirmPassword']//following-sibling::ul")).getText();
 			System.out.println("Matching text:"+confirmpass);
-			Assert.assertEquals(confirmpass, AconfirmPassword);
+			AssertJUnit.assertEquals(confirmpass, AconfirmPassword);
 			
 		}
 		String phno= driver.findElement(By.xpath("//input[@id='signUpPhone']//following-sibling::ul")).getText();
-		Assert.assertEquals(phno, Aphnum);
+		AssertJUnit.assertEquals(phno, Aphnum);
 		String area= driver.findElement(By.xpath("//select[@id='signUpFunctional']//following-sibling::ul")).getText();
-		Assert.assertEquals(area, AfunctionalArea);
+		AssertJUnit.assertEquals(area, AfunctionalArea);
 		String addres= driver.findElement(By.xpath("//textarea[@id='signUpAddress']//following-sibling::ul")).getText();
-		Assert.assertEquals(addres, Aaddress);
+		AssertJUnit.assertEquals(addres, Aaddress);
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='signupForm']//button")).click();
 		driver.navigate().refresh();

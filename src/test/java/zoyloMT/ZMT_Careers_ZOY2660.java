@@ -3,13 +3,12 @@
 
 package zoyloMT;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -53,21 +52,21 @@ public class ZMT_Careers_ZOY2660 extends LoadPropMac
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_career_menuTab);
 		zmtUserPage.Details_Careers(fullname, email, mobile, expinyears, expinmonths, currentemployee, applyingfor, currentctc);
 		String name= driver.findElement(By.xpath(Elements_ZMTusers.careers_fullnamevalidationtext)).getText();
-		Assert.assertEquals(name, Afullname);
+		AssertJUnit.assertEquals(name, Afullname);
 		String mail=driver.findElement(By.xpath(Elements_ZMTusers.careers_emailvalidationtext)).getText();
-		Assert.assertEquals(mail, Aemail);
+		AssertJUnit.assertEquals(mail, Aemail);
 		String phno=driver.findElement(By.xpath(Elements_ZMTusers.careers_mobilevalidationtext)).getText();
-		Assert.assertEquals(phno, Amobile);
+		AssertJUnit.assertEquals(phno, Amobile);
 		String years=driver.findElement(By.xpath(Elements_ZMTusers.careers_yearsofexperiencevalidationtext)).getText();
-		Assert.assertEquals(years, Aexpinyears);
+		AssertJUnit.assertEquals(years, Aexpinyears);
 		String months=driver.findElement(By.xpath(Elements_ZMTusers.careers_monthsofexperirncevalidationtext)).getText();
-		Assert.assertEquals(months, Aexpinmonths);
+		AssertJUnit.assertEquals(months, Aexpinmonths);
 		String currentemp=driver.findElement(By.xpath(Elements_ZMTusers.careers_currentemployeevalidationtext)).getText();
-		Assert.assertEquals(currentemp, Acurrentemployee);
+		AssertJUnit.assertEquals(currentemp, Acurrentemployee);
 		String position=driver.findElement(By.xpath(Elements_ZMTusers.careers_applyingforvalidationtext)).getText();
-		Assert.assertEquals(position, Aapplyingfor);
+		AssertJUnit.assertEquals(position, Aapplyingfor);
 		String ctc=driver.findElement(By.xpath(Elements_ZMTusers.careers_currentctcvalidationtext)).getText();
-		Assert.assertEquals(ctc, Acurrentctc);
+		AssertJUnit.assertEquals(ctc, Acurrentctc);
 		driver.navigate().refresh();
 	}
 	

@@ -1,10 +1,10 @@
 package zoyloMT;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 import objectRepository.Elements_ZMTusers;
 import testBase.LoadPropMac;
 import testBase.TestUtils;
@@ -55,14 +55,14 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 		String emailValidation=driver.findElement(By.xpath("//input[@id='contactUsEmail']/following-sibling::ul")).getText();
 		String phoneValidation=driver.findElement(By.xpath("//input[@id='contactUsPhone']/following-sibling::ul")).getText();
 		String messageValidation=driver.findElement(By.xpath("//textarea[@id='contactUsMessage']/following-sibling::ul")).getText();
-		Assert.assertEquals(AName, nameValidation);
-		Assert.assertEquals(AGender, genderValidation);
-		Assert.assertEquals(AAge, ageValidation);
-		Assert.assertEquals(ACountry, countryValidation);
-		Assert.assertEquals(ACity, cityValidation);
-		Assert.assertEquals(Aemail, emailValidation);
-		Assert.assertEquals(Aphone, phoneValidation);
-		Assert.assertEquals(Amessage, messageValidation);
+		AssertJUnit.assertEquals(AName, nameValidation);
+		AssertJUnit.assertEquals(AGender, genderValidation);
+		AssertJUnit.assertEquals(AAge, ageValidation);
+		AssertJUnit.assertEquals(ACountry, countryValidation);
+		AssertJUnit.assertEquals(ACity, cityValidation);
+		AssertJUnit.assertEquals(Aemail, emailValidation);
+		AssertJUnit.assertEquals(Aphone, phoneValidation);
+		AssertJUnit.assertEquals(Amessage, messageValidation);
 	}
 	
 	@BeforeClass
