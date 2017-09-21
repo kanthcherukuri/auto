@@ -25,14 +25,14 @@ public class ZMT_SignUp_ZOY_2657 extends LoadPropMac
 	}
 	
 	@Test(dataProvider="zmt")
-	public void zmtSignUp(String functionalArea, String Country, String State, String address) throws Exception
+	public void zmtSignUp(String emailID, String functionalArea, String Country, String State, String address) throws Exception
 	{
-		Boolean removeFromDB=true;
+		Boolean removeFromDB=false;
 		String email1=Browser.generateRandomString(6);
 		String fname="A"+email1.toLowerCase();
 		String lname=email1;
 		String phnum="9"+Browser.generateRandomNumber(9);
-		String emailID=email1.toLowerCase()+"@zmt.com";
+		//String emailID=email1.toLowerCase()+"@zmt.com";
 		
 		Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_login);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_SignUp_Button);
