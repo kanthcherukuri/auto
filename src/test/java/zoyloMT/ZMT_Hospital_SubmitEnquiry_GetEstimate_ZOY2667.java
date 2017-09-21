@@ -41,17 +41,15 @@ public class ZMT_Hospital_SubmitEnquiry_GetEstimate_ZOY2667 extends LoadPropMac 
 			
 			Browser.clickOnTheElementByID(Elements_ZMTusers.zmt_SearchButton);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			Browser.clickOnTheElementByXpath(Elements_ZMTusers.SearchResults_TopHospitalMenu);
-			int hossize=driver.findElements(By.xpath(Elements_ZMTusers.SearchResults_TopHospitals_Size)).size();
-			System.out.println("size:"+hossize);
-			if(driver.findElements(By.xpath(Elements_ZMTusers.SearchResults_TopHospitals_Size)).size()!=0) {
-			Browser.clickOnTheElementByXpath(Elements_ZMTusers.SearchResults_TopHospitals_SubmitEnquiry);
+			Browser.clickOnTheElementByXpath(Elements_ZMTusers.TopHospitalMenu);
+			if(driver.findElements(By.xpath(Elements_ZMTusers.TopHospitals_Size)).size()!=0) {
+			Browser.clickOnTheElementByXpath(Elements_ZMTusers.SubmitEnquiry_TopHospitals);
 			zmtUserPage.Hospitals_SubmitEnquiry_Details(Name, Email, Phno, Query);
 			Browser.zmt_notification("We will get back to you soon");
 			//Get An Estimate Script
 			driver.navigate().refresh();
-			Browser.clickOnTheElementByXpath(Elements_ZMTusers.SearchResults_TopHospitalMenu);
-			Browser.clickOnTheElementByXpath(Elements_ZMTusers.SearchResults_TopHospitals_GetEstimate);
+			Browser.clickOnTheElementByXpath(Elements_ZMTusers.TopHospitalMenu);
+			Browser.clickOnTheElementByXpath(Elements_ZMTusers.GetEstimate_TopHospitals);
 			zmtUserPage.Hospitals_SubmitEnquiry_Details(Name, Email, Phno, Query);
 			Browser.zmt_notification("We will get back to you soon");	
 			}else {
@@ -60,12 +58,9 @@ public class ZMT_Hospital_SubmitEnquiry_GetEstimate_ZOY2667 extends LoadPropMac 
 				
 			}
 			//List Of Hospital Scripts-Submit Enquiry
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			jse.executeScript("window.scrollBy(0,900)", "");
+			Browser.scrollbyxpath(Elements_ZMTusers.Hospitals_Usefulllinks);
 			Browser.clickOnTheElementByXpath(Elements_ZMTusers.Hospitals_Usefulllinks);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			int hoslinksize=driver.findElements(By.xpath(Elements_ZMTusers.Listofhospitalssize)).size();
-			System.out.println("Hospital Links:"+hoslinksize);
 			if(driver.findElements(By.xpath(Elements_ZMTusers.Listofhospitalssize)).size()!=0) {
 				
 				Browser.clickOnTheElementByXpath(Elements_ZMTusers.SubmitEnquiry_ListOfhospitals);
