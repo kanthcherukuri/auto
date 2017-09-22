@@ -21,12 +21,13 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: fname, lname, email, country, state, phnum, functionalArea, address
 	 * @Return: NA
 	 */
-	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String password, String confirmPassword, String phnum, String functionalArea, String address)
+	public void SignUpForm_Details(String fname, String lname, String email, String country, String state, String password, String confirmPassword, String phnum, String functionalArea, String address) throws Exception
 	{
 		Browser.enterTextByID(Elements_ZMTusers.signUp_FirstName, fname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_LastName, lname);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_email, email);
 		Browser.selectbyID(Elements_ZMTusers.signUp_country, country);
+		Thread.sleep(500);
 		Browser.selectbyID(Elements_ZMTusers.signUp_state, state);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_password, password);
 		Browser.enterTextByID(Elements_ZMTusers.signUp_confirmPassword, confirmPassword);
@@ -41,12 +42,13 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: 
 	 * @Return: NA
 	 */
-	public void contactUs_Details(String name, String gender, String age, String country, String city, String email, String number, String message)
+	public void contactUs_Details(String name, String gender, String age, String country, String city, String email, String number, String message) throws Exception
 	{
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_name, name);
 		Browser.selectbyID(Elements_ZMTusers.contactUs_gender, gender);
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_age, age);
 		Browser.selectbyID(Elements_ZMTusers.contactUs_country, country);
+		Thread.sleep(500);
 		Browser.selectbyID(Elements_ZMTusers.contactUs_state, city);
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_email, email);
 		Browser.enterTextByID(Elements_ZMTusers.contactUs_phone, number);
@@ -79,6 +81,32 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.zmt_enquiryQury, qury);
 		Thread.sleep(500);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_submitEnquiry);
+	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of patient.
+	 * @Parms: Pfname	Plname	Pgender	Page	Pphnum	Ppicupload	Paddress	Pmedcondition	Prefdoc	Pcertificates	Vfname	Vlname	Vgender	Vage	Vphnum	Vaddress	Vmedcondition	Vrefdoc
+	 * @Return: NA
+	 */
+	public void patientProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates, String Vfname, String Vlname, String Vage, String Vphnum, String Vaddress, String Vmedcondition, String	Vrefdoc) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
+		Browser.enterTextByID(Elements_ZMTusers.profile_age, Page);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, Paddress);
+		Browser.enterTextByID(Elements_ZMTusers.profile_medicalCondition, Pmedcondition);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_medicalInsuranceCheckBox);
+		Browser.enterTextByID(Elements_ZMTusers.profile_insuranceCompName, "Star Health");
+		Browser.enterTextByID(Elements_ZMTusers.profile_referalPhysician, Prefdoc);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
+		Thread.sleep(8000);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 	}
 	
 	/*
