@@ -9,8 +9,8 @@
       	<class name="zoyloMT.ZMT_contactUs_ZOY2658"/>
      	<class name="zoyloMT.ZMT_Careers_ZOY2660"/>
       	<class name="zoyloMT.ZMT_Surgeon_submit_Enquiry_GetEstimate_ZOY2666"/>
-      	<class name="zoyloMT.ZMT_patientProfile_ZOY2668"/>
       	<class name="zoyloMT.ZMT_Hospital_SubmitEnquiry_GetEstimate_ZOY2667"/>
+      	<!-- <class name="zoyloMT.ZMT_patientProfile_ZOY2668"/> -->
     </classes>
   </test> <!-- mt -->
 </suite> <!-- Zmt -->

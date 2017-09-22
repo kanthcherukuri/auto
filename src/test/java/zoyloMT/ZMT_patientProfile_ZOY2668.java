@@ -70,6 +70,7 @@ public class ZMT_patientProfile_ZOY2668 extends LoadPropMac
 	@Test(priority=3)
 	public void clearData() throws Exception
 	{
+		Browser.zmt_notification("User profile saved successfully");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zmtusers", "email", emailID);
 	}
 	
