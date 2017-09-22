@@ -465,8 +465,20 @@ public class TestUtils {
 
 	}
 
-
-
+	/*
+	 * @Author: Ganesh
+	 * @Desc: This function will return the value of the textbox
+	 * @Parm: ID
+	 * @return: String Value of the textbox (ID)
+	 */
+	public String getTextBoxValueByID(String ID){
+		
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+    String inputValue = (String) js.executeScript("return document.getElementByXpath('"+ID+"').value");       
+    System.out.println("CURRENT VALUE : " + inputValue);
+     
+    return inputValue;    
+	}
 
 	/* 
 	 * This function is used to read the emails from gmail with the subject name
