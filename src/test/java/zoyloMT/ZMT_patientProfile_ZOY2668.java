@@ -47,7 +47,7 @@ public class ZMT_patientProfile_ZOY2668 extends LoadPropMac
 	@Test(dataProvider="zmt", priority=2)
 	public void patientProfile_Validation(String Pfname, String	Plname, String Pgender, String Page, String	Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates, String Vfname, String Vlname, String Vage, String Vphnum, String Vaddress, String Vmedcondition, String	Vrefdoc) throws Exception
 	{
-		zmtUserPage.patientProfile_details(Pfname, Plname, Pgender, Page, Pphnum, Ppicupload, Paddress, Pmedcondition, Prefdoc, Pcertificates, Vfname, Vlname, Vage, Vphnum, Vaddress, Vmedcondition, Vrefdoc);
+		zmtUserPage.patientProfile_details(Pfname, Plname, Pgender, Page, Pphnum, Ppicupload, Paddress, Pmedcondition, Prefdoc, Pcertificates);
 		Thread.sleep(500);
 		String nfname=driver.findElement(By.xpath(Elements_ZMTusers.profile_firstName_Validation)).getText();
 		String nlname=driver.findElement(By.xpath(Elements_ZMTusers.profile_lastName_Validation)).getText();
@@ -65,11 +65,21 @@ public class ZMT_patientProfile_ZOY2668 extends LoadPropMac
 		Assert.assertEquals(Vrefdoc, nrefdoc);
 		driver.navigate().refresh();
 		Thread.sleep(1000);
+		Browser.ScrollUp();
+		Thread.sleep(500);
 	}
 	
-	@Test(priority=3)
-	public void clearData() throws Exception
+	@DataProvider(name="zmts")
+	public Object[][] patientprofiles() throws Exception
 	{
+		Object[][] patientProfileDetails=TestUtils.getTableArray("TestData/zmt.xls", "users", "ZMT2668S");
+		return(patientProfileDetails);
+	}
+	
+	@Test(dataProvider="zmts", priority=3)
+	public void clearData(String Pfname, String	Plname, String Pgender, String Page, String	Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates) throws Exception
+	{
+		zmtUserPage.patientProfile_details(Pfname, Plname, Pgender, Page, Pphnum, Ppicupload, Paddress, Pmedcondition, Prefdoc, Pcertificates);
 		Browser.zmt_notification("User profile saved successfully");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zmtusers", "email", emailID);
 	}

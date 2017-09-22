@@ -89,7 +89,7 @@ public class ZMTPage extends LoadPropMac
 	 * @Parms: Pfname	Plname	Pgender	Page	Pphnum	Ppicupload	Paddress	Pmedcondition	Prefdoc	Pcertificates	Vfname	Vlname	Vgender	Vage	Vphnum	Vaddress	Vmedcondition	Vrefdoc
 	 * @Return: NA
 	 */
-	public void patientProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates, String Vfname, String Vlname, String Vage, String Vphnum, String Vaddress, String Vmedcondition, String	Vrefdoc) throws Exception
+	public void patientProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates) throws Exception
 	{
 		String current = System.getProperty("user.dir");
 		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
