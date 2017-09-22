@@ -66,8 +66,7 @@ public class ZMT_Hospital_SubmitEnquiry_GetEstimate_ZOY2667 extends LoadPropMac 
 				Browser.clickOnTheElementByXpath(Elements_ZMTusers.SubmitEnquiry_ListOfhospitals);
 				zmtUserPage.ListOfHospitals_SubmitEnquiry_Details(Name, Email, Phno, Query);
 				Browser.zmt_notification("We will get back to you soon");	
-				
-				//List of Hospitals:-Get An Estimate Script
+				//List of Hospitals:- Get An Estimate Script
 				driver.navigate().refresh();
 				Browser.clickOnTheElementByXpath(Elements_ZMTusers.GetEstimate_Listofhospitals);
 				zmtUserPage.ListOfHospitals_SubmitEnquiry_Details(Name, Email, Phno, Query);
