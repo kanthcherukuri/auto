@@ -43,8 +43,7 @@ public class ZMT_Surgeon_submit_Enquiry_GetEstimate_ZOY2666 extends LoadPropMac
 			zmtUserPage.surgeon_submitEnquiry_Details(name, email, qury);
 		}
 		else{
-			System.out.println("There are no surgeons.");
-		}
+			System.out.println("There are no surgeons.");}
 		Browser.zmt_notification("We will get back to you soon");
 	}
 	
@@ -59,7 +58,8 @@ public class ZMT_Surgeon_submit_Enquiry_GetEstimate_ZOY2666 extends LoadPropMac
 			Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_submitEngquiryButton);
 			zmtUserPage.surgeon_submitEnquiry_Details(name, email, qury);
 		}
-		else{
+		else
+		{
 			System.out.println("There are no surgeons.");
 		}
 		Browser.zmt_notification("We will get back to you soon");
@@ -71,7 +71,8 @@ public class ZMT_Surgeon_submit_Enquiry_GetEstimate_ZOY2666 extends LoadPropMac
 			Browser.clickOnTheElementByXpath(Elements_ZMTusers.zmt_getEstimateButton);
 			zmtUserPage.surgeon_submitEnquiry_Details(name, email, qury);
 		}
-		else{
+		else
+		{
 			System.out.println("There are no surgeons.");
 		}
 		Browser.zmt_notification("We will get back to you soon");
