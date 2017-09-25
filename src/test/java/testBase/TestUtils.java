@@ -474,7 +474,7 @@ public class TestUtils {
 	public String getTextBoxValueByID(String ID){
 		
 	JavascriptExecutor js = (JavascriptExecutor)driver;
-    String inputValue = (String) js.executeScript("return document.getElementByXpath('"+ID+"').value");       
+    String inputValue = (String) js.executeScript("return document.getElementById('"+ID+"').value");       
     System.out.println("CURRENT VALUE : " + inputValue);
      
     return inputValue;    
@@ -482,7 +482,7 @@ public class TestUtils {
 
 	/* 
 	 * This function is used to read the emails from gmail with the subject name
-   Ex:Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | Appointment registered");
+       Ex:Browser.emailResponse(Recipient_DocUsername, Recipient_DocPassword, "Zoylo.com | Appointment registered");
 	 *
 	 */	
 	public  String  emailResponse(String user,String password,String Subject) throws Exception{
