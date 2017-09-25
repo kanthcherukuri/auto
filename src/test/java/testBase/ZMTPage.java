@@ -131,10 +131,12 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_experience, pfexp);
 		if(isHospitalTrue.equalsIgnoreCase("true"))
 		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalCheckBox);
 			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddLink);
 			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalName, psurgeonHospitalName);
 			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalAddress, psurgeonHospitalAddress);
 			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddSaveBtn);
+			Thread.sleep(800);
 		}
 		else{
 			System.out.println("Surgeon is not associated with any hospitals.");
@@ -142,9 +144,8 @@ public class ZMTPage extends LoadPropMac
 		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, potherSpecialization);
 		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, plistTreatments);
 		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
-		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, pcertificates);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+pcertificates);
 		Thread.sleep(8000);
-		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 	}
 	
 	/*
