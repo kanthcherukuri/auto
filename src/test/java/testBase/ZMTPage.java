@@ -183,7 +183,12 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.Query_TopHospitals, Query);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.Submit_Listofhospitals);
 	}
-	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Other Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
 	
 	public void OtherProfile_Details(String firstname,String lastname,String phone,String specialities,String yearofest,String ICUB,String Surgeons,
 			String designation,String specialization,String listoftreatments,String aboutyourself ,String message) {
@@ -202,4 +207,37 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_message, message);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 	}
+	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Tourism Agent Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	
+	public void TourismAgentProfile_Details(String FirstName,String LastName,String Phone,String address ,String accreditation,
+			String Services,String PersonName,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) {
+		
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, FirstName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, LastName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Phone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, address);
+		Browser.selectbyID("accreditation", accreditation);
+		Browser.selectbyID("services", Services);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_name, PersonName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, PersonPhone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, PersonAvailabilityFrom);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, PersonAvailabilityTo);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
+		
+	}
+			
+	
+	
+	
+	
+	
+	
+	
+	
 }
