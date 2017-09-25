@@ -6,6 +6,7 @@ package zoyloMT;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -63,9 +64,9 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 	String designation,String specialization,String listoftreatments,String aboutyourself ,String message,String Afname,String Alname,String Aphnum,
 	String Ayearofest,String AICUB,String ASurgeons,String Aaboutyourself,String Amessage) {
 		
-		driver.findElement(By.id("firstName")).clear();
-		driver.findElement(By.id("lastName")).clear();
-		driver.findElement(By.id("phone")).clear();
+		driver.findElement(By.id(Elements_ZMTusers.profile_firstName)).clear();
+		driver.findElement(By.id(Elements_ZMTusers.profile_lastName)).clear();
+		driver.findElement(By.id(Elements_ZMTusers.profile_phNum)).clear();
 		zmtUserPage.OtherProfile_Details(firstname, lastname, phone, specialities, yearofest, ICUB, Surgeons, designation, specialization, listoftreatments, aboutyourself, message);
 		String fname=driver.findElement(By.xpath(Elements_ZMTusers.profile_firstName_Validation)).getText();
 		Assert.assertEquals(fname, Afname);
@@ -100,6 +101,12 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 	Browser.zmt_notification("User profile saved successfully");
 	Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zmtusers", "email", emailID);
 	}
+	
+	@AfterClass
+	public void CloseBrowser() {
+		driver.quit();
+	}
+	
 	
 	
 }

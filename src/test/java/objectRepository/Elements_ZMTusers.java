@@ -23,6 +23,9 @@ public class Elements_ZMTusers extends LoadPropMac
 	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
 	public static String profile_hospitalspecialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_aboutYourSelf,profile_message,
 	profile_yearofest_validation,profile_ICUB_validation,profile_Surgeons_validation,profile_aboutYourSelf_validation,profile_message_validation, profile_qualification_Validation, profile_experience_validation, profile_surgeonHospitalName_validation, profile_surgeonHospitalAddress_validation;
+	profile_yearofest_validation,profile_ICUB_validation,profile_Surgeons_validation,profile_aboutYourSelf_validation,profile_message_validation,
+	profile_contactperson_name,profile_contactperson_phone,profile_contactperson_availabilityFrom,profile_contactperson_availabilityTo,profile_contactperson_name_validation,
+	profile_contactperson_phone_validation,profile_contactperson_availabityfrom_validation,profile_contactperson_availabityTo_validation;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Profile
@@ -190,6 +193,16 @@ public class Elements_ZMTusers extends LoadPropMac
 		 SubmitEnquiry_ListOfhospitals="(//span[@class='btn btn-default sub-enqbtn'])[1]";
 		 Submit_Listofhospitals="//form[@id='submitEnq']//button[@id='0']";
 		 GetEstimate_Listofhospitals="(//span[@class='pull-right btn btn-default get-estbtn'])[1]";
+		 
+		 //Profile
+		 profile_contactperson_name="name";
+		 profile_contactperson_phone="phoneNumber";
+		 profile_contactperson_availabilityFrom="availabilityFrom";
+		 profile_contactperson_availabilityTo="availabilityTo";
+		 profile_contactperson_name_validation="//input[@id='name']//following-sibling::ul";
+		 profile_contactperson_phone_validation="//input[@id='phoneNumber']/following-sibling::ul";
+		 profile_contactperson_availabityfrom_validation="//input[@id='availabilityFrom']/following-sibling::ul";
+		 profile_contactperson_availabityTo_validation="//input[@id='availabilityTo']/following-sibling::ul";
 		 
 		return driver;
 	}
