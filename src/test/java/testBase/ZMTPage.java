@@ -110,6 +110,44 @@ public class ZMTPage extends LoadPropMac
 	}
 	
 	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of surgeon.
+	 * @Parms: Pfname,  Plname,  Pgender,  Pphnum,  Ppicupload,  Paddress,  psurgeonSpec,  surgeonDesignation,  surgeonQualification,  pfexp,  isHospital,  psurgeonHospitalName,  psurgeonHospitalAddress,  potherSpecialization,  plistTreatments,  pabout,  pcertificates
+	 * @Return: NA
+	 */
+	public void surgeonProfile_details(String Pfname, String Plname, String Pgender, String Pphnum, String Ppicupload, String Paddress, String psurgeonSpec, String surgeonDesignation, String surgeonQualification, String pfexp, String isHospitalTrue, String psurgeonHospitalName, String psurgeonHospitalAddress, String potherSpecialization, String plistTreatments, String pabout, String pcertificates) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, Paddress);
+		Browser.selectbyID(Elements_ZMTusers.profile_Specialities, psurgeonSpec);
+		Browser.selectbyID(Elements_ZMTusers.profile_surgeonDesignation, surgeonDesignation);
+		Browser.enterTextByID(Elements_ZMTusers.profile_surgeonQualification, surgeonQualification);
+		Browser.enterTextByID(Elements_ZMTusers.profile_experience, pfexp);
+		if(isHospitalTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddLink);
+			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalName, psurgeonHospitalName);
+			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalAddress, psurgeonHospitalAddress);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddSaveBtn);
+		}
+		else{
+			System.out.println("Surgeon is not associated with any hospitals.");
+		}
+		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, potherSpecialization);
+		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, plistTreatments);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, pcertificates);
+		Thread.sleep(8000);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
+	}
+	
+	/*
 	 * @Author: Ch.LakshmiKanth
 	 * @Desc: This method is used to Submit Your Profile In Careers .
 	 * @Parms: NA
