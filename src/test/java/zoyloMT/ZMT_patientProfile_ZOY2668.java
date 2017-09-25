@@ -77,7 +77,7 @@ public class ZMT_patientProfile_ZOY2668 extends LoadPropMac
 	}
 	
 	@Test(dataProvider="zmts", priority=3)
-	public void clearData(String Pfname, String	Plname, String Pgender, String Page, String	Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates) throws Exception
+	public void patientProfile_Save(String Pfname, String	Plname, String Pgender, String Page, String	Pphnum, String Ppicupload, String Paddress, String Pmedcondition, String Prefdoc, String Pcertificates) throws Exception
 	{
 		zmtUserPage.patientProfile_details(Pfname, Plname, Pgender, Page, Pphnum, Ppicupload, Paddress, Pmedcondition, Prefdoc, Pcertificates);
 		Browser.zmt_notification("User profile saved successfully");
