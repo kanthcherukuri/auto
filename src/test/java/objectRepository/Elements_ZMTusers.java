@@ -20,6 +20,7 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String TopHospitalMenu,TopHospitals_Size, SubmitEnquiry_TopHospitals, Name_TopHospitals,
 	Email_TopHospitals,Phone_TopHospitals,Query_TopHospitals,Submit_TopHospitals,GetEstimate_TopHospitals, Hospitals_Usefulllinks,Listofhospitalssize,
 	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
+	public static String profile_specialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_specialization;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Profile
@@ -36,6 +37,7 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_referalPhysician="referalPhysician"; //ID
 		profile_UploadCertificates="upload-certificates"; //ID
 		profile_myAccountSave="myAccountSave"; //ID
+		profile_specialities="hospitalSpecialities";//ID
 		//Profile Validation
 		profile_firstName_Validation="//input[@id='firstName']/following-sibling::ul";
 		profile_lastName_Validation="//input[@id='lastName']/following-sibling::ul";

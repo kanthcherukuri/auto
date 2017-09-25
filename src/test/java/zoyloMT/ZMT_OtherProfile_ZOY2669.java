@@ -19,7 +19,8 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 	
 	public TestUtils Browser;
 	public ZMTPage zmtUserPage;
-	public String emailID="divyasaithirtythree@gmail.com";
+	public String emailID="divyasaitwentythiree@gmail.com";
+	
 	
 	@BeforeClass
 	public void Browser() throws Exception {	
@@ -37,6 +38,12 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 		zmtUserPage.SignUpForm_Details("DivyaSainineteen", "yarla", emailID,"India", "Hyderabad", "kanth@666", "kanth@666", "9900660008", "Other", "Hi Divya hello");
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
+		String checkfname=Browser.getTextBoxValueByID("firstName");
+		Assert.assertEquals(checkfname, "DivyaSainineteen");
+		String checklastname=Browser.getTextBoxValueByID("lastName");
+		Assert.assertEquals(checklastname, "yarla");
+		String checkphone=Browser.getTextBoxValueByID("phone");
+		Assert.assertEquals(checkphone, "9900660008");
 		
 		
 	}
@@ -59,7 +66,7 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 		driver.findElement(By.id("firstName")).clear();
 		driver.findElement(By.id("lastName")).clear();
 		driver.findElement(By.id("phone")).clear();
-		zmtUserPage.OtherProfile_Details(firstname, lastname, phone, specialities, Ayearofest, AICUB, ASurgeons, designation, specialization, listoftreatments, Aaboutyourself, Amessage);
+		zmtUserPage.OtherProfile_Details(firstname, lastname, phone, specialities, yearofest, ICUB, Surgeons, designation, specialization, listoftreatments, aboutyourself, message);
 		String fname=driver.findElement(By.xpath("//input[@id='firstName']//following-sibling::ul")).getText();
 		Assert.assertEquals(fname, Afname);
 		String lname=driver.findElement(By.xpath("//input[@id='lastName']//following-sibling::ul")).getText();

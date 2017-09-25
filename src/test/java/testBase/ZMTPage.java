@@ -150,10 +150,10 @@ public class ZMTPage extends LoadPropMac
 	public void OtherProfile_Details(String firstname,String lastname,String phone,String specialities,String yearofest,String ICUB,String Surgeons,
 			String designation,String specialization,String listoftreatments,String aboutyourself ,String message) {
 		
-		Browser.enterTextByID("firstName",firstname);
-		Browser.enterTextByID("lastName", lastname);
-		Browser.enterTextByID("phone", phone);
-		Browser.selectbyID("hospitalSpecialities", specialities);
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName,firstname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, lastname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, phone);
+		Browser.selectbyID(Elements_ZMTusers.profile_specialities, specialities);
 		Browser.enterTextByID("yearOfEstablishment", yearofest);
 		Browser.enterTextByID("numberOfICUBeds", ICUB);
 		Browser.enterTextByID("totalTeamOfSurgeons", Surgeons);
