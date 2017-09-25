@@ -191,15 +191,15 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_firstName,firstname);
 		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, lastname);
 		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, phone);
-		Browser.selectbyID(Elements_ZMTusers.profile_specialities, specialities);
-		Browser.enterTextByID("yearOfEstablishment", yearofest);
-		Browser.enterTextByID("numberOfICUBeds", ICUB);
-		Browser.enterTextByID("totalTeamOfSurgeons", Surgeons);
-		Browser.selectbyID("designation", designation);
-		Browser.selectbyID("otherSpecialization", specialization);
-		Browser.selectbyID("listOfTreatments", listoftreatments);
-		Browser.enterTextByID("aboutYourSelf", aboutyourself);
-		Browser.enterTextByID("message", message);
-		Browser.clickOnTheElementByID("myAccountSave");
+		Browser.selectbyID(Elements_ZMTusers.profile_hospitalspecialities, specialities);
+		Browser.enterTextByID(Elements_ZMTusers.profile_yearofest, yearofest);
+		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, ICUB);
+		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, Surgeons);
+		Browser.selectbyID(Elements_ZMTusers.profile_designation, designation);
+		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, specialization);
+		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, listoftreatments);
+		Browser.enterTextByID(Elements_ZMTusers.profile_aboutYourSelf, aboutyourself);
+		Browser.enterTextByID(Elements_ZMTusers.profile_message, message);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 	}
 }

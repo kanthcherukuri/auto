@@ -21,7 +21,8 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String TopHospitalMenu,TopHospitals_Size, SubmitEnquiry_TopHospitals, Name_TopHospitals,
 	Email_TopHospitals,Phone_TopHospitals,Query_TopHospitals,Submit_TopHospitals,GetEstimate_TopHospitals, Hospitals_Usefulllinks,Listofhospitalssize,
 	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
-	public static String profile_specialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_specialization;
+	public static String profile_hospitalspecialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_aboutYourSelf,profile_message,
+	profile_yearofest_validation,profile_ICUB_validation,profile_Surgeons_validation,profile_aboutYourSelf_validation,profile_message_validation;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Profile
@@ -50,7 +51,13 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_otherSpecialization="otherSpecialization"; //ID
 		profile_listOfTreatments="listOfTreatments"; //ID
 		profile_about="aboutYourSelf"; //ID
-		profile_specialities="hospitalSpecialities";//ID
+		profile_hospitalspecialities="hospitalSpecialities";//ID
+		profile_yearofest="yearOfEstablishment";//ID
+		profile_ICUB="numberOfICUBeds";
+		profile_Surgeons="totalTeamOfSurgeons";
+		profile_designation="designation";
+		profile_aboutYourSelf="aboutYourSelf";
+		profile_message="message";
 		//Profile Validation
 		profile_firstName_Validation="//input[@id='firstName']/following-sibling::ul";
 		profile_lastName_Validation="//input[@id='lastName']/following-sibling::ul";
@@ -59,6 +66,11 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_age_Validation="//input[@id='age']/following-sibling::ul";
 		profile_medicalCondition_Validation="//input[@id='medicalCondition']/following-sibling::ul";
 		profile_referalPhysician_Validation="//input[@id='referalPhysician']/following-sibling::ul";
+		profile_yearofest_validation="//input[@id='yearOfEstablishment']//following-sibling::ul";
+		profile_ICUB_validation="//input[@id='numberOfICUBeds']//following-sibling::ul";
+		profile_Surgeons_validation="//textarea[@id='totalTeamOfSurgeons']//following-sibling::ul";
+		profile_aboutYourSelf_validation="//textarea[@id='aboutYourSelf']//following-sibling::ul";
+		profile_message_validation="//textarea[@id='message']//following-sibling::ul";
 		
 		//Home page
 		zmt_login="loginFormData"; //ID

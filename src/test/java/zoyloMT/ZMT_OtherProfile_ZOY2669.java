@@ -38,11 +38,11 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 		zmtUserPage.SignUpForm_Details("DivyaSainineteen", "yarla", emailID,"India", "Hyderabad", "kanth@666", "kanth@666", "9900660008", "Other", "Hi Divya hello");
 		Browser.clickOnTheElementByID(Elements_ZMTusers.signUp_submit);
 		Browser.zmt_notification("user created successfully");
-		String checkfname=Browser.getTextBoxValueByID("firstName");
+		String checkfname=Browser.getTextBoxValueByID(Elements_ZMTusers.profile_firstName);
 		Assert.assertEquals(checkfname, "DivyaSainineteen");
-		String checklastname=Browser.getTextBoxValueByID("lastName");
+		String checklastname=Browser.getTextBoxValueByID(Elements_ZMTusers.profile_lastName);
 		Assert.assertEquals(checklastname, "yarla");
-		String checkphone=Browser.getTextBoxValueByID("phone");
+		String checkphone=Browser.getTextBoxValueByID(Elements_ZMTusers.profile_phNum);
 		Assert.assertEquals(checkphone, "9900660008");
 		
 		
@@ -67,21 +67,21 @@ public class ZMT_OtherProfile_ZOY2669 extends LoadPropMac {
 		driver.findElement(By.id("lastName")).clear();
 		driver.findElement(By.id("phone")).clear();
 		zmtUserPage.OtherProfile_Details(firstname, lastname, phone, specialities, yearofest, ICUB, Surgeons, designation, specialization, listoftreatments, aboutyourself, message);
-		String fname=driver.findElement(By.xpath("//input[@id='firstName']//following-sibling::ul")).getText();
+		String fname=driver.findElement(By.xpath(Elements_ZMTusers.profile_firstName_Validation)).getText();
 		Assert.assertEquals(fname, Afname);
-		String lname=driver.findElement(By.xpath("//input[@id='lastName']//following-sibling::ul")).getText();
+		String lname=driver.findElement(By.xpath(Elements_ZMTusers.profile_lastName_Validation)).getText();
 		Assert.assertEquals(lname, Alname);
-		String phnum=driver.findElement(By.xpath("//input[@id='phone']//following-sibling::ul")).getText();
+		String phnum=driver.findElement(By.xpath(Elements_ZMTusers.profile_phNum_Validation)).getText();
 		Assert.assertEquals(phnum, Aphnum);
-		String establishyear=driver.findElement(By.xpath("//input[@id='yearOfEstablishment']//following-sibling::ul")).getText();
+		String establishyear=driver.findElement(By.xpath(Elements_ZMTusers.profile_yearofest_validation)).getText();
 		Assert.assertEquals(establishyear, Ayearofest);
-		String numICUB=driver.findElement(By.xpath("//input[@id='numberOfICUBeds']//following-sibling::ul")).getText();
+		String numICUB=driver.findElement(By.xpath(Elements_ZMTusers.profile_ICUB_validation)).getText();
 		Assert.assertEquals(numICUB, AICUB);
-		String noofsurgeons=driver.findElement(By.xpath("//textarea[@id='totalTeamOfSurgeons']//following-sibling::ul")).getText();
+		String noofsurgeons=driver.findElement(By.xpath(Elements_ZMTusers.profile_Surgeons_validation)).getText();
 		Assert.assertEquals(noofsurgeons, ASurgeons);
-		String yourself=driver.findElement(By.xpath("//textarea[@id='aboutYourSelf']//following-sibling::ul")).getText();
+		String yourself=driver.findElement(By.xpath(Elements_ZMTusers.profile_aboutYourSelf_validation)).getText();
 		Assert.assertEquals(yourself, Aaboutyourself);
-		String msg=driver.findElement(By.xpath("//textarea[@id='message']//following-sibling::ul")).getText();
+		String msg=driver.findElement(By.xpath(Elements_ZMTusers.profile_message_validation)).getText();
 		Assert.assertEquals(msg, Amessage);
 	}
 	
