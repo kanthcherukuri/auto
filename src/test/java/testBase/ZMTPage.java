@@ -145,4 +145,23 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.Query_TopHospitals, Query);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.Submit_Listofhospitals);
 	}
+	
+	
+	public void OtherProfile_Details(String firstname,String lastname,String phone,String specialities,String yearofest,String ICUB,String Surgeons,
+			String designation,String specialization,String listoftreatments,String aboutyourself ,String message) {
+		
+		Browser.enterTextByID("firstName",firstname);
+		Browser.enterTextByID("lastName", lastname);
+		Browser.enterTextByID("phone", phone);
+		Browser.selectbyID("hospitalSpecialities", specialities);
+		Browser.enterTextByID("yearOfEstablishment", yearofest);
+		Browser.enterTextByID("numberOfICUBeds", ICUB);
+		Browser.enterTextByID("totalTeamOfSurgeons", Surgeons);
+		Browser.selectbyID("designation", designation);
+		Browser.selectbyID("otherSpecialization", specialization);
+		Browser.selectbyID("listOfTreatments", listoftreatments);
+		Browser.enterTextByID("aboutYourSelf", aboutyourself);
+		Browser.enterTextByID("message", message);
+		Browser.clickOnTheElementByID("myAccountSave");
+	}
 }
