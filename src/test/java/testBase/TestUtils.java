@@ -389,6 +389,7 @@ public class TestUtils {
 	{
 		WebDriverWait wait = (new WebDriverWait(driver, 60));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Xpath)));
+		driver.findElement(By.xpath(Xpath)).clear();
 		driver.findElement(By.xpath(Xpath)).sendKeys(data);
 		System.out.println("Texted = "+data);
 		Reporter.log("Text Entered="+data);
