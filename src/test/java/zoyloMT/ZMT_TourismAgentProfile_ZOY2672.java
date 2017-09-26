@@ -18,7 +18,7 @@ public class ZMT_TourismAgentProfile_ZOY2672 extends LoadPropMac{
 	
 	public TestUtils Browser;
 	public ZMTPage zmtUserPage;
-	public String emailID="rollsroycenine@gmail.com";
+	public String emailID="rollsroyceninethree@gmail.com";
 	
 	
 	@BeforeClass
@@ -64,7 +64,7 @@ public class ZMT_TourismAgentProfile_ZOY2672 extends LoadPropMac{
 		driver.findElement(By.id(Elements_ZMTusers.profile_firstName)).clear();
 		driver.findElement(By.id(Elements_ZMTusers.profile_lastName)).clear();
 		driver.findElement(By.id(Elements_ZMTusers.profile_phNum)).clear();
-		//driver.findElement(By.id(Elements_ZMTusers.profile_homeAddress)).clear();
+		driver.findElement(By.id(Elements_ZMTusers.profile_homeAddress)).clear();
 		zmtUserPage.TourismAgentProfile_Details(TAFirstName, TALastName, TAPhone, TAaddress, TAaccreditation, TAServices, TAPersonName, TAPersonPhone, TAPersonAvailabilityFrom, TAPersonAvailabilityTo);
 		String fname=driver.findElement(By.xpath(Elements_ZMTusers.profile_firstName_Validation)).getText();
 		Assert.assertEquals(fname, Afname);
@@ -80,7 +80,27 @@ public class ZMT_TourismAgentProfile_ZOY2672 extends LoadPropMac{
 		Assert.assertEquals(availabilityFrom, AavailabilityFrom);
 		String availabilityTo=driver.findElement(By.xpath(Elements_ZMTusers.profile_contactperson_availabityTo_validation)).getText();
 		Assert.assertEquals(availabilityTo, AavailabilityTo);
+		
+	}
+	
+	
+	@DataProvider(name="TourismAgentProfileSave")
+	public Object[][] OtherProfile() throws Exception
+	{
+		Object[][] TourismProfile=TestUtils.getTableArray("TestData/zmt.xls", "OtherProfile", "ZMT2672S");
+		return(TourismProfile);
+	}
+	
+	
+	@Test(dataProvider="TourismAgentProfileSave",priority=3)
+	public void CheckTourismAgentProfileSaving(String TAFirstName,String TALastName,String TAPhone,String TAaddress ,String TAaccreditation,
+			String TAServices,String TAPersonName,String TAPersonPhone,String TAPersonAvailabilityFrom,String TAPersonAvailabilityTo) throws Exception {
+		
+		zmtUserPage.TourismAgentProfile_Details(TAFirstName, TALastName, TAPhone, TAaddress, TAaccreditation, TAServices, TAPersonName, TAPersonPhone, TAPersonAvailabilityFrom, 
+				TAPersonAvailabilityTo);
+		Browser.zmt_notification("User profile saved successfully");
 		Browser.mongoDB_Remove("52.66.101.182", 27219, "zoynpap", "zoylo_zqa", "apz0yl0_321", "zmtusers", "email", emailID);
 	}
+	
 
 }

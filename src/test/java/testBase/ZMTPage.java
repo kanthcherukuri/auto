@@ -217,7 +217,7 @@ public class ZMTPage extends LoadPropMac
 	 */
 	
 	public void TourismAgentProfile_Details(String FirstName,String LastName,String Phone,String address ,String accreditation,
-			String Services,String PersonName,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) {
+			String Services,String PersonName,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) throws Exception {
 		
 		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, FirstName);
 		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, LastName);
@@ -229,6 +229,7 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, PersonPhone);
 		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, PersonAvailabilityFrom);
 		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, PersonAvailabilityTo);
+		Browser.ScrollDown();
 		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 		
 	}
