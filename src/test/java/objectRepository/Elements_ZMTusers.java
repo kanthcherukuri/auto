@@ -7,6 +7,7 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static WebDriver driver;
 	
 	public static String profile_firstName, profile_lastName, profile_phNum, profile_homeAddress, profile_gender, profile_age, profile_profileImg, profile_medicalCondition, profile_medicalInsuranceCheckBox, profile_insuranceCompName, profile_referalPhysician, profile_UploadCertificates;
+	public static String profile_accreditations, profile_numOfBeds, profile_addTopSurgeon, profile_addNewSurgeon_Name, profile_addNewSurgeon_Exp, profile_addNewSurgeon_Submit, profile_facilities, profile_services;
 	public static String profile_firstName_Validation, profile_lastName_Validation, profile_phNum_Validation, profile_homeAddress_Validation, profile_gender_Validation, profile_age_Validation, profile_medicalCondition_Validation, profile_referalPhysician_Validation, profile_myAccountSave;
 	public static String profile_Specialities, profile_surgeonDesignation, profile_surgeonQualification, profile_experience, profile_surgeonHospitalCheckBox, profile_surgeonHospitalAddLink, profile_surgeonHospitalName, profile_surgeonHospitalAddress, profile_surgeonHospitalAddSaveBtn, profile_otherSpecialization, profile_listOfTreatments, profile_about;
 	public static String zmt_login, zmt_SearchButton, zmtuserProfileButton, zmt_LogoutDropDown, zmt_confirmLogout, zmt_SignUp_Button, zmt_AboutUs_menuTab, zmt_serviceAndSpeciality_menuTab, zmt_visionAndMission_menuTab, zmt_partnerWithUs_menuTab, zmt_career_menuTab, zmt_contactUs_menuTab, zmt_blog_menuTab, zmt_partnerWithUs_footerLink, zmt_hospital_footerLink, zmt_hospitalListPageHeader, zmt_surgeon_footerLink, zmt_surgeonListPageHeader, zmt_planUrTrip_footerLink, zmt_contactUs_footerLink, zmt_priceList_footerLink, zmt_priceListPage, zmt_facebook_footerLink, zmt_facebookPage, zmt_googlePlus_footerLink, zmt_twitter_footerLink, zmt_readMoreOnHomePage, zmt_viewAllSpecialitiesButton, zmt_sepcialityPopUp, zmt_AboutUsPageElement, zmt_servicesPage, zmt_ReadMore, zmt_ReadMoreLink, zmt_Readless, zmt_VisionPage, zmt_partnersPage, zmt_partnerLinkPage, zmt_loginForm_closeButton, zmt_careerPage, zmt_contactUsPage;
@@ -53,11 +54,19 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_about="aboutYourSelf"; //ID
 		profile_hospitalspecialities="hospitalSpecialities";//ID
 		profile_yearofest="yearOfEstablishment";//ID
+		profile_numOfBeds="numberOfBeds"; //ID
 		profile_ICUB="numberOfICUBeds";
 		profile_Surgeons="totalTeamOfSurgeons";
 		profile_designation="designation";
 		profile_aboutYourSelf="aboutYourSelf";
 		profile_message="message";
+		profile_accreditations="accreditation"; //ID
+		profile_addTopSurgeon="addTopSurgeonTag"; //ID
+		profile_addNewSurgeon_Name="topSurgeonName"; //ID
+		profile_addNewSurgeon_Exp="topSurgeonExperiance"; //ID
+		profile_addNewSurgeon_Submit="addTopSurgeonModalBtn"; //ID
+		profile_facilities="facilities"; //ID
+		profile_services="services"; //ID
 		//Profile Validation
 		profile_firstName_Validation="//input[@id='firstName']/following-sibling::ul";
 		profile_lastName_Validation="//input[@id='lastName']/following-sibling::ul";

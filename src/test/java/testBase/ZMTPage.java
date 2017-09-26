@@ -148,6 +148,44 @@ public class ZMTPage extends LoadPropMac
 	}
 	
 	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of Hospital.
+	 * @Parms: 
+	 * @Return: NA
+	 */
+	public void hospitalProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String paccredValue, String phospSpec, String pestYear, String pnumOfBeds, String pICUbeds, String psurgeonTeams, String pfacilities, String pservices, String pabout, String Pcertificates, String isTopSurgeonTrue, String ptopSurgeonName, String ptopSurgeonExp) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
+		Browser.enterTextByID(Elements_ZMTusers.profile_age, Page);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, Paddress);
+		Browser.selectbyID(Elements_ZMTusers.profile_accreditations, paccredValue);
+		Browser.selectbyID(Elements_ZMTusers.profile_hospitalspecialities, phospSpec);
+		Browser.enterTextByID(Elements_ZMTusers.profile_yearofest, pestYear);
+		Browser.selectbyID(Elements_ZMTusers.profile_numOfBeds, pnumOfBeds);
+		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, pICUbeds);
+		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, psurgeonTeams);
+		Browser.selectbyID(Elements_ZMTusers.profile_facilities, pfacilities);
+		Browser.selectbyID(Elements_ZMTusers.profile_services, pservices);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
+		Thread.sleep(8000);
+		if(isTopSurgeonTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addTopSurgeon);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Name, ptopSurgeonName);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Exp, ptopSurgeonExp);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addNewSurgeon_Submit);
+			Thread.sleep(800);
+		}
+	}
+	
+	/*
 	 * @Author: Ch.LakshmiKanth
 	 * @Desc: This method is used to Submit Your Profile In Careers .
 	 * @Parms: NA
