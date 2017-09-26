@@ -46,6 +46,8 @@ public class ZMT_contactUs_ZOY2658 extends LoadPropMac
 	{
 		Browser.openUrl("https://"+Zmt_environmentname+".com/contact-us");
 		zmtUserPage.contactUs_Details(Name, Gender, Age, Country, City, email, phone, message);
+		Browser.scrollbyID(Elements_ZMTusers.contactUs_submitButton);
+		Thread.sleep(400);
 		Browser.clickOnTheElementByID(Elements_ZMTusers.contactUs_submitButton);
 		String nameValidation=driver.findElement(By.xpath("//input[@id='contactUsName']/following-sibling::ul")).getText();
 		String genderValidation=driver.findElement(By.xpath("//select[@id='contactUsGender']/following-sibling::ul")).getText();
