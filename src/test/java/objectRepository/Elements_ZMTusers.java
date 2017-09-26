@@ -7,7 +7,9 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static WebDriver driver;
 	
 	public static String profile_firstName, profile_lastName, profile_phNum, profile_homeAddress, profile_gender, profile_age, profile_profileImg, profile_medicalCondition, profile_medicalInsuranceCheckBox, profile_insuranceCompName, profile_referalPhysician, profile_UploadCertificates;
+	public static String profile_accreditations, profile_numOfBeds, profile_addTopSurgeon, profile_addNewSurgeon_Name, profile_addNewSurgeon_Exp, profile_addNewSurgeon_Submit, profile_facilities, profile_services;
 	public static String profile_firstName_Validation, profile_lastName_Validation, profile_phNum_Validation, profile_homeAddress_Validation, profile_gender_Validation, profile_age_Validation, profile_medicalCondition_Validation, profile_referalPhysician_Validation, profile_myAccountSave;
+	public static String profile_Specialities, profile_surgeonDesignation, profile_surgeonQualification, profile_experience, profile_surgeonHospitalCheckBox, profile_surgeonHospitalAddLink, profile_surgeonHospitalName, profile_surgeonHospitalAddress, profile_surgeonHospitalAddSaveBtn, profile_otherSpecialization, profile_listOfTreatments, profile_about;
 	public static String zmt_login, zmt_SearchButton, zmtuserProfileButton, zmt_LogoutDropDown, zmt_confirmLogout, zmt_SignUp_Button, zmt_AboutUs_menuTab, zmt_serviceAndSpeciality_menuTab, zmt_visionAndMission_menuTab, zmt_partnerWithUs_menuTab, zmt_career_menuTab, zmt_contactUs_menuTab, zmt_blog_menuTab, zmt_partnerWithUs_footerLink, zmt_hospital_footerLink, zmt_hospitalListPageHeader, zmt_surgeon_footerLink, zmt_surgeonListPageHeader, zmt_planUrTrip_footerLink, zmt_contactUs_footerLink, zmt_priceList_footerLink, zmt_priceListPage, zmt_facebook_footerLink, zmt_facebookPage, zmt_googlePlus_footerLink, zmt_twitter_footerLink, zmt_readMoreOnHomePage, zmt_viewAllSpecialitiesButton, zmt_sepcialityPopUp, zmt_AboutUsPageElement, zmt_servicesPage, zmt_ReadMore, zmt_ReadMoreLink, zmt_Readless, zmt_VisionPage, zmt_partnersPage, zmt_partnerLinkPage, zmt_loginForm_closeButton, zmt_careerPage, zmt_contactUsPage;
 	public static String zmt_submitEngquiryButton, zmt_enquireFirstName, zmt_enquiryEmail, zmt_enquiryQury, zmt_submitEnquiry;
 	public static String zmt_getEstimateButton, zmt_surgeonsListCount_searchList, zmt_surgeonsListCount_listOfSurgeons;
@@ -20,6 +22,8 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String TopHospitalMenu,TopHospitals_Size, SubmitEnquiry_TopHospitals, Name_TopHospitals,
 	Email_TopHospitals,Phone_TopHospitals,Query_TopHospitals,Submit_TopHospitals,GetEstimate_TopHospitals, Hospitals_Usefulllinks,Listofhospitalssize,
 	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
+	public static String profile_hospitalspecialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_aboutYourSelf,profile_message,profile_yearofest_validation, profile_qualification_Validation, profile_experience_validation, profile_surgeonHospitalName_validation, profile_surgeonHospitalAddress_validation,profile_surgeonHospitalAddress_validationprofile_yearofest_validation,profile_ICUB_validation,profile_Surgeons_validation,profile_aboutYourSelf_validation,profile_message_validation,
+	profile_contactperson_name,profile_contactperson_phone,profile_contactperson_availabilityFrom,profile_contactperson_availabilityTo,profile_contactperson_name_validation,profile_contactperson_phone_validation,profile_contactperson_availabityfrom_validation,profile_contactperson_availabityTo_validation;
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Profile
@@ -36,6 +40,33 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_referalPhysician="referalPhysician"; //ID
 		profile_UploadCertificates="upload-certificates"; //ID
 		profile_myAccountSave="myAccountSave"; //ID
+		profile_Specialities="specialities"; //ID
+		profile_surgeonDesignation="designation"; //ID
+		profile_surgeonQualification="qualifications"; //ID
+		profile_experience="experiance"; //ID
+		profile_surgeonHospitalCheckBox="isHospitalAssociatedWith"; //ID
+		profile_surgeonHospitalAddLink="addTagHospitalAssociatedWith"; //ID
+		profile_surgeonHospitalName="addHospitalName"; //ID
+		profile_surgeonHospitalAddress="addHospitalAddress"; //ID
+		profile_surgeonHospitalAddSaveBtn="addHospitalAddressModalBtn"; //ID
+		profile_otherSpecialization="otherSpecialization"; //ID
+		profile_listOfTreatments="listOfTreatments"; //ID
+		profile_about="aboutYourSelf"; //ID
+		profile_hospitalspecialities="hospitalSpecialities";//ID
+		profile_yearofest="yearOfEstablishment";//ID
+		profile_numOfBeds="numberOfBeds"; //ID
+		profile_ICUB="numberOfICUBeds";
+		profile_Surgeons="totalTeamOfSurgeons";
+		profile_designation="designation";
+		profile_aboutYourSelf="aboutYourSelf";
+		profile_message="message";
+		profile_accreditations="accreditation"; //ID
+		profile_addTopSurgeon="addTopSurgeonTag"; //ID
+		profile_addNewSurgeon_Name="topSurgeonName"; //ID
+		profile_addNewSurgeon_Exp="topSurgeonExperiance"; //ID
+		profile_addNewSurgeon_Submit="addTopSurgeonModalBtn"; //ID
+		profile_facilities="facilities"; //ID
+		profile_services="services"; //ID
 		//Profile Validation
 		profile_firstName_Validation="//input[@id='firstName']/following-sibling::ul";
 		profile_lastName_Validation="//input[@id='lastName']/following-sibling::ul";
@@ -44,6 +75,15 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_age_Validation="//input[@id='age']/following-sibling::ul";
 		profile_medicalCondition_Validation="//input[@id='medicalCondition']/following-sibling::ul";
 		profile_referalPhysician_Validation="//input[@id='referalPhysician']/following-sibling::ul";
+		profile_yearofest_validation="//input[@id='yearOfEstablishment']//following-sibling::ul";
+		profile_ICUB_validation="//input[@id='numberOfICUBeds']//following-sibling::ul";
+		profile_Surgeons_validation="//textarea[@id='totalTeamOfSurgeons']//following-sibling::ul";
+		profile_aboutYourSelf_validation="//textarea[@id='aboutYourSelf']//following-sibling::ul";
+		profile_message_validation="//textarea[@id='message']//following-sibling::ul";
+		profile_qualification_Validation="//input[@id='qualifications']/following-sibling::ul";
+		profile_experience_validation="//input[@id='experiance']/following-sibling::ul";
+		profile_surgeonHospitalName_validation="//input[@id='addHospitalName']/following-sibling::ul";
+		profile_surgeonHospitalAddress_validation="//textarea[@id='addHospitalAddress']/following-sibling::ul";
 		
 		//Home page
 		zmt_login="loginFormData"; //ID
@@ -158,6 +198,16 @@ public class Elements_ZMTusers extends LoadPropMac
 		 SubmitEnquiry_ListOfhospitals="(//span[@class='btn btn-default sub-enqbtn'])[1]";
 		 Submit_Listofhospitals="//form[@id='submitEnq']//button[@id='0']";
 		 GetEstimate_Listofhospitals="(//span[@class='pull-right btn btn-default get-estbtn'])[1]";
+		 
+		 //Profile
+		 profile_contactperson_name="name";
+		 profile_contactperson_phone="phoneNumber";
+		 profile_contactperson_availabilityFrom="availabilityFrom";
+		 profile_contactperson_availabilityTo="availabilityTo";
+		 profile_contactperson_name_validation="//input[@id='name']//following-sibling::ul";
+		 profile_contactperson_phone_validation="//input[@id='phoneNumber']/following-sibling::ul";
+		 profile_contactperson_availabityfrom_validation="//input[@id='availabilityFrom']/following-sibling::ul";
+		 profile_contactperson_availabityTo_validation="//input[@id='availabilityTo']/following-sibling::ul";
 		 
 		return driver;
 	}

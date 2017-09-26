@@ -106,7 +106,83 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_referalPhysician, Prefdoc);
 		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
 		Thread.sleep(8000);
-		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
+	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of surgeon.
+	 * @Parms: Pfname,  Plname,  Pgender,  Pphnum,  Ppicupload,  Paddress,  psurgeonSpec,  surgeonDesignation,  surgeonQualification,  pfexp,  isHospital,  psurgeonHospitalName,  psurgeonHospitalAddress,  potherSpecialization,  plistTreatments,  pabout,  pcertificates
+	 * @Return: NA
+	 */
+	public void surgeonProfile_details(String Pfname, String Plname, String Pgender, String Pphnum, String Ppicupload, String Paddress, String psurgeonSpec, String surgeonDesignation, String surgeonQualification, String pfexp, String isHospitalTrue, String psurgeonHospitalName, String psurgeonHospitalAddress, String potherSpecialization, String plistTreatments, String pabout, String pcertificates) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, Paddress);
+		Browser.selectbyID(Elements_ZMTusers.profile_Specialities, psurgeonSpec);
+		Browser.selectbyID(Elements_ZMTusers.profile_surgeonDesignation, surgeonDesignation);
+		Browser.enterTextByID(Elements_ZMTusers.profile_surgeonQualification, surgeonQualification);
+		Browser.enterTextByID(Elements_ZMTusers.profile_experience, pfexp);
+		if(isHospitalTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalCheckBox);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddLink);
+			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalName, psurgeonHospitalName);
+			Browser.enterTextByID(Elements_ZMTusers.profile_surgeonHospitalAddress, psurgeonHospitalAddress);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_surgeonHospitalAddSaveBtn);
+			Thread.sleep(800);
+		}
+		else{
+			System.out.println("Surgeon is not associated with any hospitals.");
+		}
+		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, potherSpecialization);
+		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, plistTreatments);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+pcertificates);
+		Thread.sleep(8000);
+	}
+	
+	/*
+	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of Hospital.
+	 * @Parms: 
+	 * @Return: NA
+	 */
+	public void hospitalProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String paccredValue, String phospSpec, String pestYear, String pnumOfBeds, String pICUbeds, String psurgeonTeams, String pfacilities, String pservices, String pabout, String Pcertificates, String isTopSurgeonTrue, String ptopSurgeonName, String ptopSurgeonExp) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
+		Browser.enterTextByID(Elements_ZMTusers.profile_age, Page);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, Paddress);
+		Browser.selectbyID(Elements_ZMTusers.profile_accreditations, paccredValue);
+		Browser.selectbyID(Elements_ZMTusers.profile_hospitalspecialities, phospSpec);
+		Browser.enterTextByID(Elements_ZMTusers.profile_yearofest, pestYear);
+		Browser.selectbyID(Elements_ZMTusers.profile_numOfBeds, pnumOfBeds);
+		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, pICUbeds);
+		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, psurgeonTeams);
+		Browser.selectbyID(Elements_ZMTusers.profile_facilities, pfacilities);
+		Browser.selectbyID(Elements_ZMTusers.profile_services, pservices);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
+		Thread.sleep(8000);
+		if(isTopSurgeonTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addTopSurgeon);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Name, ptopSurgeonName);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Exp, ptopSurgeonExp);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addNewSurgeon_Submit);
+			Thread.sleep(800);
+		}
 	}
 	
 	/*
@@ -145,4 +221,62 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.Query_TopHospitals, Query);
 		Browser.clickOnTheElementByXpath(Elements_ZMTusers.Submit_Listofhospitals);
 	}
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Other Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	
+	public void OtherProfile_Details(String firstname,String lastname,String phone,String specialities,String yearofest,String ICUB,String Surgeons,
+			String designation,String specialization,String listoftreatments,String aboutyourself ,String message) {
+		
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName,firstname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, lastname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, phone);
+		Browser.selectbyID(Elements_ZMTusers.profile_hospitalspecialities, specialities);
+		Browser.enterTextByID(Elements_ZMTusers.profile_yearofest, yearofest);
+		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, ICUB);
+		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, Surgeons);
+		Browser.selectbyID(Elements_ZMTusers.profile_designation, designation);
+		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, specialization);
+		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, listoftreatments);
+		Browser.enterTextByID(Elements_ZMTusers.profile_aboutYourSelf, aboutyourself);
+		Browser.enterTextByID(Elements_ZMTusers.profile_message, message);
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
+	}
+	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Tourism Agent Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
+	
+	public void TourismAgentProfile_Details(String FirstName,String LastName,String Phone,String address ,String accreditation,
+			String Services,String PersonName,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) throws Exception {
+		
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, FirstName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, LastName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Phone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, address);
+		Browser.selectbyID("accreditation", accreditation);
+		Browser.selectbyID("services", Services);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_name, PersonName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, PersonPhone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, PersonAvailabilityFrom);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, PersonAvailabilityTo);
+		Browser.ScrollDown();
+		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
+		
+	}
+			
+	
+	
+	
+	
+	
+	
+	
+	
 }
