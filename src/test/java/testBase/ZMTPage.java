@@ -106,7 +106,6 @@ public class ZMTPage extends LoadPropMac
 		Browser.enterTextByID(Elements_ZMTusers.profile_referalPhysician, Prefdoc);
 		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
 		Thread.sleep(8000);
-		Browser.clickOnTheElementByID(Elements_ZMTusers.profile_myAccountSave);
 	}
 	
 	/*
