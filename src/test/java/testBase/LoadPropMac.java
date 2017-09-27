@@ -198,7 +198,7 @@ public class LoadPropMac   {
 
 		}else if(browser_name.equals("phantom")){
 			  System.out.println("launching Phantom");
-			  File file = new File("/Users/ganeshkumarmandala/Desktop/phantomjs-2.1.1-macosx/bin/phantomjs");				
+			  File file = new File("BrowserDrivers/phantomjs-2.1.1-macosx/bin/phantomjs");				
 		      System.setProperty("phantomjs.binary.path", file.getAbsolutePath());
 		      String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36";
 		        //DesiredCapabilities caps = new DesiredCapabilities();
