@@ -150,16 +150,14 @@ public class ZMTPage extends LoadPropMac
 	/*
 	 * @Author: Sagar Sen
 	 * @Desc: This method is used to enter profile details of Hospital.
-	 * @Parms: 
+	 * @Parms: Pfname,  Plname,  Pgender, Ppicupload,  Paddress,  paccredValue,  phospSpec,  pestYear,  pnumOfBeds,  pICUbeds,  psurgeonTeams,  pfacilities,  pservices,  pabout,  pPName,  pPemail,  pPPhone,  pPAvailabilityFrom,  pPAvailabilityTo,  Pcertificates,  isTopSurgeonTrue,  ptopSurgeonName,  ptopSurgeonExp
 	 * @Return: NA
 	 */
-	public void hospitalProfile_details(String Pfname, String Plname, String Pgender, String Page, String Pphnum, String Ppicupload, String Paddress, String paccredValue, String phospSpec, String pestYear, String pnumOfBeds, String pICUbeds, String psurgeonTeams, String pfacilities, String pservices, String pabout, String Pcertificates, String isTopSurgeonTrue, String ptopSurgeonName, String ptopSurgeonExp) throws Exception
+	public void hospitalProfile_details(String Pfname, String Plname, String Pphnum, String Ppicupload, String Paddress, String paccredValue, String phospSpec, String pestYear, String pnumOfBeds, String pICUbeds, String psurgeonTeams, String pfacilities, String pservices, String pabout, String pPName, String pPemail, String pPPhone, String pPAvailabilityFrom, String pPAvailabilityTo, String Pcertificates, String isTopSurgeonTrue, String ptopSurgeonName, String ptopSurgeonExp) throws Exception
 	{
 		String current = System.getProperty("user.dir");
 		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
 		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
-		Browser.selectbyid(Elements_ZMTusers.profile_gender, Pgender);
-		Browser.enterTextByID(Elements_ZMTusers.profile_age, Page);
 		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
 		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
 		Thread.sleep(8000);
@@ -170,11 +168,6 @@ public class ZMTPage extends LoadPropMac
 		Browser.selectbyID(Elements_ZMTusers.profile_numOfBeds, pnumOfBeds);
 		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, pICUbeds);
 		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, psurgeonTeams);
-		Browser.selectbyID(Elements_ZMTusers.profile_facilities, pfacilities);
-		Browser.selectbyID(Elements_ZMTusers.profile_services, pservices);
-		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
-		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
-		Thread.sleep(8000);
 		if(isTopSurgeonTrue.equalsIgnoreCase("true"))
 		{
 			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addTopSurgeon);
@@ -183,6 +176,16 @@ public class ZMTPage extends LoadPropMac
 			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addNewSurgeon_Submit);
 			Thread.sleep(800);
 		}
+		Browser.selectbyID(Elements_ZMTusers.profile_facilities, pfacilities);
+		Browser.selectbyID(Elements_ZMTusers.profile_services, pservices);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_name, pPName);
+		Browser.enterTextByXpath(Elements_ZMTusers.profile_contactperson_email, pPemail);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, pPPhone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, pPAvailabilityFrom);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, pPAvailabilityTo);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
+		Thread.sleep(8000);
 	}
 	
 	/*

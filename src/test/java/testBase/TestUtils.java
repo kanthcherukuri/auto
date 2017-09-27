@@ -142,7 +142,7 @@ public class TestUtils {
 		public void ScrollUp()
 		{
 			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			jse.executeScript("window.scrollBy(0,-250)", "");
+			jse.executeScript("window.scrollBy(0,-500)", "");
 			Reporter.log("scrolled UP");
 		}
 		
@@ -151,7 +151,8 @@ public class TestUtils {
 				{
 					
 					JavascriptExecutor jse = (JavascriptExecutor)driver;
-					jse.executeScript("window.scrollBy(0,250)", "");
+					jse.executeScript("window.scrollBy(0,500)", "");
+					
 					Reporter.log("scrolled Down");
 					
 				}
