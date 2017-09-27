@@ -56,13 +56,6 @@ public class ZMT_surgeonProfile_ZOY2671 extends LoadPropMac
 		String vAddress=driver.findElement(By.xpath(Elements_ZMTusers.profile_homeAddress_Validation)).getText();
 		String vQualification=driver.findElement(By.xpath(Elements_ZMTusers.profile_qualification_Validation)).getText();
 		String vExp=driver.findElement(By.xpath(Elements_ZMTusers.profile_experience_validation)).getText();
-		if(isHospitalTrue.equalsIgnoreCase("true"))
-		{
-			String vHospitalName=driver.findElement(By.xpath(Elements_ZMTusers.profile_surgeonHospitalName_validation)).getText();
-			String vHospitalAddress=driver.findElement(By.xpath(Elements_ZMTusers.profile_surgeonHospitalAddress_validation)).getText();
-			Assert.assertEquals(NsurgeonHospitalName, vHospitalName);
-			Assert.assertEquals(NsurgeonHospitalAddress, vHospitalAddress);
-		}
 		String vabout=driver.findElement(By.xpath(Elements_ZMTusers.profile_aboutYourSelf_validation)).getText();
 		Assert.assertEquals(Nfname, vfname);
 		Assert.assertEquals(Nlname, vlname);

@@ -14,7 +14,7 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String zmt_submitEngquiryButton, zmt_enquireFirstName, zmt_enquiryEmail, zmt_enquiryQury, zmt_submitEnquiry;
 	public static String zmt_getEstimateButton, zmt_surgeonsListCount_searchList, zmt_surgeonsListCount_listOfSurgeons;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
-	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton;
+	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton, contactUs_name_validation, contactUs_gender_validation, contactUs_age_validation, contactUs_country_validation, contactUs_city_validation, contactUs_email_validation, contactUs_phone_validation, contactUs_message_validation;
 	public static String careers_fullname,careers_email,careers_mobile,careers_yearsofexperience,careers_monthsofexperirnce,careers_currentemployee,
 	careers_applyingfor, careers_currentctc,careers_upload,careers_submit;
 	public static String careers_fullnamevalidationtext,careers_emailvalidationtext,careers_mobilevalidationtext,careers_yearsofexperiencevalidationtext,careers_monthsofexperirncevalidationtext,careers_currentemployeevalidationtext,
@@ -159,7 +159,14 @@ public class Elements_ZMTusers extends LoadPropMac
 		contactUs_phone="contactUsPhone"; //ID
 		contactUs_message="contactUsMessage"; //ID
 		contactUs_submitButton="contactUsSubmit"; //ID
-		
+		contactUs_name_validation="//input[@id='contactUsName']/following-sibling::ul"; //XPATH
+		contactUs_gender_validation="//select[@id='contactUsGender']/following-sibling::ul"; //XPATH
+		contactUs_age_validation="//input[@id='contactUsAge']/following-sibling::ul"; //XPATH
+		contactUs_country_validation="//select[@id='searchCountry']/following-sibling::ul"; //XPATH
+		contactUs_city_validation="//select[@id='searchCity']/following-sibling::ul"; //XPATH
+		contactUs_email_validation="//input[@id='contactUsEmail']/following-sibling::ul"; //XPATH
+		contactUs_phone_validation="//input[@id='contactUsPhone']/following-sibling::ul"; //XPATH
+		contactUs_message_validation="//textarea[@id='contactUsMessage']/following-sibling::ul"; //XPATH
 		
 		//Careers
 		careers_fullname="fullName";
