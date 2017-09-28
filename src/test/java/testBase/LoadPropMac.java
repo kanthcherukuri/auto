@@ -160,7 +160,7 @@ public class LoadPropMac   {
 			//String os = System.getProperty("os.name").toLowerCase(); // Added to verify the OS
 			System.out.println("launching chrome browser");
 			//System.setProperty("java.awt.headless", "true");
-			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");			
+			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");			
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");                       //Added to launch chrome without GUI
 			options.addArguments("disable-infobars");                   // Added to remove new chrome warning message
