@@ -296,7 +296,29 @@ public class ZMTPage extends LoadPropMac
 		Browser.ScrollDown();
 	}
 	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Insurance Comapny  Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
 	
+	public void HotelProfile_Details(String FirstName,String LastName,String Phone,String address,String Rooms,String Facilities,
+			String PersonName,String Personemail,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) {
+		
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, FirstName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, LastName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Phone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, address);
+		Browser.selectbyID(Elements_ZMTusers.profile_NoofRoomsAvailable, Rooms);
+		Browser.selectbyID(Elements_ZMTusers.profile_facilities, Facilities);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_name, PersonName);
+		Browser.enterTextByXpath(Elements_ZMTusers.profile_contactperson_email, Personemail);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, PersonPhone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, PersonAvailabilityFrom);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, PersonAvailabilityTo);
+		Browser.ScrollDown();
+	}
 	
 	
 	
