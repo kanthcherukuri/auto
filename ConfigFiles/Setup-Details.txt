@@ -1,7 +1,7 @@
 
 //----Browser------//
 
-browser.name=firefox
+browser.name=chrome
 
 
 //----Environments=zoyloqa-dev ---//
