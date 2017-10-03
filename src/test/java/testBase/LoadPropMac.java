@@ -159,7 +159,7 @@ public class LoadPropMac   {
 		if(browser_name.equals("chrome")){
 			//String os = System.getProperty("os.name").toLowerCase(); // Added to verify the OS
 			System.out.println("launching chrome browser");
-			//System.setProperty("java.awt.headless", "true");
+			System.setProperty("java.awt.headless", "true");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");			
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");                       //Added to launch chrome without GUI
