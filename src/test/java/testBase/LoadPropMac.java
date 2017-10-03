@@ -162,11 +162,7 @@ public class LoadPropMac   {
 			//System.setProperty("java.awt.headless", "true");
 			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");			
 			ChromeOptions options = new ChromeOptions();
-
-			
-
 			//options.addArguments("--headless");                       //Added to launch chrome without GUI
-
 			options.addArguments("disable-infobars");                   // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1");   // Added to allow camera
 			//options.addArguments("--kiosk");                          // Added to Maximize window
@@ -183,7 +179,7 @@ public class LoadPropMac   {
 		}else if(browser_name.equals("firefox")){
 			
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriverFireLinux");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			FirefoxProfile profile = new FirefoxProfile();
@@ -202,7 +198,7 @@ public class LoadPropMac   {
 
 		}else if(browser_name.equals("phantom")){
 			  System.out.println("launching Phantom");
-			  File file = new File("/Users/ganeshkumarmandala/Desktop/phantomjs-2.1.1-macosx/bin/phantomjs");				
+			  File file = new File("BrowserDrivers/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");				
 		      System.setProperty("phantomjs.binary.path", file.getAbsolutePath());
 		      String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36";
 		        //DesiredCapabilities caps = new DesiredCapabilities();
