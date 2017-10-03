@@ -149,6 +149,47 @@ public class ZMTPage extends LoadPropMac
 	
 	/*
 	 * @Author: Sagar Sen
+	 * @Desc: This method is used to enter profile details of doctor referring patient.
+	 * @Parms: Pfname,  Plname,  Pphnum,  Ppicupload,  Paddress,  paccredValue,  phospSpec,  pestYear,  pnumOfBeds,  pICUbeds,  psurgeonTeams,  pfacilities,  pservices,  pabout,  pPName,  pPemail,  pPPhone,  pPAvailabilityFrom,  pPAvailabilityTo,  Pcertificates,  isTopSurgeonTrue,  ptopSurgeonName,  ptopSurgeonExp,  Nfname,  Nlname,  Nphnum, 	Naddress,  NestYear,  NICUbeds,  NsurgeonTeams,  NPName, 	NPemail, 	NPPhone, 	NPAvailabilityFrom,  NPAvailabilityTo, 	NtopSurgeonName, 	NtopSurgeonExp
+	 * @Return: NA
+	 */
+	public void docRefPatProfile_details(String Pfname, String Plname, String Pphnum, String Ppicupload, String ismoreAddressTrue, String pmoreAddress, String phospSpec, String pestYear, String pICUbeds, String psurgeonTeams, String isTopSurgeonTrue, String ptopSurgeonName, String ptopSurgeonExp, String pdesignation, String pspecialization, String plistoftreatments, String pabout, String Pcertificates) throws Exception
+	{
+		String current = System.getProperty("user.dir");
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, Pfname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, Plname);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Pphnum);
+		Browser.enterTextByID(Elements_ZMTusers.profile_profileImg, current+Ppicupload);
+		Thread.sleep(8000);
+		if(ismoreAddressTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addMoreAddress);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addAddress, pmoreAddress);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_moreAddressSaveBtn);
+			Thread.sleep(800);
+		}
+		Browser.selectbyID(Elements_ZMTusers.profile_hospitalspecialities, phospSpec);
+		Browser.enterTextByID(Elements_ZMTusers.profile_yearofest, pestYear);
+		Browser.enterTextByID(Elements_ZMTusers.profile_ICUB, pICUbeds);
+		Browser.enterTextByID(Elements_ZMTusers.profile_Surgeons, psurgeonTeams);
+		if(isTopSurgeonTrue.equalsIgnoreCase("true"))
+		{
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addTopSurgeon);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Name, ptopSurgeonName);
+			Browser.enterTextByID(Elements_ZMTusers.profile_addNewSurgeon_Exp, ptopSurgeonExp);
+			Browser.clickOnTheElementByID(Elements_ZMTusers.profile_addNewSurgeon_Submit);
+			Thread.sleep(800);
+		}
+		Browser.selectbyID(Elements_ZMTusers.profile_designation, pdesignation);
+		Browser.selectbyID(Elements_ZMTusers.profile_otherSpecialization, pspecialization);
+		Browser.selectbyID(Elements_ZMTusers.profile_listOfTreatments, plistoftreatments);
+		Browser.enterTextByID(Elements_ZMTusers.profile_about, pabout);
+		Browser.enterTextByID(Elements_ZMTusers.profile_UploadCertificates, current+Pcertificates);
+		Thread.sleep(8000);
+	}
+	
+	/*
+	 * @Author: Sagar Sen
 	 * @Desc: This method is used to enter profile details of Hospital.
 	 * @Parms: Pfname,  Plname,  Pgender, Ppicupload,  Paddress,  paccredValue,  phospSpec,  pestYear,  pnumOfBeds,  pICUbeds,  psurgeonTeams,  pfacilities,  pservices,  pabout,  pPName,  pPemail,  pPPhone,  pPAvailabilityFrom,  pPAvailabilityTo,  Pcertificates,  isTopSurgeonTrue,  ptopSurgeonName,  ptopSurgeonExp
 	 * @Return: NA
@@ -296,7 +337,29 @@ public class ZMTPage extends LoadPropMac
 		Browser.ScrollDown();
 	}
 	
+	/*
+	 * @Author: Ch.LakshmiKanth
+	 * @Desc: This method is used to Check Insurance Comapny  Profile Form Details .
+	 * @Parms: NA
+	 * @Return: NA
+	 */
 	
+	public void HotelProfile_Details(String FirstName,String LastName,String Phone,String address,String Rooms,String Facilities,
+			String PersonName,String Personemail,String PersonPhone,String PersonAvailabilityFrom,String PersonAvailabilityTo) {
+		
+		Browser.enterTextByID(Elements_ZMTusers.profile_firstName, FirstName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_lastName, LastName);
+		Browser.enterTextByID(Elements_ZMTusers.profile_phNum, Phone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_homeAddress, address);
+		Browser.selectbyID(Elements_ZMTusers.profile_NoofRoomsAvailable, Rooms);
+		Browser.selectbyID(Elements_ZMTusers.profile_facilities, Facilities);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_name, PersonName);
+		Browser.enterTextByXpath(Elements_ZMTusers.profile_contactperson_email, Personemail);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_phone, PersonPhone);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityFrom, PersonAvailabilityFrom);
+		Browser.enterTextByID(Elements_ZMTusers.profile_contactperson_availabilityTo, PersonAvailabilityTo);
+		Browser.ScrollDown();
+	}
 	
 	
 	

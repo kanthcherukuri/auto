@@ -12,6 +12,7 @@ public class Elements_ZMTusers extends LoadPropMac
 	public static String profile_Specialities, profile_surgeonDesignation, profile_surgeonQualification, profile_experience, profile_surgeonHospitalCheckBox, profile_surgeonHospitalAddLink, profile_surgeonHospitalName, profile_surgeonHospitalAddress, profile_surgeonHospitalAddSaveBtn, profile_otherSpecialization, profile_listOfTreatments, profile_about;
 	public static String zmt_login, zmt_SearchButton, zmtuserProfileButton, zmt_LogoutDropDown, zmt_confirmLogout, zmt_SignUp_Button, zmt_AboutUs_menuTab, zmt_serviceAndSpeciality_menuTab, zmt_visionAndMission_menuTab, zmt_partnerWithUs_menuTab, zmt_career_menuTab, zmt_contactUs_menuTab, zmt_blog_menuTab, zmt_partnerWithUs_footerLink, zmt_hospital_footerLink, zmt_hospitalListPageHeader, zmt_surgeon_footerLink, zmt_surgeonListPageHeader, zmt_planUrTrip_footerLink, zmt_contactUs_footerLink, zmt_priceList_footerLink, zmt_priceListPage, zmt_facebook_footerLink, zmt_facebookPage, zmt_googlePlus_footerLink, zmt_twitter_footerLink, zmt_readMoreOnHomePage, zmt_viewAllSpecialitiesButton, zmt_sepcialityPopUp, zmt_AboutUsPageElement, zmt_servicesPage, zmt_ReadMore, zmt_ReadMoreLink, zmt_Readless, zmt_VisionPage, zmt_partnersPage, zmt_partnerLinkPage, zmt_loginForm_closeButton, zmt_careerPage, zmt_contactUsPage;
 	public static String zmt_submitEngquiryButton, zmt_enquireFirstName, zmt_enquiryEmail, zmt_enquiryQury, zmt_submitEnquiry;
+	public static String profile_addMoreAddress, profile_addAddress, profile_moreAddressSaveBtn;
 	public static String zmt_getEstimateButton, zmt_surgeonsListCount_searchList, zmt_surgeonsListCount_listOfSurgeons;
 	public static String signUp_FirstName, signUp_LastName, signUp_email, signUp_country, signUp_state, signUp_password, signUp_confirmPassword, signUp_mobileNumber, signUp_functionalArea, signUp_address, signUp_submit;
 	public static String contactUs_name, contactUs_gender, contactUs_age, contactUs_country, contactUs_state, contactUs_email, contactUs_phone, contactUs_message, contactUs_submitButton, contactUs_name_validation, contactUs_gender_validation, contactUs_age_validation, contactUs_country_validation, contactUs_city_validation, contactUs_email_validation, contactUs_phone_validation, contactUs_message_validation;
@@ -24,6 +25,8 @@ public class Elements_ZMTusers extends LoadPropMac
 	SubmitEnquiry_ListOfhospitals, Submit_Listofhospitals,GetEstimate_Listofhospitals;
 	public static String profile_hospitalspecialities,profile_yearofest,profile_ICUB,profile_Surgeons,profile_designation,profile_aboutYourSelf,profile_message,profile_yearofest_validation, profile_qualification_Validation, profile_experience_validation, profile_surgeonHospitalName_validation, profile_surgeonHospitalAddress_validation,profile_ICUB_validation,profile_Surgeons_validation,profile_aboutYourSelf_validation,profile_message_validation,
 	profile_contactperson_name,profile_contactperson_email,profile_contactperson_phone,profile_contactperson_availabilityFrom,profile_contactperson_availabilityTo,profile_contactperson_name_validation,profile_contactperson_email_validation,profile_contactperson_phone_validation,profile_contactperson_availabityfrom_validation,profile_contactperson_availabityTo_validation;
+	public static String profile_NoofRoomsAvailable;
+	
 	public static WebDriver zmt_UsersPageProperties()
 	{
 		//Profile
@@ -67,6 +70,9 @@ public class Elements_ZMTusers extends LoadPropMac
 		profile_addNewSurgeon_Submit="addTopSurgeonModalBtn"; //ID
 		profile_facilities="facilities"; //ID
 		profile_services="services"; //ID
+		profile_addMoreAddress="addMoreTag"; //ID
+		profile_addAddress="addAddress"; //ID
+		profile_moreAddressSaveBtn="addressModalBtn"; //ID
 		//Profile Validation
 		profile_firstName_Validation="//input[@id='firstName']/following-sibling::ul";
 		profile_lastName_Validation="//input[@id='lastName']/following-sibling::ul";
@@ -217,6 +223,7 @@ public class Elements_ZMTusers extends LoadPropMac
 		 profile_contactperson_phone_validation="//input[@id='phoneNumber']/following-sibling::ul";
 		 profile_contactperson_availabityfrom_validation="//input[@id='availabilityFrom']/following-sibling::ul";
 		 profile_contactperson_availabityTo_validation="//input[@id='availabilityTo']/following-sibling::ul";
+		 profile_NoofRoomsAvailable="roomTypesAvailable";
 		 
 		return driver;
 	}

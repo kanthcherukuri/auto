@@ -763,7 +763,7 @@ public class TestUtils {
 			//Selecting the database
 			DB db = mongoClient.getDB(Database);
 
-			System.out.println("Connect to database successfully");
+			System.out.println("Connected to database successfully");
 
 			//System.out.println(db.getStats());
 			System.out.println(db.getCollectionNames());
@@ -778,7 +778,7 @@ public class TestUtils {
 			System.out.println("Removed " +QueryValue+ " from " +collectionName+ " collection successfully ");
 
 		}catch (Exception e) {
-			System.out.println("Data from MongoDB is not removed");
+			System.out.println(QueryValue+ " from MongoDB is not removed");
 		}
 
 	}
