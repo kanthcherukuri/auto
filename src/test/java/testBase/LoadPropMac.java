@@ -160,10 +160,9 @@ public class LoadPropMac   {
 			//String os = System.getProperty("os.name").toLowerCase(); // Added to verify the OS
 			System.out.println("launching chrome browser");
 			//System.setProperty("java.awt.headless", "true");
-			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriverL");			
+			System.setProperty("webdriver.chrome.driver", "BrowserDrivers/chromedriver");			
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");  
-			options.addArguments("--disable-gpu"); //Added to launch chrome without GUI
+			//options.addArguments("--headless");   //Added to launch chrome without GUI
 			options.addArguments("disable-infobars");                   // Added to remove new chrome warning message
 			options.addArguments("--use-fake-ui-for-media-stream=1");   // Added to allow camera
 			//options.addArguments("--kiosk");                          // Added to Maximize window
@@ -180,7 +179,7 @@ public class LoadPropMac   {
 		}else if(browser_name.equals("firefox")){
 			
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriverMac");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			FirefoxProfile profile = new FirefoxProfile();

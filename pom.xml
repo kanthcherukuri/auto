@@ -26,10 +26,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.20</version>
 				<configuration>
-<!-- 					<suiteXmlFiles>
+					<suiteXmlFiles>
 						TestNG suite XML files
 						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles> -->
+					</suiteXmlFiles>
 					<forkMode>never</forkMode>
 					
 				</configuration>
