@@ -179,7 +179,7 @@ public class LoadPropMac   {
 		}else if(browser_name.equals("firefox")){
 			
 			System.out.println("launching Firefox browser");
-			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriverMac");
+			System.setProperty("webdriver.gecko.driver","BrowserDrivers/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			FirefoxProfile profile = new FirefoxProfile();
